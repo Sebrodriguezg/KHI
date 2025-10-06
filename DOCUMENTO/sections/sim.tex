@@ -1,0 +1,88 @@
+
+\section{Configuración, Serie de Experimentos y Resultados de las Simulaciones RRMHD de KHI}
+
+Este análisis se centra en la simulación numérica de la Inestabilidad de Kelvin-Helmholtz (KHI) bidimensional dentro del régimen de RRMHD, explorando específicamente cómo la conductividad finita ($\sigma$) o la resistividad ($\eta$) modifican la evolución no lineal de las estructuras vorticales y la amplificación del campo magnético \cite{390}.
+
+\subsection{Configuración del Experimento Numérico (Set-up)}
+Las simulaciones se basan en la resolución numérica de las ecuaciones RRMHD aumentadas, que incluyen potenciales escalares ($\psi$ y $\phi$) para la limpieza de divergencia ($\nabla \cdot \mathbf{B} = 0$) \cite{336, 392}.
+
+\subsubsection{Condiciones Iniciales y Dominio}
+El sistema se configura como un flujo de cizallamiento (shear flow) a lo largo de un plano de interfaz, ubicado en la dirección $x$, con perturbaciones iniciales que desencadenan la KHI.
+
+\begin{itemize}
+    \item \textbf{Geometría y Simetría:} Las simulaciones se realizan en un dominio cartesiano bidimensional ($x, y$), asumiendo que el campo es uniforme en la dirección $z$ ($\partial_z U = 0$) \cite{330, 394}. Un dominio típico utilizado en pruebas de KHI MHD es $\mathcal{D} = [0, 1.0] \times [-1.0, 1.0]$ \cite{347}.
+    \item \textbf{Ecuación de Estado (EoS):} Se adopta una EoS de gas ideal con un coeficiente adiabático constante $\Gamma = 4/3$ \cite{392}. Este valor es apropiado para describir un plasma relativísticamente caliente, un régimen de interés astrofísico (por ejemplo, en el entorno de Pulsar Wind Nebulae) \cite{331, 378, 451}.
+    \item \textbf{Perfiles de Velocidad Iniciales (Cizallamiento):} Se implementa un perfil de velocidad base ($v_x$) que define la capa de cizallamiento y una perturbación inicial de pequeña amplitud ($v_y$) para excitar la inestabilidad. Los perfiles son \cite{392}:
+    \begin{equation*}
+    v_x = \begin{cases} v_{sh} \tanh \left( \frac{y - 0.5}{a} \right) & \text{si } y > 0.0 \\ -v_{sh} \tanh \left( \frac{y + 0.5}{a} \right) & \text{si } y \leq 0.0 \end{cases}
+    \end{equation*}
+    La perturbación normal $v_y$ es de tipo sinusoidal en $x$ y localizada en $y$ (Gaussian-like) \cite{347, 392}.
+    \item \textbf{Campos Magnéticos y Densidad/Presión:} La configuración inicial incluye un campo magnético $\mathbf{B}$ y, típicamente, campos eléctricos $\mathbf{E}=0$ y densidad de carga $q=0$ \cite{381, 392}.
+    \begin{itemize}
+        \item Las condiciones de presión y densidad varían, pero una configuración base para un plasma caliente utiliza $\rho=1$ y una presión $p/\rho$ alta (e.g., $p/\rho=20$) \cite{451}.
+        \item El campo magnético se inicializa como $\mathbf{B} = (B_x, B_y, B_z)$ con $B_y=0$, lo que significa que el campo se encuentra primordialmente en el plano de la interfaz, siendo $\mathbf{B} = (\sqrt{2\mu_p p}, 0, \sqrt{2\mu_t p})$ en el póster \cite{392}.
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{Discretización y Estabilidad Numérica}
+Se emplea un esquema numérico de alta resolución para manejar la naturaleza hiperbólica de las ecuaciones y la presencia de choques.
+
+\begin{itemize}
+    \item \textbf{Discretización Espacial y Temporal:} Se utiliza típicamente un esquema de Volumen Finito (FV) combinado con reconstrucción de alta resolución (High-Resolution Shock-Capturing, HRSC) \cite{394}. La evolución temporal se realiza con esquemas de Runge-Kutta (RK) \cite{394, 273}. La resolución espacial para pruebas comparativas suele ser de $512 \times 512$ celdas (lo que corresponde a un nivel de refinamiento $L=9$ en algunos códigos) \cite{346}.
+    \item \textbf{Condiciones de Frontera:} Se aplican \textbf{condiciones de frontera periódicas} en todas las direcciones del dominio computacional para simular un sistema infinito \cite{347}.
+    \item \textbf{Tratamiento de la Rigidez (Stiffness):} Para RRMHD, el desafío numérico es la rigidez del sistema en el límite de alta conductividad ($\sigma \to \infty$) \cite{336, 371}. El código subyacente (extensión de MR-GENESIS) emplea métodos \textbf{Implícitos-Explícitos de Runge-Kutta (IMEX-RK)} \cite{335, 362, 420}, o alternativamente, Minimally Implicit Runge-Kutta (MIRK) \cite{420}, para manejar los términos rígidos resistivos ($\propto \sigma$) y preservar la estabilidad con un paso de tiempo ($\Delta t$) limitado solo por la velocidad de la luz $c$ (condición CFL) \cite{372, 374, 423}.
+\end{itemize}
+
+\subsection{Serie de Simulaciones y Parámetros Variados}
+
+La serie de simulaciones se diseñó para contrastar la evolución en el límite ideal (RMHD) con la dinámica disipativa de RRMHD, aislando el impacto físico de la resistividad en la propagación y amplificación de la KHI.
+
+\subsubsection{Parámetro Variado: Conductividad $\sigma$}
+El parámetro clave de variación es la \textbf{conductividad eléctrica $\sigma$} (o la resistividad $\eta = 1/\sigma$) \cite{391, 362}.
+
+\begin{itemize}
+    \item \textbf{Régimen Ideal (Referencia):} Se establece una conductividad muy alta (e.g., $\sigma \to \infty$ o un valor numéricamente grande como $\sigma = 10^6$) para recuperar el límite de Magnetohidrodinámica Ideal Relativista (RMHD), que sirve como referencia teórica y numérica \cite{338, 425}.
+    \item \textbf{Régimen Resistivo (Disipación):} Se varían valores finitos de conductividad ($\sigma$ moderada o baja, o $\eta > 0$). Por ejemplo, se han probado valores de resistividad como $\eta=0.02$, $\eta=0.005$, y $\eta=0.05$ \cite{347, 352}.
+\end{itemize}
+
+\subsubsection{Objetivos de la Variación}
+El objetivo principal de esta parametrización es cuantificar la influencia de la resistividad en los fenómenos de la KHI \cite{390, 393}:
+
+\begin{enumerate}
+    \item \textbf{Tasa de Crecimiento y Estabilización:} Determinar cómo la resistividad finita afecta la tasa de crecimiento exponencial inicial de la inestabilidad (fase lineal), comparando la evolución con las predicciones teóricas lineales (RMHD ideal) \cite{447}.
+    \item \textbf{Amplificación Magnética y Deformación:} Evaluar la capacidad del campo magnético para ser amplificado por el movimiento de cizallamiento y la dinámica vortical en presencia de disipación óhmica. La resistividad se espera que reduzca la capacidad del campo magnético para deformarse y amplificar las perturbaciones iniciales \cite{393, 365}.
+    \item \textbf{Morfología y Turbulencia:} Observar cómo la disipación resistiva influye en la transición a la fase no lineal, incluyendo la formación de estructuras turbulentas y la difusión de los gradientes de pequeña escala que surgen en los vórtices \cite{349, 393}.
+\end{enumerate}
+
+\subsection{Resultados Obtenidos y Discusión Física}
+
+Los resultados del póster, ilustrados a través de las distribuciones de presión, densidad y componentes de velocidad $v_y$ y $v_z$ para diferentes conductividades (Figuras 1, 2, 3 y 4 del póster \cite{391}), muestran una clara diferencia morfológica entre los casos ideal y resistivo.
+
+\subsubsection{Tendencias Generales y Efecto de la Difusión}
+\begin{itemize}
+    \item \textbf{Difusión Aumentada:} La característica más notable en los resultados resistivos es su naturaleza \textbf{más difusiva} en comparación con el caso ideal \cite{349, 351}. Esto es un resultado esperado, ya que la resistividad ($\eta$) introduce términos disipativos adicionales en las ecuaciones (difusión magnética) \cite{349}.
+    \item \textbf{Localización de Estructuras:} Los vórtices generados por el cizallamiento son las regiones donde se concentran los gradientes más grandes (por ejemplo, cerca de $y = \pm 0.5$ si el cizallamiento se centra en 0) \cite{348}.
+\end{itemize}
+
+\subsubsection{Interpretación del Rol de la Resistividad}
+
+La principal conclusión extraída de la simulación RRMHD con respecto a la KHI es la siguiente:
+
+\begin{itemize}
+    \item \textbf{Crecimiento Amortiguado:} La \textbf{resistividad en el plasma magnetizado reduce la capacidad del campo magnético para amplificar} y deformar las perturbaciones iniciales \cite{393}.
+    \item \textbf{Efectividad de la Inestabilidad:} En entornos con alta resistividad (baja conductividad), el crecimiento de la inestabilidad es \textbf{lento y menos efectivo} \cite{393}. Esto se debe a que la resistividad permite que las líneas de campo magnético se deslicen a través del fluido, disipando la energía magnética y térmica, lo que contrarresta el estiramiento y torsión (amplificación) inducidos por los vórtices \cite{365}.
+    \item \textbf{Turbulencia Reducida:} La formación de estructuras turbulentas se ve obstaculizada por la alta resistividad, ya que la difusión magnética lisa (smooths) las estructuras finas de corriente que se formarían en el límite ideal \cite{393, 328}.
+\end{itemize}
+
+El análisis de la evolución temporal (no lineal) muestra que, mientras que la teoría lineal predice la \textit{aparición} y la \textit{tasa inicial} de crecimiento, solo las simulaciones RRMHD completas pueden capturar la \textbf{saturación} y la morfología vortical en presencia de estos efectos disipativos, lo cual es crucial para comprender la mezcla y el transporte de energía en plasmas astrofísicos no ideales \cite{336, 444}.
+
+\begin{figure}[H]
+    \centering
+    % Placeholder for actual simulation figures showing Density, Pressure, Vy for different sigma
+    \includegraphics[width=0.8\textwidth]{figures/poster.pdf }
+
+    \caption{Poster con toda la iinformacíon.}
+\end{figure}
+
+
+
