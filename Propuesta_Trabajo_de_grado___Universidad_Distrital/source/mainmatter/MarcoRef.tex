@@ -1,0 +1,53 @@
+\section{Ecuaciones de la Magnetohidrodinámica Resistiva Relativista}
+
+El modelo utilizado para describir la dinámica de un plasma relativista en presencia de campos electromagnéticos está dado por las ecuaciones de la Magnetohidrodinámica Resistiva Relativista (RRMHD). En este trabajo se emplea una formulación aumentada del sistema de ecuaciones de Maxwell, introducida por \citep{Dedner_etal:2002} la cual incorpora los denominados \emph{pseudo-potenciales} $\psi$ y $\phi$. Estas variables adicionales permiten controlar numéricamente las violaciones a las condiciones de divergencia de los campos eléctricos y magnéticos, $\nabla \cdot \mathbf{E} = \rho$ y $\nabla \cdot \mathbf{B} = 0$, respectivamente.
+
+El sistema completo de ecuaciones que gobierna la evolución del plasma se puede escribir como:
+\begin{center}
+\begin{align*}
+\partial_t \psi &= - \nabla \cdot \mathbf{E} + q - \kappa \psi \\[1.5ex]
+\partial_t \phi &= - \nabla \cdot \mathbf{B} - \kappa \phi \\[1.5ex]
+\partial_t \mathbf{E} &= \nabla \times \mathbf{B} - \nabla \psi - \mathbf{J} \\[1.5ex]
+\partial_t \mathbf{B} &= - \nabla \times \mathbf{E} - \nabla \phi \\[1.5ex]
+\partial_t q &= - \nabla \cdot \mathbf{J} \\[1.5ex]
+\partial_t D &= - \nabla \cdot \mathbf{F}_D \\[1.5ex]
+\partial_t \mathcal{E} &= - \nabla \cdot \mathbf{F}_{\mathcal{E}} \\[1.5ex]
+\partial_t \mathbf{S} &= - \nabla \cdot \boldsymbol{\mathsf{F}}_{\mathbf{S}}
+\end{align*}
+
+\end{center}
+
+Donde:
+\begin{itemize}
+    \item $\psi$ y $\phi$ son los pseudo-potenciales asociados a las condiciones de divergencia.
+    \item $\mathbf{E}$ y $\mathbf{B}$ representan los campos eléctrico y magnético, respectivamente.
+    \item $\mathbf{J}$ es la densidad de corriente.
+    \item $q$ es la densidad de carga eléctrica.
+    \item  $\kappa$ es un parámetro de amortiguamiento numérico.
+    \item $D$ es la densidad conservada de masa.
+    \item $\mathcal{E}$ es la densidad conservada de energía total.
+    \item $\mathbf{S}$ es el vector de densidad de momento total.
+    \item $\mathbf{F}_D$, $\mathbf{F}_{\mathcal{E}}$ y $\boldsymbol{\mathsf{F}}_{\mathbf{S}}$ son los flujos asociados a estas cantidades conservadas.
+\end{itemize}
+
+Las cantidades hidrodinámicas y electromagnéticas se combinan en las definiciones de las densidades conservadas. En particular, estas están dadas por:
+
+\begin{center}
+\begin{align*}
+D &= \rho W \\[1.5ex]
+\mathcal{E} &= \mathcal{E}_{\rm em} + \mathcal{E}_{\rm hyd} = \frac{1}{2}(\mathbf{E}^2 + \mathbf{B}^2) + \rho h W^2 - p \\[1.5ex]
+\mathbf{S} &= \mathbf{S}_{\rm em} + \mathbf{S}_{\rm hyd} = \mathbf{E} \times \mathbf{B} + \rho h W^2 \mathbf{v}
+\end{align*}
+\end{center}
+
+donde:
+\begin{itemize}
+    \item $\rho$ es la densidad de masa en el sistema propio del fluido.
+    \item $h$ es la entalpía específica.
+    \item $p$ es la presión.
+    \item $\mathbf{v}$ es la velocidad del fluido.
+    \item $W = (1 - \mathbf{v}^2)^{-1/2}$ es el factor de Lorentz.
+\end{itemize}
+La energía total $\mathcal{E}$ se descompone en una contribución electromagnética ($\mathcal{E}_{\rm em}$) y una hidrodinámica ($\mathcal{E}_{\rm hyd}$). De manera similar, el vector de momento total $\mathbf{S}$ incluye tanto el momento del fluido como el vector de Poyting.
+
+Este conjunto de ecuaciones permite describir de manera consistente la dinámica de plasmas relativistas resistivos en presencia de campos magnéticos y eléctricos. Su implementación numérica, en conjunción con condiciones iniciales adecuadas, permite la simulación de fenómenos altamente no lineales como las inestabilidades de Kelvin-Helmholtz en entornos astrofísicos.
