@@ -1,0 +1,208 @@
+
+\section{Deducción y Análisis de las Ecuaciones Fundamentales de la Magnetohidrodinámica Resistivo-Relativista (RR-MHD)}
+
+La Magnetohidrodinámica Resistivo-Relativista (RR-MHD) es el marco teórico utilizado para modelar la dinámica de plasmas altamente conductores y magnetizados en regímenes donde las velocidades se aproximan a la velocidad de la luz (Relatividad Especial, SR) y se requiere la inclusión de efectos disipativos, como la resistividad finita.
+
+Adoptamos unidades donde la velocidad de la luz $c=1$ y utilizamos la convención de suma de Einstein para índices repetidos.
+
+\subsection{Fundamentos Tensoriales y Leyes de Conservación}
+
+El sistema RR-MHD se construye sobre la base de tres pilares fundamentales en el formalismo relativista: la conservación de la materia (hidrodinámica), la conservación del campo electromagnético (Ecuaciones de Maxwell) y la ley constitutiva que acopla la materia con los campos (Ley de Ohm relativista).
+
+\subsubsection{Postulados y Tensores Fundamentales}
+
+\paragraph{Aproximaciones y Supuestos}
+Las ecuaciones de RR-MHD se derivan bajo los siguientes supuestos clave:
+\begin{enumerate}
+    \item \textbf{Fluido Perfecto (Perfect Fluid)}: Se ignora la viscosidad y la conducción de calor (flujos disipativos distintos a la resistencia eléctrica), simplificando el tensor de esfuerzo-energía del fluido.
+    \item \textbf{Neutralidad del Plasma}: Se utiliza la aproximación de un solo fluido (one-fluid) para describir el plasma, lo que es válido si la frecuencia de colisiones es mucho mayor que la frecuencia de oscilación del plasma (esencialmente eléctricamente neutro).
+    \item \textbf{Métrica Plana (SR)}: Se emplea la métrica de Minkowski, $\eta^{\mu\nu} = \text{diag}(-1, 1, 1, 1)$, aunque el formalismo es fácilmente extensible a la Relatividad General (GR).
+\end{enumerate}
+
+\paragraph{Tensor de Corriente de Masa en Reposo ($J^\mu$)}
+Define la densidad de masa en reposo, $\rho$, en el marco de reposo del fluido (propio), y su transporte a través de la cuadrivelocidad del fluido, $u^\mu$ ($u^\mu u_\mu = -1$):
+\begin{equation}
+J^\mu := \rho u^\mu
+\end{equation}
+
+\paragraph{Tensor de Energía-Momento Total ($T^{\mu\nu}$)}
+La conservación de energía y momento se rige por la divergencia nula del tensor de energía-momento total, $T^{\mu\nu}$, que es la suma de las contribuciones del fluido ($T^{\mu\nu}_{\text{fluido}}$) y del campo electromagnético ($T^{\mu\nu}_{\text{EM}}$):
+\begin{equation}
+T^{\mu\nu} = T^{\mu\nu}_{\text{fluido}} + T^{\mu\nu}_{\text{EM}}
+\end{equation}
+\begin{itemize}
+    \item \textbf{Componente del Fluido Perfecto:}
+    $$ T^{\mu\nu}_{\text{fluido}} = \rho h u^\mu u^\nu + p g^{\mu\nu} $$
+    Donde $p$ es la presión, $g^{\mu\nu}$ es la métrica, y $h \equiv 1 + \varepsilon + p/\rho$ es la entalpía específica, siendo $\varepsilon$ la energía interna específica.
+    \item \textbf{Componente Electromagnética:}
+    $$ T^{\mu\nu}_{\text{EM}} = F^{\mu\alpha} F^\nu_{\ \alpha} - \frac{1}{4} (F^{\alpha\beta} F_{\alpha\beta}) g^{\mu\nu} $$
+    $F^{\mu\nu}$ es el tensor de Faraday (o Maxwell), que describe el campo electromagnético.
+\end{itemize}
+
+\paragraph{Ecuaciones de Conservación}
+\begin{itemize}
+    \item \textbf{Conservación del Número Bariónico (Masa en Reposo):}
+    \begin{equation}
+        \nabla_\mu J^\mu = 0
+    \end{equation}
+    \item \textbf{Conservación de Energía y Momento:}
+    \begin{equation}
+        \nabla_\mu T^{\mu\nu} = 0
+    \end{equation}
+\end{itemize}
+
+\subsubsection{Ecuaciones de Maxwell Covariantes}
+
+La dinámica del campo electromagnético está regida por las ecuaciones de Maxwell, donde $I^\nu$ es la cuadricorriente eléctrica:
+
+\begin{itemize}
+    \item \textbf{No Homogéneas (Ley de Ampère y Gauss):}
+    \begin{equation}
+        \nabla_\mu F^{\mu\nu} = -I^\nu
+    \end{equation}
+    \item \textbf{Homogéneas (Ley de Faraday y Monopolos Magnéticos):}
+    \begin{equation}
+        \nabla_{[\alpha} F_{\mu\nu]} = 0
+    \end{equation}
+\end{itemize}
+
+\subsection{Introducción de la Resistividad Finita: Ley de Ohm Relativista}
+
+La característica que define la RR-MHD es la inclusión de la resistividad finita, $\eta = 1/\sigma$ ($\sigma$ es la conductividad eléctrica).
+
+\paragraph{Ley de Ohm Relativista}
+La cuadricorriente $I^\alpha$ se relaciona con el campo electromagnético $F^{\mu\nu}$ y la cuadrivelocidad $u^\mu$ mediante la Ley de Ohm relativista, asumiendo un plasma isótropo:
+\begin{equation}
+I^\alpha + (I^\beta u_\beta) u^\alpha = \sigma F^{\alpha\beta} u_\beta \quad (7)
+\end{equation}
+El término $F^{\alpha\beta} u_\beta$ es el campo eléctrico medido en el marco de reposo del fluido, $E'^\alpha$. El término $I^\beta u_\beta = -q_0$ es la densidad de carga eléctrica $q_0$ en el marco de reposo del fluido.
+
+\paragraph{Efecto de la Resistividad y el Límite Ideal}
+
+La resistividad finita ($\eta > 0$) permite la existencia de una corriente de conducción, $J^{\alpha}_{\text{cond}}$, proporcional al campo eléctrico $E'$ en el marco de reposo del fluido:
+$$ J^{\alpha}_{\text{cond}} = \sigma E'^\alpha $$
+
+\begin{itemize}
+    \item \textbf{RMHD (MHD Ideal, $\sigma \to \infty$):} En el límite de conductividad infinita, para que la corriente $I^\alpha$ permanezca finita, se requiere que el campo eléctrico en el marco de reposo del fluido sea nulo ($E'^\alpha = 0$). Esto impone la condición de **flujo congelado** ($E + \mathbf{v} \times \mathbf{B} \approx 0$ en el marco de laboratorio).
+    \item \textbf{RR-MHD (Resistivo, $\sigma < \infty$):} La resistividad finita relaja la condición de flujo congelado, permitiendo:
+    \begin{itemize}
+        \item \textbf{Difusión Magnética:} Permite que las líneas de campo magnético se difundan a través del plasma, en lugar de estar perfectamente "congeladas" en el flujo. Esto es crucial para la **reconexión magnética**.
+        \item \textbf{Disipación Óhmica:} Permite el calentamiento Joule, donde la energía electromagnética se disipa en energía interna del fluido, $\sim \eta |\mathbf{J}|^2$. Esto ocurre significativamente en regiones de alta concentración de corriente (hojas de corriente), incluso si $\eta$ es pequeño.
+    \end{itemize}
+\end{itemize}
+
+\subsection{Representaciones de las Ecuaciones de RR-MHD}
+
+Las ecuaciones fundamentales de RR-MHD son el sistema cerrado por (3), (4), (5), (6) y (7), junto con la Ecuación de Estado (EoS). Este sistema se puede expresar en varias formas, cada una optimizada para diferentes propósitos.
+
+\subsubsection{Forma Conservativa (Leyes de Balance)}
+
+Esta forma se basa en la escritura de las ecuaciones como leyes de conservación o de balance, lo cual es esencial para métodos numéricos de alta resolución y captura de choques (HRSC):
+\begin{equation}
+\partial_t \mathbf{U} + \nabla \cdot \mathbf{F}(\mathbf{U}) = \mathbf{S}(\mathbf{U}) \quad (8)
+\end{equation}
+
+\paragraph{Vector de Variables Conservadas ($\mathbf{U}$)}
+El vector $\mathbf{U}$ consiste típicamente en las densidades de las cantidades conservadas:
+$$ \mathbf{U} = \begin{pmatrix} D \\ \mathbf{S}^j \\ E \\ \mathbf{B} \\ \mathbf{E} \\ q \end{pmatrix} $$
+Donde las principales variables hidrodinámicas conservadas son:
+\begin{itemize}
+    \item $D = \rho W$: Densidad de masa en reposo conservada ($\rho$ es la densidad propia, $W$ es el factor de Lorentz).
+    \item $E = E_{\text{em}} + E_{\text{hyd}}$: Densidad de energía total. $E_{\text{hyd}} = \rho h W^2 - p$, $E_{\text{em}} = \frac{1}{2}(E^2 + B^2)$, donde $E$ y $B$ son los campos eléctrico y magnético de laboratorio.
+    \item $\mathbf{S} = \mathbf{S}_{\text{em}} + \mathbf{S}_{\text{hyd}}$: Densidad de momento total. $\mathbf{S}_{\text{hyd}} = \rho h W^2 \mathbf{v}$, $\mathbf{S}_{\text{em}} = \mathbf{E} \times \mathbf{B}$ (flujo de Poynting).
+\end{itemize}
+El sistema de RR-MHD es inherentemente hiperbólico, lo cual es ventajoso para su solución numérica.
+
+\paragraph{Ventajas y Limitaciones}
+\begin{itemize}
+    \item \textbf{Ventajas:} Garantiza que si el esquema numérico converge, converge a la solución débil correcta (condiciones de Rankine–Hugoniot) en presencia de discontinuidades (choques). Esta es la base de los métodos HRSC.
+    \item \textbf{Limitaciones:}
+    \begin{itemize}
+        \item \textbf{Recuperación de Primitivas:} Convertir $\mathbf{U}$ de vuelta a las variables primitivas ($\rho, p, \mathbf{v}$, etc.) es un proceso altamente no lineal y computacionalmente costoso, que a menudo requiere métodos iterativos como Newton-Raphson, especialmente en la formulación RR-MHD debido al acoplamiento de $\mathbf{E}$ y $\mathbf{v}$.
+        \item \textbf{Rigidez (Stiffness):} En el límite de alta conductividad ($\sigma \to \infty$), el término resistivo en el vector fuente $\mathbf{S}(\mathbf{U})$ se vuelve rígido. Esto impone una restricción de paso de tiempo $\Delta t \le \epsilon \sim 1/\sigma$ mucho más estricta que la condición CFL estándar, haciendo inviable la integración explícita. Esto se soluciona típicamente con esquemas \textbf{Implícito-Explícitos (IMEX) de Runge–Kutta}.
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{Formulación 3+1 Aumentada (GLM-RR-MHD)}
+
+La RR-MHD requiere métodos para mantener numéricamente las restricciones $\nabla \cdot \mathbf{B} = 0$ y $\nabla \cdot \mathbf{E} = q$ (donde $q$ es la densidad de carga). El enfoque más utilizado es la limpieza de divergencia por Multiplicador de Lagrange Generalizado (GLM), que convierte estas restricciones elípticas en ecuaciones de evolución hiperbólicas (tipo telégrafo):
+
+\paragraph{Variables Aumentadas ($\psi, \phi$)}
+Se introducen dos pseudo-potenciales escalares, $\psi$ y $\phi$, que satisfacen las siguientes ecuaciones de evolución:
+\begin{align}
+\partial_t \psi &= -\nabla \cdot \mathbf{E} + q - \kappa\psi \quad (9) \\
+\partial_t \phi &= -\nabla \cdot \mathbf{B} - \kappa\phi \quad (10)
+\end{align}
+Donde $\kappa > 0$ es un parámetro de amortiguamiento.
+
+\paragraph{Modificación de las Ecuaciones de Maxwell}
+Las ecuaciones de evolución para $\mathbf{E}$ y $\mathbf{B}$ se modifican para incluir los gradientes de estos potenciales, asegurando que los errores de divergencia se propaguen y se disipen:
+\begin{align}
+\partial_t \mathbf{E} &= \nabla \times \mathbf{B} - \nabla\psi - \mathbf{J} \quad (11) \\
+\partial_t \mathbf{B} &= -\nabla \times \mathbf{E} - \nabla\phi \quad (12)
+\end{align}
+El sistema $\mathbf{U}$ se aumenta para incluir $\psi$ y $\phi$.
+
+\paragraph{Interpretación Física y Ventajas}
+\begin{itemize}
+    \item \textbf{Interpretación:} El sistema aumentado (GLM-RR-MHD) es un sistema hiperbólico con términos de relajación. $\psi$ y $\phi$ representan las desviaciones de las divergencias de los campos EM respecto a las leyes de Maxwell.
+    \item \textbf{Ventajas:} Este método es **robusto** para mantener $\nabla \cdot \mathbf{B} \approx 0$ a nivel numérico, evitando la inestabilidad causada por monopolos magnéticos espurios. La formulación hiperbólica del sistema completo facilita la implementación de solucionadores de Riemann (como HLLC) y esquemas HRSC.
+    \item \textbf{Diferencias:} Convierte un problema con restricciones elípticas (que requeriría resolver ecuaciones de Poisson o métodos costosos de proyección) en un sistema de evolución puro.
+\end{itemize}
+
+\subsubsection{Formulación de Variables Primitivas}
+
+Las variables primitivas ($\mathbf{W}$) son las cantidades físicas directamente medibles, como la densidad propia $\rho$, la presión $p$, la trivelocidad $\mathbf{v}$, y los campos $\mathbf{E}$ y $\mathbf{B}$.
+
+\paragraph{Ventajas y Limitaciones}
+\begin{itemize}
+    \item \textbf{Ventajas:}
+    \begin{itemize}
+        \item \textbf{Análisis de Estructura Característica:} Permite el cálculo directo de la estructura de ondas del sistema (eigenvalores y eigenvectores), crucial para el diseño de solucionadores de Riemann y la comprensión de las velocidades de propagación (como las ondas magnetoacústicas).
+        \item \textbf{Acoplamiento EoS:} La EoS se expresa naturalmente en términos de variables primitivas ($\rho, \varepsilon$).
+    \end{itemize}
+    \item \textbf{Limitaciones:}
+    \begin{itemize}
+        \item \textbf{No Conservativa:} La formulación de variables primitivas no es adecuada para la captura de choques (discontinuidades) sin la adición de viscosidad artificial, ya que no garantiza la solución débil correcta.
+    \end{itemize}
+    \item \textbf{Diferencias:} Contrasta con la forma conservativa, que evoluciona densidades de flujos (masa, momento, energía) en el marco de laboratorio.
+\end{itemize}
+
+\subsection{Descomposición y Significado Físico de las Ecuaciones Clave}
+
+La complejidad del sistema RR-MHD se aprecia mejor al examinar la forma de evolución de las ecuaciones en el marco de laboratorio (descomposición 3+1).
+
+\subsubsection{Ecuación de Inducción Magnética (Evolución de $\mathbf{B}$)}
+
+La evolución del campo magnético se rige por la Ley de Faraday (12), que, al sustituir la Ley de Ohm relativista (7), conduce a la ecuación de inducción generalizada. En el límite no relativista y al despreciar la corriente de desplazamiento, se obtiene la forma clásica de la ecuación de inducción resistiva:
+\begin{equation}
+\partial_t \mathbf{B} = \nabla \times (\mathbf{v} \times \mathbf{B}) - \nabla \times (\eta \mathbf{J}) \quad (13)
+\end{equation}
+
+\begin{itemize}
+    \item \textbf{$\nabla \times (\mathbf{v} \times \mathbf{B})$ (Término Convectivo/Ideal):} Representa el arrastre de las líneas de campo por el movimiento del plasma. Si la resistividad $\eta=0$, este es el único término, y el flujo magnético se conserva (RMHD).
+    \item \textbf{$-\nabla \times (\eta \mathbf{J})$ (Término Resistivo/Difusivo):} Es el término clave de la RR-MHD. Permite la difusión del campo magnético a través del plasma, disipando la estructura del campo. La presencia de este término es lo que permite la **reconexión magnética** en las hojas de corriente.
+\end{itemize}
+
+\subsubsection{Ecuación de Energía (Balance Energético)}
+
+La conservación de la energía total (4) se ve modificada por la resistividad, que actúa como un término fuente de energía térmica (calor). Al proyectar (4) y utilizar la EoS, la conservación de la energía interna específica, $\varepsilon$, incluye el calentamiento Joule:
+\begin{equation}
+\rho \frac{D\varepsilon}{Dt} + p \nabla \cdot \mathbf{v} = \eta |\mathbf{J}|^2 \quad (\text{Forma simplificada}) \quad (14)
+\end{equation}
+
+\begin{itemize}
+    \item \textbf{$\eta |\mathbf{J}|^2$ (Disipación Óhmica o Calentamiento Joule):} Es la fuente de energía interna del fluido debida a la resistencia. Esta es una manifestación directa de la resistividad en la disipación irreversible de energía electromagnética en calor.
+\end{itemize}
+
+\subsubsection{Ecuación de Momento Lineal (Fuerza)}
+
+La conservación del momento (4) se descompone en la forma 3+1 para mostrar el balance de fuerzas. En el límite no relativista (Ecuación de Momento MHD resistiva):
+\begin{equation}
+\rho \frac{D \mathbf{v}}{Dt} = -\nabla p + \mathbf{J} \times \mathbf{B} \quad (\text{Forma simplificada}) \quad (15)
+\end{equation}
+
+\begin{itemize}
+    \item \textbf{$-\nabla p$ (Fuerza del Gradiente de Presión):} Fuerza hidrodinámica.
+    \item \textbf{$\mathbf{J} \times \mathbf{B}$ (Fuerza de Lorentz):} Acopla el movimiento del fluido con el campo magnético. La resistividad ($\eta$) afecta indirectamente la dinámica del momento al determinar la densidad de corriente $\mathbf{J}$ a través de la Ley de Ohm, modulando así la fuerza de Lorentz.
+\end{itemize}

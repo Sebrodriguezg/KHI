@@ -1,0 +1,87 @@
+
+\section{Inestabilidades de Kelvin-Helmholtz en Magnetohidrodinámica Resistivo-Relativista (RR-MHD)}
+
+\subsection{Introducción a las Inestabilidades Hidrodinámicas y Magnetohidrodinámicas}
+
+La estabilidad de un fluido o plasma se define por su capacidad de mantener un estado de equilibrio (estático o con flujo constante) frente a pequeñas perturbaciones. Una inestabilidad se manifiesta cuando estas perturbaciones crecen exponencialmente con el tiempo.
+
+\paragraph{Conceptos Físicos y Criterios de Estabilidad}
+El análisis de estabilidad se aborda mediante dos enfoques principales en la dinámica de fluidos y la MHD ideal:
+
+\begin{enumerate}
+    \item \textbf{Principio de la Energía:} Analiza el signo del cambio en la energía potencial de las perturbaciones ($\delta W$). Un sistema es estable si la energía potencial es positiva ($\delta W > 0$), lo que resulta en soluciones oscilatorias ($\omega^2 > 0$). La inestabilidad ocurre si $\delta W < 0$, lo que conduce a una frecuencia imaginaria pura ($\omega^2 < 0$) y un crecimiento exponencial ($\exp(\pm \nu t)$).
+    \item \textbf{Operador de Fuerza:} Analiza si la fuerza ($\mathbf{F}$) resultante de un desplazamiento de la partícula ($\boldsymbol{\xi}$) es restauradora ($\mathbf{F} \sim -\boldsymbol{\xi}$) o desestabilizadora ($\mathbf{F} \sim \boldsymbol{\xi}$).
+\end{enumerate}
+
+En el marco de la \textbf{MHD ideal} (no disipativa), la fuerza restauradora es proporcionada principalmente por el gradiente de presión (ondas de sonido), la tensión magnética (rigidez de las líneas de campo) y la presión magnética. Si $\omega$ es la frecuencia de la perturbación, en la MHD ideal solo existen soluciones oscilatorias ($\text{Im}(\omega)=0$) o inestabilidades puramente exponenciales ($\text{Re}(\omega)=0$).
+
+En la \textbf{MHD disipativa} (como RR-MHD), el sistema pierde la propiedad de autoadjunción (self-adjointness), lo que permite que la frecuencia $\omega$ sea compleja. Esto da lugar a modos amortiguados (si $\text{Im}(\omega) < 0$) o modos oscilatorios que crecen (modos sobre-estables o 'overstable modes', si $\text{Im}(\omega) > 0$ y $\text{Re}(\omega) \ne 0$).
+
+\subsection{La Inestabilidad de Kelvin-Helmholtz en el Marco RR-MHD}
+
+La KHI es una inestabilidad clave que surge en la interfaz (o capa de cizallamiento) entre dos fluidos o plasmas que se mueven con una velocidad relativa significativa. En contextos astrofísicos, esta inestabilidad es crucial para el transporte de momento, la mezcla de fluidos y la conversión de energía cinética en energía magnética (amplificación).
+
+\paragraph{Efectos Relativistas (RMHD)}
+En el régimen relativista, el comportamiento de la KHI se modifica notablemente:
+
+\begin{itemize}
+    \item \textbf{Criterio Cinemático:} A diferencia del caso clásico, las inestabilidades KHI en plasmas relativistas se ven fuertemente influenciadas por el factor de Lorentz. A muy altas velocidades relativas ($\beta > 1/\sqrt{2} \approx 0.7071$), los efectos cinemáticos pueden suprimir la inestabilidad, independientemente de la intensidad del campo magnético. Esto se debe a que la inercia de las partículas del fluido aumenta dinámicamente, obstaculizando la respuesta del fluido a la perturbación.
+    \item \textbf{Modos Magnéticos:} La inestabilidad en RMHD típicamente está asociada a la desestabilización de los modos \textbf{magnetosónicos lentos y rápidos}.
+\end{itemize}
+
+\subsubsection{Incorporación de la Resistividad Finita ($\eta$)}
+
+El marco de la RR-MHD incluye la resistividad eléctrica finita ($\eta = 1/\sigma$), que introduce disipación y diferencia el sistema del límite ideal (RMHD).
+
+\begin{itemize}
+    \item \textbf{Hiperbólico con Relajación:} El sistema de ecuaciones de RR-MHD se clasifica como un \textbf{sistema hiperbólico de leyes de conservación con términos de relajación}.
+    \item \textbf{Ecuación de Equilibrio:} El sistema de MHD ideal (RMHD) se convierte en el \textbf{sistema de equilibrio} del sistema RR-MHD, y la resistividad ($\eta$) actúa como un \textbf{parámetro de relajación} ($\tau_R \sim 1/\sigma$).
+    \item \textbf{Disipación Física:} La resistividad finita permite la difusión del campo magnético, lo cual es esencial para procesos como la reconexión magnética y, en el contexto de la KHI, permite la disipación de energía por calentamiento Joule ($\sim \eta |\mathbf{J}|^2$). Este calentamiento limita la amplificación del campo magnético y la turbulencia generada por el vórtice KH.
+\end{itemize}
+
+\subsection{Ecuación de Onda Perturbativa y Condiciones de Estabilidad en RR-MHD}
+
+La deducción de las condiciones de estabilidad para un fluido relativista resistivo se realiza mediante la linealización de las ecuaciones fundamentales de RR-MHD.
+
+\paragraph{Sistema de Ecuaciones de Evolución Linealizado}
+El sistema de RR-MHD (conservación de masa $D$, momento $S$, energía $E$, y evolución de campos $\mathbf{B}$ y $\mathbf{E}$) se linealiza alrededor de un estado de equilibrio con cizallamiento (discontinuidad de velocidad, $\Delta V \ne 0$).
+
+La resistividad finita $\eta$ aparece explícitamente en la \textbf{Ley de Ohm} y, por lo tanto, en la evolución del campo eléctrico $\mathbf{E}$ (Ecuaciones de Maxwell) y en los términos fuente de disipación de energía ($\mathbf{S}_E$) y momento ($\mathbf{S}_S$).
+
+El sistema linealizado se representa en la forma $\partial_t \mathbf{U}' + \mathbf{A} \cdot \nabla \mathbf{U}' = \mathbf{S}'(\mathbf{U}')$, donde $\mathbf{U}'$ son las perturbaciones y $\mathbf{S}'$ contiene los términos de relajación resistiva y disipativa.
+
+\paragraph{Condiciones de Estabilidad/Inestabilidad (Dispersión)}
+Para un plasma resistivo con una interfaz de velocidad, la estabilidad se determina resolviendo la \textbf{relación de dispersión} $\omega(\mathbf{k})$, la cual se obtiene al aplicar las condiciones de contorno (matching conditions) en la interfaz perturbada:
+
+\begin{equation}
+\frac{l_+}{l_-} = \frac{\rho_0 h_0 \Gamma_0^2 (\omega - k V_0)^2 + (\omega^2 - k^2)(1 - \chi_m) B_{x0}^2}{\rho_0 h_0 \Gamma_0^2 (\omega + k V_0)^2 + (\omega^2 - k^2)(1 - \chi_m) B_{x0}^2} \label{eq:dispersion_RRMHD}
+\end{equation}
+Donde $l_{\pm}$ se deriva de la relación de dispersión cuadrática del modo magnetoacústico (obtenida de la condición de hiperbolicidad $\mathbf{N}_4=0$) en el fluido $y>0$ ($+$) y $y<0$ ($-$), y $\chi_m$ es la susceptibilidad magnética (si es $\chi_m=0$, se recupera el caso MHD estándar).
+
+\begin{itemize}
+    \item El crecimiento de la inestabilidad $\nu$ se encuentra si la solución de $\omega$ a partir de la relación de dispersión (\ref{eq:dispersion_RRMHD}) tiene una parte imaginaria positiva: $\nu = \text{Im}(\omega) > 0$.
+    \item La inestabilidad KH está dominada por los \textbf{modos magnetoacústicos}, ya que los modos entrópicos y de Alfvén son real-valuados y estables en el marco de reposo (no contribuyen a la inestabilidad).
+\end{itemize}
+El criterio exacto de estabilidad requiere resolver este sistema complejo, lo que generalmente se aborda numéricamente debido a la naturaleza rígida (stiff) de la ecuación en el límite $\sigma \to \infty$.
+
+\subsubsection{Modificación del Crecimiento por la Resistividad}
+
+La resistividad $\eta$ (o conductividad $\sigma$) modula la evolución de la KHI de la siguiente manera:
+
+\begin{enumerate}
+    \item \textbf{Supresión del Crecimiento Lineal:} En plasmas con resistividad finita, el campo magnético pierde parte de su capacidad para deformarse y amplificar las perturbaciones iniciales. Esto resulta en una \textbf{tasa de crecimiento ($\nu$) reducida} en la fase lineal en comparación con el caso ideal. El crecimiento se vuelve lento y menos efectivo.
+    \item \textbf{Amortiguamiento de la Amplificación Magnética:} La energía disipada por la resistividad ($\eta |\mathbf{J}|^2$) actúa como un sumidero (sink) de energía electromagnética. Esto hace que la amplificación máxima del campo magnético (generada por el estiramiento vortical) sea \textbf{más débil} y que la saturación ocurra antes en casos de baja conductividad.
+    \item \textbf{Dominio de los Términos Rígidos:} La alta conductividad ($\sigma \gg 1$) hace que el término resistivo en las ecuaciones se vuelva rígido. Para resolver esto numéricamente y estudiar el crecimiento con precisión, se necesitan métodos avanzados como los esquemas \textbf{Runge-Kutta Implícito-Explícitos (IMEX-RK)}, ya que los esquemas explícitos estándar se vuelven inestables. Solo en el límite de conductividad muy alta ($\sigma \sim 10^5$), la solución de RR-MHD converge asintóticamente a la solución ideal.
+\end{enumerate}
+
+%\subsection{Relevancia Astrofísica de la Inestabilidad KH Resistivo-Relativista}
+
+%La inclusión de la resistividad es esencial para modelar fenómenos de alta energía donde la conductividad puede ser pequeña o variar drásticamente, o donde se espera que ocurran fenómenos de reconexión y turbulencia disipativa.
+
+%\begin{itemize}
+    %\item \textbf{Jets Relativistas (AGNs y GRBs):} La KHI resistiva-relativista juega un papel crucial en la desaceleración y la mezcla turbulenta de los jets con el medio ambiente circundante. La turbulencia y la reconexión asistida por resistividad son los mecanismos responsables de convertir la energía magnética y cinética en energía térmica y no térmica observada en las emisiones.
+    %\item \textbf{Nebulosas de Viento de Púlsar (PWNe):} Los canales de flujo de alta velocidad dentro de las PWNe, como la Nebulosa del Cangrejo, presentan condiciones para la inestabilidad KHI resistivo-relativista. La inestabilidad puede ser responsable de las \textbf{estructuras filamentarias} en el toro principal del plasma, y la disipación resistiva podría explicar las fluctuaciones observadas en la emisión sincrotrón.
+    %\item \textbf{Discos de Acreción y Estrellas de Neutrones (NS) Post-Fusión:} La resistividad se vuelve considerable en regiones como las que se forman durante la fusión de NS binarias o NS con agujeros negros (BH). En estas interfaces de corte, la KHI resistiva puede operar como un mecanismo eficiente para amplificar campos magnéticos débiles (semilla), transformando la energía cinética del cizallamiento en energía magnética toroidal.
+    %\item \textbf{Terminación de Inestabilidades MHD:} La resistividad y la viscosidad finita se invocan comúnmente como agentes que limitan el crecimiento de otras inestabilidades clave, como la Inestabilidad Magnetorotacional (MRI), al operar en las escalas de tiempo más lentas (más resistivas).
+%\end{itemize}
+

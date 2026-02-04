@@ -1,0 +1,55 @@
+
+\section{Preguntas Estructuradas para Exposición de Póster RRMHD-KHI}
+
+\begin{enumerate}
+
+    \item \textbf{Deducción y formulación tensorial completa de las ecuaciones de RRMHD}
+    \begin{itemize}
+        \item [Técnica] ¿Cómo se define el término de corriente resistiva rígida ($\mathbf{J}_s$) en la ley de Ohm relativista, y cuáles son las principales implicaciones de esta dependencia para la estructura del sistema de ecuaciones resultante? \cite{332, 409}
+        \item [Técnica/Conceptual] Dado que las ecuaciones RRMHD se formulan como leyes de conservación, ¿por qué es necesario aumentar el sistema con pseudopotenciales escalares ($\psi$ y $\phi$) (enfoque GLM) en lugar de simplemente usar las ecuaciones de Maxwell para hacer cumplir las restricciones de divergencia? \cite{332, 381, 389, 407}
+        \item [Conceptual] El sistema RRMHD se clasifica como hiperbólico con términos de relajación; en el límite de conductividad infinita ($\sigma \to \infty$), ¿cuál es el "sistema de equilibrio" ($\mathbf{R}(\bar{\mathbf{U}}) = 0$) al que converge el RRMHD, y cuáles son sus características dinámicas? \cite{357, 358, 410}
+    \end{itemize}
+
+    \item \textbf{Análisis de las inestabilidades de Kelvin–Helmholtz (KH) en RRMHD}
+    \begin{itemize}
+        \item [Física] ¿Cuál es el papel dual de la resistividad finita ($\eta$) en la dinámica de KH? Es decir, ¿cómo afecta la capacidad del campo magnético para deformarse (amplificación) y cómo se relaciona esto con la disipación en las estructuras de corriente? \cite{352, 382}
+        \item [Física/Interpretativa] En la transición de RMHD ideal a RRMHD, ¿cómo se manifiesta la resistividad en términos de estabilización o desestabilización de la interfaz en comparación con el efecto estabilizador de la tensión superficial del campo magnético? \cite{432, 382}
+        \item [Técnica] En el sistema de RRMHD (o RMHD), ¿cuáles son los modos de onda específicos (por ejemplo, magnetoacústicos lentos o rápidos) que se encuentran en las soluciones de la relación de dispersión lineal que impulsan la inestabilidad KH? \cite{433}
+    \end{itemize}
+
+    \item \textbf{Presencia y relevancia astrofísica de las inestabilidades KH resistivo-relativistas}
+    \begin{itemize}
+        \item [Física/Interpretativa] Considerando fenómenos como los jets relativistas de AGN o la magnetosfera de púlsares, ¿en qué regiones o estructuras físicas (a escala, e.g., de láminas de corriente) el modelado RRMHD es indispensable sobre el RMHD ideal? \cite{350, 352, 403, 404}
+        \item [Física] ¿Cómo se relaciona la inestabilidad KH con la amplificación de campos magnéticos semilla en fuentes como los GRBs o las PWNe, y cuál es la limitación física que introduce la resistividad finita en la eficiencia de este proceso? \cite{428}
+        \item [Interpretativa] ¿Por qué la dependencia del valor de la conductividad ($\sigma$) con respecto a las variables termodinámicas ($\rho, \epsilon$) es crucial para modelar correctamente la disipación en los procesos astrofísicos no ideales? \cite{363}
+    \end{itemize}
+
+    \item \textbf{Solución lineal de la inestabilidad y los límites del régimen lineal}
+    \begin{itemize}
+        \item [Técnica] En el contexto lineal, se sabe que los modos de Alfvén típicamente no contribuyen a la inestabilidad KH en la geometría de cizallamiento paralela al campo; ¿cuál es el resultado análogo de esta linealización en el marco de RMHD con polarización magnética? \cite{433}
+        \item [Crítica] Una vez que la perturbación entra en la fase no lineal, ¿qué fenómenos clave, como la saturación del crecimiento, la mezcla turbulenta o la formación de vórtices, no se pueden predecir o describir mediante la aproximación lineal? \cite{325, 322, 382}
+        \item [Física/Interpretativa] ¿Qué diferencia la fase inicial de crecimiento de la KH de las fases no lineales subsiguientes (p. ej., la fase de múltiples vórtices o la transición a un único vórtice) y cómo estas fases se ven modificadas por la resistividad? \cite{322, 325, 382}
+    \end{itemize}
+
+    \item \textbf{Descripción del método numérico utilizado (inspirado en Mizuno)}
+    \begin{itemize}
+        \item [Metodológica] ¿Por qué los esquemas de integración temporal puramente explícitos (como Runge-Kutta estándar) se vuelven inestables cuando se resuelve el sistema RRMHD, especialmente en el límite de alta conductividad ($\sigma \to \infty$)? \cite{356, 357, 331}
+        \item [Metodológica] Explique el principio fundamental de los métodos IMEX Runge–Kutta (Implicit–Explicit) y cómo esta división entre términos rígidos ($\mathbf{R}/\epsilon$) y no rígidos ($\mathbf{F}$) permite un paso de tiempo ($\Delta t$) limitado solo por la condición CFL hiperbólica. \cite{356, 359}
+        \item [Metodológica/Técnica] En la implementación RRMHD con esquemas de captura de choques (HRSC), ¿cuáles son las variables evolucionadas ($\mathbf{U}$) y cuáles son las variables primitivas ($\mathbf{V}$), y por qué la conversión entre $\mathbf{U}$ y $\mathbf{V}$ es un paso computacionalmente difícil que requiere resolvedores iterativos? \cite{360, 370, 363}
+    \end{itemize}
+
+    \item \textbf{Set-up y resultados obtenidos en las simulaciones presentadas en el póster}
+    \begin{itemize}
+        \item [Metodológica] ¿Qué índices adiabáticos ($\Gamma$) y qué tipo de perfil de cizallamiento de velocidad ($\tanh$) y campo magnético inicial se utilizaron, y por qué $\Gamma=4/3$ es una elección estándar para plasmas relativistas? \cite{381, 361}
+        \item [Física/Interpretativa] ¿Cómo demuestran las simulaciones (Figuras 1-4) que la alta resistividad hace que el crecimiento de la inestabilidad sea "lento y menos efectivo", y qué evidencia morfológica hay de una mayor difusión en el régimen resistivo? \cite{380, 382, 364}
+        \item [Interpretativa] El póster menciona el uso de la limpieza de divergencia GLM; ¿cómo verifica la simulación que la restricción $\nabla \cdot \mathbf{B}=0$ se mantiene satisfactoriamente, especialmente en la vecindad de las discontinuidades o vórtices? \cite{389, 362}
+    \end{itemize}
+
+    \item \textbf{Aspectos pendientes del estudio: influencia de campos magnéticos, estabilidad del método en tiempos largos y fase no lineal}
+    \begin{itemize}
+        \item [Crítica/Prospectiva] ¿Por qué el estudio de la KHI requiere extender la simulación a tres dimensiones (3D) para capturar completamente la fase no lineal y fenómenos como la turbulencia o la amplificación del campo por efecto dínamo? \cite{404}
+        \item [Crítica/Metodológica] ¿Qué estrategias se han adoptado o se proponen para garantizar la estabilidad numérica a muy largo plazo de las simulaciones RRMHD, especialmente para evitar la acumulación de errores de truncamiento asociados a la divergencia o a la inversión de variables? \cite{370, 401}
+        \item [Prospectiva] Más allá de los campos paralelos al flujo, ¿qué configuraciones de campo magnético (p. ej., campos oblicuos o transversales) deberían explorarse para caracterizar completamente el rango de estabilidad/inestabilidad de la KH relativista? \cite{429, 376}
+    \end{itemize}
+
+\end{enumerate}

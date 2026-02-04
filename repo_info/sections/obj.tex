@@ -1,0 +1,25 @@
+
+\section{Aspectos Pendientes y Extensión del Análisis en RRMHD}
+
+Las simulaciones de Inestabilidad de Kelvin-Helmholtz (KHI) en Magnetohidrodinámica Resistivo-Relativista (RRMHD), especialmente aquellas que emplean una geometría de capa de cizallamiento plana (slab), dejan varios aspectos cruciales sin abordar, los cuales requieren investigación adicional en el régimen no lineal o mediante configuraciones físicas y numéricas más avanzadas.
+
+\begin{itemize}
+    \item \textbf{Configuraciones de Campo Magnético no Paralelo:} El póster se centra típicamente en campos magnéticos paralelos al flujo de cizallamiento. Es esencial explorar:
+    \begin{enumerate}
+        \item \textit{Campos Transversales u Oblicuos:} La inestabilidad KH es profundamente sensible a la orientación del campo magnético. Un campo puramente transversal ($B$ perpendicular al flujo) presenta un rango de inestabilidad incluso para propagación paralela. La propagación oblicua es necesaria para el crecimiento en flujos ultrarelativistas.
+        \item \textit{Geometría Curva y 3D:} La simulación 2D omite los efectos de curvatura presentes en jets astrofísicos (cilíndricos) y no puede capturar la \textbf{amplificación del campo magnético por efecto dínamo}. La extensión a tres dimensiones (3D) es necesaria para estudiar el crecimiento de la KHI y la turbulencia resultante.
+    \end{enumerate}
+
+    \item \textbf{Estabilidad Numérica a Largo Plazo y Rigidez:} Aunque el uso de esquemas \textbf{IMEX-RK} (Implicit-Explicit Runge-Kutta) resuelve el problema de la rigidez (stiffness) asociada a la alta conductividad ($\sigma \to \infty$) en el paso de tiempo, la estabilidad a largo plazo en el régimen turbulento sigue siendo un desafío:
+    \begin{enumerate}
+        \item \textit{Mantenimiento de Restricciones:} En simulaciones prolongadas, la violación de la restricción de divergencia magnética ($\nabla \cdot \mathbf{B}=0$) puede llevar a inestabilidades artificiales. Métodos de corrección como GLM (Generalized Lagrange Multiplier) deben demostrar su eficacia para disipar estos errores a lo largo de extensos tiempos dinámicos.
+        \item \textit{Estabilidad Asintótica:} La robustez del método debe evaluarse en términos de $\sigma$-estabilidad, asegurando que el crecimiento de los errores (o inestabilidades residuales) no exceda una tasa tolerable durante escalas de tiempo de interés astrofísico (e.g., msegundos o segundos).
+    \end{enumerate}
+
+    \item \textbf{Exploración de la Fase No Lineal Tardia:} Más allá de la saturación inicial, la fase no lineal de KHI en RRMHD presenta fenómenos de conversión de energía y morfología complejos:
+    \begin{enumerate}
+        \item \textit{Reconexión Magnética:} La resistividad física ($\eta > 0$) permite la \textbf{reconexión magnética} dentro de las láminas de corriente (current sheets) que se forman en los vórtices KH. Este es el mecanismo principal de conversión de energía magnética a energía térmica/cinética en plasmas no ideales.
+        \item \textit{Cascada y Turbulencia Resistiva:} Se espera observar la transición a un estado de \textbf{turbulencia} impulsada por la KHI, donde la resistividad lisa (smooths) las estructuras de campo fino y reduce la amplificación magnética.
+        \item \textit{Cuantificación de la Amplificación:} El campo poloidal es estirado y amplificado por el movimiento vortical en la fase no lineal. Es crucial cuantificar esta amplificación en función de la conductividad finita para determinar la eficiencia de la KHI como mecanismo de campo semilla.
+    \end{enumerate}
+\end{itemize}

@@ -1,0 +1,101 @@
+\section{Magnetohidrodinámica Resistivo-Relativista (RRMHD)}
+
+
+RR-MHD extiende la Magnetohidrodinámica clásica (MHD) a regímenes donde los efectos relativistas y la resistividad finita son cruciales.
+
+\subsection{Marco Teórico y Físico}
+
+El RR-MHD se fundamenta en la teoría de fluidos combinada con la \textbf{Relatividad Especial (SR)} o, en casos más complejos, la Relatividad General (GR).
+
+\subsubsection{Relación con la Relatividad Especial}
+
+La etiqueta ``relativista'' se aplica cuando el sistema presenta al menos una de estas características:
+
+\begin{enumerate}
+    \item \textbf{Velocidad Relativista del Fluido:} El movimiento macroscópico del fluido tiene un factor de Lorentz significativamente mayor que uno.
+    \item \textbf{Temperatura Relativista:} La energía interna es mucho mayor que la energía de masa en reposo, o las velocidades de las partículas constituyentes dentro de un elemento de fluido están cerca de la velocidad de la luz.
+    \item \textbf{Velocidad de Alfvén Relativista:} La energía magnética es mucho mayor que la energía de masa en reposo.
+\end{enumerate}
+
+El marco matemático de RR-MHD se basa en un sistema de ecuaciones de conservación \textbf{cuasi-lineal hiperbólico}, que en la formulación de la Relatividad Especial (SR) se describe mediante tres conjuntos de leyes:
+
+\begin{itemize}
+    \item \textbf{Ecuaciones de Maxwell:} Describen la evolución de los campos electromagnéticos.
+    \item \textbf{Ecuaciones Hidrodinámicas:} Expresan la conservación del número de bariones 
+    \begin{equation}
+        \nabla_\mu (\rho u^\mu) = 0
+    \end{equation}
+    y del tensor de energía-momento
+    \begin{equation}
+        \nabla_\mu T^{\mu\nu} = 0.
+    \end{equation}
+    \item \textbf{Ley de Ohm Relativista:} Define el acoplamiento entre los campos electromagnéticos y las variables del fluido a través de la corriente de cuatro vectores $I^\alpha$.
+\end{itemize}
+
+El \textbf{tensor de energía-momento} total ($T^{\mu\nu}$) es la superposición del tensor de energía-momento del fluido perfecto ($T^{\mu\nu}_{\text{fluido}}$) y del tensor electromagnético ($T^{\mu\nu}_{\text{em}}$). Para cerrar el sistema, se requiere una \textbf{Ecuación de Estado (EoS)}.
+
+\subsubsection{Relación con la Teoría de Fluidos}
+
+RR-MHD es un modelo de \textbf{una sola especie} que describe la dinámica de un plasma (un fluido conductor) en presencia de campos magnéticos. Esta descripción es adecuada para plasmas esencialmente eléctricamente neutros donde la frecuencia de colisiones es mucho mayor que el inverso de la escala de tiempo típica del sistema.
+
+En este enfoque, el \textbf{fluido perfecto} se define como aquel en el que los efectos viscosos y los flujos de calor son nulos, y el tensor de presión es diagonal. RR-MHD extiende la aproximación de fluido perfecto para incluir los campos magnéticos y, crucialmente, la resistividad.
+
+\subsection{El Papel de la Resistividad Finita en la Dinámica del Plasma Relativista}
+
+La resistividad finita ($\eta$) o conductividad eléctrica finita ($\sigma = 1/\eta$) es la característica distintiva que diferencia RR-MHD de su contraparte ideal (RMHD, donde $\eta \to 0$ y $\sigma \to \infty$).
+
+\subsubsection{El Límite Ideal frente al Resistivo}
+
+En el \textbf{límite ideal (RMHD)}, la conductividad es infinita, y la Ley de Ohm simplificada implica que el campo eléctrico se anula en el marco de reposo del fluido:
+\begin{equation}
+    E' \equiv E + v \times B \approx 0.
+\end{equation}
+En este límite, se conserva el flujo magnético.
+
+La resistividad finita es esencial porque:
+
+\begin{enumerate}
+    \item \textbf{Introduce Difusión y Disipación:} Permite la difusión del campo magnético y la disipación de energía por calentamiento óhmico (Joule).
+    \item \textbf{Modela Fenómenos No-Ideales:} Hay procesos astrofísicos altamente dinámicos, como las fusiones de objetos compactos (estrellas de neutrones o agujeros negros con estrellas de neutrones) o el motor central de los estallidos de rayos gamma (GRBs), donde la conductividad puede ser pequeña o variar significativamente.
+\end{enumerate}
+
+\subsubsection{Mecanismos de la Dinámica No-Ideal}
+
+La resistividad finita permite la manifestación de efectos cruciales que están estrictamente prohibidos en el límite ideal debido a la conservación del flujo magnético:
+
+\begin{itemize}
+    \item \textbf{Reconexión Magnética:} Convierte la energía magnética en energía cinética y térmica del fluido. Es invocada para explicar eventos como erupciones y aniquilación magnética en plasmas relativistas. 
+    \item \textbf{Hojas de Corriente (Current Sheets):} Incluso con una resistividad muy pequeña, su contribución a la conservación de energía y momento puede ser considerable si los campos magnéticos varían muy rápidamente en el espacio.
+    \item \textbf{Inestabilidades:} La resistividad y la viscosidad finitas limitan el crecimiento del campo magnético en inestabilidades como la Inestabilidad Magnetorrotacional (MRI) o la Inestabilidad de Modo Tearing (TM).
+\end{itemize}
+
+\subsection{Desafíos Numéricos y Conceptuales en la Modelación Computacional}
+
+La modelación computacional de RR-MHD es significativamente más desafiante que la de RMHD ideal.
+
+\subsubsection{El Problema de la Rigidez (Stiffness)}
+
+El principal desafío numérico surge del hecho de que, en el límite de alta conductividad ($\sigma \to \infty$), el sistema de ecuaciones se vuelve \textbf{rígido (stiff)}.
+
+\begin{itemize}
+    \item \textbf{Naturaleza de las Ecuaciones:} En Relatividad Especial, las ecuaciones de RR-MHD se convierten en un sistema hiperbólico con \textbf{términos de relajación rígidos}.
+    \item \textbf{Restricción del Paso de Tiempo:} Cuando la escala de tiempo de relajación ($\epsilon$) es mucho más corta que la escala de tiempo dinámica ($\tau_h$), los esquemas de integración explícitos requieren un paso de tiempo ($\Delta t \le \epsilon$) extremadamente pequeño para mantener la estabilidad.
+\end{itemize}
+
+\subsubsection{Técnicas de Solución Numérica para la Rigidez}
+
+Para abordar la rigidez sin comprometer la estabilidad o la eficiencia, se han desarrollado métodos especializados:
+
+\begin{itemize}
+    \item \textbf{Esquemas Implícito-Explícito (IMEX) de Runge-Kutta:} La parte no rígida (hiperbólica/advectiva) se evoluciona explícitamente, mientras que los términos rígidos (relajación/resistivos) se tratan implícitamente.
+    \item \textbf{Técnica de Desdoblamiento de Strang (Strang-Splitting):} Intenta resolver las partes hiperbólicas y rígidas por separado, aunque puede ser inestable en flujos discontinuos.
+\end{itemize}
+
+\subsubsection{Desafíos Adicionales}
+
+\begin{enumerate}
+    \item \textbf{Cumplimiento de $\nabla \cdot B = 0$:} La condición analítica puede violarse numéricamente, requiriendo esquemas de corrección o \emph{Divergence Cleaning}, como el método \textbf{Generalized Lagrange Multiplier (GLM)}, que introduce campos escalares ($\psi$ y $\phi$) para transportar y disipar los errores.
+    \item \textbf{Conversión de Variables Conservadas a Primitivas:} Los códigos evolucionan variables conservadas (densidad de masa en reposo $D$, densidad de momento $S$, energía total $\tau$, campos $E$ y $B$), pero los flujos dependen de variables primitivas ($\rho$, $p$, $v$). Esta relación es altamente no lineal, requiriendo métodos iterativos como Newton-Raphson.
+\end{enumerate}
+
+Estos desafíos han llevado al desarrollo de sofisticados esquemas numéricos, basados en métodos de \textbf{captura de choque de alta resolución (HRSC)}, utilizando solucionadores de Riemann (como HLLC) para manejar discontinuidades generadas por la dinámica del fluido relativista.

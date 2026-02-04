@@ -1,0 +1,190 @@
+% GNUPLOT: LaTeX picture with Postscript
+\documentclass{minimal}
+% Set font size
+\makeatletter
+\def\@ptsize{-2}
+\InputIfFileExists{size8.clo}{}{%
+   \GenericError{(gnuplot) \space\space\space\@spaces}{%
+      Gnuplot Error: File `size8.clo' not found! Could not set font size%
+   }{See the gnuplot documentation for explanation.%
+   }{For using a font size a file `size<fontsize>.clo' has to exist.
+        Falling back ^^Jto default fontsize 10pt.}%
+  \def\@ptsize{0}
+  \input{size10.clo}%
+}%
+\makeatother
+% Load packages
+\usepackage{calc}
+\usepackage{graphicx}
+\usepackage{color}
+\makeatletter
+% Select an appropriate default driver (from TeXLive graphics.cfg)
+\begingroup
+  \chardef\x=0 %
+  % check pdfTeX
+  \@ifundefined{pdfoutput}{}{%
+    \ifcase\pdfoutput
+    \else
+      \chardef\x=1 %
+    \fi
+  }%
+  % check VTeX
+  \@ifundefined{OpMode}{}{%
+    \chardef\x=2 %
+  }%
+\expandafter\endgroup
+\ifcase\x
+  % default case
+  \PassOptionsToPackage{dvips}{geometry}
+\or
+  % pdfTeX is running in pdf mode
+  \PassOptionsToPackage{pdftex}{geometry}
+\else
+  % VTeX is running
+  \PassOptionsToPackage{vtex}{geometry}
+\fi
+\makeatother
+% Set papersize
+\usepackage[papersize={403.10bp,259.10bp},text={403.10bp,259.10bp}]{geometry}
+% No page numbers and no paragraph indentation
+\pagestyle{empty}
+\setlength{\parindent}{0bp}%
+% Load configuration file
+\InputIfFileExists{gnuplot.cfg}{%
+  \typeout{Using configuration file gnuplot.cfg}%
+}{%
+ \typeout{No configuration file gnuplot.cfg found.}%
+}%
+\newcommand{\lr}[0]{\large}
+\newcommand{\nm}[0]{\normalsize}
+\newcommand{\hg}[0]{\Huge}
+\begin{document}
+\begingroup
+  \makeatletter
+  \providecommand\color[2][]{%
+    \GenericError{(gnuplot) \space\space\space\@spaces}{%
+      Package color not loaded in conjunction with
+      terminal option `colourtext'%
+    }{See the gnuplot documentation for explanation.%
+    }{Either use 'blacktext' in gnuplot or load the package
+      color.sty in LaTeX.}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\includegraphics[2][]{%
+    \GenericError{(gnuplot) \space\space\space\@spaces}{%
+      Package graphicx or graphics not loaded%
+    }{See the gnuplot documentation for explanation.%
+    }{The gnuplot epslatex terminal needs graphicx.sty or graphics.sty.}%
+    \renewcommand\includegraphics[2][]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \@ifundefined{ifGPcolor}{%
+    \newif\ifGPcolor
+    \GPcolortrue
+  }{}%
+  \@ifundefined{ifGPblacktext}{%
+    \newif\ifGPblacktext
+    \GPblacktextfalse
+  }{}%
+  % define a \g@addto@macro without @ in the name:
+  \let\gplgaddtomacro\g@addto@macro
+  % define empty templates for all commands taking text:
+  \gdef\gplbacktext{}%
+  \gdef\gplfronttext{}%
+  \makeatother
+  \ifGPblacktext
+    % no textcolor at all
+    \def\colorrgb#1{}%
+    \def\colorgray#1{}%
+  \else
+    % gray or color?
+    \ifGPcolor
+      \def\colorrgb#1{\color[rgb]{#1}}%
+      \def\colorgray#1{\color[gray]{#1}}%
+      \expandafter\def\csname LTw\endcsname{\color{white}}%
+      \expandafter\def\csname LTb\endcsname{\color{black}}%
+      \expandafter\def\csname LTa\endcsname{\color{black}}%
+      \expandafter\def\csname LT0\endcsname{\color[rgb]{1,0,0}}%
+      \expandafter\def\csname LT1\endcsname{\color[rgb]{0,1,0}}%
+      \expandafter\def\csname LT2\endcsname{\color[rgb]{0,0,1}}%
+      \expandafter\def\csname LT3\endcsname{\color[rgb]{1,0,1}}%
+      \expandafter\def\csname LT4\endcsname{\color[rgb]{0,1,1}}%
+      \expandafter\def\csname LT5\endcsname{\color[rgb]{1,1,0}}%
+      \expandafter\def\csname LT6\endcsname{\color[rgb]{0,0,0}}%
+      \expandafter\def\csname LT7\endcsname{\color[rgb]{1,0.3,0}}%
+      \expandafter\def\csname LT8\endcsname{\color[rgb]{0.5,0.5,0.5}}%
+    \else
+      % gray
+      \def\colorrgb#1{\color{black}}%
+      \def\colorgray#1{\color[gray]{#1}}%
+      \expandafter\def\csname LTw\endcsname{\color{white}}%
+      \expandafter\def\csname LTb\endcsname{\color{black}}%
+      \expandafter\def\csname LTa\endcsname{\color{black}}%
+      \expandafter\def\csname LT0\endcsname{\color{black}}%
+      \expandafter\def\csname LT1\endcsname{\color{black}}%
+      \expandafter\def\csname LT2\endcsname{\color{black}}%
+      \expandafter\def\csname LT3\endcsname{\color{black}}%
+      \expandafter\def\csname LT4\endcsname{\color{black}}%
+      \expandafter\def\csname LT5\endcsname{\color{black}}%
+      \expandafter\def\csname LT6\endcsname{\color{black}}%
+      \expandafter\def\csname LT7\endcsname{\color{black}}%
+      \expandafter\def\csname LT8\endcsname{\color{black}}%
+    \fi
+  \fi
+    \setlength{\unitlength}{0.0500bp}%
+    \ifx\gptboxheight\undefined%
+      \newlength{\gptboxheight}%
+      \newlength{\gptboxwidth}%
+      \newsavebox{\gptboxtext}%
+    \fi%
+    \setlength{\fboxrule}{0.5pt}%
+    \setlength{\fboxsep}{1pt}%
+\begin{picture}(8062.00,5182.00)%
+    \gplgaddtomacro\gplbacktext{%
+      \csname LTb\endcsname%%
+      \put(1008,512){\makebox(0,0)[r]{\strut{}\large 0.05}}%
+      \csname LTb\endcsname%%
+      \put(1008,1350){\makebox(0,0)[r]{\strut{}\large 0.1}}%
+      \csname LTb\endcsname%%
+      \put(1008,2188){\makebox(0,0)[r]{\strut{}\large 0.15}}%
+      \csname LTb\endcsname%%
+      \put(1008,3025){\makebox(0,0)[r]{\strut{}\large 0.2}}%
+      \csname LTb\endcsname%%
+      \put(1008,3863){\makebox(0,0)[r]{\strut{}\large 0.25}}%
+      \csname LTb\endcsname%%
+      \put(1008,4701){\makebox(0,0)[r]{\strut{}\large 0.3}}%
+      \csname LTb\endcsname%%
+      \put(1104,352){\makebox(0,0){\strut{}\large 1}}%
+      \csname LTb\endcsname%%
+      \put(1845,352){\makebox(0,0){\strut{}\large 2}}%
+      \csname LTb\endcsname%%
+      \put(2586,352){\makebox(0,0){\strut{}\large 3}}%
+      \csname LTb\endcsname%%
+      \put(3327,352){\makebox(0,0){\strut{}\large 4}}%
+      \csname LTb\endcsname%%
+      \put(4068,352){\makebox(0,0){\strut{}\large 5}}%
+      \csname LTb\endcsname%%
+      \put(4809,352){\makebox(0,0){\strut{}\large 6}}%
+      \csname LTb\endcsname%%
+      \put(5550,352){\makebox(0,0){\strut{}\large 7}}%
+      \csname LTb\endcsname%%
+      \put(6291,352){\makebox(0,0){\strut{}\large 8}}%
+      \csname LTb\endcsname%%
+      \put(7032,352){\makebox(0,0){\strut{}\large 9}}%
+      \csname LTb\endcsname%%
+      \put(7773,352){\makebox(0,0){\strut{}\large 10}}%
+    }%
+    \gplgaddtomacro\gplfronttext{%
+      \csname LTb\endcsname%%
+      \put(240,2606){\makebox(0,0){\strut{}\hg $\gamma$}}%
+      \put(4438,112){\makebox(0,0){\strut{}\hg $l/a$}}%
+      \put(4438,4941){\makebox(0,0){\strut{}\hg tasas de crecimiento ($\gamma$) vs separacion lineas corriente ($l$)}}%
+      \csname LTb\endcsname%%
+      \put(7038,4558){\makebox(0,0)[r]{\strut{}\lr $v_{A} = 0.5$}}%
+    }%
+    \gplbacktext
+    \put(0,0){\includegraphics{dispersion_graph-inc}}%
+    \gplfronttext
+  \end{picture}%
+\endgroup
+\end{document}

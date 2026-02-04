@@ -1,0 +1,104 @@
+
+\section{Método Numérico para Magnetohidrodinámica Resistivo-Relativista (RRMHD)}
+\label{sec:metodo_numerico_rrmhd}
+
+El modelado numérico de la Magnetohidrodinámica Resistivo-Relativista (RRMHD) es fundamental para la simulación de fenómenos astrofísicos donde la resistividad es finita y desempeña un papel dinámico, como la reconexión magnética o el transporte de momento en plasmas altamente magnetizados \cite{11, 387, 457}. La inclusión de la conductividad finita ($\sigma$) transforma el sistema de ecuaciones en un conjunto hiperbólico que incluye \textbf{términos de relajación rígidos} (\textit{stiff relaxation terms}), especialmente en el límite de alta conductividad (límite RMHD ideal).
+
+\subsection{Principios Fundamentales y Motivación}
+
+\subsubsection{Motivación y Desafío de la Rigidez}
+La principal dificultad al resolver numéricamente las ecuaciones RRMHD radica en el término de corriente resistiva $\mathbf{J}_s = \sigma W [\mathbf{E} + \mathbf{v} \times \mathbf{B} - (\mathbf{E} \cdot \mathbf{v})\mathbf{v}]$. Cuando la conductividad $\sigma$ es muy grande (baja resistividad), la escala de tiempo característica asociada a la relajación resistiva ($\tau_{\text{res}} \propto 1/\sigma$) se vuelve extremadamente corta en comparación con la escala de tiempo dinámica del flujo.
+
+\begin{itemize}
+    \item \textbf{Problemas de Estabilidad:} Los esquemas de integración temporal puramente explícitos se vuelven inestables en el límite de alta conductividad, ya que el paso de tiempo ($\Delta t$) requerido por la condición de Courant-Friedrichs-Lewy (CFL) para la parte hiperbólica suele ser mucho mayor que $\tau_{\text{res}}$, causando inestabilidades en la solución numérica.
+    \item \textbf{Enfoques Numéricos:} Métodos pioneros como la \textbf{separación de Strang} (\textit{Strang splitting}) (utilizado por Komissarov 2007 y Mizuno 2013 \cite{12, 15, 388}) intentan abordar la rigidez resolviendo la parte stiff analíticamente o por separado. Sin embargo, la separación de Strang puede volverse inestable en presencia de discontinuidades (shocks) y alta conductividad ($\sigma \gtrsim 7000$ en algunos tests).
+\end{itemize}
+
+\subsubsection{Enfoque de Integración Implícita-Explícita (IMEX-RK)}
+El enfoque de integración IMEX (Implicit-Explicit) Runge-Kutta (RK), propuesto por Palenzuela et al. (2009) \cite{12, 384, 395}, y adoptado en trabajos posteriores relacionados con el código MR-GENESIS, como en Miranda-Aranguren et al. (2014), es una solución robusta al problema de la rigidez.
+
+El esquema IMEX divide el sistema de evolución $\partial_t \mathbf{U} = \mathbf{F}(\mathbf{U}) + \mathbf{R}(\mathbf{U})/\epsilon$ en dos partes:
+\begin{enumerate}
+    \item \textbf{Parte Explícita ($\mathbf{F}$):} La parte no rígida o hiperbólica (flujos advectivos), tratada con un esquema RK explícito que preserva la estabilidad fuerte (SSP, \textit{Strong Stability Preserving}).
+    \item \textbf{Parte Implícita ($\mathbf{R}/\epsilon$):} La parte rígida (términos de relajación resistiva), tratada con un esquema RK implícito diagonalmente implícito y L-estable (DIRK).
+\end{enumerate}
+Esto permite que el paso de tiempo ($\Delta t$) esté limitado por la condición CFL estándar de la parte hiperbólica, en lugar de la escala de tiempo mucho más restrictiva de la difusión resistiva.
+
+\subsection{Ventajas y Limitaciones del Método IMEX-RK}
+
+\begin{itemize}
+    \item \textbf{Ventaja Principal (Robustez y Unificación):} El IMEX-RK no presenta los problemas de inestabilidad que afectan a la separación de Strang en presencia de discontinuidades y alta conductividad. Además, permite utilizar un marco matemático unificado para describir regiones de flujo con conductividad grande (interior de objetos compactos) y conductividad pequeña (magnetósferas o vacío).
+    \item \textbf{Ventaja de Precisión:} Cuando el esquema explícito de la parte IMEX es SSP, el método IMEX resultante también es SSP para el sistema de equilibrio en el límite rígido, lo cual es crucial para evitar oscilaciones espurias cerca de datos no suaves (discontinuidades).
+    \item \textbf{Limitación (Conversión de Variables):} La principal dificultad técnica del método IMEX-RRMHD surge durante el paso de \textbf{conversión de variables conservativas ($\mathbf{U}$) a primitivas ($\mathbf{V}$)}. Esto requiere la inversión simultánea de cuatro campos primitivos y es computacionalmente costoso e inestable para ciertas relaciones de presión magnética a gas (ratios de $|B|^2/p$ entre 1 y 5 en algunos tests). Este proceso generalmente requiere la implementación de un robusto resolvedor iterativo (como Newton-Raphson), a menudo en una dimensión.
+\end{itemize}
+
+\subsection{Construcción de las Ecuaciones Aumentadas GLM-RRMHD}
+
+El sistema resuelto por el código subyacente al póster sigue el formalismo de leyes de conservación (balance laws) en forma $3+1$ (formulación Valencia) \cite{180, 182, 365, 417}. Para garantizar la estabilidad y la consistencia física, se emplea el sistema aumentado (GLM-RRMHD) propuesto por Dedner et al. (2002) \cite{356, 367, 420, 426, 431, 461, 462, 497}.
+
+\subsubsection{Discretización de las Ecuaciones de RRMHD}
+
+El sistema se formula como un conjunto de leyes de conservación para el vector de variables conservadas $\mathbf{U} = (D, \mathbf{S}, \mathcal{E}, \mathbf{B}, \mathbf{E}, q, \psi, \phi)^T$:
+
+\begin{equation}
+\label{eq:RRMHD_conservative}
+\frac{\partial \mathbf{U}}{\partial t} + \mathbf{\nabla} \cdot \mathbf{F}(\mathbf{U}) = \mathbf{S}_{\text{hip}}(\mathbf{U}) + \mathbf{\Omega}(\mathbf{U})
+\end{equation}
+donde $\mathbf{F}(\mathbf{U})$ es el tensor de flujos, $\mathbf{S}_{\text{hip}}$ agrupa términos fuente hiperbólicos (relacionados con la geometría y la limpieza de divergencia), y $\mathbf{\Omega}(\mathbf{U})$ incluye los términos de relajación \cite{365, 463}.
+
+Las ecuaciones evolucionadas incluyen:
+\begin{itemize}
+    \item \textbf{Densidad de Masa ($\mathbf{D}$):} $D = \rho W$, donde $\rho$ es la densidad de masa en reposo y $W$ es el factor de Lorentz $W = (1 - v^2)^{-1/2}$.
+    \item \textbf{Densidad de Momento ($\mathbf{S}$):} $\mathbf{S} = \mathbf{S}_{em} + \mathbf{S}_{hyd} = \mathbf{E} \times \mathbf{B} + \rho h W^2 \mathbf{v}$.
+    \item \textbf{Densidad de Energía Total ($\mathbf{\mathcal{E}}$):} $\mathcal{E} = E_{em} + E_{hyd} = \frac{1}{2} (\mathbf{E}^2 + \mathbf{B}^2) + \rho h W^2 - p$.
+    \item \textbf{Campos Electromagnéticos ($\mathbf{E}, \mathbf{B}$)} y \textbf{Densidad de Carga ($\mathbf{q}$)}.
+\end{itemize}
+
+\subsubsection{Tratamiento de la Resistividad y la Rigidez}
+La resistividad finita $\eta = 1/\sigma$ se incorpora en la ley de Ohm relativista y aparece en los términos fuente del campo eléctrico $\mathbf{E}$. La \textbf{estrategia IMEX-RK} se implementa dividiendo el término fuente total $\mathbf{\Omega}$ en componentes explícitas (no rígidas, $\mathbf{\Omega}_{ns}$) e implícitas (rígidas, $\mathbf{\Omega}_s$):
+\begin{equation}
+\label{eq:IMEX_split}
+\frac{\partial \mathbf{U}}{\partial t} = \mathbf{L}(\mathbf{U}) + \mathbf{\Omega}_{ns}(\mathbf{U}) + \mathbf{\Omega}_s(\mathbf{U})
+\end{equation}
+donde $\mathbf{L}(\mathbf{U}) = -\mathbf{\nabla} \cdot \mathbf{F}(\mathbf{U})$ es el operador hiperbólico (que incluye los flujos espaciales).
+
+El término rígido ($\mathbf{\Omega}_s$) se identifica como la parte resistiva de la evolución del campo eléctrico $\mathbf{E}$. Por ejemplo, en la evolución de $\mathbf{E}$:
+\begin{equation}
+\frac{\partial \mathbf{E}}{\partial t} = \mathbf{\nabla} \times \mathbf{B} - \mathbf{\nabla}\psi - \mathbf{J}
+\end{equation}
+La \textbf{corriente resistiva $\mathbf{J}_s$} ($\propto \sigma$) se trata implícitamente, mientras que los flujos (hiperbólicos) y los términos de convección de carga son tratados explícitamente. Los esquemas IMEX-RK resuelven el sistema de evolución mediante una combinación de pasos implícitos y explícitos, donde las variables auxiliares $U^{(i)}$ se actualizan en cada sub-paso.
+
+\subsubsection{Limpieza de Divergencia (GLM)}
+Para abordar la violación numérica de $\mathbf{\nabla} \cdot \mathbf{B} = 0$, que puede llevar a comportamientos no físicos, se utiliza la técnica GLM. Esta técnica introduce pseudopotenciales escalares $\phi$ y $\psi$ que se propagan mediante ecuaciones de onda (hiperbólicas/parabólicas) para disipar los errores de divergencia:
+\begin{align}
+\partial_t \phi &= -\nabla \cdot \mathbf{B} - \kappa_\phi \phi \\
+\partial_t \psi &= -\nabla \cdot \mathbf{E} + q - \kappa_\psi \psi
+\end{align}
+donde $\kappa_\phi$ y $\kappa_\psi$ son constantes de amortiguamiento. Esto asegura que el campo magnético (y, en esta formulación, el campo eléctrico y la carga) cumplan con sus respectivas restricciones, al menos hasta el error de truncamiento.
+
+\subsection{Algoritmos de Integración Temporal y Espacial}
+
+\subsubsection{Integración Temporal}
+El sistema semi-discreto (discretizado en espacio, continuo en tiempo) se resuelve mediante la familia de métodos IMEX-RK, que son una extensión del método de líneas (\textit{Method of Lines}, MoL).
+
+\begin{itemize}
+    \item \textbf{Algoritmo IMEX-RK:} Utiliza la estructura de Butcher Tableau para definir los coeficientes de los sub-pasos \cite{248, 396}. La elección de un esquema específico, como SSP2(332) o SSP3(332), depende de la robustez y el orden de precisión deseado.
+    \item \textbf{Estabilidad Numérica:} La condición CFL (limitación en el paso de tiempo $\Delta t$) está determinada por la velocidad de onda más rápida (el modo electromagnético, generalmente la velocidad de la luz $c$) en la parte hiperbólica. La estabilidad del método IMEX permite utilizar este $\Delta t$ sin que la rigidez de la resistividad cause inestabilidad.
+\end{itemize}
+
+\subsubsection{Discretización Espacial (HRSC)}
+
+Los métodos utilizados para la discretización espacial son típicamente esquemas de captura de choques de alta resolución (HRSC), que emplean el formalismo de \textbf{Volumen Finito (FV)} para garantizar la conservación de las cantidades.
+
+\begin{enumerate}
+    \item \textbf{Reconstrucción Intercelular:} Para lograr una precisión de segundo orden o superior (evitando la difusión excesiva del método de Godunov de primer orden), se utilizan técnicas de reconstrucción para estimar los valores de las variables en las interfaces de la celda ($U_L$ y $U_R$). Métodos comunes incluyen la reconstrucción PPM (\textit{Piecewise Parabolic Method}) o el uso de limitadores de pendiente TVD (\textit{Total-Variation Diminishing}) como el limitador MC (\textit{Monotonised Central-difference limiter}). El limitador MC se utiliza explícitamente en el código CAFE (base de Pimentel et al. 2018) debido a que reproduce adecuadamente las tasas de crecimiento analítico de la inestabilidad KH \cite{505}.
+    \item \textbf{Resolvedores de Riemann Aproximados:} Los flujos numéricos en la interfaz ($\hat{\mathbf{F}}_{i+1/2}$) se calculan utilizando resolvedores de Riemann. Para RRMHD, se han empleado el resolvedor \textbf{HLL} (\textit{Harten-Lax-van Leer}) o el resolvedor \textbf{HLLC} (que incluye la onda de contacto, C). El resolvedor HLL es muy robusto pero altamente difusivo, mientras que el HLLC mejora la captura de las discontinuidades de contacto/tangenciales. El método HLLE (una variante del HLL) se usa comúnmente en simulaciones relativistas.
+\end{enumerate}
+
+\subsubsection{Conversión de Variables ($\mathbf{U} \to \mathbf{V}$)}
+Este paso es crucial en cada sub-paso RK. Las variables conservadas ($\mathbf{U}$) se convierten a variables primitivas ($\mathbf{V} = (\rho, \mathbf{v}, p, \mathbf{B}, \mathbf{E}, q, \psi, \phi)^T$) para calcular los flujos y las velocidades en el marco del fluido.
+
+\begin{itemize}
+    \item \textbf{Dificultad:} La relación entre $\mathbf{U}$ y $\mathbf{V}$ en la MHD Relativista (y RRMHD) no es analítica y requiere la solución de ecuaciones no lineales (como la búsqueda iterativa de la raíz para la presión o la densidad).
+    \item \textbf{Metodología:} Se utiliza típicamente un algoritmo de Newton-Raphson unidimensional para resolver implícitamente una ecuación para la presión $p$, y luego se determinan las otras variables. La robustez de esta inversión es un factor limitante en la estabilidad general del código.
+\end{itemize}
