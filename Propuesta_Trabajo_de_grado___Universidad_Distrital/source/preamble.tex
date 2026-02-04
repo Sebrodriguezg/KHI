@@ -1,0 +1,91 @@
+\usepackage[utf8]{inputenc}
+\usepackage[spanish, es-tabla]{babel}
+\usepackage{csquotes}
+\usepackage[left=30mm, top=30mm, bottom=30mm, right=30mm]{geometry}
+\usepackage{sectsty}
+\usepackage{amsmath}
+\usepackage{natbib} 
+\usepackage[colorlinks=true, citecolor=blue, linkcolor=black]{hyperref}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{lipsum}
+\usepackage{float}
+\usepackage{afterpage}
+\usepackage{nameref}
+\usepackage{xcolor}
+\usepackage[normalem]{ulem}
+\usepackage{verbatim}
+
+% \addto\captionsspanish{% Replace "english" with the language you use
+%   \renewcommand{\contentsname}%
+%     {Contenido}%
+% }
+
+\setlength{\headheight}{15pt}
+% para evitar las sangrias en todo el documento
+\usepackage{parskip}
+
+\newcommand\blankpage{%
+    \null
+    \thispagestyle{empty}%
+    \addtocounter{page}{-1}%
+    \newpage}
+    
+% \usepackage[usefilenames,% Important for XeLaTeX
+%   RMstyle={Medium,Semibold},
+%   SSstyle={Medium,Semibold},
+%   TTstyle={Medium,Semibold},
+%   DefaultFeatures={Ligatures=Common}]{plex-otf} %
+% \renewcommand*\familydefault{\sfdefault}
+
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.7pt}
+
+\makeatletter
+
+\newcommand\frontmatter{%
+    \pagestyle{plain}
+    \allsectionsfont{\normalfont\rmfamily\bfseries}
+    \cleardoublepage
+  %\@mainmatterfalse
+  \pagenumbering{roman}}
+
+\newcommand\mainmatter{%
+    \allsectionsfont{\usefont{T1}{lmss}{b}{m}}
+    \cleardoublepage
+ % \@mainmattertrue
+  \pagenumbering{arabic}
+  \pagestyle{fancy}
+  \rhead[]{}
+  \lhead[]{}
+  \lfoot[]{}
+  \rfoot[]{}
+  \renewcommand{\headrulewidth}{0.7pt}
+  \renewcommand{\footrulewidth}{0pt}}
+\newcommand\backmatter{%
+    \newpage
+    \pagestyle{plain}
+    \allsectionsfont{\normalfont\rmfamily\bfseries}
+    \setcounter{section}{0}
+    \renewcommand{\thesection}{\Alph{section}}
+   }
+
+\makeatother
+
+\newcommand\blfootnote[1]{%
+  \begingroup
+  \renewcommand\thefootnote{}\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \endgroup
+}
+
+\newcommand{\prof}[1]{\textcolor{blue}{#1}}
+\newcommand{\bry}[1]{\textcolor{red}{#1}}
+
+
+% comandos del profe para hacer comentarios
+
+\newcommand{\ser}[1]{\textcolor{red!70!black}{#1}}
+
+\usepackage[normalem]{ulem}
