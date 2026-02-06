@@ -1,10 +1,17 @@
+
 \section{Contexto de Plasmas Relativistas y Astrofísicos}
-    \subsection{Relevancia de la RRMHD en Chorros y AGN}
-        La dinámica de fluidos magnetizados en astrofísica es crucial [1]. La RRMHD es necesaria para modelar fenómenos de plasma en entornos altamente energéticos [2, 3].
-    \subsection{La Inestabilidad de Kelvin-Helmholtz (KHI)}
-        La KHI surge de la diferencia de velocidad (shear) entre capas de fluidos o plasmas [4]. Su estudio es fundamental en la dinámica de fluidos elementales [5].
 
-\section{Transición de RMHD a RRMHD}
-    Justificación para incluir la resistividad ($\eta$ o $1/\sigma$) para modelar plasmas no ideales y efectos de difusión [6].
+El estudio de los fluidos ionizados en presencia de campos magnéticos, conocidos como plasmas, constituye un pilar fundamental en la física moderna, dado que más del 90\% de la materia bariónica en el Universo se encuentra en este estado \parencite{goedbloed-2004}. La dinámica de estos sistemas, particularmente en entornos de alta energía, requiere la aplicación de marcos teóricos que incorporen los efectos de la relatividad especial y general \parencite{rezzolla-2013}. La Magnetohidrodinámica (MHD) ofrece una descripción macroscópica de los plasmas, la cual es esencial para comprender fenómenos astrofísicos asociados con plasmas relativistas fuertemente magnetizados, tales como Núcleos Galácticos Activos (AGN), chorros relativistas, vientos de púlsares, Brotes de Rayos Gamma (GRBs) y magnetares \parencite{goedbloed-2004, rezzolla-2013}.
 
-\section{Objetivos y Estructura de la Monografía}
+\subsection{Relevancia de la RRMHD en Chorros Astrofísicos y AGN}
+
+La aproximación más común para modelar estos sistemas es la Magnetohidrodinámica Relativista Ideal (RMHD), la cual asume una conductividad eléctrica infinita ($\sigma \to \infty$) \parencite{palenzuela-2009}. Esta aproximación es adecuada para describir las propiedades y la dinámica global de muchos fenómenos astrofísicos relativistas. Sin embargo, existen contextos donde la conductividad finita (resistividad) juega un papel crucial, haciendo necesaria la inclusión de la Magnetohidrodinámica Relativista Resistiva (RRMHD) \parencite{palenzuela-2009, miranda-aranguren-2018}. La RRMHD se vuelve imprescindible en regiones de alta disipación, como las láminas de corriente (current sheets) y las zonas turbulentas, que son energéticamente importantes y están prohibidas dentro del límite ideal debido a la conservación del flujo magnético \parencite{palenzuela-2009, miranda-aranguren-2018}. La relevancia de la RRMHD en chorros y AGN radica en la necesidad de modelar fenómenos de reconexión magnética y la disipación de energía \parencite{palenzuela-2009, miranda-aranguren-2018}.
+
+Desde el punto de vista numérico, la inclusión de la resistividad representa un desafío considerable, ya que el sistema de ecuaciones se vuelve rígido (stiff) en el límite cercano al RMHD ideal (alta conductividad) \parencite{mizuno-2013, palenzuela-2009, aranguren-2013}. Esto se debe a que los términos fuente para la evolución del campo eléctrico se vuelven rígidos \parencite{mizuno-2013}. Para tratar eficazmente estos sistemas se requieren métodos numéricos especializados, como los esquemas Implícito-Explícito (IMEX) Runge-Kutta (IMEX-RK) \parencite{palenzuela-2009, aranguren-2013}.
+
+\subsection{La Inestabilidad de Kelvin-Helmholtz (KHI)}
+
+Dentro de la dinámica de los fluidos magnetizados, la Inestabilidad de Kelvin-Helmholtz (KHI) emerge como un mecanismo fundamental, desencadenado por una velocidad de cizallamiento (velocity shear) entre dos capas de fluido o plasma en contacto \parencite{gomes-2017, tian-2016}. La KHI, cuyo estudio clásico se remonta a los teoremas de Kelvin y Helmholtz \parencite{acheson-1991}, es crucial para el transporte de momento y energía y la mezcla de fluidos \parencite{gomes-2017, tian-2016}. En el contexto astrofísico, la KHI es un mecanismo capaz de amplificar campos magnéticos al transformar la energía cinética del flujo de cizallamiento en energía magnética \parencite{pimentel-2019}. El análisis lineal de la KHI en el régimen relativista magnetizado indica que se necesita una baja razón de velocidad de Alfvén a velocidad del sonido ($V_A/c_s$) para activar los modos inestables \parencite{osmanov-2008}.
+
+El estudio de la KHI bajo el marco de la RRMHD es esencial para lograr una modelización precisa y realista de la dinámica de los plasmas astrofísicos. Además, la KHI, debido a su complejidad, es un problema de prueba bien conocido para la verificación de los códigos numéricos de MHD y RRMHD, incluyendo simulaciones de muy alto orden \parencite{gomes-2017}.
+
