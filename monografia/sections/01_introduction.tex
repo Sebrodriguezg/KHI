@@ -16,6 +16,12 @@ Dentro de la dinámica de los fluidos magnetizados, la Inestabilidad de Kelvin-H
 El estudio de la KHI bajo el marco de la RRMHD es esencial para lograr una modelización precisa y realista de la dinámica de los plasmas astrofísicos. Además, la KHI, debido a su complejidad, es un problema de prueba bien conocido para la verificación de los códigos numéricos de MHD y RRMHD, incluyendo simulaciones de muy alto orden \parencite{gomes-2017}.
 
 \section{Transición de RMHD a RRMHD}
-    Justificación para incluir la resistividad ($\eta$ o $1/\sigma$) para modelar plasmas no ideales y efectos de difusión [6].
+
+Como se mencionó anteriormente, existen situaciones donde la aproximación del RMHD (ideal) deja de tener validez, ya que hay fenómenos donde la hipótesis de conductividad infinita $(\sigma \rightarrow \infty)$ entra en conflicto con las observaciones astronómicas y con la consistencia teórica de los modelos basados en esta hipótesis. Una evidencia de que este modelo es limitado para algunas situaciones es el problema de la reconexión magnética y la topología del campo magnético. El RMHD ideal impone la condición de ``congelamiento'' del fluido, la cual consiste en que las líneas de campo magnético están ligadas al fluido y no se permiten cambios de topología del campo. Cuando se presentan fenómenos de reconexión en simulaciones de RMHD, es a causa de errores de truncamiento del esquema, lo que se llama ``resistividad numérica'' y corresponde a un proceso que no es controlado y depende exclusivamente del marco numérico \parencite{komissarov-2007, mizuno-2013}. Sin embargo, al incluir el término de resistividad $\eta$, permite que la reconexión aparezca de forma natural, predictiva y, sobre todo, física, lo cual es esencial en fenómenos como las llamaradas en AGNs, GRBs y magnetosferas de púlsares \parencite{miranda-aranguren-2018, palenzuela-2009}.
+
+Otro fenómeno en el cual es inevitable la inclusión de un término resistivo físico es la presencia de capas de corriente (current sheets). Comparando cómo se comporta el RMHD ideal y el RRMHD en regiones con altos gradientes espaciales de campo magnético, el término disipativo asociado a la resistividad $(\eta \nabla^2 \mathbf{B})$ se vuelve dominante incluso cuando se tienen valores bajos de conductividad, por lo cual la incorporación del término resistivo es necesaria y permite que los fenómenos de aniquilación magnética, conversión de energía magnética en calor y efectos dinámicos sobre las partículas sean posibles.
+
 
 \section{Objetivos y Estructura de la Monografía}
+
+Hola 
