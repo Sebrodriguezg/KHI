@@ -253,6 +253,44 @@
       \verb https://doi.org/10.1051/0004-6361:200809605
       \endverb
     \endentry
+    \entry{komissarov-2007}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=e2cb69164e5fefb5e7cce3e1dc0ed422}{%
+           family={Komissarov},
+           familyi={K\bibinitperiod},
+           given={Serguei\bibnamedelima S.},
+           giveni={S\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+      }
+      \strng{namehash}{e2cb69164e5fefb5e7cce3e1dc0ed422}
+      \strng{fullhash}{e2cb69164e5fefb5e7cce3e1dc0ed422}
+      \strng{fullhashraw}{e2cb69164e5fefb5e7cce3e1dc0ed422}
+      \strng{bibnamehash}{e2cb69164e5fefb5e7cce3e1dc0ed422}
+      \strng{authorbibnamehash}{e2cb69164e5fefb5e7cce3e1dc0ed422}
+      \strng{authornamehash}{e2cb69164e5fefb5e7cce3e1dc0ed422}
+      \strng{authorfullhash}{e2cb69164e5fefb5e7cce3e1dc0ed422}
+      \strng{authorfullhashraw}{e2cb69164e5fefb5e7cce3e1dc0ed422}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Monthly Notices of the Royal Astronomical Society}
+      \field{month}{11}
+      \field{number}{3}
+      \field{title}{{Multidimensional numerical scheme for resistive relativistic magnetohydrodynamics}}
+      \field{volume}{382}
+      \field{year}{2007}
+      \field{pages}{995\bibrangedash 1004}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1111/j.1365-2966.2007.12448.x
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1111/j.1365-2966.2007.12448.x
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1111/j.1365-2966.2007.12448.x
+      \endverb
+    \endentry
     \entry{kornilov-2007}{article}{}{}
       \name{author}{6}{}{%
         {{hash=d084e4c08e1b650ef2a71da61ea0ad7f}{%
@@ -529,8 +567,8 @@
       \strng{authornamehash}{7a1923ab1749f6424145c1777672c078}
       \strng{authorfullhash}{7a1923ab1749f6424145c1777672c078}
       \strng{authorfullhashraw}{7a1923ab1749f6424145c1777672c078}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Monthly Notices of the Royal Astronomical Society}
@@ -820,8 +858,8 @@
       \strng{authornamehash}{1261a8a671538ce05acaeab192bb4f11}
       \strng{authorfullhash}{1261a8a671538ce05acaeab192bb4f11}
       \strng{authorfullhashraw}{1261a8a671538ce05acaeab192bb4f11}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{month}{3}
