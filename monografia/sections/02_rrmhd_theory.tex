@@ -1,7 +1,54 @@
-section{Las Ecuaciones del Sistema RRMHD}
+Este capítulo va a tratar los detalles teóricos desde los cuales se derivan y se construyen los sistemas de ecuaciones diferenciales que son resueltos por el código \textit{Cueva}. El esquema general de la RRMHD aquí planteado nace de ecuaciones de conservación tensoriales, que permiten tener un panorama general de cómo estos plasmas se pueden comportar en espacio-tiempo curvo; sin embargo, la descomposición del sistema con la que aquí se trabaja se consigue considerando un espacio-tiempo plano con una métrica de Minkowski.
+
+El sistema aumentado\footnote{La terminología de aumentado no se debe a un cambio en la física del plasma; corresponde a una extensión en el espacio de soluciones del sistema con el fin de amortiguar y transportar errores. Este aspecto será mencionado en la Sección~\ref{sec:Max-aumentado}.} planteado por \parencite{komissarov-2007} es descrito desde el punto de vista de un observador inercial, lo que corresponde a una proyección sobre un marco de referencia inercial global; formalmente, en la métrica de Minkowski esto es equivalente a un observador euleriano, el cual se define por la normal a la hipersuperficie espacial en la foliación 3+1 \parencite{rezzolla-2013}.
+
+A continuación, se detallan las ecuaciones fundamentales que componen el modelo, haciendo la distinción entre las leyes de conservación fundamentales y los artificios matemáticos necesarios para la estabilidad del esquema.
+
+\section{Las Ecuaciones del Sistema RRMHD}
+
+
+El sistema de RRMHD conciste de una serie de leyes de conservacíon local covariante, el conjunto expandido de las ecuaciones de Maxwell y finalmente la ley de Ohm rlativista. Las consideraciones necesarioas para poder construiur este siestema y posteriormente solucionarlo numericamente seran tratadas a continuacíon. 
+
+
+
     \subsection{Sistema de Leyes de Conservación}
-        Presentación de las ecuaciones de conservación de masa $\partial_\mu(\rho u^\mu)=0$ y energía-momento $\partial_\mu T^{\mu\nu}=0$ [7].
+       
+    \subsubsection{Ecuaciones de Maxwell}
+
+    
+
+
+    \subsubsection{Las ecuaciones hydrodinamicas. }
+    
+    
+    Deacuerdo con la mecanica de fluidos relativista, la suposicion principal para poder describir un fluido cualquiera es considerarlo como un "fluido perfecto", el cual define al fluido como un conjunto de particulas las cuales estan en reposo en algun marco de referencia inercial. Si este conjunto de n particulas se esta 
+        moviendo deacuerdo a un cuadrivector de fluido $u^{\mu}$.
+        Se puede construir la conservacíon del numero de particulas total al definir este cuadrivector de flujo dado por:
+
+
+
+
+        \begin{equation*}
+              N^{\mu}=nu^{\mu}    
+        \end{equation*}
+
+        Donde su ley de conservacíon covariante asociada corresponde a la derivada covariante de este cuadrivector de flujo:
+
+        \begin{equation*}
+            \nabla_{\mu}N^{\mu}= \nabla_{\mu}(n u^{\mu}) = 0 
+        \end{equation*}
+
+        Al multiplicar esta expresion por la masa en reposo asociada a cada particula, se interpreta en este caso la densidad de energía en reposo asociada a las particulas, lo que genera la primera ley de conservacion covariante dada por: 
+
+        \begin{equation}
+            \nabla_{\mu}{\rho}u^{\mu}= \nabla_{\mu}(nmu^{\mu}) = 0 
+        \end{equation}
+
+
+
+
     \subsection{El Sistema Aumentado de Maxwell}
+    \label{sec:Max-aumentado}
         Se presenta el sistema que incluye los pseudo-potenciales $\psi$ y $\phi$ (Multiplicadores de Lagrange Generalizados, GLM) para forzar $\nabla \cdot \mathbf{B}=0$ y la conservación de carga $q$ [8, 9]. Las ecuaciones de evolución incluyen $\partial_t \psi = -\nabla \cdot E + q - \kappa \psi$ y $\partial_t \phi = -\nabla \cdot B - \kappa \phi$ [8, 10].
     \subsection{Ley de Ohm Relativista y Corriente Conductiva}
         Definición de la corriente conductiva $j^c$ [11], donde la resistividad $\eta$ (o conductividad $\sigma$) juega un papel clave en los términos rígidos (stiff terms) del sistema [12].
@@ -22,3 +69,51 @@ Mientras que la aproximación de MHD ideal asume una conductividad infinita, los
 El impacto de la resistividad en la estabilidad de la KHI es dual y complejo. Por un lado, la resistividad puede actuar como un mecanismo de amortiguamiento para modos de alta frecuencia. Por otro lado, y de manera más crucial, la resistividad elimina las restricciones topológicas de la MHD ideal, permitiendo el desarrollo de inestabilidades tipo tearing que pueden coexistir o acoplarse con la KHI. \parencite{palenzuela-2009} enfatizan que ir más allá de la MHD ideal es necesario para capturar estos fenómenos de reconexión inducida por la inestabilidad.
 
 Desde el punto de vista del modelado, \parencite{mizuno-2013} mostró que la ecuación de estado juega un papel fundamental en cómo la energía disipada por la resistividad calienta el plasma y afecta la evolución dinámica. Numéricamente, la inclusión de la resistividad añade rigidez a las ecuaciones, requiriendo esquemas temporales implícitos (IMEX) como los propuestos por \parencite{Aloy_Cordero-Carrion:2016} o solucionadores de Riemann modificados \parencite{miranda-aranguren-2018, aranguren-2013} para resolver correctamente las capas límite resistivas donde se desarrollan estas inestabilidades secundarias.
+
+
+
+\subsection{Dinámica de la Vorticidad y la Enstrofía}
+Para caracterizar cuantitativamente el desarrollo de la inestabilidad y la transición a la turbulencia en el régimen no lineal, es fundamental el estudio de la vorticidad y sus momentos estadísticos. En una configuración típica de KHI, el perfil inicial de velocidad transversal $V_y(x)$ se modela mediante una capa de cizalladura descrita por:
+
+\begin{equation}
+    V_y(x) \sim v_{\text{sh}} \tanh\left(\frac{x - x_0}{a_{\text{kh}}}\right),
+    \label{eq:vel_profile}
+\end{equation}
+
+\noindent donde $v_{\text{sh}}$ representa la magnitud de la velocidad de cizalladura y $a_{\text{kh}}$ la escala característica del ancho de la capa.
+
+\subsubsection{Cálculo Numérico y Contribución de Componentes}
+En el contexto de la simulación numérica, la vorticidad se evalúa a partir de los gradientes discretos de la velocidad. La componente principal de la vorticidad en una geometría bidimensional es ortogonal al plano de simulación ($\omega_z$). La enstrofía asociada a esta componente, $\Omega_z(t)$, cuantifica la intensidad de los vórtices que rotan en el plano $xy$ y se define operativamente como:
+
+\begin{equation}
+    \Omega_z(t) = \int (\partial_x V_y - \partial_y V_x)^2 \, dA.
+\end{equation}
+
+Sin embargo, para capturar la dinámica completa del sistema, especialmente en configuraciones donde se permite la evolución de la tercera componente de la velocidad ($V_z$), es necesario considerar la enstrofía total $\Omega_{\text{tot}}$. Esta magnitud incorpora las contribuciones de los gradientes transversales de la velocidad fuera del plano (out-of-plane velocity), definidéndose como:
+
+\begin{equation}
+    \Omega_{\text{tot}}(t) = \int \left[ (\partial_y V_z)^2 + (\partial_x V_z)^2 + (\partial_x V_y - \partial_y V_x)^2 \right] \, dA.
+\end{equation}
+
+La comparación entre estas dos magnitudes permite evaluar la anisotropía de la turbulencia generada y el grado de acoplamiento entre los modos planares y la componente transversal. Para ello, se introduce el factor de fracción de enstrofía $f_{Vz}(t)$, que aísla la contribución relativa de los términos dependientes de $V_z$:
+
+\begin{equation}
+    f_{Vz}(t) = \frac{\Omega_{\text{tot}}(t) - \Omega_z(t)}{\Omega_{\text{tot}}(t)}.
+\end{equation}
+
+Un valor de $f_{Vz} \approx 0$ indica un flujo puramente bidimensional, mientras que un incremento en este factor señala la transferencia de energía hacia componentes ortogonales, un fenómeno relevante en plasmas magnetizados donde la tensión magnética puede inducir movimientos complejos fuera del plano de cizalladura.
+
+\subsubsection{Enstrofía de Perturbación}
+Dado que la enstrofía total está dominada inicialmente por la fuerte cizalladura del flujo base, es necesario aislar la contribución específica de las estructuras inestables emergentes. Siguiendo la metodología de \parencite{zrake-2016, takamoto-2011}, descomponemos la vorticidad instantánea $\omega_z$ restando el perfil promedio inicial. Definimos la vorticidad de perturbación $\omega'_z$ como:
+
+\begin{equation}
+    \omega'_z(x, y, t) = \omega_z(x, y, t) - \overline{\omega}_z^{(0)}(x),
+\end{equation}
+
+\noindent donde $\overline{\omega}_z^{(0)}(x) = \langle \omega_z(x, y, t=0) \rangle_y$ denota el promedio espacial a lo largo de la dirección longitudinal $y$ correspondiente al estado inicial. De esta forma, la enstrofía de perturbación se define como:
+
+\begin{equation}
+    \Omega'_z(t) = \int (\omega'_z)^2 \, dA.
+\end{equation}
+
+El análisis de $\Omega'_z(t)$ permite identificar las fases de crecimiento lineal y saturación no lineal, sirviendo como el principal diagnóstico para la tasa de crecimiento de la inestabilidad libre de la ``contaminación'' del flujo de fondo.

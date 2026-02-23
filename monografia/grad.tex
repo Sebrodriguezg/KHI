@@ -28,8 +28,9 @@
 \usepackage[
 	backend=biber,
 	style=numeric-comp,
-	sorting=none
+	sorting=anyt
 ]{biblatex}
+
 \addbibresource{references.bib}         % Link the bibliography file
 
 % --- Theorem-like Environments ---
@@ -84,24 +85,28 @@
 \label{ch:rrmhd_theory}
 \input{sections/02_rrmhd_theory.tex}
 
+\chapter{La Inestabilidad de Kelvin--Helmholtz desde la Mecánica de Fluidos hasta la RRMHD}
+\label{ch:khi}
+\input{sections/03_KHI.tex}
+
 \chapter{Metodología Numérica y Configuración del Experimento}
 \label{ch:numerical_methods}
-\input{sections/03_numerical_methods.tex}
+\input{sections/04_numerical_methods.tex}
 
 \chapter{Resultados de la Simulación y Análisis de la KHI}
 \label{ch:results_discussion}
-\input{sections/04_results_discussion.tex}
+\input{sections/05_results_discussion.tex}
 
 \chapter{Conclusiones y Perspectivas Futuras}
 \label{ch:conclusions}
-\input{sections/05_conclusions.tex}
+\input{sections/06_conclusions.tex}
 
 % =============================================
 % APÉNDICES
 % =============================================
 \appendix
 \chapter{Apéndices}
-\input{sections/06_appendices.tex}
+\input{sections/07_appendices.tex}
 
 
 

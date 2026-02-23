@@ -6,35 +6,55 @@
 \contentsline {section}{\numberline {1.2}Transición de RMHD a RRMHD}{12}{}%
 \contentsline {section}{\numberline {1.3}Objetivos y Estructura de la Monografía}{13}{}%
 \contentsline {chapter}{\numberline {2}Marco Teórico: Fundamentos de RRMHD}{15}{}%
-\contentsline {subsection}{\numberline {2.0.1}Sistema de Leyes de Conservación}{15}{}%
-\contentsline {subsection}{\numberline {2.0.2}El Sistema Aumentado de Maxwell}{15}{}%
-\contentsline {subsection}{\numberline {2.0.3}Ley de Ohm Relativista y Corriente Conductiva}{15}{}%
-\contentsline {section}{\numberline {2.1}Análisis de la KHI en el Límite Lineal}{15}{}%
-\contentsline {subsection}{\numberline {2.1.1}Efecto de la Relatividad}{16}{}%
-\contentsline {subsection}{\numberline {2.1.2}Resistividad e impacto de la resistividad en la estabilidad}{17}{}%
-\contentsline {chapter}{\numberline {3}Metodología Numérica y Configuración del Experimento}{19}{}%
-\contentsline {section}{\numberline {3.1}Métodos de Captura de Choques de Alta Resolución (HRSC)}{19}{}%
-\contentsline {subsection}{\numberline {3.1.1}Discretización de Volumen Finito (FV)}{19}{}%
-\contentsline {section}{\numberline {3.2}Tratamiento de la Rigidez del Sistema RRMHD}{19}{}%
-\contentsline {subsection}{\numberline {3.2.1}Esquemas IMEX Runge-Kutta}{19}{}%
-\contentsline {subsection}{\numberline {3.2.2}Estrategias de Limpieza de Divergencia}{19}{}%
-\contentsline {section}{\numberline {3.3}Construcción del Esquema de Flujo}{20}{}%
-\contentsline {subsection}{\numberline {3.3.1}Técnicas de Reconstrucción de Alta Orden}{20}{}%
-\contentsline {subsection}{\numberline {3.3.2}Solucionadores de Riemann}{20}{}%
-\contentsline {section}{\numberline {3.4}Configuración Inicial (Set-up) de la KHI}{20}{}%
-\contentsline {chapter}{\numberline {4}Resultados de la Simulación y Análisis de la KHI}{21}{}%
-\contentsline {section}{\numberline {4.1}Pruebas de Verificación Numérica}{21}{}%
-\contentsline {subsection}{\numberline {4.1.1}Validación de Choques (Shock Tubes)}{21}{}%
-\contentsline {subsection}{\numberline {4.1.2}Prueba de Lámina de Corriente (Current Sheet)}{21}{}%
-\contentsline {section}{\numberline {4.2}Evolución No Lineal de la KHI en RRMHD}{21}{}%
-\contentsline {subsection}{\numberline {4.2.1}Morfología de la Inestabilidad: Vórtices y Cizalla}{21}{}%
-\contentsline {subsection}{\numberline {4.2.2}Efecto Cuantitativo de la Resistividad}{21}{}%
-\contentsline {section}{\numberline {4.3}Implicaciones Físicas}{22}{}%
-\contentsline {chapter}{\numberline {5}Conclusiones y Perspectivas Futuras}{23}{}%
-\contentsline {section}{\numberline {5.1}Resumen de Contribuciones}{23}{}%
-\contentsline {section}{\numberline {5.2}Limitaciones del Modelo y la Simulación}{23}{}%
-\contentsline {section}{\numberline {5.3}Trabajo Futuro}{23}{}%
-\contentsline {chapter}{\numberline {A}Apéndices}{25}{}%
-\contentsline {section}{\numberline {A.1}Detalles Vectoriales en Coordenadas Cartesianas}{25}{}%
-\contentsline {section}{\numberline {A.2}Construcción de Flujos Numéricos y Solvers}{25}{}%
-\contentsline {section}{\numberline {A.3}Parámetros de Simulación Detallados}{25}{}%
+\contentsline {section}{\numberline {2.1}Las Ecuaciones del Sistema RRMHD}{15}{}%
+\contentsline {subsection}{\numberline {2.1.1}Sistema de Leyes de Conservación}{16}{}%
+\contentsline {subsubsection}{Ecuaciones de Maxwell}{16}{}%
+\contentsline {subsubsection}{Las ecuaciones hydrodinamicas. }{16}{}%
+\contentsline {subsection}{\numberline {2.1.2}El Sistema Aumentado de Maxwell}{16}{}%
+\contentsline {subsection}{\numberline {2.1.3}Ley de Ohm Relativista y Corriente Conductiva}{16}{}%
+\contentsline {section}{\numberline {2.2}Análisis de la KHI en el Límite Lineal}{17}{}%
+\contentsline {subsection}{\numberline {2.2.1}Efecto de la Relatividad}{17}{}%
+\contentsline {subsection}{\numberline {2.2.2}Resistividad e impacto de la resistividad en la estabilidad}{18}{}%
+\contentsline {subsection}{\numberline {2.2.3}Dinámica de la Vorticidad y la Enstrofía}{18}{}%
+\contentsline {subsubsection}{Cálculo Numérico y Contribución de Componentes}{19}{}%
+\contentsline {subsubsection}{Enstrofía de Perturbación}{19}{}%
+\contentsline {chapter}{\numberline {3}La Inestabilidad de Kelvin--Helmholtz desde la Mecánica de Fluidos hasta la RRMHD}{21}{}%
+\contentsline {section}{\numberline {3.1}Descripción Física General de la Inestabilidad}{21}{}%
+\contentsline {section}{\numberline {3.2}La KHI en Mecánica de Fluidos Clásica}{22}{}%
+\contentsline {subsection}{\numberline {3.2.1}Formulación Hidrodinámica}{22}{}%
+\contentsline {subsection}{\numberline {3.2.2}Análisis Lineal y Condición de Inestabilidad}{22}{}%
+\contentsline {section}{\numberline {3.3}Extensión Magnetohidrodinámica}{22}{}%
+\contentsline {subsection}{\numberline {3.3.1}Efecto del Campo Magnético}{22}{}%
+\contentsline {subsection}{\numberline {3.3.2}Modificación de la Relación de Dispersión}{23}{}%
+\contentsline {section}{\numberline {3.4}La KHI en Magnetohidrodinámica Relativista}{23}{}%
+\contentsline {subsection}{\numberline {3.4.1}Correcciones Relativistas}{23}{}%
+\contentsline {subsection}{\numberline {3.4.2}Implicaciones Astrofísicas}{23}{}%
+\contentsline {section}{\numberline {3.5}La KHI en el Marco de la RRMHD}{23}{}%
+\contentsline {subsection}{\numberline {3.5.1}Rol de la Resistividad}{23}{}%
+\contentsline {subsection}{\numberline {3.5.2}Motivación Numérica y Relevancia Computacional}{24}{}%
+\contentsline {chapter}{\numberline {4}Metodología Numérica y Configuración del Experimento}{25}{}%
+\contentsline {section}{\numberline {4.1}Métodos de Captura de Choques de Alta Resolución (HRSC)}{25}{}%
+\contentsline {subsection}{\numberline {4.1.1}Discretización de Volumen Finito (FV)}{25}{}%
+\contentsline {section}{\numberline {4.2}Tratamiento de la Rigidez del Sistema RRMHD}{25}{}%
+\contentsline {subsection}{\numberline {4.2.1}Esquemas IMEX Runge-Kutta}{25}{}%
+\contentsline {subsection}{\numberline {4.2.2}Estrategias de Limpieza de Divergencia}{25}{}%
+\contentsline {section}{\numberline {4.3}Construcción del Esquema de Flujo}{26}{}%
+\contentsline {subsection}{\numberline {4.3.1}Técnicas de Reconstrucción de Alta Orden}{26}{}%
+\contentsline {subsection}{\numberline {4.3.2}Solucionadores de Riemann}{26}{}%
+\contentsline {section}{\numberline {4.4}Configuración Inicial (Set-up) de la KHI}{26}{}%
+\contentsline {chapter}{\numberline {5}Resultados de la Simulación y Análisis de la KHI}{27}{}%
+\contentsline {section}{\numberline {5.1}Pruebas de Verificación Numérica}{27}{}%
+\contentsline {subsection}{\numberline {5.1.1}Validación de Choques (Shock Tubes)}{27}{}%
+\contentsline {subsection}{\numberline {5.1.2}Prueba de Lámina de Corriente (Current Sheet)}{27}{}%
+\contentsline {section}{\numberline {5.2}Evolución No Lineal de la KHI en RRMHD}{27}{}%
+\contentsline {subsection}{\numberline {5.2.1}Morfología de la Inestabilidad: Vórtices y Cizalla}{27}{}%
+\contentsline {subsection}{\numberline {5.2.2}Efecto Cuantitativo de la Resistividad}{27}{}%
+\contentsline {section}{\numberline {5.3}Implicaciones Físicas}{28}{}%
+\contentsline {chapter}{\numberline {6}Conclusiones y Perspectivas Futuras}{29}{}%
+\contentsline {section}{\numberline {6.1}Resumen de Contribuciones}{29}{}%
+\contentsline {section}{\numberline {6.2}Limitaciones del Modelo y la Simulación}{29}{}%
+\contentsline {section}{\numberline {6.3}Trabajo Futuro}{29}{}%
+\contentsline {chapter}{\numberline {A}Apéndices}{31}{}%
+\contentsline {section}{\numberline {A.1}Detalles Vectoriales en Coordenadas Cartesianas}{31}{}%
+\contentsline {section}{\numberline {A.2}Construcción de Flujos Numéricos y Solvers}{31}{}%
+\contentsline {section}{\numberline {A.3}Parámetros de Simulación Detallados}{31}{}%

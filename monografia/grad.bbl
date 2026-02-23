@@ -18,239 +18,553 @@
 
 
 \refsection{0}
-  \datalist[entry]{none/global//global/global/global}
-    \entry{rezzolla-2013}{book}{}{}
-      \name{author}{2}{}{%
-        {{hash=72c35344cecfdbbeebc71d2ca292436a}{%
-           family={Rezzolla},
-           familyi={R\bibinitperiod},
-           given={Luciano},
-           giveni={L\bibinitperiod}}}%
-        {{hash=5dd4522b51fbd89f507a9f5f23b66b3b}{%
-           family={Zanotti},
-           familyi={Z\bibinitperiod},
-           given={Olindo},
-           giveni={O\bibinitperiod}}}%
+  \datalist[entry]{anyt/global//global/global/global}
+    \entry{acheson-1990}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=1261a8a671538ce05acaeab192bb4f11}{%
+           family={Acheson},
+           familyi={A\bibinitperiod},
+           given={D.\bibnamedelimi J.},
+           giveni={D\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
-        {Oxford University Press, USA}%
+        {Oxford University Press}%
       }
-      \strng{namehash}{5ca5a9045eb5ebfe4700e7f25e2d8226}
-      \strng{fullhash}{5ca5a9045eb5ebfe4700e7f25e2d8226}
-      \strng{fullhashraw}{5ca5a9045eb5ebfe4700e7f25e2d8226}
-      \strng{bibnamehash}{5ca5a9045eb5ebfe4700e7f25e2d8226}
-      \strng{authorbibnamehash}{5ca5a9045eb5ebfe4700e7f25e2d8226}
-      \strng{authornamehash}{5ca5a9045eb5ebfe4700e7f25e2d8226}
-      \strng{authorfullhash}{5ca5a9045eb5ebfe4700e7f25e2d8226}
-      \strng{authorfullhashraw}{5ca5a9045eb5ebfe4700e7f25e2d8226}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \strng{namehash}{1261a8a671538ce05acaeab192bb4f11}
+      \strng{fullhash}{1261a8a671538ce05acaeab192bb4f11}
+      \strng{fullhashraw}{1261a8a671538ce05acaeab192bb4f11}
+      \strng{bibnamehash}{1261a8a671538ce05acaeab192bb4f11}
+      \strng{authorbibnamehash}{1261a8a671538ce05acaeab192bb4f11}
+      \strng{authornamehash}{1261a8a671538ce05acaeab192bb4f11}
+      \strng{authorfullhash}{1261a8a671538ce05acaeab192bb4f11}
+      \strng{authorfullhashraw}{1261a8a671538ce05acaeab192bb4f11}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{month}{9}
-      \field{title}{{Relativistic hydrodynamics}}
-      \field{year}{2013}
-    \endentry
-    \entry{palenzuela-2009}{article}{}{}
-      \name{author}{4}{}{%
-        {{hash=e5fd1074051315c12df8f04bbdbdad3d}{%
-           family={Palenzuela},
-           familyi={P\bibinitperiod},
-           given={Carlos},
-           giveni={C\bibinitperiod}}}%
-        {{hash=9242d5ccc897e156a61c4669954d3856}{%
-           family={Lehner},
-           familyi={L\bibinitperiod},
-           given={Luis},
-           giveni={L\bibinitperiod}}}%
-        {{hash=48e5b73b48d0c3d5dfe7a16e0c7268f6}{%
-           family={Reula},
-           familyi={R\bibinitperiod},
-           given={Oscar},
-           giveni={O\bibinitperiod}}}%
-        {{hash=72c35344cecfdbbeebc71d2ca292436a}{%
-           family={Rezzolla},
-           familyi={R\bibinitperiod},
-           given={Luciano},
-           giveni={L\bibinitperiod}}}%
-      }
-      \strng{namehash}{cb3dbbf891f83a7cbb0d3537212cfe9f}
-      \strng{fullhash}{d369def3bd7a755d5e98e7cc78c6c046}
-      \strng{fullhashraw}{d369def3bd7a755d5e98e7cc78c6c046}
-      \strng{bibnamehash}{cb3dbbf891f83a7cbb0d3537212cfe9f}
-      \strng{authorbibnamehash}{cb3dbbf891f83a7cbb0d3537212cfe9f}
-      \strng{authornamehash}{cb3dbbf891f83a7cbb0d3537212cfe9f}
-      \strng{authorfullhash}{d369def3bd7a755d5e98e7cc78c6c046}
-      \strng{authorfullhashraw}{d369def3bd7a755d5e98e7cc78c6c046}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Monthly Notices of the Royal Astronomical Society}
       \field{month}{3}
-      \field{number}{4}
-      \field{title}{{Beyond ideal MHD: towards a more realistic modelling of relativistic astrophysical plasmas}}
-      \field{volume}{394}
-      \field{year}{2009}
-      \field{pages}{1727\bibrangedash 1740}
-      \range{pages}{14}
-      \verb{doi}
-      \verb 10.1111/j.1365-2966.2009.14454.x
-      \endverb
-      \verb{urlraw}
-      \verb https://doi.org/10.1111/j.1365-2966.2009.14454.x
-      \endverb
-      \verb{url}
-      \verb https://doi.org/10.1111/j.1365-2966.2009.14454.x
-      \endverb
+      \field{title}{{Elementary fluid dynamics}}
+      \field{year}{1990}
+      \true{nocite}
     \endentry
-    \entry{miranda-aranguren-2018}{article}{}{}
-      \name{author}{3}{}{%
-        {{hash=59dee04412d361d0be1d5991141b017d}{%
-           family={Miranda-Aranguren},
-           familyi={M\bibinithyphendelim A\bibinitperiod},
-           given={S},
-           giveni={S\bibinitperiod}}}%
-        {{hash=22d1517d7597aa28921aa2d8aa9a1d72}{%
+    \entry{Alic2007}{article}{}{}
+      \name{author}{4}{}{%
+        {{hash=3a736318b7dd77933dd890b005ed7b1c}{%
+           family={{Alic}},
+           familyi={A\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod}}}%
+        {{hash=f50eb06905abfa30df2b94d5bcea658b}{%
+           family={{Bona}},
+           familyi={B\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod}}}%
+        {{hash=ec04dc55ace0201f9881f9fc3a091c3d}{%
+           family={{Bona-Casas}},
+           familyi={B\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod}}}%
+        {{hash=40092102ed600a0f40f9093901536e9f}{%
+           family={{Massó}},
+           familyi={M\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{281763122becbdbfd8ea5a6684af3efe}
+      \strng{fullhash}{cb995a650351a299db1fff69494fb2ef}
+      \strng{fullhashraw}{cb995a650351a299db1fff69494fb2ef}
+      \strng{bibnamehash}{281763122becbdbfd8ea5a6684af3efe}
+      \strng{authorbibnamehash}{281763122becbdbfd8ea5a6684af3efe}
+      \strng{authornamehash}{281763122becbdbfd8ea5a6684af3efe}
+      \strng{authorfullhash}{cb995a650351a299db1fff69494fb2ef}
+      \strng{authorfullhashraw}{cb995a650351a299db1fff69494fb2ef}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eid}{104007}
+      \field{eprintclass}{gr-qc}
+      \field{eprinttype}{arXiv}
+      \field{journaltitle}{Physical Review D}
+      \field{month}{11}
+      \field{number}{10}
+      \field{title}{{Efficient implementation of finite volume methods in numerical relativity}}
+      \field{volume}{76}
+      \field{year}{2007}
+      \true{nocite}
+      \field{pages}{104007}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1103/PhysRevD.76.104007
+      \endverb
+      \verb{eprint}
+      \verb 0706.1189
+      \endverb
+      \keyw{Numerical relativity}
+    \endentry
+    \entry{Aloy_Cordero-Carrion:2016}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=5623c6f584ac5e6b5baaa58c0688e42c}{%
            family={Aloy},
            familyi={A\bibinitperiod},
-           given={M\bibnamedelima A},
-           giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
-        {{hash=314c59259faa330487a284b6448c0c3e}{%
-           family={Rembiasz},
-           familyi={R\bibinitperiod},
-           given={T},
-           giveni={T\bibinitperiod}}}%
+           given={Miguel\bibnamedelima \bibnamedelima Á.},
+           giveni={M\bibinitperiod\bibinitdelim Á\bibinitperiod}}}%
+        {{hash=f7dd202fa58d3ca26229be1e828c48d9}{%
+           family={Cordero-Carrión},
+           familyi={C\bibinithyphendelim C\bibinitperiod},
+           given={Isabel},
+           giveni={I\bibinitperiod}}}%
       }
-      \strng{namehash}{067b98dbf0bd821a467be2940d319ff8}
-      \strng{fullhash}{067b98dbf0bd821a467be2940d319ff8}
-      \strng{fullhashraw}{067b98dbf0bd821a467be2940d319ff8}
-      \strng{bibnamehash}{067b98dbf0bd821a467be2940d319ff8}
-      \strng{authorbibnamehash}{067b98dbf0bd821a467be2940d319ff8}
-      \strng{authornamehash}{067b98dbf0bd821a467be2940d319ff8}
-      \strng{authorfullhash}{067b98dbf0bd821a467be2940d319ff8}
-      \strng{authorfullhashraw}{067b98dbf0bd821a467be2940d319ff8}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \strng{namehash}{294ff6fa08e59a9bf86a856aadf5b854}
+      \strng{fullhash}{294ff6fa08e59a9bf86a856aadf5b854}
+      \strng{fullhashraw}{294ff6fa08e59a9bf86a856aadf5b854}
+      \strng{bibnamehash}{294ff6fa08e59a9bf86a856aadf5b854}
+      \strng{authorbibnamehash}{294ff6fa08e59a9bf86a856aadf5b854}
+      \strng{authornamehash}{294ff6fa08e59a9bf86a856aadf5b854}
+      \strng{authorfullhash}{294ff6fa08e59a9bf86a856aadf5b854}
+      \strng{authorfullhashraw}{294ff6fa08e59a9bf86a856aadf5b854}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{Monthly Notices of the Royal Astronomical Society}
-      \field{month}{2}
-      \field{number}{3}
-      \field{title}{{An HLLC Riemann solver for resistive relativistic magnetohydrodynamics}}
-      \field{volume}{476}
-      \field{year}{2018}
-      \field{pages}{3837\bibrangedash 3860}
-      \range{pages}{24}
-      \verb{doi}
-      \verb 10.1093/mnras/sty419
-      \endverb
+      \field{abstract}{The Relativistic Resistive Magnetohydrodynamic (RRMHD) equations are a hyperbolic system of partial differential equations used to describe the dynamics of relativistic magnetized fluids with a finite conductivity. Close to the ideal magnetohydrodynamic regime, the source term proportional to the conductivity becomes potentially stiff and cannot be handled with standard explicit time integration methods. We propose a new class of methods to deal with the stiffness fo the system, which we name Minimally Implicit Runge-Kutta methods. These methods avoid the development of numerical instabilities without increasing the computational costs in comparison with explicit methods, need no iterative extra loop in order to recover the primitive (physical) variables, the analytical inversion of the implicit operator is trivial and the several stages can actually be viewed as stages of explicit Runge-Kutta methods with an effective time-step. We test these methods with two different one-dimensional test beds in varied conductivity regimes, and show that our second-order schemes satisfy the theoretical expectations.}
+      \field{journaltitle}{Journal of Physics: Conference Series}
+      \field{number}{1}
+      \field{title}{{Minimally implicit Runge-Kutta methods for Resistive Relativistic MHD}}
+      \field{volume}{719}
+      \field{year}{2016}
+      \field{pages}{012015}
+      \range{pages}{1}
       \verb{urlraw}
-      \verb https://doi.org/10.1093/mnras/sty419
+      \verb http://stacks.iop.org/1742-6596/719/i=1/a=012015
       \endverb
       \verb{url}
-      \verb https://doi.org/10.1093/mnras/sty419
+      \verb http://stacks.iop.org/1742-6596/719/i=1/a=012015
       \endverb
     \endentry
-    \entry{pimentel-2019}{article}{}{}
-      \name{author}{2}{}{%
-        {{hash=c906084685ee441bf5a56df6b95be94f}{%
-           family={Pimentel},
-           familyi={P\bibinitperiod},
-           given={Oscar\bibnamedelima M},
-           giveni={O\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
-        {{hash=d54b809c4d5b32f9995c94a1ad9297df}{%
-           family={Lora-Clavijo},
-           familyi={L\bibinithyphendelim C\bibinitperiod},
-           given={Fabio\bibnamedelima D},
-           giveni={F\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+    \entry{batchelor-1969}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=6d0639bc06e2ab98b6b6c5d5434ecb8a}{%
+           family={Batchelor},
+           familyi={B\bibinitperiod},
+           given={George\bibnamedelima K},
+           giveni={G\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
       }
-      \strng{namehash}{d0e8604034dbaf67af37425cdecb080d}
-      \strng{fullhash}{d0e8604034dbaf67af37425cdecb080d}
-      \strng{fullhashraw}{d0e8604034dbaf67af37425cdecb080d}
-      \strng{bibnamehash}{d0e8604034dbaf67af37425cdecb080d}
-      \strng{authorbibnamehash}{d0e8604034dbaf67af37425cdecb080d}
-      \strng{authornamehash}{d0e8604034dbaf67af37425cdecb080d}
-      \strng{authorfullhash}{d0e8604034dbaf67af37425cdecb080d}
-      \strng{authorfullhashraw}{d0e8604034dbaf67af37425cdecb080d}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \list{publisher}{1}{%
+        {Cambridge university press}%
+      }
+      \strng{namehash}{6d0639bc06e2ab98b6b6c5d5434ecb8a}
+      \strng{fullhash}{6d0639bc06e2ab98b6b6c5d5434ecb8a}
+      \strng{fullhashraw}{6d0639bc06e2ab98b6b6c5d5434ecb8a}
+      \strng{bibnamehash}{6d0639bc06e2ab98b6b6c5d5434ecb8a}
+      \strng{authorbibnamehash}{6d0639bc06e2ab98b6b6c5d5434ecb8a}
+      \strng{authornamehash}{6d0639bc06e2ab98b6b6c5d5434ecb8a}
+      \strng{authorfullhash}{6d0639bc06e2ab98b6b6c5d5434ecb8a}
+      \strng{authorfullhashraw}{6d0639bc06e2ab98b6b6c5d5434ecb8a}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{The theory of homogeneous turbulence}
+      \field{year}{1953}
+      \true{nocite}
+    \endentry
+    \entry{bucciantini-2006}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=68766adf9c9213fca42e1f2d05a03655}{%
+           family={Bucciantini},
+           familyi={B\bibinitperiod},
+           given={N.},
+           giveni={N\bibinitperiod}}}%
+        {{hash=79e6e586b6cb732e8dee0cd75baf8997}{%
+           family={Del\bibnamedelima Zanna},
+           familyi={D\bibinitperiod\bibinitdelim Z\bibinitperiod},
+           given={L.},
+           giveni={L\bibinitperiod}}}%
+      }
+      \strng{namehash}{6442b28d5ecd1c4ff19359863947dbca}
+      \strng{fullhash}{6442b28d5ecd1c4ff19359863947dbca}
+      \strng{fullhashraw}{6442b28d5ecd1c4ff19359863947dbca}
+      \strng{bibnamehash}{6442b28d5ecd1c4ff19359863947dbca}
+      \strng{authorbibnamehash}{6442b28d5ecd1c4ff19359863947dbca}
+      \strng{authornamehash}{6442b28d5ecd1c4ff19359863947dbca}
+      \strng{authorfullhash}{6442b28d5ecd1c4ff19359863947dbca}
+      \strng{authorfullhashraw}{6442b28d5ecd1c4ff19359863947dbca}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Astronomy and Astrophysics}
+      \field{month}{7}
+      \field{number}{2}
+      \field{title}{{Local Kelvin-Helmholtz instability and synchrotron modulation in Pulsar Wind Nebulae}}
+      \field{volume}{454}
+      \field{year}{2006}
+      \field{pages}{393\bibrangedash 400}
+      \range{pages}{8}
+      \verb{doi}
+      \verb 10.1051/0004-6361:20054491
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1051/0004-6361:20054491
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1051/0004-6361:20054491
+      \endverb
+    \endentry
+    \entry{Dedner_etal:2002}{article}{}{}
+      \name{author}{6}{}{%
+        {{hash=fe811a05bc412c000b2fe21b8497e414}{%
+           family={{Dedner}},
+           familyi={D\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=578fdadbc419764e376c8ecea19790c4}{%
+           family={{Kemm}},
+           familyi={K\bibinitperiod},
+           given={F.},
+           giveni={F\bibinitperiod}}}%
+        {{hash=3a61e5b2d073fdf6ff373ba057a74581}{%
+           family={{Kröner}},
+           familyi={K\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod}}}%
+        {{hash=0c72dc5506650ce025c3dc2b911b0d65}{%
+           family={{Munz}},
+           familyi={M\bibinitperiod},
+           given={C.-D.},
+           giveni={C\bibinithyphendelim D\bibinitperiod}}}%
+        {{hash=62fb57dde44cd39ceeae007a2dea1bbd}{%
+           family={{Schnitzer}},
+           familyi={S\bibinitperiod},
+           given={T.},
+           giveni={T\bibinitperiod}}}%
+        {{hash=567606360e7160250beb7fd39f0004a1}{%
+           family={{Wesenberg}},
+           familyi={W\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{bc444dad87e61e0c574031daf7d9552a}
+      \strng{fullhash}{692219cff6cfc1984e9a716015a89670}
+      \strng{fullhashraw}{692219cff6cfc1984e9a716015a89670}
+      \strng{bibnamehash}{bc444dad87e61e0c574031daf7d9552a}
+      \strng{authorbibnamehash}{bc444dad87e61e0c574031daf7d9552a}
+      \strng{authornamehash}{bc444dad87e61e0c574031daf7d9552a}
+      \strng{authorfullhash}{692219cff6cfc1984e9a716015a89670}
+      \strng{authorfullhashraw}{692219cff6cfc1984e9a716015a89670}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{J. Comp. Phys.}
+      \field{month}{1}
+      \field{title}{{Hyperbolic Divergence Cleaning for the MHD Equations}}
+      \field{volume}{175}
+      \field{year}{2002}
+      \true{nocite}
+      \field{pages}{645\bibrangedash 673}
+      \range{pages}{29}
+      \verb{doi}
+      \verb 10.1006/jcph.2001.6961
+      \endverb
+    \endentry
+    \entry{goedbloed-2004A}{book}{}{}
+      \name{author}{2}{}{%
+        {{hash=c0be4a954e36a5f3e10aaf97f903ee57}{%
+           family={Goedbloed},
+           familyi={G\bibinitperiod},
+           given={J.\bibnamedelimi P.\bibnamedelimi Hans},
+           giveni={J\bibinitperiod\bibinitdelim P\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=f2f65d73340235e4b41465fa2576cdfd}{%
+           family={Poedts},
+           familyi={P\bibinitperiod},
+           given={Stefaan},
+           giveni={S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge University Press}%
+      }
+      \strng{namehash}{8af9025145f86c60ee638fcd22ec0dc8}
+      \strng{fullhash}{8af9025145f86c60ee638fcd22ec0dc8}
+      \strng{fullhashraw}{8af9025145f86c60ee638fcd22ec0dc8}
+      \strng{bibnamehash}{8af9025145f86c60ee638fcd22ec0dc8}
+      \strng{authorbibnamehash}{8af9025145f86c60ee638fcd22ec0dc8}
+      \strng{authornamehash}{8af9025145f86c60ee638fcd22ec0dc8}
+      \strng{authorfullhash}{8af9025145f86c60ee638fcd22ec0dc8}
+      \strng{authorfullhashraw}{8af9025145f86c60ee638fcd22ec0dc8}
+      \field{extraname}{1}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{8}
+      \field{title}{{Principles of Magnetohydrodynamics}}
+      \field{year}{2004}
+      \true{nocite}
+    \endentry
+    \entry{goedbloed-2004B}{book}{}{}
+      \name{author}{2}{}{%
+        {{hash=c0be4a954e36a5f3e10aaf97f903ee57}{%
+           family={Goedbloed},
+           familyi={G\bibinitperiod},
+           given={J.\bibnamedelimi P.\bibnamedelimi Hans},
+           giveni={J\bibinitperiod\bibinitdelim P\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=f2f65d73340235e4b41465fa2576cdfd}{%
+           family={Poedts},
+           familyi={P\bibinitperiod},
+           given={Stefaan},
+           giveni={S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge University Press}%
+      }
+      \strng{namehash}{8af9025145f86c60ee638fcd22ec0dc8}
+      \strng{fullhash}{8af9025145f86c60ee638fcd22ec0dc8}
+      \strng{fullhashraw}{8af9025145f86c60ee638fcd22ec0dc8}
+      \strng{bibnamehash}{8af9025145f86c60ee638fcd22ec0dc8}
+      \strng{authorbibnamehash}{8af9025145f86c60ee638fcd22ec0dc8}
+      \strng{authornamehash}{8af9025145f86c60ee638fcd22ec0dc8}
+      \strng{authorfullhash}{8af9025145f86c60ee638fcd22ec0dc8}
+      \strng{authorfullhashraw}{8af9025145f86c60ee638fcd22ec0dc8}
+      \field{extraname}{2}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{8}
+      \field{title}{{Principles of Magnetohydrodynamics}}
+      \field{year}{2004}
+      \true{nocite}
+    \endentry
+    \entry{gomes-2017}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=f25bc0f92f526e7efdbefa304a2f1906}{%
+           family={Gomes},
+           familyi={G\bibinitperiod},
+           given={Anna\bibnamedelimb Karina\bibnamedelima Fontes},
+           giveni={A\bibinitperiod\bibinitdelim K\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+        {{hash=22d5e5446ceeb7a09e7454162b104157}{%
+           family={Domingues},
+           familyi={D\bibinitperiod},
+           given={Margarete\bibnamedelima Oliveira},
+           giveni={M\bibinitperiod\bibinitdelim O\bibinitperiod}}}%
+        {{hash=532ee9c8d18aead7580917b98ea0f264}{%
+           family={Mendes},
+           familyi={M\bibinitperiod},
+           given={Odim},
+           giveni={O\bibinitperiod}}}%
+      }
+      \strng{namehash}{76d2a36516bb2ecb88f4bf65a732d11a}
+      \strng{fullhash}{76d2a36516bb2ecb88f4bf65a732d11a}
+      \strng{fullhashraw}{76d2a36516bb2ecb88f4bf65a732d11a}
+      \strng{bibnamehash}{76d2a36516bb2ecb88f4bf65a732d11a}
+      \strng{authorbibnamehash}{76d2a36516bb2ecb88f4bf65a732d11a}
+      \strng{authornamehash}{76d2a36516bb2ecb88f4bf65a732d11a}
+      \strng{authorfullhash}{76d2a36516bb2ecb88f4bf65a732d11a}
+      \strng{authorfullhashraw}{76d2a36516bb2ecb88f4bf65a732d11a}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{TEMA (São Carlos)}
+      \field{month}{8}
+      \field{number}{2}
+      \field{title}{{Ideal and Resistive Magnetohydrodynamic Two-Dimensional Simulation of the Kelvin-Helmholtz Instability in the Context of Adaptive Multiresolution Analysis}}
+      \field{volume}{18}
+      \field{year}{2017}
+      \field{pages}{0317}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.5540/tema.2017.018.02.0317
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.5540/tema.2017.018.02.0317
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.5540/tema.2017.018.02.0317
+      \endverb
+    \endentry
+    \entry{grebenev-2012}{article}{}{}
+      \name{author}{4}{}{%
+        {{hash=4926dc99810e2a846cf7090ee3f4734e}{%
+           family={Grebenev},
+           familyi={G\bibinitperiod},
+           given={S.\bibnamedelimi A.},
+           giveni={S\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=27a1a5ef66184668f2da679961aa49f3}{%
+           family={Lutovinov},
+           familyi={L\bibinitperiod},
+           given={A.\bibnamedelimi A.},
+           giveni={A\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=7dba0fbcb1b28838f326a4fb273ac897}{%
+           family={Tsygankov},
+           familyi={T\bibinitperiod},
+           given={S.\bibnamedelimi S.},
+           giveni={S\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=3cda4f3319e13207e7daabe686d5bb19}{%
+           family={Mereminskiy},
+           familyi={M\bibinitperiod},
+           given={I.\bibnamedelimi A.},
+           giveni={I\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \strng{namehash}{108f61d7496a2438b07cb05a38a41fbd}
+      \strng{fullhash}{f3c58db5016b0e3a9c6506d876d1ac4b}
+      \strng{fullhashraw}{f3c58db5016b0e3a9c6506d876d1ac4b}
+      \strng{bibnamehash}{108f61d7496a2438b07cb05a38a41fbd}
+      \strng{authorbibnamehash}{108f61d7496a2438b07cb05a38a41fbd}
+      \strng{authornamehash}{108f61d7496a2438b07cb05a38a41fbd}
+      \strng{authorfullhash}{f3c58db5016b0e3a9c6506d876d1ac4b}
+      \strng{authorfullhashraw}{f3c58db5016b0e3a9c6506d876d1ac4b}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Monthly Notices of the Royal Astronomical Society}
       \field{month}{10}
-      \field{number}{3}
-      \field{title}{{On the linear and non-linear evolution of the relativistic MHD Kelvin–Helmholtz instability in a magnetically polarized fluid}}
-      \field{volume}{490}
-      \field{year}{2019}
-      \field{pages}{4183\bibrangedash 4193}
-      \range{pages}{11}
-      \verb{doi}
-      \verb 10.1093/mnras/stz2750
-      \endverb
-      \verb{urlraw}
-      \verb https://doi.org/10.1093/mnras/stz2750
-      \endverb
-      \verb{url}
-      \verb https://doi.org/10.1093/mnras/stz2750
-      \endverb
-    \endentry
-    \entry{osmanov-2008}{article}{}{}
-      \name{author}{5}{}{%
-        {{hash=a19fcfc5b562b6074d39878dbfbf01f1}{%
-           family={Osmanov},
-           familyi={O\bibinitperiod},
-           given={Z.},
-           giveni={Z\bibinitperiod}}}%
-        {{hash=75beab607040d7bbd00bcae3e44815b9}{%
-           family={Mignone},
-           familyi={M\bibinitperiod},
-           given={A.},
-           giveni={A\bibinitperiod}}}%
-        {{hash=1cbe997e48c09604df9c07b7466fe746}{%
-           family={Massaglia},
-           familyi={M\bibinitperiod},
-           given={S.},
-           giveni={S\bibinitperiod}}}%
-        {{hash=7b1d61e1c60cab823fb801398e748af3}{%
-           family={Bodo},
-           familyi={B\bibinitperiod},
-           given={G.},
-           giveni={G\bibinitperiod}}}%
-        {{hash=bde299c24270f27deea76d08466e6bee}{%
-           family={Ferrari},
-           familyi={F\bibinitperiod},
-           given={A.},
-           giveni={A\bibinitperiod}}}%
-      }
-      \strng{namehash}{ecf0fd82b90216dafe046b8a3de62925}
-      \strng{fullhash}{40254153f202f7280c8895dde8aa42e0}
-      \strng{fullhashraw}{40254153f202f7280c8895dde8aa42e0}
-      \strng{bibnamehash}{ecf0fd82b90216dafe046b8a3de62925}
-      \strng{authorbibnamehash}{ecf0fd82b90216dafe046b8a3de62925}
-      \strng{authornamehash}{ecf0fd82b90216dafe046b8a3de62925}
-      \strng{authorfullhash}{40254153f202f7280c8895dde8aa42e0}
-      \strng{authorfullhashraw}{40254153f202f7280c8895dde8aa42e0}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Astronomy and Astrophysics}
-      \field{month}{9}
-      \field{number}{2}
-      \field{title}{{On the linear theory of Kelvin-Helmholtz instabilities of relativistic magnetohydrodynamic planar flows}}
-      \field{volume}{490}
-      \field{year}{2008}
-      \field{pages}{493\bibrangedash 500}
+      \field{number}{1}
+      \field{title}{{Deep hard X-ray survey of the Large Magellanic Cloud}}
+      \field{volume}{428}
+      \field{year}{2012}
+      \true{nocite}
+      \field{pages}{50\bibrangedash 57}
       \range{pages}{8}
       \verb{doi}
-      \verb 10.1051/0004-6361:200809605
+      \verb 10.1093/mnras/sts008
       \endverb
       \verb{urlraw}
-      \verb https://doi.org/10.1051/0004-6361:200809605
+      \verb https://doi.org/10.1093/mnras/sts008
       \endverb
       \verb{url}
-      \verb https://doi.org/10.1051/0004-6361:200809605
+      \verb https://doi.org/10.1093/mnras/sts008
+      \endverb
+    \endentry
+    \entry{goedbloed-2004}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=29d1b1128b97974db9d8785218ab964b}{%
+           family={H.\bibnamedelimi Goedbloed},
+           familyi={H\bibinitperiod\bibinitdelim G\bibinitperiod},
+           given={S.\bibnamedelimi Poedt},
+           giveni={S\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+      }
+      \strng{namehash}{29d1b1128b97974db9d8785218ab964b}
+      \strng{fullhash}{29d1b1128b97974db9d8785218ab964b}
+      \strng{fullhashraw}{29d1b1128b97974db9d8785218ab964b}
+      \strng{bibnamehash}{29d1b1128b97974db9d8785218ab964b}
+      \strng{authorbibnamehash}{29d1b1128b97974db9d8785218ab964b}
+      \strng{authornamehash}{29d1b1128b97974db9d8785218ab964b}
+      \strng{authorfullhash}{29d1b1128b97974db9d8785218ab964b}
+      \strng{authorfullhashraw}{29d1b1128b97974db9d8785218ab964b}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Fluid Mechanics}
+      \field{month}{10}
+      \field{title}{{Principles of Magnetohydrodynamics, with Applications to Laboratory and Astrophysical Plasma. By H. GOEDBLOED &amp; S. POEDT. Cambridge University Press, 2004. 632 pp. ISBN 0521 623472, £80 (hardback); ISBN 0521 626072, £40 (paperback)}}
+      \field{volume}{519}
+      \field{year}{2004}
+      \field{pages}{377\bibrangedash 379}
+      \range{pages}{3}
+      \verb{doi}
+      \verb 10.1017/s0022112004001466
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1017/s0022112004001466
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1017/s0022112004001466
+      \endverb
+    \endentry
+    \entry{harten-1983}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=b31882597bb5adf5c5cf5989e6bfa154}{%
+           family={Harten},
+           familyi={H\bibinitperiod},
+           given={Amiram},
+           giveni={A\bibinitperiod}}}%
+        {{hash=abbc763550a217a607ccd737ae8ee05f}{%
+           family={Lax},
+           familyi={L\bibinitperiod},
+           given={Peter\bibnamedelima D.},
+           giveni={P\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+        {{hash=8cce1bbdbb258721a1579b743bbe9c17}{%
+           family={Van\bibnamedelima Leer},
+           familyi={V\bibinitperiod\bibinitdelim L\bibinitperiod},
+           given={Bram},
+           giveni={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{939605b6f39de60368106f8fa3a72b78}
+      \strng{fullhash}{939605b6f39de60368106f8fa3a72b78}
+      \strng{fullhashraw}{939605b6f39de60368106f8fa3a72b78}
+      \strng{bibnamehash}{939605b6f39de60368106f8fa3a72b78}
+      \strng{authorbibnamehash}{939605b6f39de60368106f8fa3a72b78}
+      \strng{authornamehash}{939605b6f39de60368106f8fa3a72b78}
+      \strng{authorfullhash}{939605b6f39de60368106f8fa3a72b78}
+      \strng{authorfullhashraw}{939605b6f39de60368106f8fa3a72b78}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{SIAM Review}
+      \field{month}{1}
+      \field{number}{1}
+      \field{title}{{On Upstream Differencing and Godunov-Type Schemes for Hyperbolic Conservation Laws}}
+      \field{volume}{25}
+      \field{year}{1983}
+      \true{nocite}
+      \field{pages}{35\bibrangedash 61}
+      \range{pages}{27}
+      \verb{doi}
+      \verb 10.1137/1025002
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1137/1025002
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1137/1025002
+      \endverb
+    \endentry
+    \entry{HLL:1983}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=b31882597bb5adf5c5cf5989e6bfa154}{%
+           family={{Harten}},
+           familyi={H\bibinitperiod},
+           given={Amiram},
+           giveni={A\bibinitperiod}}}%
+        {{hash=abbc763550a217a607ccd737ae8ee05f}{%
+           family={{Lax}},
+           familyi={L\bibinitperiod},
+           given={Peter\bibnamedelima D.},
+           giveni={P\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+        {{hash=dec08d0586fd66fdb80ebe7eb1e49afd}{%
+           family={{van Leer}},
+           familyi={v\bibinitperiod},
+           given={Bram},
+           giveni={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{8ba4bc46fc9c052312eef6848d28b445}
+      \strng{fullhash}{8ba4bc46fc9c052312eef6848d28b445}
+      \strng{fullhashraw}{8ba4bc46fc9c052312eef6848d28b445}
+      \strng{bibnamehash}{8ba4bc46fc9c052312eef6848d28b445}
+      \strng{authorbibnamehash}{8ba4bc46fc9c052312eef6848d28b445}
+      \strng{authornamehash}{8ba4bc46fc9c052312eef6848d28b445}
+      \strng{authorfullhash}{8ba4bc46fc9c052312eef6848d28b445}
+      \strng{authorfullhashraw}{8ba4bc46fc9c052312eef6848d28b445}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{SIAM Review}
+      \field{number}{1}
+      \field{title}{{On Upstream Differencing and Godunov-Type Schemes for Hyperbolic Conservation Laws}}
+      \field{volume}{25}
+      \field{year}{1983}
+      \true{nocite}
+      \field{pages}{35\bibrangedash 61}
+      \range{pages}{27}
+      \verb{doi}
+      \verb 10.1137/1025002
       \endverb
     \endentry
     \entry{komissarov-2007}{article}{}{}
@@ -269,8 +583,8 @@
       \strng{authornamehash}{e2cb69164e5fefb5e7cce3e1dc0ed422}
       \strng{authorfullhash}{e2cb69164e5fefb5e7cce3e1dc0ed422}
       \strng{authorfullhashraw}{e2cb69164e5fefb5e7cce3e1dc0ed422}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Monthly Notices of the Royal Astronomical Society}
@@ -332,8 +646,8 @@
       \strng{authornamehash}{387bebaae4fd40456c4d147fff64f1b7}
       \strng{authorfullhash}{3bfddd70a955be2a7139cee2f5e6f3f1}
       \strng{authorfullhashraw}{3bfddd70a955be2a7139cee2f5e6f3f1}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Monthly Notices of the Royal Astronomical Society}
@@ -355,239 +669,48 @@
       \verb https://doi.org/10.1111/j.1365-2966.2007.12467.x
       \endverb
     \endentry
-    \entry{wang-2009}{article}{}{}
+    \entry{la-rosa-2016}{article}{}{}
       \name{author}{2}{}{%
-        {{hash=944d21a090d2fc32d2cdd40c7a346126}{%
-           family={Wang},
-           familyi={W\bibinitperiod},
-           given={Li},
-           giveni={L\bibinitperiod}}}%
-        {{hash=fb2f8c6abfb7489eccddc0caa7651f65}{%
-           family={Mavriplis},
+        {{hash=cc717f870511936bbe8191d416155f07}{%
+           family={La\bibnamedelima Rosa},
+           familyi={L\bibinitperiod\bibinitdelim R\bibinitperiod},
+           given={Jonatan\bibnamedelima Núñez-De},
+           giveni={J\bibinitperiod\bibinitdelim N\bibinithyphendelim D\bibinitperiod}}}%
+        {{hash=3d92207fc90bce47bc0a789e74abd02b}{%
+           family={Munz},
            familyi={M\bibinitperiod},
-           given={Dimitri\bibnamedelima J.},
-           giveni={D\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+           given={Claus-Dieter},
+           giveni={C\bibinithyphendelim D\bibinitperiod}}}%
       }
-      \strng{namehash}{7b183f35a68de5fe6b4b6792baa514a6}
-      \strng{fullhash}{7b183f35a68de5fe6b4b6792baa514a6}
-      \strng{fullhashraw}{7b183f35a68de5fe6b4b6792baa514a6}
-      \strng{bibnamehash}{7b183f35a68de5fe6b4b6792baa514a6}
-      \strng{authorbibnamehash}{7b183f35a68de5fe6b4b6792baa514a6}
-      \strng{authornamehash}{7b183f35a68de5fe6b4b6792baa514a6}
-      \strng{authorfullhash}{7b183f35a68de5fe6b4b6792baa514a6}
-      \strng{authorfullhashraw}{7b183f35a68de5fe6b4b6792baa514a6}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Journal of Computational Physics}
-      \field{month}{7}
-      \field{number}{20}
-      \field{title}{{Adjoint-based h–p adaptive discontinuous Galerkin methods for the 2D compressible Euler equations}}
-      \field{volume}{228}
-      \field{year}{2009}
-      \true{nocite}
-      \field{pages}{7643\bibrangedash 7661}
-      \range{pages}{19}
-      \verb{doi}
-      \verb 10.1016/j.jcp.2009.07.012
-      \endverb
-      \verb{urlraw}
-      \verb https://doi.org/10.1016/j.jcp.2009.07.012
-      \endverb
-      \verb{url}
-      \verb https://doi.org/10.1016/j.jcp.2009.07.012
-      \endverb
-    \endentry
-    \entry{vignolo-2002}{article}{}{}
-      \name{author}{4}{}{%
-        {{hash=c19ab9157f1b93c81ee695681c96cae3}{%
-           family={Vignolo},
-           familyi={V\bibinitperiod},
-           given={P.},
-           giveni={P\bibinitperiod}}}%
-        {{hash=611550818a806a97fbfc7bbebf0e09c8}{%
-           family={Chiofalo},
-           familyi={C\bibinitperiod},
-           given={M.L.},
-           giveni={M\bibinitperiod}}}%
-        {{hash=c1fcf59aa6483d1f2eada4bdbc70b7df}{%
-           family={Tosi},
-           familyi={T\bibinitperiod},
-           given={M.P.},
-           giveni={M\bibinitperiod}}}%
-        {{hash=e9702a468418820f53936ab2a5cbd22c}{%
-           family={Succi},
-           familyi={S\bibinitperiod},
-           given={Sauro},
-           giveni={S\bibinitperiod}}}%
-      }
-      \strng{namehash}{78c4090297ecfddfe303590e2b164958}
-      \strng{fullhash}{a318595b64eecc58839398ff7ffa3dd4}
-      \strng{fullhashraw}{a318595b64eecc58839398ff7ffa3dd4}
-      \strng{bibnamehash}{78c4090297ecfddfe303590e2b164958}
-      \strng{authorbibnamehash}{78c4090297ecfddfe303590e2b164958}
-      \strng{authornamehash}{78c4090297ecfddfe303590e2b164958}
-      \strng{authorfullhash}{a318595b64eecc58839398ff7ffa3dd4}
-      \strng{authorfullhashraw}{a318595b64eecc58839398ff7ffa3dd4}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Journal of Computational Physics}
-      \field{month}{11}
-      \field{number}{2}
-      \field{title}{{Explicit Finite-Difference and Particle Method for the Dynamics of Mixed Bose-Condensate and Cold-Atom Clouds}}
-      \field{volume}{182}
-      \field{year}{2002}
-      \true{nocite}
-      \field{pages}{368\bibrangedash 391}
-      \range{pages}{24}
-      \verb{doi}
-      \verb 10.1006/jcph.2002.7171
-      \endverb
-      \verb{urlraw}
-      \verb https://doi.org/10.1006/jcph.2002.7171
-      \endverb
-      \verb{url}
-      \verb https://doi.org/10.1006/jcph.2002.7171
-      \endverb
-    \endentry
-    \entry{takamoto-2011}{article}{}{}
-      \name{author}{2}{}{%
-        {{hash=d9a5cf169a1e1ff25ce4d1cefa58d94a}{%
-           family={Takamoto},
-           familyi={T\bibinitperiod},
-           given={Makoto},
-           giveni={M\bibinitperiod}}}%
-        {{hash=af69282f041ea916f71505f142785679}{%
-           family={Inoue},
-           familyi={I\bibinitperiod},
-           given={Tsuyoshi},
-           giveni={T\bibinitperiod}}}%
-      }
-      \strng{namehash}{657d1342da546fc3ab34b74fad3ca96a}
-      \strng{fullhash}{657d1342da546fc3ab34b74fad3ca96a}
-      \strng{fullhashraw}{657d1342da546fc3ab34b74fad3ca96a}
-      \strng{bibnamehash}{657d1342da546fc3ab34b74fad3ca96a}
-      \strng{authorbibnamehash}{657d1342da546fc3ab34b74fad3ca96a}
-      \strng{authornamehash}{657d1342da546fc3ab34b74fad3ca96a}
-      \strng{authorfullhash}{657d1342da546fc3ab34b74fad3ca96a}
-      \strng{authorfullhashraw}{657d1342da546fc3ab34b74fad3ca96a}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{The Astrophysical Journal}
-      \field{month}{6}
-      \field{number}{2}
-      \field{title}{{A NEW NUMERICAL SCHEME FOR RESISTIVE RELATIVISTIC MAGNETOHYDRODYNAMICS USING METHOD OF CHARACTERISTICS}}
-      \field{volume}{735}
-      \field{year}{2011}
-      \true{nocite}
-      \field{pages}{113}
-      \range{pages}{1}
-      \verb{doi}
-      \verb 10.1088/0004-637x/735/2/113
-      \endverb
-      \verb{urlraw}
-      \verb https://doi.org/10.1088/0004-637x/735/2/113
-      \endverb
-      \verb{url}
-      \verb https://doi.org/10.1088/0004-637x/735/2/113
-      \endverb
-    \endentry
-    \entry{harten-1983}{article}{}{}
-      \name{author}{3}{}{%
-        {{hash=b31882597bb5adf5c5cf5989e6bfa154}{%
-           family={Harten},
-           familyi={H\bibinitperiod},
-           given={Amiram},
-           giveni={A\bibinitperiod}}}%
-        {{hash=abbc763550a217a607ccd737ae8ee05f}{%
-           family={Lax},
-           familyi={L\bibinitperiod},
-           given={Peter\bibnamedelima D.},
-           giveni={P\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
-        {{hash=8cce1bbdbb258721a1579b743bbe9c17}{%
-           family={Van\bibnamedelima Leer},
-           familyi={V\bibinitperiod\bibinitdelim L\bibinitperiod},
-           given={Bram},
-           giveni={B\bibinitperiod}}}%
-      }
-      \strng{namehash}{939605b6f39de60368106f8fa3a72b78}
-      \strng{fullhash}{939605b6f39de60368106f8fa3a72b78}
-      \strng{fullhashraw}{939605b6f39de60368106f8fa3a72b78}
-      \strng{bibnamehash}{939605b6f39de60368106f8fa3a72b78}
-      \strng{authorbibnamehash}{939605b6f39de60368106f8fa3a72b78}
-      \strng{authornamehash}{939605b6f39de60368106f8fa3a72b78}
-      \strng{authorfullhash}{939605b6f39de60368106f8fa3a72b78}
-      \strng{authorfullhashraw}{939605b6f39de60368106f8fa3a72b78}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{SIAM Review}
-      \field{month}{1}
-      \field{number}{1}
-      \field{title}{{On Upstream Differencing and Godunov-Type Schemes for Hyperbolic Conservation Laws}}
-      \field{volume}{25}
-      \field{year}{1983}
-      \true{nocite}
-      \field{pages}{35\bibrangedash 61}
-      \range{pages}{27}
-      \verb{doi}
-      \verb 10.1137/1025002
-      \endverb
-      \verb{urlraw}
-      \verb https://doi.org/10.1137/1025002
-      \endverb
-      \verb{url}
-      \verb https://doi.org/10.1137/1025002
-      \endverb
-    \endentry
-    \entry{werner-2006}{article}{}{}
-      \name{author}{2}{}{%
-        {{hash=ade2a8fd2874da52ae65b5e704486731}{%
-           family={Werner},
-           familyi={W\bibinitperiod},
-           given={M.\bibnamedelimi C.},
-           giveni={M\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
-        {{hash=e7ff9e41b0da62d22d83855840a235e2}{%
-           family={Evans},
-           familyi={E\bibinitperiod},
-           given={N.\bibnamedelimi W.},
-           giveni={N\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
-      }
-      \strng{namehash}{7a1923ab1749f6424145c1777672c078}
-      \strng{fullhash}{7a1923ab1749f6424145c1777672c078}
-      \strng{fullhashraw}{7a1923ab1749f6424145c1777672c078}
-      \strng{bibnamehash}{7a1923ab1749f6424145c1777672c078}
-      \strng{authorbibnamehash}{7a1923ab1749f6424145c1777672c078}
-      \strng{authornamehash}{7a1923ab1749f6424145c1777672c078}
-      \strng{authorfullhash}{7a1923ab1749f6424145c1777672c078}
-      \strng{authorfullhashraw}{7a1923ab1749f6424145c1777672c078}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \strng{namehash}{bfc2e33c5da9db4ac79ba453dbcb1cd8}
+      \strng{fullhash}{bfc2e33c5da9db4ac79ba453dbcb1cd8}
+      \strng{fullhashraw}{bfc2e33c5da9db4ac79ba453dbcb1cd8}
+      \strng{bibnamehash}{bfc2e33c5da9db4ac79ba453dbcb1cd8}
+      \strng{authorbibnamehash}{bfc2e33c5da9db4ac79ba453dbcb1cd8}
+      \strng{authornamehash}{bfc2e33c5da9db4ac79ba453dbcb1cd8}
+      \strng{authorfullhash}{bfc2e33c5da9db4ac79ba453dbcb1cd8}
+      \strng{authorfullhashraw}{bfc2e33c5da9db4ac79ba453dbcb1cd8}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Monthly Notices of the Royal Astronomical Society}
       \field{month}{4}
-      \field{number}{3}
-      \field{title}{{A simple model for lensing by black holes in galactic nuclei}}
-      \field{volume}{368}
-      \field{year}{2006}
+      \field{number}{1}
+      \field{title}{{xtroem-fv: a new code for computational astrophysics based on very high order finite-volume methods – II. Relativistic hydro- and magnetohydrodynamics}}
+      \field{volume}{460}
+      \field{year}{2016}
       \true{nocite}
-      \field{pages}{1362\bibrangedash 1368}
-      \range{pages}{7}
+      \field{pages}{535\bibrangedash 559}
+      \range{pages}{25}
       \verb{doi}
-      \verb 10.1111/j.1365-2966.2006.10230.x
+      \verb 10.1093/mnras/stw999
       \endverb
       \verb{urlraw}
-      \verb https://doi.org/10.1111/j.1365-2966.2006.10230.x
+      \verb https://doi.org/10.1093/mnras/stw999
       \endverb
       \verb{url}
-      \verb https://doi.org/10.1111/j.1365-2966.2006.10230.x
+      \verb https://doi.org/10.1093/mnras/stw999
       \endverb
     \endentry
     \entry{macke-1963}{article}{}{}
@@ -606,8 +729,8 @@
       \strng{authornamehash}{88bf4d7cb10b8d347229c3e06852abf2}
       \strng{authorfullhash}{88bf4d7cb10b8d347229c3e06852abf2}
       \strng{authorfullhashraw}{88bf4d7cb10b8d347229c3e06852abf2}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{ZAMM ‐ Journal of Applied Mathematics and Mechanics / Zeitschrift für Angewandte Mathematik und Mechanik}
@@ -628,6 +751,373 @@
       \verb{url}
       \verb https://doi.org/10.1002/zamm.19630430623
       \endverb
+    \endentry
+    \entry{malagoli-1996}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=f1f0695e911a0ff467413383e5094d7c}{%
+           family={Malagoli},
+           familyi={M\bibinitperiod},
+           given={Andrea},
+           giveni={A\bibinitperiod}}}%
+        {{hash=ac71f226f13cd460cfcd207af279e9bc}{%
+           family={Bodo},
+           familyi={B\bibinitperiod},
+           given={Gianluigi},
+           giveni={G\bibinitperiod}}}%
+        {{hash=b581e76c1b119f4a488df2e7e0dd1555}{%
+           family={Rosner},
+           familyi={R\bibinitperiod},
+           given={Robert},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{ebb768bf60b7aa3216478d97b00fd62e}
+      \strng{fullhash}{ebb768bf60b7aa3216478d97b00fd62e}
+      \strng{fullhashraw}{ebb768bf60b7aa3216478d97b00fd62e}
+      \strng{bibnamehash}{ebb768bf60b7aa3216478d97b00fd62e}
+      \strng{authorbibnamehash}{ebb768bf60b7aa3216478d97b00fd62e}
+      \strng{authornamehash}{ebb768bf60b7aa3216478d97b00fd62e}
+      \strng{authorfullhash}{ebb768bf60b7aa3216478d97b00fd62e}
+      \strng{authorfullhashraw}{ebb768bf60b7aa3216478d97b00fd62e}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{The Astrophysical Journal}
+      \field{month}{1}
+      \field{title}{{On the Nonlinear Evolution of Magnetohydrodynamic Kelvin-Helmholtz Instabilities}}
+      \field{volume}{456}
+      \field{year}{1996}
+      \field{pages}{708}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1086/176691
+      \endverb
+      \verb{urlraw}
+      \verb http://adsabs.harvard.edu/abs/1996ApJ...456..708M
+      \endverb
+      \verb{url}
+      \verb http://adsabs.harvard.edu/abs/1996ApJ...456..708M
+      \endverb
+    \endentry
+    \entry{miranda-aranguren-2018}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=59dee04412d361d0be1d5991141b017d}{%
+           family={Miranda-Aranguren},
+           familyi={M\bibinithyphendelim A\bibinitperiod},
+           given={S},
+           giveni={S\bibinitperiod}}}%
+        {{hash=22d1517d7597aa28921aa2d8aa9a1d72}{%
+           family={Aloy},
+           familyi={A\bibinitperiod},
+           given={M\bibnamedelima A},
+           giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=314c59259faa330487a284b6448c0c3e}{%
+           family={Rembiasz},
+           familyi={R\bibinitperiod},
+           given={T},
+           giveni={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{067b98dbf0bd821a467be2940d319ff8}
+      \strng{fullhash}{067b98dbf0bd821a467be2940d319ff8}
+      \strng{fullhashraw}{067b98dbf0bd821a467be2940d319ff8}
+      \strng{bibnamehash}{067b98dbf0bd821a467be2940d319ff8}
+      \strng{authorbibnamehash}{067b98dbf0bd821a467be2940d319ff8}
+      \strng{authornamehash}{067b98dbf0bd821a467be2940d319ff8}
+      \strng{authorfullhash}{067b98dbf0bd821a467be2940d319ff8}
+      \strng{authorfullhashraw}{067b98dbf0bd821a467be2940d319ff8}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Monthly Notices of the Royal Astronomical Society}
+      \field{month}{2}
+      \field{number}{3}
+      \field{title}{{An HLLC Riemann solver for resistive relativistic magnetohydrodynamics}}
+      \field{volume}{476}
+      \field{year}{2018}
+      \field{pages}{3837\bibrangedash 3860}
+      \range{pages}{24}
+      \verb{doi}
+      \verb 10.1093/mnras/sty419
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1093/mnras/sty419
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1093/mnras/sty419
+      \endverb
+    \endentry
+    \entry{aranguren-2013}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=59dee04412d361d0be1d5991141b017d}{%
+           family={Miranda-Aranguren},
+           familyi={M\bibinithyphendelim A\bibinitperiod},
+           given={S},
+           giveni={S\bibinitperiod}}}%
+        {{hash=22d1517d7597aa28921aa2d8aa9a1d72}{%
+           family={Aloy},
+           familyi={A\bibinitperiod},
+           given={M.\bibnamedelimi A.},
+           giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=bd0878d4995644868d77dd3bac4775da}{%
+           family={Aloy},
+           familyi={A\bibinitperiod},
+           given={Carmen.},
+           giveni={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{bdd4c1723518258acdf00b410cfb7345}
+      \strng{fullhash}{bdd4c1723518258acdf00b410cfb7345}
+      \strng{fullhashraw}{bdd4c1723518258acdf00b410cfb7345}
+      \strng{bibnamehash}{bdd4c1723518258acdf00b410cfb7345}
+      \strng{authorbibnamehash}{bdd4c1723518258acdf00b410cfb7345}
+      \strng{authornamehash}{bdd4c1723518258acdf00b410cfb7345}
+      \strng{authorfullhash}{bdd4c1723518258acdf00b410cfb7345}
+      \strng{authorfullhashraw}{bdd4c1723518258acdf00b410cfb7345}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Proceedings of the International Astronomical Union}
+      \field{month}{8}
+      \field{number}{S302}
+      \field{title}{{Building a numerical relativistic non-ideal magnetohydrodynamics code for astrophysical applications}}
+      \field{volume}{9}
+      \field{year}{2013}
+      \field{pages}{64\bibrangedash 65}
+      \range{pages}{2}
+      \verb{doi}
+      \verb 10.1017/s1743921314001732
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1017/s1743921314001732
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1017/s1743921314001732
+      \endverb
+    \endentry
+    \entry{mizuno-2013}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=2b16aaffe30352ac2a55b07553802692}{%
+           family={Mizuno},
+           familyi={M\bibinitperiod},
+           given={Yosuke},
+           giveni={Y\bibinitperiod}}}%
+      }
+      \strng{namehash}{2b16aaffe30352ac2a55b07553802692}
+      \strng{fullhash}{2b16aaffe30352ac2a55b07553802692}
+      \strng{fullhashraw}{2b16aaffe30352ac2a55b07553802692}
+      \strng{bibnamehash}{2b16aaffe30352ac2a55b07553802692}
+      \strng{authorbibnamehash}{2b16aaffe30352ac2a55b07553802692}
+      \strng{authornamehash}{2b16aaffe30352ac2a55b07553802692}
+      \strng{authorfullhash}{2b16aaffe30352ac2a55b07553802692}
+      \strng{authorfullhashraw}{2b16aaffe30352ac2a55b07553802692}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{The Astrophysical Journal Supplement Series}
+      \field{month}{2}
+      \field{number}{1}
+      \field{title}{{THE ROLE OF THE EQUATION OF STATE IN RESISTIVE RELATIVISTIC MAGNETOHYDRODYNAMICS}}
+      \field{volume}{205}
+      \field{year}{2013}
+      \field{pages}{7}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1088/0067-0049/205/1/7
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1088/0067-0049/205/1/7
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1088/0067-0049/205/1/7
+      \endverb
+    \endentry
+    \entry{osmanov-2008}{article}{}{}
+      \name{author}{5}{}{%
+        {{hash=a19fcfc5b562b6074d39878dbfbf01f1}{%
+           family={Osmanov},
+           familyi={O\bibinitperiod},
+           given={Z.},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=75beab607040d7bbd00bcae3e44815b9}{%
+           family={Mignone},
+           familyi={M\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=1cbe997e48c09604df9c07b7466fe746}{%
+           family={Massaglia},
+           familyi={M\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+        {{hash=7b1d61e1c60cab823fb801398e748af3}{%
+           family={Bodo},
+           familyi={B\bibinitperiod},
+           given={G.},
+           giveni={G\bibinitperiod}}}%
+        {{hash=bde299c24270f27deea76d08466e6bee}{%
+           family={Ferrari},
+           familyi={F\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{ecf0fd82b90216dafe046b8a3de62925}
+      \strng{fullhash}{40254153f202f7280c8895dde8aa42e0}
+      \strng{fullhashraw}{40254153f202f7280c8895dde8aa42e0}
+      \strng{bibnamehash}{ecf0fd82b90216dafe046b8a3de62925}
+      \strng{authorbibnamehash}{ecf0fd82b90216dafe046b8a3de62925}
+      \strng{authornamehash}{ecf0fd82b90216dafe046b8a3de62925}
+      \strng{authorfullhash}{40254153f202f7280c8895dde8aa42e0}
+      \strng{authorfullhashraw}{40254153f202f7280c8895dde8aa42e0}
+      \field{sortinit}{O}
+      \field{sortinithash}{2cd7140a07aea5341f9e2771efe90aae}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Astronomy and Astrophysics}
+      \field{month}{9}
+      \field{number}{2}
+      \field{title}{{On the linear theory of Kelvin-Helmholtz instabilities of relativistic magnetohydrodynamic planar flows}}
+      \field{volume}{490}
+      \field{year}{2008}
+      \field{pages}{493\bibrangedash 500}
+      \range{pages}{8}
+      \verb{doi}
+      \verb 10.1051/0004-6361:200809605
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1051/0004-6361:200809605
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1051/0004-6361:200809605
+      \endverb
+    \endentry
+    \entry{palenzuela-2009}{article}{}{}
+      \name{author}{4}{}{%
+        {{hash=e5fd1074051315c12df8f04bbdbdad3d}{%
+           family={Palenzuela},
+           familyi={P\bibinitperiod},
+           given={Carlos},
+           giveni={C\bibinitperiod}}}%
+        {{hash=9242d5ccc897e156a61c4669954d3856}{%
+           family={Lehner},
+           familyi={L\bibinitperiod},
+           given={Luis},
+           giveni={L\bibinitperiod}}}%
+        {{hash=48e5b73b48d0c3d5dfe7a16e0c7268f6}{%
+           family={Reula},
+           familyi={R\bibinitperiod},
+           given={Oscar},
+           giveni={O\bibinitperiod}}}%
+        {{hash=72c35344cecfdbbeebc71d2ca292436a}{%
+           family={Rezzolla},
+           familyi={R\bibinitperiod},
+           given={Luciano},
+           giveni={L\bibinitperiod}}}%
+      }
+      \strng{namehash}{cb3dbbf891f83a7cbb0d3537212cfe9f}
+      \strng{fullhash}{d369def3bd7a755d5e98e7cc78c6c046}
+      \strng{fullhashraw}{d369def3bd7a755d5e98e7cc78c6c046}
+      \strng{bibnamehash}{cb3dbbf891f83a7cbb0d3537212cfe9f}
+      \strng{authorbibnamehash}{cb3dbbf891f83a7cbb0d3537212cfe9f}
+      \strng{authornamehash}{cb3dbbf891f83a7cbb0d3537212cfe9f}
+      \strng{authorfullhash}{d369def3bd7a755d5e98e7cc78c6c046}
+      \strng{authorfullhashraw}{d369def3bd7a755d5e98e7cc78c6c046}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Monthly Notices of the Royal Astronomical Society}
+      \field{month}{3}
+      \field{number}{4}
+      \field{title}{{Beyond ideal MHD: towards a more realistic modelling of relativistic astrophysical plasmas}}
+      \field{volume}{394}
+      \field{year}{2009}
+      \field{pages}{1727\bibrangedash 1740}
+      \range{pages}{14}
+      \verb{doi}
+      \verb 10.1111/j.1365-2966.2009.14454.x
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1111/j.1365-2966.2009.14454.x
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1111/j.1365-2966.2009.14454.x
+      \endverb
+    \endentry
+    \entry{pimentel-2019}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=c906084685ee441bf5a56df6b95be94f}{%
+           family={Pimentel},
+           familyi={P\bibinitperiod},
+           given={Oscar\bibnamedelima M},
+           giveni={O\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=d54b809c4d5b32f9995c94a1ad9297df}{%
+           family={Lora-Clavijo},
+           familyi={L\bibinithyphendelim C\bibinitperiod},
+           given={Fabio\bibnamedelima D},
+           giveni={F\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+      }
+      \strng{namehash}{d0e8604034dbaf67af37425cdecb080d}
+      \strng{fullhash}{d0e8604034dbaf67af37425cdecb080d}
+      \strng{fullhashraw}{d0e8604034dbaf67af37425cdecb080d}
+      \strng{bibnamehash}{d0e8604034dbaf67af37425cdecb080d}
+      \strng{authorbibnamehash}{d0e8604034dbaf67af37425cdecb080d}
+      \strng{authornamehash}{d0e8604034dbaf67af37425cdecb080d}
+      \strng{authorfullhash}{d0e8604034dbaf67af37425cdecb080d}
+      \strng{authorfullhashraw}{d0e8604034dbaf67af37425cdecb080d}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Monthly Notices of the Royal Astronomical Society}
+      \field{month}{10}
+      \field{number}{3}
+      \field{title}{{On the linear and non-linear evolution of the relativistic MHD Kelvin–Helmholtz instability in a magnetically polarized fluid}}
+      \field{volume}{490}
+      \field{year}{2019}
+      \field{pages}{4183\bibrangedash 4193}
+      \range{pages}{11}
+      \verb{doi}
+      \verb 10.1093/mnras/stz2750
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1093/mnras/stz2750
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1093/mnras/stz2750
+      \endverb
+    \endentry
+    \entry{rezzolla-2013}{book}{}{}
+      \name{author}{2}{}{%
+        {{hash=72c35344cecfdbbeebc71d2ca292436a}{%
+           family={Rezzolla},
+           familyi={R\bibinitperiod},
+           given={Luciano},
+           giveni={L\bibinitperiod}}}%
+        {{hash=5dd4522b51fbd89f507a9f5f23b66b3b}{%
+           family={Zanotti},
+           familyi={Z\bibinitperiod},
+           given={Olindo},
+           giveni={O\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Oxford University Press, USA}%
+      }
+      \strng{namehash}{5ca5a9045eb5ebfe4700e7f25e2d8226}
+      \strng{fullhash}{5ca5a9045eb5ebfe4700e7f25e2d8226}
+      \strng{fullhashraw}{5ca5a9045eb5ebfe4700e7f25e2d8226}
+      \strng{bibnamehash}{5ca5a9045eb5ebfe4700e7f25e2d8226}
+      \strng{authorbibnamehash}{5ca5a9045eb5ebfe4700e7f25e2d8226}
+      \strng{authornamehash}{5ca5a9045eb5ebfe4700e7f25e2d8226}
+      \strng{authorfullhash}{5ca5a9045eb5ebfe4700e7f25e2d8226}
+      \strng{authorfullhashraw}{5ca5a9045eb5ebfe4700e7f25e2d8226}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{9}
+      \field{title}{{Relativistic hydrodynamics}}
+      \field{year}{2013}
     \endentry
     \entry{strickman-1996}{article}{}{}
       \name{author}{11}{}{%
@@ -695,8 +1185,8 @@
       \strng{authornamehash}{d8ac06c1fc0447220e6b353ab7feb6e9}
       \strng{authorfullhash}{9324d07b3a62e231f753a6f604daa8bf}
       \strng{authorfullhashraw}{9324d07b3a62e231f753a6f604daa8bf}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{The Astrophysical Journal}
@@ -717,155 +1207,269 @@
       \verb https://doi.org/10.1086/177006
       \endverb
     \endentry
-    \entry{grebenev-2012}{article}{}{}
-      \name{author}{4}{}{%
-        {{hash=4926dc99810e2a846cf7090ee3f4734e}{%
-           family={Grebenev},
-           familyi={G\bibinitperiod},
-           given={S.\bibnamedelimi A.},
-           giveni={S\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
-        {{hash=27a1a5ef66184668f2da679961aa49f3}{%
-           family={Lutovinov},
-           familyi={L\bibinitperiod},
-           given={A.\bibnamedelimi A.},
-           giveni={A\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
-        {{hash=7dba0fbcb1b28838f326a4fb273ac897}{%
-           family={Tsygankov},
+    \entry{takamoto-2011}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=d9a5cf169a1e1ff25ce4d1cefa58d94a}{%
+           family={Takamoto},
            familyi={T\bibinitperiod},
-           given={S.\bibnamedelimi S.},
-           giveni={S\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
-        {{hash=3cda4f3319e13207e7daabe686d5bb19}{%
-           family={Mereminskiy},
-           familyi={M\bibinitperiod},
-           given={I.\bibnamedelimi A.},
-           giveni={I\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+           given={Makoto},
+           giveni={M\bibinitperiod}}}%
+        {{hash=af69282f041ea916f71505f142785679}{%
+           family={Inoue},
+           familyi={I\bibinitperiod},
+           given={Tsuyoshi},
+           giveni={T\bibinitperiod}}}%
       }
-      \strng{namehash}{108f61d7496a2438b07cb05a38a41fbd}
-      \strng{fullhash}{f3c58db5016b0e3a9c6506d876d1ac4b}
-      \strng{fullhashraw}{f3c58db5016b0e3a9c6506d876d1ac4b}
-      \strng{bibnamehash}{108f61d7496a2438b07cb05a38a41fbd}
-      \strng{authorbibnamehash}{108f61d7496a2438b07cb05a38a41fbd}
-      \strng{authornamehash}{108f61d7496a2438b07cb05a38a41fbd}
-      \strng{authorfullhash}{f3c58db5016b0e3a9c6506d876d1ac4b}
-      \strng{authorfullhashraw}{f3c58db5016b0e3a9c6506d876d1ac4b}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \strng{namehash}{657d1342da546fc3ab34b74fad3ca96a}
+      \strng{fullhash}{657d1342da546fc3ab34b74fad3ca96a}
+      \strng{fullhashraw}{657d1342da546fc3ab34b74fad3ca96a}
+      \strng{bibnamehash}{657d1342da546fc3ab34b74fad3ca96a}
+      \strng{authorbibnamehash}{657d1342da546fc3ab34b74fad3ca96a}
+      \strng{authornamehash}{657d1342da546fc3ab34b74fad3ca96a}
+      \strng{authorfullhash}{657d1342da546fc3ab34b74fad3ca96a}
+      \strng{authorfullhashraw}{657d1342da546fc3ab34b74fad3ca96a}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{The Astrophysical Journal}
+      \field{month}{6}
+      \field{number}{2}
+      \field{title}{{A NEW NUMERICAL SCHEME FOR RESISTIVE RELATIVISTIC MAGNETOHYDRODYNAMICS USING METHOD OF CHARACTERISTICS}}
+      \field{volume}{735}
+      \field{year}{2011}
+      \field{pages}{113}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1088/0004-637x/735/2/113
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1088/0004-637x/735/2/113
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1088/0004-637x/735/2/113
+      \endverb
+    \endentry
+    \entry{tian-2016}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=97f6ade4f2d52b12a9723012ca1bf615}{%
+           family={Tian},
+           familyi={T\bibinitperiod},
+           given={Chunlin},
+           giveni={C\bibinitperiod}}}%
+        {{hash=156547ae78e1a840d1a511fd19df87d3}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Yao},
+           giveni={Y\bibinitperiod}}}%
+      }
+      \strng{namehash}{52135da5156ba0ddd8ff478500fab4e8}
+      \strng{fullhash}{52135da5156ba0ddd8ff478500fab4e8}
+      \strng{fullhashraw}{52135da5156ba0ddd8ff478500fab4e8}
+      \strng{bibnamehash}{52135da5156ba0ddd8ff478500fab4e8}
+      \strng{authorbibnamehash}{52135da5156ba0ddd8ff478500fab4e8}
+      \strng{authornamehash}{52135da5156ba0ddd8ff478500fab4e8}
+      \strng{authorfullhash}{52135da5156ba0ddd8ff478500fab4e8}
+      \strng{authorfullhashraw}{52135da5156ba0ddd8ff478500fab4e8}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{The Astrophysical Journal}
+      \field{month}{6}
+      \field{number}{1}
+      \field{title}{{NUMERICAL SIMULATIONS OF KELVIN– HELMHOLTZ INSTABILITY: a TWO-DIMENSIONAL PARAMETRIC STUDY}}
+      \field{volume}{824}
+      \field{year}{2016}
+      \field{pages}{60}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.3847/0004-637x/824/1/60
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.3847/0004-637x/824/1/60
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.3847/0004-637x/824/1/60
+      \endverb
+    \endentry
+    \entry{vignolo-2002}{article}{}{}
+      \name{author}{4}{}{%
+        {{hash=c19ab9157f1b93c81ee695681c96cae3}{%
+           family={Vignolo},
+           familyi={V\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod}}}%
+        {{hash=611550818a806a97fbfc7bbebf0e09c8}{%
+           family={Chiofalo},
+           familyi={C\bibinitperiod},
+           given={M.L.},
+           giveni={M\bibinitperiod}}}%
+        {{hash=c1fcf59aa6483d1f2eada4bdbc70b7df}{%
+           family={Tosi},
+           familyi={T\bibinitperiod},
+           given={M.P.},
+           giveni={M\bibinitperiod}}}%
+        {{hash=e9702a468418820f53936ab2a5cbd22c}{%
+           family={Succi},
+           familyi={S\bibinitperiod},
+           given={Sauro},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{78c4090297ecfddfe303590e2b164958}
+      \strng{fullhash}{a318595b64eecc58839398ff7ffa3dd4}
+      \strng{fullhashraw}{a318595b64eecc58839398ff7ffa3dd4}
+      \strng{bibnamehash}{78c4090297ecfddfe303590e2b164958}
+      \strng{authorbibnamehash}{78c4090297ecfddfe303590e2b164958}
+      \strng{authornamehash}{78c4090297ecfddfe303590e2b164958}
+      \strng{authorfullhash}{a318595b64eecc58839398ff7ffa3dd4}
+      \strng{authorfullhashraw}{a318595b64eecc58839398ff7ffa3dd4}
+      \field{sortinit}{V}
+      \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Computational Physics}
+      \field{month}{11}
+      \field{number}{2}
+      \field{title}{{Explicit Finite-Difference and Particle Method for the Dynamics of Mixed Bose-Condensate and Cold-Atom Clouds}}
+      \field{volume}{182}
+      \field{year}{2002}
+      \true{nocite}
+      \field{pages}{368\bibrangedash 391}
+      \range{pages}{24}
+      \verb{doi}
+      \verb 10.1006/jcph.2002.7171
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1006/jcph.2002.7171
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1006/jcph.2002.7171
+      \endverb
+    \endentry
+    \entry{wang-2009}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=944d21a090d2fc32d2cdd40c7a346126}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Li},
+           giveni={L\bibinitperiod}}}%
+        {{hash=fb2f8c6abfb7489eccddc0caa7651f65}{%
+           family={Mavriplis},
+           familyi={M\bibinitperiod},
+           given={Dimitri\bibnamedelima J.},
+           giveni={D\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+      }
+      \strng{namehash}{7b183f35a68de5fe6b4b6792baa514a6}
+      \strng{fullhash}{7b183f35a68de5fe6b4b6792baa514a6}
+      \strng{fullhashraw}{7b183f35a68de5fe6b4b6792baa514a6}
+      \strng{bibnamehash}{7b183f35a68de5fe6b4b6792baa514a6}
+      \strng{authorbibnamehash}{7b183f35a68de5fe6b4b6792baa514a6}
+      \strng{authornamehash}{7b183f35a68de5fe6b4b6792baa514a6}
+      \strng{authorfullhash}{7b183f35a68de5fe6b4b6792baa514a6}
+      \strng{authorfullhashraw}{7b183f35a68de5fe6b4b6792baa514a6}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Computational Physics}
+      \field{month}{7}
+      \field{number}{20}
+      \field{title}{{Adjoint-based h–p adaptive discontinuous Galerkin methods for the 2D compressible Euler equations}}
+      \field{volume}{228}
+      \field{year}{2009}
+      \true{nocite}
+      \field{pages}{7643\bibrangedash 7661}
+      \range{pages}{19}
+      \verb{doi}
+      \verb 10.1016/j.jcp.2009.07.012
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1016/j.jcp.2009.07.012
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1016/j.jcp.2009.07.012
+      \endverb
+    \endentry
+    \entry{werner-2006}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=ade2a8fd2874da52ae65b5e704486731}{%
+           family={Werner},
+           familyi={W\bibinitperiod},
+           given={M.\bibnamedelimi C.},
+           giveni={M\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=e7ff9e41b0da62d22d83855840a235e2}{%
+           family={Evans},
+           familyi={E\bibinitperiod},
+           given={N.\bibnamedelimi W.},
+           giveni={N\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+      }
+      \strng{namehash}{7a1923ab1749f6424145c1777672c078}
+      \strng{fullhash}{7a1923ab1749f6424145c1777672c078}
+      \strng{fullhashraw}{7a1923ab1749f6424145c1777672c078}
+      \strng{bibnamehash}{7a1923ab1749f6424145c1777672c078}
+      \strng{authorbibnamehash}{7a1923ab1749f6424145c1777672c078}
+      \strng{authornamehash}{7a1923ab1749f6424145c1777672c078}
+      \strng{authorfullhash}{7a1923ab1749f6424145c1777672c078}
+      \strng{authorfullhashraw}{7a1923ab1749f6424145c1777672c078}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Monthly Notices of the Royal Astronomical Society}
-      \field{month}{10}
-      \field{number}{1}
-      \field{title}{{Deep hard X-ray survey of the Large Magellanic Cloud}}
-      \field{volume}{428}
-      \field{year}{2012}
+      \field{month}{4}
+      \field{number}{3}
+      \field{title}{{A simple model for lensing by black holes in galactic nuclei}}
+      \field{volume}{368}
+      \field{year}{2006}
       \true{nocite}
-      \field{pages}{50\bibrangedash 57}
-      \range{pages}{8}
+      \field{pages}{1362\bibrangedash 1368}
+      \range{pages}{7}
       \verb{doi}
-      \verb 10.1093/mnras/sts008
+      \verb 10.1111/j.1365-2966.2006.10230.x
       \endverb
       \verb{urlraw}
-      \verb https://doi.org/10.1093/mnras/sts008
+      \verb https://doi.org/10.1111/j.1365-2966.2006.10230.x
       \endverb
       \verb{url}
-      \verb https://doi.org/10.1093/mnras/sts008
+      \verb https://doi.org/10.1111/j.1365-2966.2006.10230.x
       \endverb
     \endentry
-    \entry{goedbloed-2004A}{book}{}{}
+    \entry{zrake-2016}{article}{}{}
       \name{author}{2}{}{%
-        {{hash=c0be4a954e36a5f3e10aaf97f903ee57}{%
-           family={Goedbloed},
-           familyi={G\bibinitperiod},
-           given={J.\bibnamedelimi P.\bibnamedelimi Hans},
-           giveni={J\bibinitperiod\bibinitdelim P\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
-        {{hash=f2f65d73340235e4b41465fa2576cdfd}{%
-           family={Poedts},
-           familyi={P\bibinitperiod},
-           given={Stefaan},
-           giveni={S\bibinitperiod}}}%
+        {{hash=1f7e9573174d9c72e422a309b6bbee56}{%
+           family={Zrake},
+           familyi={Z\bibinitperiod},
+           given={Jonathan},
+           giveni={J\bibinitperiod}}}%
+        {{hash=6f4eb0403f459f361f96393bc15c5ea2}{%
+           family={East},
+           familyi={E\bibinitperiod},
+           given={William\bibnamedelima E},
+           giveni={W\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
-        {Cambridge University Press}%
+        {IOP Publishing}%
       }
-      \strng{namehash}{8af9025145f86c60ee638fcd22ec0dc8}
-      \strng{fullhash}{8af9025145f86c60ee638fcd22ec0dc8}
-      \strng{fullhashraw}{8af9025145f86c60ee638fcd22ec0dc8}
-      \strng{bibnamehash}{8af9025145f86c60ee638fcd22ec0dc8}
-      \strng{authorbibnamehash}{8af9025145f86c60ee638fcd22ec0dc8}
-      \strng{authornamehash}{8af9025145f86c60ee638fcd22ec0dc8}
-      \strng{authorfullhash}{8af9025145f86c60ee638fcd22ec0dc8}
-      \strng{authorfullhashraw}{8af9025145f86c60ee638fcd22ec0dc8}
-      \field{extraname}{1}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \strng{namehash}{551246904831f182c7b4197b2f39641a}
+      \strng{fullhash}{551246904831f182c7b4197b2f39641a}
+      \strng{fullhashraw}{551246904831f182c7b4197b2f39641a}
+      \strng{bibnamehash}{551246904831f182c7b4197b2f39641a}
+      \strng{authorbibnamehash}{551246904831f182c7b4197b2f39641a}
+      \strng{authornamehash}{551246904831f182c7b4197b2f39641a}
+      \strng{authorfullhash}{551246904831f182c7b4197b2f39641a}
+      \strng{authorfullhashraw}{551246904831f182c7b4197b2f39641a}
+      \field{sortinit}{Z}
+      \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{month}{8}
-      \field{title}{{Principles of Magnetohydrodynamics}}
-      \field{year}{2004}
-      \true{nocite}
-    \endentry
-    \entry{goedbloed-2004B}{book}{}{}
-      \name{author}{2}{}{%
-        {{hash=c0be4a954e36a5f3e10aaf97f903ee57}{%
-           family={Goedbloed},
-           familyi={G\bibinitperiod},
-           given={J.\bibnamedelimi P.\bibnamedelimi Hans},
-           giveni={J\bibinitperiod\bibinitdelim P\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
-        {{hash=f2f65d73340235e4b41465fa2576cdfd}{%
-           family={Poedts},
-           familyi={P\bibinitperiod},
-           given={Stefaan},
-           giveni={S\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {Cambridge University Press}%
-      }
-      \strng{namehash}{8af9025145f86c60ee638fcd22ec0dc8}
-      \strng{fullhash}{8af9025145f86c60ee638fcd22ec0dc8}
-      \strng{fullhashraw}{8af9025145f86c60ee638fcd22ec0dc8}
-      \strng{bibnamehash}{8af9025145f86c60ee638fcd22ec0dc8}
-      \strng{authorbibnamehash}{8af9025145f86c60ee638fcd22ec0dc8}
-      \strng{authornamehash}{8af9025145f86c60ee638fcd22ec0dc8}
-      \strng{authorfullhash}{8af9025145f86c60ee638fcd22ec0dc8}
-      \strng{authorfullhashraw}{8af9025145f86c60ee638fcd22ec0dc8}
-      \field{extraname}{2}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{month}{8}
-      \field{title}{{Principles of Magnetohydrodynamics}}
-      \field{year}{2004}
-      \true{nocite}
-    \endentry
-    \entry{acheson-1990}{book}{}{}
-      \name{author}{1}{}{%
-        {{hash=1261a8a671538ce05acaeab192bb4f11}{%
-           family={Acheson},
-           familyi={A\bibinitperiod},
-           given={D.\bibnamedelimi J.},
-           giveni={D\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {Oxford University Press}%
-      }
-      \strng{namehash}{1261a8a671538ce05acaeab192bb4f11}
-      \strng{fullhash}{1261a8a671538ce05acaeab192bb4f11}
-      \strng{fullhashraw}{1261a8a671538ce05acaeab192bb4f11}
-      \strng{bibnamehash}{1261a8a671538ce05acaeab192bb4f11}
-      \strng{authorbibnamehash}{1261a8a671538ce05acaeab192bb4f11}
-      \strng{authornamehash}{1261a8a671538ce05acaeab192bb4f11}
-      \strng{authorfullhash}{1261a8a671538ce05acaeab192bb4f11}
-      \strng{authorfullhashraw}{1261a8a671538ce05acaeab192bb4f11}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{month}{3}
-      \field{title}{{Elementary fluid dynamics}}
-      \field{year}{1990}
-      \true{nocite}
+      \field{journaltitle}{The Astrophysical Journal}
+      \field{number}{2}
+      \field{title}{Turbulent dynamo in a collisionless plasma}
+      \field{volume}{817}
+      \field{year}{2016}
+      \field{pages}{89}
+      \range{pages}{1}
     \endentry
   \enddatalist
 \endrefsection

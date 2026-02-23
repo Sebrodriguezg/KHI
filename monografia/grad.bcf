@@ -172,7 +172,7 @@
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>sortingtemplatename</bcf:key>
-      <bcf:value>none</bcf:value>
+      <bcf:value>anyt</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>sortsets</bcf:key>
@@ -2406,35 +2406,62 @@
     <bcf:citekey order="18" intorder="2">palenzuela-2009</bcf:citekey>
     <bcf:citekey order="19" intorder="1">miranda-aranguren-2018</bcf:citekey>
     <bcf:citekey order="20" intorder="1">komissarov-2007</bcf:citekey>
-    <bcf:citekey order="21" intorder="1">acheson-1991</bcf:citekey>
-    <bcf:citekey order="22" intorder="1">goedbloed-2004</bcf:citekey>
-    <bcf:citekey order="23" intorder="1">tian-2016</bcf:citekey>
-    <bcf:citekey order="24" intorder="1">malagoli-1996</bcf:citekey>
-    <bcf:citekey order="25" intorder="1">rezzolla-2013</bcf:citekey>
-    <bcf:citekey order="26" intorder="1">osmanov-2008</bcf:citekey>
-    <bcf:citekey order="27" intorder="1">pimentel-2019</bcf:citekey>
-    <bcf:citekey order="28" intorder="1">bucciantini-2006</bcf:citekey>
-    <bcf:citekey order="29" intorder="1">palenzuela-2009</bcf:citekey>
-    <bcf:citekey order="30" intorder="1">mizuno-2013</bcf:citekey>
-    <bcf:citekey order="31" intorder="1">Aloy_Cordero-Carrion:2016</bcf:citekey>
-    <bcf:citekey order="32" intorder="1">miranda-aranguren-2018</bcf:citekey>
-    <bcf:citekey order="32" intorder="2">aranguren-2013</bcf:citekey>
-    <bcf:citekey order="33" intorder="1" nocite="1">*</bcf:citekey>
+    <bcf:citekey order="21" intorder="1">komissarov-2007</bcf:citekey>
+    <bcf:citekey order="22" intorder="1">rezzolla-2013</bcf:citekey>
+    <bcf:citekey order="23" intorder="1">acheson-1991</bcf:citekey>
+    <bcf:citekey order="24" intorder="1">goedbloed-2004</bcf:citekey>
+    <bcf:citekey order="25" intorder="1">tian-2016</bcf:citekey>
+    <bcf:citekey order="26" intorder="1">malagoli-1996</bcf:citekey>
+    <bcf:citekey order="27" intorder="1">rezzolla-2013</bcf:citekey>
+    <bcf:citekey order="28" intorder="1">osmanov-2008</bcf:citekey>
+    <bcf:citekey order="29" intorder="1">pimentel-2019</bcf:citekey>
+    <bcf:citekey order="30" intorder="1">bucciantini-2006</bcf:citekey>
+    <bcf:citekey order="31" intorder="1">palenzuela-2009</bcf:citekey>
+    <bcf:citekey order="32" intorder="1">mizuno-2013</bcf:citekey>
+    <bcf:citekey order="33" intorder="1">Aloy_Cordero-Carrion:2016</bcf:citekey>
+    <bcf:citekey order="34" intorder="1">miranda-aranguren-2018</bcf:citekey>
+    <bcf:citekey order="34" intorder="2">aranguren-2013</bcf:citekey>
+    <bcf:citekey order="35" intorder="1">zrake-2016</bcf:citekey>
+    <bcf:citekey order="35" intorder="2">takamoto-2011</bcf:citekey>
+    <bcf:citekey order="36" intorder="1" nocite="1">*</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
-  <bcf:sortingtemplate name="none">
+  <bcf:sortingtemplate name="anyt">
     <bcf:sort order="1">
-      <bcf:sortitem order="1">citeorder</bcf:sortitem>
+      <bcf:sortitem order="1">presort</bcf:sortitem>
     </bcf:sort>
     <bcf:sort order="2">
-      <bcf:sortitem order="1">intciteorder</bcf:sortitem>
+      <bcf:sortitem order="1">labelalpha</bcf:sortitem>
+    </bcf:sort>
+    <bcf:sort order="3" final="1">
+      <bcf:sortitem order="1">sortkey</bcf:sortitem>
+    </bcf:sort>
+    <bcf:sort order="4">
+      <bcf:sortitem order="1">sortname</bcf:sortitem>
+      <bcf:sortitem order="2">author</bcf:sortitem>
+      <bcf:sortitem order="3">editor</bcf:sortitem>
+      <bcf:sortitem order="4">translator</bcf:sortitem>
+      <bcf:sortitem order="5">sorttitle</bcf:sortitem>
+      <bcf:sortitem order="6">title</bcf:sortitem>
+    </bcf:sort>
+    <bcf:sort order="5">
+      <bcf:sortitem order="1">sortyear</bcf:sortitem>
+      <bcf:sortitem order="2">year</bcf:sortitem>
+    </bcf:sort>
+    <bcf:sort order="6">
+      <bcf:sortitem order="1">sorttitle</bcf:sortitem>
+      <bcf:sortitem order="2">title</bcf:sortitem>
+    </bcf:sort>
+    <bcf:sort order="7">
+      <bcf:sortitem order="1">volume</bcf:sortitem>
+      <bcf:sortitem literal="1" order="2">0</bcf:sortitem>
     </bcf:sort>
   </bcf:sortingtemplate>
   <!-- DATALISTS -->
   <bcf:datalist section="0"
-                name="none/global//global/global/global"
+                name="anyt/global//global/global/global"
                 type="entry"
-                sortingtemplatename="none"
+                sortingtemplatename="anyt"
                 sortingnamekeytemplatename="global"
                 labelprefix=""
                 uniquenametemplatename="global"
