@@ -11,11 +11,171 @@ El sistema de RRMHD conciste de una serie de leyes de conservacíon local covari
 
 
 
-    \subsection{Sistema de Leyes de Conservación}
-       
-    \subsubsection{Ecuaciones de Maxwell}
+  
 
+
+
+\subsection{Electrodinámica Covariante y el Tensor de Campo Electromagnético}
+\label{sec:Elec_Cov}
+En el marco de la relatividad especial, el espacio-tiempo se modela como una variedad diferenciable de cuatro dimensiones dotada de una métrica de Minkowski $\eta_{\mu\nu}$ con signatura $(-,+,+,+)$. Para garantizar la invariancia de forma de las leyes del electromagnetismo bajo transformaciones de Lorentz, es necesario abandonar la formulación vectorial tridimensional y adoptar una descripción tensorial en el espacio de Minkowski.
+
+\subsubsection{El Cuadripotencial y la Definición del Tensor de Faraday}
+
+El punto de partida es el cuadripotencial electromagnético
+
+\begin{equation}
+A^\mu = (\phi, \mathbf{A}),
+\end{equation}
+
+donde $\phi$ es el potencial escalar y $\mathbf{A}$ el potencial vectorial. 
+
+Bajo el principio de invariancia de gauge, las cantidades físicas deben permanecer invariantes ante la transformación
+
+\begin{equation}
+A_\mu \rightarrow A_\mu + \partial_\mu \Lambda,
+\end{equation}
+
+donde $\Lambda$ es un campo escalar arbitrario.
+
+El tensor de campo electromagnético (tensor de Faraday) se define como
+
+\begin{equation}
+F_{\mu\nu} = \partial_\mu A_\nu - \partial_\nu A_\mu.
+\end{equation}
+
+Por construcción, $F_{\mu\nu}$ es un tensor antisimétrico de rango 2,
+
+\begin{equation}
+F_{\mu\nu} = -F_{\nu\mu},
+\end{equation}
+
+lo que reduce sus componentes independientes de 16 a 6, coincidiendo con los tres componentes del campo eléctrico $\mathbf{E}$ y los tres del campo magnético $\mathbf{B}$.
+
+En coordenadas cartesianas:
+
+\begin{equation}
+F_{\mu\nu} =
+\begin{pmatrix}
+0 & -E_x & -E_y & -E_z \\
+E_x & 0 & B_z & -B_y \\
+E_y & -B_z & 0 & B_x \\
+E_z & B_y & -B_x & 0
+\end{pmatrix}.
+\end{equation}
+
+\subsubsection{Descomposición Relativa a un Observador}
+
+Sea $u^\mu$ la cuadrivelocidad de un observador, normalizada como
+
+\begin{equation}
+u^\mu u_\mu = -1.
+\end{equation}
+
+El tensor de Faraday puede proyectarse respecto a $u^\mu$ para definir los campos medidos en el sistema comóvil.
+
+\paragraph{Campo eléctrico (4-vector)}
+
+\begin{equation}
+E^\mu = F^{\mu\nu} u_\nu,
+\end{equation}
+
+con la propiedad
+
+\begin{equation}
+E^\mu u_\mu = 0.
+\end{equation}
+
+\paragraph{Campo magnético (4-vector)}
+
+Definiendo el tensor dual
+
+\begin{equation}
+{}^*F^{\mu\nu} = \frac{1}{2} \epsilon^{\mu\nu\alpha\beta} F_{\alpha\beta},
+\end{equation}
+
+el campo magnético se define como
+
+\begin{equation}
+B^\mu = {}^*F^{\mu\nu} u_\nu,
+\end{equation}
+
+y satisface
+
+\begin{equation}
+B^\mu u_\mu = 0.
+\end{equation}
+
+El tensor de Faraday puede reconstruirse covariantemente como
+
+\begin{equation}
+F^{\mu\nu} = 
+E^\mu u^\nu - E^\nu u^\mu
++ \epsilon^{\mu\nu\alpha\beta} u_\alpha B_\beta.
+\end{equation}
+
+\textit{Aproximación ideal:} En el límite de conductividad infinita ($\sigma \to \infty$), el campo eléctrico en el marco comóvil desaparece,
+
+\begin{equation}
+E^\mu = 0,
+\end{equation}
+
+y el tensor se reduce a
+
+\begin{equation}
+F^{\mu\nu} = \epsilon^{\mu\nu\alpha\beta} u_\alpha B_\beta.
+\end{equation}
+
+En magnetohidrodinámica relativista resistiva (RRMHD) se mantiene la componente eléctrica $E^\mu$, la cual se relaciona con la corriente mediante la ley de Ohm generalizada.
+
+\subsubsection{Ecuaciones de Maxwell en Formulación Tensorial}
+
+Las ecuaciones de Maxwell se dividen en ecuaciones inhomogéneas y homogéneas.
+
+\paragraph{Ecuaciones inhomogéneas}
+
+Relacionan el campo con sus fuentes:
+
+\begin{equation}
+\nabla_\nu F^{\mu\nu} = J^\mu,
+\end{equation}
+
+donde el cuadricorriente puede descomponerse como
+
+\begin{equation}
+J^\mu = q u^\mu + j^\mu,
+\end{equation}
+
+con $j^\mu u_\mu = 0$.
+
+\paragraph{Ecuaciones homogéneas (Identidad de Bianchi)}
+
+\begin{equation}
+\nabla_{[\alpha} F_{\beta\gamma]} = 0,
+\end{equation}
+
+equivalentemente,
+
+\begin{equation}
+\nabla_\beta {}^*F^{\alpha\beta} = 0.
+\end{equation}
+
+\subsubsection{Ligaduras de Divergencia}
+
+
+En el continuo, las ligaduras
+
+\begin{equation}
+\nabla \cdot \mathbf{B} = 0,
+\qquad
+\nabla \cdot \mathbf{E} = q
+\end{equation}
+
+son consecuencias de las ecuaciones de evolución. Sin embargo, en esquemas numéricos para RRMHD estas condiciones pueden violarse debido a errores de truncamiento.
+
+       
     
+
+    \subsection{Sistema de Leyes de Conservación}
 
 
     \subsubsection{Las ecuaciones hydrodinamicas. }
@@ -24,6 +184,8 @@ El sistema de RRMHD conciste de una serie de leyes de conservacíon local covari
     Deacuerdo con la mecanica de fluidos relativista, la suposicion principal para poder describir un fluido cualquiera es considerarlo como un "fluido perfecto", el cual define al fluido como un conjunto de particulas las cuales estan en reposo en algun marco de referencia inercial. Si este conjunto de n particulas se esta 
         moviendo deacuerdo a un cuadrivector de fluido $u^{\mu}$.
         Se puede construir la conservacíon del numero de particulas total al definir este cuadrivector de flujo dado por:
+
+
 
 
 
@@ -44,14 +206,180 @@ El sistema de RRMHD conciste de una serie de leyes de conservacíon local covari
             \nabla_{\mu}{\rho}u^{\mu}= \nabla_{\mu}(nmu^{\mu}) = 0 
         \end{equation}
 
+        \subsubsection{Las ecuaciones electrodinámicas}
+        La antisimetría de $F_{\mu\nu}$ implica
+
+            \begin{equation}
+            \nabla_\mu J^\mu = 0,
+            \end{equation}
+
+            que expresa la conservación local de la carga eléctrica.
 
 
+    \subsubsection{Construcción del Tensor de Energía-Momento Total}
 
-    \subsection{El Sistema Aumentado de Maxwell}
-    \label{sec:Max-aumentado}
-        Se presenta el sistema que incluye los pseudo-potenciales $\psi$ y $\phi$ (Multiplicadores de Lagrange Generalizados, GLM) para forzar $\nabla \cdot \mathbf{B}=0$ y la conservación de carga $q$ [8, 9]. Las ecuaciones de evolución incluyen $\partial_t \psi = -\nabla \cdot E + q - \kappa \psi$ y $\partial_t \phi = -\nabla \cdot B - \kappa \phi$ [8, 10].
-    \subsection{Ley de Ohm Relativista y Corriente Conductiva}
-        Definición de la corriente conductiva $j^c$ [11], donde la resistividad $\eta$ (o conductividad $\sigma$) juega un papel clave en los términos rígidos (stiff terms) del sistema [12].
+En un espacio-tiempo de Minkowski con métrica $g_{\mu\nu}$ de signatura $(-,+,+,+)$, 
+el tensor de energía-momento total de un plasma magnetizado se define como la suma 
+de las contribuciones del fluido y del campo electromagnético:
+
+\begin{equation}
+T^{\mu\nu} = T^{\mu\nu}_{\text{fluid}} + T^{\mu\nu}_{\text{em}} .
+\end{equation}
+
+%----------------------------------------------------
+\paragraph{Tensor de Energía-Momento del Fluido Perfecto}
+
+Bajo la hipótesis de fluido perfecto (ausencia de viscosidad y conducción de calor), 
+en el sistema de referencia comóvil (LRF) el tensor toma la forma diagonal:
+
+\begin{equation}
+T^{\mu}_{\ \nu} = \mathrm{diag}(\epsilon, p, p, p),
+\end{equation}
+
+donde $\epsilon$ es la densidad total de energía y $p$ la presión hidrostática.
+
+Sea $u^\mu$ la cuadrivelocidad del fluido, normalizada como
+
+\begin{equation}
+u^\mu u_\mu = -1.
+\end{equation}
+
+Definimos el proyector ortogonal
+
+\begin{equation}
+h^{\mu\nu} = g^{\mu\nu} + u^\mu u^\nu.
+\end{equation}
+
+La forma covariante del tensor es
+
+\begin{equation}
+T^{\mu\nu}_{\text{fluid}}
+=
+\epsilon u^\mu u^\nu + p h^{\mu\nu}
+=
+(\epsilon + p) u^\mu u^\nu + p g^{\mu\nu}.
+\end{equation}
+
+Introduciendo la entalpía específica $h$ mediante
+
+\begin{equation}
+\rho h = \epsilon + p,
+\end{equation}
+
+se obtiene la forma compacta empleada en RRMHD:
+
+\begin{equation}
+T^{\mu\nu}_{\text{fluid}} =
+\rho h\, u^\mu u^\nu + p g^{\mu\nu}.
+\end{equation}
+
+Esta formulación corresponde al \textit{Eckart frame}, donde $u^\mu$ es paralelo 
+a la corriente de partículas.
+
+%----------------------------------------------------
+\paragraph{Tensor de Energía-Momento Electromagnético}
+
+Para un medio no polarizable y no magnetizable, el tensor electromagnético se define como
+
+\begin{equation}
+T^{\mu\nu}_{\text{em}}
+=
+F^{\mu\lambda} F^{\nu}_{\ \lambda}
+-
+\frac{1}{4}
+g^{\mu\nu}
+F_{\alpha\beta} F^{\alpha\beta}.
+\end{equation}
+
+Este tensor es simétrico y, en el vacío, satisface
+
+\begin{equation}
+T^{\mu}_{\ \mu} = 0.
+\end{equation}
+
+%----------------------------------------------------
+\paragraph{Descomposición 3+1}
+
+Respecto a un observador con cuadrivelocidad $u^\mu$, 
+puede escribirse en términos de los campos medidos $E^\mu$ y $B^\mu$:
+
+\begin{align}
+T^{\mu\nu}_{\text{em}} =
+& \frac{1}{2}(E^2 + B^2)
+\left(
+u^\mu u^\nu + h^{\mu\nu}
+\right)
+- E^\mu E^\nu
+- B^\mu B^\nu \\
+& + u^\mu S^\nu + u^\nu S^\mu ,
+\end{align}
+
+donde el vector de Poynting covariante es
+
+\begin{equation}
+S^\mu = \epsilon^{\mu\nu\alpha\beta} u_\nu E_\alpha B_\beta.
+\end{equation}
+
+Aquí $E^2 = E^\mu E_\mu$ y $B^2 = B^\mu B_\mu$.
+
+%====================================================
+\subsubsection{Sistema conservativo compelto ideal}
+
+La dinámica acoplada del fluido y del campo electromagnético se obtiene
+imponiendo la conservación local del tensor de energía-momento total,
+
+\begin{equation}
+\nabla_\mu T^{\mu\nu} = 0,
+\end{equation}
+
+donde
+
+\begin{equation}
+T^{\mu\nu} = T^{\mu\nu}_{\text{fluid}} + T^{\mu\nu}_{\text{em}}.
+\end{equation}
+
+En espacio-tiempo plano, la derivada covariante se reduce a derivadas parciales,
+
+\begin{equation}
+\nabla_\mu \rightarrow \partial_\mu.
+\end{equation}
+
+Usando las ecuaciones de Maxwell inhomogéneas,
+
+\begin{equation}
+\partial_\mu F^{\mu\nu} = J^\nu,
+\end{equation}
+
+puede demostrarse que
+
+\begin{equation}
+\partial_\mu T^{\mu\nu}_{\text{em}} = - F^{\nu\lambda} J_\lambda.
+\end{equation}
+
+Por lo tanto, la conservación total implica
+
+\begin{equation}
+\partial_\mu T^{\mu\nu}_{\text{fluid}} = F^{\nu\lambda} J_\lambda.
+\end{equation}
+
+El sistema completo de RRMHD queda entonces constituido por:
+
+\begin{align}
+\partial_\mu (\rho u^\mu) &= 0, \\
+\partial_\mu T^{\mu\nu} &= 0, \\
+\partial_\mu F^{\mu\nu} &= J^\nu, \\
+\partial_\mu {}^*F^{\mu\nu} &= 0,
+\end{align}
+
+
+\subsection{El Sistema Aumentado de Maxwell}
+\label{sec:Max-aumentado}
+De la electrodinamica covariante se consigue el sistema de ecuaciones  mixto de evolucion-restriccion. En la metrica de Minkowski las ecuaciones homogeneas e inhomogeneas de la seccion \ref{sec:Elec_Cov} el sistema se comportan como un sistema semi-hiperbolico con tresricciones elipticas dadas por la ley de Gauss electrica y  divergencia magnetica nula, estas restricciones vienen dadas por que las estas ecuaciones no contienen evolucion temporal y solo restringen el espacio de soluciones elipticamente. Esta restricción tiene una consecuencia numerica, ya que los errores de truncamiento en la reconstruccion  espacial y la discretización temporal generan monopolos magneticos espirulos $\nabla \mathbf{B} \diff 0$  \parencite{Dedner-2002}, los cuales numericamente no se propagan ni se dicipan lo que hace que hace que se 
+acumulen errores y la estabilidad numerica del esquema se destruya. Este problema numerico se soluciona proponiendo un sistema aumentado que permita que numericamente los errores se dicipen y se propagen sin modificar la física del sistema. Esto se puede lograr completando el sistema eliminando las restricciones elipticas y convirtiendo el sistema completo en una evolucion hiperbolica. esto se hace acoplando las restricciones a las leyes de evolucion tempotal introduciendo dos campos escalares adicionales  
+
+
+\subsection{Ley de Ohm Relativista y Corriente Conductiva}
+    Definición de la corriente conductiva $j^c$ [11], donde la resistividad $\eta$ (o conductividad $\sigma$) juega un papel clave en los términos rígidos (stiff terms) del sistema [12].
 
 \section{Análisis de la KHI en el Límite Lineal}
 El estudio de la estabilidad de flujos astrofísicos se fundamenta clásicamente en la teoría de perturbaciones lineales. En este marco, las variables físicas del sistema $\mathbf{U}$ (densidad, presión, campo magnético, velocidad) se descomponen en un estado de equilibrio $\mathbf{U}_0$ y una pequeña perturbación $\delta \mathbf{U}$, tal que $\mathbf{U}(\mathbf{x}, t) = \mathbf{U}_0 + \delta \mathbf{U} e^{i(\mathbf{k} \cdot \mathbf{x} - \omega t)}$. La inestabilidad de Kelvin-Helmholtz (KHI) surge en la interfaz de dos fluidos con una discontinuidad tangencial de velocidad (cizalladura). En la dinámica de fluidos clásica \parencite{acheson-1991}, esta configuración es incondicionalmente inestable en ausencia de gravedad o tensión superficial.
