@@ -7,7 +7,7 @@ A continuación, se detallan las ecuaciones fundamentales que componen el modelo
 \section{Las Ecuaciones del Sistema RRMHD}
 
 
-El sistema de RRMHD conciste de una serie de leyes de conservacíon local covariante, el conjunto expandido de las ecuaciones de Maxwell y finalmente la ley de Ohm rlativista. Las consideraciones necesarioas para poder construiur este siestema y posteriormente solucionarlo numericamente seran tratadas a continuacíon. 
+El sistema de RRMHD conciste de una serie de leyes de conservacíon local covariante,  el conjunto expandido de las ecuaciones de Maxwell y finalmente la ley de Ohm rlativista, estas estan formuladas con un sistema de unidades naturales donde $c=1$. Las consideraciones necesarioas para poder construiur este siestema y posteriormente solucionarlo numericamente seran tratadas a continuacíon. 
 
 
 
@@ -17,115 +17,124 @@ El sistema de RRMHD conciste de una serie de leyes de conservacíon local covari
 
 \subsection{Electrodinámica Covariante y el Tensor de Campo Electromagnético}
 \label{sec:Elec_Cov}
-En el marco de la relatividad especial, el espacio-tiempo se modela como una variedad diferenciable de cuatro dimensiones dotada de una métrica de Minkowski $\eta_{\mu\nu}$ con signatura $(-,+,+,+)$. Para garantizar la invariancia de forma de las leyes del electromagnetismo bajo transformaciones de Lorentz, es necesario abandonar la formulación vectorial tridimensional y adoptar una descripción tensorial en el espacio de Minkowski.
+
+En el marco de la relatividad especial, el espacio-tiempo se modela como una variedad diferenciable $\mathcal{M}$ de cuatro dimensiones dotada de una métrica de Minkowski $\eta_{\mu\nu}$ con signatura $(-,+,+,+)$. Para garantizar la invariancia de las leyes del electromagnetismo bajo transformaciones de Lorentz, y más específicamente, para asegurar la covariancia del formalismo de modo que las ecuaciones se mantengan invariantes ante el grupo de Poincaré, es necesario abandonar la formulación vectorial tridimensional clásica. En su lugar, adoptamos una descripción tensorial y de formas diferenciales en el espacio-tiempo plano de Minkowski. Adicionalmente, la dinámica de los objetos que describiremos será obtenida a partir del principio de mínima acción. Esto nos permitirá posteriormente, como veremos en la sección \ref{sec:Max-aumentado}, argumentar de forma matemática y física la construcción del sistema aumentado de Maxwell.
 
 \subsubsection{El Cuadripotencial y la Definición del Tensor de Faraday}
 
-El punto de partida es el cuadripotencial electromagnético
+Para formular la electrodinámica garantizando una estructura causal y compatible con los principios de la relatividad especial, no se introduce el campo electromagnético como un campo vectorial sino como un campo de formas diferenciales. Para conseguirlo, se empieza definiendo el cuadripotencial $A$, el cual se postula matemáticamente como una 1-forma diferencial \cite{schutz2009, misner1973}, la cual está definida sobre el espacio cotangente\footnote{El espacio cotangente $T^*_p\mathcal{M}$ es el espacio vectorial dual al espacio tangente $T_p\mathcal{M}$. Mientras que los vectores (como la cuadrivelocidad) habitan en el espacio tangente y representan direcciones geométricas, las 1-formas habitan en el espacio cotangente y actúan como mapas lineales que transforman vectores en escalares. Físicamente, el potencial es una 1-forma porque está diseñado para ser integrado a lo largo de la trayectoria de una partícula (un vector) para calcular la acción escalar.} de la variedad espaciotemporal $\mathcal{M}$:
+\begin{equation}
+    A = A_\mu dx^\mu
+\end{equation}
+Físicamente, las componentes covariantes $A_\mu = (-\phi, \mathbf{A})$ agrupan el potencial escalar $\phi$ y el potencial vectorial $\mathbf{A}$ de la electrodinámica clásica, mientras que la base holonómica\footnote{Una base se denomina holonómica (o base de coordenadas) cuando sus elementos derivan directamente de un sistema de coordenadas subyacente, de modo que los vectores base son $\partial_\mu$ y los covectores base son $dx^\mu$. El uso de esta base garantiza que las derivadas parciales conmuten, lo cual es fundamental para aplicar consistentemente el operador de derivada exterior.} $dx^\mu$ garantiza que el objeto geométrico sea invariante ante transformaciones de coordenadas.
+Al igual que en la electrodínamica clasica vectorial la introduccion del potencial $\vec{A}$ y $\phi$ trae consigo una caracteristica inherente, la cual se conoce como redundancía de los grados de libertad que principalmente consiste en que a pesar de que los campos observables  $\vec{E}$ y $\vec{B}$  son unicos y deterministas, no existe una relacíon biunivoca (uno a uno) entre estos campos y las infinitas configuraciones de los pseudo potenciales cuya diamica da los mismos campos electromagneticos.Infinitas configuraciones manifiestan la misma realidad física medible.
+
+Esta multiplicidad exige imponer una propiedad estricta sobre cualquier objeto tensorial que pretenda representar los observables físicos: debe ser completamente inmune a las variaciones del potencial que no alteren la física subyacente. A esta redundancia fundamental se le conoce como invariancia de gauge. En el lenguaje de las formas diferenciales, alterar el potencial sin modificar la física equivale a sumarle la derivada exterior \footnote{La derivada exterior $d$ es el operador diferencial fundamental de la geometría diferencial que mapea $k$-formas a $(k+1)$-formas de manera independiente del sistema de coordenadas y sin requerir una métrica. Físicamente, constituye la generalización covariante y unificada de los operadores del cálculo vectorial tridimensional clásico (gradiente, rotacional y divergencia).} de un campo escalar arbitrario $\Lambda(x)$ (una 0-forma). Geométricamente, esta transformación redundante se escribe como:
 
 \begin{equation}
-A^\mu = (\phi, \mathbf{A}),
+    A \rightarrow A + d\Lambda
 \end{equation}
 
-donde $\phi$ es el potencial escalar y $\mathbf{A}$ el potencial vectorial. 
+Ahora para poder construir el objeto que represente los observables físicos campo electromagnetico y que permanezca invariante ante el grupo de Poincare usamos la derivada exterior que es nilpotente0 que agarra este objeto cotangente a la variedad y como resultado se obtiene una dos-forma. Definiendo la 1-forma como $A'= A + d\Lambda$ y derivando se obtiene:
 
-Bajo el principio de invariancia de gauge, las cantidades físicas deben permanecer invariantes ante la transformación
-
+\begin{align}
+    dA' &= d(A + d\Lambda) \nonumber \\
+        &= dA + d(d\Lambda) \nonumber \\
+        &= dA
+\end{align}
+Por lo tanto, este nuevo objeto geométrico generado por la derivada exterior se mantiene estrictamente invariante ante transformaciones de gauge. Para hallar su expresión local en componentes, sustituimos la definición del cuadripotencial $A = A_\nu dx^\nu$ y aplicamos la regla de Leibniz para la derivada exterior:
+\begin{align}
+    dA &= d(A_\nu dx^\nu) \nonumber \\
+       &= dA_\nu \wedge dx^\nu + A_\nu d(dx^\nu)
+\end{align}
+Nuevamente, aplicando la propiedad de nilpotencia sobre los diferenciales de las coordenadas base, sabemos que la derivada exterior de una diferencial exacta es nula, es decir, $d(dx^\nu) = d^2 x^\nu = 0$. Esto anula el segundo término, simplificando la expresión a:
 \begin{equation}
-A_\mu \rightarrow A_\mu + \partial_\mu \Lambda,
+    dA = dA_\nu \wedge dx^\nu
+\end{equation}
+Dado que $A_\nu$ es una componente escalar (una 0-forma), su derivada exterior coincide con su diferencial exacto, $dA_\nu = \partial_\mu A_\nu dx^\mu$. Sustituyendo esto en la expresión:
+\begin{equation}
+    dA = (\partial_\mu A_\nu dx^\mu) \wedge dx^\nu = \partial_\mu A_\nu (dx^\mu \wedge dx^\nu)
+\end{equation}
+Haciendo uso de la propiedad de antisimetría del producto cuña ($dx^\mu \wedge dx^\nu = -dx^\nu \wedge dx^\mu$), podemos separar la expresión en dos sumas equivalentes intercambiando los índices mudos:
+\begin{equation}
+    dA = \frac{1}{2} (\partial_\mu A_\nu - \partial_\nu A_\mu) dx^\mu \wedge dx^\nu
 \end{equation}
 
-donde $\Lambda$ es un campo escalar arbitrario.
+En esta expresión, es imperativo interpretar el rol geométrico de cada bloque constructivo. Mientras que el término entre paréntesis dicta las magnitudes dinámicas del campo, el producto cuña restante, $dx^\mu \wedge dx^\nu$, constituye la base del espacio de las 2-formas. Físicamente, este producto exterior representa un elemento de área infinitesimal estrictamente orientada en la variedad espaciotemporal. Las combinaciones puramente espaciales (como $dx \wedge dy$) definen las superficies a través de las cuales se mide el flujo magnético, mientras que las combinaciones espaciotemporales (como $dt \wedge dx$) definen las "áreas" asociadas a la circulación del campo eléctrico a lo largo del tiempo. Además, es esta base diferencial la que absorbe las contracciones y dilataciones de coordenadas, garantizando la invariancia relativista del objeto.
 
-El tensor de campo electromagnético (tensor de Faraday) se define como
-
+Es precisamente la unión indisoluble de estas componentes dinámicas con su base invariante la que conforma el objeto geométrico absoluto que definimos formalmente como la 2-forma del campo electromagnético o tensor de Faraday, denotado por $F \equiv dA$. Al comparar nuestro resultado con la expansión canónica de una 2-forma, $F = \frac{1}{2} F_{\mu\nu} dx^\mu \wedge dx^\nu$, extraemos finalmente las componentes covariantes del tensor:
 \begin{equation}
-F_{\mu\nu} = \partial_\mu A_\nu - \partial_\nu A_\mu.
+    F_{\mu\nu} = \partial_\mu A_\nu - \partial_\nu A_\mu
 \end{equation}
 
-Por construcción, $F_{\mu\nu}$ es un tensor antisimétrico de rango 2,
+Esta ecuación tensorial constituye la representación explícita a partir de la cual se reconstruyen los campos observables de la electrodinámica clásica. Para evidenciar esta conexión entre la estructura geométrica y los campos tridimensionales, primero expresamos el tensor de Faraday, $F_{\mu\nu}$, en términos de las componentes de los campos eléctrico y magnético:
 
 \begin{equation}
-F_{\mu\nu} = -F_{\nu\mu},
-\end{equation}
-
-lo que reduce sus componentes independientes de 16 a 6, coincidiendo con los tres componentes del campo eléctrico $\mathbf{E}$ y los tres del campo magnético $\mathbf{B}$.
-
-En coordenadas cartesianas:
-
-\begin{equation}
-F_{\mu\nu} =
+\label{eq:Faraday_Campos}
+F_{\mu\nu} = 
 \begin{pmatrix}
 0 & -E_x & -E_y & -E_z \\
 E_x & 0 & B_z & -B_y \\
 E_y & -B_z & 0 & B_x \\
 E_z & B_y & -B_x & 0
-\end{pmatrix}.
+\end{pmatrix}
 \end{equation}
+
+Por otro lado, recordando que las componentes covariantes del cuadripotencial son $A_\mu = (-\phi, A_x, A_y, A_z)$ y el operador de derivación cuatridimensional es $\partial_\mu = (\partial_t, \partial_x, \partial_y, \partial_z)$, evaluamos término a término la relación $F_{\mu\nu} = \partial_\mu A_\nu - \partial_\nu A_\mu$ para obtener la representación explícita equivalente de las derivadas:
+
+\begin{equation}
+\label{eq:Faraday_Derivadas}
+F_{\mu\nu} = 
+\begin{pmatrix}
+0 & \partial_t A_x + \partial_x \phi & \partial_t A_y + \partial_y \phi & \partial_t A_z + \partial_z \phi \\
+-(\partial_t A_x + \partial_x \phi) & 0 & \partial_x A_y - \partial_y A_x & \partial_x A_z - \partial_z A_x \\
+-(\partial_t A_y + \partial_y \phi) & -(\partial_x A_y - \partial_y A_x) & 0 & \partial_y A_z - \partial_z A_y \\
+-(\partial_t A_z + \partial_z \phi) & -(\partial_x A_z - \partial_z A_x) & -(\partial_y A_z - \partial_z A_y) & 0
+\end{pmatrix}
+\end{equation}
+
+Esta visualización confirma que la formulación covariante no es una mera abstracción matemática, sino el andamiaje exacto de la teoría clásica. Al igualar los elementos matriciales correspondientes de las ecuaciones (\ref{eq:Faraday_Campos}) y (\ref{eq:Faraday_Derivadas}), se recuperan de manera directa y natural las definiciones fundamentales que reconstruyen los campos eléctrico y magnético a partir de sus potenciales generadores:
+\begin{align}
+    \mathbf{E} &= -\nabla\phi - \partial_t\mathbf{A} \label{eq:E_potencial}\\
+    \mathbf{B} &= \nabla \times \mathbf{A} \label{eq:B_potencial}
+\end{align}
 
 \subsubsection{Descomposición Relativa a un Observador}
 
-Sea $u^\mu$ la cuadrivelocidad de un observador, normalizada como
+Para extraer el contenido físico medible del tensor de Faraday, es imperativo proyectarlo sobre el marco de referencia de un observador específico. Consideremos un observador comóvil con el plasma, caracterizado por una cuadrivelocidad $u^\mu$ tangente a su línea de mundo, la cual está normalizada según la métrica espacioplana como $u^\mu u_\mu = -1$ \footnote{En las formulaciones numéricas 3+1 de la hidrodinámica, es común introducir un \textit{observador euleriano} definido por un cuadrivector estrictamente normal a las hipersuperficies espaciales de foliación. En el espacio-tiempo plano de Minkowski, debido a la ausencia de curvatura, la definición geométrica de este observador inercial de laboratorio coincide globalmente con las curvas ortogonales a las hipersuperficies de tiempo constante. Sin embargo, para establecer las propiedades constitutivas del plasma, la descomposición físicamente relevante se realiza respecto al observador fluido local, cuya cuadrivelocidad $u^\mu$ es tangente a su propia línea de mundo temporal.}. 
 
+Al contraer el tensor de campo electromagnético con esta cuadrivelocidad, se definen de manera unívoca e invariante los cuadrivectores de campo eléctrico y magnético medidos en el sistema de reposo local del fluido. El campo eléctrico espacial relativo al observador se define mediante la contracción directa:
 \begin{equation}
-u^\mu u_\mu = -1.
+    E^\mu = F^{\mu\nu} u_\nu
 \end{equation}
-
-El tensor de Faraday puede proyectarse respecto a $u^\mu$ para definir los campos medidos en el sistema comóvil.
-
-\paragraph{Campo eléctrico (4-vector)}
-
+Por la antisimetría del tensor de Faraday, este cuadrivector es estrictamente ortogonal a la cuadrivelocidad ($E^\mu u_\mu = 0$), lo que garantiza que posea únicamente tres grados de libertad espaciales en el marco propio. De manera análoga, introduciendo el tensor dual de Faraday ${}^*F^{\mu\nu} = \frac{1}{2} \epsilon^{\mu\nu\alpha\beta} F_{\alpha\beta}$ —donde $\epsilon^{\mu\nu\alpha\beta}$ es el tensor de Levi-Civita cuatridimensional—, el campo magnético comóvil se determina como:
 \begin{equation}
-E^\mu = F^{\mu\nu} u_\nu,
+    B^\mu = {}^*F^{\mu\nu} u_\nu
 \end{equation}
+el cual también satisface de forma identitaria la condición de espacialidad $B^\mu u_\mu = 0$.
 
-con la propiedad
-
+Con base en estos dos cuadrivectores, ortogonales al flujo temporal del observador, el tensor de Faraday original puede ser reconstruido covariantemente en su totalidad mediante la expresión:
 \begin{equation}
-E^\mu u_\mu = 0.
+    F^{\mu\nu} = E^\mu u^\nu - E^\nu u^\mu + \epsilon^{\mu\nu\alpha\beta} u_\alpha B_\beta
 \end{equation}
+Esta descomposición geométrica es el pilar fundamental para clasificar el régimen dinámico del plasma. En la aproximación de la magnetohidrodinámica ideal, caracterizada por una conductividad eléctrica infinita ($\sigma \to \infty$), el marco comóvil no puede sostener fuerzas eléctricas netas sin generar corrientes divergentes, lo que impone la condición de campo nulo $E^\mu = 0$. En este límite estricto, el tensor electromagnético colapsa puramente a su componente magnética, $F^{\mu\nu} = \epsilon^{\mu\nu\alpha\beta} u_\alpha B_\beta$. 
 
-\paragraph{Campo magnético (4-vector)}
+En abierto contraste, el régimen de la Magnetohidrodinámica Relativista Resistiva (RRMHD) abandona esta idealización. La introducción de una disipación finita permite la supervivencia de una componente eléctrica comóvil no nula $E^\mu$, la cual gobierna la dinámica disipativa acoplándose directamente a la cuadricorriente del fluido a través de una formulación covariante de la ley de Ohm generalizada.
 
-Definiendo el tensor dual
 
-\begin{equation}
-{}^*F^{\mu\nu} = \frac{1}{2} \epsilon^{\mu\nu\alpha\beta} F_{\alpha\beta},
-\end{equation}
 
-el campo magnético se define como
 
-\begin{equation}
-B^\mu = {}^*F^{\mu\nu} u_\nu,
-\end{equation}
 
-y satisface
 
-\begin{equation}
-B^\mu u_\mu = 0.
-\end{equation}
 
-El tensor de Faraday puede reconstruirse covariantemente como
 
-\begin{equation}
-F^{\mu\nu} = 
-E^\mu u^\nu - E^\nu u^\mu
-+ \epsilon^{\mu\nu\alpha\beta} u_\alpha B_\beta.
-\end{equation}
 
-\textit{Aproximación ideal:} En el límite de conductividad infinita ($\sigma \to \infty$), el campo eléctrico en el marco comóvil desaparece,
 
-\begin{equation}
-E^\mu = 0,
-\end{equation}
 
-y el tensor se reduce a
 
-\begin{equation}
-F^{\mu\nu} = \epsilon^{\mu\nu\alpha\beta} u_\alpha B_\beta.
-\end{equation}
 
-En magnetohidrodinámica relativista resistiva (RRMHD) se mantiene la componente eléctrica $E^\mu$, la cual se relaciona con la corriente mediante la ley de Ohm generalizada.
+
+
 
 \subsubsection{Ecuaciones de Maxwell en Formulación Tensorial}
 
@@ -374,8 +383,173 @@ El sistema completo de RRMHD queda entonces constituido por:
 
 \subsection{El Sistema Aumentado de Maxwell}
 \label{sec:Max-aumentado}
-De la electrodinamica covariante se consigue el sistema de ecuaciones  mixto de evolucion-restriccion. En la metrica de Minkowski las ecuaciones homogeneas e inhomogeneas de la seccion \ref{sec:Elec_Cov} el sistema se comportan como un sistema semi-hiperbolico con tresricciones elipticas dadas por la ley de Gauss electrica y  divergencia magnetica nula, estas restricciones vienen dadas por que las estas ecuaciones no contienen evolucion temporal y solo restringen el espacio de soluciones elipticamente. Esta restricción tiene una consecuencia numerica, ya que los errores de truncamiento en la reconstruccion  espacial y la discretización temporal generan monopolos magneticos espirulos $\nabla \mathbf{B} \diff 0$  \parencite{Dedner-2002}, los cuales numericamente no se propagan ni se dicipan lo que hace que hace que se 
+De la electrodinamica covariante se consigue el sistema de ecuaciones  mixto de evolucion-restriccion. En la metrica de Minkowski las ecuaciones homogeneas e inhomogeneas de la seccion \ref{sec:Elec_Cov} el sistema se comportan como un sistema semi-hiperbolico con tresricciones elipticas dadas por la ley de Gauss electrica y  divergencia magnetica nula, estas restricciones vienen dadas por que las estas ecuaciones no contienen evolucion temporal y solo restringen el espacio de soluciones elipticamente. Esta restricción tiene una consecuencia numerica, ya que los errores de truncamiento en la reconstruccion  espacial y la discretización temporal generan monopolos magneticos espirulos $\nabla \cdot \mathbf{B} = 0$  \parencite{Dedner-2002}, los cuales numericamente no se propagan ni se dicipan lo que hace que hace que se 
 acumulen errores y la estabilidad numerica del esquema se destruya. Este problema numerico se soluciona proponiendo un sistema aumentado que permita que numericamente los errores se dicipen y se propagen sin modificar la física del sistema. Esto se puede lograr completando el sistema eliminando las restricciones elipticas y convirtiendo el sistema completo en una evolucion hiperbolica. esto se hace acoplando las restricciones a las leyes de evolucion tempotal introduciendo dos campos escalares adicionales  
+
+
+En esta sección se construye una formulación covariante del sistema aumentado para las ecuaciones de Maxwell utilizando el método de \textit{Generalized Lagrange Multipliers} (GLM). El objetivo es convertir las restricciones de divergencia en ecuaciones dinámicas sin alterar el contenido físico de la teoría.
+
+\subsubsection{Acción de Maxwell}
+
+Partimos de la acción covariante de la electrodinámica clásica en espacio-tiempo de Minkowski:
+
+\begin{equation}
+S_0[A_\mu] = \int d^4x \left( -\frac{1}{4} F_{\mu\nu}F^{\mu\nu} + J_\mu A^\mu \right)
+\end{equation}
+
+donde el tensor electromagnético está definido como:
+
+\begin{equation}
+F_{\mu\nu} = \partial_\mu A_\nu - \partial_\nu A_\mu
+\end{equation}
+
+Al variar la acción respecto al potencial $A_\mu$, se obtiene:
+
+\begin{equation}
+\delta S_0 = \int d^4x \left( \partial_\mu F^{\mu\nu} - J^\nu \right)\delta A_\nu
+\end{equation}
+
+lo que conduce a las ecuaciones de Maxwell:
+
+\begin{equation}
+\partial_\mu F^{\mu\nu} = J^\nu
+\end{equation}
+
+Por otro lado, la identidad de Bianchi implica:
+
+\begin{equation}
+\partial_\mu (*F)^{\mu\nu} = 0
+\end{equation}
+
+Estas ecuaciones contienen restricciones que no son evolutivas, lo cual genera dificultades en formulaciones numéricas \parencite{dedner2002hyperbolic}.
+
+\subsubsection{Extensión del sistema: introducción del campo auxiliar}
+
+Para transformar el sistema en uno completamente evolutivo, introducimos un campo escalar auxiliar $\Phi(x)$ y consideramos la acción extendida:
+
+\begin{equation}
+S = \int d^4x \left[
+-\frac{1}{4}F_{\mu\nu}F^{\mu\nu}
++ J_\mu A^\mu
++ \frac{1}{2}\partial_\mu \Phi \partial^\mu \Phi
+- \Phi\, \partial_\mu A^\mu
+\right]
+\end{equation}
+
+Este término de acoplamiento no es arbitrario: está diseñado para incorporar dinámicamente la condición de gauge de Lorenz.
+
+\subsubsection{Ecuaciones de Euler--Lagrange del sistema extendido}
+
+\paragraph{Variación respecto a $A_\mu$}
+
+La variación de la acción produce:
+
+\begin{equation}
+\delta S = \int d^4x \left[
+\left(\partial_\mu F^{\mu\nu} + \partial^\nu \Phi - J^\nu \right)\delta A_\nu
+\right]
+\end{equation}
+
+de donde se obtiene:
+
+\begin{equation}
+\boxed{
+\partial_\mu F^{\mu\nu} + \partial^\nu \Phi = J^\nu
+}
+\end{equation}
+
+\paragraph{Variación respecto a $\Phi$}
+
+\begin{equation}
+\delta S = \int d^4x \left[
+(-\Box \Phi - \partial_\mu A^\mu)\delta \Phi
+\right]
+\end{equation}
+
+lo que conduce a:
+
+\begin{equation}
+\boxed{
+\Box \Phi = -\partial_\mu A^\mu
+}
+\end{equation}
+
+\subsubsection{Interpretación del sistema aumentado}
+
+El sistema resultante es:
+
+\begin{align}
+\partial_\mu F^{\mu\nu} + \partial^\nu \Phi &= J^\nu \\ 
+\Box \Phi &= -\partial_\mu A^\mu
+\end{align}
+
+Este sistema describe la evolución acoplada del potencial electromagnético y un campo escalar auxiliar. La presencia del término $\partial^\nu \Phi$ introduce modos longitudinales que permiten convertir las restricciones en ecuaciones dinámicas.
+
+\subsubsection{Recuperación de la teoría de Maxwell}
+
+Si se impone la condición de gauge de Lorenz:
+
+\begin{equation}
+\partial_\mu A^\mu = 0
+\end{equation}
+
+la ecuación para $\Phi$ se reduce a:
+
+\begin{equation}
+\Box \Phi = 0
+\end{equation}
+
+Bajo condiciones iniciales:
+
+\begin{equation}
+\Phi = 0, \quad \partial_t \Phi = 0
+\end{equation}
+
+se obtiene:
+
+\begin{equation}
+\Phi \equiv 0
+\end{equation}
+
+y por lo tanto:
+
+\begin{equation}
+\partial_\mu F^{\mu\nu} = J^\nu
+\end{equation}
+
+lo que demuestra que la teoría original de Maxwell se recupera exactamente.
+
+\subsubsection{Equivalencia física}
+
+El sistema aumentado no modifica el contenido físico de la teoría:
+
+\begin{itemize}
+\item Los observables dependen únicamente de $F_{\mu\nu}$.
+\item El campo $\Phi$ no contribuye directamente a $F_{\mu\nu}$.
+\item El subespacio $\Phi = 0$ es invariante bajo la evolución.
+\end{itemize}
+
+Por lo tanto, la extensión introduce grados de libertad adicionales no físicos que se desacoplan en el límite físico, garantizando la equivalencia con la electrodinámica clásica \parencite{munz2000divergence, dedner2002hyperbolic}.
+
+\subsubsection{Incorporación de disipación}
+
+Para obtener el sistema GLM completo, se añade un término de masa al campo auxiliar:
+
+\begin{equation}
+-\frac{\kappa}{2}\Phi^2
+\end{equation}
+
+lo que modifica su ecuación de evolución a:
+
+\begin{equation}
+\Box \Phi + \kappa \Phi = -\partial_\mu A^\mu
+\end{equation}
+
+Este término introduce disipación, permitiendo que las violaciones de la restricción se propaguen y decaigan en el tiempo \parencite{dedner2002hyperbolic}.
+
+\subsubsection{Conclusión}
+
+La formulación GLM puede entenderse como una extensión lagrangiana covariante de la electrodinámica clásica, en la cual un campo escalar auxiliar se acopla a la divergencia del potencial electromagnético. Este procedimiento transforma las restricciones en ecuaciones dinámicas, manteniendo invariante el subespacio físico de soluciones y proporcionando una estructura hiperbólica adecuada para aplicaciones numéricas.
 
 
 \subsection{Ley de Ohm Relativista y Corriente Conductiva}
