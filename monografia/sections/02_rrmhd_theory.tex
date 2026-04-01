@@ -6,14 +6,7 @@ A continuación, se detallan las ecuaciones fundamentales que componen el modelo
 
 \section{Las Ecuaciones del Sistema RRMHD}
 
-
-El sistema de RRMHD conciste de una serie de leyes de conservacíon local covariante,  el conjunto expandido de las ecuaciones de Maxwell y finalmente la ley de Ohm rlativista, estas estan formuladas con un sistema de unidades naturales donde $c=1$. Las consideraciones necesarioas para poder construiur este siestema y posteriormente solucionarlo numericamente seran tratadas a continuacíon. 
-
-
-
-  
-
-
+El sistema de la Magnetohidrodinámica Relativista Resistiva (RRMHD) consiste en un conjunto acoplado de leyes de conservación local covariante para la materia, la versión expandida de las ecuaciones de Maxwell para el campo, y una ecuación constitutiva fundamental: la ley de Ohm relativista. A lo largo de esta formulación, adoptaremos un sistema de unidades naturales racionalizadas de Heaviside-Lorentz donde la velocidad de la luz en el vacío es la unidad ($c=1$ y $\mu_0 = \epsilon_0 = 1$), lo que permite absorber las constantes de acoplamiento en la definición de los campos. Las consideraciones geométricas y físicas necesarias para construir rigurosamente este sistema, y prepararlo para su posterior integración numérica, se desarrollan a continuación.
 
 \subsection{Electrodinámica Covariante y el Tensor de Campo Electromagnético}
 \label{sec:Elec_Cov}
@@ -27,15 +20,15 @@ Para formular la electrodinámica garantizando una estructura causal y compatibl
     A = A_\mu dx^\mu
 \end{equation}
 Físicamente, las componentes covariantes $A_\mu = (-\phi, \mathbf{A})$ agrupan el potencial escalar $\phi$ y el potencial vectorial $\mathbf{A}$ de la electrodinámica clásica, mientras que la base holonómica\footnote{Una base se denomina holonómica (o base de coordenadas) cuando sus elementos derivan directamente de un sistema de coordenadas subyacente, de modo que los vectores base son $\partial_\mu$ y los covectores base son $dx^\mu$. El uso de esta base garantiza que las derivadas parciales conmuten, lo cual es fundamental para aplicar consistentemente el operador de derivada exterior.} $dx^\mu$ garantiza que el objeto geométrico sea invariante ante transformaciones de coordenadas.
-Al igual que en la electrodínamica clasica vectorial la introduccion del potencial $\vec{A}$ y $\phi$ trae consigo una caracteristica inherente, la cual se conoce como redundancía de los grados de libertad que principalmente consiste en que a pesar de que los campos observables  $\vec{E}$ y $\vec{B}$  son unicos y deterministas, no existe una relacíon biunivoca (uno a uno) entre estos campos y las infinitas configuraciones de los pseudo potenciales cuya diamica da los mismos campos electromagneticos.Infinitas configuraciones manifiestan la misma realidad física medible.
 
-Esta multiplicidad exige imponer una propiedad estricta sobre cualquier objeto tensorial que pretenda representar los observables físicos: debe ser completamente inmune a las variaciones del potencial que no alteren la física subyacente. A esta redundancia fundamental se le conoce como invariancia de gauge. En el lenguaje de las formas diferenciales, alterar el potencial sin modificar la física equivale a sumarle la derivada exterior \footnote{La derivada exterior $d$ es el operador diferencial fundamental de la geometría diferencial que mapea $k$-formas a $(k+1)$-formas de manera independiente del sistema de coordenadas y sin requerir una métrica. Físicamente, constituye la generalización covariante y unificada de los operadores del cálculo vectorial tridimensional clásico (gradiente, rotacional y divergencia).} de un campo escalar arbitrario $\Lambda(x)$ (una 0-forma). Geométricamente, esta transformación redundante se escribe como:
+Al igual que en la electrodinámica clásica vectorial, la introducción de los potenciales $\mathbf{A}$ y $\phi$ trae consigo una característica inherente, conocida como la redundancia de los grados de libertad. Esto implica que, a pesar de que los campos observables $\mathbf{E}$ y $\mathbf{B}$ son únicos y físicamente deterministas, no existe una relación biunívoca entre estos observables y las infinitas configuraciones de los potenciales que los generan. 
 
+Esta multiplicidad exige imponer una propiedad estricta sobre cualquier objeto tensorial que pretenda representar los observables físicos: debe ser completamente inmune a las variaciones del potencial que no alteren la física subyacente. A esta redundancia fundamental se le conoce como invariancia de gauge. En el lenguaje de las formas diferenciales, alterar el potencial sin modificar la física equivale a sumarle la derivada exterior\footnote{La derivada exterior $d$ es el operador diferencial fundamental de la geometría diferencial que mapea $k$-formas a $(k+1)$-formas de manera independiente del sistema de coordenadas y sin requerir una métrica. Físicamente, constituye la generalización covariante y unificada de los operadores del cálculo vectorial tridimensional clásico (gradiente, rotacional y divergencia).} de un campo escalar arbitrario $\Lambda(x)$ (una 0-forma). Geométricamente, esta transformación redundante se escribe como:
 \begin{equation}
     A \rightarrow A + d\Lambda
 \end{equation}
 
-Ahora para poder construir el objeto que represente los observables físicos campo electromagnetico y que permanezca invariante ante el grupo de Poincare usamos la derivada exterior que es nilpotente0 que agarra este objeto cotangente a la variedad y como resultado se obtiene una dos-forma. Definiendo la 1-forma como $A'= A + d\Lambda$ y derivando se obtiene:
+Para construir el objeto que represente los observables físicos electromagnéticos, y que permanezca invariante, aplicamos la derivada exterior sobre la 1-forma potencial. Definiendo el potencial transformado como $A'= A + d\Lambda$ y aplicando el operador, aprovechando su propiedad topológica de nilpotencia ($d^2 = 0$), obtenemos:
 
 \begin{align}
     dA' &= d(A + d\Lambda) \nonumber \\
@@ -136,424 +129,335 @@ En abierto contraste, el régimen de la Magnetohidrodinámica Relativista Resist
 
 
 
-\subsubsection{Ecuaciones de Maxwell en Formulación Tensorial}
+\subsubsection{Ecuaciones de Maxwell en Formalismo Covariante}
 
-Las ecuaciones de Maxwell se dividen en ecuaciones inhomogéneas y homogéneas.
+La potencia del formalismo geométrico radica en su capacidad para reducir las cuatro ecuaciones vectoriales empíricas del electromagnetismo clásico a sus fundamentos estructurales y dinámicos más profundos. En el espacio-tiempo cuatridimensional, las leyes de Maxwell se dividen naturalmente en dos categorías: un par homogéneo que obedece a la topología del campo, y un par inhomogéneo que dicta el acoplamiento con la materia.
 
-\paragraph{Ecuaciones inhomogéneas}
+\paragraph{El par homogéneo y la identidad de Bianchi}
 
-Relacionan el campo con sus fuentes:
-
+El primer conjunto de ecuaciones no requiere de fuentes para existir; es una consecuencia axiomática de haber definido el campo a partir de un potencial. Como se estableció previamente, el tensor de Faraday es la derivada exterior de la 1-forma potencial ($F = dA$). Si aplicamos nuevamente el operador derivada exterior sobre $F$, la nilpotencia topológica del operador ($d^2 = 0$) nos impone una restricción geométrica ineludible:
 \begin{equation}
-\nabla_\nu F^{\mu\nu} = J^\mu,
+    dF = d(dA) = d^2A = 0
 \end{equation}
-
-donde el cuadricorriente puede descomponerse como
-
+Esta identidad matemática, conocida como la identidad de Bianchi para el campo electromagnético, prohíbe geométricamente la existencia de monopolos magnéticos aislados y garantiza la ley de inducción. Para expresar esta restricción topológica en su forma tensorial operativa, hacemos uso del tensor dual de Faraday, ${}^*F^{\mu\nu} = \frac{1}{2} \epsilon^{\mu\nu\alpha\beta} F_{\alpha\beta}$. La condición $dF = 0$ es estrictamente equivalente a la exigencia de que el tensor dual tenga divergencia nula:
 \begin{equation}
-J^\mu = q u^\mu + j^\mu,
+\label{eq:Maxwell_Homogeneas}
+    \partial_\mu {}^*F^{\mu\nu} = 0
 \end{equation}
+Esta única ecuación tensorial contiene simultáneamente la ley de Gauss para el magnetismo ($\nabla \cdot \mathbf{B} = 0$) y la ley de Faraday-Lenz ($\nabla \times \mathbf{E} + \partial_t \mathbf{B} = 0$).
 
-con $j^\mu u_\mu = 0$.
+\paragraph{El par inhomogéneo y el acoplamiento con la fuente}
 
-\paragraph{Ecuaciones homogéneas (Identidad de Bianchi)}
-
+El segundo conjunto de ecuaciones describe la dinámica del campo en presencia de fuentes materiales. Para ello, es necesario introducir el cuadrivector densidad de corriente, $J^\mu$, el cual unifica la densidad de carga eléctrica $\rho_e$ y el vector de densidad de corriente tridimensional $\mathbf{J}$ en un solo objeto geométrico:
 \begin{equation}
-\nabla_{[\alpha} F_{\beta\gamma]} = 0,
+    J^\mu = (\rho_e, \mathbf{J})
 \end{equation}
-
-equivalentemente,
-
+A diferencia de la identidad topológica, acoplar el campo electromagnético a la materia requiere el uso de la métrica del espacio-tiempo $\eta_{\mu\nu}$ para "subir" los índices del tensor de Faraday, transformando la 2-forma covariante $F_{\mu\nu}$ en un tensor contravariante $F^{\mu\nu} = \eta^{\mu\alpha} \eta^{\nu\beta} F_{\alpha\beta}$. Por el principio de mínima acción, la variación del lagrangiano de interacción entre el campo y la corriente determina que la divergencia del tensor contravariante de Faraday es directamente proporcional a las fuentes que lo generan:
 \begin{equation}
-\nabla_\beta {}^*F^{\alpha\beta} = 0.
+\label{eq:Maxwell_Inhomogeneas}
+    \partial_\mu F^{\mu\nu} = J^\nu
 \end{equation}
+Esta segunda ecuación tensorial agrupa la ley de Gauss para el campo eléctrico ($\nabla \cdot \mathbf{E} = \rho_e$) y la ley de Ampère-Maxwell generalizada ($\nabla \times \mathbf{B} - \partial_t \mathbf{E} = \mathbf{J}$). 
 
-\subsubsection{Ligaduras de Divergencia}
-
-
-En el continuo, las ligaduras
-
+De manera fundamental, debido a la antisimetría estricta del tensor de Faraday ($F^{\mu\nu} = -F^{\nu\mu}$), la divergencia de la ecuación (\ref{eq:Maxwell_Inhomogeneas}) conduce a una identidad nula $\partial_\nu \partial_\mu F^{\mu\nu} = 0$, lo que impone automáticamente la conservación local de la carga eléctrica:
 \begin{equation}
-\nabla \cdot \mathbf{B} = 0,
-\qquad
-\nabla \cdot \mathbf{E} = q
+    \partial_\nu J^\nu = 0
 \end{equation}
-
-son consecuencias de las ecuaciones de evolución. Sin embargo, en esquemas numéricos para RRMHD estas condiciones pueden violarse debido a errores de truncamiento.
-
-       
-    
-
+Este par de ecuaciones, (\ref{eq:Maxwell_Homogeneas}) y (\ref{eq:Maxwell_Inhomogeneas}), constituyen la formulación covariante completa de la electrodinámica clásica, lista para ser integrada a las ecuaciones de conservación hidrodinámicas del plasma.
     \subsection{Sistema de Leyes de Conservación}
 
 
-    \subsubsection{Las ecuaciones hydrodinamicas. }
-    
-    
-    Deacuerdo con la mecanica de fluidos relativista, la suposicion principal para poder describir un fluido cualquiera es considerarlo como un "fluido perfecto", el cual define al fluido como un conjunto de particulas las cuales estan en reposo en algun marco de referencia inercial. Si este conjunto de n particulas se esta 
-        moviendo deacuerdo a un cuadrivector de fluido $u^{\mu}$.
-        Se puede construir la conservacíon del numero de particulas total al definir este cuadrivector de flujo dado por:
+\subsection{Conservación Hidrodinámica y el Tensor de Energía-Momento Total}
+\label{sec:Energia_Momento}
 
+Una vez establecida la estructura geométrica del campo electromagnético, es imperativo acoplar su dinámica al comportamiento macroscópico del plasma. En la física teórica contemporánea, la construcción del tensor de energía-momento que rige esta interacción no se postula de manera heurística, sino que se deduce de primeros principios mediante el Principio de Mínima Acción.
 
-
-
-
-
-        \begin{equation*}
-              N^{\mu}=nu^{\mu}    
-        \end{equation*}
-
-        Donde su ley de conservacíon covariante asociada corresponde a la derivada covariante de este cuadrivector de flujo:
-
-        \begin{equation*}
-            \nabla_{\mu}N^{\mu}= \nabla_{\mu}(n u^{\mu}) = 0 
-        \end{equation*}
-
-        Al multiplicar esta expresion por la masa en reposo asociada a cada particula, se interpreta en este caso la densidad de energía en reposo asociada a las particulas, lo que genera la primera ley de conservacion covariante dada por: 
-
-        \begin{equation}
-            \nabla_{\mu}{\rho}u^{\mu}= \nabla_{\mu}(nmu^{\mu}) = 0 
-        \end{equation}
-
-        \subsubsection{Las ecuaciones electrodinámicas}
-        La antisimetría de $F_{\mu\nu}$ implica
-
-            \begin{equation}
-            \nabla_\mu J^\mu = 0,
-            \end{equation}
-
-            que expresa la conservación local de la carga eléctrica.
-
-
-    \subsubsection{Construcción del Tensor de Energía-Momento Total}
-
-En un espacio-tiempo de Minkowski con métrica $g_{\mu\nu}$ de signatura $(-,+,+,+)$, 
-el tensor de energía-momento total de un plasma magnetizado se define como la suma 
-de las contribuciones del fluido y del campo electromagnético:
-
+Para un sistema caracterizado por una acción global $S = \int \mathcal{L} \sqrt{-g} \, d^4x$, el teorema de Hilbert establece que el tensor de energía-momento simétrico y covariante surge naturalmente como la respuesta dinámica del sistema ante variaciones infinitesimales de la métrica del espacio-tiempo $g_{\mu\nu}$:
 \begin{equation}
-T^{\mu\nu} = T^{\mu\nu}_{\text{fluid}} + T^{\mu\nu}_{\text{em}} .
+    T^{\mu\nu} = -\frac{2}{\sqrt{-g}} \frac{\delta S}{\delta g_{\mu\nu}}
+\end{equation}
+Aunque nuestro estudio se desarrolla sobre el espacio-tiempo plano de Minkowski (donde al finalizar la variación evaluamos $g_{\mu\nu} \to \eta_{\mu\nu}$ y $\sqrt{-g} \to 1$), este operador variacional proporciona la definición fundamental, unívoca y rigurosa de las densidades de energía y momentos. 
+
+En el caso del plasma magnetizado, la acción total del sistema es aditiva y se descompone en la contribución del campo libre y la contribución material del fluido, $S = S_{\text{em}} + S_{\text{fluid}}$. Por la linealidad del operador de Hilbert, el tensor de energía-momento total resulta ser la superposición lineal de sus respectivos tensores:
+\begin{equation}
+    T^{\mu\nu} = T^{\mu\nu}_{\text{fluid}} + T^{\mu\nu}_{\text{em}}
 \end{equation}
 
-%----------------------------------------------------
-\paragraph{Tensor de Energía-Momento del Fluido Perfecto}
+\subsubsection{Derivación a partir de las Densidades Lagrangianas}
 
-Bajo la hipótesis de fluido perfecto (ausencia de viscosidad y conducción de calor), 
-en el sistema de referencia comóvil (LRF) el tensor toma la forma diagonal:
+Para obtener las expresiones explícitas de cada componente, definimos rigurosamente la acción asociada a cada subsistema físico.
 
+Para el campo electromagnético, la acción se construye a partir del único escalar invariante de gauge y de Lorentz que preserva la linealidad de las ecuaciones de campo (paridad e invariancia de inversión temporal). Esta densidad lagrangiana es proporcional a la contracción del tensor de Faraday:
 \begin{equation}
-T^{\mu}_{\ \nu} = \mathrm{diag}(\epsilon, p, p, p),
+    S_{\text{em}} = \int \left( -\frac{1}{4} F_{\alpha\beta} F_{\gamma\delta} g^{\alpha\gamma} g^{\beta\delta} \right) \sqrt{-g} \, d^4x
 \end{equation}
-
-donde $\epsilon$ es la densidad total de energía y $p$ la presión hidrostática.
-
-Sea $u^\mu$ la cuadrivelocidad del fluido, normalizada como
-
+Al hacer explícita la dependencia con la métrica inversa $g^{\mu\nu}$, la aplicación de la derivada funcional de Hilbert arroja indefectiblemente el tensor covariante de esfuerzos de Faraday-Maxwell:
 \begin{equation}
-u^\mu u_\mu = -1.
+    T^{\mu\nu}_{\text{em}} = F^{\mu\lambda} F^\nu_{\ \lambda} - \frac{1}{4} \eta^{\mu\nu} F_{\alpha\beta} F^{\alpha\beta}
 \end{equation}
+Este objeto matemático hereda automáticamente propiedades cruciales como su simetría ($T^{\mu\nu}_{\text{em}} = T^{\nu\mu}_{\text{em}}$) y, al carecer de una escala de masa intrínseca, posee traza nula en el vacío ($T^\mu_{\ \mu} = 0$).
 
-Definimos el proyector ortogonal
-
+De manera homóloga, para la componente material adoptamos la aproximación de fluido perfecto, donde los tiempos de relajación térmica y viscosa se asumen suficientemente cortos para despreciar dichos efectos disipativos. En la formulación euleriana de la hidrodinámica relativista, la acción de un fluido perfecto está completamente dictada por su presión hidrostática termodinámica $p$:
 \begin{equation}
-h^{\mu\nu} = g^{\mu\nu} + u^\mu u^\nu.
+    S_{\text{fluid}} = \int p \, \sqrt{-g} \, d^4x
 \end{equation}
-
-La forma covariante del tensor es
-
+Al aplicar la variación funcional sobre la presión (sujeta a las restricciones holonómicas de conservación del número de bariones y entropía por partícula), el operador de Hilbert genera el término inercial proyectado a lo largo de la cuadrivelocidad $u^\mu$, dando lugar al tensor de energía-momento material canónico:
 \begin{equation}
-T^{\mu\nu}_{\text{fluid}}
-=
-\epsilon u^\mu u^\nu + p h^{\mu\nu}
-=
-(\epsilon + p) u^\mu u^\nu + p g^{\mu\nu}.
+    T^{\mu\nu}_{\text{fluid}} = (\epsilon + p) u^\mu u^\nu + p \eta^{\mu\nu} = \rho h\, u^\mu u^\nu + p \eta^{\mu\nu}
 \end{equation}
+donde $\epsilon$ es la densidad de energía total propia, $\rho$ es la densidad de masa en reposo, y $h$ la entalpía específica definida mediante la relación termodinámica $\rho h = \epsilon + p$.
 
-Introduciendo la entalpía específica $h$ mediante
 
+
+Para que esta estructura tensorial sea útil en la integración numérica de las ecuaciones de evolución, es indispensable realizar una descomposición espacial respecto al observador euleriano asociado al fluido. Utilizando los cuadrivectores de campo eléctrico $E^\mu$ y magnético $B^\mu$ medidos por el observador comóvil $u^\mu$, el tensor electromagnético se descompone covariantemente como:
 \begin{equation}
-\rho h = \epsilon + p,
+    T^{\mu\nu}_{\text{em}} = \frac{1}{2}(E^2 + B^2) \left( u^\mu u^\nu + h^{\mu\nu} \right) - E^\mu E^\nu - B^\mu B^\nu + u^\mu S^\nu + u^\nu S^\mu
 \end{equation}
-
-se obtiene la forma compacta empleada en RRMHD:
-
+donde hemos introducido los escalares invariantes $E^2 = E^\mu E_\mu$ y $B^2 = B^\mu B_\mu$, que representan la densidad de energía de cada campo, y el cuadrivector covariante de Poynting:
 \begin{equation}
-T^{\mu\nu}_{\text{fluid}} =
-\rho h\, u^\mu u^\nu + p g^{\mu\nu}.
+    S^\mu = \epsilon^{\mu\nu\alpha\beta} u_\nu E_\alpha B_\beta
 \end{equation}
+el cual describe el flujo de energía electromagnética espacial ortogonal a la cuadrivelocidad.
 
-Esta formulación corresponde al \textit{Eckart frame}, donde $u^\mu$ es paralelo 
-a la corriente de partículas.
 
-%----------------------------------------------------
-\paragraph{Tensor de Energía-Momento Electromagnético}
 
-Para un medio no polarizable y no magnetizable, el tensor electromagnético se define como
 
+
+\subsubsection{Dinámica Acoplada y el Sistema Completo de RRMHD}
+
+La evolución temporal y espacial del plasma magnetizado está dictada por el acoplamiento intrínseco entre la materia y el campo. Esta dinámica acoplada se obtiene imponiendo la conservación local y estricta del tensor de energía-momento total del sistema:
 \begin{equation}
-T^{\mu\nu}_{\text{em}}
-=
-F^{\mu\lambda} F^{\nu}_{\ \lambda}
--
-\frac{1}{4}
-g^{\mu\nu}
-F_{\alpha\beta} F^{\alpha\beta}.
+    \partial_\mu T^{\mu\nu} = \partial_\mu \left( T^{\mu\nu}_{\text{fluid}} + T^{\mu\nu}_{\text{em}} \right) = 0
 \end{equation}
+Físicamente, esta ecuación de continuidad establece que cualquier variación en la energía o el momento del campo electromagnético debe ser compensada exactamente por un cambio equivalente en el fluido material. 
 
-Este tensor es simétrico y, en el vacío, satisface
-
+Para explicitar este intercambio, tomamos la divergencia del tensor electromagnético. Al derivar la expresión $T^{\mu\nu}_{\text{em}} = F^{\mu\lambda} F^\nu_{\ \lambda} - \frac{1}{4} \eta^{\mu\nu} F_{\alpha\beta} F^{\alpha\beta}$ y hacer uso simultáneo de las ecuaciones de Maxwell inhomogéneas ($\partial_\mu F^{\mu\nu} = J^\nu$) y la identidad de Bianchi ($\partial_{[\mu} F_{\alpha\beta]} = 0$), las derivadas de los campos se simplifican algebraicamente para arrojar una identidad fundamental:
 \begin{equation}
-T^{\mu}_{\ \mu} = 0.
+    \partial_\mu T^{\mu\nu}_{\text{em}} = - F^{\nu\lambda} J_\lambda
 \end{equation}
-
-%----------------------------------------------------
-\paragraph{Descomposición 3+1}
-
-Respecto a un observador con cuadrivelocidad $u^\mu$, 
-puede escribirse en términos de los campos medidos $E^\mu$ y $B^\mu$:
-
+El término resultante en el lado derecho es precisamente el negativo de la densidad de fuerza de Lorentz covariante. Sustituyendo este resultado en la ecuación de conservación total, obtenemos la ecuación de movimiento para la componente material:
+\begin{equation}
+    \partial_\mu T^{\mu\nu}_{\text{fluid}} = F^{\nu\lambda} J_\lambda
+\end{equation}
+Esta expresión constituye la generalización relativista de las ecuaciones de Euler-Navier-Stokes con forzamiento electromagnético. Agrupando esta ley dinámica con la conservación de masa y las ecuaciones de campo, el sistema covariante completo de la Magnetohidrodinámica Relativista Resistiva (RRMHD) queda constituido por el siguiente conjunto de ecuaciones diferenciales:
 \begin{align}
-T^{\mu\nu}_{\text{em}} =
-& \frac{1}{2}(E^2 + B^2)
-\left(
-u^\mu u^\nu + h^{\mu\nu}
-\right)
-- E^\mu E^\nu
-- B^\mu B^\nu \\
-& + u^\mu S^\nu + u^\nu S^\mu ,
+    \partial_\mu (\rho u^\mu) &= 0 \\
+    \partial_\mu T^{\mu\nu} &= 0 \\
+    \partial_\mu F^{\mu\nu} &= J^\nu \\
+    \partial_\mu {}^*F^{\mu\nu} &= 0
 \end{align}
 
-donde el vector de Poynting covariante es
+Aunque este sistema tetradimensional es manifiestamente covariante y estéticamente compacto, no es directamente aplicable en esquemas de integración numérica, los cuales requieren distinguir explícitamente entre la evolución temporal y los gradientes espaciales. Para transicionar del formalismo covariante a un sistema de ecuaciones de evolución hiperbólicas, es indispensable realizar una descomposición de tipo 3+1. 
 
-\begin{equation}
-S^\mu = \epsilon^{\mu\nu\alpha\beta} u_\nu E_\alpha B_\beta.
-\end{equation}
+Proyectando estas ecuaciones tensoriales a lo largo de la línea de mundo de un observador euleriano (contrayendo con el vector normal a las hipersuperficies espaciales) y sobre el hiperplano espacial ortogonal (mediante el proyector de métrica espacial), el sistema covariante se fractura de manera natural. La contracción temporal de $\partial_\mu T^{\mu\nu} = 0$ genera la ecuación de evolución de la energía total (el equivalente a la primera ley de la termodinámica), mientras que su proyección espacial rige la conservación del momento (la ecuación de Euler). De manera análoga, la descomposición de las leyes de Maxwell y del cuadrivector corriente $J^\mu$ produce las ecuaciones de evolución para los campos eléctricos y magnéticos tridimensionales observables, cerrando así el sistema de variables primitivas y conservativas que requiere cualquier simulador computacional de plasmas relativistas.
 
-Aquí $E^2 = E^\mu E_\mu$ y $B^2 = B^\mu B_\mu$.
-
-%====================================================
-\subsubsection{Sistema conservativo compelto ideal}
-
-La dinámica acoplada del fluido y del campo electromagnético se obtiene
-imponiendo la conservación local del tensor de energía-momento total,
-
-\begin{equation}
-\nabla_\mu T^{\mu\nu} = 0,
-\end{equation}
-
-donde
-
-\begin{equation}
-T^{\mu\nu} = T^{\mu\nu}_{\text{fluid}} + T^{\mu\nu}_{\text{em}}.
-\end{equation}
-
-En espacio-tiempo plano, la derivada covariante se reduce a derivadas parciales,
-
-\begin{equation}
-\nabla_\mu \rightarrow \partial_\mu.
-\end{equation}
-
-Usando las ecuaciones de Maxwell inhomogéneas,
-
-\begin{equation}
-\partial_\mu F^{\mu\nu} = J^\nu,
-\end{equation}
-
-puede demostrarse que
-
-\begin{equation}
-\partial_\mu T^{\mu\nu}_{\text{em}} = - F^{\nu\lambda} J_\lambda.
-\end{equation}
-
-Por lo tanto, la conservación total implica
-
-\begin{equation}
-\partial_\mu T^{\mu\nu}_{\text{fluid}} = F^{\nu\lambda} J_\lambda.
-\end{equation}
-
-El sistema completo de RRMHD queda entonces constituido por:
-
-\begin{align}
-\partial_\mu (\rho u^\mu) &= 0, \\
-\partial_\mu T^{\mu\nu} &= 0, \\
-\partial_\mu F^{\mu\nu} &= J^\nu, \\
-\partial_\mu {}^*F^{\mu\nu} &= 0,
-\end{align}
 
 
 \subsection{El Sistema Aumentado de Maxwell}
 \label{sec:Max-aumentado}
-De la electrodinamica covariante se consigue el sistema de ecuaciones  mixto de evolucion-restriccion. En la metrica de Minkowski las ecuaciones homogeneas e inhomogeneas de la seccion \ref{sec:Elec_Cov} el sistema se comportan como un sistema semi-hiperbolico con tresricciones elipticas dadas por la ley de Gauss electrica y  divergencia magnetica nula, estas restricciones vienen dadas por que las estas ecuaciones no contienen evolucion temporal y solo restringen el espacio de soluciones elipticamente. Esta restricción tiene una consecuencia numerica, ya que los errores de truncamiento en la reconstruccion  espacial y la discretización temporal generan monopolos magneticos espirulos $\nabla \cdot \mathbf{B} = 0$  \parencite{Dedner-2002}, los cuales numericamente no se propagan ni se dicipan lo que hace que hace que se 
-acumulen errores y la estabilidad numerica del esquema se destruya. Este problema numerico se soluciona proponiendo un sistema aumentado que permita que numericamente los errores se dicipen y se propagen sin modificar la física del sistema. Esto se puede lograr completando el sistema eliminando las restricciones elipticas y convirtiendo el sistema completo en una evolucion hiperbolica. esto se hace acoplando las restricciones a las leyes de evolucion tempotal introduciendo dos campos escalares adicionales  
 
+De la formulación covariante de la electrodinámica se deriva un sistema de ecuaciones de naturaleza mixta: evolución y restricción. En el espacio-tiempo de Minkowski, las ecuaciones homogéneas e inhomogéneas desarrolladas en la sección \ref{sec:Elec_Cov} se comportan como un sistema semi-hiperbólico sujeto a restricciones elípticas, dictadas por la ley de Gauss eléctrica ($\nabla \cdot \mathbf{E} = \rho_e$) y la condición de divergencia magnética nula ($\nabla \cdot \mathbf{B} = 0$). Estas restricciones carecen de derivadas temporales, limitándose a confinar el espacio de soluciones físicamente admisibles. 
 
-En esta sección se construye una formulación covariante del sistema aumentado para las ecuaciones de Maxwell utilizando el método de \textit{Generalized Lagrange Multipliers} (GLM). El objetivo es convertir las restricciones de divergencia en ecuaciones dinámicas sin alterar el contenido físico de la teoría.
+En el ámbito de la simulación numérica, esta estructura matemática presenta un desafío crítico. Los errores de truncamiento inherentes a la reconstrucción espacial y a la discretización temporal generan violaciones inevitables a estas restricciones, produciendo, por ejemplo, monopolos magnéticos espurios ($\nabla \cdot \mathbf{B} \neq 0$) \parencite{Dedner-2002}. En el formalismo estándar, estos errores numéricos no se propagan ni se disipan, provocando una acumulación local que destruye irremediablemente la estabilidad del esquema numérico.
 
-\subsubsection{Acción de Maxwell}
+Para sortear esta patología, es imperativo transicionar hacia un sistema estrictamente hiperbólico mediante la formulación de un sistema aumentado. Esto se logra acoplando dinámicamente las restricciones elípticas a las leyes de evolución temporal mediante la introducción de dos campos escalares auxiliares. En esta sección, construiremos una formulación covariante de este sistema extendido utilizando el método de \textit{Generalized Lagrange Multipliers} (GLM). El objetivo fundamental es convertir las restricciones de divergencia en ecuaciones dinámicas, permitiendo que los errores numéricos se propaguen y decaigan, todo ello sin alterar el subespacio de las soluciones físicas exactas de la teoría.
 
-Partimos de la acción covariante de la electrodinámica clásica en espacio-tiempo de Minkowski:
+\subsubsection{Extensión Lagrangiana y el Campo Auxiliar Eléctrico $\Phi$}
 
+Para transformar el sector eléctrico del sistema en uno completamente evolutivo, se postula una extensión de la densidad lagrangiana de la electrodinámica clásica. Se introduce un campo escalar auxiliar $\Phi(x)$ y se considera la siguiente acción extendida sobre el espacio-tiempo de Minkowski:
 \begin{equation}
-S_0[A_\mu] = \int d^4x \left( -\frac{1}{4} F_{\mu\nu}F^{\mu\nu} + J_\mu A^\mu \right)
+    S = \int d^4x \left[ -\frac{1}{4}F_{\mu\nu}F^{\mu\nu} + J_\mu A^\mu + \frac{1}{2}\partial_\mu \Phi \partial^\mu \Phi - \Phi\, \partial_\mu A^\mu \right]
 \end{equation}
+En esta expresión, el primer y segundo término corresponden a la acción de Maxwell estándar acoplada a una fuente material, mientras que los dos últimos términos introducen la dinámica del nuevo campo. En particular, el término de acoplamiento $-\Phi\, \partial_\mu A^\mu$ no es arbitrario: está matemáticamente diseñado para incorporar la condición de gauge de Lorenz ($\partial_\mu A^\mu = 0$) no como una restricción rígida \textit{a priori}, sino como una variable dinámica integrada al sistema.
 
-donde el tensor electromagnético está definido como:
-
-\begin{equation}
-F_{\mu\nu} = \partial_\mu A_\nu - \partial_\nu A_\mu
-\end{equation}
-
-Al variar la acción respecto al potencial $A_\mu$, se obtiene:
-
-\begin{equation}
-\delta S_0 = \int d^4x \left( \partial_\mu F^{\mu\nu} - J^\nu \right)\delta A_\nu
-\end{equation}
-
-lo que conduce a las ecuaciones de Maxwell:
-
-\begin{equation}
-\partial_\mu F^{\mu\nu} = J^\nu
-\end{equation}
-
-Por otro lado, la identidad de Bianchi implica:
-
-\begin{equation}
-\partial_\mu (*F)^{\mu\nu} = 0
-\end{equation}
-
-Estas ecuaciones contienen restricciones que no son evolutivas, lo cual genera dificultades en formulaciones numéricas \parencite{dedner2002hyperbolic}.
-
-\subsubsection{Extensión del sistema: introducción del campo auxiliar}
-
-Para transformar el sistema en uno completamente evolutivo, introducimos un campo escalar auxiliar $\Phi(x)$ y consideramos la acción extendida:
-
-\begin{equation}
-S = \int d^4x \left[
--\frac{1}{4}F_{\mu\nu}F^{\mu\nu}
-+ J_\mu A^\mu
-+ \frac{1}{2}\partial_\mu \Phi \partial^\mu \Phi
-- \Phi\, \partial_\mu A^\mu
-\right]
-\end{equation}
-
-Este término de acoplamiento no es arbitrario: está diseñado para incorporar dinámicamente la condición de gauge de Lorenz.
-
-\subsubsection{Ecuaciones de Euler--Lagrange del sistema extendido}
-
-\paragraph{Variación respecto a $A_\mu$}
-
-La variación de la acción produce:
-
-\begin{equation}
-\delta S = \int d^4x \left[
-\left(\partial_\mu F^{\mu\nu} + \partial^\nu \Phi - J^\nu \right)\delta A_\nu
-\right]
-\end{equation}
-
-de donde se obtiene:
-
-\begin{equation}
-\boxed{
-\partial_\mu F^{\mu\nu} + \partial^\nu \Phi = J^\nu
-}
-\end{equation}
-
-\paragraph{Variación respecto a $\Phi$}
-
-\begin{equation}
-\delta S = \int d^4x \left[
-(-\Box \Phi - \partial_\mu A^\mu)\delta \Phi
-\right]
-\end{equation}
-
-lo que conduce a:
-
-\begin{equation}
-\boxed{
-\Box \Phi = -\partial_\mu A^\mu
-}
-\end{equation}
-
-\subsubsection{Interpretación del sistema aumentado}
-
-El sistema resultante es:
-
+Aplicando el principio de acción estacionaria ($\delta S = 0$) y realizando la variación funcional con respecto al cuadripotencial $A_\nu$, la ecuación inhomogénea de Maxwell sufre una modificación estructural. Tras integrar por partes y anular los términos de frontera, se obtiene:
 \begin{align}
-\partial_\mu F^{\mu\nu} + \partial^\nu \Phi &= J^\nu \\ 
-\Box \Phi &= -\partial_\mu A^\mu
+    \frac{\delta S}{\delta A_\nu} &= 0 \nonumber \\
+    \partial_\mu F^{\mu\nu} + \partial^\nu \Phi &= J^\nu \label{eq:GLM_Phi_Maxwell}
+\end{align}
+Por otro lado, la variación independiente de la acción con respecto al campo escalar auxiliar $\Phi$ proporciona su propia ecuación de movimiento:
+\begin{align}
+    \frac{\delta S}{\delta \Phi} &= 0 \nonumber \\
+    \Box \Phi &= -\partial_\mu A^\mu \label{eq:GLM_Phi_Wave}
+\end{align}
+donde $\Box \equiv \partial_\mu \partial^\mu$ es el operador diferencial de d'Alembert. 
+
+El análisis acoplado de las ecuaciones (\ref{eq:GLM_Phi_Maxwell}) y (\ref{eq:GLM_Phi_Wave}) revela el mecanismo profundo de esta corrección numérica. Al tomar la divergencia de la ecuación (\ref{eq:GLM_Phi_Maxwell}) y aplicar la conservación de la carga ($\partial_\nu J^\nu = 0$) junto con la antisimetría del tensor de Faraday ($\partial_\nu \partial_\mu F^{\mu\nu} = 0$), se encuentra que $\Box \Phi = 0$ en el límite analítico continuo. Sin embargo, en un entorno computacional discreto, cualquier violación local a la ley de Gauss eléctrica actúa inmediatamente como término fuente. En consecuencia, el error espurio no se acumula estáticamente en la malla computacional, sino que se propaga a la velocidad de la luz hacia las fronteras del dominio, restaurando la estabilidad hiperbólica del sector eléctrico.
+
+\subsubsection{Simetría Dual y el Campo Auxiliar Magnético $\Psi$}
+
+Aunque la introducción del campo $\Phi$ resuelve de manera elegante las patologías del sector eléctrico, el formalismo lagrangiano basado exclusivamente en el potencial $A_\mu$ deja intacta la identidad de Bianchi, $\partial_\mu {}^*F^{\mu\nu} = 0$. Matemáticamente, al definir el tensor de Faraday como la derivada exterior exacta del potencial ($F=dA$), la ausencia de monopolos magnéticos ($dF=0$) constituye una restricción topológica inquebrantable en el límite continuo. 
+
+Sin embargo, en el dominio discreto propio de una simulación numérica, los operadores diferenciales discretos no satisfacen de manera exacta la propiedad de nilpotencia ($d^2 \neq 0$). Los errores de truncamiento rompen esta topología geométrica, permitiendo la generación de monopolos magnéticos espurios ($\nabla \cdot \mathbf{B} \neq 0$) que degradan la fidelidad física y destruyen la estabilidad del código. Para abordar esta anomalía numérica de manera covariante, sin la necesidad de recurrir a la formulación de potenciales magnéticos duales, se apela a la invariancia dual (o simetría de Hodge) intrínseca a las ecuaciones de Maxwell. 
+
+De manera homóloga a la extensión de la ecuación inhomogénea, se "relaja" la identidad de Bianchi mediante la postulación de un segundo multiplicador de Lagrange escalar, $\Psi(x)$, acoplado directamente a la divergencia del tensor dual de Faraday:
+\begin{equation}
+\label{eq:Bianchi_Extendida_Psi}
+    \partial_\mu {}^*F^{\mu\nu} + \partial^\nu \Psi = 0
+\end{equation}
+
+Para preservar la coherencia hiperbólica del marco teórico y asegurar que las violaciones a las restricciones se comporten como perturbaciones dinámicas, este nuevo campo debe satisfacer una ecuación de onda análoga a la del sector eléctrico. Adicionalmente, el objetivo de un esquema robusto no es únicamente propagar los errores fuera del dominio computacional, sino disiparlos activamente. Por ello, se introducen términos de amortiguamiento fenoménico, parametrizados por los coeficientes de decaimiento $\kappa_E$ y $\kappa_B$, los cuales fuerzan un decaimiento exponencial de las divergencias espurias. 
+
+Integrando estas consideraciones, la formulación covariante completa del sistema aumentado de Maxwell (GLM) queda rigurosamente constituida por el siguiente conjunto de ecuaciones:
+\begin{align}
+    \partial_\mu F^{\mu\nu} + \partial^\nu \Phi &= J^\nu \label{eq:GLM_Cov_1}\\
+    \partial_\mu {}^*F^{\mu\nu} + \partial^\nu \Psi &= 0 \label{eq:GLM_Cov_2}\\
+    \Box \Phi + \kappa_E \partial_t \Phi &= -\partial_\mu A^\mu \label{eq:GLM_Cov_3}\\
+    \Box \Psi + \kappa_B \partial_t \Psi &= 0 \label{eq:GLM_Cov_4}
 \end{align}
 
-Este sistema describe la evolución acoplada del potencial electromagnético y un campo escalar auxiliar. La presencia del término $\partial^\nu \Phi$ introduce modos longitudinales que permiten convertir las restricciones en ecuaciones dinámicas.
+Es precisamente este sistema tetradimensional extendido, libre de restricciones elípticas estáticas, el que permite construir esquemas de integración estables. La transición hacia un código computacional exige ahora la proyección de este tensor covariante sobre las hipersuperficies espaciales del observador, proceso conocido como la descomposición 3+1.
 
-\subsubsection{Recuperación de la teoría de Maxwell}
+\subsubsection{La Ecuación del Telégrafo: Origen Covariante y Causalidad Disipativa}
 
-Si se impone la condición de gauge de Lorenz:
+El propósito fundamental de la extensión GLM no es únicamente aislar los errores numéricos en modos longitudinales, sino garantizar su extinción local y dinámica. En el límite analítico estricto, derivado del principio de mínima acción, las ecuaciones para los campos auxiliares adoptan la forma de una ecuación de onda pura acoplada a fuentes (por ejemplo, $\Box \Phi = -\partial_\mu A^\mu$). Si bien esta ecuación de d'Alembert asegura que las perturbaciones se propaguen respetando la causalidad relativista, es de naturaleza conservativa e invariante ante la inversión temporal ($t \rightarrow -t$). En un esquema numérico, esto implica que un error generado en el dominio rebotaría indefinidamente sin disminuir su amplitud.
 
+Para forzar un decaimiento termodinámico genuino, es matemáticamente ineludible romper la simetría de inversión temporal introduciendo disipación. Sin embargo, en un formalismo relativista, la adición de términos de disipación debe realizarse sin destruir la covariancia de la teoría. La solución geométrica consiste en acoplar el campo de error a la "fricción" de la malla computacional, la cual está unívocamente definida por la línea de mundo del observador euleriano de laboratorio, cuya cuadrivelocidad es $n^\mu$. El término disipativo más simple y covariante que se puede construir es proporcional a la derivada direccional del campo a lo largo del flujo de este observador: $\kappa n^\mu \partial_\mu \Phi$, donde $\kappa > 0$ es un coeficiente fenomenológico de amortiguamiento.
+
+Al proyectar la ecuación de evolución sobre el espacio-tiempo plano de la simulación, donde $n^\mu = (1, 0, 0, 0)$ y el operador de d'Alembert es $\Box = -\partial_t^2 + \nabla^2$, el término disipativo covariante colapsa estrictamente a $\kappa \partial_t \Phi$. Así, la evolución de las divergencias espurias (representadas genéricamente por una amplitud $\xi$) queda regida por la Ecuación del Telégrafo:
 \begin{equation}
-\partial_\mu A^\mu = 0
+    \partial_t^2 \xi + \kappa \partial_t \xi - \nabla^2 \xi = 0
 \end{equation}
 
-la ecuación para $\Phi$ se reduce a:
-
-\begin{equation}
-\Box \Phi = 0
-\end{equation}
-
-Bajo condiciones iniciales:
-
-\begin{equation}
-\Phi = 0, \quad \partial_t \Phi = 0
-\end{equation}
-
-se obtiene:
-
-\begin{equation}
-\Phi \equiv 0
-\end{equation}
-
-y por lo tanto:
-
-\begin{equation}
-\partial_\mu F^{\mu\nu} = J^\nu
-\end{equation}
-
-lo que demuestra que la teoría original de Maxwell se recupera exactamente.
-
-\subsubsection{Equivalencia física}
-
-El sistema aumentado no modifica el contenido físico de la teoría:
-
+El surgimiento matemático de esta ecuación es el pilar que garantiza la estabilidad del sistema, ya que rige un comportamiento asintótico dual que concilia la relatividad especial con la disipación parabólica:
 \begin{itemize}
-\item Los observables dependen únicamente de $F_{\mu\nu}$.
-\item El campo $\Phi$ no contribuye directamente a $F_{\mu\nu}$.
-\item El subespacio $\Phi = 0$ es invariante bajo la evolución.
+    \item \textbf{Implicación hiperbólica ($\kappa \rightarrow 0$):} El sistema se reduce a una ecuación de onda. La segunda derivada espacial ($\nabla^2 \xi$) y temporal ($\partial_t^2 \xi$) garantizan que las velocidades características de propagación de la información sean finitas y exactamente iguales a la velocidad de la luz ($\pm c$). Esto asegura que el esquema numérico jamás viole el cono de luz relativista.
+    \item \textbf{Implicación parabólica ($\kappa \rightarrow \infty$):} El término inercial $\partial_t^2$ se vuelve despreciable frente a la fricción, colapsando a una ecuación de difusión escalar ($\kappa \partial_t \xi \approx \nabla^2 \xi$). Aunque este límite amortigua el error eficazmente, permite velocidades de propagación infinitas y exige restricciones prohibitivas en el paso de tiempo por la condición de Courant-Friedrichs-Lewy (CFL).
 \end{itemize}
 
-Por lo tanto, la extensión introduce grados de libertad adicionales no físicos que se desacoplan en el límite físico, garantizando la equivalencia con la electrodinámica clásica \parencite{munz2000divergence, dedner2002hyperbolic}.
+Al operar en el régimen intermedio dictado por la Ecuación del Telégrafo, el sistema extrae las ventajas de ambos límites. La estructura de las segundas derivadas mantiene las velocidades de propagación estrictamente causales, mientras que el término $\kappa \partial_t \xi$ actúa como un sumidero termodinámico. Esto implica matemáticamente que la amplitud de cualquier perturbación espuria generada por la discretización viajará a la máxima velocidad permitida hacia las fronteras, pero su magnitud decaerá exponencialmente en el tiempo con un factor envolvente proporcional a $e^{-\kappa t / 2}$. Es este origen covariante y su estricta causalidad disipativa lo que justifica la viabilidad del método GLM en simulaciones de plasmas relativistas.
 
-\subsubsection{Incorporación de disipación}
 
-Para obtener el sistema GLM completo, se añade un término de masa al campo auxiliar:
 
+
+\subsubsection{Descomposición 3+1 del Sistema Aumentado}
+
+El clímax de esta formulación se alcanza al transicionar del marco covariante tetradimensional abstracto hacia el sistema de ecuaciones de evolución empleado en la práctica computacional. Al realizar una descomposición 3+1 del tensor aumentado, proyectándolo sobre el sistema de referencia del observador euleriano de laboratorio (con cuadrivelocidad $n^\mu = (1, 0, 0, 0)$ en el espacio plano), el sistema tensorial se fractura naturalmente en su representación vectorial tridimensional. El sistema aumentado hiperbólico completo de Maxwell se escribe entonces como:
+\begin{align}
+    \partial_t \mathbf{E} - \nabla \times \mathbf{B} + \nabla \Phi &= -\mathbf{J} \label{eq:GLM_3D_E} \\
+    \partial_t \mathbf{B} + \nabla \times \mathbf{E} + \nabla \Psi &= 0 \label{eq:GLM_3D_B} \\
+    \partial_t \Phi + \nabla \cdot \mathbf{E} &= \rho_e - \kappa_E \Phi \label{eq:GLM_3D_Phi} \\
+    \partial_t \Psi + \nabla \cdot \mathbf{B} &= -\kappa_B \Psi \label{eq:GLM_3D_Psi}
+\end{align}
+
+Este conjunto de ecuaciones conforma el bloque hiperbólico estricto del sector electromagnético. No obstante, el sistema dinámico general permanece matemáticamente abierto. Las densidades de carga observadas $\rho_e$ y el vector de corriente $\mathbf{J}$ no son variables conservativas impuestas externamente, sino que emergen del acoplamiento intrínseco con la materia. Para clausurar el sistema de la Magnetohidrodinámica Relativista Resistiva (RRMHD), es obligatorio establecer la ecuación constitutiva que dicte cómo el plasma conduce estas corrientes bajo la influencia de los campos en evolución: la Ley de Ohm relativista.
+
+
+
+\subsection{Descomposición de la Cuadricorriente y la Ley de Ohm Relativista}
+\label{sec:Ohm_Relativista}
+
+El sistema de ecuaciones diferenciales desarrollado en las secciones anteriores conforma un marco hiperbólico robusto para la evolución de la masa, el momento, la energía y los campos electromagnéticos. Sin embargo, el sistema completo de la Magnetohidrodinámica Relativista Resistiva (RRMHD) se encuentra matemáticamente abierto. Las variables que actúan como términos fuente en las ecuaciones del campo (Maxwell) y de la materia (Euler) —la densidad de carga observada $\rho_q$ y el vector de densidad de corriente $\mathbf{J}$— no son variables conservativas independientes. Son, por el contrario, la respuesta macroscópica del plasma ante los campos aplicados. Para clausurar el sistema, es imperativo derivar una ecuación constitutiva covariante que modele la conducción eléctrica del medio y proyectarla al sistema de referencia de la simulación.
+
+\subsubsection{Descomposición Ortogonal del Cuadrivector Corriente}
+
+Desde una perspectiva geométrica, el cuadrivector densidad de corriente $J^\mu$ contiene la información total del transporte de carga en el espacio-tiempo. Para extraer el contenido físico medible intrínsecamente por la materia, es necesario proyectar este objeto covariante respecto al marco de referencia comóvil del fluido, caracterizado por su cuadrivelocidad $u^\mu$.
+
+Utilizando el tensor de proyección ortogonal espacial $h^\mu_{\ \nu} = \delta^\mu_{\ \nu} + u^\mu u_\nu$, es posible separar cualquier cuadrivector en sus componentes paralela y ortogonal a la línea de mundo del plasma. Al aplicar la identidad $\delta^\mu_{\ \nu} = -u^\mu u_\nu + h^\mu_{\ \nu}$ sobre la cuadricorriente, se obtiene la descomposición fundamental:
+$$J^\mu = (-J^\nu u_\nu) u^\mu + h^\mu_{\ \nu} J^\nu$$
+
+Esta separación define unívocamente un escalar invariante de Lorentz y un vector puramente espacial en el marco propio del fluido. Se define la densidad de carga propia $\rho_e$ como la contracción directa de la corriente con la cuadrivelocidad:
+$$\rho_e \equiv -J^\nu u_\nu$$
+la cual representa la densidad neta de carga medida por un observador que viaja solidariamente con el elemento de fluido. Simultáneamente, se define la cuadricorriente de conducción $j^\mu$ como la proyección espacial:
+$$j^\mu \equiv h^\mu_{\ \nu} J^\nu$$
+Por construcción geométrica, este vector satisface de forma identitaria la condición de ortogonalidad $j^\mu u_\mu = 0$, garantizando que posea únicamente tres grados de libertad espaciales en el sistema de reposo local. Con estas definiciones, la cuadricorriente total adopta su forma canónica invariante:
+$$J^\mu = \rho_e u^\mu + j^\mu$$
+El primer término ($\rho_e u^\mu$) describe el transporte convectivo de carga debido al movimiento inercial macroscópico del plasma, mientras que el segundo término ($j^\mu$) encapsula el transporte conductivo de los portadores de carga en movimiento relativo al fluido.
+
+\subsubsection{La Ecuación Constitutiva Covariante}
+
+La electrodinámica macroscópica y la termodinámica de procesos irreversibles postulan que, en el régimen lineal e isótropo, la corriente de conducción espacial es directamente proporcional a la fuerza electromagnética neta aplicada sobre las cargas en su sistema de reposo. Ignorando gradientes de temperatura (efectos termoeléctricos) y el efecto Hall (aproximación válida en el límite de un plasma altamente colisional a escalas macroscópicas), esta respuesta lineal constituye la formulación covariante de la Ley de Ohm:
+$$j^\mu = \sigma E^\mu = \sigma F^{\mu\nu}u_\nu$$
+donde $\sigma$ es la conductividad eléctrica escalar propia del plasma, un parámetro fenomenológico que caracteriza la tasa de disipación colisional. Sustituyendo esta relación constitutiva, la expresión completa para la cuadricorriente adquiere la forma:
+$$J^\mu = \rho_e u^\mu + \sigma F^{\mu\nu}u_\nu$$
+
+Es en esta ecuación donde radica la profunda diferencia física entre los regímenes magnetohidrodinámicos. En el límite ideal ($\sigma \rightarrow \infty$), para evitar que la corriente conductiva diverja hacia el infinito y destruya la conservación de la energía, el campo eléctrico comóvil debe anularse estrictamente ($E^\mu = 0 \implies F^{\mu\nu}u_\nu = 0$). Este límite congela topológicamente las líneas de campo magnético en el fluido. Por el contrario, en RRMHD, la conductividad es finita ($0 < \sigma < \infty$), permitiendo la supervivencia de un campo eléctrico en el marco de reposo, el cual propulsa la disipación resistiva (calentamiento de Joule, $j^\mu E_\mu > 0$) y habilita cambios dinámicos en la topología magnética, tales como la reconexión.
+
+\subsubsection{Proyección 3+1 y la Reintegración del Campo Comóvil}
+
+Aunque la ecuación $J^\mu = \rho_e u^\mu + \sigma E^\mu$ es manifiestamente covariante y físicamente completa, resulta inaplicable de manera directa en un esquema de integración numérica. Los integradores computacionales operan desde la perspectiva de un observador euleriano estacionario (la malla de simulación), el cual evoluciona exclusivamente los campos electromagnéticos tridimensionales en el laboratorio ($\mathbf{E}$ y $\mathbf{B}$) y las variables cinemáticas del fluido ($\mathbf{v}$). El campo eléctrico comóvil $E^\mu$ es una variable de estado interna del plasma, inaccesible como variable de evolución independiente para la malla. 
+
+Por lo tanto, es matemáticamente obligatorio reintegrar la definición operacional del campo comóvil ($E^\mu = F^{\mu\nu}u_\nu$) en las ecuaciones de transporte para proyectar la termodinámica de la disipación local hacia los observables del laboratorio. En el espacio-tiempo plano, las componentes de la cuadricorriente y la cuadrivelocidad relativas a la malla euleriana son:
+$$J^\mu = (\rho_q, \mathbf{J})$$
+$$u^\mu = (\Gamma, \Gamma \mathbf{v})$$
+donde $\rho_q$ es la densidad de carga observable, $\mathbf{v}$ es la velocidad tridimensional del fluido, y $\Gamma = (1 - \mathbf{v}^2)^{-1/2}$ es el factor de Lorentz macroscópico. La contracción del tensor de Faraday explícito con esta cuadrivelocidad genera las componentes espacio-temporales del campo eléctrico comóvil expresado mediante variables eulerianas:
+$$E^\mu = \Big( \Gamma (\mathbf{E} \cdot \mathbf{v}), \, \Gamma (\mathbf{E} + \mathbf{v} \times \mathbf{B}) \Big)$$
+
+Para clausurar el sistema, se despeja el vector espacial observable $\mathbf{J}$. Evaluando explícitamente la componente temporal ($\mu=0$) de la ley covariante $J^\mu = \rho_e u^\mu + \sigma E^\mu$, se vinculan las densidades de carga propia y observable:
+$$\rho_q = \rho_e \Gamma + \sigma \Gamma (\mathbf{E} \cdot \mathbf{v})$$
+Despejando la densidad de carga propia $\rho_e$, la cual representa el estado interno del fluido, se obtiene:
+$$\rho_e = \frac{\rho_q}{\Gamma} - \sigma (\mathbf{E} \cdot \mathbf{v})$$
+
+A continuación, al evaluar la componente puramente espacial ($\mu = i = 1,2,3$) de la ley covariante, surge el vector de corriente:
+$$\mathbf{J} = \rho_e \Gamma \mathbf{v} + \sigma \Gamma (\mathbf{E} + \mathbf{v} \times \mathbf{B})$$
+Sustituyendo la expresión derivada para $\rho_e$ en este vector espacial —el paso que acopla formalmente la carga inducida por la relatividad con la conducción clásica— la dependencia de la carga propia se cancela de manera analítica:
+$$\mathbf{J} = \left[ \frac{\rho_q}{\Gamma} - \sigma (\mathbf{E} \cdot \mathbf{v}) \right] \Gamma \mathbf{v} + \sigma \Gamma (\mathbf{E} + \mathbf{v} \times \mathbf{B})$$
+Agrupando términos, se obtiene finalmente:
+$$\mathbf{J} = \rho_q \mathbf{v} + \sigma \Gamma \Big[ \mathbf{E} + \mathbf{v} \times \mathbf{B} - (\mathbf{E} \cdot \mathbf{v})\mathbf{v} \Big]$$
+
+Esta expresión constituye la forma tridimensional cerrada de la Ley de Ohm relativista. La formulación revela analíticamente que la corriente macroscópica observada por el laboratorio no es una simple suma galileana. Es una superposición no trivial del transporte convectivo estricto ($\rho_q \mathbf{v}$) y un término de conducción fuertemente modificado por las contracciones espaciales de Lorentz (el factor $\Gamma$) y los acoplamientos transversales entre los campos. La sustitución explícita de este vector $\mathbf{J}$ en los términos fuente de las ecuaciones de momento, energía y en el sistema Maxwell-GLM, cierra de manera matemática y computacional el modelo físico de la Magnetohidrodinámica Relativista Resistiva.
+\subsection{Resumen del Sistema RRMHD en Forma Conservativa}
+\label{sec:RRMHD_Conservativa}
+
+El desarrollo analítico expuesto a lo largo de este capítulo ha permitido transicionar desde la topología fundamental del espacio-tiempo hasta las ecuaciones de evolución tridimensionales para un plasma no ideal. Sin embargo, para que este modelo físico sea susceptible de integración numérica mediante esquemas de alta resolución orientados a la captura de choques (como los métodos de volúmenes finitos o esquemas tipo Godunov), es un requisito ineludible reescribir el sistema acoplado en una forma fuertemente conservativa.
+
+Matemáticamente, un sistema de leyes de balance hiperbólicas con términos fuente se expresa mediante la ecuación matricial canónica:
 \begin{equation}
--\frac{\kappa}{2}\Phi^2
+\label{eq:Sistema_Conservativo_General}
+    \partial_t \mathbf{U} + \partial_i \mathbf{F}^i(\mathbf{U}) = \mathbf{S}(\mathbf{U})
+\end{equation}
+donde el subíndice espacial $i \in \{1, 2, 3\}$ denota la suma sobre las coordenadas del laboratorio, $\mathbf{U}$ es el vector de estado de las variables conservativas, $\mathbf{F}^i(\mathbf{U})$ representa los tensores de flujo direccionales y $\mathbf{S}(\mathbf{U})$ agrupa los términos fuente algebraicos. 
+
+Con base en la proyección euleriana de las leyes de conservación hidrodinámicas (conservación de masa, momento y energía material) y el sistema aumentado de Maxwell (GLM), el vector de estado completo del sistema de Magnetohidrodinámica Relativista Resistiva (RRMHD) queda constituido por $13$ componentes independientes:
+\begin{equation}
+    \mathbf{U} = 
+    \begin{pmatrix}
+        D \\
+        S^j \\
+        \tau \\
+        B^j \\
+        E^j \\
+        \Psi \\
+        \Phi
+    \end{pmatrix}
+\end{equation}
+donde las variables cinemáticas conservativas están definidas a partir de las primitivas ($\rho, \mathbf{v}, p$) mediante las relaciones $D = \rho\Gamma$, $S^j = \rho h \Gamma^2 v^j$ y $\tau = \rho h \Gamma^2 - p - \rho\Gamma$.
+
+Los flujos espaciales $\mathbf{F}^i(\mathbf{U})$, que dictan el transporte advectivo de estas cantidades a través del dominio computacional y la propagación de las ondas electromagnéticas, toman la forma explícita:
+\begin{equation}
+    \mathbf{F}^i(\mathbf{U}) = 
+    \begin{pmatrix}
+        D v^i \\
+        S^j v^i + p \delta^{ij} \\
+        (\tau + p)v^i \\
+        \epsilon^{ijk} E_k + \Psi \delta^{ij} \\
+        -\epsilon^{ijk} B_k + \Phi \delta^{ij} \\
+        B^i \\
+        E^i
+    \end{pmatrix}
+\end{equation}
+Es de suma importancia notar cómo los campos escalares auxiliares $\Phi$ y $\Psi$ se integran simétricamente en los flujos del campo eléctrico y magnético a través del delta de Kronecker $\delta^{ij}$, mientras que los campos electromagnéticos retroalimentan los flujos de los escalares, generando así la estructura de la ecuación de onda causal discutida en la sección \ref{sec:Max-aumentado}.
+
+Finalmente, el vector de términos fuente $\mathbf{S}(\mathbf{U})$ acopla ambos sectores (materia y campo) mediante la fuerza de Lorentz, el trabajo electromagnético y los sumideros de disipación telegráfica para la limpieza de divergencias:
+\begin{equation}
+    \mathbf{S}(\mathbf{U}) = 
+    \begin{pmatrix}
+        0 \\
+        \rho_q E^j + (\mathbf{J} \times \mathbf{B})^j \\
+        \mathbf{J} \cdot \mathbf{E} \\
+        0 \\
+        -J^j \\
+        -\kappa_B \Psi \\
+        \rho_q - \kappa_E \Phi
+    \end{pmatrix}
+\end{equation}
+Para clausurar unívocamente este sistema dinámico durante la integración temporal, las densidades de carga y corriente ($\rho_q$ y $\mathbf{J}$) requeridas en el vector fuente se evalúan en cada paso computacional utilizando la Ley de Ohm relativista deducida en la ecuación de la sección \ref{sec:Ohm_Relativista}:
+\begin{equation}
+    \mathbf{J} = \rho_q \mathbf{v} + \sigma \Gamma \Big[ \mathbf{E} + \mathbf{v} \times \mathbf{B} - (\mathbf{E} \cdot \mathbf{v})\mathbf{v} \Big]
 \end{equation}
 
-lo que modifica su ecuación de evolución a:
+Esta formulación compacta encapsula la totalidad de la física del plasma resistivo relativista. Al agrupar las identidades geométricas, la termodinámica irreversible y las correcciones de estabilidad en un único operador hiperbólico, el modelo teórico queda rigurosamente fundamentado y matemáticamente preparado para ser discretizado e implementado en una arquitectura computacional de alto rendimiento.
 
-\begin{equation}
-\Box \Phi + \kappa \Phi = -\partial_\mu A^\mu
-\end{equation}
-
-Este término introduce disipación, permitiendo que las violaciones de la restricción se propaguen y decaigan en el tiempo \parencite{dedner2002hyperbolic}.
-
-\subsubsection{Conclusión}
-
-La formulación GLM puede entenderse como una extensión lagrangiana covariante de la electrodinámica clásica, en la cual un campo escalar auxiliar se acopla a la divergencia del potencial electromagnético. Este procedimiento transforma las restricciones en ecuaciones dinámicas, manteniendo invariante el subespacio físico de soluciones y proporcionando una estructura hiperbólica adecuada para aplicaciones numéricas.
-
-
-\subsection{Ley de Ohm Relativista y Corriente Conductiva}
-    Definición de la corriente conductiva $j^c$ [11], donde la resistividad $\eta$ (o conductividad $\sigma$) juega un papel clave en los términos rígidos (stiff terms) del sistema [12].
 
 \section{Análisis de la KHI en el Límite Lineal}
 El estudio de la estabilidad de flujos astrofísicos se fundamenta clásicamente en la teoría de perturbaciones lineales. En este marco, las variables físicas del sistema $\mathbf{U}$ (densidad, presión, campo magnético, velocidad) se descomponen en un estado de equilibrio $\mathbf{U}_0$ y una pequeña perturbación $\delta \mathbf{U}$, tal que $\mathbf{U}(\mathbf{x}, t) = \mathbf{U}_0 + \delta \mathbf{U} e^{i(\mathbf{k} \cdot \mathbf{x} - \omega t)}$. La inestabilidad de Kelvin-Helmholtz (KHI) surge en la interfaz de dos fluidos con una discontinuidad tangencial de velocidad (cizalladura). En la dinámica de fluidos clásica \parencite{acheson-1991}, esta configuración es incondicionalmente inestable en ausencia de gravedad o tensión superficial.
