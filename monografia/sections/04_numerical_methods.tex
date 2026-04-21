@@ -1,18 +1,36 @@
-\section{Métodos de Captura de Choques de Alta Resolución (HRSC)}
-    \subsection{Discretización de Volumen Finito (FV)}
-        Uso de esquemas basados en la forma integral de las leyes de conservación para garantizar la conservación de las cantidades del modelo [15, 16].
 
-\section{Tratamiento de la Rigidez del Sistema RRMHD}
-    \subsection{Esquemas IMEX Runge-Kutta}
-        El sistema RRMHD es rígido (stiff) debido a la alta conductividad, requiriendo un tratamiento especial para los términos de relajación [10, 12, 17]. Los métodos **IMEX-RK** (Implícitos-Explícitos) se utilizan para aplicar discretización implícita a los términos rígidos (como la evolución de $\mathbf{E}$) y explícita a los no rígidos [18, 19].
-    \subsection{Estrategias de Limpieza de Divergencia}
-        Uso de la técnica de **limpieza de divergencia hiperbólica (GLM)**, donde los pseudo-potenciales se integran analíticamente para la parte rígida [20, 21].
+\section{Discretización y Reconstrucción Espacial}
+\label{sec:Reconstruccion_Espacial}
+\subsection{Esquemas de Volúmenes Finitos en RRMHD}
+\subsection{Limitadores de Pendiente y Reconstrucción de Alto Orden}
+\subsubsection{Difusión Numérica y la Necesidad de Esquemas MP5}
 
-\section{Construcción del Esquema de Flujo}
-    \subsection{Técnicas de Reconstrucción de Alta Orden}
-        Mención a métodos de reconstrucción (e.g., PPM, WENO) para lograr alta precisión espacial y evitar oscilaciones espurias cerca de discontinuidades [20, 22, 23].
-    \subsection{Solucionadores de Riemann}
-        Uso de solucionadores aproximados como **HLL, Rusanov o HLLC** [24, 25]. El solucionador HLLC es muy robusto y se utiliza para capturar la discontinuidad de contacto [25, 26].
+\section{El Problema de Riemann Local en RRMHD}
+\label{sec:Problema_Riemann}
+\subsection{Estructura Espectral del Jacobiano Conservativo}
+\subsubsection{Degeneración de Velocidades Características}
+\subsection{Sistemas con Relajación y la Condición Subcaracterística}
+\subsection{El Esquema HLL Clásico y su Fracaso en Discontinuidades Tangenciales}
 
-\section{Configuración Inicial (Set-up) de la KHI}
-    Especificación de la Ecuación de Estado (EoS) (e.g., gas ideal con $\Gamma=4/3$) y las condiciones iniciales de velocidad $v_x$ y campo magnético $\mathbf{B}$ [8].
+\section{Derivación del Solucionador Exacto Aproximado HLLC}
+\label{sec:Derivacion_HLLC}
+\subsection{Topología del Abanico de Riemann y el Estado Estrella ($U^*$)}
+\subsection{Condiciones de Salto de Rankine-Hugoniot en el Límite Discreto}
+\subsection{Postulados de Cierre y Continuidad de Invariantes Físicos}
+\subsection{Resolución Algebraica Exacta de la Onda de Contacto ($\lambda^*$)}
+
+\section{Acoplamiento Numérico con el Sistema Aumentado GLM}
+\label{sec:Acoplamiento_GLM_HLLC}
+\subsection{Flujos Intermedios para los Potenciales Auxiliares $\Phi$ y $\Psi$}
+\subsection{Preservación Discreta de las Restricciones de Divergencia}
+
+\section{Tratamiento de la Rigidez: Esquemas IMEX-RK}
+\label{sec:IMEX_RK}
+\subsection{Escalas de Tiempo y Rigidez Inducida por la Conductividad}
+\subsection{Partición de Operadores: Integración Explícita e Implícita}
+\subsection{Recuperación de Variables Primitivas en el Esquema Conservativo}
+
+\section{Límites Asintóticos y Consistencia del Esquema}
+\label{sec:Limites_Asintoticos}
+\subsection{Colapso Analítico al Régimen de MHD Ideal ($\sigma \rightarrow \infty$)}
+\subsection{Comportamiento Disipativo en el Límite Altamente Resistivo}

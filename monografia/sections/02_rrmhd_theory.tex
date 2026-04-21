@@ -252,7 +252,6 @@ Aunque este sistema tetradimensional es manifiestamente covariante y estéticame
 Proyectando estas ecuaciones tensoriales a lo largo de la línea de mundo de un observador euleriano (contrayendo con el vector normal a las hipersuperficies espaciales) y sobre el hiperplano espacial ortogonal (mediante el proyector de métrica espacial), el sistema covariante se fractura de manera natural. La contracción temporal de $\partial_\mu T^{\mu\nu} = 0$ genera la ecuación de evolución de la energía total (el equivalente a la primera ley de la termodinámica), mientras que su proyección espacial rige la conservación del momento (la ecuación de Euler). De manera análoga, la descomposición de las leyes de Maxwell y del cuadrivector corriente $J^\mu$ produce las ecuaciones de evolución para los campos eléctricos y magnéticos tridimensionales observables, cerrando así el sistema de variables primitivas y conservativas que requiere cualquier simulador computacional de plasmas relativistas.
 
 
-
 \subsection{El Sistema Aumentado de Maxwell}
 \label{sec:Max-aumentado}
 
@@ -260,7 +259,7 @@ De la formulación covariante de la electrodinámica se deriva un sistema de ecu
 
 En el ámbito de la simulación numérica, esta estructura matemática presenta un desafío crítico. Los errores de truncamiento inherentes a la reconstrucción espacial y a la discretización temporal generan violaciones inevitables a estas restricciones, produciendo, por ejemplo, monopolos magnéticos espurios ($\nabla \cdot \mathbf{B} \neq 0$) \parencite{Dedner-2002}. En el formalismo estándar, estos errores numéricos no se propagan ni se disipan, provocando una acumulación local que destruye irremediablemente la estabilidad del esquema numérico.
 
-Para sortear esta patología, es imperativo transicionar hacia un sistema estrictamente hiperbólico mediante la formulación de un sistema aumentado. Esto se logra acoplando dinámicamente las restricciones elípticas a las leyes de evolución temporal mediante la introducción de dos campos escalares auxiliares. En esta sección, construiremos una formulación covariante de este sistema extendido utilizando el método de \textit{Generalized Lagrange Multipliers} (GLM). El objetivo fundamental es convertir las restricciones de divergencia en ecuaciones dinámicas, permitiendo que los errores numéricos se propaguen y decaigan, todo ello sin alterar el subespacio de las soluciones físicas exactas de la teoría.
+Para sortear esta patología, es imperativo transicionar hacia un sistema estrictamente hiperbólico mediante la formulación de un sistema aumentado. Esto se logra acoplando dinámicamente las restricciones elípticas a las leyes de evolución temporal mediante la introducción de dos campos escalares auxiliares. En esta sección, construiremos una formulación covariante de este sistema extendido utilizando el método de \textit{Generalized Lagrange Multipliers} (GLM) \parencite{lee2004, Dedner-2002}. El objetivo fundamental es convertir las restricciones de divergencia en ecuaciones dinámicas, permitiendo que los errores numéricos se propaguen y decaigan, todo ello sin alterar el subespacio de las soluciones físicas exactas de la teoría.
 
 \subsubsection{Extensión Lagrangiana y el Campo Auxiliar Eléctrico $\Phi$}
 
@@ -269,6 +268,8 @@ Para transformar el sector eléctrico del sistema en uno completamente evolutivo
     S = \int d^4x \left[ -\frac{1}{4}F_{\mu\nu}F^{\mu\nu} + J_\mu A^\mu + \frac{1}{2}\partial_\mu \Phi \partial^\mu \Phi - \Phi\, \partial_\mu A^\mu \right]
 \end{equation}
 En esta expresión, el primer y segundo término corresponden a la acción de Maxwell estándar acoplada a una fuente material, mientras que los dos últimos términos introducen la dinámica del nuevo campo. En particular, el término de acoplamiento $-\Phi\, \partial_\mu A^\mu$ no es arbitrario: está matemáticamente diseñado para incorporar la condición de gauge de Lorenz ($\partial_\mu A^\mu = 0$) no como una restricción rígida \textit{a priori}, sino como una variable dinámica integrada al sistema.
+
+Esta construcción posee una justificación física profunda que trasciende la estabilidad numérica. Desde la perspectiva de la teoría cuántica de campos, la introducción de este acoplamiento evoca el mecanismo de Stueckelberg utilizado para preservar la invariancia de gauge en presencia de fotones masivos\footnote{En el límite de la electrodinámica cuántica, dotar al fotón de una masa espuria por efectos de discretización numérica activa modos de polarización longitudinales que resultan patológicos. El campo auxiliar $\Phi$ actúa mitigando estos errores de polarización longitudinal, aislándolos de los modos transversales físicos y garantizando que las violaciones de la ley de Gauss se comporten estrictamente como un campo escalar desacoplado \parencite{lee2004}.}.
 
 Aplicando el principio de acción estacionaria ($\delta S = 0$) y realizando la variación funcional con respecto al cuadripotencial $A_\nu$, la ecuación inhomogénea de Maxwell sufre una modificación estructural. Tras integrar por partes y anular los términos de frontera, se obtiene:
 \begin{align}
@@ -288,7 +289,7 @@ El análisis acoplado de las ecuaciones (\ref{eq:GLM_Phi_Maxwell}) y (\ref{eq:GL
 
 Aunque la introducción del campo $\Phi$ resuelve de manera elegante las patologías del sector eléctrico, el formalismo lagrangiano basado exclusivamente en el potencial $A_\mu$ deja intacta la identidad de Bianchi, $\partial_\mu {}^*F^{\mu\nu} = 0$. Matemáticamente, al definir el tensor de Faraday como la derivada exterior exacta del potencial ($F=dA$), la ausencia de monopolos magnéticos ($dF=0$) constituye una restricción topológica inquebrantable en el límite continuo. 
 
-Sin embargo, en el dominio discreto propio de una simulación numérica, los operadores diferenciales discretos no satisfacen de manera exacta la propiedad de nilpotencia ($d^2 \neq 0$). Los errores de truncamiento rompen esta topología geométrica, permitiendo la generación de monopolos magnéticos espurios ($\nabla \cdot \mathbf{B} \neq 0$) que degradan la fidelidad física y destruyen la estabilidad del código. Para abordar esta anomalía numérica de manera covariante, sin la necesidad de recurrir a la formulación de potenciales magnéticos duales, se apela a la invariancia dual (o simetría de Hodge) intrínseca a las ecuaciones de Maxwell. 
+Sin embargo, en el dominio discreto propio de una simulación numérica, los operadores diferenciales discretos no satisfacen de manera exacta la propiedad de nilpotencia ($d^2 \neq 0$). Los errores de truncamiento rompen esta topología geométrica, permitiendo la generación de monopolos magnéticos espurios ($\nabla \cdot \mathbf{B} \neq 0$) que degradan la fidelidad física y destruyen la estabilidad del código. Para abordar esta anomalía numérica de manera covariante, sin la necesidad de recurrir a la formulación de potenciales magnéticos duales, se apela a la invariancia dual (o simetría de Hodge) intrínseca a las ecuaciones de Maxwell \parencite{lee2004}. 
 
 De manera homóloga a la extensión de la ecuación inhomogénea, se "relaja" la identidad de Bianchi mediante la postulación de un segundo multiplicador de Lagrange escalar, $\Psi(x)$, acoplado directamente a la divergencia del tensor dual de Faraday:
 \begin{equation}
@@ -296,7 +297,7 @@ De manera homóloga a la extensión de la ecuación inhomogénea, se "relaja" la
     \partial_\mu {}^*F^{\mu\nu} + \partial^\nu \Psi = 0
 \end{equation}
 
-Para preservar la coherencia hiperbólica del marco teórico y asegurar que las violaciones a las restricciones se comporten como perturbaciones dinámicas, este nuevo campo debe satisfacer una ecuación de onda análoga a la del sector eléctrico. Adicionalmente, el objetivo de un esquema robusto no es únicamente propagar los errores fuera del dominio computacional, sino disiparlos activamente. Por ello, se introducen términos de amortiguamiento fenoménico, parametrizados por los coeficientes de decaimiento $\kappa_E$ y $\kappa_B$, los cuales fuerzan un decaimiento exponencial de las divergencias espurias. 
+Para preservar la coherencia hiperbólica del marco teórico y asegurar que las violaciones a las restricciones se comporten como perturbaciones dinámicas, este nuevo campo debe satisfacer una ecuación de onda análoga a la del sector eléctrico. Adicionalmente, el objetivo de un esquema robusto no es únicamente propagar los errores fuera del dominio computacional, sino disiparlos activamente. Por ello, se introducen términos de amortiguamiento fenoménico, parametrizados por los coeficientes de decaimiento $\kappa_E$ y $\kappa_B$, los cuales fuerzan un decaimiento exponencial de las divergencias espurias mediante un esquema dinámico de limpieza mixto \parencite{gomes2015}. 
 
 Integrando estas consideraciones, la formulación covariante completa del sistema aumentado de Maxwell (GLM) queda rigurosamente constituida por el siguiente conjunto de ecuaciones:
 \begin{align}
@@ -314,7 +315,7 @@ El propósito fundamental de la extensión GLM no es únicamente aislar los erro
 
 Para forzar un decaimiento termodinámico genuino, es matemáticamente ineludible romper la simetría de inversión temporal introduciendo disipación. Sin embargo, en un formalismo relativista, la adición de términos de disipación debe realizarse sin destruir la covariancia de la teoría. La solución geométrica consiste en acoplar el campo de error a la "fricción" de la malla computacional, la cual está unívocamente definida por la línea de mundo del observador euleriano de laboratorio, cuya cuadrivelocidad es $n^\mu$. El término disipativo más simple y covariante que se puede construir es proporcional a la derivada direccional del campo a lo largo del flujo de este observador: $\kappa n^\mu \partial_\mu \Phi$, donde $\kappa > 0$ es un coeficiente fenomenológico de amortiguamiento.
 
-Al proyectar la ecuación de evolución sobre el espacio-tiempo plano de la simulación, donde $n^\mu = (1, 0, 0, 0)$ y el operador de d'Alembert es $\Box = -\partial_t^2 + \nabla^2$, el término disipativo covariante colapsa estrictamente a $\kappa \partial_t \Phi$. Así, la evolución de las divergencias espurias (representadas genéricamente por una amplitud $\xi$) queda regida por la Ecuación del Telégrafo:
+Al proyectar la ecuación de evolución sobre el espacio-tiempo plano de la simulación, donde $n^\mu = (1, 0, 0, 0)$ y el operador de d'Alembert es $\Box = -\partial_t^2 + \nabla^2$, el término disipativo covariante colapsa estrictamente a $\kappa \partial_t \Phi$. Así, la evolución de las divergencias espurias (representadas genéricamente por una amplitud $\xi$) queda regida por la Ecuación del Telégrafo, estableciendo formalmente el esquema mixto hiperbólico-parabólico \parencite{gomes2015}:
 \begin{equation}
     \partial_t^2 \xi + \kappa \partial_t \xi - \nabla^2 \xi = 0
 \end{equation}
@@ -322,13 +323,10 @@ Al proyectar la ecuación de evolución sobre el espacio-tiempo plano de la simu
 El surgimiento matemático de esta ecuación es el pilar que garantiza la estabilidad del sistema, ya que rige un comportamiento asintótico dual que concilia la relatividad especial con la disipación parabólica:
 \begin{itemize}
     \item \textbf{Implicación hiperbólica ($\kappa \rightarrow 0$):} El sistema se reduce a una ecuación de onda. La segunda derivada espacial ($\nabla^2 \xi$) y temporal ($\partial_t^2 \xi$) garantizan que las velocidades características de propagación de la información sean finitas y exactamente iguales a la velocidad de la luz ($\pm c$). Esto asegura que el esquema numérico jamás viole el cono de luz relativista.
-    \item \textbf{Implicación parabólica ($\kappa \rightarrow \infty$):} El término inercial $\partial_t^2$ se vuelve despreciable frente a la fricción, colapsando a una ecuación de difusión escalar ($\kappa \partial_t \xi \approx \nabla^2 \xi$). Aunque este límite amortigua el error eficazmente, permite velocidades de propagación infinitas y exige restricciones prohibitivas en el paso de tiempo por la condición de Courant-Friedrichs-Lewy (CFL).
+    \item \textbf{Implicación parabólica ($\kappa \rightarrow \infty$):} El término inercial $\partial_t^2$ se vuelve despreciable frente a la fricción, colapsando a una ecuación de difusión escalar ($\kappa \partial_t \xi \approx \nabla^2 \xi$). Aunque este límite amortigua el error eficazmente, permite velocidades de propagación infinitas y exige restricciones prohibitivas en el paso de tiempo por la condición de Courant-Friedrichs-Lewy (CFL)\footnote{En simulaciones magnetohidrodinámicas, el uso de una corrección parabólica pura obligaría a adoptar pasos de tiempo computacionalmente prohibitivos debido a la estricta restricción CFL difusiva ($\Delta t \propto \Delta x^2$). El sistema mixto telegráfico permite mantener un paso temporal dominado por la advección hiperbólica ($\Delta t \propto \Delta x$), asegurando estabilidad numérica y disipación eficiente de forma simultánea \parencite{gomes2015}.}.
 \end{itemize}
 
 Al operar en el régimen intermedio dictado por la Ecuación del Telégrafo, el sistema extrae las ventajas de ambos límites. La estructura de las segundas derivadas mantiene las velocidades de propagación estrictamente causales, mientras que el término $\kappa \partial_t \xi$ actúa como un sumidero termodinámico. Esto implica matemáticamente que la amplitud de cualquier perturbación espuria generada por la discretización viajará a la máxima velocidad permitida hacia las fronteras, pero su magnitud decaerá exponencialmente en el tiempo con un factor envolvente proporcional a $e^{-\kappa t / 2}$. Es este origen covariante y su estricta causalidad disipativa lo que justifica la viabilidad del método GLM en simulaciones de plasmas relativistas.
-
-
-
 
 \subsubsection{Descomposición 3+1 del Sistema Aumentado}
 
@@ -340,7 +338,6 @@ El clímax de esta formulación se alcanza al transicionar del marco covariante 
     \partial_t \Psi + \nabla \cdot \mathbf{B} &= -\kappa_B \Psi \label{eq:GLM_3D_Psi}
 \end{align}
 
-Este conjunto de ecuaciones conforma el bloque hiperbólico estricto del sector electromagnético. No obstante, el sistema dinámico general permanece matemáticamente abierto. Las densidades de carga observadas $\rho_e$ y el vector de corriente $\mathbf{J}$ no son variables conservativas impuestas externamente, sino que emergen del acoplamiento intrínseco con la materia. Para clausurar el sistema de la Magnetohidrodinámica Relativista Resistiva (RRMHD), es obligatorio establecer la ecuación constitutiva que dicte cómo el plasma conduce estas corrientes bajo la influencia de los campos en evolución: la Ley de Ohm relativista.
 
 
 
@@ -368,7 +365,7 @@ El primer término ($\rho_e u^\mu$) describe el transporte convectivo de carga d
 
 La electrodinámica macroscópica y la termodinámica de procesos irreversibles postulan que, en el régimen lineal e isótropo, la corriente de conducción espacial es directamente proporcional a la fuerza electromagnética neta aplicada sobre las cargas en su sistema de reposo. Ignorando gradientes de temperatura (efectos termoeléctricos) y el efecto Hall (aproximación válida en el límite de un plasma altamente colisional a escalas macroscópicas), esta respuesta lineal constituye la formulación covariante de la Ley de Ohm:
 $$j^\mu = \sigma E^\mu = \sigma F^{\mu\nu}u_\nu$$
-donde $\sigma$ es la conductividad eléctrica escalar propia del plasma, un parámetro fenomenológico que caracteriza la tasa de disipación colisional. Sustituyendo esta relación constitutiva, la expresión completa para la cuadricorriente adquiere la forma:
+donde $\sigma$ es la conductividad eléctrica escalar propia del plasma, un parámetro fenomenológico que caracteriza la tasa de disipación colisional\footnote{La asunción de una conductividad estrictamente escalar requiere que la frecuencia de colisión entre portadores de carga sea significativamente mayor que la frecuencia ciclotrónica. En regímenes donde el campo magnético es extremadamente intenso o el plasma es muy diluido, la conducción se vuelve anisotrópica y $\sigma$ debe ser reemplazado por un tensor de conductividad, dando lugar a los términos de la corriente de Hall.}. Sustituyendo esta relación constitutiva, la expresión completa para la cuadricorriente adquiere la forma:
 $$J^\mu = \rho_e u^\mu + \sigma F^{\mu\nu}u_\nu$$
 
 Es en esta ecuación donde radica la profunda diferencia física entre los regímenes magnetohidrodinámicos. En el límite ideal ($\sigma \rightarrow \infty$), para evitar que la corriente conductiva diverja hacia el infinito y destruya la conservación de la energía, el campo eléctrico comóvil debe anularse estrictamente ($E^\mu = 0 \implies F^{\mu\nu}u_\nu = 0$). Este límite congela topológicamente las líneas de campo magnético en el fluido. Por el contrario, en RRMHD, la conductividad es finita ($0 < \sigma < \infty$), permitiendo la supervivencia de un campo eléctrico en el marco de reposo, el cual propulsa la disipación resistiva (calentamiento de Joule, $j^\mu E_\mu > 0$) y habilita cambios dinámicos en la topología magnética, tales como la reconexión.
@@ -395,7 +392,8 @@ $$\mathbf{J} = \left[ \frac{\rho_q}{\Gamma} - \sigma (\mathbf{E} \cdot \mathbf{v
 Agrupando términos, se obtiene finalmente:
 $$\mathbf{J} = \rho_q \mathbf{v} + \sigma \Gamma \Big[ \mathbf{E} + \mathbf{v} \times \mathbf{B} - (\mathbf{E} \cdot \mathbf{v})\mathbf{v} \Big]$$
 
-Esta expresión constituye la forma tridimensional cerrada de la Ley de Ohm relativista. La formulación revela analíticamente que la corriente macroscópica observada por el laboratorio no es una simple suma galileana. Es una superposición no trivial del transporte convectivo estricto ($\rho_q \mathbf{v}$) y un término de conducción fuertemente modificado por las contracciones espaciales de Lorentz (el factor $\Gamma$) y los acoplamientos transversales entre los campos. La sustitución explícita de este vector $\mathbf{J}$ en los términos fuente de las ecuaciones de momento, energía y en el sistema Maxwell-GLM, cierra de manera matemática y computacional el modelo físico de la Magnetohidrodinámica Relativista Resistiva.
+Esta expresión constituye la forma tridimensional cerrada de la Ley de Ohm relativista. La formulación revela analíticamente que la corriente macroscópica observada por el laboratorio no es una simple suma galileana. Es una superposición no trivial del transporte convectivo estricto ($\rho_q \mathbf{v}$) y un término de conducción fuertemente modificado por las contracciones espaciales de Lorentz (el factor $\Gamma$) y los acoplamientos transversales entre los campos. 
+
 \subsection{Resumen del Sistema RRMHD en Forma Conservativa}
 \label{sec:RRMHD_Conservativa}
 
@@ -408,7 +406,7 @@ Matemáticamente, un sistema de leyes de balance hiperbólicas con términos fue
 \end{equation}
 donde el subíndice espacial $i \in \{1, 2, 3\}$ denota la suma sobre las coordenadas del laboratorio, $\mathbf{U}$ es el vector de estado de las variables conservativas, $\mathbf{F}^i(\mathbf{U})$ representa los tensores de flujo direccionales y $\mathbf{S}(\mathbf{U})$ agrupa los términos fuente algebraicos. 
 
-Con base en la proyección euleriana de las leyes de conservación hidrodinámicas (conservación de masa, momento y energía material) y el sistema aumentado de Maxwell (GLM), el vector de estado completo del sistema de Magnetohidrodinámica Relativista Resistiva (RRMHD) queda constituido por $13$ componentes independientes:
+Con base en la proyección euleriana de las leyes de conservación hidrodinámicas y el sistema aumentado de Maxwell (GLM), el vector de estado completo del sistema de Magnetohidrodinámica Relativista Resistiva (RRMHD) queda constituido por $13$ componentes independientes:
 \begin{equation}
     \mathbf{U} = 
     \begin{pmatrix}
@@ -423,7 +421,7 @@ Con base en la proyección euleriana de las leyes de conservación hidrodinámic
 \end{equation}
 donde las variables cinemáticas conservativas están definidas a partir de las primitivas ($\rho, \mathbf{v}, p$) mediante las relaciones $D = \rho\Gamma$, $S^j = \rho h \Gamma^2 v^j$ y $\tau = \rho h \Gamma^2 - p - \rho\Gamma$.
 
-Los flujos espaciales $\mathbf{F}^i(\mathbf{U})$, que dictan el transporte advectivo de estas cantidades a través del dominio computacional y la propagación de las ondas electromagnéticas, toman la forma explícita:
+Los flujos espaciales $\mathbf{F}^i(\mathbf{U})$, que dictan el transporte advectivo de estas cantidades a través del dominio computacional y la propagación de las ondas electromagnéticas causales, toman la forma explícita:
 \begin{equation}
     \mathbf{F}^i(\mathbf{U}) = 
     \begin{pmatrix}
@@ -436,90 +434,109 @@ Los flujos espaciales $\mathbf{F}^i(\mathbf{U})$, que dictan el transporte advec
         E^i
     \end{pmatrix}
 \end{equation}
-Es de suma importancia notar cómo los campos escalares auxiliares $\Phi$ y $\Psi$ se integran simétricamente en los flujos del campo eléctrico y magnético a través del delta de Kronecker $\delta^{ij}$, mientras que los campos electromagnéticos retroalimentan los flujos de los escalares, generando así la estructura de la ecuación de onda causal discutida en la sección \ref{sec:Max-aumentado}.
 
-Finalmente, el vector de términos fuente $\mathbf{S}(\mathbf{U})$ acopla ambos sectores (materia y campo) mediante la fuerza de Lorentz, el trabajo electromagnético y los sumideros de disipación telegráfica para la limpieza de divergencias:
+Finalmente, el vector de términos fuente $\mathbf{S}(\mathbf{U})$ acopla ambos sectores (materia y campo) mediante la fuerza de Lorentz, el trabajo electromagnético y los sumideros de disipación telegráfica. De manera crítica para la formulación numérica, la supervivencia transitoria de monopolos magnéticos espurios en la malla altera la topología del campo e induce la pérdida de la invarianza de Galileo y la corrupción de la estabilidad de entropía. Para restaurar el rigor termodinámico, es obligatorio incluir de forma explícita los términos no conservativos de Godunov-Powell proporcionales al pseudopotencial magnético $\Psi$ en las ecuaciones de momento y energía \parencite{ruedaramirez2023}\footnote{Los términos de Godunov-Powell (e.g., $-\Psi B^j$ en la ecuación del momento) actúan geométricamente como fuerzas y trabajos ficticios. Su propósito analítico es compensar exactamente la aceleración artificial producida por los monopolos no nulos ($\nabla \cdot \mathbf{B} \neq 0$). Su inclusión es imperativa para garantizar la estabilidad no lineal robusta y asegurar que la dinámica del plasma satisfaga localmente la segunda ley de la termodinámica, especialmente en regímenes altamente magnetizados \parencite{ruedaramirez2023}.}. Incorporando estas correcciones, el vector fuente adopta su forma definitiva:
 \begin{equation}
     \mathbf{S}(\mathbf{U}) = 
     \begin{pmatrix}
         0 \\
-        \rho_q E^j + (\mathbf{J} \times \mathbf{B})^j \\
-        \mathbf{J} \cdot \mathbf{E} \\
+        \rho_q E^j + (\mathbf{J} \times \mathbf{B})^j - \Psi B^j \\
+        \mathbf{J} \cdot \mathbf{E} - \Psi (\mathbf{v} \cdot \mathbf{B}) \\
         0 \\
         -J^j \\
         -\kappa_B \Psi \\
         \rho_q - \kappa_E \Phi
     \end{pmatrix}
 \end{equation}
-Para clausurar unívocamente este sistema dinámico durante la integración temporal, las densidades de carga y corriente ($\rho_q$ y $\mathbf{J}$) requeridas en el vector fuente se evalúan en cada paso computacional utilizando la Ley de Ohm relativista deducida en la ecuación de la sección \ref{sec:Ohm_Relativista}:
-\begin{equation}
-    \mathbf{J} = \rho_q \mathbf{v} + \sigma \Gamma \Big[ \mathbf{E} + \mathbf{v} \times \mathbf{B} - (\mathbf{E} \cdot \mathbf{v})\mathbf{v} \Big]
-\end{equation}
+Para clausurar unívocamente este sistema dinámico durante la integración temporal, las densidades de carga y corriente ($\rho_q$ y $\mathbf{J}$) requeridas en el vector fuente se evalúan en cada paso computacional sustituyendo de forma explícita la Ley de Ohm relativista deducida anteriormente. 
 
-Esta formulación compacta encapsula la totalidad de la física del plasma resistivo relativista. Al agrupar las identidades geométricas, la termodinámica irreversible y las correcciones de estabilidad en un único operador hiperbólico, el modelo teórico queda rigurosamente fundamentado y matemáticamente preparado para ser discretizado e implementado en una arquitectura computacional de alto rendimiento.
+Esta formulación compacta encapsula la totalidad de la física del plasma resistivo relativista. Al agrupar las identidades geométricas, la termodinámica irreversible y las correcciones numéricas de estabilidad y limpieza de divergencias en un único operador hiperbólico, el modelo teórico queda rigurosamente fundamentado y matemáticamente preparado para ser discretizado e implementado en arquitecturas computacionales de alto rendimiento.
+
+
+
 
 
 \section{Análisis de la KHI en el Límite Lineal}
-El estudio de la estabilidad de flujos astrofísicos se fundamenta clásicamente en la teoría de perturbaciones lineales. En este marco, las variables físicas del sistema $\mathbf{U}$ (densidad, presión, campo magnético, velocidad) se descomponen en un estado de equilibrio $\mathbf{U}_0$ y una pequeña perturbación $\delta \mathbf{U}$, tal que $\mathbf{U}(\mathbf{x}, t) = \mathbf{U}_0 + \delta \mathbf{U} e^{i(\mathbf{k} \cdot \mathbf{x} - \omega t)}$. La inestabilidad de Kelvin-Helmholtz (KHI) surge en la interfaz de dos fluidos con una discontinuidad tangencial de velocidad (cizalladura). En la dinámica de fluidos clásica \parencite{acheson-1991}, esta configuración es incondicionalmente inestable en ausencia de gravedad o tensión superficial.
 
-Sin embargo, en el contexto de la Magnetohidrodinámica (MHD), la presencia de un campo magnético uniforme introduce una fuerza de restauración —la tensión magnética— que puede estabilizar el flujo. Como discuten \parencite{goedbloed-2004}, la condición de estabilidad lineal depende de la competencia entre la energía cinética de la cizalladura y la energía magnética. Investigaciones como las de \parencite{tian-2016} y \parencite{malagoli-1996} han demostrado que, si el campo magnético es paralelo al flujo y su magnitud supera un valor crítico (relacionado con la velocidad de Alfvén), los modos inestables son suprimidos. Este análisis lineal es el preludio necesario para comprender la saturación no lineal y la formación de estructuras coherentes observadas en simulaciones numéricas.
+El estudio de la estabilidad en flujos astrofísicos exige el análisis del sistema RRMHD ante pequeñas perturbaciones en el marco de la teoría lineal. Formalmente, definimos el estado del plasma mediante el vector de variables primitivas $\mathbf{V} = (\rho, p, u^\mu, B^\mu, E^\mu)$. Asumiendo un estado base estacionario $\mathbf{V}_0$ sujeto a un perfil de cizalladura, introducimos una perturbación euleriana infinitesimal $\delta \mathbf{V}$. En el régimen lineal, la evolución del sistema está dictada por la linealización exacta de las leyes de conservación covariantes deducidas en la Sección \ref{sec:Energia_Momento}:
 
-\subsection{Efecto de la Relatividad}
-Cuando las velocidades del flujo se aproximan a la velocidad de la luz, o cuando la energía interna específica es comparable a la energía de masa en reposo, el análisis clásico de estabilidad pierde validez. En la Magnetohidrodinámica Relativista (RMHD), la inercia efectiva del fluido aumenta debido a las contribuciones de la presión térmica y la entalpía, tal como se establece en la formulación covariante de \parencite{rezzolla-2013}. 
+\begin{align}
+    \nabla_\mu \delta T^{\mu\nu} &= \delta (F^{\nu\lambda} J_\lambda) \\
+    \nabla_\mu \delta F^{\mu\nu} &= \delta J^\nu \\
+    \nabla_\mu \delta {}^*F^{\mu\nu} &= 0
+\end{align}
 
-El efecto de la relatividad sobre la KHI ha sido estudiado extensamente mediante el análisis de la relación de dispersión relativista. \parencite{osmanov-2008} demostraron que el aumento en la inercia efectiva del fluido relativista tiende a reducir las tasas de crecimiento de la inestabilidad en comparación con el caso newtoniano, estabilizando ciertos modos de onda larga. Más específicamente, \parencite{pimentel-2019} analizaron la evolución lineal en fluidos magnéticamente polarizados, encontrando que la orientación del campo magnético respecto al flujo relativista y el factor de Lorentz $\Gamma$ modifican significativamente los dominios de inestabilidad. Estos efectos son críticos para entender la morfología de chorros astrofísicos, donde la KHI regula la interacción entre el chorro y el medio ambiente, como se observa en las nebulosas de viento de púlsar estudiadas por \parencite{bucciantini-2006}.
+Expandiendo las perturbaciones en una base de modos normales de Fourier-Laplace, $\delta \mathbf{V} \propto \exp[i(k_\mu x^\mu)]$, donde $k^\mu = (\omega, \mathbf{k})$ es el cuadrivector de onda, el sistema diferencial se mapea a un problema algebraico de autovalores $\mathcal{M}(\omega, \mathbf{k}) \delta \mathbf{V} = 0$. La condición de existencia de soluciones no triviales, $\det[\mathcal{M}] = 0$, define la relación de dispersión compleja $\omega(\mathbf{k}) = \omega_R + i\gamma$, donde la parte imaginaria $\gamma$ dicta la tasa de crecimiento estricta de la inestabilidad de Kelvin-Helmholtz (KHI).
 
-\subsection{Resistividad e impacto de la resistividad en la estabilidad}
-Mientras que la aproximación de MHD ideal asume una conductividad infinita, los plasmas astrofísicos reales poseen una resistividad finita $\eta$, lo que conduce a la Magnetohidrodinámica Relativista Resistiva (RRMHD). La introducción de términos disipativos en la ley de Ohm ($\mathbf{E}' = \eta \mathbf{J}$) rompe la condición de congelamiento del flujo magnético, permitiendo la difusión del campo a través del fluido.
+\subsection{Inercia Térmica Relativista y Anisotropía Magnética}
 
-El impacto de la resistividad en la estabilidad de la KHI es dual y complejo. Por un lado, la resistividad puede actuar como un mecanismo de amortiguamiento para modos de alta frecuencia. Por otro lado, y de manera más crucial, la resistividad elimina las restricciones topológicas de la MHD ideal, permitiendo el desarrollo de inestabilidades tipo tearing que pueden coexistir o acoplarse con la KHI. \parencite{palenzuela-2009} enfatizan que ir más allá de la MHD ideal es necesario para capturar estos fenómenos de reconexión inducida por la inestabilidad.
+En el límite de la MHD ideal ($\delta E^\mu = 0$), la relación de dispersión revela que la condición de inestabilidad no depende únicamente de la energía cinética de la cizalladura. La tensión magnética, proveniente de la perturbación del tensor de esfuerzos de Maxwell $\delta T^{\mu\nu}_{\text{em}}$, introduce un umbral de estabilización. \parencite{goedbloed-2004A} demostraron que los modos inestables son suprimidos si el producto interno espacial $(\mathbf{k} \cdot \mathbf{B}_0)^2$ es suficientemente grande, garantizando que el trabajo necesario para curvar las líneas de campo supere la energía libre del flujo.
 
-Desde el punto de vista del modelado, \parencite{mizuno-2013} mostró que la ecuación de estado juega un papel fundamental en cómo la energía disipada por la resistividad calienta el plasma y afecta la evolución dinámica. Numéricamente, la inclusión de la resistividad añade rigidez a las ecuaciones, requiriendo esquemas temporales implícitos (IMEX) como los propuestos por \parencite{Aloy_Cordero-Carrion:2016} o solucionadores de Riemann modificados \parencite{miranda-aranguren-2018, aranguren-2013} para resolver correctamente las capas límite resistivas donde se desarrollan estas inestabilidades secundarias.
+Al introducir factores de Lorentz $\Gamma \gg 1$ y temperaturas ultrarrelativistas ($p \sim \rho$), el espectro de autovalores se modifica drásticamente. En el tensor de energía-momento material perturbado $\delta T^{\mu\nu}_{\text{fluid}}$, el término de inercia acopla la densidad en reposo con la termodinámica del plasma mediante la entalpía específica $h = 1 + \epsilon + p/\rho$. Este acoplamiento define la inercia efectiva transversal $w = \rho h \Gamma^2$. Matemáticamente, la divergencia de $w$ en el régimen relativista penaliza las aceleraciones ortogonales a la cizalladura. Como evidencian \parencite{osmanov-2008} y \parencite{pimentel-2019}, esto reduce asintóticamente la magnitud de la raíz imaginaria $\gamma$, estabilizando los modos de onda larga y alterando los conos de inestabilidad respecto al marco newtoniano, un factor crítico en el confinamiento de chorros extragalácticos \parencite{bucciantini-2006}.
 
+\subsection{El Límite Resistivo y la Ruptura Topológica}
 
+La transición al régimen RRMHD exige abandonar la condición de congelamiento del flujo $\delta E^\mu = 0$ introduciendo la ley de Ohm generalizada linealizada: $\delta j^\mu = \sigma \delta (F^{\mu\nu}u_\nu)$. La conductividad finita $\sigma$ (o la difusividad magnética $\eta = 1/\sigma$) introduce un término laplaciano disipativo en la ecuación de inducción que compite con el término advectivo. Esta competencia se parametriza dimensionalmente mediante el número de Lundquist local, $S = L_0 V_A / \eta$, donde $L_0$ es el gradiente de la capa de cizalladura y $V_A$ la velocidad de Alfvén.
 
-\subsection{Dinámica de la Vorticidad y la Enstrofía}
-Para caracterizar cuantitativamente el desarrollo de la inestabilidad y la transición a la turbulencia en el régimen no lineal, es fundamental el estudio de la vorticidad y sus momentos estadísticos. En una configuración típica de KHI, el perfil inicial de velocidad transversal $V_y(x)$ se modela mediante una capa de cizalladura descrita por:
+Para $S \ll \infty$, la relación de dispersión adquiere términos imaginarios dependientes de $k^2 \eta$. Físicamente, esto implica un doble efecto: los modos magnetoacústicos de alta frecuencia sufren un fuerte amortiguamiento disipativo térmico, pero, simultáneamente, la difusión resistiva permite la violación del teorema de Alfvén. Esta relajación topológica propicia inestabilidades secundarias (modos \textit{tearing} de reconexión magnética) en los puntos de anulación del campo inducidos por la KHI \parencite{palenzuela-2009}. La resolución numérica de las agudas capas límite resistivas ($\delta \sim S^{-1/2}$) impone severas restricciones de CFL y rigidez en el espectro espacial, lo que justifica la implementación de esquemas temporales de tipo IMEX \parencite{Aloy_Cordero-Carrion:2016, miranda-aranguren-2018}.
 
+\subsection{Formulación Geométrica de la Vorticidad y Enstrofía}
+
+Para caracterizar rigurosamente la saturación no lineal y la cascada turbulenta, debemos partir de la formulación geométrica de la vorticidad. En la relatividad especial, el campo macroscópico de rotación de un elemento de fluido se define unívocamente mediante el tensor antisimétrico de vorticidad cinemática:
 \begin{equation}
-    V_y(x) \sim v_{\text{sh}} \tanh\left(\frac{x - x_0}{a_{\text{kh}}}\right),
+    \omega_{\mu\nu} = h^\alpha_\mu h^\beta_\nu \nabla_{[\alpha} u_{\beta]},
+\end{equation}
+donde $h^\alpha_\mu = \delta^\alpha_\mu + u^\alpha u_\mu$ es el proyector ortogonal a la cuadrivelocidad. A partir de este tensor covariante, se define la enstrofía como el escalar invariante asociado a la norma topológica de la vorticidad:
+\begin{equation}
+    \Omega_{\text{inv}} = \frac{1}{2} \omega_{\mu\nu} \omega^{\mu\nu}.
+\end{equation}
+
+Sin embargo, para propósitos de integración diagnóstica en el esquema euleriano del código \textit{Cueva}, la variedad espaciotemporal se somete a una foliación 3+1. Bajo este límite de laboratorio, se inyecta longitudinalmente un perfil de cizalladura transversal modelado por:
+\begin{equation}
+    V_y(x) = v_{\text{sh}} \tanh\left(\frac{x - x_0}{a_{\text{kh}}}\right).
     \label{eq:vel_profile}
 \end{equation}
 
-\noindent donde $v_{\text{sh}}$ representa la magnitud de la velocidad de cizalladura y $a_{\text{kh}}$ la escala característica del ancho de la capa.
-
-\subsubsection{Cálculo Numérico y Contribución de Componentes}
-En el contexto de la simulación numérica, la vorticidad se evalúa a partir de los gradientes discretos de la velocidad. La componente principal de la vorticidad en una geometría bidimensional es ortogonal al plano de simulación ($\omega_z$). La enstrofía asociada a esta componente, $\Omega_z(t)$, cuantifica la intensidad de los vórtices que rotan en el plano $xy$ y se define operativamente como:
-
+Para esta configuración, es suficiente evaluar la componente ortogonal del rotacional de la velocidad espacial observable, $\omega_z = \partial_x V_y - \partial_y V_x$. La enstrofía planar bidimensional se aproxima numéricamente integrando esta magnitud sobre el dominio:
 \begin{equation}
     \Omega_z(t) = \int (\partial_x V_y - \partial_y V_x)^2 \, dA.
 \end{equation}
 
-Sin embargo, para capturar la dinámica completa del sistema, especialmente en configuraciones donde se permite la evolución de la tercera componente de la velocidad ($V_z$), es necesario considerar la enstrofía total $\Omega_{\text{tot}}$. Esta magnitud incorpora las contribuciones de los gradientes transversales de la velocidad fuera del plano (out-of-plane velocity), definidéndose como:
-
+La ruptura de la simetría planar bidimensional, inducida por la tensión magnética fuera del plano y la inestabilidad de KHI, exige cuantificar la transferencia de energía hacia modos tridimensionales. Para ello, se evalúa la enstrofía tridimensional euleriana total $\Omega_{\text{tot}}$, la cual incorpora explícitamente las penalizaciones asociadas a los gradientes transversales de la componente de velocidad inducida $V_z$:
 \begin{equation}
     \Omega_{\text{tot}}(t) = \int \left[ (\partial_y V_z)^2 + (\partial_x V_z)^2 + (\partial_x V_y - \partial_y V_x)^2 \right] \, dA.
 \end{equation}
 
-La comparación entre estas dos magnitudes permite evaluar la anisotropía de la turbulencia generada y el grado de acoplamiento entre los modos planares y la componente transversal. Para ello, se introduce el factor de fracción de enstrofía $f_{Vz}(t)$, que aísla la contribución relativa de los términos dependientes de $V_z$:
-
+Con ambas magnitudes clausuradas, definimos el factor de anisotropía estructural $f_{Vz}(t)$ para comparar la desviación tridimensional respecto a la contribución puramente bidimensional:
 \begin{equation}
     f_{Vz}(t) = \frac{\Omega_{\text{tot}}(t) - \Omega_z(t)}{\Omega_{\text{tot}}(t)}.
 \end{equation}
+La desviación de $f_{Vz}$ respecto a cero señala empíricamente el inicio de la turbulencia plenamente desarrollada y el acoplamiento tridimensional \parencite{bodo-2004, mignone-2009}.
 
-Un valor de $f_{Vz} \approx 0$ indica un flujo puramente bidimensional, mientras que un incremento en este factor señala la transferencia de energía hacia componentes ortogonales, un fenómeno relevante en plasmas magnetizados donde la tensión magnética puede inducir movimientos complejos fuera del plano de cizalladura.
+\subsubsection{Enstrofía de Perturbación y Extracción de $\gamma$}
 
-\subsubsection{Enstrofía de Perturbación}
-Dado que la enstrofía total está dominada inicialmente por la fuerte cizalladura del flujo base, es necesario aislar la contribución específica de las estructuras inestables emergentes. Siguiendo la metodología de \parencite{zrake-2016, takamoto-2011}, descomponemos la vorticidad instantánea $\omega_z$ restando el perfil promedio inicial. Definimos la vorticidad de perturbación $\omega'_z$ como:
-
+Dado que la condición base (\ref{eq:vel_profile}) posee una vorticidad inherente masiva que contamina la medición, el aislamiento del modo inestable exige sustraer el estado de equilibrio. Siguiendo a \parencite{zrake-2016}, definimos el campo de vorticidad perturbada euleriana restando el promedio longitudinal inicial:
 \begin{equation}
-    \omega'_z(x, y, t) = \omega_z(x, y, t) - \overline{\omega}_z^{(0)}(x),
+    \omega'_z(x, y, t) = \omega_z(x, y, t) - \langle \omega_z(x, y, t=0) \rangle_y,
 \end{equation}
+lo que permite definir la enstrofía de perturbación libre de fondo como $\Omega'_z(t) = \int (\omega'_z)^2 \, dA$.
 
-\noindent donde $\overline{\omega}_z^{(0)}(x) = \langle \omega_z(x, y, t=0) \rangle_y$ denota el promedio espacial a lo largo de la dirección longitudinal $y$ correspondiente al estado inicial. De esta forma, la enstrofía de perturbación se define como:
-
+Durante la fase de crecimiento puramente lineal regida por la relación de dispersión, la amplitud del modo normal dominante crece cinemáticamente como $A(t) \propto e^{\gamma_{\text{KHI}}t}$. Puesto que la enstrofía es una forma cuadrática dependiente de los gradientes de perturbación ($\Omega'_z \propto A^2$), su evolución asintótica adopta la forma:
 \begin{equation}
-    \Omega'_z(t) = \int (\omega'_z)^2 \, dA.
+    \ln \Omega'z(t) = C + 2\gamma{\text{KHI}}t.
 \end{equation}
+Aplicando una regresión lineal sobre la serie temporal de este escalar de diagnóstico, extraemos la pendiente empírica $s$. La tasa de crecimiento $\gamma_{\text{KHI}} = s/2$ obtenida de este ajuste proporciona una métrica rigurosa para validar la disipación intrínseca de los flujos numéricos en la resolución de las ecuaciones RRMHD.
 
-El análisis de $\Omega'_z(t)$ permite identificar las fases de crecimiento lineal y saturación no lineal, sirviendo como el principal diagnóstico para la tasa de crecimiento de la inestabilidad libre de la ``contaminación'' del flujo de fondo.
+\subsubsection{Enstrofía de Perturbación y Extracción de $\gamma$}
+
+Dado que la condición base (\ref{eq:vel_profile}) posee una vorticidad inherente masiva que contamina la medición, el aislamiento del modo inestable exige sustraer el estado de equilibrio. Siguiendo a \parencite{zrake-2016}, definimos el campo de vorticidad perturbada euleriana restando el promedio longitudinal inicial:
+\begin{equation}
+    \omega'_z(x, y, t) = \omega_z(x, y, t) - \langle \omega_z(x, y, t=0) \rangle_y,
+\end{equation}
+lo que permite definir la enstrofía de perturbación libre de fondo como $\Omega'_z(t) = \int (\omega'_z)^2 \, dA$.
+
+Durante la fase de crecimiento puramente lineal regida por la relación de dispersión, la amplitud del modo normal dominante crece cinemáticamente como $A(t) \propto e^{\gamma_{\text{KHI}}t}$. Puesto que la enstrofía es una forma cuadrática dependiente de los gradientes de perturbación ($\Omega'_z \propto A^2$), su evolución asintótica adopta la forma:
+\begin{equation}
+    \ln \Omega'z(t) = C + 2\gamma{\text{KHI}}t.
+\end{equation}
+Aplicando una regresión lineal sobre la serie temporal de este escalar de diagnóstico, extraemos la pendiente empírica $s$. La tasa de crecimiento $\gamma_{\text{KHI}} = s/2$ obtenida de este ajuste proporciona una métrica rigurosa para validar la disipación intrínseca de los flujos numéricos en la resolución de las ecuaciones RRMHD.
