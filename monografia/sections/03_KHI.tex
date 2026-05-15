@@ -1,335 +1,146 @@
-La inestabilidad de Kelvin--Helmholtz (KHI) constituye uno de los mecanismos fundamentales de generación de estructuras vorticales y mezcla en fluidos y plasmas. Su estudio resulta clave en contextos que abarcan desde la hidrodinámica clásica hasta la astrofísica relativista, donde la presencia de campos magnéticos, efectos relativistas y procesos disipativos modifican sustancialmente su evolución. En este capítulo se presenta una revisión progresiva de la KHI, comenzando en la mecánica de fluidos clásica y extendiéndose hasta el marco de la magnetohidrodinámica resistiva relativista (RRMHD).
+\primerparrafo La inestabilidad de Kelvin-Helmholtz (KHI) constituye uno de los mecanismos fundamentales de generación de estructuras vorticales y mezcla en fluidos y plasmas. Su estudio resulta clave en contextos que abarcan desde la hidrodinámica clásica hasta la astrofísica relativista, donde la presencia de campos magnéticos, efectos relativistas y procesos disipativos modifican sustancialmente su evolución. En este capítulo se presenta una revisión teórica progresiva de la KHI, partiendo del límite incompresible newtoniano hasta alcanzar el marco de la Magnetohidrodinámica Relativista Resistiva (RRMHD).
 
 %-----------------------------------------------------------
 \section{Descripción Física General de la Inestabilidad}
 
-La inestabilidad de Kelvin-Helmholtz (KHI) constituye uno de los mecanismos fundamentales en la dinámica de fluidos y plasmas. Físicamente, la KHI emerge como una inestabilidad de cizalla (velocity shear) que se desencadena en la interfaz entre dos fluidos en contacto, o bien entre dos capas de un mismo fluido, que presentan una diferencia manifiesta en sus velocidades relativas \parencite{gomes-2017, tian-2016}. El estudio clásico de este fenómeno se fundamenta en los teoremas de Kelvin y Helmholtz \parencite{acheson-1990}, los cuales establecen que, en ausencia de fuerzas estabilizadoras como la gravedad estratificada o la tensión superficial, una interfaz con cizalladura de velocidad es inherentemente inestable frente a perturbaciones transversales.
+\primerparrafo Físicamente, la KHI emerge como una inestabilidad barotrópica desencadenada en la interfaz entre dos medios (o capas continuas) que presentan una discontinuidad tangencial en sus campos de velocidad \parencite{gomes-2017, tian-2016}. Los teoremas clásicos de Kelvin y Helmholtz establecen que, en ausencia de fuerzas estabilizadoras externas (e.g., gravedad estratificada, tensión superficial o tensión magnética), un perfil de cizalladura (\textit{velocity shear}) constituye un reservorio de energía libre inherentemente inestable frente a perturbaciones transversales \parencite{acheson-1990}.
 
-El origen cinemático de la inestabilidad radica en la dinámica de la vorticidad depositada en la capa de cizalladura. Cuando la interfaz experimenta una pequeña perturbación inicial (por ejemplo, ondulaciones minúsculas), la diferencia en las velocidades relativas induce variaciones locales de presión. De acuerdo con los principios clásicos de la mecánica de fluidos, la presión disminuye en las regiones donde la velocidad del flujo aumenta al bordear la cresta de la perturbación, lo que genera fuerzas netas que empujan la interfaz alejándola de su estado de equilibrio inicial. Este desequilibrio dinámico se traduce en un crecimiento exponencial de los modos inestables durante la fase lineal del sistema.
+El origen cinemático de la inestabilidad reside en la dinámica del transporte de vorticidad. Al someter la interfaz a una perturbación espectral, la conservación del momento dicta que el flujo se acelera sobre las crestas y se desacelera en los valles. Por el principio de Bernoulli, esta asimetría induce gradientes locales de presión que ejercen un torque neto sobre la interfaz, amplificando el desplazamiento inicial y conduciendo a un crecimiento exponencial durante la fase lineal. 
 
-A medida que las perturbaciones crecen, el sistema transita hacia una fase no lineal dominada por la deformación severa de la interfaz. La capa de vorticidad se enrolla sobre sí misma, dando lugar a la formación de estructuras coherentes conocidas como vórtices de Kelvin-Helmholtz. Esta evolución morfológica es de vital importancia, ya que convierte a la KHI en un mecanismo de primer orden para el transporte cruzado de momento y energía, así como para la mezcla física de especies a través de la interfaz \parencite{gomes-2017, tian-2016}.
-
-En un contexto astrofísico más amplio, la interpretación de la KHI trasciende la mera mezcla cinemática. En presencia de campos magnéticos, como ocurre en plasmas astrofísicos y cornisas de chorros relativistas, la KHI actúa como un motor de conversión energética. Las grandes estructuras vorticales generadas por la inestabilidad estiran y pliegan las líneas de campo magnético, actuando como un mecanismo capaz de amplificar intensamente los campos magnéticos locales al transformar la energía cinética extraída del flujo macroscópico de cizallamiento en energía magnética \parencite{pimentel-2019}. Esta capacidad de acoplar la dinámica de fluidos con la electrodinámica convierte a la KHI en un elemento central para comprender la emisión y estabilidad de sistemas de alta energía.
-
-\section{La KHI en Mecánica de Fluidos Clásica}
-
-Para comprender la naturaleza de la inestabilidad de Kelvin-Helmholtz, el primer paso lógico es analizarla en su forma más pura dentro del marco de la hidrodinámica clásica (sin campos magnéticos ni efectos relativistas).
-
-\subsection{Formulación Hidrodinámica}
-
-Consideremos un sistema bidimensional compuesto por dos fluidos incompresibles y no viscosos, gobernados por las ecuaciones de Euler \parencite{acheson-1990}. El sistema se encuentra en un estado de equilibrio base con la interfaz que separa ambos fluidos ubicada en el plano $y = 0$. 
-
-El fluido superior (región 1, $y > 0$) tiene una densidad constante $\rho_1$ y se mueve con una velocidad horizontal uniforme $U_1$. El fluido inferior (región 2, $y < 0$) posee una densidad $\rho_2$ y una velocidad uniforme $U_2$. Por lo tanto, el perfil de velocidades de fondo se expresa como:
-$$
-\mathbf{U}_{0}(y) = 
-\begin{cases} 
-U_1 \hat{i}, & \text{si } y > 0 \\
-U_2 \hat{i}, & \text{si } y < 0 
-\end{cases}
-$$
-
-Dado que los fluidos son incompresibles ($\nabla \cdot \mathbf{v} = 0$) y el flujo base es uniforme, las perturbaciones en el flujo también serán irrotacionales. Esto nos permite definir un potencial de velocidades $\phi(x,y,t)$ tal que la perturbación de la velocidad es $\mathbf{v}' = \nabla \phi$. La condición de incompresibilidad implica entonces que el potencial debe satisfacer la ecuación de Laplace en ambas regiones \parencite{acheson-1990}:
-$$
-\nabla^2 \phi_1 = 0 \quad (y > 0), \qquad \nabla^2 \phi_2 = 0 \quad (y < 0)
-$$
-
-Suponemos ahora que la interfaz entre los fluidos sufre una pequeña perturbación ondulatoria, desplazándose de $y=0$ a una posición dada por:
-$$
-\eta(x,t) = \hat{\eta} e^{i(kx - \omega t)}
-$$
-donde $\hat{\eta}$ es la amplitud (pequeña) de la perturbación, $k$ es el número de onda (real) y $\omega$ es la frecuencia angular, la cual puede ser compleja.
-
-Para satisfacer la ecuación de Laplace y garantizar que las perturbaciones decaigan al alejarse de la interfaz ($y \rightarrow \pm \infty$), proponemos las siguientes soluciones para los potenciales de velocidad:
-$$
-\phi_1(x,y,t) = A e^{-ky} e^{i(kx - \omega t)} \quad (y > 0)
-$$
-$$
-\phi_2(x,y,t) = B e^{ky} e^{i(kx - \omega t)} \quad (y < 0)
-$$
-donde $A$ y $B$ son constantes a determinar mediante las condiciones de frontera en la interfaz perturbada.
-
-\subsection{Análisis Lineal y Condición de Inestabilidad}
-
-Para encontrar la relación de dispersión que vincula a $\omega$ con $k$, aplicamos las condiciones de frontera cinemática y dinámica sobre la interfaz $y = \eta(x,t)$. Dado que $\eta$ es pequeña, podemos linealizar las ecuaciones evaluándolas en la posición de equilibrio $y = 0$ \parencite{acheson-1990, gomes-2017}.
-
-\subsubsection*{Condición de Frontera Cinemática}
-La condición cinemática exige que las partículas de fluido en la interfaz permanezcan en ella. Matemáticamente, la derivada material de la superficie $F(x,y,t) = y - \eta(x,t) = 0$ debe anularse \parencite{acheson-1990}:
-$$
-\frac{DF}{Dt} = \frac{\partial F}{\partial t} + (\mathbf{U}_0 + \mathbf{v}') \cdot \nabla F = 0
-$$
-Desarrollando esta expresión y conservando únicamente los términos de primer orden (lineales), obtenemos la velocidad vertical en la interfaz para cada fluido:
-$$
-v'_{y,j} = \frac{\partial \phi_j}{\partial y} = \frac{\partial \eta}{\partial t} + U_j \frac{\partial \eta}{\partial x} \quad \text{en } y = 0 \quad \text{para } j = 1,2
-$$
-Evaluando las derivadas para la región superior ($j=1$):
-$$
--k A e^{i(kx - \omega t)} = -i\omega \hat{\eta} e^{i(kx - \omega t)} + i k U_1 \hat{\eta} e^{i(kx - \omega t)}
-$$
-$$
--k A = i(k U_1 - \omega) \hat{\eta} \implies A = -i \frac{(k U_1 - \omega)}{k} \hat{\eta}
-$$
-De manera análoga, para la región inferior ($j=2$):
-$$
-k B = i(k U_2 - \omega) \hat{\eta} \implies B = i \frac{(k U_2 - \omega)}{k} \hat{\eta}
-$$
-
-\subsubsection*{Condición de Frontera Dinámica}
-La condición dinámica requiere que la presión sea continua a través de la interfaz, es decir, $p_1 = p_2$ en $y = \eta$. Utilizando la ecuación de Bernoulli no estacionaria linealizada para el campo de presiones perturbado $p'$ \parencite{acheson-1990}, tenemos:
-$$
-p'_j = -\rho_j \left( \frac{\partial \phi_j}{\partial t} + U_j \frac{\partial \phi_j}{\partial x} \right)
-$$
-Igualando las presiones en la interfaz ($y=0$ para el régimen lineal), $p'_1 = p'_2$:
-$$
--\rho_1 (-i\omega A + i k U_1 A) = -\rho_2 (-i\omega B + i k U_2B)
-$$
-$$
-\rho_1 i (k U_1 - \omega) A = \rho_2 i (k U_2 - \omega) B
-$$
-Sustituyendo las expresiones de $A$ y $B$ halladas previamente:
-$$
-\rho_1 i (k U_1 - \omega) \left[ -i \frac{(k U_1 - \omega)}{k} \hat{\eta} \right] = \rho_2 i (k U_2 - \omega) \left[ i \frac{(k U_2 - \omega)}{k} \hat{\eta} \right]
-$$
-Multiplicando y simplificando (recordando que $i(-i) = 1$ y $i(i) = -1$), llegamos a la relación de dispersión:
-$$
-\frac{\rho_1}{k} (k U_1 - \omega)^2 = -\frac{\rho_2}{k} (k U_2 - \omega)^2
-$$
-$$
-\rho_1 (k U_1 - \omega)^2 + \rho_2 (k U_2 - \omega)^2 = 0
-$$
-
-\subsubsection*{Condición de Inestabilidad}
-La ecuación anterior es una ecuación cuadrática para $\omega$. Desarrollando los cuadrados:
-$$
-\rho_1 (k^2 U_1^2 - 2 k U_1 \omega + \omega^2) + \rho_2 (k^2 U_2^2 - 2 k U_2 \omega + \omega^2) = 0
-$$
-Agrupando términos en función de $\omega$:
-$$
-(\rho_1 + \rho_2)\omega^2 - 2k(\rho_1 U_1 + \rho_2 U_2)\omega + k^2(\rho_1 U_1^2 + \rho_2 U_2^2) = 0
-$$
-Aplicando la fórmula resolvente para ecuaciones cuadráticas, $\omega = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$:
-$$
-\omega = \frac{2k(\rho_1 U_1 + \rho_2 U_2) \pm \sqrt{4k^2(\rho_1 U_1 + \rho_2 U_2)^2 - 4(\rho_1 + \rho_2)k^2(\rho_1 U_1^2 + \rho_2 U_2^2)}}{2(\rho_1 + \rho_2)}
-$$
-Analicemos detalladamente el discriminante $\Delta$ (la expresión dentro de la raíz cuadrada):
-$$
-\Delta = 4k^2 \left[ (\rho_1^2 U_1^2 + 2\rho_1\rho_2 U_1 U_2 + \rho_2^2 U_2^2) - (\rho_1^2 U_1^2 + \rho_1\rho_2 U_2^2 + \rho_2\rho_1 U_1^2 + \rho_2^2 U_2^2) \right]
-$$
-Cancelando los términos $\rho_1^2 U_1^2$ y $\rho_2^2 U_2^2$:
-$$
-\Delta = 4k^2 \left[ 2\rho_1\rho_2 U_1 U_2 - \rho_1\rho_2 U_2^2 - \rho_1\rho_2 U_1^2 \right]
-$$
-Factorizando $-\rho_1\rho_2$:
-$$
-\Delta = -4k^2 \rho_1 \rho_2 (U_1^2 - 2U_1 U_2 + U_2^2) = -4k^2 \rho_1 \rho_2 (U_1 - U_2)^2
-$$
-Dado que el discriminante es estrictamente negativo para cualquier $U_1 \neq U_2$ y sabiendo que $\sqrt{-\alpha} = i\sqrt{\alpha}$, las raíces para la frecuencia angular son \parencite{acheson-1990}:
-$$
-\omega = k \frac{\rho_1 U_1 + \rho_2 U_2}{\rho_1 + \rho_2} \pm i k \frac{\sqrt{\rho_1 \rho_2} |U_1 - U_2|}{\rho_1 + \rho_2}
-$$
-
-Este resultado es concluyente: $\omega$ siempre posee una parte imaginaria positiva siempre que exista un perfil de cizallamiento ($U_1 \neq U_2$). Dado que la evolución temporal de la perturbación es proporcional a $e^{-i\omega t}$, una parte imaginaria positiva $\Im(\omega) > 0$ da como resultado un término $e^{\Im(\omega) t}$, lo que implica que cualquier perturbación crecerá de manera exponencial sin importar su longitud de onda \parencite{acheson-1990, tian-2016}. 
-
-Por lo tanto, en la hidrodinámica clásica, una superficie de discontinuidad tangencial en la velocidad es incondicionalmente inestable \parencite{gomes-2017}.
-
-\section{Extensión Magnetohidrodinámica (MHD)}
-
-Una vez establecida la inestabilidad de Kelvin-Helmholtz en el límite puramente hidrodinámico, el siguiente paso hacia el marco de nuestro estudio es la incorporación de campos magnéticos. En el contexto de la Magnetohidrodinámica ideal (MHD), el fluido se considera un plasma con conductividad eléctrica infinita, de modo que las líneas de campo magnético se encuentran ``congeladas'' en el flujo \parencite{acheson-1990, pimentel-2019}.
-
-\subsection{Efecto del Campo Magnético sobre las Perturbaciones}
-
-Consideremos el mismo escenario de dos medios incompresibles ($y > 0$ con $\rho_1, U_1$ y $y < 0$ con $\rho_2, U_2$), pero ahora permeados por un campo magnético uniforme y paralelo a la interfaz de cizallamiento, es decir, $\mathbf{B}_0 = B_0 \hat{i}$ en ambas regiones. 
-
-Las ecuaciones gobernantes linealizadas para una pequeña perturbación en la velocidad $\mathbf{v}' = (v'_x, v'_y, 0)$ y en el campo magnético $\mathbf{B}' = (B'_x, B'_y, 0)$ son la ecuación de momento MHD y la ecuación de inducción \parencite{acheson-1990}:
-\begin{equation}
-\rho_j \left( \frac{\partial \mathbf{v}'_j}{\partial t} + U_j \frac{\partial \mathbf{v}'_j}{\partial x} \right) = -\nabla p'_{T,j} + \frac{1}{\mu_0} (\mathbf{B}_0 \cdot \nabla) \mathbf{B}'_j
-\label{eq:mhd_momento}
-\end{equation}
-\begin{equation}
-\frac{\partial \mathbf{B}'_j}{\partial t} = \nabla \times (\mathbf{v}'_j \times \mathbf{B}_0) - \nabla \times (\mathbf{U}_j \times \mathbf{B}'_j)
-\label{eq:mhd_induccion}
-\end{equation}
-donde $p'_{T,j} = p'_j + \frac{\mathbf{B}_0 \cdot \mathbf{B}'_j}{\mu_0}$ es la perturbación de la presión total (térmica más magnética) en cada región $j=1,2$.
-
-Introducimos nuevamente perturbaciones en forma de modos normales proporcionales a $e^{i(kx - \omega t)}$. Para las derivadas espaciales y temporales, esto implica que $\partial_t \to -i\omega$ y $\partial_x \to ik$. La derivada convectiva a lo largo de las líneas de campo se convierte en:
-$$
-\mathbf{B}_0 \cdot \nabla = B_0 \frac{\partial}{\partial x} = i k B_0
-$$
-De la ecuación de inducción (\ref{eq:mhd_induccion}), sabiendo que $\nabla \cdot \mathbf{v}' = 0$ y $\nabla \cdot \mathbf{B}' = 0$, podemos extraer directamente la componente vertical del campo magnético perturbado. Para la región $j$:
-$$
--i\omega B'_{yj} + i k U_j B'_{yj} = i k B_0 v'_{yj}
-$$
-Agrupando términos, obtenemos la relación entre la perturbación del campo y de la velocidad en la dirección vertical:
-\begin{equation}
-B'_{yj} = -\frac{k B_0}{\omega - k U_j} v'_{yj}
-\label{eq:mhd_By_vy}
-\end{equation}
-
-Ahora, tomamos la componente $y$ de la ecuación de momento (\ref{eq:mhd_momento}):
-$$
-\rho_j (-i\omega + i k U_j) v'_{yj} = -\frac{\partial p'_{T,j}}{\partial y} + \frac{i k B_0}{\mu_0} B'_{yj}
-$$
-Sustituyendo la expresión hallada para $B'_{yj}$ (\ref{eq:mhd_By_vy}) en esta ecuación:
-$$
--i \rho_j (\omega - k U_j) v'_{yj} = -\frac{\partial p'_{T,j}}{\partial y} - \frac{i k^2 B_0^2}{\mu_0 (\omega - k U_j)} v'_{yj}
-$$
-
-Dado que el flujo es incompresible, la perturbación de la presión total satisface la ecuación de Laplace $\nabla^2 p'_{T,j} = 0$. Por lo tanto, las soluciones que decaen lejos de la interfaz ($y \to \pm \infty$) tienen la forma:
-$$
-p'_{T,1} \propto e^{-ky} \implies \frac{\partial p'_{T,1}}{\partial y} = -k p'_{T,1} \quad (y > 0)
-$$
-$$
-p'_{T,2} \propto e^{ky} \implies \frac{\partial p'_{T,2}}{\partial y} = k p'_{T,2} \quad (y < 0)
-$$
-
-Relacionemos ahora $v'_{yj}$ con el desplazamiento de la interfaz $\eta = \hat{\eta} e^{i(kx - \omega t)}$. Por la condición cinemática, la velocidad vertical de las partículas de fluido en la interfaz coincide con la derivada material del desplazamiento \parencite{acheson-1990}:
-$$
-v'_{yj} = \left(\frac{\partial}{\partial t} + U_j \frac{\partial}{\partial x}\right) \eta = -i(\omega - k U_j)\eta
-$$
-
-Sustituyendo $v'_{y1} = -i(\omega - k U_1)\eta$ y la derivada espacial de $p'_{T,1}$ en la ecuación de momento de la región superior ($j=1$):
-$$
--i \rho_1 (\omega - k U_1) \left[ -i(\omega - k U_1)\eta \right] = k p'_{T,1} - \frac{i k^2 B_0^2}{\mu_0 (\omega - k U_1)} \left[ -i(\omega - k U_1)\eta \right]
-$$
-Sabiendo que $(-i)(-i) = -1$, simplificamos los corchetes:
-$$
--\rho_1 (\omega - k U_1)^2 \eta = k p'_{T,1} - \frac{k^2 B_0^2}{\mu_0} \eta
-$$
-Despejando la presión total perturbada para la región superior en la interfaz ($y=0$):
-\begin{equation}
-p'_{T,1} = \left[ -\frac{\rho_1}{k} (\omega - k U_1)^2 + \frac{k B_0^2}{\mu_0} \right] \eta
-\label{eq:pT1}
-\end{equation}
-
-Siguiendo el mismo procedimiento para la región inferior ($j=2$), considerando que $\partial_y p'_{T,2} = k p'_{T,2}$:
-$$
--\rho_2 (\omega - k U_2)^2 \eta = -k p'_{T,2} - \frac{k^2 B_0^2}{\mu_0} \eta
-$$
-Despejando $p'_{T,2}$:
-\begin{equation}
-p'_{T,2} = \left[ \frac{\rho_2}{k} (\omega - k U_2)^2 - \frac{k B_0^2}{\mu_0} \right] \eta
-\label{eq:pT2}
-\end{equation}
-
-\subsection{Modificación de la Relación de Dispersión}
-
-La condición dinámica en la interfaz exige que no existan saltos netos de fuerza. En presencia de campos magnéticos, esto significa que la presión total debe ser continua a través de $y=0$, es decir, $p'_{T,1} = p'_{T,2}$. Igualando las ecuaciones (\ref{eq:pT1}) y (\ref{eq:pT2}):
-$$
-\left[ -\frac{\rho_1}{k} (\omega - k U_1)^2 + \frac{k B_0^2}{\mu_0} \right] \eta = \left[ \frac{\rho_2}{k} (\omega - k U_2)^2 - \frac{k B_0^2}{\mu_0} \right] \eta
-$$
-Como la amplitud de la perturbación es no nula ($\eta \neq 0$), podemos dividir toda la expresión por $\eta$ y multiplicar por $k$:
-$$
--\rho_1 (\omega - k U_1)^2 + \frac{k^2 B_0^2}{\mu_0} = \rho_2 (\omega - k U_2)^2 - \frac{k^2 B_0^2}{\mu_0}
-$$
-Reagrupando todos los términos con $\omega$ en un lado y los términos puramente magnéticos en el otro:
-\begin{equation}
-\rho_1 (\omega - k U_1)^2 + \rho_2 (\omega - k U_2)^2 = \frac{2 k^2 B_0^2}{\mu_0}
-\label{eq:dispersion_mhd}
-\end{equation}
-
-Esta es la relación de dispersión para la inestabilidad de Kelvin-Helmholtz en MHD ideal (suponiendo un campo uniforme). Comparemos esta expresión con la obtenida en el régimen clásico, la cual estaba igualada a cero. El término de la derecha en la Ec. (\ref{eq:dispersion_mhd}) representa la tensión de las líneas de campo magnético que se oponen a ser dobladas por la perturbación de la interfaz \parencite{acheson-1990, gomes-2017}.
-
-Para analizar la condición de inestabilidad, desarrollamos los cuadrados de la relación de dispersión para reescribirla como una ecuación cuadrática general para $\omega$:
-$$
-(\rho_1 + \rho_2)\omega^2 - 2k(\rho_1 U_1 + \rho_2 U_2)\omega + k^2(\rho_1 U_1^2 + \rho_2 U_2^2) - \frac{2 k^2 B_0^2}{\mu_0} = 0
-$$
-Aplicamos la fórmula resolvente:
-$$
-\omega = \frac{2k(\rho_1 U_1 + \rho_2 U_2) \pm \sqrt{4k^2(\rho_1 U_1 + \rho_2 U_2)^2 - 4(\rho_1 + \rho_2) \left[ k^2(\rho_1 U_1^2 + \rho_2 U_2^2) - \frac{2 k^2 B_0^2}{\mu_0} \right]}}{2(\rho_1 + \rho_2)}
-$$
-El discriminante $\Delta_{MHD}$ bajo la raíz cuadrada puede reescribirse usando la simplificación algebraica que hicimos en el caso hidrodinámico:
-$$
-\Delta_{MHD} = 4k^2 \left[ - \rho_1 \rho_2 (U_1 - U_2)^2 + (\rho_1 + \rho_2)\frac{2 B_0^2}{\mu_0} \right]
-$$
-Para que el sistema sea inestable, la frecuencia $\omega$ debe poseer una parte imaginaria positiva. Esto solo ocurre si el discriminante es negativo ($\Delta_{MHD} < 0$), lo que implica:
-$$
-- \rho_1 \rho_2 (U_1 - U_2)^2 + (\rho_1 + \rho_2)\frac{2 B_0^2}{\mu_0} < 0
-$$
-$$
-\rho_1 \rho_2 (U_1 - U_2)^2 > \frac{2 B_0^2}{\mu_0} (\rho_1 + \rho_2)
-$$
-
-Este resultado nos indica que una superficie de discontinuidad de velocidades en un plasma ideal ya no es incondicionalmente inestable. La inestabilidad de Kelvin-Helmholtz solo puede crecer si el cuadrado del cizallamiento cinético de la diferencia de velocidades, compensado por la densidad, supera el umbral impuesto por la rigidez magnética de las líneas de campo. El campo magnético actúa como un agente supresor fuerte, estabilizando los modos cuyas tensiones superan la energía cinética disponible en la capa de cizalla \parencite{acheson-1990, tian-2016}.
-
-
-
-
-
+Al saturarse este crecimiento, el sistema transiciona hacia una fase no lineal dominada por la deformación y el colapso topológico de la capa de vorticidad, manifestándose en el enrollamiento característico de los vórtices de Kelvin-Helmholtz. En un contexto astrofísico, esta evolución morfológica es de vital importancia. En presencia de campos magnéticos, la KHI trasciende la simple mezcla de fluidos para actuar como un dinamo: las grandes estructuras vorticales estiran advectivamente las líneas de flujo magnético, transformando la energía cinética macroscópica en una intensa amplificación de la energía magnética local \parencite{pimentel-2019}.
 
 %-----------------------------------------------------------
-\section{La KHI en Magnetohidrodinámica Relativista}
+\section{La KHI en Mecánica de Fluidos Clásica}
+
+\primerparrafo Para comprender el impacto posterior de la magnetización y la relatividad, se analiza primero la inestabilidad en su forma fundamental. Siguiendo la formulación geométrica bidimensional de \parencite{acheson-1990}, consideramos el límite incompresible clásico.
+
+\subsection{Planteamiento Hidrodinámico}
+
+\primerparrafo Se define un sistema euclidiano compuesto por dos fluidos ideales incompresibles separados por una interfaz en reposo en $y = 0$. El flujo base posee un perfil de velocidades de cizalladura uniforme a trozos, orientado estrictamente en la dirección $\hat{i}$ (eje $x$):
+\begin{equation}
+    \mathbf{U}_{0}(y) = 
+    \begin{cases} 
+        U_1 \hat{i}, & \text{si } y > 0 \quad (\text{Densidad } \rho_1) \\
+        U_2 \hat{i}, & \text{si } y < 0 \quad (\text{Densidad } \rho_2)
+    \end{cases}
+\end{equation}
+
+Por la condición de incompresibilidad ($\nabla \cdot \mathbf{v} = 0$), las perturbaciones de velocidad son irrotacionales y pueden expresarse mediante un potencial escalar $\mathbf{v}' = \nabla \phi$, sujeto a la ecuación de Laplace $\nabla^2 \phi_j = 0$. Introducimos un ansatz de perturbación en modos normales para el desplazamiento de la interfaz $\eta(x,t)$ y proponemos soluciones para los potenciales que decaigan asintóticamente al infinito ($y \to \pm \infty$):
+\begin{align}
+    \eta(x,t) &= \hat{\eta} e^{i(kx - \omega t)} \\
+    \phi_1(x,y,t) &= A e^{-ky} e^{i(kx - \omega t)} \quad (y > 0) \label{eq:phi1} \\
+    \phi_2(x,y,t) &= B e^{ky} e^{i(kx - \omega t)} \quad (y < 0) \label{eq:phi2}
+\end{align}
+donde $\hat{\eta}$ es la amplitud de perturbación, $k$ el número de onda real, y $\omega \in \mathbb{C}$ la frecuencia angular.
+
+\subsection{Análisis Lineal y Relación de Dispersión}
+
+\primerparrafo Para aislar $\omega(k)$, imponemos las condiciones de contorno linealizadas sobre la frontera inperturbada $y = 0$.
+
+\paragraph{Condición Cinemática:}
+\primerparrafo Las partículas de fluido no pueden abandonar la interfaz, por lo que la derivada material de la superficie $F(x,y,t) = y - \eta(x,t) = 0$ debe ser nula. A primer orden, la velocidad vertical perturbada es $v'_{y,j} = \partial_t \eta + U_j \partial_x \eta$. Evaluando las derivadas normales de las ecuaciones (\ref{eq:phi1}) y (\ref{eq:phi2}) en $y=0$:
+\begin{align}
+    -k A &= i(k U_1 - \omega) \hat{\eta} \implies A = -i \left(\frac{k U_1 - \omega}{k}\right) \hat{\eta} \\
+    k B &= i(k U_2 - \omega) \hat{\eta} \implies B = i \left(\frac{k U_2 - \omega}{k}\right) \hat{\eta}
+\end{align}
+
+\paragraph{Condición Dinámica:}
+\primerparrafo La continuidad de esfuerzos normales exige que no haya saltos de presión en la interfaz ($p'_1 = p'_2$). Empleando la ecuación de Bernoulli no estacionaria linealizada, $p'_j = -\rho_j (\partial_t \phi_j + U_j \partial_x \phi_j)$, igualamos las presiones en $y=0$:
+\begin{equation}
+    -\rho_1 (-i\omega A + i k U_1 A) = -\rho_2 (-i\omega B + i k U_2 B)
+\end{equation}
+Sustituyendo los coeficientes cinemáticos $A$ y $B$, y factorizando las unidades imaginarias, el problema colapsa a la relación de dispersión clásica:
+\begin{align}
+    \rho_1 i (k U_1 - \omega) \left[ -i \left(\frac{k U_1 - \omega}{k}\right) \hat{\eta} \right] &= \rho_2 i (k U_2 - \omega) \left[ i \left(\frac{k U_2 - \omega}{k}\right) \hat{\eta} \right] \nonumber \\
+    \rho_1 (k U_1 - \omega)^2 + \rho_2 (k U_2 - \omega)^2 &= 0
+    \label{eq:disp_clasica}
+\end{align}
+
+Expandiendo la ecuación (\ref{eq:disp_clasica}) en forma cuadrática estándar para el autovalor $\omega$, obtenemos:
+\begin{equation}
+    (\rho_1 + \rho_2)\omega^2 - 2k(\rho_1 U_1 + \rho_2 U_2)\omega + k^2(\rho_1 U_1^2 + \rho_2 U_2^2) = 0
+\end{equation}
+Cuyas raíces están dadas por la fórmula resolvente:
+\begin{equation}
+    \omega = k \frac{\rho_1 U_1 + \rho_2 U_2}{\rho_1 + \rho_2} \pm i k \frac{\sqrt{\rho_1 \rho_2} |U_1 - U_2|}{\rho_1 + \rho_2}
+\end{equation}
+
+Dado que la dependencia temporal de los modos normales es $e^{-i\omega t}$, la existencia ineludible de una parte imaginaria positiva $\Im(\omega) > 0$ frente a cualquier asimetría de velocidad ($U_1 \neq U_2$) indica un crecimiento exponencial. Por lo tanto, en la hidrodinámica clásica, una discontinuidad tangencial es incondicionalmente inestable \parencite{acheson-1990}.
+
+%-----------------------------------------------------------
+\section{Extensión Magnetohidrodinámica Ideal (MHD)}
+
+\primerparrafo Introducimos ahora un campo magnético de fondo uniforme $\mathbf{B}_0 = B_0 \hat{i}$, colineal al flujo y continuo a través de la interfaz. En el límite ideal, la conductividad eléctrica infinita congela las líneas de campo al plasma.
+
+La evolución de las perturbaciones magnéticas $\mathbf{B}'$ e hidrodinámicas está gobernada por la ecuación de momento MHD y la de inducción linealizadas \parencite{acheson-1990}:
+\begin{align}
+    \rho_j (\partial_t + U_j \partial_x) \mathbf{v}'_j &= -\nabla p'_{T,j} + \frac{B_0}{\mu_0} \partial_x \mathbf{B}'_j \label{eq:mhd_momento} \\
+    \partial_t \mathbf{B}'_j &= \nabla \times (\mathbf{v}'_j \times \mathbf{B}_0) - \nabla \times (\mathbf{U}_j \times \mathbf{B}'_j) \label{eq:mhd_induccion}
+\end{align}
+donde $p'_{T,j} = p'_j + \mathbf{B}_0 \cdot \mathbf{B}'_j / \mu_0$ es la perturbación de la presión total. 
+
+Evaluando el operador advectivo para modos de Fourier ($\partial_t \to -i\omega, \partial_x \to ik$) sobre la ecuación de inducción (\ref{eq:mhd_induccion}), se obtiene la respuesta del campo magnético transversal a la cinemática de la perturbación:
+\begin{equation}
+    B'_{yj} = -\frac{k B_0}{\omega - k U_j} v'_{yj}
+    \label{eq:mhd_By}
+\end{equation}
+Sustituyendo (\ref{eq:mhd_By}) en la componente vertical de la ecuación de momento (\ref{eq:mhd_momento}), extraemos el gradiente de presión total:
+\begin{equation}
+    \frac{\partial p'_{T,j}}{\partial y} = i \rho_j (\omega - k U_j) v'_{yj} - \frac{i k^2 B_0^2}{\mu_0 (\omega - k U_j)} v'_{yj}
+\end{equation}
+Invocando nuevamente la condición cinemática en la interfaz ($v'_{y,j} = -i(\omega - k U_j)\eta$) y sabiendo que las presiones decaen como $\partial_y p'_{T,1} = -k p'_{T,1}$ y $\partial_y p'_{T,2} = k p'_{T,2}$, se recuperan las presiones totales fronterizas:
+\begin{align}
+    p'_{T,1} &= \left[ -\frac{\rho_1}{k} (\omega - k U_1)^2 + \frac{k B_0^2}{\mu_0} \right] \eta \\
+    p'_{T,2} &= \left[ \frac{\rho_2}{k} (\omega - k U_2)^2 - \frac{k B_0^2}{\mu_0} \right] \eta
+\end{align}
+
+Aplicando la condición dinámica de salto nulo de presión total en la interfaz ($p'_{T,1} = p'_{T,2}$), se llega a la relación de dispersión MHD:
+\begin{equation}
+    \rho_1 (\omega - k U_1)^2 + \rho_2 (\omega - k U_2)^2 = \frac{2 k^2 B_0^2}{\mu_0}
+    \label{eq:disp_mhd}
+\end{equation}
+
+El término derecho de la ecuación (\ref{eq:disp_mhd}) representa la rigidez impuesta por la tensión del campo magnético. Analizando el discriminante de esta ecuación cuadrática para $\omega$, la condición estricta para poseer raíces imaginarias inestables ($\Delta < 0$) se convierte en:
+\begin{equation}
+    \rho_1 \rho_2 (U_1 - U_2)^2 > \frac{2 B_0^2}{\mu_0} (\rho_1 + \rho_2)
+\end{equation}
+A diferencia del límite fluido clásico, en MHD ideal el sistema puede estabilizarse completamente. Las perturbaciones colineales al campo magnético solo crecen si el cuadrado del cizallamiento cinético supera el umbral energético necesario para doblar las líneas de campo dictaminado por la velocidad de Alfvén local.
+
+%-----------------------------------------------------------
+\section{La KHI en Magnetohidrodinámica Relativista (RMHD)}
 \label{sec:khi_rmhd}
 
-Cuando las velocidades del flujo alcanzan fracciones apreciables de la velocidad de la luz, los efectos relativistas se vuelven relevantes. Esta sección analiza cómo la relatividad especial modifica la dinámica de la KHI en plasmas magnetizados.
+\primerparrafo Cuando las velocidades de cizalladura o las temperaturas del plasma alcanzan escalas extremas, la cinemática de Lorentz y la relatividad especial alteran fundamentalmente los umbrales de estabilidad derivados en la sección anterior.
 
-\subsection{Correcciones Relativistas}
+\subsection{Correcciones Relativistas y Factor de Inercia}
 \label{subsec:khi_rmhd_rel}
 
-Se examina la influencia de los factores de Lorentz en la evolución de la inestabilidad, incluyendo la modificación del acoplamiento entre energía y momento, así como los efectos sobre las tasas de crecimiento de los modos inestables. Se discute cómo la relatividad puede tanto suprimir como realzar la inestabilidad dependiendo del régimen dinámico.
+\primerparrafo En la formulación covariante, el acoplamiento entre la materia y la energía impone que la inercia efectiva de un elemento de fluido deje de estar definida exclusivamente por su masa en reposo $\rho$. El tensor de energía-momento relativista pondera la inercia mediante la entalpía específica $h = 1 + \epsilon + p/\rho$, de modo que la inercia direccional efectiva del fluido adopta la forma $w = \rho h \Gamma^2 + B^2$, donde $\Gamma$ es el factor de Lorentz macroscópico \parencite{osmanov-2008}.
+
+Este acoplamiento inercial genera un marcado efecto estabilizador transversal. En el régimen ultrarrelativista ($\Gamma \gg 1$), el incremento masivo de la inercia térmica restringe severamente la aceleración baroclínica inducida por la perturbación inicial de presión. Analizando el número de Mach relativista ($M_r = \frac{v/c_s}{\sqrt{1-v^2/c^2}\sqrt{1-c_s^2/c^2}}$), la teoría de perturbaciones demuestra que en el límite de Lorentz asintótico, la contracción espacial deforma los conos de luz y reduce la comunicación causal a través de la capa de cizalladura, suprimiendo las tasas de crecimiento $\gamma$ y estabilizando modos inestables intrínsecos al límite newtoniano, incluso en ausencia de campo magnético \parencite{pimentel-2019}.
 
 \subsection{Implicaciones Astrofísicas}
 \label{subsec:khi_rmhd_astro}
 
-Se presentan aplicaciones de la KHI relativista en contextos astrofísicos, tales como chorros relativistas en núcleos activos de galaxias (AGN) y estallidos de rayos gamma (GRBs). Se enfatiza el papel de la KHI en la generación de estructuras observables y en la disipación de energía en estos sistemas extremos.
+\primerparrafo La fenomenología de la KHI relativista es el motor explicativo detrás de múltiples observables en la astrofísica de altas energías. En las fronteras de los chorros relativistas eyectados por Núcleos Activos de Galaxias (AGN) y Estallidos de Rayos Gamma (GRBs), la fricción contra el viento estelar circundante desata violentas inestabilidades de Kelvin-Helmholtz.
+
+La saturación de esta inestabilidad genera ondas de choque de recolimación (\textit{recollimation shocks}) y vórtices tridimensionales que enredan las líneas del campo magnético \parencite{bucciantini-2006}. Este plegamiento propicia la reconexión magnética local, un mecanismo capaz de pre-energizar leptones que posteriormente sufren aceleración por cizalladura (\textit{shear-driven acceleration}). Adicionalmente, el arrastre de material bariónico externo (\textit{entrainment}) producto de los vórtices masivos frena el chorro, constituyendo el mecanismo principal para explicar morfológicamente la dicotomía entre radio-galaxias de tipo FRI (fuertemente frenadas e inestables) y FRII (altamente colimadas) \parencite{mizuno-2013}.
 
 %-----------------------------------------------------------
 \section{La KHI en el Marco de la RRMHD}
 \label{sec:khi_rrmhd}
 
-Finalmente, se introduce la descripción de la KHI dentro del marco de la magnetohidrodinámica resistiva relativista, donde la conductividad finita permite procesos disipativos ausentes en el régimen ideal.
+\primerparrafo El salto definitivo hacia el modelo implementado consiste en abandonar la idealidad magnética mediante la inclusión de una conductividad finita ($\sigma \neq \infty$), transitando al régimen de la Magnetohidrodinámica Relativista Resistiva (RRMHD).
 
-\subsection{Rol de la Resistividad}
+\subsection{El Rol de la Resistividad y la Relajación Topológica}
 \label{subsec:khi_rrmhd_res}
 
-Se analiza el impacto de la resistividad en la evolución de la KHI, destacando la ruptura de la condición de congelamiento del campo magnético y la posibilidad de reconexión magnética. Se discute cómo estos efectos modifican la evolución no lineal de la inestabilidad y contribuyen a la disipación de energía.
+\primerparrafo La adición del parámetro de resistividad modifica profundamente la electrodinámica del sistema mediante la Ley de Ohm generalizada $J^\mu = \rho_e u^\mu + \sigma E^\mu_{com}$. La conductividad finita quiebra de manera estricta la condición de congelamiento del flujo magnético ($\mathbf{E}' \neq 0$), posibilitando que las líneas de campo se deslicen y se difundan a través del fluido masivo.
+
+Desde el punto de vista termodinámico, el producto covariante entre la corriente y el campo eléctrico en el marco comóvil, $- \sigma E^\mu E_\mu > 0$, representa el sumidero irreversible de calentamiento óhmico. Durante la evolución de la KHI, esto implica que una fracción de la energía extraída de la cizalladura no amplifica el campo, sino que se disipa térmicamente. Más importante aún, la difusión resistiva actúa como un mecanismo estabilizador a pequeña escala: la resistividad difumina y suprime las láminas de corriente (\textit{current sheets}) extremas generadas en las fronteras de los vórtices, habilitando fenómenos secundarios como inestabilidades tipo \textit{tearing} y ciclos de reconexión magnética que la MHD ideal prohíbe categóricamente \parencite{palenzuela-2009}.
 
 \subsection{Motivación Numérica y Relevancia Computacional}
 
+\primerparrafo La simulación computacional de regímenes altamente resistivos introduce formidables desafíos numéricos que demandan métodos de integración especializados. En particular, a medida que el sistema transita hacia el límite ideal ($\sigma \to \infty$), el acoplamiento resistivo en los términos fuente de las ecuaciones de Maxwell-Euler se vuelve matemáticamente rígido (\textit{stiff}). Un integrador puramente explícito requeriría pasos de tiempo $\Delta t \sim \sigma^{-1}$, paralizando computacionalmente la simulación. Para sortear esta penalización de Courant, es obligatorio implementar esquemas Runge-Kutta Implícitos-Explícitos (IMEX), que advectan los fluidos en el sector explícito y convergen las fuentes disipativas en el sector implícito \parencite{Aloy_Cordero-Carrion:2016}.
 
-
-
-
-
-
-\section{La KHI en Magnetohidrodinámica Relativista}
-
-\subsection{Correcciones Relativistas}
-En esta sección, el desarrollo debe centrarse en cómo la cinemática de Lorentz altera la inercia efectiva del fluido.
-
-\begin{itemize}
-    \item \textbf{Inercia Térmica y Magnética:} Se debe derivar cómo el tensor de energía-momento total $T^{\mu\nu}$ acopla la entalpía específica $h$ y la magnetización. A diferencia del caso Newtoniano, la inercia no es simplemente la densidad de masa $\rho$, sino $\rho h W^2 + b^2$. Este aumento dinámico de la inercia dificulta la respuesta del fluido a las perturbaciones, actuando como un mecanismo de estabilización.
-    \item \textbf{Ecuación de Dispersión Relativista:} Presentar la derivación del determinante de la matriz del sistema linealizado para hallar la relación de dispersión $\omega(k)$. Es crucial definir el \textit{número de Mach relativista} ($M_r = \frac{v/c_s}{\sqrt{1-v^2}\sqrt{1-c_s^2}}$).
-    \item \textbf{Límites de Estabilidad:} Explicar que, en el límite de Lorentz infinito, la comunicación causal entre las dos capas de fluido se reduce, lo que tiende a suprimir los modos inestables. Se debe demostrar matemáticamente por qué, para $v > 1/\sqrt{2}c$, el flujo puede estabilizarse incluso sin campo magnético.
-\end{itemize}
-
-\subsection{Implicaciones Astrofísicas}
-Aquí se debe conectar la teoría de perturbaciones con la fenomenología observada.
-
-\begin{itemize}
-    \item \textbf{Chorros Relativistas (AGN y GRBs):} Discutir cómo la KHI en la frontera del jet y el medio ambiente (viento estelar o medio interestelar) genera \textit{shocks} de recolimación y pérdida de estabilidad. 
-    \item \textbf{Aceleración de Partículas:} Argumentar que los vórtices de la KHI pueden enredar las líneas de campo magnético, induciendo reconexión magnética local, lo que pre-energiza partículas que luego sufren aceleración por cizalladura (\textit{shear-driven acceleration}).
-    \item \textbf{Morfología de Radiofuentes:} Explicar la dicotomía FRI-FRII en radio-galaxias como una consecuencia de si la KHI se vuelve no lineal y produce \textit{entrainment} (arrastre de material externo) que frena el chorro.
-
-\end{itemize}
-
-%-----------------------------------------------------------
-\section{La KHI en el Marco de la RRMHD}
-
-\subsection{Rol de la Resistividad}
-Esta sección marca el paso de la idealidad al realismo disipativo.
-
-\begin{itemize}
-    \item \textbf{Ruptura del Congelamiento de Flujo:} Partir de la Ley de Ohm generalizada $J^\mu = q u^\mu + \sigma E^\mu_{com}$. Explicar que cuando la conductividad $\sigma$ es finita, el campo magnético ya no está "congelado" al fluido, permitiendo la difusión magnética.
-    \item \textbf{Reconexión Magnética y Disipación Óhmica:} Mostrar que la componente temporal de la interacción campo-fluido, $u_\nu (F^{\nu\lambda} J_\lambda) = - \sigma E^\mu E_\mu$, representa el calentamiento del plasma por resistencia [1e, 38]. En la KHI, esto implica que la energía cinética de la cizalladura no solo se convierte en energía magnética, sino que parte se disipa térmicamente, reduciendo la tasa de crecimiento de la inestabilidad en comparación con el caso ideal.
-    \item \textbf{Supresión de Estructuras de Pequeña Escala:} Discutir cómo la resistividad actúa como un filtro natural que suaviza los gradientes extremos en los vórtices, estabilizando numéricamente el sistema al evitar el colapso de las capas de corriente.
-\end{itemize}
-
-\subsection{Motivación Numérica y Relevancia Computacional}
-Aquí debes justificar las elecciones metodológicas necesarias para resolver el sistema RRMHD.
-
-\begin{itemize}
-    \item \textbf{El Problema de la Rigidez (\textit{Stiffness}):} Explicar que en el límite ideal ($\sigma \to \infty$), los términos fuente de las ecuaciones de Maxwell se vuelven extremadamente rígidos, lo que obligaría a usar pasos de tiempo $\Delta t \sim 1/\sigma$ prohibitivamente pequeños en esquemas explícitos.
-    \item \textbf{Esquemas IMEX-RK (Implicit-Explicit):} Justificar el uso de métodos IMEX para tratar la advección de forma explícita y la disipación/fuentes de forma implícita. Esto permite mantener la estabilidad con el límite de Courant (CFL) habitual del transporte.
-    \item \textbf{Limpieza de Divergencia (GLM):} Distinguir explícitamente entre el resultado físico ($\nabla \cdot \mathbf{B} = 0$) y el artificio numérico. Se debe presentar el sistema aumentado de Dedner, donde se introducen los pseudopotenciales $\psi$ y $\phi$ para transportar y amortiguar los errores de divergencia generados por la discretización. 
-    \item \textbf{Recuperación de Variables Primitivas:} Señalar que en RRMHD este paso es un reto computacional mayor que en RMHD ideal, debido al acoplamiento no lineal entre el campo eléctrico y la velocidad en la inversión del tensor de energía-momento.
-\end{itemize}
-
+Adicionalmente, la arquitectura algorítmica de la RRMHD requiere garantizar el cumplimiento de restricciones físicas como la ausencia de monopolos magnéticos ($\nabla \cdot \mathbf{B} = 0$). Como se detalló en el Capítulo 2, la adopción del método de \textit{Generalized Lagrange Multipliers} (GLM) transforma esta restricción elíptica estática en una ecuación del telégrafo hiperbólica disipativa. Finalmente, la fuerte no linealidad que ata el campo eléctrico resistivo con la inercia del fluido hace que el proceso computacional de \textit{recuperación de variables primitivas} (inversión iterativa del vector de estado conservativo) sea sustancialmente más costoso y complejo que su equivalente en la aproximación ideal \parencite{miranda-aranguren-2018}.

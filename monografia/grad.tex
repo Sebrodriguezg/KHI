@@ -11,6 +11,10 @@
 \usepackage{microtype}                  % Improves justification and typography
 \usepackage{csquotes}
 \usepackage{amsmath}
+\usepackage{parskip} % Elimina sangría global y añade espacio entre párrafos
+\newlength{\sangriainicial}
+\setlength{\sangriainicial}{1.5em} % Tamaño formal de la sangría
+\newcommand{\primerparrafo}{\hspace*{\sangriainicial}}
 
 
 % --- Mathematics Packages ---
@@ -93,6 +97,11 @@
 \chapter{Implementación Numérica: El Código \textit{Cueva}}
 \label{ch:implementacion_cueva}
 \input{sections/04_numerical_methods.tex}
+
+\chapter{Set-up Experimental y metodos  \textit{Cueva}}
+\label{ch:setup_exp}
+\input{sections/setup_exp.tex}
+
 
 \chapter{Resultados de la Simulación y Análisis de la KHI}
 \label{ch:results_discussion}

@@ -1,3 +1,4 @@
+```latex
 % ============================================================================
 % Sección: Configuración Experimental (Setup Mizuno-like, TEST=35A)
 % Notas internas (no se renderizan):
@@ -8,6 +9,12 @@
 %   - Las variables de control de enstrofía (Omega_z, Omega_tot, f_Vz, Omega'_z)
 %     se referencian al marco teórico previamente desarrollado, evitando duplicar
 %     definiciones formales.
+%   - La figura de inicialización se compone de DOS paneles efectivos:
+%       (a) Campo vectorial de velocidad (streamlines + magnitud).
+%       (b) Campo escalar de densidad rho.
+%     Ambos paneles se renderizan en el primer snapshot diagnóstico (t=0001),
+%     próximo al estado inicial t=0.
+%   - Requiere el paquete subcaption en el preámbulo: \usepackage{subcaption}
 % ============================================================================
 
 \section{Configuración Experimental}
@@ -53,21 +60,107 @@ En cuanto al campo magnético, se impone una configuración de fondo uniforme y 
     B_x = 0,\qquad B_y = B_0\,\sqrt{0.02},\qquad B_z = B_0\,\sqrt{2.0},
     \label{eq:B_field_init}
 \end{equation}
-con $B_0 = 1.0$. Esta orientación garantiza que la tensión magnética longitudinal ($\mathbf{k}\cdot\mathbf{B}\propto B_y$) sea débil pero no nula, permitiendo el desarrollo de la KHI sin supresión inmediata, mientras que la componente $B_z$ dominante introduce una presión magnética fuera del plano significativa que regula la termodinámica del flujo. El campo eléctrico inicial se anula estrictamente, $E_x = E_y = E_z = 0$, lo que corresponde a un estado inicial fuera del límite ideal $E^\mu = -\epsilon^{\mu\nu\alpha\beta} u_\nu B_\alpha v_\beta$; la ley de Ohm relativista (Sección~\ref{sec:Ohm_Relativista}) se encarga de relajar dinámicamente el sistema hacia su régimen consistente con la conductividad finita prescrita.
+con $B_0 = 1.0$. Esta orientación garantiza que la tensión magnética longitudinal ($\mathbf{k}\cdot\mathbf{B}\propto B_y$) sea débil pero no nula, permitiendo el desarrollo de la KHI sin supresión inmediata, mientras que la componente $B_z$ dominante introduce una presión magnética fuera del plano significativa que regula la termodinámica del flujo. El campo eléctrico inicial se anula estrictamente, $E_x = E_y = E_z = 0$, lo que corresponde a un estado fuera del límite ideal $E^\mu = -\epsilon^{\mu\nu\alpha\beta} u_\nu B_\alpha v_\beta$; la ley de Ohm relativista (Sección~\ref{sec:Ohm_Relativista}) se encarga de relajar dinámicamente el sistema hacia su régimen consistente con la conductividad finita prescrita.
+
+% ----------------------------------------------------------------------------
+% Figura compuesta: condición inicial visualizada en el primer snapshot
+% diagnóstico (t=0001 ~ estado inicial). Panel (a): campo vectorial de
+% velocidad con líneas de corriente y magnitud |V| en mapa de color.
+% Panel (b): campo escalar de densidad rho con contornos de nivel.
+% NOTA: ajustar los nombres de archivo a los reales en el directorio /figuras/.
+% ----------------------------------------------------------------------------
+
+
+
+
+
+
+% ============================================================================
+% CAUSA DEL ERROR DE COMPILACIÓN:
+%   El entorno {subfigure} requiere el paquete `subcaption`, NO cargado en el
+%   preámbulo del proyecto. Esto generó:
+%       ! LaTeX Error: Environment subfigure undefined.
+%       ! Undefined control sequence ... \subref{...}
+%
+% SOLUCIONES POSIBLES (elegir UNA):
+%
+%   (A) Cargar el paquete en el preámbulo principal (grad.tex), una sola línea:
+%         \usepackage{subcaption}
+%       Y mantener la figura compuesta original con \begin{subfigure}{...}.
+%
+%   (B) Reemplazar la figura compuesta por dos figuras independientes usando
+%       \minipage (entorno nativo de LaTeX, sin dependencias externas).
+%       Esta es la opción más portable y NO requiere tocar el preámbulo.
+%
+% A continuación se entrega el bloque SOLO de la figura, ya reescrito con la
+% opción (B). Reemplazar el bloque \begin{figure}...\end{figure} actual en
+% sections/setup_exp.tex (líneas ~71-92 según el log) por el siguiente:
+% ============================================================================
 
 \begin{figure}[h]
     \centering
-    % [INSERTAR FIGURA: panel doble con V_y(x) y rho(x,y) iniciales]
-    \caption{Perfil transversal de la velocidad de cizalladura $V_y(x)$ y distribución de densidad inicial $\rho(x,y)$ correspondiente al setup Mizuno-like (Test~35A).}
-    \label{fig:perfil_inicial}
+    % --------------------------------------------------------------------
+    % Panel (a): Campo vectorial de velocidad (streamlines + |V|)
+    % --------------------------------------------------------------------
+    \begin{minipage}{0.95\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figuras/campo_V_inicial.png}
+        % \includegraphics[width=\linewidth]{figuras/frame_0001_campoV.png}
+
+        \vspace{0.3em}
+        \small (a) Campo vectorial de velocidad: líneas de corriente superpuestas al mapa de color de la magnitud $|\mathbf{V}(x,y)|$. Se aprecian las dos capas de cizalladura simétricas localizadas en $x = \pm 0.5$ (regiones oscuras de baja magnitud), el cambio de signo de $V_y$ a través de cada interfaz, y la modulación senoidal transversal de período $L_y$ introducida por la perturbación de la Ec.~(\ref{eq:Vx_pert}), responsable de la semilla del modo inestable dominante.
+    \end{minipage}
+    \label{fig:campo_V_inicial}
+
+    \vspace{1.0em}
+
+    % --------------------------------------------------------------------
+    % Panel (b): Distribución escalar de densidad rho(x,y)
+    % --------------------------------------------------------------------
+    \begin{minipage}{0.95\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figuras/rho_inicial.png}
+        % \includegraphics[width=\linewidth]{figuras/frame_0001_rho.png}
+
+        \vspace{0.3em}
+        \small (b) Distribución de densidad $\rho(x,y)$ con contornos isóbaros superpuestos. Se observa nítidamente la región interior de baja densidad ($\rho \simeq \rho_{lo}$, $|x| < 0.5$) embebida en el ambiente externo de alta densidad ($\rho \simeq \rho_{up}$, $|x| > 0.5$), consistente con la ventana hiperbólica prescrita por la Ec.~(\ref{eq:rho_profile}). Las modulaciones longitudinales tempranamente visibles en las interfaces reflejan la incipiente respuesta vortical del fluido a la perturbación inyectada.
+    \end{minipage}
+    \label{fig:rho_inicial}
+
+    \caption{Visualización del estado inicial del experimento KHI (Test~35A, primer snapshot diagnóstico $t \simeq 0$). Panel superior~(a): topología del campo de velocidad con sus dos capas de cizalladura simétricas y la perturbación senoidal de Kelvin--Helmholtz. Panel inferior~(b): perfil de densidad Mizuno-like, con flujo central diluido y ambiente externo denso. Estas dos distribuciones, junto con el campo magnético uniforme de fondo (Ec.~\ref{eq:B_field_init}), constituyen el estado base sobre el que se realiza el barrido paramétrico en la conductividad $\sigma$.}
+    \label{fig:setup_inicial}
 \end{figure}
+
+% ============================================================================
+% OBSERVACIONES ADICIONALES SOBRE EL LOG (no críticas para esta sección):
+%
+%   1. "Label `sec:setup_experimental' multiply defined":
+%      La sección antigua y la nueva coexisten en el proyecto. Eliminar la
+%      versión obsoleta de \section{Configuración Experimental} de cualquier
+%      otro archivo .tex incluido en grad.tex para evitar etiquetas duplicadas.
+%
+%   2. "Reference `sec:RRMHD_Conservativa' / `sec:Max-aumentado' /
+%       `sec:Ohm_Relativista' on page X undefined":
+%      Las referencias cruzadas al marco teórico requieren un segundo pase de
+%      pdflatex (más bibtex/biber si aplica) para resolverse. Ejecutar:
+%         pdflatex grad.tex
+%         biber   grad      (o bibtex grad)
+%         pdflatex grad.tex
+%         pdflatex grad.tex
+%      Tras la segunda compilación, dichas warnings deben desaparecer si las
+%      etiquetas existen efectivamente en los capítulos correspondientes.
+%
+%   3. "Citation 'Mizuno2013' undefined":
+%      Verificar que la entrada @article{Mizuno2013, ...} esté declarada en el
+%      archivo .bib del proyecto y que biber/bibtex se ejecute en el ciclo.
+% ============================================================================
 
 \subsection{Dominio Computacional, Discretización y Sistema de Unidades}
 \label{subsec:dominio_unidades}
 
 El dominio de simulación se define como una caja cartesiana bidimensional que abarca $x \in [-1.0,\,1.0]$ y $y \in [-0.5,\,0.5]$, con dimensiones físicas $L_x = 2.0$ y $L_y = 1.0$ en unidades de código. La discretización se realiza sobre una malla uniforme y estructurada de $N_x \times N_y = 512 \times 256$ celdas, lo que produce un espaciamiento de $\Delta x = \Delta y \approx 3.906 \times 10^{-3}$ y garantiza una resolución de aproximadamente $a_{kh}/\Delta x \approx 12.8$ celdas a través de la capa de cizalladura, suficiente para resolver la fase lineal del modo dominante sin contaminación numérica significativa por difusividad de truncamiento.
 
-Se emplean condiciones de contorno periódicas en la dirección $y$ (asegurando la cuantización del espectro de modos $k_{kh}^{(n)} = 2\pi n / L_y$) y condiciones de frontera abiertas (flujo libre, derivadas normales nulas) en la dirección $x$, lo que minimiza las reflexiones espurias de ondas magnetoacústicas hacia el centro del dominio. El paso temporal se regula dinámicamente bajo la restricción Courant--Friedrichs--Lewy con $\text{CFL} = 0.1$, valor conservador requerido por la rigidez introducida por la corriente resistiva $\sigma E^\mu$ en el régimen de alta conductividad. La ecuación de estado adoptada es la del gas ideal politrópico con índice adiabático $\Gamma = 4/3$, consistente con un plasma ultrarrelativista dominado por presión de radiación.
+Se emplean condiciones de contorno periódicas en la dirección $y$  y condiciones de frontera abiertas (flujo libre, derivadas normales nulas) en la dirección $x$, lo que minimiza las reflexiones espurias de ondas magnetoacústicas hacia el centro del dominio. El paso temporal se regula dinámicamente bajo la restricción Courant--Friedrichs--Lewy con $\text{CFL} = 0.1$, valor conservador requerido por la rigidez introducida por la corriente resistiva $\sigma E^\mu$ en el régimen de alta conductividad. La ecuación de estado adoptada es la del gas ideal politrópico con índice adiabático $\Gamma = 4/3$, consistente con un plasma ultrarrelativista dominado por presión de radiación.
 
 \paragraph{Sistema de unidades y equivalencia temporal.} Las simulaciones se ejecutan en el sistema de unidades naturales racionalizadas de Heaviside--Lorentz adoptado a lo largo del marco teórico ($c = \mu_0 = \epsilon_0 = 1$). Bajo esta convención, todas las cantidades del código son adimensionales y se expresan en términos de una escala de longitud característica del problema $L_0$, fijada implícitamente por $L_y = 1$. La equivalencia con cualquier escenario físico se obtiene mediante el reescalado:
 \begin{equation}
@@ -79,7 +172,7 @@ Se emplean condiciones de contorno periódicas en la dirección $y$ (asegurando 
 \end{equation}
 donde $L_0$ y $\rho_0$ son escalas de referencia dimensionales y $B_0^{\text{fis}} = \sqrt{4\pi\rho_0 c^2}$ en unidades gaussianas. En consecuencia, la unidad de tiempo del código corresponde estrictamente al tiempo de cruce luminoso $\tau_c \equiv L_0 / c$ a través de la escala unitaria del dominio.
 
-Las simulaciones de este estudio fueron ejecutadas para superar la marca de $t_{\text{cod}} > 7$ unidades de tiempo, lo cual equivale a $t_{\text{fis}} > 7\, L_0/c$. La elección de este horizonte temporal garantiza la cobertura completa de las tres fases dinámicas esperadas: (i) la fase lineal de crecimiento exponencial del modo perturbativo dominante; (ii) la fase de transición al régimen no lineal con formación de vórtices coherentes; y (iii) la fase de saturación con eventual cascada turbulenta secundaria y disipación resistiva. Como referencia astrofísica indicativa, si se identifica $L_0$ con escalas típicas de chorros AGN ($L_0 \sim 10^{15}\text{--}10^{17}\,\text{cm}$), $7\,\tau_c$ representa intervalos físicos de minutos a horas; en cambio, para fusiones de objetos compactos ($L_0 \sim 10^{6}\,\text{cm}$), $7\,\tau_c \sim 230\,\mu\text{s}$. La interpretación específica depende del régimen astrofísico al que se mapee el resultado adimensional. Los parámetros operativos consolidados se resumen en la Tabla~\ref{tab:setup_summary}.
+Las simulaciones de este estudio fueron ejecutadas para superar la marca de $t_{\text{cod}} > 5$ unidades de tiempo, lo cual equivale a $t_{\text{fis}} > 5\, L_0/c$. La elección de este horizonte temporal garantiza la cobertura completa de las tres fases dinámicas esperadas: (i) la fase lineal de crecimiento exponencial del modo perturbativo dominante; (ii) la fase de transición al régimen no lineal con formación de vórtices coherentes; y (iii) la fase de saturación con eventual cascada turbulenta secundaria y disipación resistiva. Como referencia astrofísica indicativa, si se identifica $L_0$ con escalas típicas de chorros AGN ($L_0 \sim 10^{15}\text{--}10^{17}\,\text{cm}$), $7\,\tau_c$ representa intervalos físicos de minutos a horas; en cambio, para fusiones de objetos compactos ($L_0 \sim 10^{6}\,\text{cm}$), $7\,\tau_c \sim 230\,\mu\text{s}$. La interpretación específica depende del régimen astrofísico al que se mapee el resultado adimensional. Los parámetros operativos consolidados se resumen en la Tabla~\ref{tab:setup_summary}.
 
 \begin{table}[h]
 \centering
@@ -104,7 +197,7 @@ Magnitud magnética base     & $B_0$                   & $1.0$ \\
 Componentes $(B_x,B_y,B_z)$ & ---                     & $(0,\, \sqrt{0.02},\, \sqrt{2.0})$ \\
 Índice adiabático           & $\Gamma$                & $4/3$ \\
 Número de Courant           & $\text{CFL}$            & $0.1$ \\
-Tiempo final de integración & $t_{\text{end}}$        & $>7\,L_0/c$ \\
+Tiempo final de integración & $t_{\text{end}}$        & $>5\,L_0/c$ \\
 \hline
 \end{tabular}
 \end{table}
@@ -124,13 +217,14 @@ La transición entre regímenes se caracteriza dimensionalmente mediante el núm
 \subsection{Variables de Control y Diagnóstico}
 \label{subsec:diagnostico}
 
-Para extraer rigurosamente la tasa de crecimiento $\gamma_{\text{KHI}}$ y evaluar el impacto disipativo del barrido en $\sigma$ sobre la dinámica vortical, se requiere un conjunto de métricas globales que no se vean contaminadas por la cizalladura del flujo base ni por los gradientes inherentes a las condiciones iniciales. Como se estableció formalmente en la sección dedicada a la formulación geométrica de la vorticidad (ver el marco teórico previo), se adoptan como observables principales las diferentes manifestaciones eulerianas de la enstrofía planar.
+Para extraer rigurosamente la tasa de crecimiento $\gamma_{\text{KHI}}$ y evaluar el impacto disipativo del barrido en $\sigma$ sobre la dinámica vortical, se requiere un conjunto de métricas globales que no se vean contaminadas por la cizalladura del flujo base ni por los gradientes inherentes a las condiciones iniciales. Como se estableció formalmente en la sección dedicada a la formulación geométrica de la vorticidad y enstrofía dentro del marco teórico (Sección~\ref{sec:Energia_Momento} \emph{et seq.}), se adoptan como observables principales las distintas manifestaciones eulerianas de la enstrofía planar previamente definidas.
 
 En particular, se monitorea de manera sistemática a lo largo de la integración temporal:
 \begin{itemize}
     \item La \textbf{enstrofía planar bidimensional} $\Omega_z(t) = \int (\partial_x V_y - \partial_y V_x)^2\, dA$, que cuantifica la energía rotacional asociada a la componente fuera del plano del campo de vorticidad euleriano y constituye el indicador primario del crecimiento vortical en la geometría 2D del problema.
-    \item La \textbf{enstrofía total tridimensional} $\Omega_{\text{tot}}(t)$, que incorpora contribuciones de los gradientes transversales de $V_z$ y permite detectar la activación de modos fuera del plano por acoplamiento magnético, aun en una simulación nominalmente bidimensional.
+    \item La \textbf{enstrofía total tridimensional euleriana} $\Omega_{\text{tot}}(t)$, que incorpora contribuciones de los gradientes transversales de $V_z$ y permite detectar la activación de modos fuera del plano por acoplamiento magnético, aun en una simulación nominalmente bidimensional.
     \item El \textbf{factor de anisotropía estructural} $f_{Vz}(t) = (\Omega_{\text{tot}} - \Omega_z)/\Omega_{\text{tot}}$, cuya desviación respecto a cero señala el inicio de la ruptura de simetría planar inducida por la tensión magnética fuera del plano y el acoplamiento tridimensional emergente.
     \item La \textbf{enstrofía de perturbación} $\Omega'_z(t) = \int (\omega'_z)^2\, dA$, definida sobre la vorticidad perturbada $\omega'_z = \omega_z - \langle \omega_z(t=0) \rangle_y$, la cual sustrae el fondo de cizalladura inicial y constituye la métrica fundamental para la extracción de la tasa de crecimiento lineal mediante regresión sobre $\ln \Omega'_z(t) = C + 2\gamma_{\text{KHI}}\, t$.
 \end{itemize}
 La evaluación discreta de estos diagnósticos se realiza mediante diferencias finitas centradas de segundo orden sobre el campo de velocidad reconstruido en los centros de celda, con integración por regla del trapecio sobre todo el dominio físico $A = L_x \times L_y$. La combinación de estos cuatro observables proporciona una caracterización integral altamente sensible al régimen disipativo, permitiendo aislar de forma cuantitativa los efectos de la conductividad finita sobre las distintas fases dinámicas de la KHI.
+```
