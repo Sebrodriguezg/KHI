@@ -1,8 +1,149 @@
-\section{Detalles Vectoriales en Coordenadas Cartesianas}
-    Listado de identidades vectoriales clave [38, 39].
+% ============================================================================
+% Apendice: cálculos paso a paso de la justificación de gamma_0 (KHI RRMHD).
+% Deriva desde primeros principios cada eslabón de la Seccion 6.7
+% (contraste con la teoria lineal): sistema RRMHD vs Miranda, termodinamica
+% y velocidades, ec. de Rayleigh, Lees-Lin compresible, vortex-sheet, los
+% estimadores de sigma_crit y la auditoria bibliografica.
+% ============================================================================
 
-\section{Construcción de Flujos Numéricos y Solvers}
-    Detalles sobre la estructura de la discretización semi-discreta [40]. Mención a los "bloques numéricos" como los limitadores de pendiente (slope limiters) utilizados en la reconstrucción (e.g., minmod) [41, 42].
+\section{Justificación de $C+\gamma_0$: derivación paso a paso}
+\label{ap:justificacion}
 
-\section{Parámetros de Simulación Detallados}
-    Tabla de constantes físicas ($\Gamma$), parámetros de régimen (e.g., Mach number, $\mu_p, \mu_t$ [8]), y parámetros numéricos (CCFL, resolución, $\sigma$).
+\primerparrafo Este apéndice reconstruye, desde primeros principios, cada eslabón de la cadena que sostiene la justificación de la tasa de crecimiento ideal $C+\gamma_0$ (Sección~\ref{sec:teoria_v6}): el sistema RRMHD que integra el código \textit{Cueva} y su correspondencia con los trabajos de Miranda, la termodinámica relativista y las velocidades características, la ecuación de Rayleigh y su versión compresible, la relación de dispersión de \emph{vortex sheet} y la reconstrucción de los estimadores de $\scrit$. Todos los números fueron recomputados de forma independiente y coinciden con los del cuerpo del trabajo.
+
+\subsection{El sistema que resuelve el \textit{Cueva} y su correspondencia con Miranda}
+\label{ap:cueva}
+
+\primerparrafo \textcite{miranda2014} construyen el código (extensión resistiva de \textsc{MR-genesis}) integrando el sistema de balance RRMHD con \emph{limpieza de divergencia} a la Dedner (dos potenciales escalares $\psi,\phi$):
+\begin{equation}
+\begin{aligned}
+\partial_t \psi &= -\nabla\!\cdot\!\mathbf{E}+q-\kappa\psi, &
+\partial_t \mathbf{E} &= \nabla\times\mathbf{B}-\nabla\psi-\mathbf{J},\\
+\partial_t \phi &= -\nabla\!\cdot\!\mathbf{B}-\kappa\phi, &
+\partial_t \mathbf{B} &= -\nabla\times\mathbf{E}-\nabla\phi,\\
+\partial_t D &= -\nabla\!\cdot\!\mathbf{F}_D, &
+\partial_t q &= -\nabla\!\cdot\!\mathbf{J},\\
+\partial_t \tau &= -\nabla\!\cdot\!\mathbf{F}_\tau-\mathbf{B}\!\cdot\!\nabla\phi
+                   -\mathbf{E}\!\cdot\!\nabla\psi, &
+\partial_t \mathbf{S} &= -\nabla\!\cdot\!\mathbf{F}_S-(\nabla\!\cdot\!\mathbf{B})\mathbf{B}.
+\end{aligned}
+\label{ap:eq:rrmhd}
+\end{equation}
+El cierre no ideal es la \textbf{ley de Ohm relativista resistiva}
+\begin{equation}
+\boxed{\;\mathbf{J}=\sigma W\big[\mathbf{E}+\mathbf{V}\times\mathbf{B}
+-(\mathbf{E}\!\cdot\!\mathbf{V})\mathbf{V}\big]+q\,\mathbf{V}\;}
+\label{ap:eq:ohm}
+\end{equation}
+con $W$ el factor de Lorentz, $\sigma$ la conductividad y $q$ la densidad de carga. En el límite ideal $\sigma\to\infty$ la Ec.~\eqref{ap:eq:ohm} solo es finita si el corchete se anula, $\mathbf{E}=-\mathbf{V}\times\mathbf{B}$ (MHD ideal); la rigidez de ese límite obliga a un integrador IMEX-RK \parencite{miranda2014,miranda2018}. Las variables conservadas son $D=\rho W$, $\mathbf{S}=\mathbf{E}\times\mathbf{B}+\rho h\,W^2\mathbf{V}$ y $\tau=\tfrac12(E^2+B^2)+\rho h\,W^2-p$, con $\rho h=\rho(1+\varepsilon)+p$ y $\varepsilon=p/[(\Gamma-1)\rho]$. Cruzando el término rígido de la Ec.~\eqref{ap:eq:ohm} con la inversión implícita que el \textit{Cueva} resuelve para $\mathbf{E}$ (módulo \texttt{11\_elecvarint.f95}), se confirma que el código integra exactamente el sistema RRMHD de \textcite{miranda2014,miranda2018}: el parámetro $\sigma$ es la conductividad física y $\eta=1/\sigma$ la resistividad.
+
+\subsection{El observable: por qué $\ln\Ozp$ crece a pendiente $2\gKHI$}
+
+\primerparrafo El diagnóstico es la enstrofía de perturbación $\Ozp(t)=\int(\omega_z')^2\,dA$, con $\omega_z'=\omega_z-\langle\omega_{z0}\rangle$. En la fase lineal cada modo crece como $\delta\propto e^{\gKHI t}$, de modo que $\omega_z'\propto e^{\gKHI t}$ y su cuadrado integrado
+\begin{equation}
+\Ozp\propto(\omega_z')^2\propto e^{2\gKHI t}
+\;\Longrightarrow\;
+\ln\Ozp=\text{cte}+2\gKHI\,t.
+\end{equation}
+De ahí el factor $2$: se ajusta una recta a $\ln\Ozp$ en la ventana canónica $t\in[2.4,3.4]$ y la pendiente dividida por dos es $\gKHI$. Esta es la misma relación $\sigma_Z=2\sigma_{KHI}$ que usa la literatura.
+
+\subsection{Termodinámica relativista y velocidades características}
+\label{ap:speeds}
+
+\primerparrafo Gas ideal con ley $\Gamma$: la entalpía específica es $h=1+\Gamma/(\Gamma-1)\,p/\rho$. Para el estado base ($\rho=1$, $p=1$, $\Gamma=4/3$): $h=1+4\cdot1=5$, de modo que $\rho h=5$ es la inercia relativista efectiva. La velocidad del sonido relativista sale de $\mathcal{C}_s^2=(\partial p/\partial e)_s=\Gamma p/(\rho h)$:
+\begin{equation}
+\mathcal{C}_s^2=\frac{(4/3)(1)}{5}=\frac{4}{15}=0.2667\;\Rightarrow\;\mathcal{C}_s=0.5164 .
+\end{equation}
+Nótese el denominador $\rho h$ (no $\rho$): es la corrección relativista que el límite clásico pierde. Con $B^2=B_y^2+B_z^2=0.02+2=2.02$, las velocidades de Alfvén (total y paralela al flujo) y la magnetosónica rápida perpendicular son
+\begin{equation}
+V_A=\sqrt{\frac{B^2}{\rho h+B^2}}=0.5364,\quad
+V_{A,\parallel}=\sqrt{\frac{B_y^2}{\rho h+B^2}}=0.0534,\quad
+v_{f\perp}^2=V_A^2+\mathcal{C}_s^2(1-V_A^2)\Rightarrow v_{f\perp}=0.6911 .
+\end{equation}
+Se usa la rápida $v_{f\perp}$ y no el sonido porque la compresión del modo KH ocurre en el plano $x$--$y$ y $B_z$ es perpendicular a ese plano: su presión magnética se suma a la del gas. Es lo que \textcite{chow2023} formaliza para $\cos\theta=1$ (``presión pero no tensión'').
+
+\subsection{Números de Mach: la distinción $M_f$ vs $M_{re}$}
+
+\primerparrafo Los Mach simples son $M_s=\vsh/\mathcal{C}_s=0.968$, $M_{A,\parallel}=\vsh/V_{A,\parallel}=9.37$ y $M_f=\vsh/v_{f\perp}=0.723$. La teoría lineal relativista \parencite{osmanov2008,bodo-2004,chow2023} no usa el cociente simple sino el Mach \emph{relativista} de Königl, que pondera cada velocidad por su factor de Lorentz:
+\begin{equation}
+M_{re}=\frac{\vsh}{v_{f\perp}}\sqrt{\frac{1-v_{f\perp}^2}{1-\vsh^2}}
+=0.7235\times0.8346=0.604 .
+\end{equation}
+Este es el $0.60$ del cuerpo del trabajo, no $0.72$. El criterio de inestabilidad $0<M_{re}<\sqrt2$ \parencite{chow2023,bodo-2004} se aplica a \emph{esta} cantidad: con $M_{re}=0.604$ el sistema está holgadamente inestable, a un factor $2.3$ del corte. La tasa medida normalizada es $\what=(C+\gamma_0)\akh/\vsh=0.103$ y $\sigma_Z=2\what=0.206$.
+
+\subsection{Techo inviscido: ecuación de Rayleigh desde Euler}
+\label{ap:rayleigh}
+
+\primerparrafo Linealizando Euler incompresible 2D en torno al flujo base $\mathbf{U}=U(x)\hat y$, eliminando la presión (ecuación de vorticidad) e introduciendo la función de corriente con el modo normal $\psi'=\phi(x)\,e^{ik(y-ct)}$, se obtiene la ecuación de Rayleigh:
+\begin{equation}
+(U-c)\big(\phi''-k^2\phi\big)-U''\,\phi=0 .
+\label{ap:eq:rayleigh}
+\end{equation}
+Adimensionalizando con $\akh$ y tomando $U=\tanh x$, la Ec.~\eqref{ap:eq:rayleigh} es un problema de autovalores generalizado $A\phi=cB\phi$ con $\what_i=ka\,\mathrm{Im}(c)$, que se resuelve numéricamente (\texttt{scipy.linalg.eig}). El máximo cae en $ka\simeq0.445$ con $\what_{i,\max}=0.1897$, el valor clásico de \textcite{michalke1964}; en el modo excitado $ka=0.314$ el techo inviscido es $\what\approx0.176$.
+
+\subsection{Predicción compresible exacta: ecuación de Lees--Lin}
+\label{ap:leeslin}
+
+\primerparrafo La versión compresible de la Ec.~\eqref{ap:eq:rayleigh} para la perturbación de presión $\hat p$ es la ecuación de Rayleigh compresible (Lees--Lin):
+\begin{equation}
+\hat p''-\frac{2U'}{U-c}\,\hat p'
+ -\alpha^2\Big[1-\frac{(U-c)^2}{c_s^2}\Big]\hat p=0,
+\qquad \alpha=ka,\;U=\tanh x .
+\label{ap:eq:leeslin}
+\end{equation}
+El término $(U-c)^2/c_s^2$ es la corrección compresible: cuando $|U-c|\to c_s$ el modo se vuelve sónico y el crecimiento se suprime (germen del umbral de Landau). Multiplicando por $(U-c)$ se obtiene un operador \textbf{cúbico en $c$} que se linealiza en forma \emph{companion} y se resuelve por \texttt{scipy.linalg.eig}. \textbf{Validación:} en el límite incompresible ($c_s\to\infty$) reproduce $\what_{i,\max}\to0.1897$ (Michalke). Con $c_s\to v_{f\perp}$ ($c_s^{\rm norm}=1.382$) en el modo $ka=0.314$:
+\begin{equation}
+\what_{\mathrm{RMHD}}=0.0949,\qquad \frac{|0.1029-0.095|}{0.095}=8\% ,
+\end{equation}
+que cae \emph{en el pico} de la curva compresible. \textbf{Control negativo:} con el sonido ($c_s^{\rm norm}=1.032$) el crecimiento colapsa a $\what=0.0151$, seis veces menor: sin la presión de $B_z$ la teoría no explicaría el dato.
+
+\subsection{Dispersión RMHD de \emph{vortex sheet} y umbral de Landau}
+\label{ap:vs}
+
+\primerparrafo En el límite de interfaz delgada, en cada semiespacio la perturbación de presión satisface la ecuación de onda convectada relativista; pasando al marco comóvil con cada flujo $U_i=\pm v$ e imponiendo continuidad de la presión total y del desplazamiento normal, se obtiene la relación de dispersión
+\begin{equation}
+\frac{\gamma_1^2(\omega-U_1k)^2}{a_1}+\frac{\gamma_2^2(\omega-U_2k)^2}{a_2}=0,
+\qquad a_i^2=\gamma_i^2\Big[(k-U_i\omega)^2-\frac{(\omega-U_ik)^2}{c_s^2}\Big] .
+\label{ap:eq:DR}
+\end{equation}
+Sus dos límites la validan: (i)~incompresible clásico ($c_s\to\infty$, $v\to0$) da $\Gamma/k\to v$ (KH clásico); (ii)~compresible no relativista da estabilización exacta en $v/c_s=\sqrt2$, el umbral de \textcite{landau1944}, base de la cota relativista $0<M_{re}<\sqrt2$ \parencite{bodo-2004,chow2023}. Que el mismo código reproduzca Michalke (espesor finito) y Landau (\emph{vortex sheet}) es la doble validación de la maquinaria.
+
+\subsection{Reconstrucción de los estimadores de $\scrit$}
+\label{ap:estim}
+
+\primerparrafo Los cuatro estimadores (Tabla~\ref{tab:est_v6}) son: M1 inflexión de $\gKHI(\sigma)$ ($6800\pm2625$); M2 inflexión de $\Omaxzp(\sigma)$ ($3400\pm2175$); M3 inflexión de $t_{\rm peak}(\sigma)$ ($6000\pm1147$); M4 centro $\sigma_0$ del sigmoide con \emph{offset} ($2815\pm123$). La incertidumbre de cada inflexión es $\delta\sigma=\max(\sigma_{\rm jk},w)$, con $\sigma_{\rm jk}$ el error \emph{jackknife} (escalado $\times\sqrt{n-1}$) y $w$ el semiancho del pico. El consenso ponderado por inverso de la varianza,
+\begin{equation}
+\scrit=\frac{\sum_i \sigma_i/\delta\sigma_i^2}{\sum_i 1/\delta\sigma_i^2}=2861,
+\qquad
+\delta\scrit=\Big(\sum_i 1/\delta\sigma_i^2\Big)^{-1/2}=122,
+\end{equation}
+está dominado por M4 ($98\%$ del peso). La media aritmética es $4754\pm1944$; esta banda ($\pm1944$) es la honesta. Para la selección de modelo, con residuos gaussianos $\mathrm{AIC}=N\ln(\mathrm{RSS}/N)+2\kappa$: el modelo con \emph{offset} ($\kappa=4$) gana al de sub-escala por $\Delta\mathrm{AIC}\approx-337$ y al clásico por $-531$ ($|\Delta|\gg10$: decisivo).
+
+\subsection{Veredicto: validez teórica del montaje}
+\label{ap:veredicto}
+
+\primerparrafo La Tabla~\ref{ap:tab:sintesis} sintetiza la verificación independiente. El \textit{Cueva}, en \texttt{TEST=35}, produce una KHI cuya tasa de crecimiento lineal es \textbf{consistente con la predicción de la teoría lineal RMHD compresible} (dentro del $8\%$) y cae \textbf{dentro de la región de inestabilidad relativista} ($M_{re}=0.60<\sqrt2$, sin extrapolación). El déficit respecto al techo hidrodinámico no es un error del código: es el efecto físico de compresibilidad relativista sostenido por la presión del campo guía $B_z$. La resistividad finita del marco RRMHD es además lo que vuelve bien planteado el problema \parencite{lecoanet2016}. El valor preciso de la asíntota ideal $C+\gamma_0$ es, no obstante, una \emph{extrapolación respaldada por consistencia}, no un plateau medido; su confirmación cerrada requiere las simulaciones a $\Rmst\gtrsim500$.
+
+\begin{table}[H]\centering\small
+\caption{Síntesis de verificación independiente. La columna ``recomputado'' se obtuvo desde cero.}
+\label{ap:tab:sintesis}
+\begin{tabular}{lcc}
+\hline
+Comprobación & Cuerpo del trabajo & Recomputado\\
+\hline
+Sistema RRMHD $=$ Miranda 2014/2018 & sí & código cruzado\\
+Entalpía $\rho h$ & $5$ & $5$\\
+Sonido $\mathcal{C}_s$ & $0.516$ & $0.5164$\\
+Alfvén $V_A/V_{A,\parallel}$ & $0.536/0.053$ & $0.5364/0.0534$\\
+Magnetosónica rápida $v_{f\perp}$ & $0.691$ & $0.6911$\\
+Mach $M_s,M_{A,\parallel},M_f$ & $0.97,9.4,0.72$ & $0.968,9.37,0.723$\\
+Mach relativista $M_{re}$ & $0.60$ & $0.604$\\
+Techo hidro (Michalke) & $0.1897$ & $0.1897$\\
+Predicción RMHD compresible & $0.095$ & $0.0949$\\
+Control con sonido (sin $B_z$) & $0.016$ & $0.0151$\\
+Tasa medida $\what$ & $0.103$ & $0.1029$\\
+Consenso $\scrit$ ponderado & $2861\pm122$ & $2861\pm122$\\
+Media aritmética $\scrit$ & $4754\pm1944$ & $4754\pm1944$\\
+\hline
+\end{tabular}
+\end{table}

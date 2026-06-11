@@ -1,65 +1,62 @@
 % ============================================================================
-% Capitulo: Resultados y Analisis de la KHI en RRMHD  (orden invertido)
+% Capitulo: Resultados de la Simulacion y Analisis de la KHI en RRMHD
 % ----------------------------------------------------------------------------
-% CAMBIOS RESPECTO A LA VERSION ANTERIOR:
-%   - Titulo del capitulo invertido: "Resultados y Analisis".
-%   - NUEVA Seccion 1: Vision global del barrido (ultrawides + tabla canonica).
-%   - Figura fig_derivadas_M1_M2.pdf regenerada con dominios independientes
-%     en cada panel: la grafica roja (Metodo 2) ahora muestra correctamente
-%     las dos jorobas en su dominio de datos [2800, 10500].
-%   - Las secciones analiticas restantes (2-7) conservan su estructura.
-%
-% RESTRICCIONES OBSERVADAS (sin cambios):
-%   - No se hace mencion al Numero de Reynolds magnetico Rm.
-%   - No se utiliza el criterio de fraccion (f * gamma_0).
-%   - No se incluyen las derivadas logaritmicas del t_peak.
-%
-% Comandos personales asumidos (declarar en el preambulo si no existen):
-%   \newcommand{\gKHI}{\gamma_{\mathrm{KHI}}}
-%   \newcommand{\Ozp}{\Omega_{zp}}
-%   \newcommand{\Omaxzp}{\Omega_{zp}^{\max}}
-%   \newcommand{\Otot}{\Omega_{\mathrm{tot}}}
-%   \newcommand{\scrit}{\sigma_{\mathrm{crit}}}
-%   \newcommand{\akh}{a_{kh}}
-%   \newcommand{\leff}{\ell_{\mathrm{eff}}}
-%
-% Paquetes requeridos para la tabla canonica:
-%   \usepackage{longtable}   % O usar tabular convencional en 4 columnas.
+% VERSION ACTUALIZADA (2026-06): el analisis de gamma_0 y sigma_crit se basa
+% ahora en el modelo SIGMOIDE v6 con offset C (estudio de justificacion de
+% gamma_0). Se reemplazan: el sigmoide v5 de 3 parametros, y la antigua
+% reconciliacion de sigma_crit por sub-escala efectiva l_eff (que daba un
+% factor 10 respecto a sigma_crit_teo=447). El contraste teorico es ahora el
+% correcto: techo hidrodinamico inviscido (Michalke) -> prediccion RMHD
+% compresible (Lees-Lin) -> valor medido, con el numero de Mach relativista.
+% Se conservan: la vision global del barrido y las leyes de potencia de Omega_max.
 % ============================================================================
 
 
-\primerparrafo Este capítulo presenta el análisis cuantitativo de las simulaciones RRMHD del barrido paramétrico en la conductividad eléctrica $\sigma$, descrito en el Capítulo~\ref{sec:setup_experimental}. La exposición sigue un orden lógico que parte de la fenomenología cruda de las simulaciones (evolución temporal de los diagnósticos globales) y converge hacia los resultados paramétricos derivados: (i) una visualización global del barrido completo de 44 simulaciones a través de las trayectorias temporales de la enstrofía; (ii) un ajuste paramétrico tipo sigmoide que captura la transición continua entre los regímenes resistivo e ideal y permite identificar la tasa de crecimiento asintótica $\gKHI(\sigma\to\infty) \equiv \gamma_0$; (iii) el análisis de las derivadas logarítmicas de los observables principales para estimar la conductividad crítica $\scrit$ y delimitar de manera objetiva las zonas fenomenológicas del flujo; (iv) el estudio de la curva directa $t_{\mathrm{peak}}(\sigma)$ como métrica auxiliar libre de manipulación derivativa; y (v) la confrontación de los exponentes empíricos de la ley de potencias $\Omaxzp(\sigma)$ con las predicciones de la teoría lineal y el análisis de la escala disipativa efectiva del sistema.
+\primerparrafo Este capítulo presenta el análisis cuantitativo de las simulaciones RRMHD del barrido paramétrico en la conductividad eléctrica $\sigma$, descrito en el Capítulo~\ref{ch:setup_exp}. La exposición parte de la fenomenología cruda de las simulaciones y converge hacia los resultados paramétricos derivados: (i) una visualización global del barrido completo de $44$ simulaciones a través de las trayectorias temporales de la enstrofía; (ii) un ajuste paramétrico tipo sigmoide \emph{con offset} que captura la transición continua entre los regímenes resistivo e ideal e identifica la tasa de crecimiento asintótica $\gKHI(\sigma\to\infty)=C+\gamma_0$; (iii) la validación estadística del modelo y la estimación de la conductividad crítica $\scrit$ con sus tres fuentes de incertidumbre; (iv) las leyes de potencia de la enstrofía máxima $\Omaxzp(\sigma)$; y (v) la confrontación de la asíntota ideal con la teoría lineal de la KHI (hidrodinámica, MHD y RMHD), que justifica \emph{cuantitativamente} el valor medido.
 
 \section{Visión global del barrido paramétrico}
 \label{sec:vision_global}
 
-\primerparrafo Antes de cualquier análisis derivativo, es indispensable verificar que las 44 simulaciones del barrido reproducen la fenomenología esperada de la KHI en el régimen RRMHD y que las trayectorias temporales de los diagnósticos globales presentan la estructura de tres fases bien delimitadas: (i) fase lineal de crecimiento exponencial, (ii) fase de transición no lineal con formación de vórtices coherentes, y (iii) fase de saturación con eventual disipación residual. Esta verificación se realiza sobre la enstrofía absoluta total $\Otot(t)$ y sobre la enstrofía de perturbación $\Ozp(t)$, observables complementarios cuya construcción se detalló en la Sección~\ref{subsec:diagnostico}.
+\primerparrafo Antes de cualquier análisis derivativo, es indispensable verificar que las $44$ simulaciones del barrido reproducen la fenomenología esperada de la KHI en el régimen RRMHD y que las trayectorias temporales de los diagnósticos globales presentan la estructura de tres fases bien delimitadas: (i) fase lineal de crecimiento exponencial, (ii) fase de transición no lineal con formación de vórtices coherentes, y (iii) fase de saturación con eventual disipación residual. Esta verificación se realiza sobre la enstrofía absoluta total $\Otot(t)$ y sobre la enstrofía de perturbación $\Ozp(t)$, observables complementarios cuya construcción se detalló en la Sección~\ref{subsec:diagnostico}.
 
 \subsection{Trayectorias temporales del barrido}
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{figuras/fig_ultrawide_omega_tot.pdf}
-\caption{Evolución temporal de la enstrofía absoluta total $\Otot(t) = \int (\partial_y V_z)^2 + (\partial_x V_z)^2 + (\partial_x V_y - \partial_y V_x)^2 \, dA$ para las 44 simulaciones del barrido en conductividad. La escala cromática (negro $\to$ púrpura $\to$ naranja) ordena las trayectorias por el índice canónico de la simulación (Tabla~\ref{tab:canonica_sigma}), correspondiente a conductividad creciente desde $\sigma = 100$ hasta $\sigma = 10500$. Se aprecia con nitidez la estratificación monótona de las curvas en la fase de crecimiento y la formación de picos diferenciados durante la fase no lineal en torno a $t \in [4.5,\,6.0]$. Las simulaciones de baja conductividad (curvas oscuras) son fuertemente amortiguadas por la difusión óhmica, mientras que las de alta conductividad (curvas naranjas) alcanzan picos hasta un orden de magnitud superiores.}
+\caption{Evolución temporal de la enstrofía absoluta total $\Otot(t) = \int (\partial_y V_z)^2 + (\partial_x V_z)^2 + (\partial_x V_y - \partial_y V_x)^2 \, dA$ para las $44$ simulaciones del barrido en conductividad. La escala cromática (negro $\to$ púrpura $\to$ naranja) ordena las trayectorias por el índice canónico de la simulación (Tabla~\ref{tab:canonica_sigma}), correspondiente a conductividad creciente desde $\sigma = 100$ hasta $\sigma = 10500$. Se aprecia la estratificación monótona de las curvas en la fase de crecimiento y la formación de picos diferenciados durante la fase no lineal en torno a $t \in [4.5,\,6.0]$. Las simulaciones de baja conductividad (curvas oscuras) son fuertemente amortiguadas por la difusión óhmica, mientras que las de alta conductividad (curvas naranjas) alcanzan picos hasta un orden de magnitud superiores.}
 \label{fig:ultrawide_omega_tot}
 \end{figure}
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{figuras/fig_ultrawide_omega_zp.pdf}
-\caption{Evolución temporal de la enstrofía de perturbación $\Ozp(t) = \int (\omega'_z)^2 \, dA$ para las 44 simulaciones. Al sustraer el fondo de cizalladura inicial mediante el promediado longitudinal de $\omega_z$, esta métrica aísla exclusivamente la dinámica del modo perturbado y constituye el observable fundamental para la extracción de la tasa de crecimiento $\gKHI$ mediante regresión lineal de $\ln\Ozp(t)$ en la fase de crecimiento exponencial. La estratificación cromática refleja la dependencia monótona de la amplitud del pico con la conductividad.}
+\caption{Evolución temporal de la enstrofía de perturbación $\Ozp(t) = \int (\omega'_z)^2 \, dA$ para las $44$ simulaciones. Al sustraer el fondo de cizalladura inicial mediante el promediado longitudinal de $\omega_z$, esta métrica aísla exclusivamente la dinámica del modo perturbado y constituye el observable fundamental para la extracción de la tasa de crecimiento $\gKHI$ mediante regresión lineal de $\ln\Ozp(t)$ en la fase de crecimiento exponencial. La estratificación cromática refleja la dependencia monótona de la amplitud del pico con la conductividad.}
 \label{fig:ultrawide_omega_zp}
 \end{figure}
 
-\primerparrafo La Fig.~\ref{fig:ultrawide_omega_tot} y la Fig.~\ref{fig:ultrawide_omega_zp} evidencian que las 44 simulaciones alcanzaron el horizonte temporal $t > 7$ sin presentar inestabilidades numéricas espurias, y que la estratificación monótona de las curvas con respecto a $\sigma$ es regular y limpia. Esta observación es la base empírica que justifica la aplicación posterior de los ajustes paramétricos: la sistemática del barrido es genuina y no contiene saltos discontinuos que sugieran transiciones de fase numéricas.
+\primerparrafo La Fig.~\ref{fig:ultrawide_omega_tot} y la Fig.~\ref{fig:ultrawide_omega_zp} evidencian que las $44$ simulaciones alcanzaron el horizonte temporal $t > 7$ sin presentar inestabilidades numéricas espurias, y que la estratificación monótona de las curvas con respecto a $\sigma$ es regular y limpia. En la fase lineal, $\Ozp\propto e^{2\gKHI t}$, de modo que $\ln\Ozp$ es una recta de pendiente $2\gKHI$ en la ventana canónica $t\in[2.4,3.4]$, posterior al transitorio de relajación y anterior a la saturación. Esta sistemática es la base empírica que justifica los ajustes paramétricos que siguen.
+
+\subsection{Extracción de la tasa de crecimiento y calidad del ajuste lineal}
+
+\primerparrafo La tasa $\gKHI(\sigma)$ se obtiene como la mitad de la pendiente de un ajuste lineal de $\ln\Ozp(t)$ en la ventana canónica. La Fig.~\ref{fig:lnfit} hace explícita esta extracción para las $44$ simulaciones: dentro de la ventana sombreada $[2.4,3.4]$ las trayectorias son rectas cuya pendiente crece con $\sigma$, mientras que fuera de ella se aprecian el transitorio de relajación inicial ($t\lesssim2.4$) y la entrada en saturación ($t\gtrsim3.4$), ambos excluidos del ajuste.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{figuras/ln_omega_vs_t.pdf}
+\caption{Extracción de $\gKHI$: $\ln\Ozp(t)$ para las $44$ simulaciones (color $=$ índice canónico, conductividad creciente del oscuro al naranja) con el ajuste lineal en la ventana sombreada $[2.4,3.4]$. El estilo de cada recta codifica la calidad del ajuste por régimen: resistivo (punteado, $R^2_{\mathrm{fija}}<0.90$), transición (discontinuo, $0.90\le R^2_{\mathrm{fija}}<0.995$) e ideal (continuo, $R^2_{\mathrm{fija}}\ge0.995$). La pendiente de cada recta es $2\gKHI$.}
+\label{fig:lnfit}
+\end{figure}
+
+\primerparrafo La calidad del ajuste mejora monótonamente con la conductividad: $R^2_{\mathrm{fija}}$ pasa de $\approx0.31$ en el régimen resistivo extremo ($\sigma=100$) a $\ge0.90$ a partir de $\sigma=1600$ y $\ge0.995$ en transición e ideal ($\sigma=3600$: $0.995$; $\sigma=6000$: $0.998$; $\sigma=10500$: $0.996$). En el régimen resistivo la difusión óhmica frena el crecimiento de forma continua y $\ln\Ozp$ deja de ser una recta limpia; por ello el análisis cuantitativo de $\gKHI(\sigma)$ y de $\scrit$ se restringe a las $35$ simulaciones con $\sigma\ge1600$ ($R^2_{\mathrm{fija}}\ge0.90$ y SNR $\ge3$), mientras que las resistivas se conservan solo para clasificar el régimen.
 
 \subsection{Tabla canónica del barrido en conductividad}
 
-\primerparrafo Cada simulación del barrido se identifica de forma unívoca mediante un índice canónico $1 \leq j \leq 44$ que corresponde al ordenamiento creciente en $\sigma$. La Tabla~\ref{tab:canonica_sigma} consolida los 44 valores explorados, junto con la marca de aquellas simulaciones que presentan un pico de enstrofía bien definido dentro de la ventana temporal de la simulación (criterio $\sigma \geq \sigma_{\min}^{\mathrm{picos}} = 2800$); estas constituyen el subconjunto utilizado para los ajustes posteriores de $\Omaxzp(\sigma)$ y $t_{\mathrm{peak}}(\sigma)$ ($N = 29$ simulaciones marcadas con $\bullet$). Las simulaciones con $\sigma < 2800$ (índices 1--15) se incluyen en el ajuste sigmoide de $\gKHI(\sigma)$ pero no aportan información de pico, ya que en estos regímenes la enstrofía se mantiene amortiguada por la difusión óhmica.
+\primerparrafo Cada simulación del barrido se identifica de forma unívoca mediante un índice canónico $1 \leq j \leq 44$ que corresponde al ordenamiento creciente en $\sigma$. La Tabla~\ref{tab:canonica_sigma} consolida los $44$ valores explorados, junto con la marca de aquellas simulaciones que presentan un pico de enstrofía bien definido dentro de la ventana temporal de la simulación (criterio $\sigma \geq 2800$); estas constituyen el subconjunto utilizado para los ajustes de $\Omaxzp(\sigma)$ y $t_{\mathrm{peak}}(\sigma)$ ($N = 29$ simulaciones marcadas con $\bullet$). El ajuste de $\gKHI(\sigma)$ y de $\scrit$, en cambio, usa las $35$ simulaciones con $\sigma\ge1600$ definidas por la calidad del ajuste lineal en la subsección anterior. Ambos subconjuntos difieren porque el pico de enstrofía solo es identificable para $\sigma\ge2800$, mientras que la pendiente lineal ya lo es desde $\sigma=1600$.
 
 \begin{table}[H]
 \centering
-\caption{Tabla canónica del barrido en conductividad. Cada simulación del estudio se identifica por su índice canónico $j$ y su conductividad asignada $\sigma_j$. Las simulaciones marcadas con $\bullet$ presentan un pico de enstrofía identificable dentro del horizonte temporal $t \in [0, 10]$ y constituyen el subconjunto de análisis para $\Omaxzp(\sigma)$ y $t_{\mathrm{peak}}(\sigma)$ ($N = 29$).}
+\caption{Tabla canónica del barrido en conductividad. Cada simulación se identifica por su índice canónico $j$ y su conductividad $\sigma_j$. Las marcadas con $\bullet$ presentan un pico de enstrofía identificable dentro del horizonte temporal y constituyen el subconjunto de análisis para $\Omaxzp(\sigma)$ y $t_{\mathrm{peak}}(\sigma)$ ($N = 29$).}
 \label{tab:canonica_sigma}
 \small
 \begin{tabular}{|c|c|c||c|c|c|}
@@ -92,161 +89,118 @@ $j$ & $\sigma_j$ & Pico & $j$ & $\sigma_j$ & Pico \\
 \end{tabular}
 \end{table}
 
-\primerparrafo Con esta base empírica establecida, las secciones siguientes abordan el análisis paramétrico y la extracción cuantitativa de las cantidades físicas relevantes del problema.
+\section{Modelo sigmoide con offset y tasa de crecimiento ideal $C+\gamma_0$}
+\label{sec:sigmoide_v6}
 
-\section{Modelo sigmoide y tasa de crecimiento ideal $\gamma_0$}
-\label{sec:sigmoide}
-
-\primerparrafo La fenomenología global observada en las 44 simulaciones del barrido sugiere una transición logística entre dos regímenes asintóticos bien diferenciados: un régimen resistivo de bajo crecimiento, donde la difusión óhmica suprime la inestabilidad, y un régimen cuasi-ideal de saturación, donde la tasa de crecimiento converge hacia el valor predicho por la RMHD ideal. Para capturar esta estructura de saturación bilateral se propone un modelo paramétrico de tres grados de libertad:
+\primerparrafo La fenomenología global sugiere una transición logística entre dos regímenes asintóticos: un régimen resistivo de bajo crecimiento, donde la difusión óhmica suprime la inestabilidad, y un régimen cuasi-ideal de saturación, donde la tasa converge al valor de la RMHD ideal. El sigmoide de tres parámetros $\gKHI=\gamma_0/\{1+e^{-k(\sigma-\sigma_0)}\}$ fuerza las asíntotas a $0$ (resistivo) y $\gamma_0$ (ideal). Sin embargo, los datos del régimen resistivo presentan una curvatura descendente que ese modelo no puede capturar. Liberando un \emph{offset} aditivo $C$ se obtiene el modelo de cuatro parámetros adoptado en esta monografía:
 \begin{equation}
-\boxed{\;\gKHI(\sigma) \;=\; \frac{\gamma_0}{1 + \exp\!\left[-k\,(\sigma - \sigma_0)\right]}\;}
-\label{eq:sigmoide}
+\boxed{\;\gKHI(\sigma)=C+\dfrac{\gamma_0}{1+\exp[-k(\sigma-\sigma_0)]}\;}
+\qquad
+\begin{cases}
+\gKHI(\sigma\!\to\!0)\to C & \text{(límite disipativo)}\\[2pt]
+\gKHI(\sigma\!\to\!\infty)\to C+\gamma_0 & \text{(límite ideal RMHD)}
+\end{cases}
+\label{eq:sigmoide_v6}
 \end{equation}
-donde $\gamma_0$ representa la asíntota ideal a alta conductividad, $\sigma_0$ es el centro de la transición logística y $k$ controla la pendiente máxima de la transición resistivo$\to$ideal.
+Las dos asíntotas se desacoplan: $\gamma_0$ pasa a ser la \emph{amplitud} del salto sigmoidal y la tasa de crecimiento ideal física es la suma $C+\gamma_0$. El caso $C=0$ recupera el modelo de tres parámetros.
 
-\subsection{Comportamiento asintótico del modelo}
+\subsection{Resultados del ajuste}
 
-\primerparrafo La elegancia estructural de la Ec.~\eqref{eq:sigmoide} radica en sus dos límites bien definidos, los cuales reproducen analíticamente la fenomenología esperada del flujo RRMHD. Tomando el límite a alta conductividad, la exponencial decae estrictamente, y el modelo recupera la tasa de crecimiento ideal:
-\begin{equation}
-\lim_{\sigma\to\infty} \gKHI(\sigma) = \gamma_0,
-\label{eq:limite_ideal}
-\end{equation}
-identificando físicamente $\gamma_0$ con la tasa de crecimiento que predeciría la magnetohidrodinámica relativista ideal (RMHD) para la misma configuración de cizalladura y magnetización. En el extremo opuesto, evaluando en $\sigma \to 0^{+}$ con $k\sigma_0 > 0$, se obtiene la asíntota inferior:
-\begin{equation}
-\lim_{\sigma\to 0^{+}} \gKHI(\sigma) = \frac{\gamma_0}{1 + e^{k\sigma_0}} \;\ll\; \gamma_0,
-\label{eq:limite_resistivo}
-\end{equation}
-que representa el piso de crecimiento residual en el régimen altamente difusivo, donde la inestabilidad se ve fuertemente amortiguada por la disipación óhmica pero no estrictamente eliminada por la perturbación inicial de amplitud finita.
+\primerparrafo El ajuste por mínimos cuadrados no lineales (\texttt{curve\_fit}, \emph{trust-region reflective} con cotas físicas) sobre $\sigma\ge1600$ entrega los valores de la Tabla~\ref{tab:par_v6}. El \emph{offset} es claramente no nulo y su óptimo es interior a las cotas $[-1,1]$ (no forzado por la frontera); su realidad física se apoya en la validación fuera de muestra (Sección~\ref{sec:validacion_v6}), no en el cociente nominal valor/error del ajuste, que la autocorrelación de los residuos infla.
 
-\subsection{Resultados del ajuste y valor de $\gamma_0$}
-
-\primerparrafo La calibración no lineal del modelo sigmoide sobre el conjunto completo de 44 puntos del barrido se realizó mediante el algoritmo \texttt{curve\_fit} con cotas físicas $\sigma_0 \in [10^{2}, 10^{5}]$ y $k \in [10^{-6}, 10^{-1}]$. Los resultados del ajuste se consolidan en la Tabla~\ref{tab:parametros_sigmoide}.
-
-\begin{table}[H]
-\centering
-\caption{Parámetros del ajuste sigmoide v5 y métricas de bondad.}
-\label{tab:parametros_sigmoide}
+\begin{table}[H]\centering
+\caption{Parámetros del modelo sigmoide con \emph{offset} (v6) y comparación de modelos (AIC/BIC evaluados sobre las $44$ simulaciones).}
+\label{tab:par_v6}
 \begin{tabular}{lll}
 \hline
-\textbf{Parámetro} & \textbf{Valor estimado} & \textbf{Interpretación física} \\
+Parámetro / cantidad & Valor & Notas\\
 \hline
-$\gamma_0$  & $0.8941 \pm 0.0119$       & Asíntota ideal $\gKHI(\sigma\to\infty)$ \\
-$\sigma_0$  & $4471.9 \pm 80.6$         & Centro de transición logística \\
-$k$         & $(4.967 \pm 0.129)\times 10^{-4}$ & Pendiente máxima en $\sigma_0$ \\
-$\gamma_0/2$ & $0.4470$                 & Valor de $\gKHI$ en $\sigma = \sigma_0$ \\
-$R^2$       & $0.9963$                  & Bondad de ajuste sobre $N = 44$ \\
+$\gamma_0$ (amplitud)         & $1.48\pm0.04$ & salto sigmoidal\\
+$C$ (\emph{offset})           & $-0.45\pm0.03$ & \emph{offset} no nulo (ver texto)\\
+$\boldsymbol{C+\gamma_0}$ \textbf{(tasa ideal)} & $\mathbf{1.03\pm0.05}$ & asíntota $\sigma\!\to\!\infty$\\
+$\sigma_0=\scrit$ (centro)    & $2815\pm123$ & $\gKHI=C+\gamma_0/2$\\
+$k$ (pendiente)               & $(2.83\pm0.06)\times10^{-4}$ & transición gradual\\
+$R^2$ (sobre $\sigma\ge1600$) & $0.99995$ & \\
+\hline
+$\Delta\mathrm{AIC}$ (v6 mejor)   & $-337$ (vs sub-escala), $-531$ (vs clásico) & $\gg10$: decisivo\\
 \hline
 \end{tabular}
 \end{table}
 
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.95\textwidth]{figuras/fig_sigmoide_v5.pdf}
-\caption{Modelo sigmoide v5 sobre las 44 simulaciones del barrido. Panel~(a): ajuste global en escala logarítmica con identificación explícita de la asíntota $\gamma_0$ y el centro $\sigma_0$. Panel~(b): zoom de la zona de transición ($\sigma \geq 10^3$) con su banda de incertidumbre $\pm \delta\sigma_0$. Panel~(c): visualización de los dos límites asintóticos del modelo, contraste entre el régimen resistivo y el régimen ideal. Panel~(d): residuos relativos del ajuste, distribuidos simétricamente en torno a cero.}
-\label{fig:sigmoide_v5}
+\begin{figure}[H]\centering
+\includegraphics[width=0.85\textwidth]{figuras/fig1_ajuste_v6.pdf}
+\caption{Ajuste sigmoide con \emph{offset} (v6). Las líneas punteadas marcan las dos asíntotas: $C+\gamma_0=1.03$ (ideal) y $C=-0.45$ (disipativo). Bandas: regímenes Resistivo/Transición/Ideal. La línea vertical es $\sigma_0=\scrit$ y la banda gris el consenso ponderado.}
+\label{fig:ajuste_v6}
 \end{figure}
 
-\paragraph{Importancia física de $\gamma_0$.} El valor estimado $\gamma_0 = 0.8941 \pm 0.0119$ constituye el resultado más fundamental de este análisis, pues representa la tasa de crecimiento asintótica de la KHI en ausencia de disipación óhmica, es decir, en el límite de la magnetohidrodinámica relativista ideal. Esta estimación es enteramente \emph{paramétrica}: no requiere extrapolación numérica directa hacia $\sigma \to \infty$, sino que se infiere a partir de la curvatura de la transición observada. La identificabilidad de $\gamma_0$ está garantizada por su aparición como factor multiplicativo en la Ec.~\eqref{eq:sigmoide}, lo que evita las degeneraciones típicas de modelos potenciales puros. Físicamente, $\gamma_0$ dicta el régimen al que el sistema converge a alta conductividad: cualquier predicción de la tasa de crecimiento en el límite ideal de la RMHD para esta configuración Mizuno-like debe converger hacia $\gamma_0 \simeq 0.89$ en unidades de código. Asimismo, dado que el modelo sigmoide presenta el mejor balance global de bondad y parsimonia frente a las alternativas examinadas, este es el valor de $\gamma_0$ que se adopta como referencia normalizada para todos los análisis derivados que siguen.
-
-\section{Regímenes de transición y estimación principal de $\scrit$}
-\label{sec:regimenes}
-
-\primerparrafo Una vez establecido el modelo sigmoide como descriptor global del barrido, resulta natural complementar la lectura paramétrica con un análisis de los puntos de cambio de concavidad de los observables principales. Para este propósito, se examinan las derivadas logarítmicas $\mathrm{d}/\mathrm{d}\log_{10}\sigma$ de los dos diagnósticos cuyo comportamiento es menos ambiguo: la tasa de crecimiento $\gKHI(\sigma)$ (Método~1, gráfica azul) y la enstrofía máxima $\ln\Omaxzp(\sigma)$ (Método~2, gráfica roja). Ambas curvas se muestran en la Fig.~\ref{fig:derivadas_M1_M2}, cada una representada en su dominio natural de datos.
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.95\textwidth]{figuras/fig_derivadas_M1_M2.pdf}
-\caption{Derivadas logarítmicas de los dos observables fundamentales en función de $\sigma$. Panel superior (Método~1, azul): $\mathrm{d}\gKHI / \mathrm{d}\log_{10}\sigma$ representada sobre el dominio completo del barrido $\sigma \in [10^2, 10^4]$, presentando una forma de campana perfecta con un máximo claramente definido en $\scrit^{(M1)} \approx 6800$, lo que constituye el indicador puntual más preciso de la conductividad crítica. Panel inferior (Método~2, rojo): $\mathrm{d}\ln\Omaxzp / \mathrm{d}\log_{10}\sigma$ representada estrictamente sobre el dominio donde la enstrofía presenta picos identificables ($\sigma \in [2800, 10500]$), donde la estructura bimodal con dos jorobas en $\sigma \approx 3400$ y $\sigma \approx 7000$ se aprecia con nitidez. Estas dos jorobas delimitan de forma natural las tres zonas físicas del barrido: zona resistiva (banda púrpura), zona de transición (banda dorada) y zona ideal (banda verde).}
-\label{fig:derivadas_M1_M2}
+\begin{figure}[H]\centering
+\includegraphics[width=0.82\textwidth]{figuras/fig2_3p_vs_4p.pdf}
+\caption{Comparación de los modelos de $3$ y $4$ parámetros. El \emph{offset} reduce los residuos normalizados (panel inferior) de forma sistemática y desplaza el centro $\sigma_0$ de $\approx4626$ (sin \emph{offset}) a $\approx2815$ (con \emph{offset}).}
+\label{fig:3v4_v6}
 \end{figure}
 
-\subsection{Definición de las tres zonas fenomenológicas}
+\paragraph{Importancia física de $C+\gamma_0$.} El valor $C+\gamma_0 = 1.03 \pm 0.05$ constituye el resultado más fundamental de este análisis: representa la tasa de crecimiento asintótica de la KHI en ausencia de disipación óhmica, es decir, en el límite de la RMHD ideal. Conviene precisar su estatus: es una \emph{inferencia paramétrica} del límite a partir de la curvatura de la transición ---no una corrida numérica directa a $\sigma\to\infty$---, pero \emph{sí} extrapola más allá del último dato (la simulación de mayor conductividad alcanza solo el $\sim85\%$ de la asíntota; véase la Sección~\ref{sec:teoria_v6}). Solo la suma $C+\gamma_0$ tiene lectura física limpia: $\gamma_0$ y $C$ quedan parcialmente degenerados (entre el ajuste a $\sigma\ge1600$ y el de las $44$ simulaciones, $\gamma_0$ varía un $18\%$ mientras $C+\gamma_0$ apenas un $3.9\%$). Por debajo de $\sigma_{\min}$ el modelo se aproxima a $C<0$, que codifica \emph{amortiguamiento neto} en el límite de alta disipación; conviene leerlo como ``el límite disipativo es consistente con amortiguamiento neto'', pues los datos no alcanzan $\gKHI<0$ ($\gKHI_{\min}\approx0.05$). Este es el valor de la tasa ideal que se adopta como referencia y que se justifica frente a la teoría lineal en la Sección~\ref{sec:teoria_v6}.
 
-\primerparrafo El Método~2 (gráfica roja, Fig.~\ref{fig:derivadas_M1_M2}, panel inferior) constituye el indicador más rico estructuralmente: la presencia de dos jorobas en $\mathrm{d}\ln\Omaxzp / \mathrm{d}\log_{10}\sigma$ permite delimitar de manera objetiva tres zonas físicas con dinámicas internas bien diferenciadas:
+\section{Validación estadística del modelo}
+\label{sec:validacion_v6}
+
 \begin{itemize}
-\item \textbf{Zona Resistiva} ($\sigma \lesssim 3400$): la disipación óhmica domina la dinámica del flujo, suprimiendo activamente el crecimiento de las perturbaciones. La enstrofía máxima crece lentamente y la tasa $\gKHI$ permanece muy por debajo de $\gamma_0$.
-\item \textbf{Zona de Transición} ($3400 \lesssim \sigma \lesssim 7000$): región delimitada por las dos jorobas, donde el sistema atraviesa la transición resistivo$\to$ideal. La eficiencia de conversión de energía libre de cizalladura en enstrofía vortical alcanza sus valores extremos, y todos los estimadores puntuales de $\scrit$ caen necesariamente en esta franja.
-\item \textbf{Zona Ideal} ($\sigma \gtrsim 7000$): el flujo recupera asintóticamente el comportamiento de la RMHD ideal, donde la difusividad magnética es despreciable frente al transporte advectivo y $\gKHI$ converge hacia $\gamma_0$.
+\item \textbf{Validez global (AIC/BIC).} Los tres modelos se evalúan sobre el \emph{mismo} conjunto completo de $44$ simulaciones. Los modelos asintóticos (clásico y sub-escala) están calibrados por construcción solo en el régimen ideal ($\sigma\ge4000$) y dan $R^2<0$ al evaluarse en todo el rango: no son descriptores globales. El sigmoide con \emph{offset}, ajustado en $\sigma\ge1600$, es el único válido en el rango completo, con $\Delta\mathrm{AIC}\approx-337$ frente a la sub-escala y $-531$ frente al clásico ($\Delta\mathrm{AIC}\gg10$). La prueba cuantifica así la capacidad descriptiva \emph{global}, no una competencia entre modelos igualmente calibrados.
+\item \textbf{Robustez de $C$.} El óptimo $C=-0.45\pm0.03$ permanece interior al reajustar con cotas amplias, de modo que no está inducido por la frontera. El cociente nominal valor/error del ajuste es alto, pero la autocorrelación de los residuos (punto siguiente) lo \emph{infla}: la evidencia decisiva de que la curvatura aportada por $C$ es física no es ese cociente, sino la validación cruzada fuera de muestra (último punto).
+\item \textbf{Residuos.} Los residuos del sigmoide están autocorrelacionados (test de rachas, $p<0.05$): la covarianza de \texttt{curve\_fit} supone residuos i.i.d.\ y por tanto \emph{subestima} la incertidumbre real de \emph{todos} los parámetros (Sección~\ref{sec:scrit_v6}).
+\item \textbf{Validación cruzada (fuera de muestra).} El modelo se ajusta solo a $\sigma\ge1600$; los $9$ puntos resistivos $\sigma<1600$ son un conjunto \emph{hold-out} no usado. El modelo con \emph{offset} los predice un $\mathbf{36\%}$ mejor que el de tres parámetros ($\mathrm{RMSE}_{\rm ho}=0.025$ vs $0.039$; Fig.~\ref{fig:holdout_v6}): la curvatura descendente que aporta $C$ es \textbf{real}, validada con datos no ajustados, no un artefacto del ajuste.
 \end{itemize}
 
-\primerparrafo Esta tripartición evidencia por qué el modelo sigmoide reproduce mejor la fenomenología global que cualquier ley de potencias monótona o modelo de saturación rígida: el sigmoide, por construcción matemática, abarca simultáneamente las tres zonas mediante sus dos asíntotas y su zona central de transición continua, capturando la totalidad de la fenomenología observada sin imponer ruptura abrupta entre regímenes.
-
-\subsection{Estimación principal de $\scrit$: Método~1 (campana azul)}
-
-\primerparrafo Dentro de la zona de transición delimitada por el Método~2, el indicador puntual más preciso para la conductividad crítica es el Método~1 (gráfica azul). La derivada $\mathrm{d}\gKHI / \mathrm{d}\log_{10}\sigma$ presenta una forma de campana perfecta sin oscilaciones, con un máximo claramente identificable en:
-\begin{equation}
-\scrit^{(\gamma)} \;\equiv\; \arg\max_{\sigma}\;\frac{\mathrm{d}\gKHI}{\mathrm{d}\log_{10}\sigma} \;\approx\; 6800.
-\label{eq:sigma_crit_gamma}
-\end{equation}
-La forma simétrica y unimodal de la curva azul, libre de la bimodalidad propia del Método~2, hace de este estimador la referencia más confiable para una identificación puntual de la conductividad crítica, ya que el máximo de una derivada limpia minimiza la sensibilidad al ruido numérico de los datos.
-
-\section{Métodos alternativos de estimación de $\scrit$}
-\label{sec:metodos_alt}
-
-\primerparrafo Para verificar la consistencia interna del análisis, se examinan dos estimadores alternativos basados en observables fenomenológicos independientes: el tiempo del pico de enstrofía $t_{\mathrm{peak}}(\sigma)$ y la enstrofía máxima $\Omaxzp(\sigma)$. La elección metodológica para cada uno responde a la naturaleza específica de la curva observada.
-
-\subsection{Curva directa de $t_{\mathrm{peak}}(\sigma)$}
-
-\primerparrafo La derivada logarítmica de $t_{\mathrm{peak}}(\sigma)$ presenta oscilaciones significativas que dificultan la identificación robusta de un único punto crítico; por esta razón, se renuncia explícitamente al análisis derivativo de esta curva y se utiliza únicamente su forma directa, identificando el punto donde se evidencia visualmente la mayor caída en el tiempo del pico:
-\begin{equation}
-\scrit^{(t)} \;\equiv\; \arg\max_{\sigma}\;\left|\Delta t_{\mathrm{peak}}(\sigma)\right| \;\approx\; 5000\text{--}6000.
-\label{eq:sigma_crit_tpeak}
-\end{equation}
-La curva, mostrada en la Fig.~\ref{fig:tpeak_sigma}, exhibe una meseta superior plana en torno a $t_{\mathrm{peak}} \approx 6.5\text{--}6.7$ para $\sigma \lesssim 5000$, seguida por una caída brusca hacia $t_{\mathrm{peak}} \approx 5.3\text{--}5.5$ que se estabiliza para $\sigma \gtrsim 7000$. Físicamente, esta transición refleja la aceleración de la fase no lineal al disminuir la difusión óhmica: el pico de enstrofía se alcanza antes porque los vórtices coherentes se forman y saturan en menor tiempo de cizalladura.
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.90\textwidth]{figuras/fig_tpeak_sigma.pdf}
-\caption{Tiempo del pico de enstrofía $t_{\mathrm{peak}}$ en función de la conductividad. La línea vertical verde indica el punto de mayor cambio absoluto en la curva ($\sigma \approx 5000$), interpretado como la transición fenomenológica entre el régimen de saturación tardía y el régimen de saturación temprana.}
-\label{fig:tpeak_sigma}
+\begin{figure}[H]\centering
+\includegraphics[width=0.72\textwidth]{figuras/fig10_holdout.pdf}
+\caption{Validación cruzada. Ajuste en $\sigma\ge1600$ (zona gris); los puntos rojos ($\sigma<1600$) son \emph{hold-out}. El modelo con \emph{offset} predice los resistivos retenidos un $36\%$ mejor que el de tres parámetros.}
+\label{fig:holdout_v6}
 \end{figure}
 
-\subsection{Estructura bimodal de $\Omaxzp(\sigma)$: las dos jorobas}
+\section{Conductividad crítica $\scrit$ y sus tres fuentes de incertidumbre}
+\label{sec:scrit_v6}
 
-\primerparrafo La derivada $\mathrm{d}\ln\Omaxzp / \mathrm{d}\log_{10}\sigma$ presenta, como ya se discutió en la Sección~\ref{sec:regimenes}, una estructura inequívocamente bimodal. La presencia de dos jorobas no es un artefacto numérico, sino una huella física genuina de la coexistencia de dos mecanismos de activación de la inestabilidad: una primera fase de activación lineal a conductividad moderada y una segunda fase de saturación no lineal con reconexión incipiente a alta conductividad. Los valores explícitos extraídos del análisis numérico son:
-\begin{align}
-\scrit^{(\Omega,1)} &\approx 3400 \qquad \text{(primera joroba)} \label{eq:joroba_1} \\
-\scrit^{(\Omega,2)} &\approx 7000 \qquad \text{(segunda joroba)} \label{eq:joroba_2}
-\end{align}
+\primerparrafo Se construyen cuatro estimadores de $\scrit$ sobre tres observables (Fig.~\ref{fig:est_v6}). La conductividad crítica \textbf{no} es un número fino: su incertidumbre tiene \textbf{tres fuentes independientes}, no una.
+\begin{enumerate}
+\item \textbf{Dispersión inter-método:} los cuatro valores cubren $[2815,6800]$ con desviación muestral $\approx1944$, muy superior al error formal.
+\item \textbf{Autocorrelación de residuos:} la covarianza de \texttt{curve\_fit} ($\pm123$ en el método del sigmoide) supone residuos i.i.d., hipótesis violada $\Rightarrow$ subestima.
+\item \textbf{Sensibilidad a la forma funcional:} al añadir el \emph{offset}, el centro $\sigma_0$ se desplaza un $-39\%$ ($4626\!\to\!2815$) sin cambiar nada más.
+\end{enumerate}
 
-\subsection{Consistencia con la zona de transición}
-
-\primerparrafo La verificación cruzada de los estimadores se sintetiza en la Tabla~\ref{tab:resumen_sigma_crit} y se visualiza en la Fig.~\ref{fig:resumen_sigma_crit}. Como condición de consistencia interna del análisis, todos los estimadores puntuales deben caer dentro del intervalo de transición definido por las dos jorobas del Método~2, es decir, $\sigma \in [\scrit^{(\Omega,1)},\,\scrit^{(\Omega,2)}] \approx [3400,\,7000]$.
-
-\begin{table}[H]
-\centering
-\caption{Resumen de estimadores puntuales de $\scrit$ y su consistencia con la zona de transición definida por el Método~2 ($\sigma \in [3400, 7000]$).}
-\label{tab:resumen_sigma_crit}
-\begin{tabular}{lcc}
+\begin{table}[H]\centering
+\caption{Estimadores de $\scrit$ y consenso. El error del consenso ponderado ($\pm122$) es el del método del sigmoide y \emph{subestima}; la banda honesta es la sistemática $\pm1944$.}
+\label{tab:est_v6}
+\begin{tabular}{llc}
 \hline
-\textbf{Estimador} & \textbf{Valor de $\scrit$} & \textbf{Dentro de transición} \\
+Método & Observable & $\scrit\pm\delta\sigma$\\
 \hline
-Sigmoide v5 ($\sigma_0$)               & $4472 \pm 81$ & Sí \\
-Método~1 ($\gKHI$, campana azul)       & $\approx 6800$ & Sí \\
-$t_{\mathrm{peak}}$ (curva directa)    & $\approx 5000$ & Sí \\
-Método~2 (primera joroba, $\Omaxzp$)   & $\approx 3400$ & Límite inferior \\
-Método~2 (segunda joroba, $\Omaxzp$)   & $\approx 7000$ & Límite superior \\
+M1 & inflexión $\gKHI(\sigma)$       & $6800\pm2625$\\
+M2 & inflexión $\Omaxzp(\sigma)$ & $3400\pm2175$\\
+M3 & inflexión $t_{\mathrm{peak}}(\sigma)$  & $6000\pm1147$\\
+M4 & sigmoide con \emph{offset} ($\sigma_0$)        & $2815\pm123$\\
+\hline
+\multicolumn{2}{l}{Consenso ponderado} & $2861\pm122$\\
+\multicolumn{2}{l}{Media aritmética}   & $4754\pm1944$\\
 \hline
 \end{tabular}
 \end{table}
 
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.95\textwidth]{figuras/fig_resumen_sigma_crit.pdf}
-\caption{Comparación gráfica de los estimadores experimentales de $\scrit$. Todos los valores se localizan en la zona de transición $[3400, 7000]$ delimitada por las dos jorobas del Método~2. La línea vertical punteada indica la predicción teórica clásica $\scrit^{\mathrm{teo}} = 1/(\gamma_0 \akh^{2}) \approx 447$, sustancialmente menor que cualquier estimador empírico.}
-\label{fig:resumen_sigma_crit}
+\begin{figure}[H]\centering
+\includegraphics[width=0.82\textwidth]{figuras/fig3_estimadores.pdf}
+\caption{Estimadores de $\scrit$ con sus intervalos, consenso ponderado y media aritmética. La banda naranja es la incertidumbre sistemática real $[2815,6800]$.}
+\label{fig:est_v6}
 \end{figure}
 
-\primerparrafo La concordancia es completa: los cuatro estimadores experimentales caen estrictamente dentro de la franja $[3400, 7000]$, ratificando la robustez interna del análisis. La sigmoide identifica el centro estadístico de la transición ($\sigma_0 = 4472$), mientras que los métodos basados en derivadas señalan, respectivamente, el punto de máxima sensibilidad de la tasa de crecimiento (Método~1) y el rango completo de bimodalidad fenomenológica (Método~2).
+\primerparrafo Que los cuatro estimadores se repartan en una banda amplia (factor $\sim2.4$) enteramente contenida en el régimen de transición es la firma de que $\gKHI$ está gobernada por \emph{múltiples escalas y variables} (la escala de cizalla $L_{\mathrm{shear}}$ frente a $\akh$, la orientación e intensidad de $\mathbf B$, la geometría 2D, los efectos relativistas). Se recomienda citar $\scrit\approx2861$ como valor central con banda sistemática $\pm1944$ (no $\pm122$), o el intervalo $[2815,6800]$.
 
 \section{Leyes de potencia para $\Omaxzp(\sigma)$}
 \label{sec:leyes_potencia}
 
-\primerparrafo La dependencia funcional de la enstrofía máxima con la conductividad se analiza mediante ajustes en escala log-log sobre dos rangos: el conjunto completo de datos pico ($N = 29$) y la sub-muestra asintótica restringida a $\sigma \geq 6000$ (zona ideal del Método~2). Los resultados se compilan en la Tabla~\ref{tab:leyes_potencia} y la figura asociada se presenta en la Fig.~\ref{fig:omega_max_pot}.
+\primerparrafo La dependencia funcional de la enstrofía máxima con la conductividad se analiza mediante ajustes en escala log-log sobre dos rangos: el conjunto completo de datos pico ($N = 29$) y la sub-muestra asintótica restringida a $\sigma \geq 6000$ (zona ideal). Los resultados se compilan en la Tabla~\ref{tab:leyes_potencia} y la figura asociada se presenta en la Fig.~\ref{fig:omega_max_pot}.
 
 \begin{table}[H]
 \centering
-\caption{Exponentes empíricos de la ley de potencias $\Omaxzp \propto \sigma^{\alpha}$ y contraste con la predicción de la teoría lineal clásica.}
+\caption{Exponentes empíricos de la ley de potencias $\Omaxzp \propto \sigma^{\alpha}$ y contraste con el escalamiento de una lámina de corriente Sweet--Parker única.}
 \label{tab:leyes_potencia}
 \begin{tabular}{lcc}
 \hline
@@ -254,7 +208,7 @@ Método~2 (segunda joroba, $\Omaxzp$)   & $\approx 7000$ & Límite superior \\
 \hline
 Completo ($\sigma \in [2800,\,10500]$, $N = 29$)      & $1.213$ & $0.9970$ \\
 Asintótico ($\sigma \geq 6000$, zona ideal)            & $1.238$ & $0.9931$ \\
-Predicción teórica clásica (teoría lineal de difusión) & $0.500$ & --- \\
+Piso de lámina Sweet--Parker única ($\propto\sigma^{1/2}$) & $0.5$ & --- \\
 \hline
 \end{tabular}
 \end{table}
@@ -262,76 +216,104 @@ Predicción teórica clásica (teoría lineal de difusión) & $0.500$ & --- \\
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.95\textwidth]{figuras/fig_omega_max_leypotencias.pdf}
-\caption{$\Omaxzp(\sigma)$ en escala log-log, con los dos ajustes empíricos (completo y asintótico) y la pendiente teórica clásica $\sigma^{1/2}$. La discrepancia angular entre los datos experimentales y la línea teórica es manifiestamente sistemática y no puede atribuirse a ruido estadístico, dado el elevado coeficiente de determinación de los ajustes empíricos.}
+\caption{$\Omaxzp(\sigma)$ en escala log-log, con los dos ajustes empíricos (completo y asintótico) y el escalamiento $\sigma^{1/2}$ de una lámina de corriente Sweet--Parker única. La pendiente empírica ($\alpha\approx1.22$) es marcadamente más pronunciada que ese piso, lo que indica una superficie disipativa que crece más rápido que una única lámina.}
 \label{fig:omega_max_pot}
 \end{figure}
 
-\paragraph{Discrepancia con la predicción teórica.} La pendiente empírica $\alpha_{\mathrm{exp}} \approx 1.22$ supera por aproximadamente un factor $2.4$ a la predicción de la teoría lineal clásica $\alpha_{\mathrm{teo}} = 0.5$. Esta desviación sistemática se discute en detalle en la sección siguiente, donde se argumenta que su origen está vinculado a la activación de sub-estructuras internas que la teoría lineal canónica no contempla. \emph{[Espacio reservado para una discusión más extensa sobre el origen físico exacto de la pendiente $\alpha \approx 1.2$, una vez se realicen las simulaciones complementarias previstas.]}
+\paragraph{Origen físico de la pendiente: reconexión y \emph{tearing}.} La pendiente empírica $\alpha_{\mathrm{exp}}\approx1.22$ no proviene de la teoría lineal de la KHI ---que describe $\gKHI$ (Sección~\ref{sec:teoria_v6}), no la enstrofía de saturación---, sino de la fase \emph{no lineal} dominada por la disipación resistiva. Durante el enrollamiento de los vórtices primarios, la tensión magnética estira y aproxima líneas de campo de polaridad opuesta, formando láminas de corriente delgadas donde se dispara la reconexión magnética. El modelo estacionario de Sweet--Parker \parencite{parker1957} fija el espesor de esas láminas en $\delta\propto S^{-1/2}$, con $S$ el número de Lundquist ($S\propto\sigma$; en este montaje $S\simeq21\,\Rmst$). Si la enstrofía máxima estuviera concentrada en una \emph{única} lámina ($\omega\sim\Delta V/\delta$ sobre un área $\sim\delta\,L$), se tendría $\Omaxzp\sim\Delta V^2 L/\delta\propto\sigma^{1/2}$: ese es el \emph{piso} de lámina única, $\alpha=0.5$. Este escalamiento $\propto\sigma^{-1/2}$ del espesor (y la tasa de reconexión asociada) se preserva en el régimen relativista, como demostró analíticamente \textcite{lyubarsky2005} para la reconexión Sweet--Parker en RRMHD, lo que legitima aplicarlo a este sistema.
 
-\section{Discrepancia teórica y análisis de sub-escala efectiva}
-\label{sec:discrepancia}
+\primerparrafo El valor medido, $\alpha\approx1.22>0.5$, \emph{excede} ese piso de lámina única por un factor $\sim2.4$ (cociente de exponentes $1.22/0.5$). La interpretación física es directa: la enstrofía crece más rápido que lo que aportaría una lámina única porque la lámina primaria es a su vez inestable y se fragmenta en una cascada de islas y sub-láminas magnéticas (modo \emph{tearing}, \parencite{furth1963}), multiplicando la superficie disipativa efectiva. Así, el exponente $\alpha\approx1.2$ es la firma fenomenológica de la reconexión resistiva no lineal con \emph{tearing} secundario ---consistente, además, con la inyección de enstrofía por inestabilidades secundarias sobre los vórtices enrollados \parencite{nastro2022}. Una derivación cuantitativa exacta del exponente exige resolver esa jerarquía de láminas y queda como trabajo futuro.
 
-\primerparrafo La predicción teórica clásica para la conductividad crítica en el régimen lineal de la KHI resistiva se obtiene exigiendo que el tiempo característico de difusión óhmica sobre la escala de la capa de cizalladura sea comparable al tiempo de crecimiento ideal de la inestabilidad. Esta condición conduce a la fórmula:
-\begin{equation}
-\scrit^{\mathrm{teo}} \;=\; \frac{1}{\gamma_0\,\akh^{2}} \;\approx\; \frac{1}{0.8941 \times (0.05)^{2}} \;\approx\; 447.
-\label{eq:sigma_crit_teorico}
-\end{equation}
-Sustituyendo $\gamma_0$ proveniente del ajuste sigmoide y el ancho de la capa de cizalladura $\akh = 0.05$ del setup numérico (Capítulo~\ref{sec:setup_experimental}), se obtiene $\scrit^{\mathrm{teo}} \approx 447$. La comparación de este valor con el centro de la sigmoide arroja una discrepancia notable:
-\begin{equation}
-\frac{\scrit^{\mathrm{sigm}}}{\scrit^{\mathrm{teo}}} \;=\; \frac{4471.9}{447.4} \;\simeq\; 10.0,
-\label{eq:discrepancia_orden_magnitud}
-\end{equation}
-es decir, \emph{exactamente un orden de magnitud}, lo cual no puede atribuirse a azar numérico. Esta coincidencia cuantitativa demanda una explicación física estructural, no una corrección estadística.
+\section{Contraste con la teoría lineal: justificación de la tasa ideal}
+\label{sec:teoria_v6}
 
-\subsection{Análisis de la escala disipativa efectiva}
+\primerparrafo La asíntota ideal $C+\gamma_0\approx1.03$ no es un número aislado: se justifica cuantitativamente frente a la teoría lineal de la KHI. La comparación se hace en la tasa adimensional $\what=\gKHI\,\akh/\vsh=\gKHI/10$, de modo que $C+\gamma_0\approx1.03$ corresponde a $\what\approx0.103$.
 
-\primerparrafo La hipótesis física que se propone para explicar este factor diez consiste en reconocer que la teoría lineal estándar adopta como escala disipativa relevante el ancho macroscópico de la capa de cizalladura $\akh$, mientras que la dinámica resistiva real selecciona dinámicamente una sub-escala interna $\leff < \akh$, asociada al espesor de las láminas de corriente coherentes que se forman dentro de la capa durante el crecimiento de la inestabilidad. Esta escala efectiva se obtiene del equilibrio entre el tiempo de crecimiento ideal y el tiempo de difusión local sobre $\leff$:
-\begin{equation}
-\leff(\sigma) \;\equiv\; \frac{1}{\sqrt{\gamma_0\,\sigma}}.
-\label{eq:l_eff}
-\end{equation}
+\subsection{Techo hidrodinámico inviscido (ecuación de Rayleigh)}
 
-\primerparrafo Evaluando esta expresión en una conductividad representativa de la zona de transición, $\sigma_{\mathrm{rep}} \approx 6000$, se obtiene:
-\begin{equation}
-\leff(\sigma_{\mathrm{rep}}) \;\approx\; 0.01365 \;\approx\; 0.273\,\akh \;\approx\; \akh/3.7.
-\label{eq:l_eff_numerico}
-\end{equation}
-La Fig.~\ref{fig:escala_efectiva} muestra la variación de $\leff$ a lo largo de todo el rango de conductividad explorado, contrastándola con el ancho fijo de la capa de cizalladura.
+\primerparrafo La teoría lineal inviscida e incompresible fija el \emph{techo} del crecimiento. Resolviendo la ecuación de Rayleigh para el perfil $\tanh$ como problema de autovalores generalizado y escalando $\gamma=\omega_i(\vsh/\akh)$, se obtiene (Fig.~\ref{fig:michalke_v6}) un máximo $\what_i=0.190$ en $ka=0.4446$, que \textbf{reproduce} el valor clásico de \textcite{michalke1964}. Para el modo excitado en las simulaciones ($ka=k_{kh}\akh=0.314$) el techo es $\what\approx0.176$.
 
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.90\textwidth]{figuras/fig_escala_efectiva.pdf}
-\caption{Escala disipativa efectiva $\leff(\sigma) = (\gamma_0\sigma)^{-1/2}$ en función de la conductividad. La línea punteada negra marca el ancho de la capa de cizalladura $\akh = 0.05$. En la zona de transición ($\sigma \sim 6000$), $\leff \approx 0.27\,\akh$, evidenciando la formación de sub-estructuras internas significativamente más delgadas que la capa macroscópica.}
-\label{fig:escala_efectiva}
+\begin{figure}[H]\centering
+\includegraphics[width=0.72\textwidth]{figuras/fig4_michalke.pdf}
+\caption{Validación del solver de autovalores. Tasa de crecimiento adimensional $\what_i(ka)$ de la ecuación de Rayleigh (este trabajo) frente al valor de \textcite{michalke1964}. El cuadrado verde marca el modo excitado en las simulaciones.}
+\label{fig:michalke_v6}
 \end{figure}
 
-\subsection{Reescalamiento teórico y reconciliación}
+\subsection{El carácter dual del montaje no altera el techo}
 
-\primerparrafo Reescribiendo la fórmula de conductividad crítica con la sub-escala efectiva $\leff$ en lugar de $\akh$, y exigiendo que la disipación sea apenas marginal sobre la sub-estructura ($\sigma\,\leff^{2}\,\gamma_0 \sim 1$), se obtiene la corrección de orden:
-\begin{equation}
-\scrit^{\mathrm{teo,eff}} \;=\; \frac{1}{\gamma_0\,\leff^{2}} \;=\; \scrit^{\mathrm{sigm}},
-\label{eq:reconciliacion}
-\end{equation}
-es decir, la fórmula corregida es auto-consistente y conduce exactamente al valor empírico $\scrit^{\mathrm{sigm}} = 4471.9$. Cuantitativamente, el factor de corrección entre la escala macroscópica y la efectiva es:
-\begin{equation}
-\frac{\scrit^{\mathrm{teo,eff}}}{\scrit^{\mathrm{teo}}} \;=\; \left(\frac{\akh}{\leff}\right)^{2} \;=\; \left(\frac{0.05}{0.01365}\right)^{2} \;\approx\; 13.4 \;\sim\; \mathcal{O}(10),
-\label{eq:factor_correccion}
-\end{equation}
-explicando con precisión el orden de magnitud de discrepancia observado. El análisis revela, por tanto, que la teoría lineal clásica no es incorrecta sino \emph{incompleta}: omite la jerarquía interna de escalas que la dinámica RRMHD activa dinámicamente al formarse láminas de corriente sobre las capas de cizalladura. La conductividad crítica empírica es físicamente compatible con la teoría una vez que se sustituye la escala macroscópica $\akh$ por la sub-escala disipativa $\leff$ seleccionada por el flujo.
+\primerparrafo El montaje tiene \emph{dos} capas de cizalla (separación $D=1$). Su acoplamiento escala como $e^{-kD}$; para el modo excitado $kD=2\pi\approx6.3\gg1$, de modo que $e^{-kD}\approx0.2\%$ y las capas crecen independientemente. Resolviendo Rayleigh para el perfil dual completo se obtiene el \emph{mismo} techo que para una interfaz aislada (diferencia $+0.11\%$, Fig.~\ref{fig:dual_v6}). Por tanto el techo de interfaz simple es la referencia correcta.
 
-\section{Limitaciones del análisis y perspectivas para trabajos futuros}
+\begin{figure}[H]\centering
+\includegraphics[width=0.70\textwidth]{figuras/fig7_dual.pdf}
+\caption{Tasa de crecimiento de la interfaz simple frente al perfil dual en función de $kD$. En el modo excitado ($kD\approx6.3$, línea verde) ambas coinciden: las interfaces están desacopladas.}
+\label{fig:dual_v6}
+\end{figure}
+
+\subsection{Predicción RMHD compresible (Lees--Lin)}
+
+\primerparrafo El techo hidrodinámico \emph{no} es la predicción final porque el sistema es relativista, compresible y magnetizado. El tratamiento lineal relativista de la KHI fue desarrollado para el caso hidrodinámico por \textcite{bodo-2004} ---que obtuvo la cota de inestabilidad $0<M_{re}<\sqrt{2}$--- y para el caso magnetizado por \textcite{osmanov2008} (campo alineado) y \textcite{chow2023} (orientación arbitraria). Resolviendo la \textbf{ecuación de Rayleigh compresible} (Lees--Lin) para el perfil $\tanh$ como problema de autovalores polinomial (Apéndice~\ref{ap:justificacion}), validada en el límite incompresible contra \textcite{michalke1964} y contra el umbral de \textcite{landau1944} ($v/c_s=\sqrt2$), se obtiene la tasa exacta de espesor finito. Como el campo guía $B_z$ resiste la compresión en el plano, la velocidad compresional relevante es la magnetosónica rápida $v_{f\perp}=0.691$ ---en línea con \textcite{chow2023}, que para vector de onda alineado muestra que ``el campo magnético aporta presión pero no tensión'' y reemplaza $c_s$ por la velocidad rápida en $M_{re}$. El resultado, convergido (Fig.~\ref{fig:compresible_v6}), es
+\begin{equation}
+\boxed{\ \what_{\mathrm{RMHD}}=0.095\ }\qquad\text{(modo excitado, $ka=0.314$)},
+\label{eq:what_rmhd}
+\end{equation}
+notablemente \emph{en el pico} de la curva compresible. El valor \textbf{medido} $\what=(C+\gamma_0)\akh/\vsh=0.103$ coincide con esta predicción dentro del $\boldsymbol{8\%}$, \emph{sin} factorización ni ajuste. (Con la velocidad del sonido en lugar de la magnetosónica el crecimiento colapsaría a $\what\approx0.016$: es la presión de $B_z$ la que sostiene la inestabilidad.)
+
+\begin{figure}[H]\centering
+\includegraphics[width=0.74\textwidth]{figuras/fig9_compresible.pdf}
+\caption{Cálculo compresible exacto de espesor finito (Lees--Lin), validado contra \textcite{michalke1964} en el límite incompresible. La curva magnetosónica pica en $ka\simeq0.32$ con $\what=0.095$, justo en el modo excitado; el valor medido ($0.103$) coincide dentro del $8\%$.}
+\label{fig:compresible_v6}
+\end{figure}
+
+\subsection{Velocidades características y números de Mach}
+
+\begin{table}[H]\centering
+\caption{Velocidades (relativistas, $c=1$) y números de Mach del montaje. $M_{re}$ es el Mach relativista efectivo de Königl, al que se aplica el criterio de inestabilidad $0<M_{re}<\sqrt2$.}
+\label{tab:mach_v6}
+\begin{tabular}{llll}
+\hline
+$C_s=0.516$ & $V_{A,\mathrm{tot}}=0.536$ & $V_{A,\parallel}(B_y)=0.053$ & $v_{f\perp}=0.691$\\
+$M_s=\vsh/C_s=0.97$ & $M_{A,\parallel}=9.4$ & $M_f=\vsh/v_{f\perp}=0.72$ & $M_{re}=0.60<\sqrt{2}$\\
+\hline
+\end{tabular}
+\end{table}
+\noindent Dos lecturas clave: (a)~$M_{A,\parallel}=9.4$ (super-Alfvénico) $\Rightarrow$ la \emph{tensión} magnética en el plano es despreciable y la KHI es esencialmente hidrodinámica; el campo $B_z$ es guía (presión, no tensión). (b)~$M_s=0.97$ (casi sónico) $\Rightarrow$ la compresibilidad es fuerte y reduce el crecimiento, lo que explica que el valor medido sea $0.54\times$ el techo incompresible. $M_{re}=0.60<\sqrt{2}$ confirma que el sistema es linealmente inestable, lejos del umbral de estabilización ---sin extrapolación.
+
+\begin{figure}[H]\centering
+\includegraphics[width=0.78\textwidth]{figuras/fig6_escalera.pdf}
+\caption{Resultado central. Techo hidrodinámico ($\what=0.190$, Michalke) $\to$ predicción RMHD compresible exacta ($\what=0.095$) $\to$ valor medido ($\what=0.103$). La asíntota ideal es \emph{consistente} con la teoría lineal RMHD dentro del $8\%$, con la cota publicada $0<M_{re}<\sqrt{2}$ satisfecha ($M_{re}=0.60$).}
+\label{fig:escalera_v6}
+\end{figure}
+
+\subsection{Contraste con los marcos MHD, RMHD y RRMHD}
+\label{sec:marcos_v6}
+
+\primerparrafo La literatura de la KHI reporta la tasa del modo primario $\sigma_{KHI}$ y la de la enstrofía $\sigma_Z$ (notación estándar de la literatura que, \emph{pese al símbolo}, \textbf{no} debe confundirse con la conductividad $\sigma$ usada en el resto del capítulo), ambas normalizadas por el tiempo de tránsito de cizalla $\akh/\vsh$ ---la misma normalización que aquí. Como la enstrofía es cuadrática en la amplitud, $\sigma_Z=2\,\sigma_{KHI}$; nuestro observable lo cumple ($\ln\Ozp$ crece con pendiente $2\gKHI$), de modo que $\sigma_{KHI}=\what=0.103$ y $\sigma_Z=0.206$. El valor medido $0.103$ cae \textbf{dentro del rango RRMHD} y \textbf{por debajo} del bloque clásico MHD/hidrodinámico (donde vive el techo hidro $0.190$), confirmando de forma independiente la supresión relativista--compresible (Fig.~\ref{fig:marcos_v6}). El mismo factor $\sim0.54$ que deriva de la relación de dispersión reaparece como el salto entre el bloque clásico y el relativista.
+
+\begin{figure}[H]\centering
+\includegraphics[width=0.84\textwidth]{figuras/fig8_marcos.pdf}
+\caption{Tasa medida ($\what=0.103$, línea roja) frente a los rangos de referencia de $\sigma_{KHI}$. El techo hidrodinámico (gris, $0.190$) cae en el bloque clásico MHD; el valor medido cae en el bloque relativista (RMHD/RRMHD), confirmando la supresión relativista--compresible. Las filas de polarización magnética corresponden a \textcite{pimentel2019}.}
+\label{fig:marcos_v6}
+\end{figure}
+
+\subsection{Buen planteamiento y papel de la resistividad}
+
+\primerparrafo La KHI 2D \emph{ideal} conserva la enstrofía y carece de límite de convergencia con la resolución: el ruido numérico siembra inestabilidades secundarias espurias de longitud de onda arbitrariamente pequeña, como demostraron \textcite{lecoanet2016}. Una tasa de crecimiento de enstrofía \emph{físicamente reproducible} exige difusión explícita. Esto \textbf{justifica el diseño completo del estudio}: la resistividad finita ($\eta=1/\sigma$) del marco RRMHD es la que vuelve bien planteado el problema y dota a $\gKHI(\sigma)$ de significado físico convergente. El límite ideal ($\sigma\to\infty$) se \emph{aproxima} mediante la asíntota $C+\gamma_0$, pero son las corridas resistivas las que constituyen el problema bien planteado.
+
+\paragraph{Alcance de la validación.} Conviene ser preciso: lo aquí establecido es una \textbf{consistencia cuantitativa fuerte}, no una validación cerrada del valor preciso del límite ideal. La asíntota $C+\gamma_0$ es una \emph{extrapolación} ---el dato de mayor conductividad ($\sigma=10500$, $\Rmst\approx262$) alcanza $\gKHI\approx0.88$, solo el $85\%$ de la asíntota--- y la predicción teórica $\what=0.095$ usa la velocidad magnetosónica efectiva, no la relación de dispersión RMHD completa. La \textbf{prueba decisiva} sería medir el plateau directamente con $2$--$3$ simulaciones a mayor conductividad ($\Rmst\gtrsim500$): si caen sobre $\gKHI\approx1.0$, la extrapolación se convierte en medición. Esto queda como trabajo futuro de máxima prioridad.
+
+\section{Limitaciones del análisis y perspectivas}
 \label{sec:limitaciones}
 
-\primerparrafo La reconciliación cuantitativa lograda mediante el reescalamiento de la escala efectiva no agota el espacio de causas físicas que diferencian las predicciones lineales canónicas de los resultados experimentales obtenidos. Las aproximaciones teóricas adoptadas en la literatura de referencia y en el cierre del sistema RRMHD utilizado en este trabajo introducen simplificaciones que pueden alterar tanto la tasa de crecimiento como la posición exacta de la zona de transición. A continuación, se sintetizan los principales factores cuyo análisis sistemático queda pendiente y se propone como continuación natural de esta monografía:
+\primerparrafo La consistencia cuantitativa lograda no agota el espacio de causas físicas que diferencian las predicciones lineales canónicas de los resultados experimentales. A continuación se sintetizan los principales factores cuyo análisis sistemático queda pendiente:
 \begin{itemize}
-\item \textbf{Isotropía de la conductividad}: la ley de Ohm relativista adoptada (Sección~\ref{sec:Ohm_Relativista}) supone una conductividad escalar $\sigma$. En plasmas fuertemente magnetizados o tenues, los efectos Hall y la anisotropía paralelo--perpendicular respecto al campo magnético rompen esta simplificación, modificando la tasa efectiva de reconexión sobre las láminas de corriente.
-\item \textbf{Dimensionalidad reducida (2D vs 3D)}: las simulaciones bidimensionales suprimen artificialmente el desarrollo de los modos tridimensionales (e.g., modos paralelos al eje $z$ y efectos de cascada turbulenta plenamente desarrollada). La inclusión explícita de la tercera dimensión podría modificar tanto $\gamma_0$ como los exponentes empíricos de las leyes de potencia obtenidos.
-\item \textbf{Ecuación de estado}: el cierre politrópico con $\Gamma = 4/3$ es válido para un plasma ultrarrelativista de partículas sin masa, pero ignora correcciones por composición química, opacidad y emisión radiativa, todas relevantes en escenarios astrofísicos reales.
-\item \textbf{Resolución de la malla}: la sub-escala $\leff \approx 0.27\,\akh$ identificada en la Sección~\ref{sec:discrepancia} se aproxima al límite de resolución espacial $\Delta x \approx 3.9 \times 10^{-3}$, sugiriendo que estudios de convergencia con mallas refinadas (e.g., $1024 \times 512$ o $2048 \times 1024$) podrían modificar cuantitativamente los exponentes empíricos.
-\item \textbf{Condiciones de contorno y dominio finito}: las fronteras abiertas en $x$ pueden inducir reflexiones residuales de ondas magnetoacústicas que contaminan la fase no lineal tardía; dominios más extensos o esponjas absorbentes mejorarían la fidelidad del régimen de saturación.
-\item \textbf{Régimen lineal vs. no lineal}: las predicciones teóricas de la Ec.~\eqref{eq:sigma_crit_teorico} se derivan estrictamente de la teoría de perturbaciones lineales en torno al estado base, lo cual deja de ser válido tan pronto como los vórtices alcanzan amplitudes finitas y comienza la fase de mezcla turbulenta.
-\item \textbf{Cobertura del régimen resistivo extremo}: para $\sigma \lesssim 500$, los ajustes lineales de $\ln\Ozp(t)$ presentan coeficientes de determinación $R^{2} < 0.7$, reflejando la dificultad inherente de extraer una tasa de crecimiento bien definida cuando la disipación domina la dinámica desde la fase inicial. Una caracterización más fina de este régimen podría requerir métricas alternativas al ajuste exponencial.
-\item \textbf{Efectos cinéticos}: el límite fluido implícito en la formulación RRMHD ignora los procesos cinéticos en las láminas de corriente delgadas, donde los efectos de no-localidad de los portadores de carga pueden ser relevantes en regímenes astrofísicos de plasma poco colisional.
+\item \textbf{Medición directa del plateau ideal}: la prueba decisiva de la asíntota $C+\gamma_0$ requiere $2$--$3$ simulaciones a $\Rmst\gtrsim500$ ($\sigma\sim20000$--$30000$); el modelo predice $\gKHI\approx1.02$--$1.03$. A esas conductividades la recuperación de variables primitivas se vuelve delicada y las hojas resistivas exigen mayor resolución.
+\item \textbf{Relación de dispersión RMHD completa}: la predicción $\what=0.095$ usa la ecuación compresible hidrodinámica con la sustitución escalar $c_s\to v_{f\perp}$, bien motivada geométricamente pero no equivalente a la dispersión RMHD de grado $8$ \parencite{osmanov2008,chow2023} evaluada en estos parámetros.
+\item \textbf{Intensidad y orientación del campo magnético}: con $M_{A,\parallel}=9.4$ la tensión es despreciable y la KHI es casi hidrodinámica. Una campaña que varíe la intensidad y la orientación de $\mathbf B$ (activando la tensión $V_{A,\parallel}$) permitiría mapear la transición entre el régimen de campo guía y el de tensión dominante.
+\item \textbf{Isotropía de la conductividad}: la ley de Ohm relativista adoptada (Sección~\ref{sec:Ohm_Relativista}) supone una conductividad escalar $\sigma$. Los efectos Hall y la anisotropía respecto al campo modificarían la reconexión sobre las láminas de corriente.
+\item \textbf{Dimensionalidad reducida (2D vs 3D)}: las simulaciones bidimensionales suprimen los modos tridimensionales y la cascada turbulenta plenamente desarrollada, que podrían modificar tanto $C+\gamma_0$ como los exponentes empíricos de las leyes de potencia.
+\item \textbf{Ecuación de estado}: el cierre politrópico con $\Gamma = 4/3$ ignora correcciones por composición, opacidad y emisión radiativa, relevantes en escenarios astrofísicos reales.
+\item \textbf{Resolución de la malla}: las hojas de corriente delgadas que se forman a alta $\sigma$ se aproximan al límite de resolución espacial; estudios de convergencia con mallas refinadas podrían modificar cuantitativamente los exponentes no lineales.
+\item \textbf{Régimen resistivo extremo}: para $\sigma \lesssim 500$, los ajustes lineales de $\ln\Ozp(t)$ presentan $R^{2} < 0.7$, reflejando la dificultad de extraer una tasa bien definida cuando la disipación domina desde la fase inicial.
 \end{itemize}
 
-\primerparrafo La cuantificación sistemática del impacto de cada uno de estos factores constituye una línea natural de continuación para futuros estudios. En particular, la extensión tridimensional del barrido paramétrico, los estudios de convergencia de malla y la inclusión de cierres más sofisticados para la ley de Ohm aparecen como las prioridades más inmediatas para refinar la caracterización cuantitativa del régimen crítico $\scrit$ y, eventualmente, cerrar la brecha residual entre la teoría lineal corregida y los exponentes empíricos de las leyes de potencias reportadas en la Sección~\ref{sec:leyes_potencia}.
+\primerparrafo La extensión tridimensional del barrido, los estudios de convergencia de malla, la campaña de intensidad/orientación de $\mathbf B$ y, sobre todo, la medición directa del plateau ideal a alta conductividad, aparecen como las prioridades más inmediatas para cerrar la caracterización cuantitativa del régimen crítico $\scrit$ y de la tasa de crecimiento ideal $C+\gamma_0$.
