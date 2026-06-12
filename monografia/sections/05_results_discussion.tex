@@ -224,6 +224,33 @@ Piso de lámina Sweet--Parker única ($\propto\sigma^{1/2}$) & $0.5$ & --- \\
 
 \primerparrafo El valor medido, $\alpha\approx1.22>0.5$, \emph{excede} ese piso de lámina única por un factor $\sim2.4$ (cociente de exponentes $1.22/0.5$). La interpretación física es directa: la enstrofía crece más rápido que lo que aportaría una lámina única porque la lámina primaria es a su vez inestable y se fragmenta en una cascada de islas y sub-láminas magnéticas (modo \emph{tearing}, \parencite{furth1963}), multiplicando la superficie disipativa efectiva. Así, el exponente $\alpha\approx1.2$ es la firma fenomenológica de la reconexión resistiva no lineal con \emph{tearing} secundario ---consistente, además, con la inyección de enstrofía por inestabilidades secundarias sobre los vórtices enrollados \parencite{nastro2022}. Una derivación cuantitativa exacta del exponente exige resolver esa jerarquía de láminas de corriente con alta fidelidad numérica ---para lo que los esquemas Res-RMHD de alto orden, que minimizan la disipación numérica frente a la física \parencite{mignone2024}, son la herramienta idónea--- y queda como trabajo futuro.
 
+\section{Variables globales: campos, corrientes y estructuras secundarias}
+\label{sec:globales}
+
+\primerparrafo El análisis precedente se centró en la tasa de crecimiento lineal $\gKHI$. Para completar la caracterización del efecto de la difusión magnética, esta sección examina cómo la conductividad gobierna las \emph{variables globales} del campo electromagnético ---densidad de corriente, disipación y energía magnética--- y el desarrollo de \emph{estructuras secundarias} fuera del plano, evaluando los diagnósticos integrados sobre todas las simulaciones del barrido.
+
+\subsection{Corrientes, disipación y energía magnética}
+
+\primerparrafo La Fig.~\ref{fig:global_campos} resume tres diagnósticos electromagnéticos en función de $\sigma$. (a)~La corriente máxima $J_{\max}$ crece de $\approx35$ a $\approx220$ al pasar de $\sigma=100$ a $\sigma=10500$: a mayor conductividad las láminas de corriente son más delgadas e intensas, consistente con el espesor de Sweet--Parker $\delta\propto\sigma^{-1/2}$ y con la firma de reconexión de la Sección~\ref{sec:leyes_potencia}. (b)~El trabajo electromagnético acumulado sobre el fluido $\big|\int_0^{t_{\mathrm{peak}}}\!\!\int\mathbf{E}\!\cdot\!\mathbf{J}\,dA\,dt\big|$ crece monótonamente ($0.03\to0.44$): aunque la resistividad local $\eta=1/\sigma$ disminuye, la KHI más vigorosa a alta $\sigma$ procesa más energía a través de las hojas de corriente; la eventual reducción hacia el límite estrictamente ideal queda más allá del rango explorado. (c)~La amplificación de la energía magnética $\max_t E_{\mathrm{mag}}/E_{\mathrm{mag}}(0)$ \emph{decrece} de $\approx1.15$ (régimen resistivo) a $\approx1.0$ (régimen ideal): a baja $\sigma$ la reorganización resistiva del campo amplifica la energía magnética total un $\sim15\%$, mientras que a alta $\sigma$ el flujo congelado advecta y estira las líneas sin amplificar la energía neta integrada.
+
+\begin{figure}[H]\centering
+\includegraphics[width=\textwidth]{figuras/fig_global_campos.pdf}
+\caption{Variables electromagnéticas globales frente a $\sigma$ (efecto de la difusión magnética). (a)~Corriente máxima $J_{\max}$. (b)~Trabajo electromagnético acumulado hasta la saturación. (c)~Amplificación de la energía magnética total.}
+\label{fig:global_campos}
+\end{figure}
+
+\subsection{Estructuras secundarias y anisotropía fuera del plano}
+
+\primerparrafo Para cuantificar el desarrollo de estructuras secundarias se emplea la fracción de enstrofía fuera del plano $f_{Vz}=(\Otot-\Omega_z)/\Otot$, que mide el acoplamiento hacia la componente transversal $V_z$ inducido por el campo guía $B_z$ y la resistividad. La Fig.~\ref{fig:global_estructuras}(a) muestra que $f_{Vz}$ en saturación \emph{no} es monótona: alcanza un máximo ($\approx0.37$) en $\sigma\approx1400$ ---justo en la frontera resistivo$\to$transición (Sección~\ref{sec:scrit_v6})--- y decae hasta $\approx0.08$ en el régimen ideal. Es decir, las estructuras secundarias fuera del plano son \textbf{máximas en la zona de transición} y quedan suprimidas en el límite ideal, donde el flujo permanece esencialmente planar. La Fig.~\ref{fig:global_estructuras}(b) muestra la enstrofía total máxima $\Omega_{\mathrm{tot}}^{\max}$, con un mínimo en $\sigma\approx10^3$ y un crecimiento sostenido posterior: la energía rotacional de los vórtices se intensifica con la conductividad una vez superado el umbral resistivo.
+
+\begin{figure}[H]\centering
+\includegraphics[width=0.9\textwidth]{figuras/fig_global_estructuras.pdf}
+\caption{Estructuras secundarias frente a $\sigma$. (a)~Fracción de enstrofía fuera del plano $f_{Vz}$ en saturación: máxima en la transición ($\sigma\approx1400$), suprimida en el régimen ideal. (b)~Enstrofía total máxima $\Omega_{\mathrm{tot}}^{\max}$.}
+\label{fig:global_estructuras}
+\end{figure}
+
+\primerparrafo En conjunto, estos diagnósticos globales cierran los objetivos de caracterizar el efecto de la difusión magnética sobre los campos ($J_{\max}$, energía magnética, disipación) y sobre la formación de estructuras secundarias ($f_{Vz}$, $\Omega_{\mathrm{tot}}$): la conductividad no solo fija la tasa de crecimiento lineal, sino que controla la intensidad de las láminas de corriente, el balance energético electromagnético y la anisotropía tridimensional emergente del flujo.
+
 \section{Contraste con la teoría lineal: justificación de la tasa ideal}
 \label{sec:teoria_v6}
 

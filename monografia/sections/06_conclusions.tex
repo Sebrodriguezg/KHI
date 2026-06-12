@@ -1,6 +1,38 @@
-\section{Resumen de Contribuciones}
-    Recapitulación de la implementación robusta del esquema numérico (IMEX-RK, FV, HRSC) y los hallazgos sobre la amortiguación/estabilización de la KHI por la resistividad.
+% ============================================================================
+% BORRADOR/ESQUELETO de conclusiones — estructurado por los 4 objetivos de la
+% propuesta. Contiene los resultados reales del análisis; los coautores deben
+% revisar/ampliar (sobre todo la parte de implementación numérica) y pulir.
+% ============================================================================
+
+\primerparrafo Este trabajo simuló numéricamente el desarrollo de la inestabilidad de Kelvin--Helmholtz (KHI) en plasmas relativistas dentro del marco de la magnetohidrodinámica relativista resistiva (RRMHD), empleando el código \textit{Cueva}, con el fin de caracterizar el efecto de la resistividad sobre la dinámica de la inestabilidad. Las conclusiones se organizan en torno a los objetivos específicos planteados.
+
+\section{Conclusiones por objetivo}
+
+\paragraph{(1) Efecto de la resistividad sobre la tasa de crecimiento lineal.}
+Se cuantificó $\gKHI(\sigma)$ sobre un barrido de $44$ simulaciones en conductividad ($\sigma\in[100,10500]$). La transición resistivo$\to$ideal se describe con un modelo sigmoide con \emph{offset} (Sección~\ref{sec:sigmoide_v6}), cuya asíntota ideal es $C+\gamma_0=1.03\pm0.05$ ($\what=0.103$). Este valor es \emph{consistente} con la teoría lineal RMHD compresible dentro del $8\%$ (Sección~\ref{sec:teoria_v6}), con el sistema holgadamente inestable ($M_{re}=0.60<\sqrt2$). La conductividad crítica que separa los regímenes se estima en $\scrit\approx2861$, con una banda sistemática real de $\pm1944$ proveniente de tres fuentes independientes de incertidumbre (Sección~\ref{sec:scrit_v6}). \emph{[Objetivo cumplido.]}
+
+\paragraph{(2) Efecto sobre las estructuras secundarias.}
+El análisis de los diagnósticos no lineales (Secciones~\ref{sec:leyes_potencia} y~\ref{sec:globales}) muestra que la enstrofía máxima escala como $\Omaxzp\propto\sigma^{1.22}$, exponente que excede el piso de una lámina de corriente Sweet--Parker única ($\sigma^{1/2}$) y se interpreta como la firma de la reconexión resistiva con \emph{tearing} secundario. La fracción de enstrofía fuera del plano $f_{Vz}$ alcanza su máximo en la zona de transición ($\sigma\approx1400$) y se suprime en el régimen ideal, indicando que las estructuras secundarias tridimensionales emergen preferentemente cuando resistividad y advección compiten en escala comparable. \emph{[Objetivo cumplido.]}
+
+\paragraph{(3) Efecto sobre las variables globales.}
+La difusión magnética controla las variables electromagnéticas integradas (Sección~\ref{sec:globales}): la corriente máxima $J_{\max}$ crece con $\sigma$ (láminas más delgadas e intensas), el trabajo electromagnético acumulado aumenta, y la amplificación de la energía magnética total decrece de $\sim15\%$ (resistivo) a nula (ideal, campo congelado). \emph{[Objetivo cumplido.]}
+
+\paragraph{(4) Efecto de la orientación e intensidad del campo magnético.}
+Este objetivo \textbf{no se aborda en el cuerpo principal} de la presente monografía: requiere una campaña dedicada que varíe la intensidad ($B_0$) y la orientación de $\mathbf B$ a conductividad fija, actualmente en ejecución. Un análisis preliminar (no incluido aquí) sugiere que la tensión magnética paralela al flujo ($V_{A,\parallel}$) es el agente estabilizador dominante, pero su caracterización cuantitativa queda como continuación inmediata de este trabajo. \emph{[Objetivo pendiente --- trabajo en curso.]}
+
 \section{Limitaciones del Modelo y la Simulación}
-    Mencionar la simplicidad de la EoS ($\Gamma=4/3$) o la restricción a 2D (si aplica).
+\begin{itemize}
+\item \textbf{Dimensionalidad:} las simulaciones son 2D; los modos tridimensionales y la cascada turbulenta plena no se capturan.
+\item \textbf{Ecuación de estado:} cierre politrópico $\Gamma=4/3$, sin composición, opacidad ni radiación.
+\item \textbf{Conductividad escalar:} se ignoran efectos Hall y la anisotropía respecto al campo.
+\item \textbf{Resolución de la malla:} las hojas resistivas a alta $\sigma$ se acercan al límite de la malla.
+\item \textbf{Asíntota ideal:} $C+\gamma_0$ es una extrapolación (el dato de mayor $\sigma$ alcanza el $85\%$); su confirmación requiere simulaciones a $\Rmst\gtrsim500$.
+\end{itemize}
+
 \section{Trabajo Futuro}
-    Sugerencias para futuras investigaciones, como la extensión a geometrías más complejas (3D), la inclusión de la gravedad (GRMHD), o el uso de esquemas de reconstrucción de orden aún mayor (WENO7) [20].
+\begin{itemize}
+\item \textbf{Campaña de campo magnético (objetivo 4):} barrido de intensidad y orientación de $\mathbf B$ para mapear la estabilización por tensión magnética.
+\item \textbf{Medición directa del plateau ideal:} $2$--$3$ simulaciones a $\Rmst\gtrsim500$ ($\sigma\sim2$--$3\times10^4$) para convertir la extrapolación de $C+\gamma_0$ en medición.
+\item \textbf{Extensión a 3D} y, eventualmente, a GRMHD.
+\item \textbf{Esquemas de orden aún mayor} (p.ej.\ cuarto orden, \parencite{mignone2024}) para reducir la disipación numérica y resolver las hojas resistivas.
+\end{itemize}
