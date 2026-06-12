@@ -1658,6 +1658,7 @@
       \strng{authornamehash}{495a3262b1cd98d75e390d295df2af9d}
       \strng{authorfullhash}{a3b11a971ca1e6aa2b65890093cd94d5}
       \strng{authorfullhashraw}{a3b11a971ca1e6aa2b65890093cd94d5}
+      \field{extraname}{1}
       \field{sortinit}{M}
       \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
       \field{labelnamesource}{author}
@@ -1669,6 +1670,67 @@
       \field{year}{2007}
       \field{pages}{228}
       \range{pages}{1}
+    \endentry
+    \entry{mignone2024}{article}{}{}
+      \name{author}{7}{}{%
+        {{hash=75beab607040d7bbd00bcae3e44815b9}{%
+           family={Mignone},
+           familyi={M\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=90d2cf88ed01c046944b9e7fe3eb5dc1}{%
+           family={Berta},
+           familyi={B\bibinitperiod},
+           given={V.},
+           giveni={V\bibinitperiod}}}%
+        {{hash=cd94516468e60217848c0b7d474e249f}{%
+           family={Rossazza},
+           familyi={R\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+        {{hash=81c303940f7b7c65b06c2515ac544590}{%
+           family={Bugli},
+           familyi={B\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+        {{hash=10720cff5f0c14d88d1c7808fddd19c8}{%
+           family={Mattia},
+           familyi={M\bibinitperiod},
+           given={G.},
+           giveni={G\bibinitperiod}}}%
+        {{hash=79e6e586b6cb732e8dee0cd75baf8997}{%
+           family={Del\bibnamedelima Zanna},
+           familyi={D\bibinitperiod\bibinitdelim Z\bibinitperiod},
+           given={L.},
+           giveni={L\bibinitperiod}}}%
+        {{hash=342b41968d0f17bf32c5362ff744a74f}{%
+           family={Pareschi},
+           familyi={P\bibinitperiod},
+           given={L.},
+           giveni={L\bibinitperiod}}}%
+      }
+      \strng{namehash}{495a3262b1cd98d75e390d295df2af9d}
+      \strng{fullhash}{ad5b51ecb486fe96ac629ab7809062d9}
+      \strng{fullhashraw}{ad5b51ecb486fe96ac629ab7809062d9}
+      \strng{bibnamehash}{495a3262b1cd98d75e390d295df2af9d}
+      \strng{authorbibnamehash}{495a3262b1cd98d75e390d295df2af9d}
+      \strng{authornamehash}{495a3262b1cd98d75e390d295df2af9d}
+      \strng{authorfullhash}{ad5b51ecb486fe96ac629ab7809062d9}
+      \strng{authorfullhashraw}{ad5b51ecb486fe96ac629ab7809062d9}
+      \field{extraname}{2}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Monthly Notices of the Royal Astronomical Society}
+      \field{title}{A fourth-order accurate finite volume scheme for resistive relativistic MHD}
+      \field{volume}{533}
+      \field{year}{2024}
+      \field{pages}{1670\bibrangedash 1686}
+      \range{pages}{17}
+      \verb{doi}
+      \verb 10.1093/mnras/stae1729
+      \endverb
     \endentry
     \entry{miranda2014}{inproceedings}{}{}
       \name{author}{3}{}{%

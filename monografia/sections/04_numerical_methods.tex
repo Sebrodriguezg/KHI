@@ -33,7 +33,7 @@ Para preservar la monotonicidad sin degradar la precisión en los extremos local
 $$
 \mathbf{U}_L = \text{median}(\mathbf{U}_{i+1/2}^{(5)}, \mathbf{U}_{min}, \mathbf{U}_{max}).
 $$
-Esta topología garantiza una captura de choques sin oscilaciones acoplada a una retención casi espectral de la vorticidad bidimensional, requisito fundamental para resolver la capa límite resistiva de espesor $\sim S^{-1/2}$.
+Esta topología garantiza una captura de choques sin oscilaciones acoplada a una retención casi espectral de la vorticidad bidimensional, requisito fundamental para resolver la capa límite resistiva de espesor $\sim S^{-1/2}$. Esta motivación ---minimizar la disipación numérica para que sea la disipación \emph{física} la que domine y queden resueltas las hojas de corriente resistivas--- es la misma que impulsa los esquemas Res-RMHD de orden aún mayor (cuarto orden) desarrollados recientemente por \textcite{mignone2024}, dentro de cuya línea metodológica se inscribe el código \textit{Cueva}.
 
 \section{El Problema de Riemann Local en RRMHD}
 \label{sec:Problema_Riemann}

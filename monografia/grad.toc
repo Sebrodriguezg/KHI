@@ -54,21 +54,21 @@
 \contentsline {subsubsection}{Difusión Numérica y la Necesidad de Esquemas MP5}{52}{}%
 \contentsline {section}{\numberline {4.2}El Problema de Riemann Local en RRMHD}{53}{}%
 \contentsline {subsection}{\numberline {4.2.1}Estructura Espectral del Jacobiano Conservativo}{53}{}%
-\contentsline {subsubsection}{Degeneración de Velocidades Características}{53}{}%
+\contentsline {subsubsection}{Degeneración de Velocidades Características}{54}{}%
 \contentsline {subsection}{\numberline {4.2.2}Sistemas con Relajación y la Condición Subcaracterística}{54}{}%
 \contentsline {subsection}{\numberline {4.2.3}El Esquema HLL Clásico y su Fracaso en Discontinuidades Tangenciales}{54}{}%
 \contentsline {section}{\numberline {4.3}Derivación del Solucionador Exacto Aproximado HLLC}{55}{}%
 \contentsline {subsection}{\numberline {4.3.1}Topología del Abanico de Riemann y el Estado Estrella ($U^*$)}{55}{}%
-\contentsline {subsection}{\numberline {4.3.2}Condiciones de Salto de Rankine-Hugoniot en el Límite Discreto}{55}{}%
+\contentsline {subsection}{\numberline {4.3.2}Condiciones de Salto de Rankine-Hugoniot en el Límite Discreto}{56}{}%
 \contentsline {subsection}{\numberline {4.3.3}Postulados de Cierre y Continuidad de Invariantes Físicos}{56}{}%
 \contentsline {subsection}{\numberline {4.3.4}Resolución Algebraica Exacta de la Onda de Contacto ($\lambda ^*$)}{56}{}%
 \contentsline {section}{\numberline {4.4}Acoplamiento Numérico con el Sistema Aumentado GLM}{57}{}%
 \contentsline {subsection}{\numberline {4.4.1}Estructura Espectral de los Potenciales Auxiliares}{57}{}%
 \contentsline {subsection}{\numberline {4.4.2}Flujos Intermedios y Amortiguamiento Fenomenológico}{58}{}%
 \contentsline {section}{\numberline {4.5}Tratamiento de la Rigidez: Esquemas IMEX-RK}{58}{}%
-\contentsline {subsection}{\numberline {4.5.1}Partición de Operadores: Integración Explícita e Implícita}{58}{}%
+\contentsline {subsection}{\numberline {4.5.1}Partición de Operadores: Integración Explícita e Implícita}{59}{}%
 \contentsline {subsection}{\numberline {4.5.2}Inversión Algebraica Local del Término de Conducción}{59}{}%
-\contentsline {section}{\numberline {4.6}Recuperación de Variables Primitivas: Solucionador Analítico 1D}{59}{}%
+\contentsline {section}{\numberline {4.6}Recuperación de Variables Primitivas: Solucionador Analítico 1D}{60}{}%
 \contentsline {section}{\numberline {4.7}Límites Asintóticos y Consistencia del Esquema}{60}{}%
 \contentsline {subsection}{\numberline {4.7.1}Colapso Analítico al Régimen de MHD Ideal ($\sigma \rightarrow \infty $)}{60}{}%
 \contentsline {subsection}{\numberline {4.7.2}Comportamiento Disipativo en el Límite Altamente Resistivo}{61}{}%
@@ -92,7 +92,7 @@
 \contentsline {section}{\numberline {6.5}Leyes de potencia para $\Omega _{zp}^{\mathop {\mathgroup \symoperators m\acute {a}x}}(\sigma )$}{82}{}%
 \contentsline {paragraph}{Origen físico de la pendiente: reconexión y \emph {tearing}.}{83}{}%
 \contentsline {section}{\numberline {6.6}Contraste con la teoría lineal: justificación de la tasa ideal}{83}{}%
-\contentsline {subsection}{\numberline {6.6.1}Techo hidrodinámico inviscido (ecuación de Rayleigh)}{83}{}%
+\contentsline {subsection}{\numberline {6.6.1}Techo hidrodinámico inviscido (ecuación de Rayleigh)}{84}{}%
 \contentsline {subsection}{\numberline {6.6.2}El carácter dual del montaje no altera el techo}{84}{}%
 \contentsline {subsection}{\numberline {6.6.3}Predicción RMHD compresible (Lees--Lin)}{85}{}%
 \contentsline {subsection}{\numberline {6.6.4}Velocidades características y números de Mach}{86}{}%
