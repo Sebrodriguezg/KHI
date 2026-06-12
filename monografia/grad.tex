@@ -30,6 +30,9 @@
 \usepackage{float}                      % For the [H] float placement specifier
 \usepackage{longtable}                  % For multi-page tables
 \usepackage{enumitem}                   % For list/description formatting (glosario)
+\usepackage{xcolor}                     % For colored review notes
+% Nota de revisión (visible en rojo). Para quitarlas todas: redefinir como {}.
+\newcommand{\revnota}[1]{{\color{red}\small\textsf{[REV: #1]}}}
 \usepackage[capitalize]{cleveref}       % For smart cross-referencing (use \cref{})
 
 % --- Bibliography ---

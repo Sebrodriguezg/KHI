@@ -13,26 +13,24 @@
 \contentsline {subsubsection}{Ecuaciones de Maxwell en Formalismo Covariante}{27}{}%
 \contentsline {paragraph}{El par homogéneo y la identidad de Bianchi}{27}{}%
 \contentsline {paragraph}{El par inhomogéneo y el acoplamiento con la fuente}{28}{}%
-\contentsline {subsection}{\numberline {2.1.2}Sistema de Leyes de Conservación}{29}{}%
-\contentsline {subsection}{\numberline {2.1.3}Conservación Hidrodinámica y el Tensor de Energía-Momento Total}{29}{}%
+\contentsline {subsection}{\numberline {2.1.2}Conservación Hidrodinámica y el Tensor de Energía-Momento Total}{29}{}%
 \contentsline {subsubsection}{Derivación a partir de las Densidades Lagrangianas}{29}{}%
 \contentsline {subsubsection}{Dinámica Acoplada y el Sistema Completo de RRMHD}{31}{}%
-\contentsline {subsection}{\numberline {2.1.4}El Sistema Aumentado de Maxwell}{32}{}%
+\contentsline {subsection}{\numberline {2.1.3}El Sistema Aumentado de Maxwell}{32}{}%
 \contentsline {subsubsection}{Extensión Lagrangiana y el Campo Auxiliar Eléctrico $\Phi $}{33}{}%
 \contentsline {subsubsection}{Simetría Dual y el Campo Auxiliar Magnético $\Psi $}{34}{}%
-\contentsline {subsubsection}{La Ecuación del Telégrafo: Origen Covariante y Causalidad Disipativa}{35}{}%
+\contentsline {subsubsection}{La Ecuación del Telégrafo: Origen Covariante y Causalidad Disipativa}{36}{}%
 \contentsline {subsubsection}{Descomposición 3+1 del Sistema Aumentado}{37}{}%
-\contentsline {subsection}{\numberline {2.1.5}Descomposición de la Cuadricorriente y la Ley de Ohm Relativista}{38}{}%
+\contentsline {subsection}{\numberline {2.1.4}Descomposición de la Cuadricorriente y la Ley de Ohm Relativista}{38}{}%
 \contentsline {subsubsection}{Descomposición Ortogonal del Cuadrivector Corriente}{38}{}%
 \contentsline {subsubsection}{La Ecuación Constitutiva Covariante}{39}{}%
 \contentsline {subsubsection}{Proyección 3+1 y la Reintegración del Campo Comóvil}{40}{}%
-\contentsline {subsection}{\numberline {2.1.6}Resumen del Sistema RRMHD en Forma Conservativa}{41}{}%
+\contentsline {subsection}{\numberline {2.1.5}Resumen del Sistema RRMHD en Forma Conservativa}{41}{}%
 \contentsline {section}{\numberline {2.2}Análisis de la KHI en el Límite Lineal}{43}{}%
 \contentsline {subsection}{\numberline {2.2.1}Inercia Térmica Relativista y Anisotropía Magnética}{44}{}%
-\contentsline {subsection}{\numberline {2.2.2}El Límite Resistivo y la Ruptura Topológica}{44}{}%
+\contentsline {subsection}{\numberline {2.2.2}El Límite Resistivo y la Ruptura Topológica}{45}{}%
 \contentsline {subsection}{\numberline {2.2.3}Formulación Geométrica de la Vorticidad y Enstrofía}{45}{}%
 \contentsline {subsubsection}{Enstrofía de Perturbación y Extracción de $\gamma $}{46}{}%
-\contentsline {subsubsection}{Enstrofía de Perturbación y Extracción de $\gamma $}{47}{}%
 \contentsline {chapter}{\numberline {3}La Inestabilidad de Kelvin--Helmholtz desde la Mecánica de Fluidos hasta la RRMHD}{49}{}%
 \contentsline {section}{\numberline {3.1}Descripción Física General de la Inestabilidad}{49}{}%
 \contentsline {section}{\numberline {3.2}La KHI en Mecánica de Fluidos Clásica}{50}{}%
