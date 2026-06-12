@@ -76,7 +76,7 @@
 \contentsline {section}{\numberline {5.1}Configuración Experimental}{63}{}%
 \contentsline {subsection}{\numberline {5.1.1}Condiciones Iniciales del Problema}{63}{}%
 \contentsline {subsection}{\numberline {5.1.2}Dominio Computacional, Discretización y Sistema de Unidades}{65}{}%
-\contentsline {paragraph}{Sistema de unidades y equivalencia temporal.}{66}{}%
+\contentsline {paragraph}{Sistema de unidades y equivalencia temporal.}{65}{}%
 \contentsline {subsection}{\numberline {5.1.3}Exploración del Espacio de Parámetros: Resistividad}{66}{}%
 \contentsline {subsection}{\numberline {5.1.4}Variables de Control y Diagnóstico}{67}{}%
 \contentsline {chapter}{\numberline {6}Resultados de la Simulación y Análisis de la KHI}{71}{}%
