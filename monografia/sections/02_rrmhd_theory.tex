@@ -148,16 +148,16 @@ Esta única ecuación tensorial contiene simultáneamente la ley de Gauss para e
 
 \paragraph{El par inhomogéneo y el acoplamiento con la fuente}
 
-\primerparrafo El segundo conjunto de ecuaciones describe la dinámica del campo en presencia de fuentes materiales. Para ello, es necesario introducir el cuadrivector densidad de corriente, $J^\mu$, el cual unifica la densidad de carga eléctrica $\rho_e$ y el vector de densidad de corriente tridimensional $\mathbf{J}$ en un solo objeto geométrico:
+\primerparrafo El segundo conjunto de ecuaciones describe la dinámica del campo en presencia de fuentes materiales. Para ello, es necesario introducir el cuadrivector densidad de corriente, $J^\mu$, el cual unifica la densidad de carga eléctrica observada en el laboratorio $\rho_q$ y el vector de densidad de corriente tridimensional $\mathbf{J}$ en un solo objeto geométrico:
 \begin{equation}
-    J^\mu = (\rho_e, \mathbf{J})
+    J^\mu = (\rho_q, \mathbf{J})
 \end{equation}
 A diferencia de la identidad topológica, acoplar el campo electromagnético a la materia requiere el uso de la métrica del espacio-tiempo $\eta_{\mu\nu}$ para ``subir'' los índices del tensor de Faraday, transformando la 2-forma covariante $F_{\mu\nu}$ en un tensor contravariante $F^{\mu\nu} = \eta^{\mu\alpha} \eta^{\nu\beta} F_{\alpha\beta}$. Por el principio de mínima acción, la variación del lagrangiano de interacción entre el campo y la corriente determina que la divergencia del tensor contravariante de Faraday es directamente proporcional a las fuentes que lo generan:
 \begin{equation}
 \label{eq:Maxwell_Inhomogeneas}
     \partial_\mu F^{\mu\nu} = J^\nu
 \end{equation}
-Esta segunda ecuación tensorial agrupa la ley de Gauss para el campo eléctrico ($\nabla \cdot \mathbf{E} = \rho_e$) y la ley de Ampère-Maxwell generalizada ($\nabla \times \mathbf{B} - \partial_t \mathbf{E} = \mathbf{J}$). 
+Esta segunda ecuación tensorial agrupa la ley de Gauss para el campo eléctrico ($\nabla \cdot \mathbf{E} = \rho_q$) y la ley de Ampère-Maxwell generalizada ($\nabla \times \mathbf{B} - \partial_t \mathbf{E} = \mathbf{J}$). 
 
 De manera fundamental, debido a la antisimetría estricta del tensor de Faraday ($F^{\mu\nu} = -F^{\nu\mu}$), la divergencia de la ecuación (\ref{eq:Maxwell_Inhomogeneas}) conduce a una identidad nula $\partial_\nu \partial_\mu F^{\mu\nu} = 0$, lo que impone automáticamente la conservación local de la carga eléctrica:
 \begin{equation}
@@ -253,7 +253,7 @@ Proyectando estas ecuaciones tensoriales a lo largo de la línea de mundo de un 
 \subsection{El Sistema Aumentado de Maxwell}
 \label{sec:Max-aumentado}
 
-\primerparrafo De la formulación covariante de la electrodinámica se deriva un sistema de ecuaciones de naturaleza mixta: evolución y restricción. En el espacio-tiempo de Minkowski, las ecuaciones homogéneas e inhomogéneas desarrolladas en la sección \ref{sec:Elec_Cov} se comportan como un sistema semi-hiperbólico sujeto a restricciones elípticas, dictadas por la ley de Gauss eléctrica ($\nabla \cdot \mathbf{E} = \rho_e$) y la condición de divergencia magnética nula ($\nabla \cdot \mathbf{B} = 0$). Estas restricciones carecen de derivadas temporales, limitándose a confinar el espacio de soluciones físicamente admisibles. 
+\primerparrafo De la formulación covariante de la electrodinámica se deriva un sistema de ecuaciones de naturaleza mixta: evolución y restricción. En el espacio-tiempo de Minkowski, las ecuaciones homogéneas e inhomogéneas desarrolladas en la sección \ref{sec:Elec_Cov} se comportan como un sistema semi-hiperbólico sujeto a restricciones elípticas, dictadas por la ley de Gauss eléctrica ($\nabla \cdot \mathbf{E} = \rho_q$) y la condición de divergencia magnética nula ($\nabla \cdot \mathbf{B} = 0$). Estas restricciones carecen de derivadas temporales, limitándose a confinar el espacio de soluciones físicamente admisibles. 
 
 En el ámbito de la simulación numérica, esta estructura matemática presenta un desafío crítico. Los errores de truncamiento inherentes a la reconstrucción espacial y a la discretización temporal generan violaciones inevitables a estas restricciones, produciendo, por ejemplo, monopolos magnéticos espurios ($\nabla \cdot \mathbf{B} \neq 0$) \parencite{Dedner_etal:2002}. En el formalismo estándar, estos errores numéricos no se propagan ni se disipan, provocando una acumulación local que destruye irremediablemente la estabilidad del esquema numérico.
 
@@ -332,7 +332,7 @@ Al operar en el régimen intermedio dictado por la Ecuación del Telégrafo, el 
 \begin{align}
     \partial_t \mathbf{E} - \nabla \times \mathbf{B} + \nabla \Phi &= -\mathbf{J} \label{eq:GLM_3D_E} \\
     \partial_t \mathbf{B} + \nabla \times \mathbf{E} + \nabla \Psi &= 0 \label{eq:GLM_3D_B} \\
-    \partial_t \Phi + \nabla \cdot \mathbf{E} &= \rho_e - \kappa_E \Phi \label{eq:GLM_3D_Phi} \\
+    \partial_t \Phi + \nabla \cdot \mathbf{E} &= \rho_q - \kappa_E \Phi \label{eq:GLM_3D_Phi} \\
     \partial_t \Psi + \nabla \cdot \mathbf{B} &= -\kappa_B \Psi \label{eq:GLM_3D_Psi}
 \end{align}
 
@@ -348,25 +348,35 @@ Al operar en el régimen intermedio dictado por la Ecuación del Telégrafo, el 
 
 \primerparrafo Desde una perspectiva geométrica, el cuadrivector densidad de corriente $J^\mu$ contiene la información total del transporte de carga en el espacio-tiempo. Para extraer el contenido físico medible intrínsecamente por la materia, es necesario proyectar este objeto covariante respecto al marco de referencia comóvil del fluido, caracterizado por su cuadrivelocidad $u^\mu$.
 
-\revnota{de aquí en adelante varias ecuaciones clave (descomposición de la corriente, ley de Ohm) van en \texttt{\$\$...\$\$} sin numerar; usar \texttt{equation} y numerarlas por consistencia con el resto del capítulo.}%
 Utilizando el tensor de proyección ortogonal espacial $h^\mu_{\ \nu} = \delta^\mu_{\ \nu} + u^\mu u_\nu$, es posible separar cualquier cuadrivector en sus componentes paralela y ortogonal a la línea de mundo del plasma. Al aplicar la identidad $\delta^\mu_{\ \nu} = -u^\mu u_\nu + h^\mu_{\ \nu}$ sobre la cuadricorriente, se obtiene la descomposición fundamental:
-$$J^\mu = (-J^\nu u_\nu) u^\mu + h^\mu_{\ \nu} J^\nu$$
+\begin{equation}
+    J^\mu = (-J^\nu u_\nu) u^\mu + h^\mu_{\ \nu} J^\nu
+\end{equation}
 
-Esta separación define unívocamente un escalar invariante de Lorentz y un vector puramente espacial en el marco propio del fluido. \revnota{el símbolo $\rho_e$ se usa antes (Ec.~\ref{eq:Maxwell_Inhomogeneas} y sistema GLM 3+1) como carga del \emph{laboratorio}, pero aquí pasa a ser la carga \emph{propia}; y la misma ec.\ de $\Phi$ aparece con $\rho_e$ y con $\rho_q$. Unificar: $\rho_q$ = laboratorio, $\rho_e$ = propia.}%
-Se define la densidad de carga propia $\rho_e$ como la contracción directa de la corriente con la cuadrivelocidad:
-$$\rho_e \equiv -J^\nu u_\nu$$
+Esta separación define unívocamente un escalar invariante de Lorentz y un vector puramente espacial en el marco propio del fluido. Se define la densidad de carga propia $\rho_e$ (medida en el marco comóvil, a distinguir de la observada en el laboratorio $\rho_q$) como la contracción directa de la corriente con la cuadrivelocidad:
+\begin{equation}
+    \rho_e \equiv -J^\nu u_\nu
+\end{equation}
 la cual representa la densidad neta de carga medida por un observador que viaja solidariamente con el elemento de fluido. Simultáneamente, se define la cuadricorriente de conducción $j^\mu$ como la proyección espacial:
-$$j^\mu \equiv h^\mu_{\ \nu} J^\nu$$
+\begin{equation}
+    j^\mu \equiv h^\mu_{\ \nu} J^\nu
+\end{equation}
 Por construcción geométrica, este vector satisface de forma identitaria la condición de ortogonalidad $j^\mu u_\mu = 0$, garantizando que posea únicamente tres grados de libertad espaciales en el sistema de reposo local. Con estas definiciones, la cuadricorriente total adopta su forma canónica invariante:
-$$J^\mu = \rho_e u^\mu + j^\mu$$
+\begin{equation}
+    J^\mu = \rho_e u^\mu + j^\mu
+\end{equation}
 El primer término ($\rho_e u^\mu$) describe el transporte convectivo de carga debido al movimiento inercial macroscópico del plasma, mientras que el segundo término ($j^\mu$) encapsula el transporte conductivo de los portadores de carga en movimiento relativo al fluido.
 
 \subsubsection{La Ecuación Constitutiva Covariante}
 
 \primerparrafo La electrodinámica macroscópica y la termodinámica de procesos irreversibles postulan que, en el régimen lineal e isótropo, la corriente de conducción espacial es directamente proporcional a la fuerza electromagnética neta aplicada sobre las cargas en su sistema de reposo. Ignorando gradientes de temperatura (efectos termoeléctricos) y el efecto Hall (aproximación válida en el límite de un plasma altamente colisional a escalas macroscópicas), esta respuesta lineal constituye la formulación covariante de la Ley de Ohm:
-$$j^\mu = \sigma E^\mu = \sigma F^{\mu\nu}u_\nu$$
+\begin{equation}
+    j^\mu = \sigma E^\mu = \sigma F^{\mu\nu}u_\nu
+\end{equation}
 donde $\sigma$ es la conductividad eléctrica escalar propia del plasma, un parámetro fenomenológico que caracteriza la tasa de disipación colisional\footnote{La asunción de una conductividad estrictamente escalar requiere que la frecuencia de colisión entre portadores de carga sea significativamente mayor que la frecuencia ciclotrónica. En regímenes donde el campo magnético es extremadamente intenso o el plasma es muy diluido, la conducción se vuelve anisotrópica y $\sigma$ debe ser reemplazado por un tensor de conductividad, dando lugar a los términos de la corriente de Hall.}. Sustituyendo esta relación constitutiva, la expresión completa para la cuadricorriente adquiere la forma:
-$$J^\mu = \rho_e u^\mu + \sigma F^{\mu\nu}u_\nu$$
+\begin{equation}
+    J^\mu = \rho_e u^\mu + \sigma F^{\mu\nu}u_\nu
+\end{equation}
 
 Es en esta ecuación donde radica la profunda diferencia física entre los regímenes magnetohidrodinámicos. En el límite ideal ($\sigma \rightarrow \infty$), para evitar que la corriente conductiva diverja hacia el infinito y destruya la conservación de la energía, el campo eléctrico comóvil debe anularse estrictamente ($E^\mu = 0 \implies F^{\mu\nu}u_\nu = 0$). Este límite congela topológicamente las líneas de campo magnético en el fluido. Por el contrario, en RRMHD, la conductividad es finita ($0 < \sigma < \infty$), permitiendo la supervivencia de un campo eléctrico en el marco de reposo, el cual propulsa la disipación resistiva (calentamiento de Joule, $j^\mu E_\mu > 0$) y habilita cambios dinámicos en la topología magnética, tales como la reconexión.
 
@@ -375,22 +385,38 @@ Es en esta ecuación donde radica la profunda diferencia física entre los regí
 \primerparrafo Aunque la ecuación $J^\mu = \rho_e u^\mu + \sigma E^\mu$ es manifiestamente covariante y físicamente completa, resulta inaplicable de manera directa en un esquema de integración numérica. Los integradores computacionales operan desde la perspectiva de un observador euleriano estacionario (la malla de simulación), el cual evoluciona exclusivamente los campos electromagnéticos tridimensionales en el laboratorio ($\mathbf{E}$ y $\mathbf{B}$) y las variables cinemáticas del fluido ($\mathbf{v}$). El campo eléctrico comóvil $E^\mu$ es una variable de estado interna del plasma, inaccesible como variable de evolución independiente para la malla. 
 
 Por lo tanto, es matemáticamente obligatorio reintegrar la definición operacional del campo comóvil ($E^\mu = F^{\mu\nu}u_\nu$) en las ecuaciones de transporte para proyectar la termodinámica de la disipación local hacia los observables del laboratorio. En el espacio-tiempo plano, las componentes de la cuadricorriente y la cuadrivelocidad relativas a la malla euleriana son:
-$$J^\mu = (\rho_q, \mathbf{J})$$
-$$u^\mu = (\Gamma, \Gamma \mathbf{v})$$
+\begin{equation}
+    J^\mu = (\rho_q, \mathbf{J})
+\end{equation}
+\begin{equation}
+    u^\mu = (\Gamma, \Gamma \mathbf{v})
+\end{equation}
 donde $\rho_q$ es la densidad de carga observable, $\mathbf{v}$ es la velocidad tridimensional del fluido, y $\Gamma = (1 - \mathbf{v}^2)^{-1/2}$ es el factor de Lorentz macroscópico. La contracción del tensor de Faraday explícito con esta cuadrivelocidad genera las componentes espacio-temporales del campo eléctrico comóvil expresado mediante variables eulerianas:
-$$E^\mu = \Big( \Gamma (\mathbf{E} \cdot \mathbf{v}), \, \Gamma (\mathbf{E} + \mathbf{v} \times \mathbf{B}) \Big)$$
+\begin{equation}
+    E^\mu = \Big( \Gamma (\mathbf{E} \cdot \mathbf{v}), \, \Gamma (\mathbf{E} + \mathbf{v} \times \mathbf{B}) \Big)
+\end{equation}
 
 Para clausurar el sistema, se despeja el vector espacial observable $\mathbf{J}$. Evaluando explícitamente la componente temporal ($\mu=0$) de la ley covariante $J^\mu = \rho_e u^\mu + \sigma E^\mu$, se vinculan las densidades de carga propia y observable:
-$$\rho_q = \rho_e \Gamma + \sigma \Gamma (\mathbf{E} \cdot \mathbf{v})$$
+\begin{equation}
+    \rho_q = \rho_e \Gamma + \sigma \Gamma (\mathbf{E} \cdot \mathbf{v})
+\end{equation}
 Despejando la densidad de carga propia $\rho_e$, la cual representa el estado interno del fluido, se obtiene:
-$$\rho_e = \frac{\rho_q}{\Gamma} - \sigma (\mathbf{E} \cdot \mathbf{v})$$
+\begin{equation}
+    \rho_e = \frac{\rho_q}{\Gamma} - \sigma (\mathbf{E} \cdot \mathbf{v})
+\end{equation}
 
 A continuación, al evaluar la componente puramente espacial ($\mu = i = 1,2,3$) de la ley covariante, surge el vector de corriente:
-$$\mathbf{J} = \rho_e \Gamma \mathbf{v} + \sigma \Gamma (\mathbf{E} + \mathbf{v} \times \mathbf{B})$$
+\begin{equation}
+    \mathbf{J} = \rho_e \Gamma \mathbf{v} + \sigma \Gamma (\mathbf{E} + \mathbf{v} \times \mathbf{B})
+\end{equation}
 Sustituyendo la expresión derivada para $\rho_e$ en este vector espacial —el paso que acopla formalmente la carga inducida por la relatividad con la conducción clásica— la dependencia de la carga propia se cancela de manera analítica:
-$$\mathbf{J} = \left[ \frac{\rho_q}{\Gamma} - \sigma (\mathbf{E} \cdot \mathbf{v}) \right] \Gamma \mathbf{v} + \sigma \Gamma (\mathbf{E} + \mathbf{v} \times \mathbf{B})$$
+\begin{equation}
+    \mathbf{J} = \left[ \frac{\rho_q}{\Gamma} - \sigma (\mathbf{E} \cdot \mathbf{v}) \right] \Gamma \mathbf{v} + \sigma \Gamma (\mathbf{E} + \mathbf{v} \times \mathbf{B})
+\end{equation}
 Agrupando términos, se obtiene finalmente:
-$$\mathbf{J} = \rho_q \mathbf{v} + \sigma \Gamma \Big[ \mathbf{E} + \mathbf{v} \times \mathbf{B} - (\mathbf{E} \cdot \mathbf{v})\mathbf{v} \Big]$$
+\begin{equation}
+    \mathbf{J} = \rho_q \mathbf{v} + \sigma \Gamma \Big[ \mathbf{E} + \mathbf{v} \times \mathbf{B} - (\mathbf{E} \cdot \mathbf{v})\mathbf{v} \Big]
+\end{equation}
 
 Esta expresión constituye la forma tridimensional cerrada de la Ley de Ohm relativista. La formulación revela analíticamente que la corriente macroscópica observada por el laboratorio no es una simple suma galileana. Es una superposición no trivial del transporte convectivo estricto ($\rho_q \mathbf{v}$) y un término de conducción fuertemente modificado por las contracciones espaciales de Lorentz (el factor $\Gamma$) y los acoplamientos transversales entre los campos. 
 

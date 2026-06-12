@@ -28,7 +28,7 @@
 \contentsline {subsection}{\numberline {2.1.5}Resumen del Sistema RRMHD en Forma Conservativa}{41}{}%
 \contentsline {section}{\numberline {2.2}Análisis de la KHI en el Límite Lineal}{43}{}%
 \contentsline {subsection}{\numberline {2.2.1}Inercia Térmica Relativista y Anisotropía Magnética}{44}{}%
-\contentsline {subsection}{\numberline {2.2.2}El Límite Resistivo y la Ruptura Topológica}{45}{}%
+\contentsline {subsection}{\numberline {2.2.2}El Límite Resistivo y la Ruptura Topológica}{44}{}%
 \contentsline {subsection}{\numberline {2.2.3}Formulación Geométrica de la Vorticidad y Enstrofía}{45}{}%
 \contentsline {subsubsection}{Enstrofía de Perturbación y Extracción de $\gamma $}{46}{}%
 \contentsline {chapter}{\numberline {3}La Inestabilidad de Kelvin--Helmholtz desde la Mecánica de Fluidos hasta la RRMHD}{49}{}%
