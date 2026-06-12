@@ -57,7 +57,7 @@
 \contentsline {subsection}{\numberline {4.2.3}El Esquema HLL Clásico y su Fracaso en Discontinuidades Tangenciales}{60}{}%
 \contentsline {section}{\numberline {4.3}Derivación del Solucionador Exacto Aproximado HLLC}{61}{}%
 \contentsline {subsection}{\numberline {4.3.1}Topología del Abanico de Riemann y el Estado Estrella ($U^*$)}{61}{}%
-\contentsline {subsection}{\numberline {4.3.2}Condiciones de Salto de Rankine-Hugoniot en el Límite Discreto}{62}{}%
+\contentsline {subsection}{\numberline {4.3.2}Condiciones de Salto de Rankine-Hugoniot en el Límite Discreto}{61}{}%
 \contentsline {subsection}{\numberline {4.3.3}Postulados de Cierre y Continuidad de Invariantes Físicos}{62}{}%
 \contentsline {subsection}{\numberline {4.3.4}Resolución Algebraica Exacta de la Onda de Contacto ($\lambda ^*$)}{62}{}%
 \contentsline {section}{\numberline {4.4}Acoplamiento Numérico con el Sistema Aumentado GLM}{63}{}%
@@ -66,7 +66,7 @@
 \contentsline {section}{\numberline {4.5}Tratamiento de la Rigidez: Esquemas IMEX-RK}{64}{}%
 \contentsline {subsection}{\numberline {4.5.1}Partición de Operadores: Integración Explícita e Implícita}{65}{}%
 \contentsline {subsection}{\numberline {4.5.2}Inversión Algebraica Local del Término de Conducción}{65}{}%
-\contentsline {section}{\numberline {4.6}Recuperación de Variables Primitivas: Solucionador Analítico 1D}{66}{}%
+\contentsline {section}{\numberline {4.6}Recuperación de Variables Primitivas: Solucionador Analítico 1D}{65}{}%
 \contentsline {section}{\numberline {4.7}Límites Asintóticos y Consistencia del Esquema}{66}{}%
 \contentsline {subsection}{\numberline {4.7.1}Colapso Analítico al Régimen de MHD Ideal ($\sigma \rightarrow \infty $)}{66}{}%
 \contentsline {subsection}{\numberline {4.7.2}Comportamiento Disipativo en el Límite Altamente Resistivo}{67}{}%

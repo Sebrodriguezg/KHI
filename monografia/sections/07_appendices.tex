@@ -35,7 +35,7 @@ El cierre no ideal es la \textbf{ley de Ohm relativista resistiva}
 -(\mathbf{E}\!\cdot\!\mathbf{V})\mathbf{V}\big]+q\,\mathbf{V}\;}
 \label{ap:eq:ohm}
 \end{equation}
-con $W$ el factor de Lorentz, $\sigma$ la conductividad y $q$ la densidad de carga. En el límite ideal $\sigma\to\infty$ la Ec.~\eqref{ap:eq:ohm} solo es finita si el corchete se anula, $\mathbf{E}=-\mathbf{V}\times\mathbf{B}$ (MHD ideal); la rigidez de ese límite obliga a un integrador IMEX-RK \parencite{miranda2014,miranda2018}. Las variables conservadas son $D=\rho W$, $\mathbf{S}=\mathbf{E}\times\mathbf{B}+\rho h\,W^2\mathbf{V}$ y $\tau=\tfrac12(E^2+B^2)+\rho h\,W^2-p$, con $\rho h=\rho(1+\varepsilon)+p$ y $\varepsilon=p/[(\Gamma-1)\rho]$. Cruzando el término rígido de la Ec.~\eqref{ap:eq:ohm} con la inversión implícita que el \textit{Cueva} resuelve para $\mathbf{E}$ (módulo \texttt{11\_elecvarint.f95}), se confirma que el código integra exactamente el sistema RRMHD de \textcite{miranda2014,miranda2018}: el parámetro $\sigma$ es la conductividad física y $\eta=1/\sigma$ la resistividad.
+con $W$ el factor de Lorentz, $\sigma$ la conductividad y $q$ la densidad de carga. En el límite ideal $\sigma\to\infty$ la Ec.~\eqref{ap:eq:ohm} solo es finita si el corchete se anula, $\mathbf{E}=-\mathbf{V}\times\mathbf{B}$ (MHD ideal); la rigidez de ese límite obliga a un integrador IMEX-RK \parencite{miranda2014,miranda-aranguren-2018}. Las variables conservadas son $D=\rho W$, $\mathbf{S}=\mathbf{E}\times\mathbf{B}+\rho h\,W^2\mathbf{V}$ y $\tau=\tfrac12(E^2+B^2)+\rho h\,W^2-p$, con $\rho h=\rho(1+\varepsilon)+p$ y $\varepsilon=p/[(\Gamma-1)\rho]$. Cruzando el término rígido de la Ec.~\eqref{ap:eq:ohm} con la inversión implícita que el \textit{Cueva} resuelve para $\mathbf{E}$ (módulo \texttt{11\_elecvarint.f95}), se confirma que el código integra exactamente el sistema RRMHD de \textcite{miranda2014,miranda-aranguren-2018}: el parámetro $\sigma$ es la conductividad física y $\eta=1/\sigma$ la resistividad.
 
 \subsection{El observable: por qué $\ln\Ozp$ crece a pendiente $2\gKHI$}
 
@@ -64,7 +64,7 @@ Se usa la rápida $v_{f\perp}$ y no el sonido porque la compresión del modo KH 
 
 \subsection{Números de Mach: la distinción $M_f$ vs $M_{re}$}
 
-\primerparrafo Los Mach simples son $M_s=\vsh/\mathcal{C}_s=0.968$, $M_{A,\parallel}=\vsh/V_{A,\parallel}=9.37$ y $M_f=\vsh/v_{f\perp}=0.723$. La teoría lineal relativista \parencite{osmanov2008,bodo-2004,chow2023} no usa el cociente simple sino el Mach \emph{relativista} de Königl, que pondera cada velocidad por su factor de Lorentz:
+\primerparrafo Los Mach simples son $M_s=\vsh/\mathcal{C}_s=0.968$, $M_{A,\parallel}=\vsh/V_{A,\parallel}=9.37$ y $M_f=\vsh/v_{f\perp}=0.723$. La teoría lineal relativista \parencite{osmanov-2008,bodo-2004,chow2023} no usa el cociente simple sino el Mach \emph{relativista} de Königl, que pondera cada velocidad por su factor de Lorentz:
 \begin{equation}
 M_{re}=\frac{\vsh}{v_{f\perp}}\sqrt{\frac{1-v_{f\perp}^2}{1-\vsh^2}}
 =0.7235\times0.8346=0.604 .

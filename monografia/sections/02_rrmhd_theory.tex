@@ -15,7 +15,7 @@ A continuación, se detallan las ecuaciones fundamentales que componen el modelo
 
 \subsubsection{El Cuadripotencial y la Definición del Tensor de Faraday}
 
-\primerparrafo Para formular la electrodinámica garantizando una estructura causal y compatible con los principios de la relatividad especial, no se introduce el campo electromagnético como un campo vectorial sino como un campo de formas diferenciales. Para conseguirlo, se empieza definiendo el cuadripotencial $A$, el cual se postula matemáticamente como una 1-forma diferencial \cite{schutz2009, misner1973}\revnota{usar \texttt{\textbackslash parencite} aquí por consistencia con el resto del documento}, la cual está definida sobre el espacio cotangente\footnote{El espacio cotangente $T^*_p\mathcal{M}$ es el espacio vectorial dual al espacio tangente $T_p\mathcal{M}$. Mientras que los vectores (como la cuadrivelocidad) habitan en el espacio tangente y representan direcciones geométricas, las 1-formas habitan en el espacio cotangente y actúan como mapas lineales que transforman vectores en escalares. Físicamente, el potencial es una 1-forma porque está diseñado para ser integrado a lo largo de la trayectoria de una partícula (un vector) para calcular la acción escalar.} de la variedad espaciotemporal $\mathcal{M}$:
+\primerparrafo Para formular la electrodinámica garantizando una estructura causal y compatible con los principios de la relatividad especial, no se introduce el campo electromagnético como un campo vectorial sino como un campo de formas diferenciales. Para conseguirlo, se empieza definiendo el cuadripotencial $A$, el cual se postula matemáticamente como una 1-forma diferencial \parencite{schutz2009, misner1973}, la cual está definida sobre el espacio cotangente\footnote{El espacio cotangente $T^*_p\mathcal{M}$ es el espacio vectorial dual al espacio tangente $T_p\mathcal{M}$. Mientras que los vectores (como la cuadrivelocidad) habitan en el espacio tangente y representan direcciones geométricas, las 1-formas habitan en el espacio cotangente y actúan como mapas lineales que transforman vectores en escalares. Físicamente, el potencial es una 1-forma porque está diseñado para ser integrado a lo largo de la trayectoria de una partícula (un vector) para calcular la acción escalar.} de la variedad espaciotemporal $\mathcal{M}$:
 \begin{equation}
     A = A_\mu dx^\mu
 \end{equation}
@@ -211,8 +211,7 @@ Para que esta estructura tensorial sea útil en la integración numérica de las
 \begin{equation}
     T^{\mu\nu}_{\text{em}} = \frac{1}{2}(E^2 + B^2) \left( u^\mu u^\nu + h^{\mu\nu} \right) - E^\mu E^\nu - B^\mu B^\nu + u^\mu S^\nu + u^\nu S^\mu
 \end{equation}
-donde hemos introducido los escalares invariantes $E^2 = E^\mu E_\mu$ y $B^2 = B^\mu B_\mu$, que representan la densidad de energía de cada campo, y el cuadrivector covariante de Poynting:%
-\revnota{el proyector $h^{\mu\nu}$ se usa aquí pero se define mucho después (Sec.~\ref{sec:Ohm_Relativista}); además colisiona con la entalpía específica $h$. Definir el proyector antes y/o distinguir notación.}
+donde hemos introducido los escalares invariantes $E^2 = E^\mu E_\mu$ y $B^2 = B^\mu B_\mu$, que representan la densidad de energía de cada campo, el proyector ortogonal $h^{\mu\nu} = \eta^{\mu\nu} + u^\mu u^\nu$\footnote{El proyector $h^{\mu\nu}$ (definido formalmente en la Sección~\ref{sec:Ohm_Relativista}) proyecta sobre el hiperplano espacial ortogonal a $u^\mu$; \emph{no} debe confundirse con la entalpía específica $h$, de la cual se distingue por sus índices tensoriales.}, y el cuadrivector covariante de Poynting:
 \begin{equation}
     S^\mu = \epsilon^{\mu\nu\alpha\beta} u_\nu E_\alpha B_\beta
 \end{equation}
@@ -421,7 +420,7 @@ Con base en la proyección euleriana de las leyes de conservación hidrodinámic
     \end{pmatrix}
 \end{equation}
 donde las variables cinemáticas conservativas están definidas a partir de las primitivas ($\rho, \mathbf{v}, p$) mediante las relaciones $D = \rho\Gamma$, $S^j = \rho h \Gamma^2 v^j$ y $\tau = \rho h \Gamma^2 - p - \rho\Gamma$.
-\revnota{INCONSISTENCIA con el apéndice: aquí $S^j$ y $\tau$ son \emph{solo fluido} (estilo Komissarov, con la fuerza de Lorentz como fuente), pero el apéndice usa $\mathbf S=\mathbf E\times\mathbf B+\rho hW^2\mathbf v$ y $\tau=\tfrac12(E^2+B^2)+\rho hW^2-p$ (incluye EM, estilo Miranda). Reconciliar contra lo que realmente hace el Cueva (\texttt{06\_conserved\_var.f95}).}
+\revnota{INCORRECTO. Verificado en \texttt{06\_conserved\_var.f95}: el Cueva usa la convención TOTAL $S^j=(\mathbf E\times\mathbf B)^j+\rho h\Gamma^2 v^j$ y $\tau=\tfrac12(E^2+B^2)+\rho h\Gamma^2-p$ (sin restar $\rho\Gamma$). Las definiciones de aquí (solo fluido) son incorrectas; el flujo y el vector fuente deben pasar también a la forma total (sin la fuerza de Lorentz como término fuente).}
 
 Los flujos espaciales $\mathbf{F}^i(\mathbf{U})$, que dictan el transporte advectivo de estas cantidades a través del dominio computacional y la propagación de las ondas electromagnéticas causales, toman la forma explícita:
 \begin{equation}
@@ -472,7 +471,7 @@ Expandiendo las perturbaciones en una base de modos normales de Fourier-Laplace,
 
 \subsection{Inercia Térmica Relativista y Anisotropía Magnética}
 
-\primerparrafo En el límite de la MHD ideal ($\delta E^\mu = 0$), la relación de dispersión revela que la condición de inestabilidad no depende únicamente de la energía cinética de la cizalladura. La tensión magnética, proveniente de la perturbación del tensor de esfuerzos de Maxwell $\delta T^{\mu\nu}_{\text{em}}$, introduce un umbral de estabilización. \parencite{goedbloed-2004A}\revnota{verificar la clave: cap.\ 1 cita \texttt{goedbloed-2004} y aquí \texttt{goedbloed-2004A}; ¿misma entrada o dos distintas?} demostraron que los modos inestables son suprimidos si el producto interno espacial $(\mathbf{k} \cdot \mathbf{B}_0)^2$ es suficientemente grande, garantizando que el trabajo necesario para curvar las líneas de campo supere la energía libre del flujo.
+\primerparrafo En el límite de la MHD ideal ($\delta E^\mu = 0$), la relación de dispersión revela que la condición de inestabilidad no depende únicamente de la energía cinética de la cizalladura. La tensión magnética, proveniente de la perturbación del tensor de esfuerzos de Maxwell $\delta T^{\mu\nu}_{\text{em}}$, introduce un umbral de estabilización. \parencite{goedbloed-2004A} demostraron que los modos inestables son suprimidos si el producto interno espacial $(\mathbf{k} \cdot \mathbf{B}_0)^2$ es suficientemente grande, garantizando que el trabajo necesario para curvar las líneas de campo supere la energía libre del flujo.
 
 Al introducir factores de Lorentz $\Gamma \gg 1$ y temperaturas ultrarrelativistas ($p \sim \rho$), el espectro de autovalores se modifica drásticamente. En el tensor de energía-momento material perturbado $\delta T^{\mu\nu}_{\text{fluid}}$, el término de inercia acopla la densidad en reposo con la termodinámica del plasma mediante la entalpía específica $h = 1 + \epsilon + p/\rho$. Este acoplamiento define la inercia efectiva transversal $w = \rho h \Gamma^2$. Matemáticamente, la divergencia de $w$ en el régimen relativista penaliza las aceleraciones ortogonales a la cizalladura. Como evidencian \parencite{osmanov-2008} y \parencite{pimentel-2019}, esto reduce asintóticamente la magnitud de la raíz imaginaria $\gamma$, estabilizando los modos de onda larga y alterando los conos de inestabilidad respecto al marco newtoniano, un factor crítico en el confinamiento de chorros extragalácticos \parencite{bucciantini-2006}.
 
@@ -525,7 +524,6 @@ lo que permite definir la enstrofía de perturbación libre de fondo como $\Omeg
 
 Durante la fase de crecimiento puramente lineal regida por la relación de dispersión, la amplitud del modo normal dominante crece cinemáticamente como $A(t) \propto e^{\gamma_{\text{KHI}}t}$. Puesto que la enstrofía es una forma cuadrática dependiente de los gradientes de perturbación ($\Omega'_z \propto A^2$), su evolución asintótica adopta la forma:
 \begin{equation}
-    \ln \Omega'_z(t) = C + 2\gamma_{\text{KHI}}\,t.
+    \ln \Omega'_z(t) = a + 2\gamma_{\text{KHI}}\,t.
 \end{equation}
-\revnota{esta constante $C$ (intercepto del ajuste log-lineal) usa el mismo símbolo que el \emph{offset} $C$ del modelo sigmoide del cap.\ de resultados; conviene renombrarla a $a$ para evitar la colisión.}
 Aplicando una regresión lineal sobre la serie temporal de este escalar de diagnóstico, extraemos la pendiente empírica $s$. La tasa de crecimiento $\gamma_{\text{KHI}} = s/2$ obtenida de este ajuste proporciona una métrica rigurosa para validar la disipación intrínseca de los flujos numéricos en la resolución de las ecuaciones RRMHD.
