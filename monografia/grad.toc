@@ -42,7 +42,7 @@
 \contentsline {section}{\numberline {3.4}La KHI en Magnetohidrodinámica Relativista (RMHD)}{53}{}%
 \contentsline {subsection}{\numberline {3.4.1}Correcciones Relativistas y Factor de Inercia}{54}{}%
 \contentsline {subsection}{\numberline {3.4.2}Implicaciones Astrofísicas}{54}{}%
-\contentsline {section}{\numberline {3.5}La KHI en el Marco de la RRMHD}{54}{}%
+\contentsline {section}{\numberline {3.5}La KHI en el Marco de la RRMHD}{55}{}%
 \contentsline {subsection}{\numberline {3.5.1}El Rol de la Resistividad y la Relajación Topológica}{55}{}%
 \contentsline {subsection}{\numberline {3.5.2}Motivación Numérica y Relevancia Computacional}{55}{}%
 \contentsline {chapter}{\numberline {4}Implementación Numérica: El Código \textit {Cueva}}{57}{}%
