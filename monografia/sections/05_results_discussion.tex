@@ -94,12 +94,13 @@ $j$ & $\sigma_j$ & Pico & $j$ & $\sigma_j$ & Pico \\
 
 \primerparrafo La fenomenología global sugiere una transición logística entre dos regímenes asintóticos: un régimen resistivo de bajo crecimiento, donde la difusión óhmica suprime la inestabilidad, y un régimen cuasi-ideal de saturación, donde la tasa converge al valor de la RMHD ideal. El sigmoide de tres parámetros $\gKHI=\gamma_0/\{1+e^{-k(\sigma-\sigma_0)}\}$ fuerza las asíntotas a $0$ (resistivo) y $\gamma_0$ (ideal). Sin embargo, los datos del régimen resistivo presentan una curvatura descendente que ese modelo no puede capturar. Liberando un \emph{offset} aditivo $C$ se obtiene el modelo de cuatro parámetros adoptado en esta monografía:
 \begin{equation}
-\boxed{\;\gKHI(\sigma)=C+\dfrac{\gamma_0}{1+\exp[-k(\sigma-\sigma_0)]}\;}
-\qquad
+\begin{gathered}
+\boxed{\;\gKHI(\sigma)=C+\dfrac{\gamma_0}{1+\exp[-k(\sigma-\sigma_0)]}\;}\\[4pt]
 \begin{cases}
-\gKHI(\sigma\!\to\!0)\to C & \text{(límite disipativo)}\\[2pt]
-\gKHI(\sigma\!\to\!\infty)\to C+\gamma_0 & \text{(límite ideal RMHD)}
+\gKHI(\sigma\!\to\!0)\to C, & \text{(límite disipativo)}\\[2pt]
+\gKHI(\sigma\!\to\!\infty)\to C+\gamma_0, & \text{(límite ideal RMHD)}
 \end{cases}
+\end{gathered}
 \label{eq:sigmoide_v6}
 \end{equation}
 Las dos asíntotas se desacoplan: $\gamma_0$ pasa a ser la \emph{amplitud} del salto sigmoidal y la tasa de crecimiento ideal física es la suma $C+\gamma_0$. El caso $C=0$ recupera el modelo de tres parámetros.
@@ -111,7 +112,8 @@ Las dos asíntotas se desacoplan: $\gamma_0$ pasa a ser la \emph{amplitud} del s
 \begin{table}[H]\centering
 \caption{Parámetros del modelo sigmoide con \emph{offset} (v6) y comparación de modelos (AIC/BIC evaluados sobre las $44$ simulaciones).}
 \label{tab:par_v6}
-\begin{tabular}{lll}
+{\small
+\begin{tabular}{l l p{4.4cm}}
 \hline
 Parámetro / cantidad & Valor & Notas\\
 \hline
@@ -122,9 +124,9 @@ $\sigma_0=\scrit$ (centro)    & $2815\pm123$ & $\gKHI=C+\gamma_0/2$\\
 $k$ (pendiente)               & $(2.83\pm0.06)\times10^{-4}$ & transición gradual\\
 $R^2$ (sobre $\sigma\ge1600$) & $0.99995$ & \\
 \hline
-$\Delta\mathrm{AIC}$ (v6 mejor)   & $-337$ (vs sub-escala), $-531$ (vs clásico) & $\gg10$: decisivo\\
+$\Delta\mathrm{AIC}$ (v6 mejor)   & $-337$,\ $-531$ & vs sub-escala y clásico ($\gg10$: decisivo)\\
 \hline
-\end{tabular}
+\end{tabular}}
 \end{table}
 
 \begin{figure}[H]\centering
