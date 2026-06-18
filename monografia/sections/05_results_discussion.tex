@@ -89,7 +89,7 @@ $j$ & $\sigma_j$ & Pico & $j$ & $\sigma_j$ & Pico \\
 \end{tabular}
 \end{table}
 
-\section{Modelo sigmoide con offset y tasa de crecimiento ideal $C+\gamma_0$}
+\section[Modelo sigmoide con \emph{offset}]{Modelo sigmoide con offset y tasa de crecimiento ideal $C+\gamma_0$}
 \label{sec:sigmoide_v6}
 
 \primerparrafo La fenomenología global sugiere una transición logística entre dos regímenes asintóticos: un régimen resistivo de bajo crecimiento, donde la difusión óhmica suprime la inestabilidad, y un régimen cuasi-ideal de saturación, donde la tasa converge al valor de la RMHD ideal. El sigmoide de tres parámetros $\gKHI=\gamma_0/\{1+e^{-k(\sigma-\sigma_0)}\}$ fuerza las asíntotas a $0$ (resistivo) y $\gamma_0$ (ideal). Sin embargo, los datos del régimen resistivo presentan una curvatura descendente que ese modelo no puede capturar. Liberando un \emph{offset} aditivo $C$ se obtiene el modelo de cuatro parámetros adoptado en esta monografía:
@@ -139,7 +139,7 @@ $\Delta\mathrm{AIC}$ (v6 mejor)   & $-337$ (vs sub-escala), $-531$ (vs clásico)
 \label{fig:3v4_v6}
 \end{figure}
 
-\paragraph{Importancia física de $C+\gamma_0$.} El valor $C+\gamma_0 = 1.03 \pm 0.05$ constituye el resultado más fundamental de este análisis: representa la tasa de crecimiento asintótica de la KHI en ausencia de disipación óhmica, es decir, en el límite de la RMHD ideal. Conviene precisar su estatus: es una \emph{inferencia paramétrica} del límite a partir de la curvatura de la transición ---no una corrida numérica directa a $\sigma\to\infty$---, pero \emph{sí} extrapola más allá del último dato (la simulación de mayor conductividad alcanza solo el $\sim85\%$ de la asíntota; véase la Sección~\ref{sec:teoria_v6}). Solo la suma $C+\gamma_0$ tiene lectura física limpia: $\gamma_0$ y $C$ quedan parcialmente degenerados (entre el ajuste a $\sigma\ge1600$ y el de las $44$ simulaciones, $\gamma_0$ varía un $18\%$ mientras $C+\gamma_0$ apenas un $3.9\%$). Por debajo de $\sigma_{\min}$ el modelo se aproxima a $C<0$, que codifica \emph{amortiguamiento neto} en el límite de alta disipación; conviene leerlo como ``el límite disipativo es consistente con amortiguamiento neto'', pues los datos no alcanzan $\gKHI<0$ ($\gKHI_{\min}\approx0.05$). Este es el valor de la tasa ideal que se adopta como referencia y que se justifica frente a la teoría lineal en la Sección~\ref{sec:teoria_v6}.
+\primerparrafo El valor $C+\gamma_0 = 1.03 \pm 0.05$ constituye el resultado más fundamental de este análisis: representa la tasa de crecimiento asintótica de la KHI en ausencia de disipación óhmica, es decir, en el límite de la RMHD ideal. Conviene precisar su estatus: es una \emph{inferencia paramétrica} del límite a partir de la curvatura de la transición ---no una corrida numérica directa a $\sigma\to\infty$---, pero \emph{sí} extrapola más allá del último dato (la simulación de mayor conductividad alcanza solo el $\sim85\%$ de la asíntota; véase la Sección~\ref{sec:teoria_v6}). Solo la suma $C+\gamma_0$ tiene lectura física limpia: $\gamma_0$ y $C$ quedan parcialmente degenerados (entre el ajuste a $\sigma\ge1600$ y el de las $44$ simulaciones, $\gamma_0$ varía un $18\%$ mientras $C+\gamma_0$ apenas un $3.9\%$). Por debajo de $\sigma_{\min}$ el modelo se aproxima a $C<0$, que codifica \emph{amortiguamiento neto} en el límite de alta disipación; conviene leerlo como ``el límite disipativo es consistente con amortiguamiento neto'', pues los datos no alcanzan $\gKHI<0$ (el mínimo medido es $\approx0.05$). Este es el valor de la tasa ideal que se adopta como referencia y que se justifica frente a la teoría lineal en la Sección~\ref{sec:teoria_v6}.
 
 \section{Validación estadística del modelo}
 \label{sec:validacion_v6}
@@ -157,7 +157,7 @@ $\Delta\mathrm{AIC}$ (v6 mejor)   & $-337$ (vs sub-escala), $-531$ (vs clásico)
 \label{fig:holdout_v6}
 \end{figure}
 
-\section{Conductividad crítica $\scrit$ y sus tres fuentes de incertidumbre}
+\section[Conductividad crítica $\scrit$]{Conductividad crítica $\scrit$ y sus tres fuentes de incertidumbre}
 \label{sec:scrit_v6}
 
 \primerparrafo Se construyen cuatro estimadores de $\scrit$ sobre tres observables (Fig.~\ref{fig:est_v6}). La conductividad crítica \textbf{no} es un número fino: su incertidumbre tiene \textbf{tres fuentes independientes}, no una.
@@ -220,11 +220,11 @@ Piso de lámina Sweet--Parker única ($\propto\sigma^{1/2}$) & $0.5$ & --- \\
 \label{fig:omega_max_pot}
 \end{figure}
 
-\paragraph{Origen físico de la pendiente: reconexión y \emph{tearing}.} La pendiente empírica $\alpha_{\mathrm{exp}}\approx1.22$ no proviene de la teoría lineal de la KHI ---que describe $\gKHI$ (Sección~\ref{sec:teoria_v6}), no la enstrofía de saturación---, sino de la fase \emph{no lineal} dominada por la disipación resistiva. Durante el enrollamiento de los vórtices primarios, la tensión magnética estira y aproxima líneas de campo de polaridad opuesta, formando láminas de corriente delgadas donde se dispara la reconexión magnética. El modelo estacionario de Sweet--Parker \parencite{parker1957} fija el espesor de esas láminas en $\delta\propto S^{-1/2}$, con $S$ el número de Lundquist ($S\propto\sigma$; en este montaje $S\simeq21\,\Rmst$). Si la enstrofía máxima estuviera concentrada en una \emph{única} lámina ($\omega\sim\Delta V/\delta$ sobre un área $\sim\delta\,L$), se tendría $\Omaxzp\sim\Delta V^2 L/\delta\propto\sigma^{1/2}$: ese es el \emph{piso} de lámina única, $\alpha=0.5$. Este escalamiento $\propto\sigma^{-1/2}$ del espesor (y la tasa de reconexión asociada) se preserva en el régimen relativista, como demostró analíticamente \textcite{lyubarsky2005} para la reconexión Sweet--Parker en RRMHD, lo que legitima aplicarlo a este sistema.
+\primerparrafo La pendiente empírica $\alpha_{\mathrm{exp}}\approx1.22$ no proviene de la teoría lineal de la KHI ---que describe $\gKHI$ (Sección~\ref{sec:teoria_v6}), no la enstrofía de saturación---, sino de la fase \emph{no lineal} dominada por la disipación resistiva. Durante el enrollamiento de los vórtices primarios, la tensión magnética estira y aproxima líneas de campo de polaridad opuesta, formando láminas de corriente delgadas donde se dispara la reconexión magnética. El modelo estacionario de Sweet--Parker \parencite{parker1957} fija el espesor de esas láminas en $\delta\propto S^{-1/2}$, con $S$ el número de Lundquist ($S\propto\sigma$; en este montaje $S\simeq21\,\Rmst$). Si la enstrofía máxima estuviera concentrada en una \emph{única} lámina ($\omega\sim\Delta V/\delta$ sobre un área $\sim\delta\,L$), se tendría $\Omaxzp\sim\Delta V^2 L/\delta\propto\sigma^{1/2}$: ese es el \emph{piso} de lámina única, $\alpha=0.5$. Este escalamiento $\propto\sigma^{-1/2}$ del espesor (y la tasa de reconexión asociada) se preserva en el régimen relativista, como demostró analíticamente \textcite{lyubarsky2005} para la reconexión Sweet--Parker en RRMHD, lo que legitima aplicarlo a este sistema.
 
 \primerparrafo El valor medido, $\alpha\approx1.22>0.5$, \emph{excede} ese piso de lámina única por un factor $\sim2.4$ (cociente de exponentes $1.22/0.5$). La interpretación física es directa: la enstrofía crece más rápido que lo que aportaría una lámina única porque la lámina primaria es a su vez inestable y se fragmenta en una cascada de islas y sub-láminas magnéticas (modo \emph{tearing}, \parencite{furth1963}), multiplicando la superficie disipativa efectiva. Así, el exponente $\alpha\approx1.2$ es la firma fenomenológica de la reconexión resistiva no lineal con \emph{tearing} secundario ---consistente, además, con la inyección de enstrofía por inestabilidades secundarias sobre los vórtices enrollados \parencite{nastro2022}. Una derivación cuantitativa exacta del exponente exige resolver esa jerarquía de láminas de corriente con alta fidelidad numérica ---para lo que los esquemas Res-RMHD de alto orden, que minimizan la disipación numérica frente a la física \parencite{mignone2024}, son la herramienta idónea--- y queda como trabajo futuro.
 
-\section{Variables globales: campos, corrientes y estructuras secundarias}
+\section[Variables globales y estructuras secundarias]{Variables globales: campos, corrientes y estructuras secundarias}
 \label{sec:globales}
 
 \primerparrafo El análisis precedente se centró en la tasa de crecimiento lineal $\gKHI$. Para completar la caracterización del efecto de la difusión magnética, esta sección examina cómo la conductividad gobierna las \emph{variables globales} del campo electromagnético ---densidad de corriente, disipación y energía magnética--- y el desarrollo de \emph{estructuras secundarias} fuera del plano, evaluando los diagnósticos integrados sobre todas las simulaciones del barrido.
@@ -251,7 +251,7 @@ Piso de lámina Sweet--Parker única ($\propto\sigma^{1/2}$) & $0.5$ & --- \\
 
 \primerparrafo En conjunto, estos diagnósticos globales cierran los objetivos de caracterizar el efecto de la difusión magnética sobre los campos ($J_{\max}$, energía magnética, disipación) y sobre la formación de estructuras secundarias ($f_{Vz}$, $\Omega_{\mathrm{tot}}$): la conductividad no solo fija la tasa de crecimiento lineal, sino que controla la intensidad de las láminas de corriente, el balance energético electromagnético y la anisotropía tridimensional emergente del flujo.
 
-\section{Contraste con la teoría lineal: justificación de la tasa ideal}
+\section{Contraste con la teoría lineal}
 \label{sec:teoria_v6}
 
 \primerparrafo La asíntota ideal $C+\gamma_0\approx1.03$ no es un número aislado: se justifica cuantitativamente frente a la teoría lineal de la KHI. La comparación se hace en la tasa adimensional $\what=\gKHI\,\akh/\vsh=\gKHI/10$, de modo que $C+\gamma_0\approx1.03$ corresponde a $\what\approx0.103$.
@@ -283,7 +283,7 @@ Piso de lámina Sweet--Parker única ($\propto\sigma^{1/2}$) & $0.5$ & --- \\
 \boxed{\ \what_{\mathrm{RMHD}}=0.095\ }\qquad\text{(modo excitado, $ka=0.314$)},
 \label{eq:what_rmhd}
 \end{equation}
-notablemente \emph{en el pico} de la curva compresible. El valor \textbf{medido} $\what=(C+\gamma_0)\akh/\vsh=0.103$ coincide con esta predicción dentro del $\boldsymbol{8\%}$, \emph{sin} factorización ni ajuste. (Con la velocidad del sonido en lugar de la magnetosónica el crecimiento colapsaría a $\what\approx0.016$: es la presión de $B_z$ la que sostiene la inestabilidad.)
+notablemente \emph{en el pico} de la curva compresible. El valor \textbf{medido} $\what=(C+\gamma_0)\akh/\vsh=0.103$ coincide con esta predicción dentro del \textbf{8\%}, \emph{sin} factorización ni ajuste. (Con la velocidad del sonido en lugar de la magnetosónica el crecimiento colapsaría a $\what\approx0.016$: es la presión de $B_z$ la que sostiene la inestabilidad.)
 
 \begin{figure}[H]\centering
 \includegraphics[width=0.74\textwidth]{figuras/fig9_compresible.pdf}
@@ -296,12 +296,13 @@ notablemente \emph{en el pico} de la curva compresible. El valor \textbf{medido}
 \begin{table}[H]\centering
 \caption{Velocidades (relativistas, $c=1$) y números de Mach del montaje. $M_{re}$ es el Mach relativista efectivo de Königl, al que se aplica el criterio de inestabilidad $0<M_{re}<\sqrt2$.}
 \label{tab:mach_v6}
+{\small\setlength{\tabcolsep}{4pt}
 \begin{tabular}{llll}
 \hline
 $C_s=0.516$ & $V_{A,\mathrm{tot}}=0.536$ & $V_{A,\parallel}(B_y)=0.053$ & $v_{f\perp}=0.691$\\
 $M_s=\vsh/C_s=0.97$ & $M_{A,\parallel}=9.4$ & $M_f=\vsh/v_{f\perp}=0.72$ & $M_{re}=0.60<\sqrt{2}$\\
 \hline
-\end{tabular}
+\end{tabular}}
 \end{table}
 \noindent Dos lecturas clave: (a)~$M_{A,\parallel}=9.4$ (super-Alfvénico) $\Rightarrow$ la \emph{tensión} magnética en el plano es despreciable y la KHI es esencialmente hidrodinámica; el campo $B_z$ es guía (presión, no tensión). (b)~$M_s=0.97$ (casi sónico) $\Rightarrow$ la compresibilidad es fuerte y reduce el crecimiento, lo que explica que el valor medido sea $0.54\times$ el techo incompresible. $M_{re}=0.60<\sqrt{2}$ confirma que el sistema es linealmente inestable, lejos del umbral de estabilización ---sin extrapolación.
 
@@ -326,11 +327,12 @@ $M_s=\vsh/C_s=0.97$ & $M_{A,\parallel}=9.4$ & $M_f=\vsh/v_{f\perp}=0.72$ & $M_{r
 
 \primerparrafo La KHI 2D \emph{ideal} conserva la enstrofía y carece de límite de convergencia con la resolución: el ruido numérico siembra inestabilidades secundarias espurias de longitud de onda arbitrariamente pequeña, como demostraron \textcite{lecoanet2016}. Una tasa de crecimiento de enstrofía \emph{físicamente reproducible} exige difusión explícita. Esto \textbf{justifica el diseño completo del estudio}: la resistividad finita ($\eta=1/\sigma$) del marco RRMHD es la que vuelve bien planteado el problema y dota a $\gKHI(\sigma)$ de significado físico convergente. El límite ideal ($\sigma\to\infty$) se \emph{aproxima} mediante la asíntota $C+\gamma_0$, pero son las corridas resistivas las que constituyen el problema bien planteado.
 
-\paragraph{Alcance de la validación.} Conviene ser preciso: lo aquí establecido es una \textbf{consistencia cuantitativa fuerte}, no una validación cerrada del valor preciso del límite ideal. La asíntota $C+\gamma_0$ es una \emph{extrapolación} ---el dato de mayor conductividad ($\sigma=10500$, $\Rmst\approx262$) alcanza $\gKHI\approx0.88$, solo el $85\%$ de la asíntota--- y la predicción teórica $\what=0.095$ usa la velocidad magnetosónica efectiva, no la relación de dispersión RMHD completa. La \textbf{prueba decisiva} sería medir el plateau directamente con $2$--$3$ simulaciones a mayor conductividad ($\Rmst\gtrsim500$): si caen sobre $\gKHI\approx1.0$, la extrapolación se convierte en medición. Esto queda como trabajo futuro de máxima prioridad.
+\primerparrafo Conviene ser preciso: lo aquí establecido es una consistencia cuantitativa fuerte, no una validación cerrada del valor preciso del límite ideal. La asíntota $C+\gamma_0$ es una \emph{extrapolación} ---el dato de mayor conductividad ($\sigma=10500$, $\Rmst\approx262$) alcanza $\gKHI\approx0.88$, solo el $85\%$ de la asíntota--- y la predicción teórica $\what=0.095$ usa la velocidad magnetosónica efectiva, no la relación de dispersión RMHD completa. La prueba decisiva\revnota{TONO (revisor): ``prueba decisiva'' suena tajante y no sabemos si lo será; considerar ``una prueba más exhaustiva''.} sería medir el plateau directamente con $2$--$3$ simulaciones a mayor conductividad ($\Rmst\gtrsim500$): si caen sobre $\gKHI\approx1.0$, la extrapolación se convierte en medición. Esto queda como trabajo futuro de máxima prioridad.
 
 \section{Limitaciones del análisis y perspectivas}
 \label{sec:limitaciones}
 
+\revnota{TONO (revisor): esta sección suena a IA y da por seguro que las pruebas futuras ``arreglarían'' las discrepancias; en realidad no se sabe. Reescribir en condicional/posibilidades (``podría'', ``permitiría'') en vez de certezas, y revisar el uso de ``prueba decisiva''/``máxima prioridad''.}%
 \primerparrafo La consistencia cuantitativa lograda no agota el espacio de causas físicas que diferencian las predicciones lineales canónicas de los resultados experimentales. A continuación se sintetizan los principales factores cuyo análisis sistemático queda pendiente:
 \begin{itemize}
 \item \textbf{Medición directa del plateau ideal}: la prueba decisiva de la asíntota $C+\gamma_0$ requiere $2$--$3$ simulaciones a $\Rmst\gtrsim500$ ($\sigma\sim20000$--$30000$); el modelo predice $\gKHI\approx1.02$--$1.03$. A esas conductividades la recuperación de variables primitivas se vuelve delicada y las hojas resistivas exigen mayor resolución.

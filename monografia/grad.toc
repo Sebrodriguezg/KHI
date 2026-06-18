@@ -31,7 +31,7 @@
 \contentsline {subsection}{\numberline {2.2.2}El Límite Resistivo y la Ruptura Topológica}{44}{}%
 \contentsline {subsection}{\numberline {2.2.3}Formulación Geométrica de la Vorticidad y Enstrofía}{45}{}%
 \contentsline {subsubsection}{Enstrofía de Perturbación y Extracción de $\gamma $}{46}{}%
-\contentsline {chapter}{\numberline {3}La Inestabilidad de Kelvin--Helmholtz desde la Mecánica de Fluidos hasta la RRMHD}{49}{}%
+\contentsline {chapter}{\numberline {3}La inestabilidad de Kelvin--Helmholtz}{49}{}%
 \contentsline {section}{\numberline {3.1}Descripción Física General de la Inestabilidad}{49}{}%
 \contentsline {section}{\numberline {3.2}La KHI en Mecánica de Fluidos Clásica}{50}{}%
 \contentsline {subsection}{\numberline {3.2.1}Planteamiento Hidrodinámico}{50}{}%
@@ -64,9 +64,9 @@
 \contentsline {subsection}{\numberline {4.4.1}Estructura Espectral de los Potenciales Auxiliares}{63}{}%
 \contentsline {subsection}{\numberline {4.4.2}Flujos Intermedios y Amortiguamiento Fenomenológico}{64}{}%
 \contentsline {section}{\numberline {4.5}Tratamiento de la Rigidez: Esquemas IMEX-RK}{64}{}%
-\contentsline {subsection}{\numberline {4.5.1}Partición de Operadores: Integración Explícita e Implícita}{65}{}%
+\contentsline {subsection}{\numberline {4.5.1}Partición de Operadores: Integración Explícita e Implícita}{64}{}%
 \contentsline {subsection}{\numberline {4.5.2}Inversión Algebraica Local del Término de Conducción}{65}{}%
-\contentsline {section}{\numberline {4.6}Recuperación de Variables Primitivas: Solucionador Analítico 1D}{65}{}%
+\contentsline {section}{\numberline {4.6}Recuperación de Variables Primitivas}{65}{}%
 \contentsline {section}{\numberline {4.7}Límites Asintóticos y Consistencia del Esquema}{66}{}%
 \contentsline {subsection}{\numberline {4.7.1}Colapso Analítico al Régimen de MHD Ideal ($\sigma \rightarrow \infty $)}{66}{}%
 \contentsline {subsection}{\numberline {4.7.2}Comportamiento Disipativo en el Límite Altamente Resistivo}{67}{}%
@@ -77,29 +77,26 @@
 \contentsline {paragraph}{Sistema de unidades y equivalencia temporal.}{71}{}%
 \contentsline {subsection}{\numberline {5.1.3}Exploración del Espacio de Parámetros: Resistividad}{72}{}%
 \contentsline {subsection}{\numberline {5.1.4}Variables de Control y Diagnóstico}{73}{}%
-\contentsline {chapter}{\numberline {6}Resultados de la Simulación y Análisis de la KHI}{77}{}%
+\contentsline {chapter}{\numberline {6}Resultados y análisis de la KHI}{77}{}%
 \contentsline {section}{\numberline {6.1}Visión global del barrido paramétrico}{77}{}%
 \contentsline {subsection}{\numberline {6.1.1}Trayectorias temporales del barrido}{78}{}%
 \contentsline {subsection}{\numberline {6.1.2}Extracción de la tasa de crecimiento y calidad del ajuste lineal}{79}{}%
 \contentsline {subsection}{\numberline {6.1.3}Tabla canónica del barrido en conductividad}{80}{}%
-\contentsline {section}{\numberline {6.2}Modelo sigmoide con offset y tasa de crecimiento ideal $C+\gamma _0$}{81}{}%
+\contentsline {section}{\numberline {6.2}Modelo sigmoide con \emph {offset}}{81}{}%
 \contentsline {subsection}{\numberline {6.2.1}Resultados del ajuste}{82}{}%
-\contentsline {paragraph}{Importancia física de $C+\gamma _0$.}{84}{}%
 \contentsline {section}{\numberline {6.3}Validación estadística del modelo}{85}{}%
-\contentsline {section}{\numberline {6.4}Conductividad crítica $\sigma _{\mathrm {crit}}$ y sus tres fuentes de incertidumbre}{86}{}%
+\contentsline {section}{\numberline {6.4}Conductividad crítica $\sigma _{\mathrm {crit}}$}{86}{}%
 \contentsline {section}{\numberline {6.5}Leyes de potencia para $\Omega _{zp}^{\mathop {\mathgroup \symoperators m\acute {a}x}}(\sigma )$}{88}{}%
-\contentsline {paragraph}{Origen físico de la pendiente: reconexión y \emph {tearing}.}{89}{}%
-\contentsline {section}{\numberline {6.6}Variables globales: campos, corrientes y estructuras secundarias}{89}{}%
+\contentsline {section}{\numberline {6.6}Variables globales y estructuras secundarias}{89}{}%
 \contentsline {subsection}{\numberline {6.6.1}Corrientes, disipación y energía magnética}{90}{}%
 \contentsline {subsection}{\numberline {6.6.2}Estructuras secundarias y anisotropía fuera del plano}{90}{}%
-\contentsline {section}{\numberline {6.7}Contraste con la teoría lineal: justificación de la tasa ideal}{91}{}%
+\contentsline {section}{\numberline {6.7}Contraste con la teoría lineal}{91}{}%
 \contentsline {subsection}{\numberline {6.7.1}Techo hidrodinámico inviscido (ecuación de Rayleigh)}{91}{}%
 \contentsline {subsection}{\numberline {6.7.2}El carácter dual del montaje no altera el techo}{92}{}%
 \contentsline {subsection}{\numberline {6.7.3}Predicción RMHD compresible (Lees--Lin)}{93}{}%
 \contentsline {subsection}{\numberline {6.7.4}Velocidades características y números de Mach}{94}{}%
 \contentsline {subsection}{\numberline {6.7.5}Contraste con los marcos MHD, RMHD y RRMHD}{95}{}%
 \contentsline {subsection}{\numberline {6.7.6}Buen planteamiento y papel de la resistividad}{96}{}%
-\contentsline {paragraph}{Alcance de la validación.}{96}{}%
 \contentsline {section}{\numberline {6.8}Limitaciones del análisis y perspectivas}{97}{}%
 \contentsline {chapter}{\numberline {7}Conclusiones y Perspectivas Futuras}{99}{}%
 \contentsline {section}{\numberline {7.1}Conclusiones por objetivo}{99}{}%

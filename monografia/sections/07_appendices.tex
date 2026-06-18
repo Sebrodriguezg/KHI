@@ -56,9 +56,11 @@ De ahí el factor $2$: se ajusta una recta a $\ln\Ozp$ en la ventana canónica $
 \end{equation}
 Nótese el denominador $\rho h$ (no $\rho$): es la corrección relativista que el límite clásico pierde. Con $B^2=B_y^2+B_z^2=0.02+2=2.02$, las velocidades de Alfvén (total y paralela al flujo) y la magnetosónica rápida perpendicular son
 \begin{equation}
-V_A=\sqrt{\frac{B^2}{\rho h+B^2}}=0.5364,\quad
-V_{A,\parallel}=\sqrt{\frac{B_y^2}{\rho h+B^2}}=0.0534,\quad
-v_{f\perp}^2=V_A^2+\mathcal{C}_s^2(1-V_A^2)\Rightarrow v_{f\perp}=0.6911 .
+\begin{aligned}
+V_A&=\sqrt{\frac{B^2}{\rho h+B^2}}=0.5364, \qquad
+V_{A,\parallel}=\sqrt{\frac{B_y^2}{\rho h+B^2}}=0.0534,\\[2pt]
+v_{f\perp}^2&=V_A^2+\mathcal{C}_s^2(1-V_A^2)\;\Rightarrow\; v_{f\perp}=0.6911 .
+\end{aligned}
 \end{equation}
 Se usa la rápida $v_{f\perp}$ y no el sonido porque la compresión del modo KH ocurre en el plano $x$--$y$ y $B_z$ es perpendicular a ese plano: su presión magnética se suma a la del gas. Es lo que \textcite{chow2023} formaliza para $\cos\theta=1$ (``presión pero no tensión'').
 
@@ -102,8 +104,10 @@ que cae \emph{en el pico} de la curva compresible. \textbf{Control negativo:} co
 
 \primerparrafo En el límite de interfaz delgada, en cada semiespacio la perturbación de presión satisface la ecuación de onda convectada relativista; pasando al marco comóvil con cada flujo $U_i=\pm v$ e imponiendo continuidad de la presión total y del desplazamiento normal, se obtiene la relación de dispersión
 \begin{equation}
-\frac{\gamma_1^2(\omega-U_1k)^2}{a_1}+\frac{\gamma_2^2(\omega-U_2k)^2}{a_2}=0,
-\qquad a_i^2=\gamma_i^2\Big[(k-U_i\omega)^2-\frac{(\omega-U_ik)^2}{c_s^2}\Big] .
+\begin{aligned}
+&\frac{\gamma_1^2(\omega-U_1k)^2}{a_1}+\frac{\gamma_2^2(\omega-U_2k)^2}{a_2}=0,\\[2pt]
+&\text{con}\quad a_i^2=\gamma_i^2\Big[(k-U_i\omega)^2-\frac{(\omega-U_ik)^2}{c_s^2}\Big] .
+\end{aligned}
 \label{ap:eq:DR}
 \end{equation}
 Sus dos límites la validan: (i)~incompresible clásico ($c_s\to\infty$, $v\to0$) da $\Gamma/k\to v$ (KH clásico); (ii)~compresible no relativista da estabilización exacta en $v/c_s=\sqrt2$, el umbral de \textcite{landau1944}, base de la cota relativista $0<M_{re}<\sqrt2$ \parencite{bodo-2004,chow2023}. Que el mismo código reproduzca Michalke (espesor finito) y Landau (\emph{vortex sheet}) es la doble validación de la maquinaria.
@@ -113,15 +117,17 @@ Sus dos límites la validan: (i)~incompresible clásico ($c_s\to\infty$, $v\to0$
 
 \primerparrafo Los cuatro estimadores (Tabla~\ref{tab:est_v6}) son: M1 inflexión de $\gKHI(\sigma)$ ($6800\pm2625$); M2 inflexión de $\Omaxzp(\sigma)$ ($3400\pm2175$); M3 inflexión de $t_{\rm peak}(\sigma)$ ($6000\pm1147$); M4 centro $\sigma_0$ del sigmoide con \emph{offset} ($2815\pm123$). La incertidumbre de cada inflexión es $\delta\sigma=\max(\sigma_{\rm jk},w)$, con $\sigma_{\rm jk}$ el error \emph{jackknife} (escalado $\times\sqrt{n-1}$) y $w$ el semiancho del pico. El consenso ponderado por inverso de la varianza,
 \begin{equation}
-\scrit=\frac{\sum_i \sigma_i/\delta\sigma_i^2}{\sum_i 1/\delta\sigma_i^2}=2861,
-\qquad
-\delta\scrit=\Big(\sum_i 1/\delta\sigma_i^2\Big)^{-1/2}=122,
+\begin{aligned}
+\scrit&=\frac{\sum_i \sigma_i/\delta\sigma_i^2}{\sum_i 1/\delta\sigma_i^2}=2861,\\[2pt]
+\delta\scrit&=\Big(\sum_i 1/\delta\sigma_i^2\Big)^{-1/2}=122,
+\end{aligned}
 \end{equation}
 está dominado por M4 ($98\%$ del peso). La media aritmética es $4754\pm1944$; esta banda ($\pm1944$) es la honesta. Para la selección de modelo, con residuos gaussianos $\mathrm{AIC}=N\ln(\mathrm{RSS}/N)+2\kappa$: el modelo con \emph{offset} ($\kappa=4$) gana al de sub-escala por $\Delta\mathrm{AIC}\approx-337$ y al clásico por $-531$ ($|\Delta|\gg10$: decisivo).
 
 \subsection{Veredicto: validez teórica del montaje}
 \label{ap:veredicto}
 
+\revnota{REVISAR (revisor): esta subsección repite la discusión de robustez/consistencia ya hecha (con más detalle) en el cap.\ de Resultados (\S\ref{sec:teoria_v6}). Considerar recortarla a una síntesis breve específica del apéndice o eliminarla para no duplicar.}%
 \primerparrafo La Tabla~\ref{ap:tab:sintesis} sintetiza la verificación independiente. El \textit{Cueva}, en \texttt{TEST=35}, produce una KHI cuya tasa de crecimiento lineal es \textbf{consistente con la predicción de la teoría lineal RMHD compresible} (dentro del $8\%$) y cae \textbf{dentro de la región de inestabilidad relativista} ($M_{re}=0.60<\sqrt2$, sin extrapolación). El déficit respecto al techo hidrodinámico no es un error del código: es el efecto físico de compresibilidad relativista sostenido por la presión del campo guía $B_z$. La resistividad finita del marco RRMHD es además lo que vuelve bien planteado el problema \parencite{lecoanet2016}. El valor preciso de la asíntota ideal $C+\gamma_0$ es, no obstante, una \emph{extrapolación respaldada por consistencia}, no un plateau medido; su confirmación cerrada requiere las simulaciones a $\Rmst\gtrsim500$.
 
 \begin{table}[H]\centering\small

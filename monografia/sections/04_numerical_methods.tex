@@ -174,7 +174,7 @@ Donde las matrices triangulares de Butcher $\tilde{A} = (\tilde{a}_{ij})$ y $A =
 \end{equation}
 donde $\alpha = a_{ii} \Delta t$ y $\mathbf{E}^*$ acumula los subpasos previos. La inversión de esta relación tensorial en $3 \times 3$ arroja una solución analítica explícita para la actualización, suprimiendo la necesidad de iteradores matriciales intrincados para el campo electrodinámico.
 
-\section{Recuperación de Variables Primitivas: Solucionador Analítico 1D}
+\section[Recuperación de Variables Primitivas]{Recuperación de Variables Primitivas: Solucionador Analítico 1D}
 \label{sec:Recuperacion_Primitivas}
 
 \primerparrafo A diferencia de los códigos fluidos clásicos, la actualización de $\mathbf{U} \to \mathbf{U}^{n+1}$ no garantiza el conocimiento inmediato del estado dinámico del plasma. Los flujos HLLC $\mathbf{F}(\mathbf{P})$ están condicionados por el vector de variables primitivas $\mathbf{P} = (\rho, v^j, p, B^j, E^j)^T$. En RRMHD, la dependencia cruzada del factor de Lorentz inercial $\Gamma = (1 - \mathbf{v}^2)^{-1/2}$ enclava las ecuaciones en un mapeo $\mathbf{U}(\mathbf{P})$ que carece de inversa analítica.

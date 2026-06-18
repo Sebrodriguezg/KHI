@@ -30,6 +30,7 @@
 \usepackage{float}                      % For the [H] float placement specifier
 \usepackage{longtable}                  % For multi-page tables
 \usepackage{enumitem}                   % For list/description formatting (glosario)
+\setlist{noitemsep, topsep=4pt}         % Listas compactas (evita los huecos de parskip)
 \usepackage{xcolor}                     % For colored review notes
 % Nota de revisión (visible en rojo). Para quitarlas todas: redefinir como {}.
 \newcommand{\revnota}[1]{{\color{red}\small\textsf{[REV: #1]}}}
@@ -108,7 +109,7 @@
 \label{ch:rrmhd_theory}
 \input{sections/02_rrmhd_theory.tex}
 
-\chapter{La Inestabilidad de Kelvin--Helmholtz desde la Mecánica de Fluidos hasta la RRMHD}
+\chapter[La inestabilidad de Kelvin--Helmholtz]{La inestabilidad de Kelvin--Helmholtz: de la hidrodinámica clásica a la RRMHD}
 \label{ch:khi}
 \input{sections/03_KHI.tex}
 
@@ -121,7 +122,7 @@
 \input{sections/setup_exp.tex}
 
 
-\chapter{Resultados de la Simulación y Análisis de la KHI}
+\chapter[Resultados y análisis de la KHI]{Resultados de la Simulación y Análisis de la KHI}
 \label{ch:results_discussion}
 \input{sections/05_results_discussion.tex}
 

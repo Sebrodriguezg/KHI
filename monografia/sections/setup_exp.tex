@@ -48,8 +48,10 @@ con amplitud modulada $V_0 = 1.0$, número de onda $k_{kh} = 2\pi/L_y$ (modo fun
 
 El perfil de densidad sigue la configuración canónica Mizuno-like: el flujo central (interior, $|x|<0.5$) presenta densidad baja, mientras que las regiones externas mantienen una densidad mayor. La transición se construye mediante una ventana suave a partir de funciones tangentes hiperbólicas:
 \begin{equation}
-    \rho(x) = \rho_{lo} + (\rho_{up} - \rho_{lo})\left[\,1 - W(x)\,\right],\qquad
-    W(x) = \tfrac{1}{2}\!\left[1 + \tanh\!\left(\tfrac{x+0.5}{a_{kh}}\right)\right]\!\cdot\!\tfrac{1}{2}\!\left[1 - \tanh\!\left(\tfrac{x-0.5}{a_{kh}}\right)\right]
+\begin{aligned}
+    \rho(x) &= \rho_{lo} + (\rho_{up} - \rho_{lo})\left[\,1 - W(x)\,\right],\\[2pt]
+    W(x) &= \tfrac{1}{2}\!\left[1 + \tanh\!\left(\tfrac{x+0.5}{a_{kh}}\right)\right]\!\cdot\!\tfrac{1}{2}\!\left[1 - \tanh\!\left(\tfrac{x-0.5}{a_{kh}}\right)\right]
+\end{aligned}
     \label{eq:rho_profile}
 \end{equation}
 con $\rho_{up} = 1.0$ y $\rho_{lo} = 0.1\,\rho_{up}$, lo que implica un contraste de densidad $\eta_\rho = \rho_{lo}/\rho_{up} = 0.1$ entre el flujo central y el ambiente envolvente. La presión térmica se asume inicialmente uniforme en todo el dominio con $P_0 = 1.0$, evitando así la inyección espuria de modos magnetoacústicos asociados a gradientes de presión iniciales.
