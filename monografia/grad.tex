@@ -19,6 +19,10 @@
               % en mitad de página; las páginas terminan con borde inferior natural.
 \setlength{\intextsep}{14pt plus 3pt minus 2pt}   % aire alrededor de floats [H]/en texto
 \setlength{\textfloatsep}{16pt plus 3pt minus 2pt} % (evita tablas/figuras pegadas al texto)
+% La clase book deja \belowcaptionskip=0pt: en tablas (leyenda arriba) el cuerpo
+% queda pegado a la leyenda. Damos aire leyenda<->cuerpo (tablas) y leyenda<->texto (figuras).
+\setlength{\abovecaptionskip}{10pt}
+\setlength{\belowcaptionskip}{8pt}
 
 
 % --- Mathematics Packages ---
