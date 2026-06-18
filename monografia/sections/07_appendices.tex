@@ -29,7 +29,7 @@
 \end{aligned}
 \label{ap:eq:rrmhd}
 \end{equation}
-El cierre no ideal es la \textbf{ley de Ohm relativista resistiva}
+El cierre no ideal es la ley de Ohm relativista resistiva
 \begin{equation}
 \boxed{\;\mathbf{J}=\sigma W\big[\mathbf{E}+\mathbf{V}\times\mathbf{B}
 -(\mathbf{E}\!\cdot\!\mathbf{V})\mathbf{V}\big]+q\,\mathbf{V}\;}
@@ -93,7 +93,7 @@ Adimensionalizando con $\akh$ y tomando $U=\tanh x$, la Ec.~\eqref{ap:eq:rayleig
 \qquad \alpha=ka,\;U=\tanh x .
 \label{ap:eq:leeslin}
 \end{equation}
-El término $(U-c)^2/c_s^2$ es la corrección compresible: cuando $|U-c|\to c_s$ el modo se vuelve sónico y el crecimiento se suprime (germen del umbral de Landau). Multiplicando por $(U-c)$ se obtiene un operador \textbf{cúbico en $c$} que se linealiza en forma \emph{companion} y se resuelve por \texttt{scipy.linalg.eig}. \textbf{Validación:} en el límite incompresible ($c_s\to\infty$) reproduce $\what_{i,\max}\to0.1897$ (Michalke). Con $c_s\to v_{f\perp}$ ($c_s^{\rm norm}=1.382$) en el modo $ka=0.314$:
+El término $(U-c)^2/c_s^2$ es la corrección compresible: cuando $|U-c|\to c_s$ el modo se vuelve sónico y el crecimiento se suprime (germen del umbral de Landau). Multiplicando por $(U-c)$ se obtiene un operador cúbico en $c$ que se linealiza en forma \emph{companion} y se resuelve por \texttt{scipy.linalg.eig}. \textbf{Validación:} en el límite incompresible ($c_s\to\infty$) reproduce $\what_{i,\max}\to0.1897$ (Michalke). Con $c_s\to v_{f\perp}$ ($c_s^{\rm norm}=1.382$) en el modo $ka=0.314$:
 \begin{equation}
 \what_{\mathrm{RMHD}}=0.0949,\qquad \frac{|0.1029-0.095|}{0.095}=8\% ,
 \end{equation}
@@ -128,7 +128,7 @@ está dominado por M4 ($98\%$ del peso). La media aritmética es $4754\pm1944$; 
 \label{ap:veredicto}
 
 \revnota{REVISAR (revisor): esta subsección repite la discusión de robustez/consistencia ya hecha (con más detalle) en el cap.\ de Resultados (\S\ref{sec:teoria_v6}). Considerar recortarla a una síntesis breve específica del apéndice o eliminarla para no duplicar.}%
-\primerparrafo La Tabla~\ref{ap:tab:sintesis} sintetiza la verificación independiente. El \textit{Cueva}, en \texttt{TEST=35}, produce una KHI cuya tasa de crecimiento lineal es \textbf{consistente con la predicción de la teoría lineal RMHD compresible} (dentro del $8\%$) y cae \textbf{dentro de la región de inestabilidad relativista} ($M_{re}=0.60<\sqrt2$, sin extrapolación). El déficit respecto al techo hidrodinámico no es un error del código: es el efecto físico de compresibilidad relativista sostenido por la presión del campo guía $B_z$. La resistividad finita del marco RRMHD es además lo que vuelve bien planteado el problema \parencite{lecoanet2016}. El valor preciso de la asíntota ideal $C+\gamma_0$ es, no obstante, una \emph{extrapolación respaldada por consistencia}, no un plateau medido; su confirmación cerrada requiere las simulaciones a $\Rmst\gtrsim500$.
+\primerparrafo La Tabla~\ref{ap:tab:sintesis} sintetiza la verificación independiente. El \textit{Cueva}, en \texttt{TEST=35}, produce una KHI cuya tasa de crecimiento lineal es consistente con la predicción de la teoría lineal RMHD compresible (dentro del $8\%$) y cae dentro de la región de inestabilidad relativista ($M_{re}=0.60<\sqrt2$, sin extrapolación). El déficit respecto al techo hidrodinámico no es un error del código: es el efecto físico de compresibilidad relativista sostenido por la presión del campo guía $B_z$. La resistividad finita del marco RRMHD es además lo que vuelve bien planteado el problema \parencite{lecoanet2016}. El valor preciso de la asíntota ideal $C+\gamma_0$ es, no obstante, una \emph{extrapolación respaldada por consistencia}, no un plateau medido; su confirmación cerrada requiere las simulaciones a $\Rmst\gtrsim500$.
 
 \begin{table}[H]\centering\small
 \caption{Síntesis de verificación independiente. La columna ``recomputado'' se obtuvo desde cero.}
