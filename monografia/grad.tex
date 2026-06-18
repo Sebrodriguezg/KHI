@@ -8,6 +8,12 @@
 \usepackage{lmodern}                    % Use the Latin Modern font
 \usepackage[utf8]{inputenc}             % For UTF-8 input
 \usepackage[spanish]{babel}             % Language-specific typesetting
+% Babel-español rotula las tablas como «Cuadro»; el texto las referencia como
+% «Tabla». Unificamos a «Tabla» (caption + índice) para que coincidan.
+\addto\captionsspanish{%
+  \renewcommand{\tablename}{Tabla}%
+  \renewcommand{\listtablename}{Índice de tablas}%
+}
 \usepackage{microtype}                  % Improves justification and typography
 \usepackage{csquotes}
 \usepackage{amsmath}
