@@ -39,13 +39,13 @@
 \contentsline {paragraph}{Condición Cinemática:}{51}{}%
 \contentsline {paragraph}{Condición Dinámica:}{51}{}%
 \contentsline {section}{\numberline {3.3}Extensión Magnetohidrodinámica Ideal (MHD)}{52}{}%
-\contentsline {section}{\numberline {3.4}La KHI en Magnetohidrodinámica Relativista (RMHD)}{53}{}%
+\contentsline {section}{\numberline {3.4}La KHI en RMHD}{53}{}%
 \contentsline {subsection}{\numberline {3.4.1}Correcciones Relativistas y Factor de Inercia}{54}{}%
 \contentsline {subsection}{\numberline {3.4.2}Implicaciones Astrofísicas}{54}{}%
 \contentsline {section}{\numberline {3.5}La KHI en el Marco de la RRMHD}{55}{}%
 \contentsline {subsection}{\numberline {3.5.1}El Rol de la Resistividad y la Relajación Topológica}{55}{}%
 \contentsline {subsection}{\numberline {3.5.2}Motivación Numérica y Relevancia Computacional}{55}{}%
-\contentsline {chapter}{\numberline {4}Implementación Numérica: El Código \textit {Cueva}}{57}{}%
+\contentsline {chapter}{\numberline {4}El código \textit {Cueva}}{57}{}%
 \contentsline {section}{\numberline {4.1}Discretización y Reconstrucción Espacial}{57}{}%
 \contentsline {subsection}{\numberline {4.1.1}Esquemas de Volúmenes Finitos en RRMHD}{58}{}%
 \contentsline {subsection}{\numberline {4.1.2}Limitadores de Pendiente y Reconstrucción de Alto Orden}{58}{}%
@@ -55,12 +55,12 @@
 \contentsline {subsubsection}{Degeneración de Velocidades Características}{60}{}%
 \contentsline {subsection}{\numberline {4.2.2}Sistemas con Relajación y la Condición Subcaracterística}{60}{}%
 \contentsline {subsection}{\numberline {4.2.3}El Esquema HLL Clásico y su Fracaso en Discontinuidades Tangenciales}{60}{}%
-\contentsline {section}{\numberline {4.3}Derivación del Solucionador Exacto Aproximado HLLC}{61}{}%
+\contentsline {section}{\numberline {4.3}El solucionador aproximado HLLC}{61}{}%
 \contentsline {subsection}{\numberline {4.3.1}Topología del Abanico de Riemann y el Estado Estrella ($U^*$)}{61}{}%
 \contentsline {subsection}{\numberline {4.3.2}Condiciones de Salto de Rankine-Hugoniot en el Límite Discreto}{61}{}%
 \contentsline {subsection}{\numberline {4.3.3}Postulados de Cierre y Continuidad de Invariantes Físicos}{62}{}%
 \contentsline {subsection}{\numberline {4.3.4}Resolución Algebraica Exacta de la Onda de Contacto ($\lambda ^*$)}{62}{}%
-\contentsline {section}{\numberline {4.4}Acoplamiento Numérico con el Sistema Aumentado GLM}{63}{}%
+\contentsline {section}{\numberline {4.4}Acoplamiento con el sistema GLM}{63}{}%
 \contentsline {subsection}{\numberline {4.4.1}Estructura Espectral de los Potenciales Auxiliares}{63}{}%
 \contentsline {subsection}{\numberline {4.4.2}Flujos Intermedios y Amortiguamiento Fenomenológico}{64}{}%
 \contentsline {section}{\numberline {4.5}Tratamiento de la Rigidez: Esquemas IMEX-RK}{64}{}%

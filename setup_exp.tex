@@ -1,0 +1,154 @@
+```latex
+% ============================================================================
+% Sección: Configuración Experimental (Setup Mizuno-like, TEST=35A)
+% Notas internas (no se renderizan):
+%   - Se omite por completo cualquier referencia al Caso 35B (perfil invertido).
+%   - Se conservan textualmente las ecuaciones de Vy y Vx provistas por el autor.
+%   - Se documenta el sistema de unidades naturales racionalizadas (c=mu_0=eps_0=1)
+%     y la equivalencia física del tiempo de simulación.
+%   - Las variables de control de enstrofía (Omega_z, Omega_tot, f_Vz, Omega'_z)
+%     se referencian al marco teórico previamente desarrollado, evitando duplicar
+%     definiciones formales.
+%   - La figura de inicialización se compone de DOS paneles efectivos:
+%       (a) Campo vectorial de velocidad (streamlines + magnitud).
+%       (b) Campo escalar de densidad rho.
+%     Ambos paneles se renderizan en el primer snapshot diagnóstico (t=0001),
+%     próximo al estado inicial t=0.
+%   - Requiere el paquete subcaption en el preámbulo: \usepackage{subcaption}
+% ============================================================================
+
+\primerparrafo El diseño de un experimento computacional en astrofísica relativista exige una delimitación rigurosa de las escalas espaciotemporales, las condiciones termodinámicas y la topología magnética del sistema. Este capítulo establece el estado base del plasma y los parámetros de control inyectados en el código \textit{Cueva} para simular la inestabilidad de Kelvin-Helmholtz (KHI). La configuración elegida garantiza que la dinámica observe los regímenes hiperbólicos y disipativos deducidos en el marco teórico, permitiendo un mapeo sistemático de la transición entre la difusión resistiva y la magnetohidrodinámica ideal.
+
+\section{Parámetros Numéricos del Experimento}
+
+\primerparrafo Para resolver la inestabilidad aislando la fenomenología física de la difusividad artificial, el experimento se ejecuta sobre la arquitectura algorítmica de alto orden definida en el Capítulo 4. La Tabla~\ref{tab:setup} consolida la selección de esquemas, las restricciones de integración temporal y el espacio de parámetros completo para todas las campañas de simulación. 
+
+\subsection{Dominio computacional y condiciones de frontera}
+
+\primerparrafo La variedad espaciotemporal se restringe a un dominio bidimensional cartesiano de dimensiones $(L_x, L_y) = (2, 1)$, abarcando las coordenadas $x \in [-1, 1]$ y $y \in [-0.5, 0.5]$. Para garantizar la continuidad del flujo de cizalladura a gran escala y permitir el seguimiento ininterrumpido de las estructuras vorticales advectadas, se imponen condiciones de frontera estrictamente periódicas en la dirección longitudinal $y$. En la dirección transversal $x$, el dominio es lo suficientemente extenso para evitar que las reflexiones de frontera contaminen la saturación de los vórtices primarios en las interfaces.
+
+\subsection{Selección de esquemas y resolución de malla}
+
+\primerparrafo El dominio se discretiza mediante un enmallado uniforme de $N_x \times N_y = 512 \times 256$ celdas de control cuadradas, lo que define una resolución espacial isotrópica $\Delta x = \Delta y = 3.906 \times 10^{-3}$. Esta resolución espectral, acoplada a la reconstrucción espacial \textit{Monotonicity-Preserving} de quinto orden (MP5), es suficiente para resolver la capa límite y los gradientes críticos. La evolución temporal está dictaminada por el integrador IMEX (SSP2-LUM de tercer orden) restringido a un número de Courant-Friedrichs-Lewy ultraconservador $\text{CFL} = 0.1$, garantizando la estabilidad absoluta frente a la rigidez inducida por los términos fuente resistivos.
+
+\section{Estado Base del Plasma y Perfil de Cizalladura}
+
+\primerparrafo El estado estacionario imperturbado sobre el cual se desarrolla la inestabilidad se modela mediante dos capas de plasma inmiscibles cinemáticamente, separadas por discontinuidades tangenciales suavizadas.
+
+\subsection{Ecuación de estado y contraste de densidad bariónica}
+
+\primerparrafo La termodinámica del sistema se clausura mediante la ecuación de estado de un gas ideal con un índice adiabático $\Gamma = 4/3$, apropiado para un plasma dominado por especies ultrarrelativistas o radiación. El campo de presiones inicial se asume globalmente isobárico con una amplitud uniforme $P_0 = 1$. Se introduce una estratificación asimétrica en la densidad propia, definiendo un chorro denso interno $\rho_{\text{in}} = 1$ inmerso en un medio ambiente diluido $\rho_{\text{out}} = 0.1$, lo que impone un contraste de densidad $10:1$ característico de cornisas astrofísicas.
+
+\subsection{Cizalladura relativista y asimetría de la capa ($V_{sh}$, $a_{kh}$)}
+
+\primerparrafo El perfil de velocidades espaciales describe una cizalladura longitudinal orientada en $\hat{j}$. Para evitar las singularidades computacionales de una función escalón pura, la transición transversal se interpola mediante un perfil de tangente hiperbólica:
+\begin{equation}
+    V_y(x) = \pm V_{sh} \tanh\left(\frac{x \mp 0.5}{a_{kh}}\right).
+\end{equation}
+Se adopta una velocidad de cizalladura asintótica $V_{sh} = 0.5c$, lo que sitúa al plasma en un régimen francamente relativista. El espesor característico de la capa de transición se fija en $a_{kh} = 0.05$ , posicionando las interfaces duales simétricamente en las coordenadas $x = \pm 0.5$.
+
+\section{Topología Magnética Inicial}
+
+\primerparrafo La inclusión y orientación del tensor electromagnético resulta determinante para la dinámica baroclínica. El sistema base se somete a un campo magnético uniforme y oblicuo.
+
+\subsection{El rol del campo guía dominante ($B_z$)}
+
+\primerparrafo En el montaje de referencia (tipo Mizuno), se inicializa un vector de campo magnético global de la forma $\mathbf{B} = (0, B_0\sqrt{0.02}, B_0\sqrt{2})$ con constante de normalización $B_0=1$. En esta configuración, la componente magnética ortogonal al plano de simulación $B_z \approx 1.41$ actúa como un ``campo guía'' absoluto, albergando el 99\% de la energía magnética total del sistema. Dado que un campo perpendicular al plano de cizalladura no ejerce fuerzas de tensión magnética restauradoras sobre las perturbaciones in-plane, esta elección garantiza topológicamente que la KHI no sea suprimida idealmente, permitiendo que el modo crezca para todas las conductividades exploradas. La componente coplanar $B_y \approx 0.14$, paralela al flujo, se mantiene subdominante.
+
+\subsection{Magnetización efectiva ($\sigma_m$) y parámetro $\beta$ del plasma}
+
+\primerparrafo Para cuantificar el acoplamiento termo-magnético del plasma base, se evalúa el parámetro $\beta_p$, que contrasta la presión térmica frente a la presión magnética:
+\begin{equation}
+    \beta_p = \frac{2 P_0}{|\mathbf{B}|^2} = \frac{2(1)}{0.02 + 2} \approx 0.99.
+\end{equation}
+Al encontrarse en $\beta_p \sim 1$, el plasma se halla en un régimen de equipartición energética. Adicionalmente, evaluando la entalpía específica $h = 1 + [\Gamma/(\Gamma-1)](P_0/\rho_{\text{in}}) = 5$, la magnetización relativista característica del chorro denso es $\sigma_m = |\mathbf{B}|^2 / (\rho h) \approx 0.40$, confirmando que la inercia in-plane del sistema está regida predominantemente por los efectos hidrodinámicos relativistas.
+
+\section{Inyección de la Perturbación Lineal}
+
+\primerparrafo Para desencadenar el crecimiento inestable de manera controlada y analítica, se inyecta una semilla geométrica de perturbación sobre las interfaces de cizalladura en el instante inicial $t=0$.
+
+\subsection{Estructura espectral y espacial de la perturbación ($V_x$)}
+
+\primerparrafo La discontinuidad transversal se perturba cinemáticamente induciendo fluctuaciones ortogonales a la velocidad de fondo. La componente inyectada adopta la forma de un paquete de ondas envolvente:
+\begin{equation}
+    V_x(x,y) = \pm V_{sh} \sin(k y) \exp\left[-\left(\frac{x \mp 0.5}{\alpha_{kh}}\right)^2\right],
+\end{equation}
+donde el número de onda se fija en $k = 2\pi/L_y = 2\pi$, excitando la inestabilidad fundamental de mayor longitud de onda permitida por el dominio. La envolvente gaussiana transversal, parametrizada con una caída $\alpha_{kh} = 0.2$, garantiza que la energía inyectada se concentre exclusivamente en la vecindad de las interfaces de cizalladura.
+
+\subsection{Independencia de las interfaces en configuración dual}
+
+\primerparrafo La simulación contempla una topología dual con dos capas de cizalladura simétricas situadas en $x = \pm 0.5$, separadas por una distancia $D = 1$. Sin embargo, para la perturbación inducida de número de onda $k = 2\pi$, el parámetro de acoplamiento es $k D = 2\pi \approx 6.3 \gg 1$. Matemáticamente, la interacción de ondas transversales decae como $e^{-kD} \approx 0.002$. En consecuencia, el grado de interferencia entre ambas interfaces es inferior al $0.2\%$, garantizando que, durante el régimen lineal, las capas evolucionen independientemente como si el dominio fuese infinito.
+
+\section{Campaña Paramétrica Resistiva}
+
+\primerparrafo La primera campaña fenomenológica de este experimento computacional reside en modular exclusivamente la difusión magnética del plasma base para evaluar la transición desde el régimen resistivo hasta el límite de la MHD ideal.
+
+\subsection{Rango de exploración de la conductividad eléctrica ($\sigma$)}
+
+\primerparrafo El único parámetro libre que se altera a lo largo de esta campaña principal es la conductividad eléctrica $\sigma$ (inversa de la resistividad magnética $\eta = 1/\sigma$). El diseño contempla un barrido masivo de alta granularidad compuesto por $N=44$ simulaciones individuales. El espacio paramétrico escanea desde $\sigma = 100$ hasta $\sigma = 10500$, concentrando la densidad de muestreo en la zona de transición.
+
+\subsection{Mapeo al número de Reynolds magnético ($Rm_*$)}
+
+\primerparrafo Para abstraer el problema de las unidades puras de código, la conductividad escalar se reescala dimensionalmente hacia el número de Reynolds magnético in-plane efectivo de la cizalladura ($Rm_*$). Utilizando como escalas características la velocidad del chorro y el grosor de la interfaz inicial:
+\begin{equation}
+    Rm_* = V_{sh} a_{kh} \sigma = (0.5)(0.05)\sigma = 0.025\sigma.
+\end{equation}
+Bajo esta normalización advectiva, la campaña de conductividad mapea el sistema a un dominio inercial acotado entre $Rm_* \in [2.5, 262.5]$.
+
+\section{Campañas Paramétricas de Configuración Magnética}
+
+\primerparrafo Además de la campaña resistiva, se diseña un segundo bloque experimental compuesto por tres campañas adicionales (A, B y C) destinadas a explorar el espacio topológico del campo magnético. Para aislar los efectos puramente magnéticos, en la totalidad de estas simulaciones se fija una conductividad eléctrica constante de $\sigma = 6000$, correspondiente al régimen de transición alta del plasma RRMHD.
+
+\subsection{Campaña A: Variación de intensidad con orientación fija}
+
+\primerparrafo La Campaña A evalúa la modificación de la intensidad global del campo magnético preservando la orientación geométrica del montaje base (tipo Mizuno). El vector de campo se define como $\mathbf{B} = (0, B_0\sqrt{0.02}, B_0\sqrt{2.0})$, y la constante de normalización $B_0$ se utiliza como parámetro de exploración discreta. Se ejecutan cinco configuraciones individuales correspondientes a los valores $B_0 \in \{0.25, 0.50, 1.00, 1.50, 2.00\}$.
+
+\subsection{Campaña B: Orientación transversal en el plano $yz$}
+
+\primerparrafo La Campaña B restringe la magnitud total del campo a una constante fija $B_{tot} = \sqrt{2.02}$ y evalúa la reorientación del vector exclusivamente dentro del plano transversal al flujo. Se define el campo magnético como $\mathbf{B} = (0, B_{tot}\sin\theta, B_{tot}\cos\theta)$, donde el ángulo de inclinación $\theta$ se mide respecto al eje $z$ (campo guía). El espacio paramétrico se muestrea en siete configuraciones angulares: $\theta \in \{0^\circ, 5.7^\circ, 15^\circ, 30^\circ, 45^\circ, 60^\circ, 90^\circ\}$, donde $\theta = 5.7^\circ$ reproduce asintóticamente la configuración original.
+
+\subsection{Campaña C: Inyección de componente paralela en el plano $xz$}
+
+\primerparrafo La Campaña C introduce explícitamente una componente magnética colineal a la dirección de la cizalladura principal del fluido. Manteniendo la misma magnitud total inalterada $B_{tot} = \sqrt{2.02}$, el campo magnético se rota hacia el eje $x$, de modo que el vector inicial adopta la forma $\mathbf{B} = (B_{tot}\sin\theta, 0, B_{tot}\cos\theta)$. La inclinación se explora en cuatro configuraciones escalonadas: $\theta \in \{0^\circ, 30^\circ, 60^\circ, 90^\circ\}$.
+
+\begin{table}[H]\centering
+\caption{Parámetros numéricos y físicos del montaje base, incluyendo el barrido resistivo y las variaciones del campo magnético.}
+\label{tab:setup}
+\begin{tabular}{lll}
+\toprule
+Categoría & Parámetro & Valor\\
+\midrule
+Malla        & $i_{\max}\times j_{\max}$ & $512\times256$\\
+             & Dominio $(L_x,L_y)$       & $(2,\,1)$, con $x\in[-1,1]$, $y\in[-0.5,0.5]$\\
+             & $\Delta x=\Delta y$       & $3.906\times10^{-3}$ (celdas cuadradas)\\
+             & Capa de cizalla $\akh$    & $0.05$ ($\approx13$ celdas)\\
+\midrule
+Esquema      & Solver de Riemann         & HLL (\texttt{flux\_solver=5})\\
+             & Reconstrucción espacial   & MP5 (5.\textsuperscript{o} orden)\\
+             & Integración temporal      & IMEX (SSP2-LUM, \texttt{order=3})\\
+             & Número de Courant         & $\mathrm{CFL}=0.1$\\
+             & Frontera                  & Periódica (\texttt{BOUND=2})\\
+\midrule
+Fluido       & Índice adiabático $\Gamma$ & $4/3$ (gas relativista)\\
+             & Densidad $\rho$            & $\rho_{\rm in}=1$, $\rho_{\rm out}=0.1$ (caso 35B)\\
+             & Presión $P_0$ (uniforme)  & $1$\\
+\midrule
+Cizalla / KHI & $V_{sh}$                 & $0.5\,c$ (perfil $V_y=\pm V_{sh}\tanh[(x\mp0.5)/\akh]$)\\
+              & Interfaces               & duales en $x=\pm0.5$\\
+              & Perturbación             & $V_x=\pm V_{sh}\sin(k\, y)\,e^{-((x\mp0.5)/\alpha_{kh})^2}$, $\alpha_{kh}=0.2$\\
+              & Número de onda $k$       & $2\pi/L_y=2\pi$\\
+\midrule
+Campo $\mathbf{B}$ (Base) & Componentes   & $(B_x,B_y,B_z)=(0,\ \sqrt{0.02},\ \sqrt{2})$\\
+             & Magnitud $|\vb*{B}|$      & $1.421$; $\beta_p=2P_0/|\vb*{B}|^2=0.99$\\
+             & Carácter                  & guía dominante ($B_z$: 99\% de la energía mag.)\\
+\midrule
+Campaña Resistiva & Conductividad $\sigma$    & barrido $[100,10500]$ ($\eta=1/\sigma$)\\
+(Cálculo $\sigma_{\mathrm{crit}}$) & $\Rmst=V_{sh}\akh\sigma$  & $[2.5,\,262.5]$\\
+\midrule
+Campañas Magnéticas & Conductividad $\sigma$ & fija en $6000$\\
+(Variación de $\mathbf{B}$) & A: Intensidad  & $B_0 \in \{0.25, 0.50, 1.00, 1.50, 2.00\}$ (Orientación base)\\
+             & B: Orientación plano $yz$ & $\theta \in \{0^\circ, 5.7^\circ, 15^\circ, 30^\circ, 45^\circ, 60^\circ, 90^\circ\}$, $|\vb*{B}|=\sqrt{2.02}$\\
+             & C: Orientación plano $xz$ & $\theta \in \{0^\circ, 30^\circ, 60^\circ, 90^\circ\}$, $|\vb*{B}|=\sqrt{2.02}$\\
+\bottomrule
+\end{tabular}
+\end{table}

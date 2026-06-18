@@ -981,54 +981,6 @@
       \verb https://doi.org/10.1093/mnras/sty419
       \endverb
     \endentry
-    \entry{aranguren-2013}{article}{}{}
-      \name{author}{3}{}{%
-        {{hash=59dee04412d361d0be1d5991141b017d}{%
-           family={Miranda-Aranguren},
-           familyi={M\bibinithyphendelim A\bibinitperiod},
-           given={S},
-           giveni={S\bibinitperiod}}}%
-        {{hash=22d1517d7597aa28921aa2d8aa9a1d72}{%
-           family={Aloy},
-           familyi={A\bibinitperiod},
-           given={M.\bibnamedelimi A.},
-           giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
-        {{hash=bd0878d4995644868d77dd3bac4775da}{%
-           family={Aloy},
-           familyi={A\bibinitperiod},
-           given={Carmen.},
-           giveni={C\bibinitperiod}}}%
-      }
-      \strng{namehash}{bdd4c1723518258acdf00b410cfb7345}
-      \strng{fullhash}{bdd4c1723518258acdf00b410cfb7345}
-      \strng{fullhashraw}{bdd4c1723518258acdf00b410cfb7345}
-      \strng{bibnamehash}{bdd4c1723518258acdf00b410cfb7345}
-      \strng{authorbibnamehash}{bdd4c1723518258acdf00b410cfb7345}
-      \strng{authornamehash}{bdd4c1723518258acdf00b410cfb7345}
-      \strng{authorfullhash}{bdd4c1723518258acdf00b410cfb7345}
-      \strng{authorfullhashraw}{bdd4c1723518258acdf00b410cfb7345}
-      \field{sortinit}{M}
-      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Proceedings of the International Astronomical Union}
-      \field{month}{8}
-      \field{number}{S302}
-      \field{title}{{Building a numerical relativistic non-ideal magnetohydrodynamics code for astrophysical applications}}
-      \field{volume}{9}
-      \field{year}{2013}
-      \field{pages}{64\bibrangedash 65}
-      \range{pages}{2}
-      \verb{doi}
-      \verb 10.1017/s1743921314001732
-      \endverb
-      \verb{urlraw}
-      \verb https://doi.org/10.1017/s1743921314001732
-      \endverb
-      \verb{url}
-      \verb https://doi.org/10.1017/s1743921314001732
-      \endverb
-    \endentry
     \entry{misner1973}{book}{}{}
       \name{author}{3}{}{%
         {{hash=05c5e0e62bd36ef32b9a719149851fdc}{%

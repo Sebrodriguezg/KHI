@@ -69,7 +69,7 @@ $$
 $$
 Esta aproximación promedia e ignora todas las ondas intermedias, crucialmente la onda de contacto $\lambda_c = v_x$. En la inestabilidad de KHI, la física entera depende de la preservación de la cizalladura asimétrica transversal ($v_y$) a través de una onda de contacto inactiva ($v_x = 0$). Como el esquema HLL es ciego a esta estructura interna, inyecta una difusión numérica masiva proporcional a $(\lambda_R - \lambda_L)$ directamente sobre la discontinuidad tangencial, desdibujando la cizalladura e impidiendo por principio el desarrollo correcto de los vórtices baroclínicos. 
 
-\section{Derivación del Solucionador Exacto Aproximado HLLC}
+\section[El solucionador aproximado HLLC]{Derivación del Solucionador Exacto Aproximado HLLC}
 \label{sec:Derivacion_HLLC}
 
 
@@ -125,7 +125,7 @@ c &= (F^x_{S^x, L} - \lambda_L S^x_L) - (F^x_{S^x, R} - \lambda_R S^x_R)
 \end{align*}
 Al resolver esta raíz cuadrática, se determina unívocamente el valor de $\lambda^*$ que acopla causalmente todo el sistema. Una vez fijado $\lambda^*$, los estados conservativos intermedios $\mathbf{U}^*_{L,R}$ y sus flujos correspondientes $\mathbf{F}^*_{L,R}$ quedan matemáticamente clausurados sin necesidad de evaluaciones espectrales iterativas, brindando un esquema altamente robusto que captura sin difusión transversal la vorticidad inicial de la KHI.
 
-\section{Acoplamiento Numérico con el Sistema Aumentado GLM}
+\section[Acoplamiento con el sistema GLM]{Acoplamiento Numérico con el Sistema Aumentado GLM}
 \label{sec:Acoplamiento_GLM_HLLC}
 
 \primerparrafo La formulación covariante de la electrodinámica asume implícitamente el cumplimiento del teorema de Gauss magnético ($\nabla \cdot \mathbf{B} = 0$) y la identidad de carga electrostática ($\nabla \cdot \mathbf{E} = \rho_q$). Sin embargo, la discretización de los operadores diferenciales espaciales en la malla no preserva estas restricciones elípticas de forma exacta. Para evitar la acumulación monopolar, que destruiría la positividad y estabilidad de la integración, \textit{Cueva} implementa la divergencia hiperbólica ampliada mediante multiplicadores de Lagrange (GLM) \parencite{Dedner_etal:2002}.
