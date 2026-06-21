@@ -111,7 +111,7 @@ donde hemos utilizado el hecho analítico de que a través de la onda de contact
 
 \subsection{Resolución Algebraica Exacta de la Onda de Contacto ($\lambda^*$)}
 
-\primerparrafo La genialidad del esquema HLLC relativista recae en explotar las componentes inerciales del vector $\mathbf{U}$. Consideremos las componentes longitudinales del momento $S^x = \rho h \Gamma^2 v_x + (\mathbf{E} \times \mathbf{B})^x$ y la densidad de energía total $\tau = \rho h \Gamma^2 - p_{T} - \rho\Gamma + (\mathbf{E}^2 + \mathbf{B}^2)/2$.
+\primerparrafo La genialidad del esquema HLLC relativista recae en explotar las componentes inerciales del vector $\mathbf{U}$. Consideremos las componentes longitudinales del momento $S^x = \rho h \Gamma^2 v_x + (\mathbf{E} \times \mathbf{B})^x$ y la densidad de energía total $\tau = \rho h \Gamma^2 - p_{T} - \rho\Gamma + (\mathbf{E}^2 + \mathbf{B}^2)/2$.\brynota{convención de $\tau$: aquí (estilo Noble, con $-\rho\Gamma$) se resta la energía de masa en reposo, pero el código \texttt{06\_conserved\_var.f95} y el cap.~2 usan $\tau=\tfrac12(E^2+B^2)+\rho h\Gamma^2-p$ (SIN $-\rho\Gamma$). Unificar la convención: o adoptar la del código sin $-\rho\Gamma$ (entonces el residuo de recuperación pierde el término $-D\Gamma$), o documentar explícitamente el cambio de variable $\tau\to\tau-D$. $S^x$ ya coincide.}
 
 Aplicando las condiciones de Rankine-Hugoniot sobre la presión total $p_T$, se igualan las proyecciones energéticas y cinemáticas de los estados estrella $L$ y $R$. Evaluando $p_T^* = p_T (\mathbf{U}^*_L) = p_T (\mathbf{U}^*_R)$, la dependencia no lineal colapsa gracias a la condición invariante $v_x^* = \lambda^*$, dejando un sistema puramente cuadrático para la velocidad de la onda media \parencite{mignone-2005}:
 $$

@@ -202,6 +202,7 @@ De manera homóloga, para la componente material adoptamos la aproximación de f
 Al aplicar la variación funcional sobre la presión (sujeta a las restricciones holonómicas de conservación del número de bariones y entropía por partícula), el operador de Hilbert genera el término inercial proyectado a lo largo de la cuadrivelocidad $u^\mu$, dando lugar al tensor de energía-momento material canónico:
 \begin{equation}
     T^{\mu\nu}_{\text{fluid}} = (\epsilon + p) u^\mu u^\nu + p \eta^{\mu\nu} = \rho h\, u^\mu u^\nu + p \eta^{\mu\nu}
+    \label{eq:T_fluid}
 \end{equation}
 donde $\epsilon$ es la densidad de energía total propia, $\rho$ es la densidad de masa en reposo, y $h$ la entalpía específica definida mediante la relación termodinámica $\rho h = \epsilon + p$.
 
@@ -210,6 +211,7 @@ donde $\epsilon$ es la densidad de energía total propia, $\rho$ es la densidad 
 Para que esta estructura tensorial sea útil en la integración numérica de las ecuaciones de evolución, es indispensable realizar una descomposición espacial respecto al observador euleriano asociado al fluido. Utilizando los cuadrivectores de campo eléctrico $E^\mu$ y magnético $B^\mu$ medidos por el observador comóvil $u^\mu$, el tensor electromagnético se descompone covariantemente como:
 \begin{equation}
     T^{\mu\nu}_{\text{em}} = \frac{1}{2}(E^2 + B^2) \left( u^\mu u^\nu + h^{\mu\nu} \right) - E^\mu E^\nu - B^\mu B^\nu + u^\mu S^\nu + u^\nu S^\mu
+    \label{eq:T_em_decomp}
 \end{equation}
 donde hemos introducido los escalares invariantes $E^2 = E^\mu E_\mu$ y $B^2 = B^\mu B_\mu$, que representan la densidad de energía de cada campo, el proyector ortogonal $h^{\mu\nu} = \eta^{\mu\nu} + u^\mu u^\nu$\footnote{El proyector $h^{\mu\nu}$ (definido formalmente en la Sección~\ref{sec:Ohm_Relativista}) proyecta sobre el hiperplano espacial ortogonal a $u^\mu$; \emph{no} debe confundirse con la entalpía específica $h$, de la cual se distingue por sus índices tensoriales.}, y el cuadrivector covariante de Poynting:
 \begin{equation}
@@ -445,16 +447,22 @@ Con base en la proyección euleriana de las leyes de conservación hidrodinámic
         \Phi
     \end{pmatrix}
 \end{equation}
-donde las variables cinemáticas conservativas están definidas a partir de las primitivas ($\rho, \mathbf{v}, p$) mediante las relaciones $D = \rho\Gamma$, $S^j = \rho h \Gamma^2 v^j$ y $\tau = \rho h \Gamma^2 - p - \rho\Gamma$.
-\revnota{INCORRECTO. Verificado en \texttt{06\_conserved\_var.f95}: el Cueva usa la convención TOTAL $S^j=(\mathbf E\times\mathbf B)^j+\rho h\Gamma^2 v^j$ y $\tau=\tfrac12(E^2+B^2)+\rho h\Gamma^2-p$ (sin restar $\rho\Gamma$). Las definiciones de aquí (solo fluido) son incorrectas; el flujo y el vector fuente deben pasar también a la forma total (sin la fuerza de Lorentz como término fuente).}
+donde las variables conservativas se construyen en la convención \emph{total} (materia $+$ campo) que integra el código \textit{Cueva}, a partir de las primitivas ($\rho, \mathbf{v}, p, \mathbf{E}, \mathbf{B}$):
+\begin{equation}
+\label{eq:def_conservativas}
+    D = \rho\Gamma, \qquad
+    S^j = \rho h \Gamma^2 v^j + (\mathbf{E}\times\mathbf{B})^j, \qquad
+    \tau = \tfrac{1}{2}\!\left(E^2+B^2\right) + \rho h \Gamma^2 - p .
+\end{equation}
+A diferencia de una formulación que evolucione únicamente el fluido y trate la interacción electromagnética como una fuerza externa, aquí el momento $S^j$ y la energía $\tau$ agrupan \emph{simultáneamente} la contribución del fluido ($\rho h \Gamma^2 v^j$ y $\rho h \Gamma^2 - p$) y la del campo —el vector de Poynting $\mathbf{E}\times\mathbf{B}$ y la densidad de energía $\tfrac{1}{2}(E^2+B^2)$—. Esta elección es la consecuencia directa de imponer la conservación del tensor de energía-momento \emph{total} ($\partial_\mu T^{\mu\nu} = 0$, Sección~\ref{sec:Energia_Momento}): al no separar el sector material del electromagnético, la fuerza de Lorentz deja de ser un término fuente y queda absorbida en la divergencia del flujo total. Explícitamente, $D = \rho u^0 = \rho\Gamma$ es la densidad de masa, mientras que $S^j$ y $\tau$ son las componentes eulerianas $T^{0j}$ y $T^{00}$ del tensor total $T^{\mu\nu}_{\text{fluid}} + T^{\mu\nu}_{\text{em}}$ (Ecuaciones~\eqref{eq:T_fluid} y~\eqref{eq:T_em_decomp}): al evaluarlas en el marco del observador de laboratorio ($u^\mu \to (\Gamma, \Gamma\mathbf{v})$, $n^\mu = (1,\mathbf{0})$) se recupera, término a término, el momento $\rho h \Gamma^2 v^j + (\mathbf{E}\times\mathbf{B})^j$ (densidad de fluido más vector de Poynting) y la energía $\rho h \Gamma^2 - p + \tfrac{1}{2}(E^2+B^2)$ (energía del fluido más la del campo).
 
 Los flujos espaciales $\mathbf{F}^i(\mathbf{U})$, que dictan el transporte advectivo de estas cantidades a través del dominio computacional y la propagación de las ondas electromagnéticas causales, toman la forma explícita:
 \begin{equation}
     \mathbf{F}^i(\mathbf{U}) = 
     \begin{pmatrix}
         D v^i \\
-        S^j v^i + p \delta^{ij} \\
-        (\tau + p)v^i \\
+        \rho h \Gamma^2 v^i v^j + \left[\, p + \tfrac{1}{2}(E^2+B^2) \,\right]\delta^{ij} - E^i E^j - B^i B^j \\
+        (\mathbf{E}\times\mathbf{B})^i + \rho h \Gamma^2 v^i \\
         \epsilon^{ijk} E_k + \Psi \delta^{ij} \\
         -\epsilon^{ijk} B_k + \Phi \delta^{ij} \\
         B^i \\
@@ -462,13 +470,15 @@ Los flujos espaciales $\mathbf{F}^i(\mathbf{U})$, que dictan el transporte advec
     \end{pmatrix}
 \end{equation}
 
-Finalmente, el vector de términos fuente $\mathbf{S}(\mathbf{U})$ acopla ambos sectores (materia y campo) mediante la fuerza de Lorentz, el trabajo electromagnético y los sumideros de disipación telegráfica. De manera crítica para la formulación numérica, la supervivencia transitoria de monopolos magnéticos espurios en la malla altera la topología del campo e induce la pérdida de la invarianza de Galileo y la corrupción de la estabilidad de entropía. Para restaurar el rigor termodinámico, es obligatorio incluir de forma explícita los términos no conservativos de Godunov-Powell proporcionales al pseudopotencial magnético $\Psi$ en las ecuaciones de momento y energía \parencite{ruedaramirez2023}\footnote{Los términos de Godunov-Powell (e.g., $-\Psi B^j$ en la ecuación del momento) actúan geométricamente como fuerzas y trabajos ficticios. Su propósito analítico es compensar exactamente la aceleración artificial producida por los monopolos no nulos ($\nabla \cdot \mathbf{B} \neq 0$). Su inclusión es imperativa para garantizar la estabilidad no lineal robusta y asegurar que la dinámica del plasma satisfaga localmente la segunda ley de la termodinámica, especialmente en regímenes altamente magnetizados \parencite{ruedaramirez2023}.}. Incorporando estas correcciones, el vector fuente adopta su forma definitiva:
+En estas filas, las dos componentes dinámicas son trazables hasta objetos ya construidos: la fila del momento es el tensor espacial de esfuerzos total $T^{ij}$ ---el esfuerzo de Reynolds $\rho h \Gamma^2 v^i v^j$, la presión total $[\,p + \tfrac{1}{2}(E^2+B^2)\,]\delta^{ij}$ y los esfuerzos de Maxwell $-E^i E^j - B^i B^j$---, y la fila de la energía es el flujo $T^{0i}$, que por la simetría de $T^{\mu\nu}$ coincide idénticamente con la densidad de momento $S^i$. Las cuatro filas electromagnéticas restantes reproducen el sistema aumentado de Maxwell en su forma 3+1 (Ecuaciones~\eqref{eq:GLM_3D_E}--\eqref{eq:GLM_3D_Psi}), de modo que cada renglón del flujo se deduce de una ley de conservación previamente establecida.
+
+Finalmente, en esta formulación de variables totales el acoplamiento entre materia y campo ya está contenido en la divergencia del flujo $\mathbf{F}^i$ ---a través del vector de Poynting y del tensor de esfuerzos de Maxwell---, por lo que la fuerza de Lorentz \emph{no} figura como término fuente. El vector $\mathbf{S}(\mathbf{U})$ recoge únicamente la corriente de conducción $-J^j$ del sector eléctrico (cerrada por la ley de Ohm relativista), los sumideros de disipación telegráfica y la densidad de carga que alimenta la limpieza de la ley de Gauss. De manera crítica para la formulación numérica, la supervivencia transitoria de monopolos magnéticos espurios en la malla altera la topología del campo e induce la pérdida de la invarianza de Galileo y la corrupción de la estabilidad de entropía. Para restaurar el rigor termodinámico, es obligatorio incluir de forma explícita los términos no conservativos de Godunov-Powell proporcionales al pseudopotencial magnético $\Psi$ en las ecuaciones de momento y energía \parencite{ruedaramirez2023}\footnote{Los términos de Godunov-Powell (e.g., $-\Psi B^j$ en la ecuación del momento) actúan geométricamente como fuerzas y trabajos ficticios. Su propósito analítico es compensar exactamente la aceleración artificial producida por los monopolos no nulos ($\nabla \cdot \mathbf{B} \neq 0$). Su inclusión es imperativa para garantizar la estabilidad no lineal robusta y asegurar que la dinámica del plasma satisfaga localmente la segunda ley de la termodinámica, especialmente en regímenes altamente magnetizados \parencite{ruedaramirez2023}.}. Incorporando estas correcciones, el vector fuente adopta su forma definitiva:
 \begin{equation}
     \mathbf{S}(\mathbf{U}) = 
     \begin{pmatrix}
         0 \\
-        \rho_q E^j + (\mathbf{J} \times \mathbf{B})^j - \Psi B^j \\
-        \mathbf{J} \cdot \mathbf{E} - \Psi (\mathbf{v} \cdot \mathbf{B}) \\
+        - \Psi B^j \\
+        - \Psi (\mathbf{v} \cdot \mathbf{B}) \\
         0 \\
         -J^j \\
         -\kappa_B \Psi \\
@@ -494,7 +504,7 @@ Esta formulación compacta encapsula la totalidad de la física del plasma resis
 \end{align}
 
 Expandiendo las perturbaciones en una base de modos normales de Fourier-Laplace, $\delta \mathbf{V} \propto \exp[i(k_\mu x^\mu)]$, donde $k^\mu = (\omega, \mathbf{k})$ es el cuadrivector de onda, el sistema diferencial se mapea a un problema algebraico de autovalores $\mathcal{M}(\omega, \mathbf{k}) \delta \mathbf{V} = 0$. La condición de existencia de soluciones no triviales, $\det[\mathcal{M}] = 0$, define la relación de dispersión compleja $\omega(\mathbf{k}) = \omega_R + i\gamma$, donde la parte imaginaria $\gamma$ dicta la tasa de crecimiento estricta de la inestabilidad de Kelvin-Helmholtz (KHI).
-
+\sebnota{Expandir la explicaćion , implicaćion y justificaíon de lo que se dice ahí, es mas como justificar la aparicion de este tema en el marco teorico, entra un poco ortodoxo y seco}
 \subsection{Inercia Térmica Relativista y Anisotropía Magnética}
 
 \primerparrafo En el límite de la MHD ideal ($\delta E^\mu = 0$), la relación de dispersión revela que la condición de inestabilidad no depende únicamente de la energía cinética de la cizalladura. La tensión magnética, proveniente de la perturbación del tensor de esfuerzos de Maxwell $\delta T^{\mu\nu}_{\text{em}}$, introduce un umbral de estabilización. \parencite{goedbloed-2004A} demostraron que los modos inestables son suprimidos si el producto interno espacial $(\mathbf{k} \cdot \mathbf{B}_0)^2$ es suficientemente grande, garantizando que el trabajo necesario para curvar las líneas de campo supere la energía libre del flujo.
@@ -552,4 +562,4 @@ Durante la fase de crecimiento puramente lineal regida por la relación de dispe
 \begin{equation}
     \ln \Omega'_z(t) = a + 2\gamma_{\text{KHI}}\,t.
 \end{equation}
-Aplicando una regresión lineal sobre la serie temporal de este escalar de diagnóstico, extraemos la pendiente empírica $s$. La tasa de crecimiento $\gamma_{\text{KHI}} = s/2$ obtenida de este ajuste proporciona una métrica rigurosa para validar la disipación intrínseca de los flujos numéricos en la resolución de las ecuaciones RRMHD.
+Aplicando una regresión lineal sobre la serie temporal de este escalar de diagnóstico, extraemos la pendiente empírica $s$. La tasa de crecimiento $\gamma_{\text{KHI}} = s/2$ obtenida de este ajuste proporciona una métrica rigurosa para validar la disipación intrínseca de los flujos numéricos en la resolución de las ecuaciones RRMHD.\sebnota{En general, revisar todas las citas bien plantedas y utilizadas, y añadir en el marco teorico todas las herramientas estadisticas utilizadad, o discutir si deben de ser anexos , ya que son erramientas validas pero poco convencionales}
