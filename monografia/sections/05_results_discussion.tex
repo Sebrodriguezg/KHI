@@ -107,7 +107,7 @@ Las dos asíntotas se desacoplan: $\gamma_0$ pasa a ser la \emph{amplitud} del s
 
 \subsection{Resultados del ajuste}
 
-\primerparrafo El ajuste por mínimos cuadrados no lineales (\texttt{curve\_fit}, \emph{trust-region reflective} con cotas físicas) sobre $\sigma\ge1600$ entrega los valores de la Tabla~\ref{tab:par_v6}. El \emph{offset} es claramente no nulo y su óptimo es interior a las cotas $[-1,1]$ (no forzado por la frontera); su realidad física se apoya en la validación fuera de muestra (Sección~\ref{sec:validacion_v6}), no en el cociente nominal valor/error del ajuste, que la autocorrelación de los residuos infla.
+\primerparrafo El ajuste por mínimos cuadrados no lineales (\texttt{curve\_fit}, \emph{trust-region reflective} con cotas físicas) sobre $\sigma\ge1600$ entrega los valores de la Tabla~\ref{tab:par_v6}; el ajuste resultante y su comparación con el modelo de tres parámetros se muestran en las Figuras~\ref{fig:ajuste_v6} y~\ref{fig:3v4_v6}. El \emph{offset} es claramente no nulo y su óptimo es interior a las cotas $[-1,1]$ (no forzado por la frontera); su realidad física se apoya en la validación fuera de muestra (Sección~\ref{sec:validacion_v6}), no en el cociente nominal valor/error del ajuste, que la autocorrelación de los residuos infla.
 
 \begin{table}[H]\centering
 \caption{Parámetros del modelo sigmoide con \emph{offset} (v6) y comparación de modelos (AIC/BIC evaluados sobre las $44$ simulaciones).}
@@ -306,7 +306,7 @@ $M_s=\vsh/C_s=0.97$ & $M_{A,\parallel}=9.4$ & $M_f=\vsh/v_{f\perp}=0.72$ & $M_{r
 \hline
 \end{tabular}}
 \end{table}
-\noindent Dos lecturas clave: (a)~$M_{A,\parallel}=9.4$ (super-Alfvénico) $\Rightarrow$ la \emph{tensión} magnética en el plano es despreciable y la KHI es esencialmente hidrodinámica; el campo $B_z$ es guía (presión, no tensión). (b)~$M_s=0.97$ (casi sónico) $\Rightarrow$ la compresibilidad es fuerte y reduce el crecimiento, lo que explica que el valor medido sea $0.54\times$ el techo incompresible. $M_{re}=0.60<\sqrt{2}$ confirma que el sistema es linealmente inestable, lejos del umbral de estabilización ---sin extrapolación.
+\noindent Dos lecturas clave: (a)~$M_{A,\parallel}=9.4$ (super-Alfvénico) $\Rightarrow$ la \emph{tensión} magnética en el plano es despreciable y la KHI es esencialmente hidrodinámica; el campo $B_z$ es guía (presión, no tensión). (b)~$M_s=0.97$ (casi sónico) $\Rightarrow$ la compresibilidad es fuerte y reduce el crecimiento, lo que explica que el valor medido sea $0.54\times$ el techo incompresible. $M_{re}=0.60<\sqrt{2}$ confirma que el sistema es linealmente inestable, lejos del umbral de estabilización ---sin extrapolación. Este resultado central se sintetiza en la Figura~\ref{fig:escalera_v6}.
 
 \begin{figure}[H]\centering
 \includegraphics[width=0.78\textwidth]{figuras/fig6_escalera.pdf}
