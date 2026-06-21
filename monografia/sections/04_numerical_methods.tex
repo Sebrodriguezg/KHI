@@ -92,11 +92,11 @@ La diagonalización de estas matrices subjacobianas revela que los errores espur
     F_{i+1/2}^{(\Psi)} &= \frac{c_h^2}{2} (\Psi_L + \Psi_R) - \frac{c_h}{2} (B^x_R - B^x_L)
 \end{align}
 
-Una vez calculados los flujos advectivos hiperbólicos, los sumideros algebraicos amortiguan el error. La integración temporal de los términos fuente telegráficos $-\kappa_E \Phi$ y $-\kappa_B \Psi$ se evalúa mediante un operador analítico exponencial exacto fraccionario para evitar inestabilidades de paso por cero:
+Una vez calculados los flujos advectivos hiperbólicos, el error residual se amortigua mediante los términos telegráficos $-\kappa_E \Phi$ y $-\kappa_B \Psi$. En el \textit{Cueva} estos sumideros se incorporan como términos fuente \emph{lineales} en el lado derecho de las ecuaciones de evolución de los campos auxiliares,
 \begin{equation}
-    \Phi_i^{n+1} = \Phi_i^* \exp(-\kappa_E \Delta t), \qquad \Psi_i^{n+1} = \Psi_i^* \exp(-\kappa_B \Delta t).
+    \partial_t \Phi + \nabla\cdot\mathbf{E} = \rho_q - \kappa_E \Phi, \qquad \partial_t \Psi + \nabla\cdot\mathbf{B} = - \kappa_B \Psi,
 \end{equation}
-Esta formulación garantiza simultáneamente el transporte supersónico del error monopolar hacia los confines del dominio y su disipación asintótica.
+y se integran junto con el resto del sistema mediante el esquema temporal (Sección~\ref{sec:IMEX_RK}), sin recurrir a un paso de operador separado. Los coeficientes de decaimiento se fijan en la forma de Dedner $\kappa \sim c_h^2/c_p^2$ \parencite{Dedner_etal:2002}. Así se garantiza simultáneamente el transporte del error monopolar hacia los confines del dominio (a velocidad $c_h$) y su disipación local.
 
 \section{Tratamiento de la Rigidez: Esquemas IMEX-RK}
 \label{sec:IMEX_RK}
@@ -119,21 +119,18 @@ Donde las matrices triangulares de Butcher $\tilde{A} = (\tilde{a}_{ij})$ y $A =
 \end{equation}
 donde $\alpha = a_{ii} \Delta t$ y $\mathbf{E}^*$ acumula los subpasos previos. La inversión de esta relación tensorial en $3 \times 3$ arroja una solución analítica explícita para la actualización, suprimiendo la necesidad de iteradores matriciales intrincados para el campo electrodinámico.
 
-\section[Recuperación de Variables Primitivas]{Recuperación de Variables Primitivas: Solucionador Analítico 1D}
+\section[Recuperación de Variables Primitivas]{Recuperación de Variables Primitivas: la Cuártica del Factor de Lorentz}
 \label{sec:Recuperacion_Primitivas}
 
 \primerparrafo A diferencia de los códigos fluidos clásicos, la actualización de $\mathbf{U} \to \mathbf{U}^{n+1}$ no garantiza el conocimiento inmediato del estado dinámico del plasma. Los flujos numéricos $\mathbf{F}(\mathbf{P})$ están condicionados por el vector de variables primitivas $\mathbf{P} = (\rho, v^j, p, B^j, E^j)^T$. En RRMHD, la dependencia cruzada del factor de Lorentz inercial $\Gamma = (1 - \mathbf{v}^2)^{-1/2}$ enclava las ecuaciones en un mapeo $\mathbf{U}(\mathbf{P})$ que carece de inversa analítica.
 
-Para invertir esta correspondencia geométrica, el código acopla un solucionador numérico de raíces multidimensional (Newton-Raphson). Siguiendo el andamiaje estandarizado por \parencite{noble-2006}, la búsqueda se reduce dimensionalmente a una iteración 1D sobre la variable escalar de momento térmico inercial $W \equiv \rho h \Gamma^2$. Definiendo la densidad de energía material $\tilde{\tau} = \tau - \frac{1}{2}(E^2 + B^2)$\brynota{convención de $\tau$: el residuo siguiente (estilo Noble, con $-D\Gamma$) supone $\tau$ \emph{sin} la energía de masa en reposo, pero \texttt{06\_conserved\_var.f95} y el cap.~2 definen $\tau=\tfrac12(E^2+B^2)+\rho h\Gamma^2-p$ (CON la masa). Unificar: o quitar el $-D\Gamma$, o documentar el cambio $\tau\to\tau-D$ en la recuperación.} y la magnitud del momentum covariante $S^2 = \mathbf{S} \cdot \mathbf{S}$, el residuo maestro acoplado toma la forma exacta:
+Para invertir esta correspondencia, el \textit{Cueva} reduce el problema a una \emph{ecuación cuártica en el factor de Lorentz} $\Gamma$. Eliminando las demás primitivas con ayuda de las variables conservadas y de la ecuación de estado del gas politrópico, la recuperación se condensa en
 \begin{equation}
-    \mathcal{R}(W) = W - p(W) - \tilde{\tau} - D\Gamma(W) = 0.
+    \Gamma^4 + b_3\,\Gamma^3 + b_2\,\Gamma^2 + b_1\,\Gamma + b_0 = 0,
 \end{equation}
+cuyos coeficientes dependen únicamente de cantidades conocidas tras la actualización: la densidad de energía material $C_2 = \tau - \tfrac{1}{2}(E^2+B^2)$, el cuadrado del momento puramente material $C_1 = |\mathbf{S} - \mathbf{E}\times\mathbf{B}|^2$, la densidad conservada $D = \rho\Gamma$ y el índice adiabático a través de $\hat{\gamma} = (\Gamma_{\rm ad}-1)/\Gamma_{\rm ad}$.
 
-Para evaluar secuencialmente esta función dentro del bucle iterativo de Newton, se determinan analíticamente las primitivas dependientes: la velocidad escalar asintótica emerge como $v(W) = S / (W + E \times B)$, seguida por la iteración del factor inercial $\Gamma(W) = (1 - v(W)^2)^{-1/2}$ y la restitución térmica $\rho(W) = D / \Gamma(W)$. El método proyecta incrementos diferenciales convergentes mediante:
-\begin{equation}
-    W_{k+1} = W_k - \frac{\mathcal{R}(W_k)}{\partial \mathcal{R} / \partial W},
-\end{equation}
-donde el gradiente $\partial \mathcal{R} / \partial W$ se extrae diferenciando la ecuación de estado generalizada. El bucle se sujeta a \textit{brackets} de bisección heurística en caso de que un salto exceda el cono de luz causal o viole la positividad isocórica estricta $p(W) > 0$.
+Esta cuártica se resuelve de forma \emph{analítica} mediante el método de Ferrari--Cardano: una transformación de Tchirnhaus $\Gamma \to y - b_3/4$ la lleva a la forma deprimida $y^4 + d_2\,y^2 + d_1\,y + d_0 = 0$, de la que se extrae la raíz físicamente admisible; dicha raíz se refina con unas pocas iteraciones de Newton--Raphson sobre el polinomio. En el régimen de baja velocidad ($v^2 \lesssim 10^{-2}$) se emplea una rama linealizada equivalente, numéricamente más estable. Determinado $\Gamma$, las primitivas restantes se recuperan en cascada: la velocidad de $v^2 = 1 - \Gamma^{-2}$, la densidad $\rho = D/\Gamma$ y la presión de la ecuación de estado. El procedimiento incorpora guardias defensivas que rechazan velocidades superlumínicas ($v^2 \ge 1$) y violaciones de la positividad ($p > 0$), revirtiendo a promedios de celdas vecinas cuando es necesario \parencite{mizuno-2013}.
 
 \section{Límites Asintóticos y Consistencia del Esquema}
 \label{sec:Limites_Asintoticos}
