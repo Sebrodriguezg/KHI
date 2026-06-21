@@ -1,4 +1,4 @@
-\primerparrafo La resolución computacional del sistema de leyes de conservación de la Magnetohidrodinámica Relativista Resistiva (RRMHD) presenta un desafío dual intrínseco a su formulación hiperbólica-parabólica. Por un lado, la no linealidad del transporte convectivo induce la formación de discontinuidades fuertes (choques) que requieren esquemas de captura de alta resolución. Por otro, la inclusión de una conductividad eléctrica finita acopla términos fuente que introducen escalas temporales de disipación restrictivas, induciendo una severa rigidez numérica (\textit{stiffness}). En este capítulo se establece la arquitectura algorítmica estricta del código \textit{Cueva}, fundamentada en reconstrucción espacial de quinto orden, la solución aproximada del problema de Riemann mediante esquemas tipo Godunov (HLLC), y la integración temporal mediante partición de operadores (IMEX).
+\primerparrafo La resolución computacional del sistema de leyes de conservación de la Magnetohidrodinámica Relativista Resistiva (RRMHD) presenta un desafío dual intrínseco a su formulación hiperbólica-parabólica. Por un lado, la no linealidad del transporte convectivo induce la formación de discontinuidades fuertes (choques) que requieren esquemas de captura de alta resolución. Por otro, la inclusión de una conductividad eléctrica finita acopla términos fuente que introducen escalas temporales de disipación restrictivas, induciendo una severa rigidez numérica (\textit{stiffness}). En este capítulo se establece la arquitectura algorítmica estricta del código \textit{Cueva}, fundamentada en reconstrucción espacial de quinto orden, la solución aproximada del problema de Riemann mediante esquemas tipo Godunov (HLL), y la integración temporal mediante partición de operadores (IMEX).
 
 \section{Discretización y Reconstrucción Espacial}
 \label{sec:Reconstruccion_Espacial}
@@ -59,71 +59,16 @@ $$
 |\lambda_{RRMHD}| \le |\lambda_{MHD}| \le c.
 $$
 
-\subsection{El Esquema HLL Clásico y su Fracaso en Discontinuidades Tangenciales}
+\subsection{El Solucionador Aproximado HLL y el Papel de la Reconstrucción de Alto Orden}
+\label{sec:Solucionador_HLL}
 
-\primerparrafo Evadir el costo del solucionador exacto condujo inicialmente a formulaciones aproximadas como el esquema de Harten, Lax y van Leer (HLL). El esquema HLL aproxima todo el abanico de Riemann ignorando la estructura interna y asumiendo un único estado constante $\mathbf{U}^{hll}$ confinado entre las velocidades extremas de onda $\lambda_L$ (la onda rápida más veloz a la izquierda) y $\lambda_R$ (la onda rápida más veloz a la derecha). 
+\primerparrafo El \textit{Cueva} resuelve el problema de Riemann local mediante el solucionador aproximado de Harten, Lax y van Leer (HLL), que evita el costo de un solucionador exacto. El esquema HLL aproxima todo el abanico de Riemann ignorando la estructura interna y asumiendo un único estado constante $\mathbf{U}^{hll}$ confinado entre las velocidades extremas de onda $\lambda_L$ y $\lambda_R$. Estas velocidades de señal se estiman a partir de las velocidades magnetoacústicas rápidas extremas del espectro ($\lambda_f^\pm$, Sección~\ref{sec:Reconstruccion_Espacial} \emph{et seq.}): $\lambda_L=\min(\lambda_f^-)$ a la izquierda y $\lambda_R=\max(\lambda_f^+)$ a la derecha.
 
 El flujo intermedio del HLL resulta de aplicar el teorema de conservación de volumen sobre el abanico:
 $$
 \mathbf{F}^{hll} = \frac{\lambda_R \mathbf{F}_L - \lambda_L \mathbf{F}_R + \lambda_L \lambda_R (\mathbf{U}_R - \mathbf{U}_L)}{\lambda_R - \lambda_L}.
 $$
-Esta aproximación promedia e ignora todas las ondas intermedias, crucialmente la onda de contacto $\lambda_c = v_x$. En la inestabilidad de KHI, la física entera depende de la preservación de la cizalladura asimétrica transversal ($v_y$) a través de una onda de contacto inactiva ($v_x = 0$). Como el esquema HLL es ciego a esta estructura interna, inyecta una difusión numérica masiva proporcional a $(\lambda_R - \lambda_L)$ directamente sobre la discontinuidad tangencial, desdibujando la cizalladura e impidiendo por principio el desarrollo correcto de los vórtices baroclínicos. 
-
-\section[El solucionador aproximado HLLC]{Derivación del Solucionador Exacto Aproximado HLLC}
-\label{sec:Derivacion_HLLC}
-
-
-\primerparrafo Para subsanar la falla fundamental del esquema HLL, \textit{Cueva} implementa el solucionador HLLC (\textit{Harten-Lax-van Leer-Contact}) adaptado a la hidrodinámica relativista por \parencite{mignone-2005} y extendido al régimen resistivo (RRMHD) por \textcite{miranda-aranguren-2018}, cuyo solucionador HLLC constituye el núcleo del \textit{Cueva}. El HLLC restaura analíticamente la discontinuidad media de contacto faltante, aislando la cizalladura tangencial de la difusión numérica y permitiendo una simulación de alta fidelidad de la KHI.
-
-\subsection{Topología del Abanico de Riemann y el Estado Estrella ($U^*$)}
-
-\primerparrafo El esquema HLLC particiona la región de integración intermedia introduciendo la onda central $\lambda^*$, la cual divide el abanico en dos estados ``estrella'' adyacentes: $\mathbf{U}_L^*$ y $\mathbf{U}_R^*$. La topología de flujos se define por tramos condicionales según el cono causal de integración:
-$$
-\mathbf{F}_{HLLC} = 
-\begin{cases} 
-\mathbf{F}_L & \text{si } 0 \le \lambda_L \\
-\mathbf{F}^*_L & \text{si } \lambda_L \le 0 \le \lambda^* \\
-\mathbf{F}^*_R & \text{si } \lambda^* \le 0 \le \lambda_R \\
-\mathbf{F}_R & \text{si } 0 \ge \lambda_R 
-\end{cases}
-$$
-
-\subsection{Condiciones de Salto de Rankine-Hugoniot en el Límite Discreto}
-
-\primerparrafo Las incógnitas del problema son los flujos estrella $\mathbf{F}^*_{L, R}$. Se imponen las leyes de conservación mediante las condiciones de salto exactas de Rankine-Hugoniot a través de las ondas externas acústicas rápidas $\lambda_K$ (con $K = L, R$):
-$$
-\mathbf{F}^*_K - \mathbf{F}_K = \lambda_K (\mathbf{U}^*_K - \mathbf{U}_K).
-$$
-Reordenando algebraicamente para el estado estrella conservativo obtenemos la formulación de consistencia estructural:
-$$
-\mathbf{U}^*_K = \frac{\lambda_K \mathbf{U}_K - \mathbf{F}_K + \mathbf{F}^*_K}{\lambda_K - \lambda^*}
-$$
-donde hemos utilizado el hecho analítico de que a través de la onda de contacto $\lambda^*$, el flujo normal debe comportarse advectivamente como $\mathbf{F}^*_K = \lambda^* \mathbf{U}^*_K + \mathbf{D}^*$, siendo $\mathbf{D}^*$ un vector de acoplamiento diferencial continuo.
-
-\subsection{Postulados de Cierre y Continuidad de Invariantes Físicos}
-
-\primerparrafo El sistema algebraico anterior permanece subdeterminado. Para clausurarlo y encontrar explícitamente $\lambda^*$, se invocan los tres invariantes físicos fundamentales que caracterizan a una discontinuidad de contacto \parencite{mignone-2005}:
-\begin{enumerate}
-    \item Continuidad geométrica de la velocidad del fluido normal a la interfaz: $v_x^* = \lambda^*$.
-    \item Continuidad de la presión total (hidrodinámica + magnética): $p_{T,L}^* = p_{T,R}^* = p_{T}^*$.
-    \item Continuidad transversal del tensor de esfuerzos; específicamente, los vectores $\mathbf{B}$ y $\mathbf{E}$ paralelos a la interfaz permanecen continuos al cruzar la onda central.
-\end{enumerate}
-
-\subsection{Resolución Algebraica Exacta de la Onda de Contacto ($\lambda^*$)}
-
-\primerparrafo La genialidad del esquema HLLC relativista recae en explotar las componentes inerciales del vector $\mathbf{U}$. Consideremos las componentes longitudinales del momento $S^x = \rho h \Gamma^2 v_x + (\mathbf{E} \times \mathbf{B})^x$ y la densidad de energía total $\tau = \rho h \Gamma^2 - p_{T} - \rho\Gamma + (\mathbf{E}^2 + \mathbf{B}^2)/2$.\brynota{convención de $\tau$: aquí (estilo Noble, con $-\rho\Gamma$) se resta la energía de masa en reposo, pero el código \texttt{06\_conserved\_var.f95} y el cap.~2 usan $\tau=\tfrac12(E^2+B^2)+\rho h\Gamma^2-p$ (SIN $-\rho\Gamma$). Unificar la convención: o adoptar la del código sin $-\rho\Gamma$ (entonces el residuo de recuperación pierde el término $-D\Gamma$), o documentar explícitamente el cambio de variable $\tau\to\tau-D$. $S^x$ ya coincide.}
-
-Aplicando las condiciones de Rankine-Hugoniot sobre la presión total $p_T$, se igualan las proyecciones energéticas y cinemáticas de los estados estrella $L$ y $R$. Evaluando $p_T^* = p_T (\mathbf{U}^*_L) = p_T (\mathbf{U}^*_R)$, la dependencia no lineal colapsa gracias a la condición invariante $v_x^* = \lambda^*$, dejando un sistema puramente cuadrático para la velocidad de la onda media \parencite{mignone-2005}:
-$$
-a (\lambda^*)^2 + b \lambda^* + c = 0,
-$$
-donde los coeficientes dependen exclusivamente de los flujos y estados base externos:
-\begin{align*}
-a &= \tau_R - \tau_L - (\lambda_R D_R - \lambda_L D_L) \\
-b &= (F^x_{\tau, L} - \lambda_L \tau_L) - (F^x_{\tau, R} - \lambda_R \tau_R) + (S^x_R - S^x_L) \\
-c &= (F^x_{S^x, L} - \lambda_L S^x_L) - (F^x_{S^x, R} - \lambda_R S^x_R)
-\end{align*}
-Al resolver esta raíz cuadrática, se determina unívocamente el valor de $\lambda^*$ que acopla causalmente todo el sistema. Una vez fijado $\lambda^*$, los estados conservativos intermedios $\mathbf{U}^*_{L,R}$ y sus flujos correspondientes $\mathbf{F}^*_{L,R}$ quedan matemáticamente clausurados sin necesidad de evaluaciones espectrales iterativas, brindando un esquema altamente robusto que captura sin difusión transversal la vorticidad inicial de la KHI.
+Esta aproximación promedia e ignora la estructura interna del abanico, en particular la onda de contacto $\lambda_c = v_x$ que porta la cizalladura tangencial ($v_y$) característica de la KHI. Tomado de forma aislada y a bajo orden, el HLL inyectaría una difusión numérica $\propto(\lambda_R - \lambda_L)$ sobre la discontinuidad tangencial, desdibujando la cizalla. Sin embargo, esta limitación se compensa con la reconstrucción \textit{Monotonicity-Preserving} de quinto orden (MP5, Sección~\ref{sec:Reconstruccion_Espacial}): el alto orden recupera estados interfasiales agudos a ambos lados del contacto, de modo que la combinación HLL$+$MP5 ---la efectivamente empleada en el \textit{Cueva} para el barrido de la KHI--- resuelve con fidelidad la capa de cizalla y el enrollamiento de los vórtices, manteniendo la disipación numérica por debajo de la disipación física resistiva. Es esta sinergia entre un flujo robusto (HLL) y una reconstrucción de alto orden (MP5), y no un solucionador de contacto explícito, la que sostiene la fidelidad de las simulaciones presentadas en este trabajo.
 
 \section[Acoplamiento con el sistema GLM]{Acoplamiento Numérico con el Sistema Aumentado GLM}
 \label{sec:Acoplamiento_GLM_HLLC}
@@ -177,9 +122,9 @@ donde $\alpha = a_{ii} \Delta t$ y $\mathbf{E}^*$ acumula los subpasos previos. 
 \section[Recuperación de Variables Primitivas]{Recuperación de Variables Primitivas: Solucionador Analítico 1D}
 \label{sec:Recuperacion_Primitivas}
 
-\primerparrafo A diferencia de los códigos fluidos clásicos, la actualización de $\mathbf{U} \to \mathbf{U}^{n+1}$ no garantiza el conocimiento inmediato del estado dinámico del plasma. Los flujos HLLC $\mathbf{F}(\mathbf{P})$ están condicionados por el vector de variables primitivas $\mathbf{P} = (\rho, v^j, p, B^j, E^j)^T$. En RRMHD, la dependencia cruzada del factor de Lorentz inercial $\Gamma = (1 - \mathbf{v}^2)^{-1/2}$ enclava las ecuaciones en un mapeo $\mathbf{U}(\mathbf{P})$ que carece de inversa analítica.
+\primerparrafo A diferencia de los códigos fluidos clásicos, la actualización de $\mathbf{U} \to \mathbf{U}^{n+1}$ no garantiza el conocimiento inmediato del estado dinámico del plasma. Los flujos numéricos $\mathbf{F}(\mathbf{P})$ están condicionados por el vector de variables primitivas $\mathbf{P} = (\rho, v^j, p, B^j, E^j)^T$. En RRMHD, la dependencia cruzada del factor de Lorentz inercial $\Gamma = (1 - \mathbf{v}^2)^{-1/2}$ enclava las ecuaciones en un mapeo $\mathbf{U}(\mathbf{P})$ que carece de inversa analítica.
 
-Para invertir esta correspondencia geométrica, el código acopla un solucionador numérico de raíces multidimensional (Newton-Raphson). Siguiendo el andamiaje estandarizado por \parencite{noble-2006}, la búsqueda se reduce dimensionalmente a una iteración 1D sobre la variable escalar de momento térmico inercial $W \equiv \rho h \Gamma^2$. Definiendo la densidad de energía material $\tilde{\tau} = \tau - \frac{1}{2}(E^2 + B^2)$ y la magnitud del momentum covariante $S^2 = \mathbf{S} \cdot \mathbf{S}$, el residuo maestro acoplado toma la forma exacta:
+Para invertir esta correspondencia geométrica, el código acopla un solucionador numérico de raíces multidimensional (Newton-Raphson). Siguiendo el andamiaje estandarizado por \parencite{noble-2006}, la búsqueda se reduce dimensionalmente a una iteración 1D sobre la variable escalar de momento térmico inercial $W \equiv \rho h \Gamma^2$. Definiendo la densidad de energía material $\tilde{\tau} = \tau - \frac{1}{2}(E^2 + B^2)$\brynota{convención de $\tau$: el residuo siguiente (estilo Noble, con $-D\Gamma$) supone $\tau$ \emph{sin} la energía de masa en reposo, pero \texttt{06\_conserved\_var.f95} y el cap.~2 definen $\tau=\tfrac12(E^2+B^2)+\rho h\Gamma^2-p$ (CON la masa). Unificar: o quitar el $-D\Gamma$, o documentar el cambio $\tau\to\tau-D$ en la recuperación.} y la magnitud del momentum covariante $S^2 = \mathbf{S} \cdot \mathbf{S}$, el residuo maestro acoplado toma la forma exacta:
 \begin{equation}
     \mathcal{R}(W) = W - p(W) - \tilde{\tau} - D\Gamma(W) = 0.
 \end{equation}
@@ -199,4 +144,4 @@ donde el gradiente $\partial \mathcal{R} / \partial W$ se extrae diferenciando l
 
 \subsection{Comportamiento Disipativo en el Límite Altamente Resistivo}
 
-\primerparrafo Por conservación simétrica, el límite diélectrico puramente gaseoso ($\sigma \to 0$) suprime íntegramente la submatriz del tensor de conductividad. La partición de Butcher desacopla instantáneamente la integración de las variables hidrodinámicas inerciales respecto de las ecuaciones de Maxwell de vacío. El solucionador de Riemann HLLC, ajeno a los términos fuente resistivos, interseca de forma asintóticamente congruente los flujos, validando que el código \textit{Cueva} capture tanto la disipación óhmica profunda que genera topologías \textit{tearing} en la KHI, como el transporte radiativo puro en el límite no conductivo, estructurando un marco inquebrantable para simular plasmas astrofísicos fuera del equilibrio magnético ideal.
+\primerparrafo Por conservación simétrica, el límite diélectrico puramente gaseoso ($\sigma \to 0$) suprime íntegramente la submatriz del tensor de conductividad. La partición de Butcher desacopla instantáneamente la integración de las variables hidrodinámicas inerciales respecto de las ecuaciones de Maxwell de vacío. El solucionador de Riemann HLL, ajeno a los términos fuente resistivos, interseca de forma asintóticamente congruente los flujos, validando que el código \textit{Cueva} capture tanto la disipación óhmica profunda que genera topologías \textit{tearing} en la KHI, como el transporte radiativo puro en el límite no conductivo, estructurando un marco inquebrantable para simular plasmas astrofísicos fuera del equilibrio magnético ideal.
