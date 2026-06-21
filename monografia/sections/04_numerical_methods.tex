@@ -73,7 +73,7 @@ Esta aproximación promedia e ignora todas las ondas intermedias, crucialmente l
 \label{sec:Derivacion_HLLC}
 
 
-\primerparrafo Para subsanar la falla fundamental del esquema HLL, \textit{Cueva} implementa el solucionador HLLC (\textit{Harten-Lax-van Leer-Contact}) adaptado a la relatividad por \parencite{mignone-2005}. El HLLC restaura analíticamente la discontinuidad media de contacto faltante, aislando la cizalladura tangencial de la difusión numérica y permitiendo una simulación de alta fidelidad de la KHI.
+\primerparrafo Para subsanar la falla fundamental del esquema HLL, \textit{Cueva} implementa el solucionador HLLC (\textit{Harten-Lax-van Leer-Contact}) adaptado a la hidrodinámica relativista por \parencite{mignone-2005} y extendido al régimen resistivo (RRMHD) por \textcite{miranda-aranguren-2018}, cuyo solucionador HLLC constituye el núcleo del \textit{Cueva}. El HLLC restaura analíticamente la discontinuidad media de contacto faltante, aislando la cizalladura tangencial de la difusión numérica y permitiendo una simulación de alta fidelidad de la KHI.
 
 \subsection{Topología del Abanico de Riemann y el Estado Estrella ($U^*$)}
 
