@@ -1,13 +1,14 @@
 %====================================================================
 % PREAMBLE
 %====================================================================
-\documentclass[11pt, english]{book}
+\documentclass[11pt, english, openany]{book}
 
 % --- Core Packages ---
 \usepackage[T1]{fontenc}                % Use modern font encodings
 \usepackage{lmodern}                    % Use the Latin Modern font
 \usepackage[utf8]{inputenc}             % For UTF-8 input
 \usepackage[spanish]{babel}             % Language-specific typesetting
+\usepackage{fancyhdr}
 % Babel-español rotula las tablas como «Cuadro»; el texto las referencia como
 % «Tabla». Unificamos a «Tabla» (caption + índice) para que coincidan.
 \addto\captionsspanish{%
@@ -81,7 +82,7 @@
 %====================================================================
 % DOCUMENT METADATA
 %====================================================================
-\title{Tratamiento numérico de la inestabilidad de Kelvin--Helmholtz bajo el marco de la Magnetohidrodinámica resistiva relativista}
+\title{Tratamiento numérico de la inestabilidad de Kelvin--Helmholtz bajo el marco de la Magnetohidrodinámica Relativista Resistiva}
 \author{Bryan Martinez, Sebastián Rodriguez, Sergio Miranda \\ \ \\
   \textit{Programa Académico de Física} \\
   \textit{Facultad de Ciencias Matemáticas y Naturales} \\
@@ -97,7 +98,37 @@
 
 % --- Front Matter ---
 \frontmatter
-\maketitle
+\begin{titlepage}
+\begin{center}
+
+\includegraphics[width=1in]{logoUD2.png} 
+
+\vspace*{1cm}
+\Large
+\hrule
+\vspace{4mm}
+\textbf{Tratamiento numérico de la inestabilidad de Kelvin--Helmholtz bajo el marco de la Magnetohidrodinámica Relativista Resistiva}
+\vspace{4mm}
+\hrule
+\large
+\vfill
+Autores\\
+Bryan Martinez Anzola\\
+Sebastian Rodriguez Garcia
+\vfill
+Director\\
+Sergio Miranda Aranguren (PhD. Física)
+\vfill
+Universidad Distrital Francisco José de Caldas\\
+Facultad de Ciencias Matemáticas y Naturales\\
+Programa académico de Física\\
+Bogotá, Colombia\\
+Julio de 2026
+\end{center}
+\end{titlepage}
+
+\pagestyle{fancy}
+
 \tableofcontents
 
 % --- Main Matter ---
@@ -134,7 +165,6 @@
 \chapter{Set-up Experimental y metodos  \textit{Cueva}}
 \label{ch:setup_exp}
 \input{sections/setup_exp.tex}
-
 
 \chapter[Resultados y análisis de la KHI]{Resultados de la Simulación y Análisis de la KHI}
 \label{ch:results_discussion}
