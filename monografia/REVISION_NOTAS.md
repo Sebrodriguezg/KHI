@@ -2,7 +2,7 @@
 
 *Actualizado: 2026-06-22 · rama `revision-monografia`*
 
-## 📊 21/122 cerradas (17%) — pendientes 101
+## 📊 22/122 cerradas (18%) — pendientes 100
 
 > **El # es FIJO** (no cambia aunque cerremos otras). ✅ = cerrada · ⬜ = pendiente.
 
@@ -22,7 +22,7 @@
 | 4 | ⬜ | REV | Objetivos y Estructura de la Monografía | este objetivo (orientación/intensidad de B) NO se desarrolla en el cuerpo de esta versión; es la campaña pendiente (ver Conclusiones, objetivo 4). Alinear la redacción a “se sientan las bases para evaluar…” o presentarlo como trabajo futuro. |
 | 5 | ⬜ | CLAUDE | Objetivos y Estructura de la Monografía | Redacción propuesta: “… se sientan las bases para evaluar cómo las variaciones de dirección y magnitud del campo magnético externo modificarían la evolución de la inestabilidad; este objetivo se aborda como continuación inmediata (campaña en curso, cap.~(ref)).” |
 
-## Cap. 2 — Teoría RRMHD  — 25/46 cerradas
+## Cap. 2 — Teoría RRMHD  — 24/46 cerradas
 
 | # | Estado | Tipo | Sección | Qué dice |
 |---|---|---|---|---|
@@ -38,7 +38,7 @@
 | 15 | ✅ | SEB | El Cuadripotencial y la Definición del Tensor de Faraday | ¿esto es así tal cual? verificar la igualdad $d(dx^)=d^2x^=0$. |
 | 16 | ✅ | CLAUDE | El Cuadripotencial y la Definición del Tensor de Faraday | Sí, correcto: $dx^=d(x^)$ es exacta y $d(dx^)=d^2x^=0$ por nilpotencia ($d^2=0$). La escritura $d^2x^$ es legítima (no es una 2.ª derivada del cálculo, sino $d$ aplicado dos veces). |
 | 17 | ✅ | SEB | Descomposición Relativa a un Observador | relacionar esta normalización del observador comóvil con el observador euleriano de la malla. |
-| 18 | ⬜ | SEB | Descomposición Relativa a un Observador | notación: valorar usar el símbolo de Hodge $$ para el dual a lo largo del documento. |
+| 18 | ✅ | SEB | Descomposición Relativa a un Observador | notación: valorar usar el símbolo de Hodge $$ para el dual a lo largo del documento. |
 | 19 | ⬜ | SEB | Descomposición Relativa a un Observador | ¿“covariantemente” es el término correcto aquí? revisar. |
 | 20 | ⬜ | SEB | Descomposición Relativa a un Observador | revisar la estructura y jerarquía del documento: capítulos, secciones, subsecciones, subsubsecciones y niveles siguientes (consistencia y profundidad). |
 | 21 | ⬜ | SEB | El par inhomogéneo y el acoplamiento con la fuente | verificar si esto es resultado de un lagrangiano; incluir el resultado y el procedimiento, o llevarlo a un anexo. |

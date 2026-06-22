@@ -87,9 +87,9 @@ Al contraer el tensor de campo electromagnético con esta cuadrivelocidad, se de
 \begin{equation}
     E^\mu = F^{\mu\nu} u_\nu
 \end{equation}
-Por la antisimetría del tensor de Faraday, este cuadrivector es estrictamente ortogonal a la cuadrivelocidad ($E^\mu u_\mu = 0$), lo que garantiza que posea únicamente tres grados de libertad espaciales en el marco propio. De manera análoga, introduciendo el tensor dual de Faraday ${}^*F^{\mu\nu} = \frac{1}{2} \epsilon^{\mu\nu\alpha\beta} F_{\alpha\beta}$ —donde $\epsilon^{\mu\nu\alpha\beta}$ es el tensor de Levi-Civita cuatridimensional\footnote{En coordenadas cartesianas sobre el espacio-tiempo plano de Minkowski ($\sqrt{-g}=1$), el \emph{tensor} de Levi-Civita $\epsilon^{\mu\nu\alpha\beta}=\tfrac{1}{\sqrt{-g}}\,\tilde{\epsilon}^{\,\mu\nu\alpha\beta}$ coincide numéricamente con el \emph{símbolo} de Levi-Civita (densidad tensorial) $\tilde{\epsilon}^{\,\mu\nu\alpha\beta}\in\{0,\pm1\}$; en métricas o coordenadas generales difieren por el factor $\sqrt{-g}$ \parencite{nakahara-2003}.}\sebnota{notación: valorar usar el símbolo de Hodge $\star$ para el dual a lo largo del documento.}—, el campo magnético comóvil se determina como:
+Por la antisimetría del tensor de Faraday, este cuadrivector es estrictamente ortogonal a la cuadrivelocidad ($E^\mu u_\mu = 0$), lo que garantiza que posea únicamente tres grados de libertad espaciales en el marco propio. De manera análoga, introduciendo el \emph{dual de Hodge}\footnote{El \emph{dual de Hodge} $\star F$ de la 2-forma de Faraday tiene componentes $(\star F)^{\mu\nu}=\tfrac12\epsilon^{\mu\nu\alpha\beta}F_{\alpha\beta}$. A diferencia de la derivada exterior, el operador $\star$ \emph{depende de la métrica}; en 4D con signatura lorentziana satisface $\star\star F=-F$ \parencite{nakahara-2003, baez-muniain-1994}.} del tensor de Faraday, de componentes $(\star F)^{\mu\nu} = \frac{1}{2} \epsilon^{\mu\nu\alpha\beta} F_{\alpha\beta}$ —donde $\epsilon^{\mu\nu\alpha\beta}$ es el tensor de Levi-Civita cuatridimensional\footnote{En coordenadas cartesianas sobre el espacio-tiempo plano de Minkowski ($\sqrt{-g}=1$), el \emph{tensor} de Levi-Civita $\epsilon^{\mu\nu\alpha\beta}=\tfrac{1}{\sqrt{-g}}\,\tilde{\epsilon}^{\,\mu\nu\alpha\beta}$ coincide numéricamente con el \emph{símbolo} de Levi-Civita (densidad tensorial) $\tilde{\epsilon}^{\,\mu\nu\alpha\beta}\in\{0,\pm1\}$; en métricas o coordenadas generales difieren por el factor $\sqrt{-g}$ \parencite{nakahara-2003}.}—, el campo magnético comóvil se determina como:
 \begin{equation}
-    B^\mu = {}^*F^{\mu\nu} u_\nu
+    B^\mu = (\star F)^{\mu\nu} u_\nu
 \end{equation}
 el cual también satisface de forma identitaria la condición de espacialidad $B^\mu u_\mu = 0$.
 
@@ -126,10 +126,10 @@ En abierto contraste, el régimen de la Magnetohidrodinámica Relativista Resist
 \begin{equation}
     dF = d(dA) = d^2A = 0
 \end{equation}
-Esta identidad matemática, conocida como la identidad de Bianchi para el campo electromagnético, prohíbe geométricamente la existencia de monopolos magnéticos aislados y garantiza la ley de inducción. Para expresar esta restricción topológica en su forma tensorial operativa, hacemos uso del tensor dual de Faraday, ${}^*F^{\mu\nu} = \frac{1}{2} \epsilon^{\mu\nu\alpha\beta} F_{\alpha\beta}$. La condición $dF = 0$ es estrictamente equivalente a la exigencia de que el tensor dual tenga divergencia nula\footnote{La equivalencia es consecuencia de la dualidad de Hodge: como ${}^*F^{\mu\nu}=\tfrac12\epsilon^{\mu\nu\alpha\beta}F_{\alpha\beta}$, se tiene $\partial_\mu{}^*F^{\mu\nu}=\tfrac12\epsilon^{\mu\nu\alpha\beta}\partial_\mu F_{\alpha\beta}$; al ser $\epsilon^{\mu\nu\alpha\beta}$ totalmente antisimétrico, esta contracción aísla la parte completamente antisimetrizada $\partial_{[\mu}F_{\alpha\beta]}$, cuya anulación coincide idénticamente con la suma cíclica de Bianchi $\partial_\lambda F_{\mu\nu}+\partial_\mu F_{\nu\lambda}+\partial_\nu F_{\lambda\mu}=0$, es decir, con $dF=0$ \parencite{nakahara-2003, baez-muniain-1994}.}:
+Esta identidad matemática, conocida como la identidad de Bianchi para el campo electromagnético, prohíbe geométricamente la existencia de monopolos magnéticos aislados y garantiza la ley de inducción. Para expresar esta restricción topológica en su forma tensorial operativa, hacemos uso del dual de Hodge, $(\star F)^{\mu\nu} = \frac{1}{2} \epsilon^{\mu\nu\alpha\beta} F_{\alpha\beta}$. La condición $dF = 0$ es estrictamente equivalente a la exigencia de que el tensor dual tenga divergencia nula\footnote{La equivalencia es consecuencia de la dualidad de Hodge: como $(\star F)^{\mu\nu}=\tfrac12\epsilon^{\mu\nu\alpha\beta}F_{\alpha\beta}$, se tiene $\partial_\mu(\star F)^{\mu\nu}=\tfrac12\epsilon^{\mu\nu\alpha\beta}\partial_\mu F_{\alpha\beta}$; al ser $\epsilon^{\mu\nu\alpha\beta}$ totalmente antisimétrico, esta contracción aísla la parte completamente antisimetrizada $\partial_{[\mu}F_{\alpha\beta]}$, cuya anulación coincide idénticamente con la suma cíclica de Bianchi $\partial_\lambda F_{\mu\nu}+\partial_\mu F_{\nu\lambda}+\partial_\nu F_{\lambda\mu}=0$, es decir, con $dF=0$ \parencite{nakahara-2003, baez-muniain-1994}.}:
 \begin{equation}
 \label{eq:Maxwell_Homogeneas}
-    \partial_\mu {}^*F^{\mu\nu} = 0
+    \partial_\mu (\star F)^{\mu\nu} = 0
 \end{equation}
 Esta única ecuación tensorial contiene simultáneamente la ley de Gauss para el magnetismo ($\nabla \cdot \mathbf{B} = 0$) y la ley de Faraday-Lenz ($\nabla \times \mathbf{E} + \partial_t \mathbf{B} = 0$).
 
@@ -231,7 +231,7 @@ Esta expresión constituye la generalización relativista de las ecuaciones de E
     \partial_\mu (\rho u^\mu) &= 0 \\
     \partial_\mu T^{\mu\nu} &= 0 \\
     \partial_\mu F^{\mu\nu} &= J^\nu \\
-    \partial_\mu {}^*F^{\mu\nu} &= 0
+    \partial_\mu (\star F)^{\mu\nu} &= 0
 \end{align}
 
 \sebnota{revisar este sistema de ecuaciones (2.32)--(2.35) y las relaciones entre ellas.}Aunque este sistema tetradimensional es manifiestamente covariante y estéticamente compacto, no es directamente aplicable en esquemas de integración numérica, los cuales requieren distinguir explícitamente entre la evolución temporal y los gradientes espaciales. Para transicionar del formalismo covariante a un sistema de ecuaciones de evolución hiperbólicas, es indispensable realizar una descomposición de tipo 3+1. 
@@ -274,14 +274,14 @@ El análisis acoplado de las ecuaciones (\ref{eq:GLM_Phi_Maxwell}) y (\ref{eq:GL
 
 \subsubsection{Simetría Dual y el Campo Auxiliar Magnético $\Psi$}
 
-\primerparrafo Aunque la introducción del campo $\Phi$ resuelve de manera elegante las patologías del sector eléctrico, el formalismo lagrangiano basado exclusivamente en el potencial $A_\mu$ deja intacta la identidad de Bianchi, $\partial_\mu {}^*F^{\mu\nu} = 0$. Matemáticamente, al definir el tensor de Faraday como la derivada exterior exacta del potencial ($F=dA$), la ausencia de monopolos magnéticos ($dF=0$) constituye una restricción topológica inquebrantable en el límite continuo. 
+\primerparrafo Aunque la introducción del campo $\Phi$ resuelve de manera elegante las patologías del sector eléctrico, el formalismo lagrangiano basado exclusivamente en el potencial $A_\mu$ deja intacta la identidad de Bianchi, $\partial_\mu (\star F)^{\mu\nu} = 0$. Matemáticamente, al definir el tensor de Faraday como la derivada exterior exacta del potencial ($F=dA$), la ausencia de monopolos magnéticos ($dF=0$) constituye una restricción topológica inquebrantable en el límite continuo. 
 
 Sin embargo, en el dominio discreto propio de una simulación numérica, los operadores diferenciales discretos no satisfacen de manera exacta la propiedad de nilpotencia ($d^2 \neq 0$). Los errores de truncamiento rompen esta topología geométrica, permitiendo la generación de monopolos magnéticos espurios ($\nabla \cdot \mathbf{B} \neq 0$) que degradan la fidelidad física y destruyen la estabilidad del código. Para abordar esta anomalía numérica de manera covariante, sin la necesidad de recurrir a la formulación de potenciales magnéticos duales, se apela a la invariancia dual (o simetría de Hodge) intrínseca a las ecuaciones de Maxwell \parencite{lee2004}\footnote{Una formulación basada en un \emph{potencial dual} magnético rompería esta invariancia dual (simetría de Hodge) de las ecuaciones de Maxwell; por ello la limpieza se implementa con un multiplicador escalar y no con un potencial dual.}. 
 
-De manera homóloga a la extensión de la ecuación inhomogénea, se ``relaja'' la identidad de Bianchi mediante la postulación de un segundo multiplicador de Lagrange escalar, $\Psi(x)$, acoplado directamente a la divergencia del tensor dual de Faraday:
+De manera homóloga a la extensión de la ecuación inhomogénea, se ``relaja'' la identidad de Bianchi mediante la postulación de un segundo multiplicador de Lagrange escalar, $\Psi(x)$, acoplado directamente a la divergencia del dual de Hodge:
 \begin{equation}
 \label{eq:Bianchi_Extendida_Psi}
-    \partial_\mu {}^*F^{\mu\nu} + \partial^\nu \Psi = 0
+    \partial_\mu (\star F)^{\mu\nu} + \partial^\nu \Psi = 0
 \end{equation}
 
 Para preservar la coherencia hiperbólica del marco teórico y asegurar que las violaciones a las restricciones se comporten como perturbaciones dinámicas, este nuevo campo debe satisfacer una ecuación de onda análoga a la del sector eléctrico. Adicionalmente, el objetivo de un esquema robusto no es únicamente propagar los errores fuera del dominio computacional, sino disiparlos activamente. Por ello, se introducen términos de amortiguamiento fenoménico, parametrizados por los coeficientes de decaimiento $\kappa_E$ y $\kappa_B$,\sebnota{¿hay forma de introducir estos términos de amortiguamiento de manera formal (derivada) y no ad-hoc?} los cuales fuerzan un decaimiento exponencial de las divergencias espurias mediante un esquema dinámico de limpieza mixto \parencite{gomes2015}. 
@@ -289,7 +289,7 @@ Para preservar la coherencia hiperbólica del marco teórico y asegurar que las 
 Integrando estas consideraciones, la formulación covariante completa del sistema aumentado de Maxwell (GLM) queda rigurosamente constituida por el siguiente conjunto de ecuaciones:
 \begin{align}
     \partial_\mu F^{\mu\nu} + \partial^\nu \Phi &= J^\nu \label{eq:GLM_Cov_1}\\
-    \partial_\mu {}^*F^{\mu\nu} + \partial^\nu \Psi &= 0 \label{eq:GLM_Cov_2}\\
+    \partial_\mu (\star F)^{\mu\nu} + \partial^\nu \Psi &= 0 \label{eq:GLM_Cov_2}\\
     \Box \Phi + \kappa_E \partial_t \Phi &= -\partial_\mu A^\mu \label{eq:GLM_Cov_3}\\
     \Box \Psi + \kappa_B \partial_t \Psi &= 0 \label{eq:GLM_Cov_4}
 \end{align}
@@ -487,7 +487,7 @@ Esta formulación compacta encapsula la totalidad de la física del plasma resis
 \begin{align}
     \nabla_\mu \delta T^{\mu\nu} &= \delta (F^{\nu\lambda} J_\lambda) \\
     \nabla_\mu \delta F^{\mu\nu} &= \delta J^\nu \\
-    \nabla_\mu \delta {}^*F^{\mu\nu} &= 0
+    \nabla_\mu \delta (\star F)^{\mu\nu} &= 0
 \end{align}
 
 Expandiendo las perturbaciones en una base de modos normales de Fourier-Laplace, $\delta \mathbf{V} \propto \exp[i(k_\mu x^\mu)]$, donde $k^\mu = (\omega, \mathbf{k})$ es el cuadrivector de onda, el sistema diferencial se mapea a un problema algebraico de autovalores $\mathcal{M}(\omega, \mathbf{k}) \delta \mathbf{V} = 0$. La condición de existencia de soluciones no triviales, $\det[\mathcal{M}] = 0$, define la relación de dispersión compleja $\omega(\mathbf{k}) = \omega_R + i\gamma$, donde la parte imaginaria $\gamma$ dicta la tasa de crecimiento estricta de la inestabilidad de Kelvin-Helmholtz (KHI).
