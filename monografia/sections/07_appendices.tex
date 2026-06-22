@@ -153,3 +153,26 @@ Media aritmética $\scrit$ & $4754\pm1944$ & $4754\pm1944$\\
 \hline
 \end{tabular}
 \end{table}
+
+
+\section{Desarrollo en componentes del tensor de Faraday \texorpdfstring{$F=dA$}{F=dA}}
+\label{ap:FdA}
+
+\primerparrafo Se detalla el paso ---resumido en el cuerpo (Sección~\ref{sec:Elec_Cov})--- desde la definición geométrica $F\equiv dA$ hasta sus componentes covariantes. Sustituyendo el cuadripotencial $A = A_\nu dx^\nu$ y aplicando la regla de Leibniz para la derivada exterior:
+\begin{align}
+    dA &= d(A_\nu dx^\nu) \nonumber \\
+       &= dA_\nu \wedge dx^\nu + A_\nu d(dx^\nu)
+\end{align}
+Por la nilpotencia del operador exterior, la derivada exterior de una diferencial exacta es nula, $d(dx^\nu) = d^2 x^\nu = 0$, lo que anula el segundo término:
+\begin{equation}
+    dA = dA_\nu \wedge dx^\nu .
+\end{equation}
+Como $A_\nu$ es una componente escalar (0-forma), su derivada exterior coincide con su diferencial exacto, $dA_\nu = \partial_\mu A_\nu\, dx^\mu$:
+\begin{equation}
+    dA = (\partial_\mu A_\nu\, dx^\mu) \wedge dx^\nu = \partial_\mu A_\nu\,(dx^\mu \wedge dx^\nu) .
+\end{equation}
+Aplicando la antisimetría del producto cuña ($dx^\mu \wedge dx^\nu = -dx^\nu \wedge dx^\mu$) e intercambiando los índices mudos:
+\begin{equation}
+    dA = \frac{1}{2} (\partial_\mu A_\nu - \partial_\nu A_\mu)\, dx^\mu \wedge dx^\nu .
+\end{equation}
+Comparando con la expansión canónica de una 2-forma, $F = \tfrac{1}{2} F_{\mu\nu}\, dx^\mu \wedge dx^\nu$, se obtienen las componentes covariantes $F_{\mu\nu} = \partial_\mu A_\nu - \partial_\nu A_\mu$.

@@ -35,22 +35,9 @@ Para construir el objeto que represente los observables físicos electromagnéti
         &= dA + d(d\Lambda) \nonumber \\
         &= dA
 \end{align}
-Por lo tanto, este nuevo objeto geométrico generado por la derivada exterior se mantiene estrictamente invariante ante transformaciones de gauge. Para hallar su expresión local en componentes, sustituimos la definición del cuadripotencial $A = A_\nu dx^\nu$ y aplicamos la regla de Leibniz para la derivada exterior:\sebnota{llevar esta derivación (regla de Leibniz / desarrollo de $F=dA$) al anexo.}
-\begin{align}
-    dA &= d(A_\nu dx^\nu) \nonumber \\
-       &= dA_\nu \wedge dx^\nu + A_\nu d(dx^\nu)
-\end{align}
-Nuevamente, aplicando la propiedad de nilpotencia sobre los diferenciales de las coordenadas base, sabemos que la derivada exterior de una diferencial exacta es nula, es decir, $d(dx^\nu) = d^2 x^\nu = 0$. Esto anula el segundo término, simplificando la expresión a:
+Por lo tanto, este nuevo objeto geométrico generado por la derivada exterior se mantiene estrictamente invariante ante transformaciones de gauge. Sustituyendo el cuadripotencial $A = A_\nu dx^\nu$ y aplicando la regla de Leibniz para la derivada exterior ---junto con la nilpotencia ($d(dx^\nu)=d^2x^\nu=0$) y la antisimetría del producto cuña---, su expresión local en componentes resulta (desarrollo paso a paso en el Anexo~\ref{ap:FdA}):
 \begin{equation}
-    dA = dA_\nu \wedge dx^\nu
-\end{equation}
-Dado que $A_\nu$ es una componente escalar (una 0-forma), su derivada exterior coincide con su diferencial exacto, $dA_\nu = \partial_\mu A_\nu dx^\mu$. Sustituyendo esto en la expresión:
-\begin{equation}
-    dA = (\partial_\mu A_\nu dx^\mu) \wedge dx^\nu = \partial_\mu A_\nu (dx^\mu \wedge dx^\nu)
-\end{equation}
-Haciendo uso de la propiedad de antisimetría del producto cuña ($dx^\mu \wedge dx^\nu = -dx^\nu \wedge dx^\mu$), podemos separar la expresión en dos sumas equivalentes intercambiando los índices mudos:
-\begin{equation}
-    dA = \frac{1}{2} (\partial_\mu A_\nu - \partial_\nu A_\mu) dx^\mu \wedge dx^\nu
+    dA = \frac{1}{2} (\partial_\mu A_\nu - \partial_\nu A_\mu) dx^\mu \wedge dx^\nu .
 \end{equation}
 
 En esta expresión, es imperativo interpretar el rol geométrico de cada bloque constructivo. Mientras que el término entre paréntesis dicta las magnitudes dinámicas del campo, el producto cuña restante, $dx^\mu \wedge dx^\nu$, constituye la base del espacio de las 2-formas. Físicamente, este producto exterior representa un elemento de área infinitesimal estrictamente orientada en la variedad espaciotemporal. Las combinaciones puramente espaciales (como $dx \wedge dy$) definen las superficies a través de las cuales se mide el flujo magnético, mientras que las combinaciones espaciotemporales (como $dt \wedge dx$) definen las ``áreas'' asociadas a la circulación del campo eléctrico a lo largo del tiempo. Además, es esta base diferencial la que absorbe las contracciones y dilataciones de coordenadas, garantizando la invariancia relativista del objeto.
