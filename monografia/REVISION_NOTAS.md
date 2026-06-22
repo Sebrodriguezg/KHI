@@ -2,7 +2,7 @@
 
 *Actualizado: 2026-06-22 · rama `revision-monografia`*
 
-## 📊 22/122 cerradas (18%) — pendientes 100
+## 📊 30/122 cerradas (24%) — pendientes 92
 
 > **El # es FIJO** (no cambia aunque cerremos otras). ✅ = cerrada · ⬜ = pendiente.
 
@@ -114,7 +114,7 @@
 | 76 | ⬜ | SEB | Variables de Control y Diagnóstico | Mirar cuáles de estos diagnósticos sí se usan y cuáles no; además, seguro se usan otros, como campos y energías. |
 | 77 | ⬜ | CLAUDE | Variables de Control y Diagnóstico | Del código: se usan $_z$, $_ tot$, $f_Vz$ y $'_zp$ (estos en cap.~6) y además $J_$, $ E\!\! J$ y $E_ mag$ (§(ref)). Conviene listar también estos últimos aquí para que la sección de diagnósticos quede completa. |
 
-## Cap. 6 — Resultados  — 36/36 cerradas
+## Cap. 6 — Resultados  — 28/36 cerradas
 
 | # | Estado | Tipo | Sección | Qué dice |
 |---|---|---|---|---|
@@ -127,18 +127,18 @@
 | 84 | ⬜ | SEB | Leyes de potencia para $()$ | afirmación de cita: ¿es de la fuente o es interna? Revisar. |
 | 85 | ⬜ | SEB | Leyes de potencia para $()$ | ¿en qué se basa esta justificación? |
 | 86 | ⬜ | SEB | Leyes de potencia para $()$ | tasa de reconexión: ¿lo justifico? ¿se puede graficar y sustentar? |
-| 87 | ⬜ | SEB | Leyes de potencia para $()$ | ¿qué es Res-RMHD? |
-| 88 | ⬜ | CLAUDE | Leyes de potencia para $()$ | Res-RMHD = Resistive Relativistic MHD (el marco de todo el trabajo); aquí alude a esquemas numéricos de alto orden para Res-RMHD (mignone2024). Conviene definir la sigla en su primer uso o usar “RRMHD” para no introducir una variante. |
+| 87 | ✅ | SEB | Leyes de potencia para $()$ | ¿qué es Res-RMHD? |
+| 88 | ✅ | CLAUDE | Leyes de potencia para $()$ | Res-RMHD = Resistive Relativistic MHD (el marco de todo el trabajo); aquí alude a esquemas numéricos de alto orden para Res-RMHD (mignone2024). Conviene definir la sigla en su primer uso o usar “RRMHD” para no introducir una variante. |
 | 89 | ⬜ | SEB | Leyes de potencia para $()$ | revisar la validez y el argumento. |
 | 90 | ⬜ | SEB | Corrientes, disipación y energía magnética | Revisar esto: ¿qué? Rompe toda la fiabilidad; además, estos resultados justifican la zona de transición. |
 | 91 | ⬜ | SEB | Estructuras secundarias y anisotropía fuera del plano | Esto es increíble; revisar conexión y correlación. |
-| 92 | ⬜ | SEB | Contraste con la teoría lineal | ¿De dónde sale este valor? ¿Dónde está revisado? |
-| 93 | ⬜ | CLAUDE | Contraste con la teoría lineal | $=(C+_0)\,a_kh/v_sh=1.030.05/0.5=0.103$. La cadena completa (Michalke $$ Lees--Lin $$ medido) está recomputada y verificada en el Anexo~(ref); conviene citar ese anexo aquí. |
+| 92 | ✅ | SEB | Contraste con la teoría lineal | ¿De dónde sale este valor? ¿Dónde está revisado? |
+| 93 | ✅ | CLAUDE | Contraste con la teoría lineal | $=(C+_0)\,a_kh/v_sh=1.030.05/0.5=0.103$. La cadena completa (Michalke $$ Lees--Lin $$ medido) está recomputada y verificada en el Anexo~(ref); conviene citar ese anexo aquí. |
 | 94 | ⬜ | SEB | Techo hidrodinámico inviscido (ecuación de Rayleigh) | revisar la validez de las fuentes. |
 | 95 | ⬜ | SEB | El carácter dual del montaje no altera el techo | En la figura, no uses la expresión “tus datos”. |
 | 96 | ⬜ | SEB | Predicción RMHD compresible (Lees--Lin) | ¿cuál es mi dato en la figura? |
-| 97 | ⬜ | SEB | Velocidades características y números de Mach | buscar dónde poner el footnote de la velocidad de Alfvén. |
-| 98 | ⬜ | CLAUDE | Velocidades características y números de Mach | Ubicación natural: primera aparición de $V_A$ en la tabla de Mach (§6.7.4). Footnote: “$V_A=B^2/( h+B^2)$ (con $c=1$): velocidad de Alfvén relativista.” Ya hay un footnote de $V_A$ en el cap.~1; podría bastar un ref a él. |
+| 97 | ✅ | SEB | Velocidades características y números de Mach | buscar dónde poner el footnote de la velocidad de Alfvén. |
+| 98 | ✅ | CLAUDE | Velocidades características y números de Mach | Ubicación natural: primera aparición de $V_A$ en la tabla de Mach (§6.7.4). Footnote: “$V_A=B^2/( h+B^2)$ (con $c=1$): velocidad de Alfvén relativista.” Ya hay un footnote de $V_A$ en el cap.~1; podría bastar un ref a él. |
 | 99 | ⬜ | SEB | Velocidades características y números de Mach | expandir mejor la justificación. |
 | 100 | ⬜ | SEB | Contraste con los marcos MHD, RMHD y RRMHD | arreglar esto. |
 | 101 | ⬜ | SEB | Contraste con los marcos MHD, RMHD y RRMHD | ¿estamos seguros? |
@@ -146,8 +146,8 @@
 | 103 | ⬜ | REV | Buen planteamiento y papel de la resistividad | TONO (revisor): “prueba decisiva” suena tajante y no sabemos si lo será; considerar “una prueba más exhaustiva”. |
 | 104 | ⬜ | REV | Limitaciones del análisis y perspectivas | TONO (revisor): esta sección suena a IA y da por seguro que las pruebas futuras “arreglarían” las discrepancias; en realidad no se sabe. Reescribir en condicional/posibilidades (“podría”, “permitiría”) en vez de certezas, y revisar el uso de “prueba decisiva”/“máxima prioridad”. |
 | 105 | ⬜ | SEB | Limitaciones del análisis y perspectivas | límite numérico. |
-| 106 | ⬜ | SEB | Limitaciones del análisis y perspectivas | ¿ya existe? |
-| 107 | ⬜ | CLAUDE | Limitaciones del análisis y perspectivas | Sí existe: chow2023 da el análisis lineal RMHD magnetizado (el polinomio de alto grado); ya está citado y subido al NotebookLM. La sustitución $c_s v_f$ es la aproximación que aquí se usa en vez de resolver ese polinomio completo. |
+| 106 | ✅ | SEB | Limitaciones del análisis y perspectivas | ¿ya existe? |
+| 107 | ✅ | CLAUDE | Limitaciones del análisis y perspectivas | Sí existe: chow2023 da el análisis lineal RMHD magnetizado (el polinomio de alto grado); ya está citado y subido al NotebookLM. La sustitución $c_s v_f$ es la aproximación que aquí se usa en vez de resolver ese polinomio completo. |
 | 108 | ⬜ | SEB | Limitaciones del análisis y perspectivas | esto lo estamos haciendo nosotros (campaña en curso). |
 | 109 | ⬜ | SEB | Limitaciones del análisis y perspectivas | ¿estamos más arriba del radio de sincrotrón, no? |
 | 110 | ⬜ | CLAUDE | Limitaciones del análisis y perspectivas | El Cueva es un código de fluido (RRMHD), sin escala cinética/giroradio: no hay “radio de sincrotrón” resuelto. La escala micro relevante es la capa resistiva $ S^-1/2$. Si la duda es por Hall/anisotropía, eso sí queda fuera del modelo escalar de $$ (ya anotado en limitaciones). |
