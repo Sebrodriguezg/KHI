@@ -2,7 +2,7 @@
 
 *Actualizado: 2026-06-22 · rama `revision-monografia`*
 
-## 📊 17/122 cerradas (13%) — pendientes 105
+## 📊 18/122 cerradas (14%) — pendientes 104
 
 > **El # es FIJO** (no cambia aunque cerremos otras). ✅ = cerrada · ⬜ = pendiente.
 
@@ -22,7 +22,7 @@
 | 4 | ⬜ | REV | Objetivos y Estructura de la Monografía | este objetivo (orientación/intensidad de B) NO se desarrolla en el cuerpo de esta versión; es la campaña pendiente (ver Conclusiones, objetivo 4). Alinear la redacción a “se sientan las bases para evaluar…” o presentarlo como trabajo futuro. |
 | 5 | ⬜ | CLAUDE | Objetivos y Estructura de la Monografía | Redacción propuesta: “… se sientan las bases para evaluar cómo las variaciones de dirección y magnitud del campo magnético externo modificarían la evolución de la inestabilidad; este objetivo se aborda como continuación inmediata (campaña en curso, cap.~(ref)).” |
 
-## Cap. 2 — Teoría RRMHD  — 29/46 cerradas
+## Cap. 2 — Teoría RRMHD  — 28/46 cerradas
 
 | # | Estado | Tipo | Sección | Qué dice |
 |---|---|---|---|---|
@@ -32,7 +32,7 @@
 | 9 | ✅ | SEB | Electrodinámica Covariante y el Tensor de Campo Electromagnético | reescribir esta frase en términos más algebro-geométricamente correctos. |
 | 10 | ✅ | SEB | Electrodinámica Covariante y el Tensor de Campo Electromagnético | completar: ...y de las propiedades geométricas de los mismos (diferenciación exterior). |
 | 11 | ✅ | SEB | El Cuadripotencial y la Definición del Tensor de Faraday | arreglar/mejorar este footnote (el del espacio cotangente). |
-| 12 | ⬜ | SEB | El Cuadripotencial y la Definición del Tensor de Faraday | revisar este apartado (redundancia de gauge) — pendiente de revisión de Sebas. |
+| 12 | ✅ | SEB | El Cuadripotencial y la Definición del Tensor de Faraday | revisar este apartado (redundancia de gauge) — pendiente de revisión de Sebas. |
 | 13 | ⬜ | SEB | El Cuadripotencial y la Definición del Tensor de Faraday | añadir un apéndice dedicado a la derivada exterior (definición, propiedades, $d^2=0$, relación con grad/rot/div). |
 | 14 | ⬜ | SEB | El Cuadripotencial y la Definición del Tensor de Faraday | llevar esta derivación (regla de Leibniz / desarrollo de $F=dA$) al anexo. |
 | 15 | ✅ | SEB | El Cuadripotencial y la Definición del Tensor de Faraday | ¿esto es así tal cual? verificar la igualdad $d(dx^)=d^2x^=0$. |
