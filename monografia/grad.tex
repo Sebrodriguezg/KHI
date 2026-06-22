@@ -49,6 +49,10 @@
 \usepackage{xcolor}                     % For colored review notes
 % Nota de revisión (visible en rojo). Para quitarlas todas: redefinir como {}.
 \newcommand{\revnota}[1]{{\color{red}\small\textsf{[REV: #1]}}}
+\newcommand{\sebnota}[1]{{\color{blue}\small\textsf{[REV: #1]}}}
+\newcommand{\brynota}[1]{{\color{green}\small\textsf{[REV: #1]}}}
+\definecolor{claudeorange}{rgb}{0.80,0.40,0.0}
+\newcommand{\claudenota}[1]{{\color{claudeorange}\small\textsf{[CLAUDE: #1]}}}
 \usepackage[capitalize]{cleveref}       % For smart cross-referencing (use \cref{})
 
 % --- Bibliography ---
