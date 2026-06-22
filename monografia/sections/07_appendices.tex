@@ -158,7 +158,14 @@ Media aritmética $\scrit$ & $4754\pm1944$ & $4754\pm1944$\\
 \section{Desarrollo en componentes del tensor de Faraday \texorpdfstring{$F=dA$}{F=dA}}
 \label{ap:FdA}
 
-\primerparrafo Se detalla el paso ---resumido en el cuerpo (Sección~\ref{sec:Elec_Cov})--- desde la definición geométrica $F\equiv dA$ hasta sus componentes covariantes. Sustituyendo el cuadripotencial $A = A_\nu dx^\nu$ y aplicando la regla de Leibniz para la derivada exterior:
+\primerparrafo Se detalla el paso ---resumido en el cuerpo (Sección~\ref{sec:Elec_Cov})--- desde la definición geométrica $F\equiv dA$ hasta sus componentes covariantes, con énfasis en el papel de la regla de Leibniz.
+
+\primerparrafo La derivada exterior obedece una \emph{regla de Leibniz graduada}: para una $p$-forma $\alpha$ y una $q$-forma $\beta$,
+\begin{equation}
+    d(\alpha \wedge \beta) = d\alpha \wedge \beta + (-1)^{p}\, \alpha \wedge d\beta ,
+    \label{ap:eq:leibniz}
+\end{equation}
+generalización covariante de la regla del producto del cálculo ordinario \parencite{nakahara-2003, baez-muniain-1994}. Su papel en esta deducción es \emph{separar}, al derivar $A = A_\nu\, dx^\nu$, la contribución del coeficiente escalar $A_\nu$ ---que tras antisimetrizar produce el tensor de campo--- de la de la cobase $dx^\nu$, que se anula idénticamente por la nilpotencia $d^2=0$. Aplicando la Ecuación~\eqref{ap:eq:leibniz} con $p=0$ (pues $A_\nu$ es una 0-forma):
 \begin{align}
     dA &= d(A_\nu dx^\nu) \nonumber \\
        &= dA_\nu \wedge dx^\nu + A_\nu d(dx^\nu)
