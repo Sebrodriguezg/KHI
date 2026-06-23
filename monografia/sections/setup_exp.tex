@@ -156,10 +156,12 @@ Tiempo final de integración & $t_{\text{end}}$        & $>5\,L_0/c$ \\
 \end{tabular}
 \end{table}
 
-\subsection{Exploración del Espacio de Parámetros: Resistividad}
+\subsection{Primera campaña: variación de la conductividad (objetivos 1--3)}
 \label{subsec:barrido_sigma}
 
-El objetivo central del diseño experimental es cuantificar el impacto de la disipación óhmica sobre la dinámica de la KHI mediante un barrido paramétrico controlado en la conductividad eléctrica escalar $\sigma$, manteniendo invariantes las condiciones iniciales fluidas, termodinámicas y topológicas descritas en la Sección~\ref{subsec:condiciones_iniciales}. Esta estrategia aísla de forma rigurosa la contribución de la difusividad magnética $\eta = 1/\sigma$ sobre la tasa de crecimiento del modo lineal y la morfología no lineal de saturación.
+\primerparrafo El diseño experimental se articula en \emph{dos campañas numéricas complementarias y de igual peso}, que comparten el mismo montaje base y exploran dos ejes físicos distintos de la no idealidad: la \textbf{conductividad} (esta sección; objetivos 1--3) y el \textbf{campo magnético} ---intensidad y orientación--- (Sección~\ref{subsec:campana_B}; objetivo 4). La primera caracteriza el papel de la resistividad y la segunda el del campo; ambas tienen el mismo protagonismo en este trabajo y, en conjunto, completan la descripción del impacto de la física no ideal sobre la KHI.
+
+Esta primera campaña cuantifica el impacto de la disipación óhmica sobre la dinámica de la KHI mediante un barrido paramétrico controlado en la conductividad eléctrica escalar $\sigma$, manteniendo invariantes las condiciones iniciales fluidas, termodinámicas y topológicas descritas en la Sección~\ref{subsec:condiciones_iniciales}. Esta estrategia aísla de forma rigurosa la contribución de la difusividad magnética $\eta = 1/\sigma$ sobre la tasa de crecimiento del modo lineal y la morfología no lineal de saturación.
 
 Los valores seleccionados de $\sigma$ abarcan desde el régimen altamente difusivo (resistivo) hasta el límite cuasi-ideal donde se recupera el congelamiento topológico del flujo:
 \begin{equation}
@@ -171,10 +173,10 @@ que abarcan dos órdenes de magnitud en $\sigma \in [100,\, 10\,500]$; la lista
 completa de los $44$ valores explorados se tabula en el capítulo de resultados
 (Tabla~\ref{tab:canonica_sigma}). La transición entre regímenes se caracteriza dimensionalmente mediante el número de Lundquist local $S = L_0 V_A / \eta$, donde $V_A$ es la velocidad de Alfvén local evaluada con las cantidades iniciales. Para los valores de $\sigma$ aquí explorados, $S$ varía a lo largo de varios órdenes de magnitud, permitiendo identificar la conductividad crítica $\sigma_{\text{crit}}$ por encima de la cual la dinámica reproduce asintóticamente los resultados de la MHD ideal y por debajo de la cual la difusión resistiva domina sobre la advección magnética.
 
-\subsection{Campaña de variación del campo magnético (objetivo 4)}
+\subsection{Segunda campaña: variación del campo magnético (objetivo 4)}
 \label{subsec:campana_B}
 
-\primerparrafo El cuarto objetivo ---evaluar cómo la \emph{intensidad} y la \emph{orientación} del campo magnético externo modifican la estabilización o amplificación de la KHI--- requiere una campaña dedicada que varíe $\mathbf{B}$ sobre el mismo montaje base (Sección~\ref{subsec:condiciones_iniciales}), manteniendo \emph{fija} la conductividad para aislar el efecto magnético del resistivo. La campaña se organiza en tres familias complementarias, todas con $|\mathbf B|=\sqrt{2.02}\,B_0$ en el caso de referencia ($B_0=1$).
+\primerparrafo La segunda campaña aborda el cuarto objetivo ---evaluar cómo la \emph{intensidad} y la \emph{orientación} del campo magnético externo modifican la estabilización o amplificación de la KHI--- variando $\mathbf{B}$ sobre el mismo montaje base (Sección~\ref{subsec:condiciones_iniciales}), con la conductividad \emph{fija} para aislar el efecto magnético del resistivo. Tiene el mismo peso analítico que la campaña de resistividad. La campaña se organiza en tres familias complementarias, todas con $|\mathbf B|=\sqrt{2.02}\,B_0$ en el caso de referencia ($B_0=1$).
 
 \paragraph{Campaña A — Intensidad (orientación Mizuno fija).} Se conserva la orientación del setup base y se escala la magnitud,
 \begin{equation}
