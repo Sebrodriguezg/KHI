@@ -76,12 +76,12 @@ Este es el $0.60$ del cuerpo del trabajo, no $0.72$. El criterio de inestabilida
 \subsection{Techo inviscido: ecuación de Rayleigh desde Euler}
 \label{ap:rayleigh}
 
-\primerparrafo Linealizando Euler incompresible 2D en torno al flujo base $\mathbf{U}=U(x)\hat y$, eliminando la presión (ecuación de vorticidad) e introduciendo la función de corriente con el modo normal $\Phi'=\Psi(x)\,e^{ik(y-ct)}$, se obtiene la ecuación de Rayleigh:
+\primerparrafo Linealizando Euler incompresible 2D en torno al flujo base $\mathbf{U}=U(x)\hat y$, eliminando la presión (ecuación de vorticidad) e introduciendo la función de corriente con el modo normal $\psi'=\phi(x)\,e^{ik(y-ct)}$, se obtiene la ecuación de Rayleigh:
 \begin{equation}
-(U-c)\big(\Psi''-k^2\Psi\big)-U''\,\Psi=0 .
+(U-c)\big(\phi''-k^2\phi\big)-U''\,\phi=0 .
 \label{ap:eq:rayleigh}
 \end{equation}
-Adimensionalizando con $\akh$ y tomando $U=\tanh x$, la Ec.~\eqref{ap:eq:rayleigh} es un problema de autovalores generalizado $A\Psi=cB\Psi$ con $\what_i=ka\,\mathrm{Im}(c)$, que se resuelve numéricamente (\texttt{scipy.linalg.eig}). El máximo cae en $ka\simeq0.445$ con $\what_{i,\max}=0.1897$, el valor clásico de \textcite{michalke1964}; en el modo excitado $ka=0.314$ el techo inviscido es $\what\approx0.176$.
+Adimensionalizando con $\akh$ y tomando $U=\tanh x$, la Ec.~\eqref{ap:eq:rayleigh} es un problema de autovalores generalizado $A\phi=cB\phi$ con $\what_i=ka\,\mathrm{Im}(c)$, que se resuelve numéricamente (\texttt{scipy.linalg.eig}). El máximo cae en $ka\simeq0.445$ con $\what_{i,\max}=0.1897$, el valor clásico de \textcite{michalke1964}; en el modo excitado $ka=0.314$ el techo inviscido es $\what\approx0.176$.
 
 \subsection{Predicción compresible exacta: ecuación de Lees--Lin}
 \label{ap:leeslin}
