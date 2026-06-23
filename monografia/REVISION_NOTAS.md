@@ -2,7 +2,7 @@
 
 *Actualizado: 2026-06-23 · rama `revision-monografia`*
 
-## 📊 53/122 cerradas (43%) — pendientes 69
+## 📊 56/122 cerradas (45%) — pendientes 66
 
 > **El # es FIJO** (no cambia aunque cerremos otras). ✅ = cerrada · ⬜ = pendiente.
 
@@ -100,17 +100,17 @@
 | 67 | ✅ | CLAUDE | Estructura Espectral de los Potenciales Auxiliares | No es esencial en el cuerpo: basta afirmar que las submatrices $22$ tienen autovalores $ c_h$ (de ahí la propagación causal). Si se quiere el detalle, llevarlo al anexo. Conecta con la nota de cap.~2 sobre derivar el 2$$2 desde el sistema 3+1. |
 | 68 | ✅ | CLAUDE | Recuperación de Variables Primitivas: la Cuártica del Factor de Lorentz | Verificado contra el código (12\_varprimitive.f95, subrutina varprimitivecardano): cuártica en $$ + Tchirnhaus + refinamiento Newton, correcto. Cita: el esquema de recuperación es del Cueva; citar miranda-aranguren-2018 aquí (mizuno-2013 es el paper de EoS, no de recuperación de primitivas). |
 
-## Cap. 5 — Setup experimental  — 9/9 cerradas
+## Cap. 5 — Setup experimental  — 6/9 cerradas
 
 | # | Estado | Tipo | Sección | Qué dice |
 |---|---|---|---|---|
 | 69 | ⬜ | SEB | Condiciones Iniciales del Problema | inconexo, necesita continuidad. |
-| 70 | ⬜ | SEB | Condiciones Iniciales del Problema | Aclarar que esta configuración del campo $B$ es solo para el objetivo~2 (campaña magnética); en esa comparación estas componentes serán nuestras variables. |
+| 70 | ✅ | SEB | Condiciones Iniciales del Problema | Aclarar que esta configuración del campo $B$ es solo para el objetivo~2 (campaña magnética); en esa comparación estas componentes serán nuestras variables. |
 | 71 | ⬜ | SEB | Dominio Computacional, Discretización y Sistema de Unidades | Mirar bien en el código las condiciones de frontera. |
 | 72 | ⬜ | CLAUDE | Dominio Computacional, Discretización y Sistema de Unidades | Según el propio §(ref) y el código: periódicas en $y$ y abiertas (derivada normal nula / flujo libre) en $x$. Confirmar el flag exacto en parameters.f95; la descripción del texto es consistente. |
 | 73 | ⬜ | SEB | Sistema de unidades y equivalencia temporal. | Dar un ejemplo concreto con escalas astrofísicas, deduciendo las dimensiones e incluso mostrando el radio de un vórtice generado en los hd plots. |
-| 74 | ⬜ | SEB | Exploración del Espacio de Parámetros: Resistividad | Falta poner el espacio de parámetros dictado por la campaña de campo magnético, en $=6000$ y $=10000$. |
-| 75 | ⬜ | CLAUDE | Exploración del Espacio de Parámetros: Resistividad | Pendiente de los datos de la campaña (martes). Marcador: al llegar, tabular los $$ usados (6000, 10000), las orientaciones/intensidades de $ B$ y el CFL de cada corrida. |
+| 74 | ✅ | SEB | Exploración del Espacio de Parámetros: Resistividad | Falta poner el espacio de parámetros dictado por la campaña de campo magnético, en $=6000$ y $=10000$. |
+| 75 | ✅ | CLAUDE | Exploración del Espacio de Parámetros: Resistividad | Pendiente de los datos de la campaña (martes). Marcador: al llegar, tabular los $$ usados (6000, 10000), las orientaciones/intensidades de $ B$ y el CFL de cada corrida. |
 | 76 | ⬜ | SEB | Variables de Control y Diagnóstico | Mirar cuáles de estos diagnósticos sí se usan y cuáles no; además, seguro se usan otros, como campos y energías. |
 | 77 | ⬜ | CLAUDE | Variables de Control y Diagnóstico | Del código: se usan $_z$, $_ tot$, $f_Vz$ y $'_zp$ (estos en cap.~6) y además $J_$, $ E\!\! J$ y $E_ mag$ (§(ref)). Conviene listar también estos últimos aquí para que la sección de diagnósticos quede completa. |
 

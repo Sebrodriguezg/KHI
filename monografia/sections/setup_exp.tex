@@ -61,7 +61,7 @@ En cuanto al campo magnético\sebnota{inconexo, necesita continuidad.}, se impon
     B_x = 0,\qquad B_y = B_0\,\sqrt{0.02},\qquad B_z = B_0\,\sqrt{2.0},
     \label{eq:B_field_init}
 \end{equation}
-con $B_0 = 1.0$.\sebnota{Aclarar que esta configuración del campo $\mathbf{B}$ es solo para el objetivo~2 (campaña magnética); en esa comparación estas componentes serán nuestras variables.} Esta orientación garantiza que la tensión magnética longitudinal ($\mathbf{k}\cdot\mathbf{B}\propto B_y$) sea débil pero no nula, permitiendo el desarrollo de la KHI sin supresión inmediata, mientras que la componente $B_z$ dominante introduce una presión magnética fuera del plano significativa que regula la termodinámica del flujo. El campo eléctrico inicial se anula estrictamente, $E_x = E_y = E_z = 0$, lo que corresponde a un estado fuera del límite ideal $E^\mu = -\epsilon^{\mu\nu\alpha\beta} u_\nu B_\alpha v_\beta$; la ley de Ohm relativista (Sección~\ref{sec:Ohm_Relativista}) se encarga de relajar dinámicamente el sistema hacia su régimen consistente con la conductividad finita prescrita.
+con $B_0 = 1.0$. Este campo de fondo permanece fijo en los objetivos~1--3 (barrido en la conductividad $\sigma$); su intensidad y orientación se convierten en las variables de control en la campaña del objetivo~4 (Sección~\ref{subsec:campana_B}). Esta orientación garantiza que la tensión magnética longitudinal ($\mathbf{k}\cdot\mathbf{B}\propto B_y$) sea débil pero no nula, permitiendo el desarrollo de la KHI sin supresión inmediata, mientras que la componente $B_z$ dominante introduce una presión magnética fuera del plano significativa que regula la termodinámica del flujo. El campo eléctrico inicial se anula estrictamente, $E_x = E_y = E_z = 0$, lo que corresponde a un estado fuera del límite ideal $E^\mu = -\epsilon^{\mu\nu\alpha\beta} u_\nu B_\alpha v_\beta$; la ley de Ohm relativista (Sección~\ref{sec:Ohm_Relativista}) se encarga de relajar dinámicamente el sistema hacia su régimen consistente con la conductividad finita prescrita.
 
 % ----------------------------------------------------------------------------
 % Figura compuesta: condición inicial visualizada en el primer snapshot
@@ -169,7 +169,83 @@ Los valores seleccionados de $\sigma$ abarcan desde el régimen altamente difusi
 \end{equation}
 que abarcan dos órdenes de magnitud en $\sigma \in [100,\, 10\,500]$; la lista
 completa de los $44$ valores explorados se tabula en el capítulo de resultados
-(Tabla~\ref{tab:canonica_sigma}). La transición entre regímenes se caracteriza dimensionalmente mediante el número de Lundquist local $S = L_0 V_A / \eta$, donde $V_A$ es la velocidad de Alfvén local evaluada con las cantidades iniciales. Para los valores de $\sigma$ aquí explorados, $S$ varía a lo largo de varios órdenes de magnitud, permitiendo identificar la conductividad crítica $\sigma_{\text{crit}}$ por encima de la cual la dinámica reproduce asintóticamente los resultados de la MHD ideal y por debajo de la cual la difusión resistiva domina sobre la advección magnética.\sebnota{Falta poner el espacio de parámetros dictado por la campaña de campo magnético, en $\sigma=6000$ y $\sigma=10000$.}\claudenota{Pendiente de los datos de la campaña (martes). Marcador: al llegar, tabular los $\sigma$ usados (6000, 10000), las orientaciones/intensidades de $\mathbf B$ y el CFL de cada corrida.}
+(Tabla~\ref{tab:canonica_sigma}). La transición entre regímenes se caracteriza dimensionalmente mediante el número de Lundquist local $S = L_0 V_A / \eta$, donde $V_A$ es la velocidad de Alfvén local evaluada con las cantidades iniciales. Para los valores de $\sigma$ aquí explorados, $S$ varía a lo largo de varios órdenes de magnitud, permitiendo identificar la conductividad crítica $\sigma_{\text{crit}}$ por encima de la cual la dinámica reproduce asintóticamente los resultados de la MHD ideal y por debajo de la cual la difusión resistiva domina sobre la advección magnética.
+
+\subsection{Campaña de variación del campo magnético (objetivo 4)}
+\label{subsec:campana_B}
+
+\primerparrafo El cuarto objetivo ---evaluar cómo la \emph{intensidad} y la \emph{orientación} del campo magnético externo modifican la estabilización o amplificación de la KHI--- requiere una campaña dedicada que varíe $\mathbf{B}$ sobre el mismo montaje base (Sección~\ref{subsec:condiciones_iniciales}), manteniendo \emph{fija} la conductividad para aislar el efecto magnético del resistivo. La campaña se organiza en tres familias complementarias, todas con $|\mathbf B|=\sqrt{2.02}\,B_0$ en el caso de referencia ($B_0=1$).
+
+\paragraph{Campaña A — Intensidad (orientación Mizuno fija).} Se conserva la orientación del setup base y se escala la magnitud,
+\begin{equation}
+B_x=0,\qquad B_y=B_0\sqrt{0.02},\qquad B_z=B_0\sqrt{2.0},\qquad B_0\in\{0.25,\,0.5,\,1.0,\,1.5,\,2.0\}.
+\end{equation}
+Al variar $B_0$ dos órdenes de magnitud, la presión magnética $P_{\rm mag}=B^2/2$, el parámetro de plasma $\beta=2P_0/B^2\approx0.99/B_0^2$ y la magnetización $\sigma_m\approx B^2/(\rho h)\approx0.404\,B_0^2$ (con $\rho h=5$) recorren regímenes desde dominado por presión ($\beta\gg1$) hasta dominado por campo ($\beta<1$); se espera que el aumento de $B_0$ refuerce la tensión magnética y estabilice la KHI (Cuadro~\ref{tab:campana_A}).
+
+\begin{table}[H]\centering
+\caption{Campaña A (intensidad): magnitud, $\beta$ y magnetización por caso (orientación Mizuno fija; $P_0=1$, $\rho h=5$).}
+\label{tab:campana_A}
+\begin{tabular}{lcccc}
+\hline
+Caso & $B_0$ & $B^2=2.02\,B_0^2$ & $\beta=2/B^2$ & $\sigma_m\approx B^2/5$ \\
+\hline
+A1 & $0.25$ & $0.126$ & $15.84$ & $0.025$ \\
+A2 & $0.50$ & $0.505$ & $3.96$  & $0.101$ \\
+A3 & $1.00$ & $2.020$ & $0.99$  & $0.404$ \\
+A4 & $1.50$ & $4.545$ & $0.44$  & $0.909$ \\
+A5 & $2.00$ & $8.080$ & $0.25$  & $1.616$ \\
+\hline
+\end{tabular}
+\end{table}
+
+\paragraph{Campaña B — Orientación en el plano $y$--$z$ ($|\mathbf B|$ fijo).} Se rota el campo en el plano transversal conservando su magnitud,
+\begin{equation}
+B_x=0,\qquad B_y=B_{\rm tot}\sin\theta,\qquad B_z=B_{\rm tot}\cos\theta,\qquad B_{\rm tot}=\sqrt{2.02},
+\end{equation}
+con $\theta\in\{0,\,5.7,\,15,\,30,\,45,\,60,\,90\}^\circ$. El caso Mizuno original corresponde a $\theta_{\rm Mizuno}=\arctan\!\sqrt{0.02/2.0}\approx5.7^\circ$; el extremo $\theta=0^\circ$ es campo guía puro ($\mathbf B=B_{\rm tot}\hat z$) y $\theta=90^\circ$ es campo enteramente en $\hat y$ (Cuadro~\ref{tab:campana_B}). Esta familia aísla si la pequeña componente transversal $B_y$ del setup Mizuno tiene un efecto dinámico apreciable.
+
+\begin{table}[H]\centering
+\caption{Campaña B (orientación en el plano $y$--$z$, $|\mathbf B|=\sqrt{2.02}$ fijo). El caso Mizuno es $\theta\approx5.7^\circ$.}
+\label{tab:campana_B}
+\begin{tabular}{lccc}
+\hline
+Caso & $\theta$ & $B_y/B_{\rm tot}=\sin\theta$ & $B_z/B_{\rm tot}=\cos\theta$ \\
+\hline
+B1 & $0^\circ$    & $0$     & $1$     \\
+B2 & $5.7^\circ$  & $0.099$ & $0.995$ \\
+B3 & $15^\circ$   & $0.259$ & $0.966$ \\
+B4 & $30^\circ$   & $0.500$ & $0.866$ \\
+B5 & $45^\circ$   & $0.707$ & $0.707$ \\
+B6 & $60^\circ$   & $0.866$ & $0.500$ \\
+B7 & $90^\circ$   & $1$     & $0$     \\
+\hline
+\end{tabular}
+\end{table}
+
+\paragraph{Campaña C — Componente paralela al flujo (plano $x$--$z$, $|\mathbf B|$ fijo).} Se introduce una componente a lo largo de la dirección del flujo,
+\begin{equation}
+B_y=0,\qquad B_x=B_{\rm tot}\sin\theta,\qquad B_z=B_{\rm tot}\cos\theta,\qquad \theta\in\{0,\,30,\,60,\,90\}^\circ.
+\end{equation}
+A diferencia de la Campaña~B, la rotación genera aquí una componente $B_x$ \emph{paralela} al flujo de cizalla, que puede estabilizar de forma más directa las perturbaciones mediante tensión magnética a lo largo de la dirección del corte (Cuadro~\ref{tab:campana_C}).
+
+\begin{table}[H]\centering
+\caption{Campaña C (componente paralela al flujo, plano $x$--$z$, $|\mathbf B|=\sqrt{2.02}$ fijo).}
+\label{tab:campana_C}
+\begin{tabular}{lccc}
+\hline
+Caso & $\theta$ & $B_x/B_{\rm tot}=\sin\theta$ & $B_z/B_{\rm tot}=\cos\theta$ \\
+\hline
+C1 & $0^\circ$  & $0$     & $1$     \\
+C2 & $30^\circ$ & $0.500$ & $0.866$ \\
+C3 & $60^\circ$ & $0.866$ & $0.500$ \\
+C4 & $90^\circ$ & $1$     & $0$     \\
+\hline
+\end{tabular}
+\end{table}
+
+\paragraph{Conductividades y paso temporal.} Cada familia se ejecuta a conductividad fija; el contraste principal es $\sigma=6000$ (valor de referencia, donde la KHI ya se desarrolla de forma intensa) frente a $\sigma=10000$ (régimen casi ideal).\sebnota{revisar la matriz final $\sigma\times$CFL realmente usada: los datos de llegada incluyen también $\sigma=4500,5500,6500,7000$ y versiones CFL $0.10/0.04/0.02$; definir cuáles entran en la monografía.} A alta conductividad y campo fuerte el sistema se vuelve numéricamente rígido (la recuperación de primitivas puede fallar al formarse láminas de corriente agudas); reducir el número de Courant de CFL$=0.04$ a CFL$=0.02$ estabiliza esas corridas, por lo que $\sigma=10000$ se integra a CFL$=0.02$ y $\sigma=6000$ a CFL$=0.04$.\sebnota{la comparación entre $\sigma$ queda entonces a CFL mixto; decidir si se homogeniza para el análisis final.}
+
+\primerparrafo Sobre cada corrida de la campaña se monitorean los mismos diagnósticos de la Sección~\ref{subsec:diagnostico} ($\Omega_{zp}$, $\gamma_{\mathrm{KHI}}=s/2$, $\Omega^{\max}_{zp}$, $t_{\mathrm{peak}}$, $J_{\max}$, $\int\mathbf{E}\!\cdot\!\mathbf{J}\,dA$ y $f_{Vz}$), evaluados ahora como función de la intensidad $B_0$ y del ángulo $\theta$. El criterio operativo es que el campo \emph{estabiliza} si $\gamma_{\mathrm{KHI}}$ y $\Omega^{\max}_{zp}$ decrecen y $t_{\mathrm{peak}}$ aumenta, y \emph{amplifica} en el caso contrario.\sebnota{el análisis cuantitativo (\,$\gamma$ vs $B$, $\Omega^{\max}$ vs $\theta$, conversión magnética--cinética\,) se desarrolla en el Capítulo~\ref{ch:results_discussion}; resultados \emph{preliminares}, pendientes de revisión a fondo (no fiarse aún del informe de llegada).}
 
 \subsection{Variables de Control y Diagnóstico}
 \label{subsec:diagnostico}
