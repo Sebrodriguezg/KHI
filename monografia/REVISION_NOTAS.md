@@ -1,8 +1,8 @@
 # Revisión de la monografía — tablero con ID fijo
 
-*Actualizado: 2026-06-22 · rama `revision-monografia`*
+*Actualizado: 2026-06-23 · rama `revision-monografia`*
 
-## 📊 30/122 cerradas (24%) — pendientes 92
+## 📊 51/122 cerradas (41%) — pendientes 71
 
 > **El # es FIJO** (no cambia aunque cerremos otras). ✅ = cerrada · ⬜ = pendiente.
 
@@ -13,14 +13,14 @@
 |---|---|---|---|---|
 | 1 | ⬜ | SEB | Resumen | no olvidar implementar la campaña de campo magnetico |
 
-## Cap. 1 — Introducción  — 4/4 cerradas
+## Cap. 1 — Introducción  — 0/4 cerradas
 
 | # | Estado | Tipo | Sección | Qué dice |
 |---|---|---|---|---|
-| 2 | ⬜ | SEB | Contexto de Plasmas Relativistas y Astrofísicos | agregar lo que haga falta de:enfatizar más en las aplicaciones en la astrofísica, por ejemplo: La inestabilidad de Kelvin–Helmholtz (KHI) aparece de manera natural en regiones donde dos flujos de plasma se desplazan con velocidades diferentes. En astrofísica, este tipo de inestabilidad es relevante en jets relativistas, vientos magnetizados, eyecciones compactas y zonas de interacción entre plasmas, donde puede favorecer la mezcla de materia, la formación de vórtices, la generación de estructuras secundarias y la reorganización del campo magnético. (esto hecho con ia, pero pueden humanizarlo o reescribirlo) |
-| 3 | ⬜ | CLAUDE | Contexto de Plasmas Relativistas y Astrofísicos | Se solapa con §1.3 (que ya lista jets/vientos/GRBs); mejor integrarlo allí, no aquí. Versión humanizada breve: “La KHI surge dondequiera que dos flujos de plasma se deslizan a velocidades distintas; en astrofísica, en los bordes de jets relativistas, vientos magnetizados y eyecciones compactas, donde favorece la mezcla, la formación de vórtices y la reorganización del campo magnético.” |
-| 4 | ⬜ | REV | Objetivos y Estructura de la Monografía | este objetivo (orientación/intensidad de B) NO se desarrolla en el cuerpo de esta versión; es la campaña pendiente (ver Conclusiones, objetivo 4). Alinear la redacción a “se sientan las bases para evaluar…” o presentarlo como trabajo futuro. |
-| 5 | ⬜ | CLAUDE | Objetivos y Estructura de la Monografía | Redacción propuesta: “… se sientan las bases para evaluar cómo las variaciones de dirección y magnitud del campo magnético externo modificarían la evolución de la inestabilidad; este objetivo se aborda como continuación inmediata (campaña en curso, cap.~(ref)).” |
+| 2 | ✅ | SEB | Contexto de Plasmas Relativistas y Astrofísicos | agregar lo que haga falta de:enfatizar más en las aplicaciones en la astrofísica, por ejemplo: La inestabilidad de Kelvin–Helmholtz (KHI) aparece de manera natural en regiones donde dos flujos de plasma se desplazan con velocidades diferentes. En astrofísica, este tipo de inestabilidad es relevante en jets relativistas, vientos magnetizados, eyecciones compactas y zonas de interacción entre plasmas, donde puede favorecer la mezcla de materia, la formación de vórtices, la generación de estructuras secundarias y la reorganización del campo magnético. (esto hecho con ia, pero pueden humanizarlo o reescribirlo) |
+| 3 | ✅ | CLAUDE | Contexto de Plasmas Relativistas y Astrofísicos | Se solapa con §1.3 (que ya lista jets/vientos/GRBs); mejor integrarlo allí, no aquí. Versión humanizada breve: “La KHI surge dondequiera que dos flujos de plasma se deslizan a velocidades distintas; en astrofísica, en los bordes de jets relativistas, vientos magnetizados y eyecciones compactas, donde favorece la mezcla, la formación de vórtices y la reorganización del campo magnético.” |
+| 4 | ✅ | REV | Objetivos y Estructura de la Monografía | este objetivo (orientación/intensidad de B) NO se desarrolla en el cuerpo de esta versión; es la campaña pendiente (ver Conclusiones, objetivo 4). Alinear la redacción a “se sientan las bases para evaluar…” o presentarlo como trabajo futuro. |
+| 5 | ✅ | CLAUDE | Objetivos y Estructura de la Monografía | Redacción propuesta: “… se sientan las bases para evaluar cómo las variaciones de dirección y magnitud del campo magnético externo modificarían la evolución de la inestabilidad; este objetivo se aborda como continuación inmediata (campaña en curso, cap.~(ref)).” |
 
 ## Cap. 2 — Teoría RRMHD  — 24/46 cerradas
 
@@ -73,32 +73,32 @@
 | 50 | ⬜ | CLAUDE | Inercia Térmica Relativista y Anisotropía Magnética | Esta es la definición correcta y estándar ($w= h^2$). El cap.~3 (§3.4.1) escribe $w= h^2+B^2$: unificar a esta (quitar el $+B^2$ del cap.~3), como pide la nota roja de ese capítulo. |
 | 51 | ⬜ | SEB | Enstrofía de Perturbación y Extracción de $$ | En general, revisar todas las citas bien plantedas y utilizadas, y añadir en el marco teorico todas las herramientas estadisticas utilizadad, o discutir si deben de ser anexos , ya que son erramientas validas pero poco convencionales |
 
-## Cap. 3 — KHI  — 10/10 cerradas
+## Cap. 3 — KHI  — 0/10 cerradas
 
 | # | Estado | Tipo | Sección | Qué dice |
 |---|---|---|---|---|
-| 52 | ⬜ | SEB | Planteamiento Hidrodinámico | añadir una figura de la condición inicial / inestabilidad donde se distinga cada lámina de cizalla. |
-| 53 | ⬜ | SEB | Extensión Magnetohidrodinámica Ideal (MHD) | revisar consistencia con el montaje: aquí $B_0$ va alineado al flujo (caso clásico ilustrativo); en la simulación el campo es guía ($B_z$ dominante, componente paralela débil). |
-| 54 | ⬜ | CLAUDE | Extensión Magnetohidrodinámica Ideal (MHD) | Observación correcta. Basta una frase: “este caso alineado es ilustrativo; el montaje numérico usa campo guía con $B_z$ dominante (cap.~5), de modo que $ k B0$ (presión, no tensión)”. |
-| 55 | ⬜ | REV | Correcciones Relativistas y Factor de Inercia | inconsistencia con el cap.~2, donde la inercia efectiva transversal se define como $w= h^2$ (sin el término magnético $B^2$). Unificar la definición entre capítulos. |
-| 56 | ⬜ | SEB | Correcciones Relativistas y Factor de Inercia | revisar la definición de $w$ contra la bibliografía (Bodo, Osmanov) y unificarla con el cap.~2. |
-| 57 | ⬜ | CLAUDE | Correcciones Relativistas y Factor de Inercia | Corrección recomendada: $w= h^2+B^2 w= h^2$ (como en cap.~2, ya verificado). El $+B^2$ no es inercia térmica transversal; la tensión magnética entra aparte por $( k B_0)^2$. Esto resuelve la nota roja. (Mismo $$ ambiguo que en cap.~2: $h=1++p/$ usa $$ específica.) |
-| 58 | ⬜ | SEB | El Rol de la Resistividad y la Relajación Topológica | ¿se puede deducir una relación de dispersión como en MHD/clásica? — ver abajo: en RRMHD NO es posible de forma algebraica cerrada. |
-| 59 | ⬜ | CLAUDE | El Rol de la Resistividad y la Relajación Topológica | Esta pregunta ya queda respondida por el cierre de §3.5 (párrafo nuevo sobre por qué en RRMHD no hay dispersión algebraica cerrada). Sugerencia: dejar esta nota como puntero a ese párrafo o borrarla para no duplicar. |
-| 60 | ⬜ | SEB | Motivación Numérica y Relevancia Computacional | explicar a fondo (o en footnote) el esquema IMEX: advección explícita del fluido $+$ tratamiento implícito de las fuentes disipativas rígidas. |
-| 61 | ⬜ | CLAUDE | Motivación Numérica y Relevancia Computacional | Footnote IMEX propuesta: “IMEX-RK (Implicit--Explicit Runge--Kutta): integra de forma explícita los flujos advectivos no rígidos e implícita las fuentes resistivas rígidas ($$), evitando el paso de tiempo $ t^-1$ que impondría un esquema totalmente explícito a alta conductividad.” Coherente con la implementación del Cueva (Pareschi--Russo + Aloy--Cordero). |
+| 52 | ✅ | SEB | Planteamiento Hidrodinámico | añadir una figura de la condición inicial / inestabilidad donde se distinga cada lámina de cizalla. |
+| 53 | ✅ | SEB | Extensión Magnetohidrodinámica Ideal (MHD) | revisar consistencia con el montaje: aquí $B_0$ va alineado al flujo (caso clásico ilustrativo); en la simulación el campo es guía ($B_z$ dominante, componente paralela débil). |
+| 54 | ✅ | CLAUDE | Extensión Magnetohidrodinámica Ideal (MHD) | Observación correcta. Basta una frase: “este caso alineado es ilustrativo; el montaje numérico usa campo guía con $B_z$ dominante (cap.~5), de modo que $ k B0$ (presión, no tensión)”. |
+| 55 | ✅ | REV | Correcciones Relativistas y Factor de Inercia | inconsistencia con el cap.~2, donde la inercia efectiva transversal se define como $w= h^2$ (sin el término magnético $B^2$). Unificar la definición entre capítulos. |
+| 56 | ✅ | SEB | Correcciones Relativistas y Factor de Inercia | revisar la definición de $w$ contra la bibliografía (Bodo, Osmanov) y unificarla con el cap.~2. |
+| 57 | ✅ | CLAUDE | Correcciones Relativistas y Factor de Inercia | Corrección recomendada: $w= h^2+B^2 w= h^2$ (como en cap.~2, ya verificado). El $+B^2$ no es inercia térmica transversal; la tensión magnética entra aparte por $( k B_0)^2$. Esto resuelve la nota roja. (Mismo $$ ambiguo que en cap.~2: $h=1++p/$ usa $$ específica.) |
+| 58 | ✅ | SEB | El Rol de la Resistividad y la Relajación Topológica | ¿se puede deducir una relación de dispersión como en MHD/clásica? — ver abajo: en RRMHD NO es posible de forma algebraica cerrada. |
+| 59 | ✅ | CLAUDE | El Rol de la Resistividad y la Relajación Topológica | Esta pregunta ya queda respondida por el cierre de §3.5 (párrafo nuevo sobre por qué en RRMHD no hay dispersión algebraica cerrada). Sugerencia: dejar esta nota como puntero a ese párrafo o borrarla para no duplicar. |
+| 60 | ✅ | SEB | Motivación Numérica y Relevancia Computacional | explicar a fondo (o en footnote) el esquema IMEX: advección explícita del fluido $+$ tratamiento implícito de las fuentes disipativas rígidas. |
+| 61 | ✅ | CLAUDE | Motivación Numérica y Relevancia Computacional | Footnote IMEX propuesta: “IMEX-RK (Implicit--Explicit Runge--Kutta): integra de forma explícita los flujos advectivos no rígidos e implícita las fuentes resistivas rígidas ($$), evitando el paso de tiempo $ t^-1$ que impondría un esquema totalmente explícito a alta conductividad.” Coherente con la implementación del Cueva (Pareschi--Russo + Aloy--Cordero). |
 
-## Cap. 4 — Métodos numéricos  — 7/7 cerradas
+## Cap. 4 — Métodos numéricos  — 0/7 cerradas
 
 | # | Estado | Tipo | Sección | Qué dice |
 |---|---|---|---|---|
-| 62 | ⬜ | SEB | (intro) | añadir figuras para visualizar los volúmenes finitos, los flujos interfasiales y la discretización. |
-| 63 | ⬜ | CLAUDE | (intro) | No bloquea la entrega: una sola figura esquemática (celda $i$, interfaces $i1/2$, stencil de 5 puntos de MP5) basta. Si falta tiempo, puede omitirse sin perder rigor. |
-| 64 | ⬜ | SEB | Acoplamiento Numérico con el Sistema Aumentado GLM | el GLM ya se trató en el cap.~2; condensar esta introducción para no ser repetitivo ni redundante. |
-| 65 | ⬜ | CLAUDE | Acoplamiento Numérico con el Sistema Aumentado GLM | De acuerdo: reducir a 1--2 frases con ref a §(ref). Aquí basta decir “se implementa la limpieza GLM ya derivada (§ref), con velocidad de limpieza $c_h=1$”. |
-| 66 | ⬜ | SEB | Estructura Espectral de los Potenciales Auxiliares | ¿dónde se muestra esta diagonalización? ¿es pertinente incluirla explícitamente? |
-| 67 | ⬜ | CLAUDE | Estructura Espectral de los Potenciales Auxiliares | No es esencial en el cuerpo: basta afirmar que las submatrices $22$ tienen autovalores $ c_h$ (de ahí la propagación causal). Si se quiere el detalle, llevarlo al anexo. Conecta con la nota de cap.~2 sobre derivar el 2$$2 desde el sistema 3+1. |
-| 68 | ⬜ | CLAUDE | Recuperación de Variables Primitivas: la Cuártica del Factor de Lorentz | Verificado contra el código (12\_varprimitive.f95, subrutina varprimitivecardano): cuártica en $$ + Tchirnhaus + refinamiento Newton, correcto. Cita: el esquema de recuperación es del Cueva; citar miranda-aranguren-2018 aquí (mizuno-2013 es el paper de EoS, no de recuperación de primitivas). |
+| 62 | ✅ | SEB | (intro) | añadir figuras para visualizar los volúmenes finitos, los flujos interfasiales y la discretización. |
+| 63 | ✅ | CLAUDE | (intro) | No bloquea la entrega: una sola figura esquemática (celda $i$, interfaces $i1/2$, stencil de 5 puntos de MP5) basta. Si falta tiempo, puede omitirse sin perder rigor. |
+| 64 | ✅ | SEB | Acoplamiento Numérico con el Sistema Aumentado GLM | el GLM ya se trató en el cap.~2; condensar esta introducción para no ser repetitivo ni redundante. |
+| 65 | ✅ | CLAUDE | Acoplamiento Numérico con el Sistema Aumentado GLM | De acuerdo: reducir a 1--2 frases con ref a §(ref). Aquí basta decir “se implementa la limpieza GLM ya derivada (§ref), con velocidad de limpieza $c_h=1$”. |
+| 66 | ✅ | SEB | Estructura Espectral de los Potenciales Auxiliares | ¿dónde se muestra esta diagonalización? ¿es pertinente incluirla explícitamente? |
+| 67 | ✅ | CLAUDE | Estructura Espectral de los Potenciales Auxiliares | No es esencial en el cuerpo: basta afirmar que las submatrices $22$ tienen autovalores $ c_h$ (de ahí la propagación causal). Si se quiere el detalle, llevarlo al anexo. Conecta con la nota de cap.~2 sobre derivar el 2$$2 desde el sistema 3+1. |
+| 68 | ✅ | CLAUDE | Recuperación de Variables Primitivas: la Cuártica del Factor de Lorentz | Verificado contra el código (12\_varprimitive.f95, subrutina varprimitivecardano): cuártica en $$ + Tchirnhaus + refinamiento Newton, correcto. Cita: el esquema de recuperación es del Cueva; citar miranda-aranguren-2018 aquí (mizuno-2013 es el paper de EoS, no de recuperación de primitivas). |
 
 ## Cap. 5 — Setup experimental  — 9/9 cerradas
 
