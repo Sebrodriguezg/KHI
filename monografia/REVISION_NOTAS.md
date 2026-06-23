@@ -2,7 +2,7 @@
 
 *Actualizado: 2026-06-23 · rama `revision-monografia`*
 
-## 📊 51/122 cerradas (41%) — pendientes 71
+## 📊 53/122 cerradas (43%) — pendientes 69
 
 > **El # es FIJO** (no cambia aunque cerremos otras). ✅ = cerrada · ⬜ = pendiente.
 
@@ -114,7 +114,7 @@
 | 76 | ⬜ | SEB | Variables de Control y Diagnóstico | Mirar cuáles de estos diagnósticos sí se usan y cuáles no; además, seguro se usan otros, como campos y energías. |
 | 77 | ⬜ | CLAUDE | Variables de Control y Diagnóstico | Del código: se usan $_z$, $_ tot$, $f_Vz$ y $'_zp$ (estos en cap.~6) y además $J_$, $ E\!\! J$ y $E_ mag$ (§(ref)). Conviene listar también estos últimos aquí para que la sección de diagnósticos quede completa. |
 
-## Cap. 6 — Resultados  — 28/36 cerradas
+## Cap. 6 — Resultados  — 26/36 cerradas
 
 | # | Estado | Tipo | Sección | Qué dice |
 |---|---|---|---|---|
@@ -143,8 +143,8 @@
 | 100 | ⬜ | SEB | Contraste con los marcos MHD, RMHD y RRMHD | arreglar esto. |
 | 101 | ⬜ | SEB | Contraste con los marcos MHD, RMHD y RRMHD | ¿estamos seguros? |
 | 102 | ⬜ | SEB | Buen planteamiento y papel de la resistividad | Poner y organizar todo para la variación del campo magnético. |
-| 103 | ⬜ | REV | Buen planteamiento y papel de la resistividad | TONO (revisor): “prueba decisiva” suena tajante y no sabemos si lo será; considerar “una prueba más exhaustiva”. |
-| 104 | ⬜ | REV | Limitaciones del análisis y perspectivas | TONO (revisor): esta sección suena a IA y da por seguro que las pruebas futuras “arreglarían” las discrepancias; en realidad no se sabe. Reescribir en condicional/posibilidades (“podría”, “permitiría”) en vez de certezas, y revisar el uso de “prueba decisiva”/“máxima prioridad”. |
+| 103 | ✅ | REV | Buen planteamiento y papel de la resistividad | TONO (revisor): “prueba decisiva” suena tajante y no sabemos si lo será; considerar “una prueba más exhaustiva”. |
+| 104 | ✅ | REV | Limitaciones del análisis y perspectivas | TONO (revisor): esta sección suena a IA y da por seguro que las pruebas futuras “arreglarían” las discrepancias; en realidad no se sabe. Reescribir en condicional/posibilidades (“podría”, “permitiría”) en vez de certezas, y revisar el uso de “prueba decisiva”/“máxima prioridad”. |
 | 105 | ⬜ | SEB | Limitaciones del análisis y perspectivas | límite numérico. |
 | 106 | ✅ | SEB | Limitaciones del análisis y perspectivas | ¿ya existe? |
 | 107 | ✅ | CLAUDE | Limitaciones del análisis y perspectivas | Sí existe: chow2023 da el análisis lineal RMHD magnetizado (el polinomio de alto grado); ya está citado y subido al NotebookLM. La sustitución $c_s v_f$ es la aproximación que aquí se usa en vez de resolver ese polinomio completo. |
