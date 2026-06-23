@@ -2,7 +2,7 @@
 
 *Actualizado: 2026-06-23 · rama `revision-monografia`*
 
-## 📊 56/122 cerradas (45%) — pendientes 66
+## 📊 70/122 cerradas (57%) — pendientes 52
 
 > **El # es FIJO** (no cambia aunque cerremos otras). ✅ = cerrada · ⬜ = pendiente.
 
@@ -22,7 +22,7 @@
 | 4 | ✅ | REV | Objetivos y Estructura de la Monografía | este objetivo (orientación/intensidad de B) NO se desarrolla en el cuerpo de esta versión; es la campaña pendiente (ver Conclusiones, objetivo 4). Alinear la redacción a “se sientan las bases para evaluar…” o presentarlo como trabajo futuro. |
 | 5 | ✅ | CLAUDE | Objetivos y Estructura de la Monografía | Redacción propuesta: “… se sientan las bases para evaluar cómo las variaciones de dirección y magnitud del campo magnético externo modificarían la evolución de la inestabilidad; este objetivo se aborda como continuación inmediata (campaña en curso, cap.~(ref)).” |
 
-## Cap. 2 — Teoría RRMHD  — 24/46 cerradas
+## Cap. 2 — Teoría RRMHD  — 10/46 cerradas
 
 | # | Estado | Tipo | Sección | Qué dice |
 |---|---|---|---|---|
@@ -39,38 +39,38 @@
 | 16 | ✅ | CLAUDE | El Cuadripotencial y la Definición del Tensor de Faraday | Sí, correcto: $dx^=d(x^)$ es exacta y $d(dx^)=d^2x^=0$ por nilpotencia ($d^2=0$). La escritura $d^2x^$ es legítima (no es una 2.ª derivada del cálculo, sino $d$ aplicado dos veces). |
 | 17 | ✅ | SEB | Descomposición Relativa a un Observador | relacionar esta normalización del observador comóvil con el observador euleriano de la malla. |
 | 18 | ✅ | SEB | Descomposición Relativa a un Observador | notación: valorar usar el símbolo de Hodge $$ para el dual a lo largo del documento. |
-| 19 | ⬜ | SEB | Descomposición Relativa a un Observador | ¿“covariantemente” es el término correcto aquí? revisar. |
+| 19 | ✅ | SEB | Descomposición Relativa a un Observador | ¿“covariantemente” es el término correcto aquí? revisar. |
 | 20 | ⬜ | SEB | Descomposición Relativa a un Observador | revisar la estructura y jerarquía del documento: capítulos, secciones, subsecciones, subsubsecciones y niveles siguientes (consistencia y profundidad). |
-| 21 | ⬜ | SEB | El par inhomogéneo y el acoplamiento con la fuente | verificar si esto es resultado de un lagrangiano; incluir el resultado y el procedimiento, o llevarlo a un anexo. |
+| 21 | ✅ | SEB | El par inhomogéneo y el acoplamiento con la fuente | verificar si esto es resultado de un lagrangiano; incluir el resultado y el procedimiento, o llevarlo a un anexo. |
 | 22 | ✅ | SEB | Derivación a partir de las Densidades Lagrangianas | ¿por qué $S_ em$ no incluye la fuente material ($J_ A^$)? explicarlo; y en un anexo mostrar dónde aparece la energía del campo electromagnético. |
 | 23 | ✅ | CLAUDE | Derivación a partir de las Densidades Lagrangianas | Respuesta: aquí es la acción del campo libre porque $T^_ em$ se obtiene variando la métrica (Hilbert) y $J_ A^$ no depende de $g_$, luego no contribuye a $T^_ em$. El acoplamiento $J_ A^$ sí aparece después en la acción aumentada (Sección~(ref)). |
 | 24 | ⬜ | SEB | Derivación a partir de las Densidades Lagrangianas | (general) revisar el uso de los términos “tensor” y “forma” a lo largo del capítulo, según el tratamiento de Vargas. |
 | 25 | ⬜ | SEB | Derivación a partir de las Densidades Lagrangianas | añadir en el anexo la derivación paso a paso de $T^_ em$ (derivada funcional de Hilbert). |
 | 26 | ✅ | SEB | Derivación a partir de las Densidades Lagrangianas | verificar si la acción del fluido perfecto $S_ fluid= p-g\,d^4x$ es efectivamente válida en RRMHD (¿se modifica por la parte resistiva?). |
 | 27 | ✅ | CLAUDE | Derivación a partir de las Densidades Lagrangianas | Sí es válida: en RRMHD el fluido sigue siendo perfecto; la disipación vive en el sector electromagnético (ley de Ohm con $$ finita), no en $T^_ fluid$. Por eso $S_ fluid= p-g\,d^4x$ (acción de Taub) no cambia. |
-| 28 | ⬜ | CLAUDE | Derivación a partir de las Densidades Lagrangianas | Símbolo ambiguo: aquí $$ es densidad de energía (incluye masa en reposo, $ h=+p$), pero en §(ref) se usa $h=1++p/$ con $$ = energía interna específica. Unificar: $$ para densidad y $$ (o $e$) para la específica, como en el Anexo ($h=1+-1p/$). |
+| 28 | ✅ | CLAUDE | Derivación a partir de las Densidades Lagrangianas | Símbolo ambiguo: aquí $$ es densidad de energía (incluye masa en reposo, $ h=+p$), pero en §(ref) se usa $h=1++p/$ con $$ = energía interna específica. Unificar: $$ para densidad y $$ (o $e$) para la específica, como en el Anexo ($h=1+-1p/$). |
 | 29 | ⬜ | SEB | Dinámica Acoplada y el Sistema Completo de RRMHD | hacer explícita la derivación con $T^_ tot$ y separarla; añadir un anexo completo con el paso de (2.30) a (2.31). |
 | 30 | ✅ | SEB | Dinámica Acoplada y el Sistema Completo de RRMHD | se nombra “RRMHD” pero aún no se ha introducido la resistividad/ley de Ohm (§(ref)); reordenar o aclarar para no adelantar el término. |
-| 31 | ⬜ | SEB | Dinámica Acoplada y el Sistema Completo de RRMHD | revisar este sistema de ecuaciones (2.32)--(2.35) y las relaciones entre ellas. |
+| 31 | ✅ | SEB | Dinámica Acoplada y el Sistema Completo de RRMHD | revisar este sistema de ecuaciones (2.32)--(2.35) y las relaciones entre ellas. |
 | 32 | ✅ | SEB | El Sistema Aumentado de Maxwell | añadir una nota al pie explicando el acrónimo/método GLM (Generalized Lagrange Multipliers). |
 | 33 | ✅ | CLAUDE | El Sistema Aumentado de Maxwell | Footnote propuesta: “GLM (Generalized Lagrange Multipliers): técnica de Dedner_etal:2002 que acopla las restricciones de divergencia ($\!\! B=0$ y la ley de Gauss) a campos escalares auxiliares, convirtiéndolas en ecuaciones de transporte amortiguadas que propagan y disipan el error en vez de acumularlo.” |
-| 34 | ⬜ | SEB | Extensión Lagrangiana y el Campo Auxiliar Eléctrico $$ | explicar la diferencia y la justificación de esta acción extendida frente a la acción $S_ em$ original. |
-| 35 | ⬜ | SEB | Extensión Lagrangiana y el Campo Auxiliar Eléctrico $$ | explicar la función e implicación física del campo $$, y explicar el tercer término de la acción ($12_^$). |
+| 34 | ✅ | SEB | Extensión Lagrangiana y el Campo Auxiliar Eléctrico $$ | explicar la diferencia y la justificación de esta acción extendida frente a la acción $S_ em$ original. |
+| 35 | ✅ | SEB | Extensión Lagrangiana y el Campo Auxiliar Eléctrico $$ | explicar la función e implicación física del campo $$, y explicar el tercer término de la acción ($12_^$). |
 | 36 | ✅ | SEB | Extensión Lagrangiana y el Campo Auxiliar Eléctrico $$ | ¿esta es la ecuación del telégrafo? aclarar: aquí es de onda pura; la forma telegráfica aparece luego con el amortiguamiento $$. |
 | 37 | ⬜ | CLAUDE | Extensión Lagrangiana y el Campo Auxiliar Eléctrico $$ | Confirmado: aquí es onda pura. Pero hay un salto de coherencia: la acción y las Ecs.~(ref)--(ref) dan un sistema de segundo orden (telégrafo), mientras que el sistema 3+1 que integra el código, Ecs.~(ref)--(ref), es de primer orden (forma de Dedner). No se muestra la reducción de uno a otro; conviene aclararlo o presentar directamente la forma de Dedner. |
 | 38 | ✅ | SEB | Simetría Dual y el Campo Auxiliar Magnético $$ | añadir nota al pie aclarando que la formulación con potencial dual violaría esta invariancia/simetría de Hodge. |
-| 39 | ⬜ | SEB | Simetría Dual y el Campo Auxiliar Magnético $$ | ¿hay forma de introducir estos términos de amortiguamiento de manera formal (derivada) y no ad-hoc? |
-| 40 | ⬜ | SEB | La Ecuación del Telégrafo: Origen Covariante y Causalidad Disipativa | revisar y añadir cita(s) de respaldo. |
+| 39 | ✅ | SEB | Simetría Dual y el Campo Auxiliar Magnético $$ | ¿hay forma de introducir estos términos de amortiguamiento de manera formal (derivada) y no ad-hoc? |
+| 40 | ✅ | SEB | La Ecuación del Telégrafo: Origen Covariante y Causalidad Disipativa | revisar y añadir cita(s) de respaldo. |
 | 41 | ⬜ | SEB | Descomposición 3+1 del Sistema Aumentado | añadir un anexo con los procedimientos/derivaciones de las ecuaciones (2.40)--(2.48). |
-| 42 | ⬜ | CLAUDE | Descomposición 3+1 del Sistema Aumentado | Inconsistencia de notación con el Anexo (Ec.~(ref)): aquí $$ limpia la ley de Gauss eléctrica y $$ la magnética; en el anexo se usan $$ (eléctrica) y $$ (magnética), con las letras intercambiadas. Unificar en todo el documento. |
-| 43 | ⬜ | SEB | Descomposición de la Cuadricorriente y la Ley de Ohm Relativista | citar y revisar toda esta sección. |
+| 42 | ✅ | CLAUDE | Descomposición 3+1 del Sistema Aumentado | Inconsistencia de notación con el Anexo (Ec.~(ref)): aquí $$ limpia la ley de Gauss eléctrica y $$ la magnética; en el anexo se usan $$ (eléctrica) y $$ (magnética), con las letras intercambiadas. Unificar en todo el documento. |
+| 43 | ✅ | SEB | Descomposición de la Cuadricorriente y la Ley de Ohm Relativista | citar y revisar toda esta sección. |
 | 44 | ⬜ | SEB | Descomposición Ortogonal del Cuadrivector Corriente | añadir una figura que distinga $_e$ (propia, marco comóvil) de $_q$ (laboratorio), y en general el marco comóvil vs.\ el de laboratorio. |
-| 45 | ⬜ | CLAUDE | Resumen del Sistema RRMHD en Forma Conservativa | Verificado contra el código Cueva (06\_conserved\_var.f95): convención TOTAL correcta; $$ lleva $ h^2$ (con masa en reposo, sin restar $D$). Consistente con el Anexo. Da por resuelta la antigua nota roja de variables conservadas. |
-| 46 | ⬜ | CLAUDE | Resumen del Sistema RRMHD en Forma Conservativa | En contexto relativista “invarianza de Galileo” es impreciso (el término de Powell se asocia a la invariancia galileana en MHD clásica). Aquí conviene hablar de consistencia Lorentz/entropía, o atribuirlo con cuidado a su origen clásico. |
+| 45 | ✅ | CLAUDE | Resumen del Sistema RRMHD en Forma Conservativa | Verificado contra el código Cueva (06\_conserved\_var.f95): convención TOTAL correcta; $$ lleva $ h^2$ (con masa en reposo, sin restar $D$). Consistente con el Anexo. Da por resuelta la antigua nota roja de variables conservadas. |
+| 46 | ✅ | CLAUDE | Resumen del Sistema RRMHD en Forma Conservativa | En contexto relativista “invarianza de Galileo” es impreciso (el término de Powell se asocia a la invariancia galileana en MHD clásica). Aquí conviene hablar de consistencia Lorentz/entropía, o atribuirlo con cuidado a su origen clásico. |
 | 47 | ⬜ | SEB | Análisis de la KHI en el Límite Lineal | Expandir la explicaćion , implicaćion y justificaíon de lo que se dice ahí, es mas como justificar la aparicion de este tema en el marco teorico, entra un poco ortodoxo y seco |
 | 48 | ⬜ | CLAUDE | Análisis de la KHI en el Límite Lineal | Marco sugerido: enlazar con el cap.~3 (cierre §3.5): el $[ M]=0$ existe formalmente, pero en RRMHD no se reduce a una relación de dispersión algebraica cerrada (Ohm resistiva = parabólica). Decir que aquí se plantea el problema y que su forma cerrada solo existe en los límites ideal/RMHD (cap.~3) lo haría menos seco y más justificado. |
-| 49 | ⬜ | CLAUDE | Inercia Térmica Relativista y Anisotropía Magnética | Estilo: cuando los autores son el sujeto (“… demostraron”), va textcite (ya corregido aquí). Revisar otros “ parencite\…\ + verbo” en el capítulo. |
-| 50 | ⬜ | CLAUDE | Inercia Térmica Relativista y Anisotropía Magnética | Esta es la definición correcta y estándar ($w= h^2$). El cap.~3 (§3.4.1) escribe $w= h^2+B^2$: unificar a esta (quitar el $+B^2$ del cap.~3), como pide la nota roja de ese capítulo. |
+| 49 | ✅ | CLAUDE | Inercia Térmica Relativista y Anisotropía Magnética | Estilo: cuando los autores son el sujeto (“… demostraron”), va textcite (ya corregido aquí). Revisar otros “ parencite\…\ + verbo” en el capítulo. |
+| 50 | ✅ | CLAUDE | Inercia Térmica Relativista y Anisotropía Magnética | Esta es la definición correcta y estándar ($w= h^2$). El cap.~3 (§3.4.1) escribe $w= h^2+B^2$: unificar a esta (quitar el $+B^2$ del cap.~3), como pide la nota roja de ese capítulo. |
 | 51 | ⬜ | SEB | Enstrofía de Perturbación y Extracción de $$ | En general, revisar todas las citas bien plantedas y utilizadas, y añadir en el marco teorico todas las herramientas estadisticas utilizadad, o discutir si deben de ser anexos , ya que son erramientas validas pero poco convencionales |
 
 ## Cap. 3 — KHI  — 0/10 cerradas
