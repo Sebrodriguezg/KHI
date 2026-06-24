@@ -404,14 +404,7 @@ La dependencia del pico máximo de enstrofía con el ángulo se sintetiza en la 
 \label{fig:campB_omegamax_theta}
 \end{figure}
 
-Estas observaciones conducen naturalmente al escrutinio de las variables globales del campo y la energía cinética. Las Figuras (Fig.~\ref{fig:campB_emag})\claudenota{Orden: la Fig.~\ref{fig:campB_omegamax_emag} aparece en el .tex antes que la \ref{fig:campB_emag}, pero el texto cita primero la de $E_{\rm mag}$. Reordenar. Además ``Las Figuras'' (plural) con una sola referencia.} resultan reveladoras, ya que permiten comprobar que los picos de enstrofía están fuertemente acoplados con los valles de campo y energía magnética. Se infiere, por tanto, que esta topología magnética facilita un intercambio energético mediado por una disipación controlada directamente por la resistividad (Fig.~\ref{fig:campB_omegamax_emag}).\claudenota{Referencia incorrecta: $\Omega^{\max}$ vs $E_{\rm mag}$ muestra \emph{co-amplificación} (corr.\ positiva), NO el intercambio mediado por disipación. El intercambio real es la Fig.~\ref{fig:campB_conversion} (tasas). Reasignar.}
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=\textwidth]{figuras/fig_campB_omegamax_emag}
-\caption{Campaña B: $\Omega^{\max}_{zp}$ frente a $E_{\mathrm{mag}}$ (color $=t$); la trayectoria en lazo con tendencia positiva indica co-amplificación por la cizalla.}
-\label{fig:campB_omegamax_emag}
-\end{figure}
+Estas observaciones conducen naturalmente al escrutinio de las variables globales del campo y la energía cinética. La energía magnética (Fig.~\ref{fig:campB_emag}) resulta reveladora, ya que permite comprobar que los picos de enstrofía están fuertemente acoplados con los valles de energía magnética. Se infiere, por tanto, que esta topología facilita un intercambio energético entre el campo y el fluido, mediado por la disipación que controla la resistividad; dicho intercambio se hace explícito al evaluar las tasas temporales de ambas energías (Fig.~\ref{fig:campB_conversion}).
 
 \begin{figure}[H]
 \centering
@@ -419,8 +412,6 @@ Estas observaciones conducen naturalmente al escrutinio de las variables globale
 \caption{Campaña B: energía magnética $E_{\mathrm{mag}}(t)=\tfrac12\int B^2\,dA$ por ángulo; sus valles se acoplan con los picos de enstrofía.}
 \label{fig:campB_emag}
 \end{figure}
-
-\claudenota{Referencia suelta (sin frase). Integrarla en el párrafo de las derivadas, abajo.}
 
 \begin{figure}[H]
 \centering
@@ -437,14 +428,16 @@ En segundo lugar, la evaluación del espacio de fases captura explícitamente la
 
 Finalmente, la evolución temporal, delimita claramente las fases dinámicas de la inestabilidad. Durante los instantes iniciales de la fase lineal (puntos azules oscuros), las tasas de cambio comienzan cerca del origen y aumentan progresivamente a medida que la inestabilidad toma fuerza. Es en la transición hacia la saturación (puntos morados y fucsias, $t \approx 4-8$) donde el sistema experimenta las transferencias de energía más violentas, desplazando los valores hacia los extremos de los cuadrantes; esto coincide exactamente con el instante en que la cizalladura rompe su límite estructural y el vórtice primario extrae la mayor cantidad de energía. Finalmente, al avanzar hacia la etapa de oscilación tardía o turbulencia (puntos amarillos, $t > 10$)\claudenota{Verificar que el \emph{colormap} de la Fig.~\ref{fig:campB_conversion} coincida con la descripción (azul oscuro $\to$ morado/fucsia $\to$ amarillo según $t$); mi script usa el colormap por defecto.}, el intercambio energético se atenúa drásticamente, provocando que los datos tiendan a agruparse de nuevo en torno al origen, reflejando un estado de mayor disipación o estabilización dinámica.
 
-Esta información es crucial; en la configuración clásica \textit{Mizuno-like} no es posible evidenciar este impacto de forma directa, ya que las oscilaciones en el sector energético-magnético suelen quedar opacadas por el crecimiento violento de la inestabilidad. En este escenario, sin embargo, el fenómeno oscilatorio se vuelve la dinámica dominante. Para extender el análisis y comprender la termodinámica interna del plasma, se realiza un estudio de correlación cruzada entre la enstrofía de perturbación $\Omega_{zp}$ y la energía magnética $\int B^2\,dA$, así como su dependencia con el ángulo $\theta$ (Fig.~\ref{fig:campB_correlacion}).\sebnota{Insertar todas las variables exigidas por el director para esta campaña}\claudenota{Coloqué la correlación cruzada $\Omega$--$\int B^2$ vs $\theta$ (fuerza de acople y retardo $\tau$ del pico). Si el director pide MÁS variables (p.ej. $E\!\cdot\!J$, $J_z$, $E_{\rm mag}$), hay figuras listas en \texttt{figuras/director/} para añadir aquí.}
+Esta información es crucial; en la configuración clásica \textit{Mizuno-like} no es posible evidenciar este impacto de forma directa, ya que las oscilaciones en el sector energético-magnético suelen quedar opacadas por el crecimiento violento de la inestabilidad. En este escenario, sin embargo, el fenómeno oscilatorio se vuelve la dinámica dominante. Para precisar la relación entre la amplificación de la vorticidad y la energía magnética, se confronta el pico máximo de enstrofía de cada orientación con el mínimo de energía magnética alcanzado en la ventana temporal de dicho pico (Fig.~\ref{fig:campB_emagmin}).
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=\textwidth]{figuras/fig_campB_correlacion}
-\caption{Campaña B: correlación cruzada entre $\Omega_{zp}$ y $\int B^2\,dA$ en función del retardo $\tau$ (paneles superiores, por ángulo $\theta$) y su dependencia con $\theta$ ---fuerza de acople en el pico y retardo $\tau$ del pico--- (paneles inferiores), para ambas conductividades.}
-\label{fig:campB_correlacion}
+\includegraphics[width=\textwidth]{figuras/fig_campB_emagmin}
+\caption{Campaña B: (arriba-izq.) pico máximo de enstrofía $\Omega^{\max}_{zp}$ frente al mínimo de energía magnética $E^{\min}_{\mathrm{mag}}$ en la ventana del pico, un punto por ángulo; (arriba-der.) orden temporal $\Delta t = t_{\Omega^{\max}} - t_{E^{\min}_{\mathrm{mag}}}$ en función de $\theta$ ($\Delta t<0$: el mínimo magnético ocurre \emph{después} del pico de enstrofía); (abajo) dos ejemplos de la evolución solapada de $\Omega_{zp}$ y $E_{\mathrm{mag}}$, con los extremos marcados.}
+\label{fig:campB_emagmin}
 \end{figure}
+
+El orden temporal entre ambos extremos (panel superior derecho) resulta esclarecedor: para la mayoría de las orientaciones el mínimo de energía magnética ocurre \emph{después} del máximo de enstrofía ($\Delta t<0$), mientras que en $\theta=30^\circ$ el orden se invierte ($\Delta t\approx+2$, el mínimo magnético antecede al pico). Este desfase sistemático confirma que los máximos de enstrofía \textbf{no son eventos puramente hidrodinámicos}, sino que están ligados a la reorganización del campo magnético: el campo se deforma e intercambia energía con el fluido, imprimiéndole vorticidad.
 
 \subsubsection*{Variación en el plano $x-z$ (Campaña C)}
 \claudenota{Jerarquía inconsistente: ``intensidad'' es \texttt{\textbackslash subsection} y las orientaciones \texttt{\textbackslash subsubsection*} (sin numerar); y la de $y$-$z$ no dice ``(Campaña B)''. Unificar niveles y etiquetas.}
