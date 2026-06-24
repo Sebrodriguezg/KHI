@@ -1,0 +1,177 @@
+{
+ "revisar la matriz final $\\sigma\\times$CFL realmente usada: los datos de llegada incluyen también $\\sigma=4500,5500,6500,7000$ y versiones CFL $0.10/0.04/0.02$; definir cuáles entran en la monografía.": {
+  "id": 123,
+  "chap": "Cap. 5 — Setup experimental",
+  "typ": "sebnota",
+  "sec": "Conductividades y paso temporal.",
+  "body": "revisar la matriz final $\\sigma\\times$CFL realmente usada: los datos de llegada incluyen también $\\sigma=4500,5500,6500,7000$ y versiones CFL $0.10/0.04/0.02$; definir cuáles entran en la monografía."
+ },
+ "la comparación entre $\\sigma$ queda entonces a CFL mixto; decidir si se homogeniza para el análisis final.": {
+  "id": 124,
+  "chap": "Cap. 5 — Setup experimental",
+  "typ": "sebnota",
+  "sec": "Conductividades y paso temporal.",
+  "body": "la comparación entre $\\sigma$ queda entonces a CFL mixto; decidir si se homogeniza para el análisis final."
+ },
+ "el análisis cuantitativo (\\,$\\gamma$ vs $B$, $\\Omega^{\\max}$ vs $\\theta$, conversión magnética--cinética\\,) se desarrolla en el Capítulo~\\ref{ch:results_discussion}; resultados \\emph{preliminares}, pendientes de revisión a fondo (no fiarse aún del informe de llegada).": {
+  "id": 125,
+  "chap": "Cap. 5 — Setup experimental",
+  "typ": "sebnota",
+  "sec": "Conductividades y paso temporal.",
+  "body": "el análisis cuantitativo (\\,$\\gamma$ vs $B$, $\\Omega^{\\max}$ vs $\\theta$, conversión magnética--cinética\\,) se desarrolla en el Capítulo~\\ref{ch:results_discussion}; resultados \\emph{preliminares}, pendientes de revisión a fondo (no fiarse aún del informe de llegada)."
+ },
+ "Sección redactada por Bryan (campaña magnética, objetivo 4); pendiente cablear figuras/tablas de \\texttt{ANALISIS\\_LIMPIO\\_FINAL/figuras}.": {
+  "id": 126,
+  "chap": "Cap. 6 — Resultados",
+  "typ": "brynota",
+  "sec": "Variación de Intensidad y Orientación del Campo Magnético",
+  "body": "Sección redactada por Bryan (campaña magnética, objetivo 4); pendiente cablear figuras/tablas de \\texttt{ANALISIS\\_LIMPIO\\_FINAL/figuras}."
+ },
+ "Notación: usar $\\gKHI$ como en el resto del documento, no $\\gamma_i$.": {
+  "id": 127,
+  "chap": "Cap. 6 — Resultados",
+  "typ": "claudenota",
+  "sec": "Variación de Intensidad y Orientación del Campo Magnético",
+  "body": "Notación: usar $\\gKHI$ como en el resto del documento, no $\\gamma_i$."
+ },
+ "Definir/referenciar aquí presión magnética ($P_{\\rm mag}=B^2/2$) y tensión magnética ($\\propto(\\mathbf k\\cdot\\mathbf B)^2$), clave de todo el capítulo. La tensión la ejerce la componente \\emph{paralela a} $\\mathbf k$ (aquí $B_y$; el flujo y $\\mathbf k$ van en $\\hat y$).": {
+  "id": 128,
+  "chap": "Cap. 6 — Resultados",
+  "typ": "claudenota",
+  "sec": "Variación de Intensidad y Orientación del Campo Magnético",
+  "body": "Definir/referenciar aquí presión magnética ($P_{\\rm mag}=B^2/2$) y tensión magnética ($\\propto(\\mathbf k\\cdot\\mathbf B)^2$), clave de todo el capítulo. La tensión la ejerce la componente \\emph{paralela a} $\\mathbf k$ (aquí $B_y$; el flujo y $\\mathbf k$ van en $\\hat y$)."
+ },
+ "OJO física: en la Campaña A la orientación es Mizuno ($B_y=B_0\\sqrt{0.02}$ \\emph{pequeña}; $B_z=B_0\\sqrt{2}$ domina). La tensión $\\propto(\\mathbf k\\cdot\\mathbf B)^2\\propto B_y^2$ es débil ($M_{A,\\parallel}=9.4$, super-Alfvénico, §\\ref{sec:teoria_v6}). ¿La supresión al subir $B_0$ es por tensión o más bien por presión/magnetización ($\\beta\\downarrow$)? El texto lo atribuye todo a la tensión; verificar.": {
+  "id": 129,
+  "chap": "Cap. 6 — Resultados",
+  "typ": "claudenota",
+  "sec": "Impacto de la intensidad del campo magnético en el desarrollo de la inestabilidad",
+  "body": "OJO física: en la Campaña A la orientación es Mizuno ($B_y=B_0\\sqrt{0.02}$ \\emph{pequeña}; $B_z=B_0\\sqrt{2}$ domina). La tensión $\\propto(\\mathbf k\\cdot\\mathbf B)^2\\propto B_y^2$ es débil ($M_{A,\\parallel}=9.4$, super-Alfvénico, §\\ref{sec:teoria_v6}). ¿La supresión al subir $B_0$ es por tensión o más bien por presión/magnetización ($\\beta\\downarrow$)? El texto lo atribuye todo a la tensión; verificar."
+ },
+ "¿Se estabiliza el modo \\emph{lineal} ($\\gKHI\\downarrow$) o solo se atenúa/retrasa el pico \\emph{no lineal}? Respaldarlo midiendo $\\gKHI$ (pendiente en la ventana) por $B_0$.": {
+  "id": 130,
+  "chap": "Cap. 6 — Resultados",
+  "typ": "claudenota",
+  "sec": "Impacto de la intensidad del campo magnético en el desarrollo de la inestabilidad",
+  "body": "¿Se estabiliza el modo \\emph{lineal} ($\\gKHI\\downarrow$) o solo se atenúa/retrasa el pico \\emph{no lineal}? Respaldarlo midiendo $\\gKHI$ (pendiente en la ventana) por $B_0$."
+ },
+ "La tabla solo incluye $B_0\\geq1.0$ (casos A3, A4, A5): las configuraciones de campo débil $B_0=0.25$ y $0.5$ (alta $\\beta$) crashearon en $t\\lesssim1$ antes de desarrollar la inestabilidad, por lo que se excluyeron de los datos limpios.": {
+  "id": 131,
+  "chap": "Cap. 6 — Resultados",
+  "typ": "claudenota",
+  "sec": "Impacto de la intensidad del campo magnético en el desarrollo de la inestabilidad",
+  "body": "La tabla solo incluye $B_0\\geq1.0$ (casos A3, A4, A5): las configuraciones de campo débil $B_0=0.25$ y $0.5$ (alta $\\beta$) crashearon en $t\\lesssim1$ antes de desarrollar la inestabilidad, por lo que se excluyeron de los datos limpios."
+ },
+ "Los colores NO coinciden: las figuras regeneradas usan el ciclo por defecto (A3$=$azul, A4$=$naranja, A5$=$verde), no ``verde/rojo/morado''. Unificar: re-generar con ese esquema o quitar las menciones de color del texto. Igual con la ``curva roja $\\theta=30°$'' más abajo.": {
+  "id": 132,
+  "chap": "Cap. 6 — Resultados",
+  "typ": "claudenota",
+  "sec": "Impacto de la intensidad del campo magnético en el desarrollo de la inestabilidad",
+  "body": "Los colores NO coinciden: las figuras regeneradas usan el ciclo por defecto (A3$=$azul, A4$=$naranja, A5$=$verde), no ``verde/rojo/morado''. Unificar: re-generar con ese esquema o quitar las menciones de color del texto. Igual con la ``curva roja $\\theta=30°$'' más abajo."
+ },
+ "Verificar los tiempos de pico ($t\\approx5$ para $B_0=1$; $t\\approx7$ para $B_0=2$) midiendo $t_{\\rm peak}$ real.": {
+  "id": 133,
+  "chap": "Cap. 6 — Resultados",
+  "typ": "claudenota",
+  "sec": "Impacto de la intensidad del campo magnético en el desarrollo de la inestabilidad",
+  "body": "Verificar los tiempos de pico ($t\\approx5$ para $B_0=1$; $t\\approx7$ para $B_0=2$) midiendo $t_{\\rm peak}$ real."
+ },
+ "Notación: $\\Omega_{Zp}\\to\\Omega_{zp}$ (minúscula; macro \\texttt{\\textbackslash Ozp}) aquí y en toda la sección. Los valores $\\sim85$ vs $\\sim45$ concuerdan con §\\ref{sec:globales}.": {
+  "id": 134,
+  "chap": "Cap. 6 — Resultados",
+  "typ": "claudenota",
+  "sec": "Impacto de la intensidad del campo magnético en el desarrollo de la inestabilidad",
+  "body": "Notación: $\\Omega_{Zp}\\to\\Omega_{zp}$ (minúscula; macro \\texttt{\\textbackslash Ozp}) aquí y en toda la sección. Los valores $\\sim85$ vs $\\sim45$ concuerdan con §\\ref{sec:globales}."
+ },
+ "¿Por qué solo $\\theta=5.7°$ y no $\\theta=0°$? A $\\theta=0$ (guía pura, $\\mathbf k\\cdot\\mathbf B=0$, \\emph{sin} tensión) cabría esperar la KHI más limpia; sin embargo $\\Omega^{\\max}(\\theta=0)$ es BAJO ($\\sim14$, Fig. del director). Aclarar la contraintuición.": {
+  "id": 135,
+  "chap": "Cap. 6 — Resultados",
+  "typ": "claudenota",
+  "sec": "Variación en el plano $y-z$",
+  "body": "¿Por qué solo $\\theta=5.7°$ y no $\\theta=0°$? A $\\theta=0$ (guía pura, $\\mathbf k\\cdot\\mathbf B=0$, \\emph{sin} tensión) cabría esperar la KHI más limpia; sin embargo $\\Omega^{\\max}(\\theta=0)$ es BAJO ($\\sim14$, Fig. del director). Aclarar la contraintuición."
+ },
+ "Precisar: la presión de $B_z$ entra vía la velocidad magnetosónica/compresibilidad, no en $w=\\rho h\\Gamma^2$ (que NO lleva $B^2$, ver cap.~2/3).": {
+  "id": 136,
+  "chap": "Cap. 6 — Resultados",
+  "typ": "claudenota",
+  "sec": "Variación en el plano $y-z$",
+  "body": "Precisar: la presión de $B_z$ entra vía la velocidad magnetosónica/compresibilidad, no en $w=\\rho h\\Gamma^2$ (que NO lleva $B^2$, ver cap.~2/3)."
+ },
+ "Falta $\\theta=90°$ aquí: es la de máxima tensión ($\\mathbf k\\cdot\\mathbf B$ máximo) y debería ser la más suprimida; incluir su comportamiento.": {
+  "id": 137,
+  "chap": "Cap. 6 — Resultados",
+  "typ": "claudenota",
+  "sec": "Variación en el plano $y-z$",
+  "body": "Falta $\\theta=90°$ aquí: es la de máxima tensión ($\\mathbf k\\cdot\\mathbf B$ máximo) y debería ser la más suprimida; incluir su comportamiento."
+ },
+ "Esta figura concreta la duda de las notas previas: el mínimo de $\\Omega^{\\max}$ NO está en $\\theta=90^\\circ$ (máxima tensión, $\\mathbf k\\cdot\\mathbf B$ máximo) sino en ángulos intermedios, y $\\theta=90^\\circ$ da el valor MÁS ALTO. Hay que explicar físicamente esta no-monotonía antes de afirmar que ``la tensión suprime''.": {
+  "id": 138,
+  "chap": "Cap. 6 — Resultados",
+  "typ": "claudenota",
+  "sec": "Variación en el plano $y-z$",
+  "body": "Esta figura concreta la duda de las notas previas: el mínimo de $\\Omega^{\\max}$ NO está en $\\theta=90^\\circ$ (máxima tensión, $\\mathbf k\\cdot\\mathbf B$ máximo) sino en ángulos intermedios, y $\\theta=90^\\circ$ da el valor MÁS ALTO. Hay que explicar físicamente esta no-monotonía antes de afirmar que ``la tensión suprime''."
+ },
+ "Orden: la Fig.~\\ref{fig:campB_omegamax_emag} aparece en el .tex antes que la \\ref{fig:campB_emag}, pero el texto cita primero la de $E_{\\rm mag}$. Reordenar. Además ``Las Figuras'' (plural) con una sola referencia.": {
+  "id": 139,
+  "chap": "Cap. 6 — Resultados",
+  "typ": "claudenota",
+  "sec": "Variación en el plano $y-z$",
+  "body": "Orden: la Fig.~\\ref{fig:campB_omegamax_emag} aparece en el .tex antes que la \\ref{fig:campB_emag}, pero el texto cita primero la de $E_{\\rm mag}$. Reordenar. Además ``Las Figuras'' (plural) con una sola referencia."
+ },
+ "Referencia incorrecta: $\\Omega^{\\max}$ vs $E_{\\rm mag}$ muestra \\emph{co-amplificación} (corr.\\ positiva), NO el intercambio mediado por disipación. El intercambio real es la Fig.~\\ref{fig:campB_conversion} (tasas). Reasignar.": {
+  "id": 140,
+  "chap": "Cap. 6 — Resultados",
+  "typ": "claudenota",
+  "sec": "Variación en el plano $y-z$",
+  "body": "Referencia incorrecta: $\\Omega^{\\max}$ vs $E_{\\rm mag}$ muestra \\emph{co-amplificación} (corr.\\ positiva), NO el intercambio mediado por disipación. El intercambio real es la Fig.~\\ref{fig:campB_conversion} (tasas). Reasignar."
+ },
+ "Referencia suelta (sin frase). Integrarla en el párrafo de las derivadas, abajo.": {
+  "id": 141,
+  "chap": "Cap. 6 — Resultados",
+  "typ": "claudenota",
+  "sec": "Variación en el plano $y-z$",
+  "body": "Referencia suelta (sin frase). Integrarla en el párrafo de las derivadas, abajo."
+ },
+ "Verificar que el \\emph{colormap} de la Fig.~\\ref{fig:campB_conversion} coincida con la descripción (azul oscuro $\\to$ morado/fucsia $\\to$ amarillo según $t$); mi script usa el colormap por defecto.": {
+  "id": 142,
+  "chap": "Cap. 6 — Resultados",
+  "typ": "claudenota",
+  "sec": "Variación en el plano $y-z$",
+  "body": "Verificar que el \\emph{colormap} de la Fig.~\\ref{fig:campB_conversion} coincida con la descripción (azul oscuro $\\to$ morado/fucsia $\\to$ amarillo según $t$); mi script usa el colormap por defecto."
+ },
+ "Insertar todas las variables exigidas por el director para esta campaña": {
+  "id": 143,
+  "chap": "Cap. 6 — Resultados",
+  "typ": "sebnota",
+  "sec": "Variación en el plano $y-z$",
+  "body": "Insertar todas las variables exigidas por el director para esta campaña"
+ },
+ "Coloqué la correlación cruzada $\\Omega$--$\\int B^2$ vs $\\theta$ (fuerza de acople y retardo $\\tau$ del pico). Si el director pide MÁS variables (p.ej. $E\\!\\cdot\\!J$, $J_z$, $E_{\\rm mag}$), hay figuras listas en \\texttt{figuras/director/} para añadir aquí.": {
+  "id": 144,
+  "chap": "Cap. 6 — Resultados",
+  "typ": "claudenota",
+  "sec": "Variación en el plano $y-z$",
+  "body": "Coloqué la correlación cruzada $\\Omega$--$\\int B^2$ vs $\\theta$ (fuerza de acople y retardo $\\tau$ del pico). Si el director pide MÁS variables (p.ej. $E\\!\\cdot\\!J$, $J_z$, $E_{\\rm mag}$), hay figuras listas en \\texttt{figuras/director/} para añadir aquí."
+ },
+ "Jerarquía inconsistente: ``intensidad'' es \\texttt{\\textbackslash subsection} y las orientaciones \\texttt{\\textbackslash subsubsection*} (sin numerar); y la de $y$-$z$ no dice ``(Campaña B)''. Unificar niveles y etiquetas.": {
+  "id": 145,
+  "chap": "Cap. 6 — Resultados",
+  "typ": "claudenota",
+  "sec": "Variación en el plano $x-z$ (Campaña C)",
+  "body": "Jerarquía inconsistente: ``intensidad'' es \\texttt{\\textbackslash subsection} y las orientaciones \\texttt{\\textbackslash subsubsection*} (sin numerar); y la de $y$-$z$ no dice ``(Campaña B)''. Unificar niveles y etiquetas."
+ },
+ "INCONSISTENCIA con el cap.~5: allí (siguiendo al profe) la Campaña C es ``componente \\emph{paralela al flujo} que estabiliza por tensión''; AQUÍ (correcto) es ``sin tensión''. La tensión la da $B_y$ ($\\parallel\\mathbf k$, flujo en $\\hat y$); en C $B_y=0$ y $B_x$ es normal a la interfaz ($\\perp\\mathbf k$) $\\Rightarrow$ NO hay tensión. CORREGIR el cap.~5 (``paralela al flujo'' es engañoso).": {
+  "id": 146,
+  "chap": "Cap. 6 — Resultados",
+  "typ": "claudenota",
+  "sec": "Variación en el plano $x-z$ (Campaña C)",
+  "body": "INCONSISTENCIA con el cap.~5: allí (siguiendo al profe) la Campaña C es ``componente \\emph{paralela al flujo} que estabiliza por tensión''; AQUÍ (correcto) es ``sin tensión''. La tensión la da $B_y$ ($\\parallel\\mathbf k$, flujo en $\\hat y$); en C $B_y=0$ y $B_x$ es normal a la interfaz ($\\perp\\mathbf k$) $\\Rightarrow$ NO hay tensión. CORREGIR el cap.~5 (``paralela al flujo'' es engañoso)."
+ },
+ "En C, $|\\mathbf B|$ (y la presión) es \\emph{constante} en $\\theta$; la variación con $\\theta$ no puede venir de la presión. Aclarar qué cambia con $\\theta$ en C (dirección de $B_x$ respecto a la interfaz / reconexión).": {
+  "id": 147,
+  "chap": "Cap. 6 — Resultados",
+  "typ": "claudenota",
+  "sec": "Variación en el plano $x-z$ (Campaña C)",
+  "body": "En C, $|\\mathbf B|$ (y la presión) es \\emph{constante} en $\\theta$; la variación con $\\theta$ no puede venir de la presión. Aclarar qué cambia con $\\theta$ en C (dirección de $B_x$ respecto a la interfaz / reconexión)."
+ }
+}

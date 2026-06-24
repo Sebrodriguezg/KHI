@@ -7,13 +7,13 @@
 > **El # es FIJO** (no cambia aunque cerremos otras). ✅ = cerrada · ⬜ = pendiente.
 
 
-## Preliminares  — 1/1 cerradas
+## Preliminares  — 0/1 cerradas
 
 | # | Estado | Tipo | Sección | Qué dice |
 |---|---|---|---|---|
 | 1 | ⬜ | SEB | Resumen | no olvidar implementar la campaña de campo magnetico |
 
-## Cap. 1 — Introducción  — 0/4 cerradas
+## Cap. 1 — Introducción  — 4/4 cerradas
 
 | # | Estado | Tipo | Sección | Qué dice |
 |---|---|---|---|---|
@@ -22,7 +22,7 @@
 | 4 | ✅ | REV | Objetivos y Estructura de la Monografía | este objetivo (orientación/intensidad de B) NO se desarrolla en el cuerpo de esta versión; es la campaña pendiente (ver Conclusiones, objetivo 4). Alinear la redacción a “se sientan las bases para evaluar…” o presentarlo como trabajo futuro. |
 | 5 | ✅ | CLAUDE | Objetivos y Estructura de la Monografía | Redacción propuesta: “… se sientan las bases para evaluar cómo las variaciones de dirección y magnitud del campo magnético externo modificarían la evolución de la inestabilidad; este objetivo se aborda como continuación inmediata (campaña en curso, cap.~(ref)).” |
 
-## Cap. 2 — Teoría RRMHD  — 10/46 cerradas
+## Cap. 2 — Teoría RRMHD  — 36/46 cerradas
 
 | # | Estado | Tipo | Sección | Qué dice |
 |---|---|---|---|---|
@@ -73,7 +73,7 @@
 | 50 | ✅ | CLAUDE | Inercia Térmica Relativista y Anisotropía Magnética | Esta es la definición correcta y estándar ($w= h^2$). El cap.~3 (§3.4.1) escribe $w= h^2+B^2$: unificar a esta (quitar el $+B^2$ del cap.~3), como pide la nota roja de ese capítulo. |
 | 51 | ⬜ | SEB | Enstrofía de Perturbación y Extracción de $$ | En general, revisar todas las citas bien plantedas y utilizadas, y añadir en el marco teorico todas las herramientas estadisticas utilizadad, o discutir si deben de ser anexos , ya que son erramientas validas pero poco convencionales |
 
-## Cap. 3 — KHI  — 0/10 cerradas
+## Cap. 3 — KHI  — 10/10 cerradas
 
 | # | Estado | Tipo | Sección | Qué dice |
 |---|---|---|---|---|
@@ -88,7 +88,7 @@
 | 60 | ✅ | SEB | Motivación Numérica y Relevancia Computacional | explicar a fondo (o en footnote) el esquema IMEX: advección explícita del fluido $+$ tratamiento implícito de las fuentes disipativas rígidas. |
 | 61 | ✅ | CLAUDE | Motivación Numérica y Relevancia Computacional | Footnote IMEX propuesta: “IMEX-RK (Implicit--Explicit Runge--Kutta): integra de forma explícita los flujos advectivos no rígidos e implícita las fuentes resistivas rígidas ($$), evitando el paso de tiempo $ t^-1$ que impondría un esquema totalmente explícito a alta conductividad.” Coherente con la implementación del Cueva (Pareschi--Russo + Aloy--Cordero). |
 
-## Cap. 4 — Métodos numéricos  — 0/7 cerradas
+## Cap. 4 — Métodos numéricos  — 7/7 cerradas
 
 | # | Estado | Tipo | Sección | Qué dice |
 |---|---|---|---|---|
@@ -100,7 +100,7 @@
 | 67 | ✅ | CLAUDE | Estructura Espectral de los Potenciales Auxiliares | No es esencial en el cuerpo: basta afirmar que las submatrices $22$ tienen autovalores $ c_h$ (de ahí la propagación causal). Si se quiere el detalle, llevarlo al anexo. Conecta con la nota de cap.~2 sobre derivar el 2$$2 desde el sistema 3+1. |
 | 68 | ✅ | CLAUDE | Recuperación de Variables Primitivas: la Cuártica del Factor de Lorentz | Verificado contra el código (12\_varprimitive.f95, subrutina varprimitivecardano): cuártica en $$ + Tchirnhaus + refinamiento Newton, correcto. Cita: el esquema de recuperación es del Cueva; citar miranda-aranguren-2018 aquí (mizuno-2013 es el paper de EoS, no de recuperación de primitivas). |
 
-## Cap. 5 — Setup experimental  — 9/12 cerradas
+## Cap. 5 — Setup experimental  — 3/12 cerradas
 
 | # | Estado | Tipo | Sección | Qué dice |
 |---|---|---|---|---|
@@ -113,8 +113,11 @@
 | 75 | ✅ | CLAUDE | Exploración del Espacio de Parámetros: Resistividad | Pendiente de los datos de la campaña (martes). Marcador: al llegar, tabular los $$ usados (6000, 10000), las orientaciones/intensidades de $ B$ y el CFL de cada corrida. |
 | 76 | ⬜ | SEB | Variables de Control y Diagnóstico | Mirar cuáles de estos diagnósticos sí se usan y cuáles no; además, seguro se usan otros, como campos y energías. |
 | 77 | ⬜ | CLAUDE | Variables de Control y Diagnóstico | Del código: se usan $_z$, $_ tot$, $f_Vz$ y $'_zp$ (estos en cap.~6) y además $J_$, $ E\!\! J$ y $E_ mag$ (§(ref)). Conviene listar también estos últimos aquí para que la sección de diagnósticos quede completa. |
+| 123 | ⬜ | SEB | Conductividades y paso temporal. | revisar la matriz final $$CFL realmente usada: los datos de llegada incluyen también $=4500,5500,6500,7000$ y versiones CFL $0.10/0.04/0.02$; definir cuáles entran en la monografía. |
+| 124 | ⬜ | SEB | Conductividades y paso temporal. | la comparación entre $$ queda entonces a CFL mixto; decidir si se homogeniza para el análisis final. |
+| 125 | ⬜ | SEB | Conductividades y paso temporal. | el análisis cuantitativo (\,$$ vs $B$, $^$ vs $$, conversión magnética--cinética\,) se desarrolla en el Capítulo~(ref); resultados preliminares, pendientes de revisión a fondo (no fiarse aún del informe de llegada). |
 
-## Cap. 6 — Resultados  — 48/58 cerradas
+## Cap. 6 — Resultados  — 10/58 cerradas
 
 | # | Estado | Tipo | Sección | Qué dice |
 |---|---|---|---|---|
@@ -154,38 +157,6 @@
 | 111 | ⬜ | SEB | Limitaciones del análisis y perspectivas | No existe inestabilidad, o al menos no se generan tasas de crecimiento. Esto está mal. |
 | 112 | ⬜ | CLAUDE | Limitaciones del análisis y perspectivas | De acuerdo: a $500$ el problema no es “ajuste pobre” sino que la disipación domina desde $t=0$ y no hay fase lineal limpia $$ no se puede extraer una $$ fiable. Reformular así (no “$R^2<0.7$” a secas). |
 | 113 | ⬜ | SEB | Limitaciones del análisis y perspectivas | variación y orientación, inminentes. |
-
-## Cap. 7 — Conclusiones  — 6/6 cerradas
-
-| # | Estado | Tipo | Sección | Qué dice |
-|---|---|---|---|---|
-| 114 | ⬜ | SEB | (intro) | + variación de campo magnético. |
-| 115 | ⬜ | CLAUDE | (intro) | Sí: al llegar los datos, añadir un párrafo/objetivo con la conclusión de la campaña de B (intensidad/orientación). Hasta entonces el objetivo 4 se lee como “en curso”. |
-| 116 | ⬜ | SEB | (1) Efecto de la resistividad sobre la tasa de crecimiento lineal. | Ver cómo la correlación energética en $=6000$ y $=10000$, en compañía del campo magnético, habla del papel de la resistividad. |
-| 117 | ⬜ | SEB | (3) Efecto sobre las variables globales. | Se puede agregar un análisis igual al del campo magnético para ver la correlación de las variables energéticas y cómo esta cambia con $$. |
-| 118 | ⬜ | SEB | Trabajo Futuro | no es válido: ya no es “trabajo futuro”, la campaña está en curso. |
-| 119 | ⬜ | CLAUDE | Trabajo Futuro | Correcto: mover “Campaña de campo magnético” de Trabajo Futuro a Resultados/Conclusiones una vez integrada (martes). Si para la entrega aún no está, dejarla como “en curso”, no como futuro. |
-
-## Anexos  — 3/3 cerradas
-
-| # | Estado | Tipo | Sección | Qué dice |
-|---|---|---|---|---|
-| 120 | ⬜ | SEB | Justificación de $C+_0$: derivación paso a paso | Revisar y contrastar con la bibliografía, o directamente solo poner los resultados. |
-| 121 | ⬜ | CLAUDE | Justificación de $C+_0$: derivación paso a paso | El anexo ya recomputa todo de forma independiente y coincide con el cuerpo; las fuentes (Michalke, Landau, Bodo, Chow) están verificadas. Decisión: dejarlo como auditoría (valor añadido) o condensarlo a la tabla-síntesis. La nota roja del “Veredicto” (duplicado con §6.7) apunta a recortar esa subsección, no la auditoría numérica. |
-| 122 | ⬜ | REV | Veredicto: validez teórica del montaje | REVISAR (revisor): esta subsección repite la discusión de robustez/consistencia ya hecha (con más detalle) en el cap.\ de Resultados (§(ref)). Considerar recortarla a una síntesis breve específica del apéndice o eliminarla para no duplicar. |
-
-## Cap. 5 — Setup experimental  — 9/12 cerradas
-
-| # | Estado | Tipo | Sección | Qué dice |
-|---|---|---|---|---|
-| 123 | ⬜ | SEB | Conductividades y paso temporal. | revisar la matriz final $$CFL realmente usada: los datos de llegada incluyen también $=4500,5500,6500,7000$ y versiones CFL $0.10/0.04/0.02$; definir cuáles entran en la monografía. |
-| 124 | ⬜ | SEB | Conductividades y paso temporal. | la comparación entre $$ queda entonces a CFL mixto; decidir si se homogeniza para el análisis final. |
-| 125 | ⬜ | SEB | Conductividades y paso temporal. | el análisis cuantitativo (\,$$ vs $B$, $^$ vs $$, conversión magnética--cinética\,) se desarrolla en el Capítulo~(ref); resultados preliminares, pendientes de revisión a fondo (no fiarse aún del informe de llegada). |
-
-## Cap. 6 — Resultados  — 48/58 cerradas
-
-| # | Estado | Tipo | Sección | Qué dice |
-|---|---|---|---|---|
 | 126 | ⬜ | BRY | Variación de Intensidad y Orientación del Campo Magnético | Sección redactada por Bryan (campaña magnética, objetivo 4); pendiente cablear figuras/tablas de ANALISIS\_LIMPIO\_FINAL/figuras. |
 | 127 | ⬜ | CLAUDE | Variación de Intensidad y Orientación del Campo Magnético | Notación: usar $$ como en el resto del documento, no $_i$. |
 | 128 | ⬜ | CLAUDE | Variación de Intensidad y Orientación del Campo Magnético | Definir/referenciar aquí presión magnética ($P_ mag=B^2/2$) y tensión magnética ($( k B)^2$), clave de todo el capítulo. La tensión la ejerce la componente paralela a $ k$ (aquí $B_y$; el flujo y $ k$ van en $ y$). |
@@ -208,3 +179,22 @@
 | 145 | ⬜ | CLAUDE | Variación en el plano $x-z$ (Campaña C) | Jerarquía inconsistente: “intensidad” es subsection y las orientaciones subsubsection* (sin numerar); y la de $y$-$z$ no dice “(Campaña B)”. Unificar niveles y etiquetas. |
 | 146 | ⬜ | CLAUDE | Variación en el plano $x-z$ (Campaña C) | INCONSISTENCIA con el cap.~5: allí (siguiendo al profe) la Campaña C es “componente paralela al flujo que estabiliza por tensión”; AQUÍ (correcto) es “sin tensión”. La tensión la da $B_y$ ($ k$, flujo en $ y$); en C $B_y=0$ y $B_x$ es normal a la interfaz ($ k$) $$ NO hay tensión. CORREGIR el cap.~5 (“paralela al flujo” es engañoso). |
 | 147 | ⬜ | CLAUDE | Variación en el plano $x-z$ (Campaña C) | En C, $\| B\|$ (y la presión) es constante en $$; la variación con $$ no puede venir de la presión. Aclarar qué cambia con $$ en C (dirección de $B_x$ respecto a la interfaz / reconexión). |
+
+## Cap. 7 — Conclusiones  — 0/6 cerradas
+
+| # | Estado | Tipo | Sección | Qué dice |
+|---|---|---|---|---|
+| 114 | ⬜ | SEB | (intro) | + variación de campo magnético. |
+| 115 | ⬜ | CLAUDE | (intro) | Sí: al llegar los datos, añadir un párrafo/objetivo con la conclusión de la campaña de B (intensidad/orientación). Hasta entonces el objetivo 4 se lee como “en curso”. |
+| 116 | ⬜ | SEB | (1) Efecto de la resistividad sobre la tasa de crecimiento lineal. | Ver cómo la correlación energética en $=6000$ y $=10000$, en compañía del campo magnético, habla del papel de la resistividad. |
+| 117 | ⬜ | SEB | (3) Efecto sobre las variables globales. | Se puede agregar un análisis igual al del campo magnético para ver la correlación de las variables energéticas y cómo esta cambia con $$. |
+| 118 | ⬜ | SEB | Trabajo Futuro | no es válido: ya no es “trabajo futuro”, la campaña está en curso. |
+| 119 | ⬜ | CLAUDE | Trabajo Futuro | Correcto: mover “Campaña de campo magnético” de Trabajo Futuro a Resultados/Conclusiones una vez integrada (martes). Si para la entrega aún no está, dejarla como “en curso”, no como futuro. |
+
+## Anexos  — 0/3 cerradas
+
+| # | Estado | Tipo | Sección | Qué dice |
+|---|---|---|---|---|
+| 120 | ⬜ | SEB | Justificación de $C+_0$: derivación paso a paso | Revisar y contrastar con la bibliografía, o directamente solo poner los resultados. |
+| 121 | ⬜ | CLAUDE | Justificación de $C+_0$: derivación paso a paso | El anexo ya recomputa todo de forma independiente y coincide con el cuerpo; las fuentes (Michalke, Landau, Bodo, Chow) están verificadas. Decisión: dejarlo como auditoría (valor añadido) o condensarlo a la tabla-síntesis. La nota roja del “Veredicto” (duplicado con §6.7) apunta a recortar esa subsección, no la auditoría numérica. |
+| 122 | ⬜ | REV | Veredicto: validez teórica del montaje | REVISAR (revisor): esta subsección repite la discusión de robustez/consistencia ya hecha (con más detalle) en el cap.\ de Resultados (§(ref)). Considerar recortarla a una síntesis breve específica del apéndice o eliminarla para no duplicar. |

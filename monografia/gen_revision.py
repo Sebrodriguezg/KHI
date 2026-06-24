@@ -46,11 +46,25 @@ for path,chap,deflt in order:
         curbodies.append(body.strip()); curnotes.append((chap,typ,sec,body))
 curset=set(curbodies)
 for r in baseline: r.append(r[4].strip() in curset)  # r[5]=pending(True)/closed(False)
-# notas NUEVAS (añadidas tras el baseline): IDs fijos que continúan la numeración
+# notas NUEVAS (post-baseline): ledger persistente -> ID fijo y ✅ al resolverse
+import json,os
+LEDGER="revision_ledger.json"
+ledger=json.load(open(LEDGER,encoding='utf-8')) if os.path.exists(LEDGER) else {}
 baseset=set(r[4].strip() for r in baseline)
+maxid=max([gid]+[v["id"] for v in ledger.values()]) if ledger else gid
+curpost={}  # body -> (chap,typ,sec,body)
 for chap,typ,sec,body in curnotes:
-    if body.strip() not in baseset:
-        gid+=1; baseline.append([gid,chap,typ,sec,body,True]); baseset.add(body.strip())
+    k=body.strip()
+    if k in baseset: continue
+    curpost[k]=(chap,typ,sec,body)
+    if k in ledger: ledger[k].update(chap=chap,typ=typ,sec=sec,body=body)
+    else: maxid+=1; ledger[k]={"id":maxid,"chap":chap,"typ":typ,"sec":sec,"body":body}
+for k,v in ledger.items():  # incluye resueltas (no presentes en curpost) -> ✅
+    baseline.append([v["id"],v["chap"],v["typ"],v["sec"],v["body"],k in curpost])
+json.dump(ledger,open(LEDGER,"w",encoding='utf-8'),ensure_ascii=False,indent=1)
+# ordenar por (capítulo según 'order', luego ID) para agrupar bien
+chord={chap:i for i,(_,chap,_) in enumerate(order)}
+baseline.sort(key=lambda r:(chord.get(r[1],99),r[0]))
 total=len(baseline); closed=sum(1 for r in baseline if not r[5]); pend=total-closed
 # ---- MD ----
 o=["# Revisión de la monografía — tablero con ID fijo\n",
@@ -61,7 +75,7 @@ last=None
 for gid,chap,typ,sec,body,pending in baseline:
     if chap!=last:
         cc=sum(1 for r in baseline if r[1]==chap and not r[5]); ct=sum(1 for r in baseline if r[1]==chap)
-        o+=[f"\n## {chap}  — {ct-cc}/{ct} cerradas\n","| # | Estado | Tipo | Sección | Qué dice |","|---|---|---|---|---|"]; last=chap
+        o+=[f"\n## {chap}  — {cc}/{ct} cerradas\n","| # | Estado | Tipo | Sección | Qué dice |","|---|---|---|---|---|"]; last=chap
     st="⬜" if pending else "✅"
     o.append(f"| {gid} | {st} | {mtag[typ]} | {disp(sec)} | {disp(body).replace('|',chr(92)+'|')} |")
 open("REVISION_NOTAS.md","w",encoding='utf-8').write("\n".join(o)+"\n")
@@ -85,7 +99,7 @@ last=None
 for gid,chap,typ,sec,body,pending in baseline:
     if chap!=last:
         cc=sum(1 for r in baseline if r[1]==chap and not r[5]); ct=sum(1 for r in baseline if r[1]==chap)
-        L.append(r"\rowcolor{gray!22}\multicolumn{5}{|l|}{\textbf{%s} \ — %d/%d cerradas}\\ \hline"%(chap,ct-cc,ct)); last=chap
+        L.append(r"\rowcolor{gray!22}\multicolumn{5}{|l|}{\textbf{%s} \ — %d/%d cerradas}\\ \hline"%(chap,cc,ct)); last=chap
     if pending:
         L.append(r"%d & $\square$ & \textcolor{%s}{\scriptsize\textbf{%s}} & {\scriptsize %s} & {\scriptsize %s}\\ \hline"%(gid,mcol[mtag[typ]],mtag[typ],tcl(sec),body))
     else:
