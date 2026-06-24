@@ -342,7 +342,23 @@ Adicionalmente, el estudio del rol de la resistividad debe extenderse al resto d
 
 Empleando nuevamente el análisis de la enstrofía de perturbación, y modificando la intensidad del campo magnético sobre la configuración base tipo Mizuno (\textit{Mizuno-like}), se induce físicamente un aumento tanto en la presión como en la tensión magnética del sistema. Sin embargo, cabe destacar que es fundamentalmente la tensión magnética la responsable de suprimir el desarrollo estructural del vórtice.\claudenota{OJO física: en la Campaña A la orientación es Mizuno ($B_y=B_0\sqrt{0.02}$ \emph{pequeña}; $B_z=B_0\sqrt{2}$ domina). La tensión $\propto(\mathbf k\cdot\mathbf B)^2\propto B_y^2$ es débil ($M_{A,\parallel}=9.4$, super-Alfvénico, §\ref{sec:teoria_v6}). ¿La supresión al subir $B_0$ es por tensión o más bien por presión/magnetización ($\beta\downarrow$)? El texto lo atribuye todo a la tensión; verificar.} Físicamente, a medida que la inestabilidad intenta enrollar el fluido, las líneas de campo magnético paralelas al flujo ($B_y$) sufren un estiramiento. Estirar estas líneas requiere realizar trabajo mecánico contra la tensión magnética. Al aumentar $|\mathbf{B}|$, la cantidad de energía cinética de la perturbación necesaria para doblar estas líneas supera la energía disponible en la cizalladura, extrayendo activamente energía del vórtice primario y estabilizando el modo lineal.\claudenota{¿Se estabiliza el modo \emph{lineal} ($\gKHI\downarrow$) o solo se atenúa/retrasa el pico \emph{no lineal}? Respaldarlo midiendo $\gKHI$ (pendiente en la ventana) por $B_0$.}
 
-Las consecuencias macroscópicas de este efecto se evidencian en la Tabla \sebnota{Insertar tabla que resume las enstrofías de 6000 y 10000}, donde, debido a las limitaciones físicas y numéricas inherentes a la estabilización, no todas las simulaciones propuestas lograron superar la fase de crecimiento lineal. 
+Las consecuencias macroscópicas de este efecto se evidencian en la Tabla~\ref{tab:campA_enstrofia}, donde, debido a las limitaciones físicas y numéricas inherentes a la estabilización, no todas las simulaciones propuestas lograron superar la fase de crecimiento lineal.\claudenota{La tabla solo incluye $B_0\geq1.0$ (casos A3, A4, A5): las configuraciones de campo débil $B_0=0.25$ y $0.5$ (alta $\beta$) crashearon en $t\lesssim1$ antes de desarrollar la inestabilidad, por lo que se excluyeron de los datos limpios.}
+
+\begin{table}[H]\centering\small
+\caption{Campaña A (intensidad): diagnósticos de la enstrofía de perturbación $\Omega_{zp}$ para las configuraciones que superaron la fase de crecimiento lineal, en ambas conductividades. La tasa $\gKHI$ se mide como la mitad de la pendiente de $\ln\Omega_{zp}(t)$ en la ventana fija $t\in[2.4,3.4]$; $t_{\mathrm{pico}}$ y $\Omega^{\max}_{zp}$ son el instante y el valor del pico de enstrofía.}
+\label{tab:campA_enstrofia}
+\begin{tabular}{c ccc ccc}
+\hline
+ & \multicolumn{3}{c}{$\sigma=6000$ (CFL$=0.04$)} & \multicolumn{3}{c}{$\sigma=10000$ (CFL$=0.02$)}\\
+\cline{2-4}\cline{5-7}
+$B_0$ & $\gKHI$ & $t_{\mathrm{pico}}$ & $\Omega^{\max}_{zp}$ & $\gKHI$ & $t_{\mathrm{pico}}$ & $\Omega^{\max}_{zp}$\\
+\hline
+$1.0$ & $0.58$ & $5.7$ & $46.1$ & $0.81$ & $5.4$ & $87.3$\\
+$1.5$ & $0.48$ & $5.9$ & $40.3$ & $0.53$ & $5.3$ & $53.1$\\
+$2.0$ & $0.28$ & $7.4$ & $20.0$ & $0.38$ & $7.5$ & $24.8$\\
+\hline
+\end{tabular}
+\end{table}
 
 Para aquellos casos que sí lo lograron , es posible comparar sus tasas de crecimiento, el instante temporal en que alcanzan el pico máximo de enstrofía y la magnitud de dichas cimas. Esto se ilustra claramente en las Figuras (Fig.~\ref{fig:campA_enstrofia}).
 
