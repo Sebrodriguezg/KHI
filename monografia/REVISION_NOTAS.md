@@ -1,6 +1,6 @@
 # Revisión de la monografía — tablero con ID fijo
 
-*Actualizado: 2026-06-23 · rama `revision-monografia`*
+*Actualizado: 2026-06-24 · rama `revision-monografia`*
 
 ## 📊 70/122 cerradas (57%) — pendientes 52
 
