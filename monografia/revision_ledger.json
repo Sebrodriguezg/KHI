@@ -173,5 +173,19 @@
   "typ": "claudenota",
   "sec": "Variación en el plano $x-z$ (Campaña C)",
   "body": "En C, $|\\mathbf B|$ (y la presión) es \\emph{constante} en $\\theta$; la variación con $\\theta$ no puede venir de la presión. Aclarar qué cambia con $\\theta$ en C (dirección de $B_x$ respecto a la interfaz / reconexión)."
+ },
+ "Sección redactada por Claude desde los datos limpios (scripts \\texttt{analisis\\_energia\\_disipacion.py}). REVISAR redacción y física. Decisión de fondo aquí: en las campañas de orientación (B y C) la mayoría de las curvas \\emph{no} desarrollan una fase de crecimiento exponencial limpia (solo $\\theta=5.7^\\circ$ y, a $\\sigma=10000$, $\\theta=30,45^\\circ$), por lo que NO se reporta $\\gKHI$ para B/C salvo como dato puntual; el análisis se centra en el \\textbf{intercambio energético y la disipación}. Las figuras y los valores numéricos están verificados; el relato físico es mi interpretación y debe contrastarse.": {
+  "id": 148,
+  "chap": "Cap. 6 — Resultados",
+  "typ": "claudenota",
+  "sec": "Balance energético y procesos disipativos",
+  "body": "Sección redactada por Claude desde los datos limpios (scripts \\texttt{analisis\\_energia\\_disipacion.py}). REVISAR redacción y física. Decisión de fondo aquí: en las campañas de orientación (B y C) la mayoría de las curvas \\emph{no} desarrollan una fase de crecimiento exponencial limpia (solo $\\theta=5.7^\\circ$ y, a $\\sigma=10000$, $\\theta=30,45^\\circ$), por lo que NO se reporta $\\gKHI$ para B/C salvo como dato puntual; el análisis se centra en el \\textbf{intercambio energético y la disipación}. Las figuras y los valores numéricos están verificados; el relato físico es mi interpretación y debe contrastarse."
+ },
+ "Caveat numérico para verificar: $E_{\\mathrm{int}}$ se estima como $\\propto\\int p$ (proxy del calor); a $\\theta=90^\\circ$, $\\sigma=6000$ la óhmica acumulada llega a igualar/superar $\\Delta E_{\\mathrm{int}}$ (ver Fig.~\\ref{fig:campB_cierre}), lo que indica que parte del calor óhmico se compensa con pérdidas advectivas o que el proxy subestima; conviene afinar la definición de $E_{\\mathrm{int}}$ antes de hacer afirmaciones cuantitativas finas sobre fracciones.": {
+  "id": 149,
+  "chap": "Cap. 6 — Resultados",
+  "typ": "claudenota",
+  "sec": "Balance energético y procesos disipativos",
+  "body": "Caveat numérico para verificar: $E_{\\mathrm{int}}$ se estima como $\\propto\\int p$ (proxy del calor); a $\\theta=90^\\circ$, $\\sigma=6000$ la óhmica acumulada llega a igualar/superar $\\Delta E_{\\mathrm{int}}$ (ver Fig.~\\ref{fig:campB_cierre}), lo que indica que parte del calor óhmico se compensa con pérdidas advectivas o que el proxy subestima; conviene afinar la definición de $E_{\\mathrm{int}}$ antes de hacer afirmaciones cuantitativas finas sobre fracciones."
  }
 }

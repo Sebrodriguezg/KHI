@@ -2,7 +2,7 @@
 
 *Actualizado: 2026-06-24 · rama `revision-monografia`*
 
-## 📊 75/147 cerradas (51%) — pendientes 72
+## 📊 75/149 cerradas (50%) — pendientes 74
 
 > **El # es FIJO** (no cambia aunque cerremos otras). ✅ = cerrada · ⬜ = pendiente.
 
@@ -117,7 +117,7 @@
 | 124 | ⬜ | SEB | Conductividades y paso temporal. | la comparación entre $$ queda entonces a CFL mixto; decidir si se homogeniza para el análisis final. |
 | 125 | ⬜ | SEB | Conductividades y paso temporal. | el análisis cuantitativo (\,$$ vs $B$, $^$ vs $$, conversión magnética--cinética\,) se desarrolla en el Capítulo~(ref); resultados preliminares, pendientes de revisión a fondo (no fiarse aún del informe de llegada). |
 
-## Cap. 6 — Resultados  — 15/58 cerradas
+## Cap. 6 — Resultados  — 15/60 cerradas
 
 | # | Estado | Tipo | Sección | Qué dice |
 |---|---|---|---|---|
@@ -179,6 +179,8 @@
 | 145 | ⬜ | CLAUDE | Variación en el plano $x-z$ (Campaña C) | Jerarquía inconsistente: “intensidad” es subsection y las orientaciones subsubsection* (sin numerar); y la de $y$-$z$ no dice “(Campaña B)”. Unificar niveles y etiquetas. |
 | 146 | ⬜ | CLAUDE | Variación en el plano $x-z$ (Campaña C) | INCONSISTENCIA con el cap.~5: allí (siguiendo al profe) la Campaña C es “componente paralela al flujo que estabiliza por tensión”; AQUÍ (correcto) es “sin tensión”. La tensión la da $B_y$ ($ k$, flujo en $ y$); en C $B_y=0$ y $B_x$ es normal a la interfaz ($ k$) $$ NO hay tensión. CORREGIR el cap.~5 (“paralela al flujo” es engañoso). |
 | 147 | ⬜ | CLAUDE | Variación en el plano $x-z$ (Campaña C) | En C, $\| B\|$ (y la presión) es constante en $$; la variación con $$ no puede venir de la presión. Aclarar qué cambia con $$ en C (dirección de $B_x$ respecto a la interfaz / reconexión). |
+| 148 | ⬜ | CLAUDE | Balance energético y procesos disipativos | Sección redactada por Claude desde los datos limpios (scripts analisis\_energia\_disipacion.py). REVISAR redacción y física. Decisión de fondo aquí: en las campañas de orientación (B y C) la mayoría de las curvas no desarrollan una fase de crecimiento exponencial limpia (solo $=5.7^$ y, a $=10000$, $=30,45^$), por lo que NO se reporta $$ para B/C salvo como dato puntual; el análisis se centra en el intercambio energético y la disipación. Las figuras y los valores numéricos están verificados; el relato físico es mi interpretación y debe contrastarse. |
+| 149 | ⬜ | CLAUDE | Balance energético y procesos disipativos | Caveat numérico para verificar: $E_int$ se estima como $ p$ (proxy del calor); a $=90^$, $=6000$ la óhmica acumulada llega a igualar/superar $ E_int$ (ver Fig.~(ref)), lo que indica que parte del calor óhmico se compensa con pérdidas advectivas o que el proxy subestima; conviene afinar la definición de $E_int$ antes de hacer afirmaciones cuantitativas finas sobre fracciones. |
 
 ## Cap. 7 — Conclusiones  — 0/6 cerradas
 

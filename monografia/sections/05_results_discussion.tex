@@ -459,6 +459,57 @@ Físicamente, este comportamiento indica que, al remover la restricción impuest
 
 Al comparar los resultados entre $\sigma = 6000$ y $\sigma = 10000$, se corrobora que este comportamiento se mantiene consistente independientemente del régimen resistivo. Esta falta de estructuración coherente reafirma que la tensión magnética es el mecanismo estabilizador primario en la RRMHD para la KHI, y que su ausencia permite una cascada de energía mucho más rápida hacia escalas menores, dificultando la estabilización termodinámica del sistema.
 
+\subsection{Balance energético y procesos disipativos}
+\label{sec:balance_energetico}
+\claudenota{Sección redactada por Claude desde los datos limpios (scripts \texttt{analisis\_energia\_disipacion.py}). REVISAR redacción y física. Decisión de fondo aquí: en las campañas de orientación (B y C) la mayoría de las curvas \emph{no} desarrollan una fase de crecimiento exponencial limpia (solo $\theta=5.7^\circ$ y, a $\sigma=10000$, $\theta=30,45^\circ$), por lo que NO se reporta $\gKHI$ para B/C salvo como dato puntual; el análisis se centra en el \textbf{intercambio energético y la disipación}. Las figuras y los valores numéricos están verificados; el relato físico es mi interpretación y debe contrastarse.}
+
+A diferencia de la campaña de intensidad, donde la tasa de crecimiento lineal $\gKHI$ admite una ventana de ajuste común y bien definida (Tabla~\ref{tab:campA_enstrofia}), en las campañas de orientación la mayoría de las configuraciones no presentan una fase exponencial limpia: el crecimiento queda enmascarado por las oscilaciones (campaña B) o truncado hacia el transitorio (campaña C). Por ello, el análisis cuantitativo de estas campañas se desplaza desde la tasa de crecimiento hacia el \emph{balance global de energía} y los \emph{canales de disipación}, que son precisamente las cantidades que las animaciones de la evolución revelan como portadoras de la física relevante.
+
+Reconstruyendo las series globales por corrida ---energía cinética $E_{\mathrm{kin}}$, energía magnética $E_{\mathrm{mag}}=\tfrac12\int B^2\,dA$, energía interna $E_{\mathrm{int}}\propto\int p\,dA$ (calor) y energía total $E_{\mathrm{tot}}$--- se obtiene el panorama de la Figura~\ref{fig:campB_energia_todos} para la campaña B. El comportamiento es robusto en todos los ángulos: la energía cinética \textbf{decae}, la magnética \textbf{oscila} (intercambio reversible con el fluido), la interna \textbf{crece monótonamente} (calentamiento irreversible) y la total se conserva con error relativo $\lesssim10^{-3}$, lo que valida el control numérico del esquema.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{figuras/fig_campB_energia_todos}
+\caption{Campaña B (plano $y$--$z$): balance energético por ángulo. Filas $=\theta$; columnas $=E_{\mathrm{kin}}$, $E_{\mathrm{mag}}$, $E_{\mathrm{int}}$ (calor) y tasa de disipación óhmica $\int J^2/\sigma$. En rojo $\sigma=6000$, en azul $\sigma=10000$.}
+\label{fig:campB_energia_todos}
+\end{figure}
+
+La firma del \emph{intercambio} cinético$\leftrightarrow$magnético ya se estableció con las tasas anti-correlacionadas (Fig.~\ref{fig:campB_conversion}); lo que añade el balance completo es el destino último de esa energía. La diferencia entre el calentamiento total y la disipación óhmica acumulada $\int_0^{t}(J^2/\sigma)\,dt$ (Fig.~\ref{fig:campB_cierre}) cuantifica los dos canales disipativos en juego: el \textbf{óhmico} (resistivo, $\propto\eta J^2$) y un canal \textbf{efectivo} no óhmico (viscosidad numérica y mezcla turbulenta de la cizalla). A orientaciones moderadas ($\theta=30^\circ$) ambos canales contribuyen de forma comparable y el régimen resistivo apenas influye; en cambio, a tensión máxima ($\theta=90^\circ$) emerge el contraste más marcado entre conductividades.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{figuras/fig_campB_cierre}
+\caption{Campaña B: calor total acumulado $\Delta E_{\mathrm{int}}$ (línea continua) frente a la disipación óhmica acumulada $\int(J^2/\sigma)\,dt$ (discontinua), para $\theta=30^\circ$ y $\theta=90^\circ$. La brecha corresponde a la disipación no óhmica (efectiva). A $\theta=90^\circ$ la disipación óhmica de $\sigma=6000$ se dispara para $t\gtrsim8$, mientras que a $\sigma=10000$ permanece despreciable (régimen cuasi-ideal).}
+\label{fig:campB_cierre}
+\end{figure}
+
+Esta dependencia se sintetiza en la Figura~\ref{fig:campB_disipacion_resumen}: la disipación óhmica acumulada, el calentamiento neto $\Delta E_{\mathrm{int}}$ y la pérdida cinética neta $-\Delta E_{\mathrm{kin}}$ en función de $\theta$. A ángulos pequeños las dos conductividades disipan de forma similar, pero al aumentar la tensión ($\theta\to90^\circ$) la corrida más resistiva ($\sigma=6000$) desarrolla láminas de corriente intensas y disipa óhmicamente hasta un orden de magnitud más que la cuasi-ideal ($\sigma=10000$), en la que el campo permanece prácticamente congelado y el intercambio cinético$\leftrightarrow$magnético es casi reversible. Esta es la lectura termodinámica directa del papel de la resistividad: \emph{fija el canal por el que la energía libre de la cizalla se convierte en calor}.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{figuras/fig_campB_disipacion_resumen}
+\caption{Campaña B: disipación óhmica acumulada, calentamiento neto $\Delta E_{\mathrm{int}}$ y pérdida cinética neta $-\Delta E_{\mathrm{kin}}$ en función del ángulo $\theta$, para ambas conductividades.}
+\label{fig:campB_disipacion_resumen}
+\end{figure}
+
+En la campaña C (plano $x$--$z$, sin tensión) el balance energético sigue el mismo esquema cualitativo ---decaimiento cinético, calentamiento interno y conservación total--- pero la dependencia con la orientación es \emph{monótona} (Figs.~\ref{fig:campC_energia_todos} y~\ref{fig:campC_disipacion_resumen}): al aumentar $\theta$ crece la componente $B_x$ normal a la interfaz, se intensifican las corrientes y la disipación óhmica aumenta de forma sostenida, siendo siempre mayor en el régimen más resistivo. La ausencia de tensión elimina el intercambio oscilatorio reversible característico de la campaña B; en su lugar, la energía de la cizalla se disipa de manera más directa, coherente con la transición abrupta hacia la turbulencia observada en la enstrofía.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{figuras/fig_campC_energia_todos}
+\caption{Campaña C (plano $x$--$z$): balance energético por ángulo (filas $=\theta$; columnas $=E_{\mathrm{kin}}$, $E_{\mathrm{mag}}$, $E_{\mathrm{int}}$, disipación óhmica). En rojo $\sigma=6000$, en azul $\sigma=10000$.}
+\label{fig:campC_energia_todos}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{figuras/fig_campC_disipacion_resumen}
+\caption{Campaña C: disipación óhmica acumulada, calentamiento neto y pérdida cinética neta en función de $\theta$, para ambas conductividades. La tendencia es monótona creciente con $\theta$ y siempre mayor a $\sigma=6000$.}
+\label{fig:campC_disipacion_resumen}
+\end{figure}
+
+En conjunto, las campañas de orientación muestran que el papel de la resistividad no se agota en modular una tasa de crecimiento ---métrica que, de hecho, pierde sentido cuando no hay fase lineal limpia--- sino que gobierna el \textbf{reparto entre intercambio reversible y disipación irreversible}: a mayor conductividad, mayor reversibilidad del acoplamiento cinético-magnético; a menor conductividad, mayor conversión directa en calor a través de la reconexión sobre las láminas de corriente.\claudenota{Caveat numérico para verificar: $E_{\mathrm{int}}$ se estima como $\propto\int p$ (proxy del calor); a $\theta=90^\circ$, $\sigma=6000$ la óhmica acumulada llega a igualar/superar $\Delta E_{\mathrm{int}}$ (ver Fig.~\ref{fig:campB_cierre}), lo que indica que parte del calor óhmico se compensa con pérdidas advectivas o que el proxy subestima; conviene afinar la definición de $E_{\mathrm{int}}$ antes de hacer afirmaciones cuantitativas finas sobre fracciones.}
+
 \section{Limitaciones del análisis y perspectivas}
 \label{sec:limitaciones}
 
