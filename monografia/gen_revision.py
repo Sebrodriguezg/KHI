@@ -39,12 +39,18 @@ for path,chap,deflt in order:
     for typ,sec,body in notes(bt,deflt):
         gid+=1; baseline.append([gid,chap,typ,sec,body])
 # current raw bodies set
-curbodies=[]
+curbodies=[]; curnotes=[]
 for path,chap,deflt in order:
     cur=open(path,encoding='utf-8').read()
-    for typ,sec,body in notes(cur,deflt): curbodies.append(body.strip())
+    for typ,sec,body in notes(cur,deflt):
+        curbodies.append(body.strip()); curnotes.append((chap,typ,sec,body))
 curset=set(curbodies)
 for r in baseline: r.append(r[4].strip() in curset)  # r[5]=pending(True)/closed(False)
+# notas NUEVAS (añadidas tras el baseline): IDs fijos que continúan la numeración
+baseset=set(r[4].strip() for r in baseline)
+for chap,typ,sec,body in curnotes:
+    if body.strip() not in baseset:
+        gid+=1; baseline.append([gid,chap,typ,sec,body,True]); baseset.add(body.strip())
 total=len(baseline); closed=sum(1 for r in baseline if not r[5]); pend=total-closed
 # ---- MD ----
 o=["# Revisión de la monografía — tablero con ID fijo\n",

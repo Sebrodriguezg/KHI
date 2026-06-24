@@ -2,7 +2,7 @@
 
 *Actualizado: 2026-06-24 · rama `revision-monografia`*
 
-## 📊 70/122 cerradas (57%) — pendientes 52
+## 📊 70/145 cerradas (48%) — pendientes 75
 
 > **El # es FIJO** (no cambia aunque cerremos otras). ✅ = cerrada · ⬜ = pendiente.
 
@@ -100,7 +100,7 @@
 | 67 | ✅ | CLAUDE | Estructura Espectral de los Potenciales Auxiliares | No es esencial en el cuerpo: basta afirmar que las submatrices $22$ tienen autovalores $ c_h$ (de ahí la propagación causal). Si se quiere el detalle, llevarlo al anexo. Conecta con la nota de cap.~2 sobre derivar el 2$$2 desde el sistema 3+1. |
 | 68 | ✅ | CLAUDE | Recuperación de Variables Primitivas: la Cuártica del Factor de Lorentz | Verificado contra el código (12\_varprimitive.f95, subrutina varprimitivecardano): cuártica en $$ + Tchirnhaus + refinamiento Newton, correcto. Cita: el esquema de recuperación es del Cueva; citar miranda-aranguren-2018 aquí (mizuno-2013 es el paper de EoS, no de recuperación de primitivas). |
 
-## Cap. 5 — Setup experimental  — 6/9 cerradas
+## Cap. 5 — Setup experimental  — 9/12 cerradas
 
 | # | Estado | Tipo | Sección | Qué dice |
 |---|---|---|---|---|
@@ -114,7 +114,7 @@
 | 76 | ⬜ | SEB | Variables de Control y Diagnóstico | Mirar cuáles de estos diagnósticos sí se usan y cuáles no; además, seguro se usan otros, como campos y energías. |
 | 77 | ⬜ | CLAUDE | Variables de Control y Diagnóstico | Del código: se usan $_z$, $_ tot$, $f_Vz$ y $'_zp$ (estos en cap.~6) y además $J_$, $ E\!\! J$ y $E_ mag$ (§(ref)). Conviene listar también estos últimos aquí para que la sección de diagnósticos quede completa. |
 
-## Cap. 6 — Resultados  — 26/36 cerradas
+## Cap. 6 — Resultados  — 46/56 cerradas
 
 | # | Estado | Tipo | Sección | Qué dice |
 |---|---|---|---|---|
@@ -173,3 +173,36 @@
 | 120 | ⬜ | SEB | Justificación de $C+_0$: derivación paso a paso | Revisar y contrastar con la bibliografía, o directamente solo poner los resultados. |
 | 121 | ⬜ | CLAUDE | Justificación de $C+_0$: derivación paso a paso | El anexo ya recomputa todo de forma independiente y coincide con el cuerpo; las fuentes (Michalke, Landau, Bodo, Chow) están verificadas. Decisión: dejarlo como auditoría (valor añadido) o condensarlo a la tabla-síntesis. La nota roja del “Veredicto” (duplicado con §6.7) apunta a recortar esa subsección, no la auditoría numérica. |
 | 122 | ⬜ | REV | Veredicto: validez teórica del montaje | REVISAR (revisor): esta subsección repite la discusión de robustez/consistencia ya hecha (con más detalle) en el cap.\ de Resultados (§(ref)). Considerar recortarla a una síntesis breve específica del apéndice o eliminarla para no duplicar. |
+
+## Cap. 5 — Setup experimental  — 9/12 cerradas
+
+| # | Estado | Tipo | Sección | Qué dice |
+|---|---|---|---|---|
+| 123 | ⬜ | SEB | Conductividades y paso temporal. | revisar la matriz final $$CFL realmente usada: los datos de llegada incluyen también $=4500,5500,6500,7000$ y versiones CFL $0.10/0.04/0.02$; definir cuáles entran en la monografía. |
+| 124 | ⬜ | SEB | Conductividades y paso temporal. | la comparación entre $$ queda entonces a CFL mixto; decidir si se homogeniza para el análisis final. |
+| 125 | ⬜ | SEB | Conductividades y paso temporal. | el análisis cuantitativo (\,$$ vs $B$, $^$ vs $$, conversión magnética--cinética\,) se desarrolla en el Capítulo~(ref); resultados preliminares, pendientes de revisión a fondo (no fiarse aún del informe de llegada). |
+
+## Cap. 6 — Resultados  — 46/56 cerradas
+
+| # | Estado | Tipo | Sección | Qué dice |
+|---|---|---|---|---|
+| 126 | ⬜ | BRY | Variación de Intensidad y Orientación del Campo Magnético | Sección redactada por Bryan (campaña magnética, objetivo 4); pendiente cablear figuras/tablas de ANALISIS\_LIMPIO\_FINAL/figuras. |
+| 127 | ⬜ | CLAUDE | Variación de Intensidad y Orientación del Campo Magnético | Notación: usar $$ como en el resto del documento, no $_i$. |
+| 128 | ⬜ | CLAUDE | Variación de Intensidad y Orientación del Campo Magnético | Definir/referenciar aquí presión magnética ($P_ mag=B^2/2$) y tensión magnética ($( k B)^2$), clave de todo el capítulo. La tensión la ejerce la componente paralela a $ k$ (aquí $B_y$; el flujo y $ k$ van en $ y$). |
+| 129 | ⬜ | CLAUDE | Impacto de la intensidad del campo magnético en el desarrollo de la inestabilidad | OJO física: en la Campaña A la orientación es Mizuno ($B_y=B_00.02$ pequeña; $B_z=B_02$ domina). La tensión $( k B)^2 B_y^2$ es débil ($M_A,=9.4$, super-Alfvénico, §(ref)). ¿La supresión al subir $B_0$ es por tensión o más bien por presión/magnetización ($$)? El texto lo atribuye todo a la tensión; verificar. |
+| 130 | ⬜ | CLAUDE | Impacto de la intensidad del campo magnético en el desarrollo de la inestabilidad | ¿Se estabiliza el modo lineal ($$) o solo se atenúa/retrasa el pico no lineal? Respaldarlo midiendo $$ (pendiente en la ventana) por $B_0$. |
+| 131 | ⬜ | SEB | Impacto de la intensidad del campo magnético en el desarrollo de la inestabilidad | Insertar tabla que resume las enstrofías de 6000 y 10000 |
+| 132 | ⬜ | CLAUDE | Impacto de la intensidad del campo magnético en el desarrollo de la inestabilidad | Los colores NO coinciden: las figuras regeneradas usan el ciclo por defecto (A3$=$azul, A4$=$naranja, A5$=$verde), no “verde/rojo/morado”. Unificar: re-generar con ese esquema o quitar las menciones de color del texto. Igual con la “curva roja $=30°$” más abajo. |
+| 133 | ⬜ | CLAUDE | Impacto de la intensidad del campo magnético en el desarrollo de la inestabilidad | Verificar los tiempos de pico ($t5$ para $B_0=1$; $t7$ para $B_0=2$) midiendo $t_ peak$ real. |
+| 134 | ⬜ | CLAUDE | Impacto de la intensidad del campo magnético en el desarrollo de la inestabilidad | Notación: $_Zp_zp$ (minúscula; macro Ozp) aquí y en toda la sección. Los valores $85$ vs $45$ concuerdan con §(ref). |
+| 135 | ⬜ | CLAUDE | Variación en el plano $y-z$ | ¿Por qué solo $=5.7°$ y no $=0°$? A $=0$ (guía pura, $ k B=0$, sin tensión) cabría esperar la KHI más limpia; sin embargo $^(=0)$ es BAJO ($14$, Fig. del director). Aclarar la contraintuición. |
+| 136 | ⬜ | CLAUDE | Variación en el plano $y-z$ | Precisar: la presión de $B_z$ entra vía la velocidad magnetosónica/compresibilidad, no en $w= h^2$ (que NO lleva $B^2$, ver cap.~2/3). |
+| 137 | ⬜ | CLAUDE | Variación en el plano $y-z$ | Falta $=90°$ aquí: es la de máxima tensión ($ k B$ máximo) y debería ser la más suprimida; incluir su comportamiento. |
+| 138 | ⬜ | CLAUDE | Variación en el plano $y-z$ | Orden: la Fig.~(ref) aparece en el .tex antes que la (ref), pero el texto cita primero la de $E_ mag$. Reordenar. Además “Las Figuras” (plural) con una sola referencia. |
+| 139 | ⬜ | CLAUDE | Variación en el plano $y-z$ | Referencia incorrecta: $^$ vs $E_ mag$ muestra co-amplificación (corr.\ positiva), NO el intercambio mediado por disipación. El intercambio real es la Fig.~(ref) (tasas). Reasignar. |
+| 140 | ⬜ | CLAUDE | Variación en el plano $y-z$ | Referencia suelta (sin frase). Integrarla en el párrafo de las derivadas, abajo. |
+| 141 | ⬜ | CLAUDE | Variación en el plano $y-z$ | Verificar que el colormap de la Fig.~(ref) coincida con la descripción (azul oscuro $$ morado/fucsia $$ amarillo según $t$); mi script usa el colormap por defecto. |
+| 142 | ⬜ | SEB | Variación en el plano $y-z$ | Insertar todas las variables exigidas por el director para esta campaña |
+| 143 | ⬜ | CLAUDE | Variación en el plano $x-z$ (Campaña C) | Jerarquía inconsistente: “intensidad” es subsection y las orientaciones subsubsection* (sin numerar); y la de $y$-$z$ no dice “(Campaña B)”. Unificar niveles y etiquetas. |
+| 144 | ⬜ | CLAUDE | Variación en el plano $x-z$ (Campaña C) | INCONSISTENCIA con el cap.~5: allí (siguiendo al profe) la Campaña C es “componente paralela al flujo que estabiliza por tensión”; AQUÍ (correcto) es “sin tensión”. La tensión la da $B_y$ ($ k$, flujo en $ y$); en C $B_y=0$ y $B_x$ es normal a la interfaz ($ k$) $$ NO hay tensión. CORREGIR el cap.~5 (“paralela al flujo” es engañoso). |
+| 145 | ⬜ | CLAUDE | Variación en el plano $x-z$ (Campaña C) | En C, $\| B\|$ (y la presión) es constante en $$; la variación con $$ no puede venir de la presión. Aclarar qué cambia con $$ en C (dirección de $B_x$ respecto a la interfaz / reconexión). |
