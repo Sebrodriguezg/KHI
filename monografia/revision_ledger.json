@@ -187,5 +187,12 @@
   "typ": "claudenota",
   "sec": "Balance energético y procesos disipativos",
   "body": "Caveat numérico para verificar: $E_{\\mathrm{int}}$ se estima como $\\propto\\int p$ (proxy del calor); a $\\theta=90^\\circ$, $\\sigma=6000$ la óhmica acumulada llega a igualar/superar $\\Delta E_{\\mathrm{int}}$ (ver Fig.~\\ref{fig:campB_cierre}), lo que indica que parte del calor óhmico se compensa con pérdidas advectivas o que el proxy subestima; conviene afinar la definición de $E_{\\mathrm{int}}$ antes de hacer afirmaciones cuantitativas finas sobre fracciones."
+ },
+ "Corrección metodológica (REVISAR): un análisis previo comparaba el \\emph{único} máximo global de $\\Omega_{zp}$ con el \\emph{único} mínimo global de $E_{\\rm mag}$; para señales oscilatorias eso es engañoso (el mínimo global suele caer en el transitorio y da desfases espurios de varios $t$, incluso de signo opuesto). Aquí se identifican \\emph{todos} los extremos locales por cruce-cero de la derivada (filtrados por prominencia) y se mide el desfase ciclo a ciclo. Esto reemplaza la figura y la conclusión anteriores sobre ``orden temporal''.": {
+  "id": 150,
+  "chap": "Cap. 6 — Resultados",
+  "typ": "claudenota",
+  "sec": "Variación en el plano $y-z$",
+  "body": "Corrección metodológica (REVISAR): un análisis previo comparaba el \\emph{único} máximo global de $\\Omega_{zp}$ con el \\emph{único} mínimo global de $E_{\\rm mag}$; para señales oscilatorias eso es engañoso (el mínimo global suele caer en el transitorio y da desfases espurios de varios $t$, incluso de signo opuesto). Aquí se identifican \\emph{todos} los extremos locales por cruce-cero de la derivada (filtrados por prominencia) y se mide el desfase ciclo a ciclo. Esto reemplaza la figura y la conclusión anteriores sobre ``orden temporal''."
  }
 }
