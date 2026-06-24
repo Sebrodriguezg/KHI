@@ -2,7 +2,7 @@
 
 *Actualizado: 2026-06-24 · rama `revision-monografia`*
 
-## 📊 70/145 cerradas (48%) — pendientes 75
+## 📊 70/147 cerradas (47%) — pendientes 77
 
 > **El # es FIJO** (no cambia aunque cerremos otras). ✅ = cerrada · ⬜ = pendiente.
 
@@ -114,7 +114,7 @@
 | 76 | ⬜ | SEB | Variables de Control y Diagnóstico | Mirar cuáles de estos diagnósticos sí se usan y cuáles no; además, seguro se usan otros, como campos y energías. |
 | 77 | ⬜ | CLAUDE | Variables de Control y Diagnóstico | Del código: se usan $_z$, $_ tot$, $f_Vz$ y $'_zp$ (estos en cap.~6) y además $J_$, $ E\!\! J$ y $E_ mag$ (§(ref)). Conviene listar también estos últimos aquí para que la sección de diagnósticos quede completa. |
 
-## Cap. 6 — Resultados  — 46/56 cerradas
+## Cap. 6 — Resultados  — 48/58 cerradas
 
 | # | Estado | Tipo | Sección | Qué dice |
 |---|---|---|---|---|
@@ -182,7 +182,7 @@
 | 124 | ⬜ | SEB | Conductividades y paso temporal. | la comparación entre $$ queda entonces a CFL mixto; decidir si se homogeniza para el análisis final. |
 | 125 | ⬜ | SEB | Conductividades y paso temporal. | el análisis cuantitativo (\,$$ vs $B$, $^$ vs $$, conversión magnética--cinética\,) se desarrolla en el Capítulo~(ref); resultados preliminares, pendientes de revisión a fondo (no fiarse aún del informe de llegada). |
 
-## Cap. 6 — Resultados  — 46/56 cerradas
+## Cap. 6 — Resultados  — 48/58 cerradas
 
 | # | Estado | Tipo | Sección | Qué dice |
 |---|---|---|---|---|
@@ -198,11 +198,13 @@
 | 135 | ⬜ | CLAUDE | Variación en el plano $y-z$ | ¿Por qué solo $=5.7°$ y no $=0°$? A $=0$ (guía pura, $ k B=0$, sin tensión) cabría esperar la KHI más limpia; sin embargo $^(=0)$ es BAJO ($14$, Fig. del director). Aclarar la contraintuición. |
 | 136 | ⬜ | CLAUDE | Variación en el plano $y-z$ | Precisar: la presión de $B_z$ entra vía la velocidad magnetosónica/compresibilidad, no en $w= h^2$ (que NO lleva $B^2$, ver cap.~2/3). |
 | 137 | ⬜ | CLAUDE | Variación en el plano $y-z$ | Falta $=90°$ aquí: es la de máxima tensión ($ k B$ máximo) y debería ser la más suprimida; incluir su comportamiento. |
-| 138 | ⬜ | CLAUDE | Variación en el plano $y-z$ | Orden: la Fig.~(ref) aparece en el .tex antes que la (ref), pero el texto cita primero la de $E_ mag$. Reordenar. Además “Las Figuras” (plural) con una sola referencia. |
-| 139 | ⬜ | CLAUDE | Variación en el plano $y-z$ | Referencia incorrecta: $^$ vs $E_ mag$ muestra co-amplificación (corr.\ positiva), NO el intercambio mediado por disipación. El intercambio real es la Fig.~(ref) (tasas). Reasignar. |
-| 140 | ⬜ | CLAUDE | Variación en el plano $y-z$ | Referencia suelta (sin frase). Integrarla en el párrafo de las derivadas, abajo. |
-| 141 | ⬜ | CLAUDE | Variación en el plano $y-z$ | Verificar que el colormap de la Fig.~(ref) coincida con la descripción (azul oscuro $$ morado/fucsia $$ amarillo según $t$); mi script usa el colormap por defecto. |
-| 142 | ⬜ | SEB | Variación en el plano $y-z$ | Insertar todas las variables exigidas por el director para esta campaña |
-| 143 | ⬜ | CLAUDE | Variación en el plano $x-z$ (Campaña C) | Jerarquía inconsistente: “intensidad” es subsection y las orientaciones subsubsection* (sin numerar); y la de $y$-$z$ no dice “(Campaña B)”. Unificar niveles y etiquetas. |
-| 144 | ⬜ | CLAUDE | Variación en el plano $x-z$ (Campaña C) | INCONSISTENCIA con el cap.~5: allí (siguiendo al profe) la Campaña C es “componente paralela al flujo que estabiliza por tensión”; AQUÍ (correcto) es “sin tensión”. La tensión la da $B_y$ ($ k$, flujo en $ y$); en C $B_y=0$ y $B_x$ es normal a la interfaz ($ k$) $$ NO hay tensión. CORREGIR el cap.~5 (“paralela al flujo” es engañoso). |
-| 145 | ⬜ | CLAUDE | Variación en el plano $x-z$ (Campaña C) | En C, $\| B\|$ (y la presión) es constante en $$; la variación con $$ no puede venir de la presión. Aclarar qué cambia con $$ en C (dirección de $B_x$ respecto a la interfaz / reconexión). |
+| 138 | ⬜ | CLAUDE | Variación en el plano $y-z$ | Esta figura concreta la duda de las notas previas: el mínimo de $^$ NO está en $=90^$ (máxima tensión, $ k B$ máximo) sino en ángulos intermedios, y $=90^$ da el valor MÁS ALTO. Hay que explicar físicamente esta no-monotonía antes de afirmar que “la tensión suprime”. |
+| 139 | ⬜ | CLAUDE | Variación en el plano $y-z$ | Orden: la Fig.~(ref) aparece en el .tex antes que la (ref), pero el texto cita primero la de $E_ mag$. Reordenar. Además “Las Figuras” (plural) con una sola referencia. |
+| 140 | ⬜ | CLAUDE | Variación en el plano $y-z$ | Referencia incorrecta: $^$ vs $E_ mag$ muestra co-amplificación (corr.\ positiva), NO el intercambio mediado por disipación. El intercambio real es la Fig.~(ref) (tasas). Reasignar. |
+| 141 | ⬜ | CLAUDE | Variación en el plano $y-z$ | Referencia suelta (sin frase). Integrarla en el párrafo de las derivadas, abajo. |
+| 142 | ⬜ | CLAUDE | Variación en el plano $y-z$ | Verificar que el colormap de la Fig.~(ref) coincida con la descripción (azul oscuro $$ morado/fucsia $$ amarillo según $t$); mi script usa el colormap por defecto. |
+| 143 | ⬜ | SEB | Variación en el plano $y-z$ | Insertar todas las variables exigidas por el director para esta campaña |
+| 144 | ⬜ | CLAUDE | Variación en el plano $y-z$ | Coloqué la correlación cruzada $$--$ B^2$ vs $$ (fuerza de acople y retardo $$ del pico). Si el director pide MÁS variables (p.ej. $E\!\!J$, $J_z$, $E_ mag$), hay figuras listas en figuras/director/ para añadir aquí. |
+| 145 | ⬜ | CLAUDE | Variación en el plano $x-z$ (Campaña C) | Jerarquía inconsistente: “intensidad” es subsection y las orientaciones subsubsection* (sin numerar); y la de $y$-$z$ no dice “(Campaña B)”. Unificar niveles y etiquetas. |
+| 146 | ⬜ | CLAUDE | Variación en el plano $x-z$ (Campaña C) | INCONSISTENCIA con el cap.~5: allí (siguiendo al profe) la Campaña C es “componente paralela al flujo que estabiliza por tensión”; AQUÍ (correcto) es “sin tensión”. La tensión la da $B_y$ ($ k$, flujo en $ y$); en C $B_y=0$ y $B_x$ es normal a la interfaz ($ k$) $$ NO hay tensión. CORREGIR el cap.~5 (“paralela al flujo” es engañoso). |
+| 147 | ⬜ | CLAUDE | Variación en el plano $x-z$ (Campaña C) | En C, $\| B\|$ (y la presión) es constante en $$; la variación con $$ no puede venir de la presión. Aclarar qué cambia con $$ en C (dirección de $B_x$ respecto a la interfaz / reconexión). |
