@@ -271,5 +271,12 @@
   "typ": "claudenota",
   "sec": "Variación en el plano $y-z$",
   "body": "AGUJERO FÍSICO (revisión Claude, PRIORIDAD 1): el mínimo de $\\Omega^{\\max}$ NO está en $\\theta=90^\\circ$ (máxima tensión, $\\mathbf k\\cdot\\mathbf B$ máximo) sino en ángulos intermedios ($\\sim45$--$60^\\circ$), y $\\theta=90^\\circ$ da el valor MÁS ALTO. Esto CONTRADICE frontalmente la narrativa ``la tensión suprime'' de toda la campaña B. O la interpretación geométrica está mal, o hay física sin contar (¿reconexión que reinyecta vorticidad a $\\theta$ grande? ¿$\\mathbf k\\cdot\\mathbf B$ no es el parámetro de control correcto?). Sin explicación, un jurado tumba el marco de tensión. Investigar en los datos ANTES de cerrar la campaña B."
+ },
+ "RESUELTO (prioridad 1): la antigua ``paradoja'' de que $\\theta=90^\\circ$ era el más inestable venía de usar el máximo \\emph{puntual} $\\Omega^{\\max}_{zp}$ (figura previa del director). El contenido global $\\Omega^{\\mathrm{int}}_{zp}$ SÍ decrece con la tensión $\\Rightarrow$ la narrativa ``la tensión suprime'' se sostiene con el observable correcto. Figura regenerada con ambos. REVISAR redacción; y decidir qué observable se reporta de forma consistente en toda la campaña B (recomiendo el integrado para el contenido físico y el puntual solo para señalar la reconexión).": {
+  "id": 162,
+  "chap": "Cap. 6 — Resultados",
+  "typ": "claudenota",
+  "sec": "Variación en el plano $y-z$",
+  "body": "RESUELTO (prioridad 1): la antigua ``paradoja'' de que $\\theta=90^\\circ$ era el más inestable venía de usar el máximo \\emph{puntual} $\\Omega^{\\max}_{zp}$ (figura previa del director). El contenido global $\\Omega^{\\mathrm{int}}_{zp}$ SÍ decrece con la tensión $\\Rightarrow$ la narrativa ``la tensión suprime'' se sostiene con el observable correcto. Figura regenerada con ambos. REVISAR redacción; y decidir qué observable se reporta de forma consistente en toda la campaña B (recomiendo el integrado para el contenido físico y el puntual solo para señalar la reconexión)."
  }
 }

@@ -2,7 +2,7 @@
 
 *Actualizado: 2026-06-24 · rama `revision-monografia`*
 
-## 📊 78/161 cerradas (48%) — pendientes 83
+## 📊 79/162 cerradas (48%) — pendientes 83
 
 > **El # es FIJO** (no cambia aunque cerremos otras). ✅ = cerrada · ⬜ = pendiente.
 
@@ -117,7 +117,7 @@
 | 124 | ⬜ | SEB | Conductividades y paso temporal. | la comparación entre $$ queda entonces a CFL mixto; decidir si se homogeniza para el análisis final. |
 | 125 | ⬜ | SEB | Conductividades y paso temporal. | el análisis cuantitativo (\,$$ vs $B$, $^$ vs $$, conversión magnética--cinética\,) se desarrolla en el Capítulo~(ref); resultados preliminares, pendientes de revisión a fondo (no fiarse aún del informe de llegada). |
 
-## Cap. 6 — Resultados  — 18/72 cerradas
+## Cap. 6 — Resultados  — 19/73 cerradas
 
 | # | Estado | Tipo | Sección | Qué dice |
 |---|---|---|---|---|
@@ -192,7 +192,8 @@
 | 158 | ⬜ | CLAUDE | Corrientes, disipación y energía magnética | SOSPECHA DE ARTEFACTO (revisión Claude, prioridad 3): que $E_ mag$ se amplifique MÁS a BAJA $$ es contraintuitivo (a baja $$ el campo difunde, no se amplifica). $E_ mag$ TOTAL está dominada por el guía $B_z$; un 15\% sobre ese fondo enorme puede ser reorganización trivial o ruido del diagnóstico. Verificar con la energía magnética de PERTURBACIÓN ($ B'^2$), no la total, antes de afirmar nada. Si no se sostiene, quitar el panel (c). |
 | 159 | ⬜ | CLAUDE | Predicción RMHD compresible (Lees--Lin) | SUPUESTO QUE CARGA EL RESULTADO CENTRAL: con $c_s$ daría 0.016 (fracaso total), con $v_f$ da 0.095 (coincide al 8\%). La sustitución escalar $c_s v_f$ está motivada (Chow 2023, $ k$ alineado) pero es a posteriori y NO es la relación de dispersión magnetizada completa (grado 8). Es un check de consistencia, no una validación cerrada (ya lo dices en limitaciones; reforzarlo aquí). Es el flanco que más te pueden atacar. |
 | 160 | ⬜ | CLAUDE | Impacto de la intensidad del campo magnético en el desarrollo de la inestabilidad | INCONSISTENCIA INTERNA (revisión Claude, PRIORIDAD 2): en la Campaña A la orientación es Mizuno ($B_y=B_00.02$ pequeña; $B_z=B_02$ domina). La tensión $( k B)^2 B_y^2$ es débil ($M_A,=9.4$, super-Alfvénico, §(ref), donde TÚ MISMO dices que la tensión es despreciable). Atribuir aquí la supresión al subir $B_0$ enteramente a la tensión contradice tu tabla de Mach. Lo más probable es presión magnética/magnetización ($$). Reconciliar con §(ref). |
-| 161 | ⬜ | CLAUDE | Variación en el plano $y-z$ | AGUJERO FÍSICO (revisión Claude, PRIORIDAD 1): el mínimo de $^$ NO está en $=90^$ (máxima tensión, $ k B$ máximo) sino en ángulos intermedios ($45$--$60^$), y $=90^$ da el valor MÁS ALTO. Esto CONTRADICE frontalmente la narrativa “la tensión suprime” de toda la campaña B. O la interpretación geométrica está mal, o hay física sin contar (¿reconexión que reinyecta vorticidad a $$ grande? ¿$ k B$ no es el parámetro de control correcto?). Sin explicación, un jurado tumba el marco de tensión. Investigar en los datos ANTES de cerrar la campaña B. |
+| 161 | ✅ | CLAUDE | Variación en el plano $y-z$ | AGUJERO FÍSICO (revisión Claude, PRIORIDAD 1): el mínimo de $^$ NO está en $=90^$ (máxima tensión, $ k B$ máximo) sino en ángulos intermedios ($45$--$60^$), y $=90^$ da el valor MÁS ALTO. Esto CONTRADICE frontalmente la narrativa “la tensión suprime” de toda la campaña B. O la interpretación geométrica está mal, o hay física sin contar (¿reconexión que reinyecta vorticidad a $$ grande? ¿$ k B$ no es el parámetro de control correcto?). Sin explicación, un jurado tumba el marco de tensión. Investigar en los datos ANTES de cerrar la campaña B. |
+| 162 | ⬜ | CLAUDE | Variación en el plano $y-z$ | RESUELTO (prioridad 1): la antigua “paradoja” de que $=90^$ era el más inestable venía de usar el máximo puntual $^_zp$ (figura previa del director). El contenido global $^int_zp$ SÍ decrece con la tensión $$ la narrativa “la tensión suprime” se sostiene con el observable correcto. Figura regenerada con ambos. REVISAR redacción; y decidir qué observable se reporta de forma consistente en toda la campaña B (recomiendo el integrado para el contenido físico y el puntual solo para señalar la reconexión). |
 
 ## Cap. 7 — Conclusiones  — 0/6 cerradas
 
