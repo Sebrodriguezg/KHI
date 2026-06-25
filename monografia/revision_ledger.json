@@ -278,5 +278,12 @@
   "typ": "claudenota",
   "sec": "Variación en el plano $y-z$",
   "body": "RESUELTO (prioridad 1): la antigua ``paradoja'' de que $\\theta=90^\\circ$ era el más inestable venía de usar el máximo \\emph{puntual} $\\Omega^{\\max}_{zp}$ (figura previa del director). El contenido global $\\Omega^{\\mathrm{int}}_{zp}$ SÍ decrece con la tensión $\\Rightarrow$ la narrativa ``la tensión suprime'' se sostiene con el observable correcto. Figura regenerada con ambos. REVISAR redacción; y decidir qué observable se reporta de forma consistente en toda la campaña B (recomiendo el integrado para el contenido físico y el puntual solo para señalar la reconexión)."
+ },
+ "CORREGIDO (prioridad 2): el texto original (de Bryan) atribuía la supresión a la tensión; los números ($M_{A,\\parallel}$ super-Alfvénico siempre; $\\beta\\propto B_0^{-2}$; $V_{A,\\rm tot}$ creciente) muestran que es presión/magnetización. Ahora es coherente con §\\ref{sec:teoria_v6}. REVISAR redacción y, si se quiere, añadir una tablita con $M_{A,\\parallel}$, $V_{A,\\rm tot}$, $\\beta$ por $B_0$.": {
+  "id": 163,
+  "chap": "Cap. 6 — Resultados",
+  "typ": "claudenota",
+  "sec": "Impacto de la intensidad del campo magnético en el desarrollo de la inestabilidad",
+  "body": "CORREGIDO (prioridad 2): el texto original (de Bryan) atribuía la supresión a la tensión; los números ($M_{A,\\parallel}$ super-Alfvénico siempre; $\\beta\\propto B_0^{-2}$; $V_{A,\\rm tot}$ creciente) muestran que es presión/magnetización. Ahora es coherente con §\\ref{sec:teoria_v6}. REVISAR redacción y, si se quiere, añadir una tablita con $M_{A,\\parallel}$, $V_{A,\\rm tot}$, $\\beta$ por $B_0$."
  }
 }
