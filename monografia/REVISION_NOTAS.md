@@ -2,7 +2,7 @@
 
 *Actualizado: 2026-06-24 · rama `revision-monografia`*
 
-## 📊 75/150 cerradas (50%) — pendientes 75
+## 📊 76/151 cerradas (50%) — pendientes 75
 
 > **El # es FIJO** (no cambia aunque cerremos otras). ✅ = cerrada · ⬜ = pendiente.
 
@@ -117,7 +117,7 @@
 | 124 | ⬜ | SEB | Conductividades y paso temporal. | la comparación entre $$ queda entonces a CFL mixto; decidir si se homogeniza para el análisis final. |
 | 125 | ⬜ | SEB | Conductividades y paso temporal. | el análisis cuantitativo (\,$$ vs $B$, $^$ vs $$, conversión magnética--cinética\,) se desarrolla en el Capítulo~(ref); resultados preliminares, pendientes de revisión a fondo (no fiarse aún del informe de llegada). |
 
-## Cap. 6 — Resultados  — 15/61 cerradas
+## Cap. 6 — Resultados  — 16/62 cerradas
 
 | # | Estado | Tipo | Sección | Qué dice |
 |---|---|---|---|---|
@@ -181,7 +181,8 @@
 | 147 | ⬜ | CLAUDE | Variación en el plano $x-z$ (Campaña C) | En C, $\| B\|$ (y la presión) es constante en $$; la variación con $$ no puede venir de la presión. Aclarar qué cambia con $$ en C (dirección de $B_x$ respecto a la interfaz / reconexión). |
 | 148 | ⬜ | CLAUDE | Balance energético y procesos disipativos | Sección redactada por Claude desde los datos limpios (scripts analisis\_energia\_disipacion.py). REVISAR redacción y física. Decisión de fondo aquí: en las campañas de orientación (B y C) la mayoría de las curvas no desarrollan una fase de crecimiento exponencial limpia (solo $=5.7^$ y, a $=10000$, $=30,45^$), por lo que NO se reporta $$ para B/C salvo como dato puntual; el análisis se centra en el intercambio energético y la disipación. Las figuras y los valores numéricos están verificados; el relato físico es mi interpretación y debe contrastarse. |
 | 149 | ⬜ | CLAUDE | Balance energético y procesos disipativos | Caveat numérico para verificar: $E_int$ se estima como $ p$ (proxy del calor); a $=90^$, $=6000$ la óhmica acumulada llega a igualar/superar $ E_int$ (ver Fig.~(ref)), lo que indica que parte del calor óhmico se compensa con pérdidas advectivas o que el proxy subestima; conviene afinar la definición de $E_int$ antes de hacer afirmaciones cuantitativas finas sobre fracciones. |
-| 150 | ⬜ | CLAUDE | Variación en el plano $y-z$ | Corrección metodológica (REVISAR): un análisis previo comparaba el único máximo global de $_zp$ con el único mínimo global de $E_ mag$; para señales oscilatorias eso es engañoso (el mínimo global suele caer en el transitorio y da desfases espurios de varios $t$, incluso de signo opuesto). Aquí se identifican todos los extremos locales por cruce-cero de la derivada (filtrados por prominencia) y se mide el desfase ciclo a ciclo. Esto reemplaza la figura y la conclusión anteriores sobre “orden temporal”. |
+| 150 | ✅ | CLAUDE | Variación en el plano $y-z$ | Corrección metodológica (REVISAR): un análisis previo comparaba el único máximo global de $_zp$ con el único mínimo global de $E_ mag$; para señales oscilatorias eso es engañoso (el mínimo global suele caer en el transitorio y da desfases espurios de varios $t$, incluso de signo opuesto). Aquí se identifican todos los extremos locales por cruce-cero de la derivada (filtrados por prominencia) y se mide el desfase ciclo a ciclo. Esto reemplaza la figura y la conclusión anteriores sobre “orden temporal”. |
+| 151 | ⬜ | CLAUDE | Variación en el plano $y-z$ | REVISAR redacción/física. Cambio de enfoque respecto a versiones previas: el análisis de máximos y mínimos se hace ahora entre $E_ kin$ y $E_ mag$ (canal de intercambio directo), no entre $_zp$ y $E_ mag$. Motivo verificado en los datos: la enstrofía co-amplifica con la inestabilidad (correlación de valores positiva, efecto de envolvente), de modo que la anti-fase real del intercambio solo se ve limpia en el par cinético--magnético. La anti-correlación de tasas (Fig.~(ref)) es la versión diferencial de este mismo hecho. |
 
 ## Cap. 7 — Conclusiones  — 0/6 cerradas
 

@@ -194,5 +194,12 @@
   "typ": "claudenota",
   "sec": "Variación en el plano $y-z$",
   "body": "Corrección metodológica (REVISAR): un análisis previo comparaba el \\emph{único} máximo global de $\\Omega_{zp}$ con el \\emph{único} mínimo global de $E_{\\rm mag}$; para señales oscilatorias eso es engañoso (el mínimo global suele caer en el transitorio y da desfases espurios de varios $t$, incluso de signo opuesto). Aquí se identifican \\emph{todos} los extremos locales por cruce-cero de la derivada (filtrados por prominencia) y se mide el desfase ciclo a ciclo. Esto reemplaza la figura y la conclusión anteriores sobre ``orden temporal''."
+ },
+ "REVISAR redacción/física. Cambio de enfoque respecto a versiones previas: el análisis de máximos y mínimos se hace ahora entre $E_{\\rm kin}$ y $E_{\\rm mag}$ (canal de intercambio directo), no entre $\\Omega_{zp}$ y $E_{\\rm mag}$. Motivo verificado en los datos: la enstrofía \\emph{co-amplifica} con la inestabilidad (correlación de valores positiva, efecto de envolvente), de modo que la anti-fase real del intercambio solo se ve limpia en el par cinético--magnético. La anti-correlación de \\emph{tasas} (Fig.~\\ref{fig:campB_conversion}) es la versión diferencial de este mismo hecho.": {
+  "id": 151,
+  "chap": "Cap. 6 — Resultados",
+  "typ": "claudenota",
+  "sec": "Variación en el plano $y-z$",
+  "body": "REVISAR redacción/física. Cambio de enfoque respecto a versiones previas: el análisis de máximos y mínimos se hace ahora entre $E_{\\rm kin}$ y $E_{\\rm mag}$ (canal de intercambio directo), no entre $\\Omega_{zp}$ y $E_{\\rm mag}$. Motivo verificado en los datos: la enstrofía \\emph{co-amplifica} con la inestabilidad (correlación de valores positiva, efecto de envolvente), de modo que la anti-fase real del intercambio solo se ve limpia en el par cinético--magnético. La anti-correlación de \\emph{tasas} (Fig.~\\ref{fig:campB_conversion}) es la versión diferencial de este mismo hecho."
  }
 }
