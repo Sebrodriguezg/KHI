@@ -2,7 +2,7 @@
 
 *Actualizado: 2026-06-24 · rama `revision-monografia`*
 
-## 📊 81/163 cerradas (49%) — pendientes 82
+## 📊 82/165 cerradas (49%) — pendientes 83
 
 > **El # es FIJO** (no cambia aunque cerremos otras). ✅ = cerrada · ⬜ = pendiente.
 
@@ -117,7 +117,7 @@
 | 124 | ⬜ | SEB | Conductividades y paso temporal. | la comparación entre $$ queda entonces a CFL mixto; decidir si se homogeniza para el análisis final. |
 | 125 | ⬜ | SEB | Conductividades y paso temporal. | el análisis cuantitativo (\,$$ vs $B$, $^$ vs $$, conversión magnética--cinética\,) se desarrolla en el Capítulo~(ref); resultados preliminares, pendientes de revisión a fondo (no fiarse aún del informe de llegada). |
 
-## Cap. 6 — Resultados  — 21/74 cerradas
+## Cap. 6 — Resultados  — 22/76 cerradas
 
 | # | Estado | Tipo | Sección | Qué dice |
 |---|---|---|---|---|
@@ -189,12 +189,14 @@
 | 155 | ⬜ | CLAUDE | Resultados del ajuste | AIC casi circular: comparas tu sigmoide (ajustado en $1600$) contra modelos calibrados solo en $4000$ que dan $R^2<0$ global $$ ganas por construcción. Suavizar “decisivo”. |
 | 156 | ⬜ | CLAUDE | Conductividad crítica $$ y sus tres fuentes de incertidumbre | PRESENTACIÓN ENGAÑOSA (revisión Claude, prioridad 4): se lidera con “consenso ponderado $2861122$” y tres líneas después se admite “usen $1944$”. Los 4 estimadores van de 2815 a 6800 (factor 2.4): no hay un $$ fino, hay una ZONA de transición. Reescribir liderando con la banda $[2815,6800]$ y relegar el número fino, no al revés. La Tabla~(ref) y su caption ya lo dicen; el cuerpo debe ser consistente. |
 | 157 | ⬜ | CLAUDE | Leyes de potencia para $()$ | El exponente $1.22$ es ROBUSTO ($R^2=0.997$), pero el mecanismo (tearing $+$ islas secundarias) se AFIRMA, no se muestra: no hay ni una figura de las láminas/islas. Presentarlo como HIPÓTESIS, no como conclusión; o aportar evidencia directa (mapas 2D de $J_z$, conteo de plasmoides). El piso $^1/2$ es un argumento de escala, no un cálculo. |
-| 158 | ⬜ | CLAUDE | Corrientes, disipación y energía magnética | SOSPECHA DE ARTEFACTO (revisión Claude, prioridad 3): que $E_ mag$ se amplifique MÁS a BAJA $$ es contraintuitivo (a baja $$ el campo difunde, no se amplifica). $E_ mag$ TOTAL está dominada por el guía $B_z$; un 15\% sobre ese fondo enorme puede ser reorganización trivial o ruido del diagnóstico. Verificar con la energía magnética de PERTURBACIÓN ($ B'^2$), no la total, antes de afirmar nada. Si no se sostiene, quitar el panel (c). |
+| 158 | ✅ | CLAUDE | Corrientes, disipación y energía magnética | SOSPECHA DE ARTEFACTO (revisión Claude, prioridad 3): que $E_ mag$ se amplifique MÁS a BAJA $$ es contraintuitivo (a baja $$ el campo difunde, no se amplifica). $E_ mag$ TOTAL está dominada por el guía $B_z$; un 15\% sobre ese fondo enorme puede ser reorganización trivial o ruido del diagnóstico. Verificar con la energía magnética de PERTURBACIÓN ($ B'^2$), no la total, antes de afirmar nada. Si no se sostiene, quitar el panel (c). |
 | 159 | ⬜ | CLAUDE | Predicción RMHD compresible (Lees--Lin) | SUPUESTO QUE CARGA EL RESULTADO CENTRAL: con $c_s$ daría 0.016 (fracaso total), con $v_f$ da 0.095 (coincide al 8\%). La sustitución escalar $c_s v_f$ está motivada (Chow 2023, $ k$ alineado) pero es a posteriori y NO es la relación de dispersión magnetizada completa (grado 8). Es un check de consistencia, no una validación cerrada (ya lo dices en limitaciones; reforzarlo aquí). Es el flanco que más te pueden atacar. |
 | 160 | ✅ | CLAUDE | Impacto de la intensidad del campo magnético en el desarrollo de la inestabilidad | INCONSISTENCIA INTERNA (revisión Claude, PRIORIDAD 2): en la Campaña A la orientación es Mizuno ($B_y=B_00.02$ pequeña; $B_z=B_02$ domina). La tensión $( k B)^2 B_y^2$ es débil ($M_A,=9.4$, super-Alfvénico, §(ref), donde TÚ MISMO dices que la tensión es despreciable). Atribuir aquí la supresión al subir $B_0$ enteramente a la tensión contradice tu tabla de Mach. Lo más probable es presión magnética/magnetización ($$). Reconciliar con §(ref). |
 | 161 | ✅ | CLAUDE | Variación en el plano $y-z$ | AGUJERO FÍSICO (revisión Claude, PRIORIDAD 1): el mínimo de $^$ NO está en $=90^$ (máxima tensión, $ k B$ máximo) sino en ángulos intermedios ($45$--$60^$), y $=90^$ da el valor MÁS ALTO. Esto CONTRADICE frontalmente la narrativa “la tensión suprime” de toda la campaña B. O la interpretación geométrica está mal, o hay física sin contar (¿reconexión que reinyecta vorticidad a $$ grande? ¿$ k B$ no es el parámetro de control correcto?). Sin explicación, un jurado tumba el marco de tensión. Investigar en los datos ANTES de cerrar la campaña B. |
 | 162 | ⬜ | CLAUDE | Variación en el plano $y-z$ | RESUELTO (prioridad 1): la antigua “paradoja” de que $=90^$ era el más inestable venía de usar el máximo puntual $^_zp$ (figura previa del director). El contenido global $^int_zp$ SÍ decrece con la tensión $$ la narrativa “la tensión suprime” se sostiene con el observable correcto. Figura regenerada con ambos. REVISAR redacción; y decidir qué observable se reporta de forma consistente en toda la campaña B (recomiendo el integrado para el contenido físico y el puntual solo para señalar la reconexión). |
 | 163 | ⬜ | CLAUDE | Impacto de la intensidad del campo magnético en el desarrollo de la inestabilidad | CORREGIDO (prioridad 2): el texto original (de Bryan) atribuía la supresión a la tensión; los números ($M_A,$ super-Alfvénico siempre; $ B_0^-2$; $V_A, tot$ creciente) muestran que es presión/magnetización. Ahora es coherente con §(ref). REVISAR redacción y, si se quiere, añadir una tablita con $M_A,$, $V_A, tot$, $$ por $B_0$. |
+| 164 | ⬜ | CLAUDE | Conductividad crítica $$ y sus tres fuentes de incertidumbre | PRIORIDAD 4 aplicada: ahora se lidera con la zona $[2815,6800]$ en vez de “$2861122$”. REVISAR coherencia: la Tabla~(ref) aún lista el “consenso ponderado $2861122$” como primera fila; valorar reordenarla o renombrar esa fila como “error formal del sigmoide (subestima)”. |
+| 165 | ⬜ | CLAUDE | Corrientes, disipación y energía magnética | REVISADO (revisión Claude, prioridad 3): NO es artefacto del guía. El panel grafica la energía magnética PROPIA/comóvil (emag\_integral\_vol$=12 b^2$), no el $ B^2$ de laboratorio. Verificado en los datos: $ B^2$ lab CRECE con $$ (1.03$$1.07) mientras la amplificación de la energía propia DECRECE (1.15$$1.00); ambas tendencias son reales y compatibles (a alta $$, estiramiento en láminas finas sin ganar energía propia). La interpretación fina (por qué la reorganización resistiva inyecta $15\%$ a baja $$) sigue siendo delicada; mantener con cautela. CORRIGE la nota anterior (no era artefacto). Aclarar en el texto/caption que es la energía PROPIA. |
 
 ## Cap. 7 — Conclusiones  — 0/6 cerradas
 
