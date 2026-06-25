@@ -201,5 +201,75 @@
   "typ": "claudenota",
   "sec": "Variación en el plano $y-z$",
   "body": "REVISAR redacción/física. Cambio de enfoque respecto a versiones previas: el análisis de máximos y mínimos se hace ahora entre $E_{\\rm kin}$ y $E_{\\rm mag}$ (canal de intercambio directo), no entre $\\Omega_{zp}$ y $E_{\\rm mag}$. Motivo verificado en los datos: la enstrofía \\emph{co-amplifica} con la inestabilidad (correlación de valores positiva, efecto de envolvente), de modo que la anti-fase real del intercambio solo se ve limpia en el par cinético--magnético. La anti-correlación de \\emph{tasas} (Fig.~\\ref{fig:campB_conversion}) es la versión diferencial de este mismo hecho."
+ },
+ "COHERENCIA (revisión Claude, prioridad 5): este intro promete SOLO el barrido en $\\sigma$ (objetivos i--v); la campaña de orientación/intensidad (B y C) aparece después sin anunciarse. Añadir un objetivo (vi) que la introduzca y explicite el cambio de observable (de $\\gKHI$ a balance energético) cuando no hay fase lineal limpia. TONO (todo el cap.): sobra superlativo (``el resultado más fundamental'', ``firma directa'', ``demostración macroscópica'', ``revelador''); bajar ``confirma/demuestra'' a ``es consistente con/sugiere''. Varios pasajes suenan a IA (ya marcados).": {
+  "id": 152,
+  "chap": "Cap. 6 — Resultados",
+  "typ": "claudenota",
+  "sec": "(intro)",
+  "body": "COHERENCIA (revisión Claude, prioridad 5): este intro promete SOLO el barrido en $\\sigma$ (objetivos i--v); la campaña de orientación/intensidad (B y C) aparece después sin anunciarse. Añadir un objetivo (vi) que la introduzca y explicite el cambio de observable (de $\\gKHI$ a balance energético) cuando no hay fase lineal limpia. TONO (todo el cap.): sobra superlativo (``el resultado más fundamental'', ``firma directa'', ``demostración macroscópica'', ``revelador''); bajar ``confirma/demuestra'' a ``es consistente con/sugiere''. Varios pasajes suenan a IA (ya marcados)."
+ },
+ "PUNTO CRÍTICO (revisión Claude): $C$ y $\\gamma_0$ son degenerados ---solo $C+\\gamma_0$ es físico--- y $C=-0.45$ es EXTRAPOLACIÓN (los datos no llegan a $\\gKHI<0$; mínimo medido $\\approx0.05$). Todo el resultado central cuelga de un ajuste de 4 parámetros con 2 fantasmas. Hay que decirlo más fuerte y antes: un evaluador preguntará si $C$ es física o mera flexibilidad de ajuste. La defensa válida es solo el hold-out (36\\%).": {
+  "id": 153,
+  "chap": "Cap. 6 — Resultados",
+  "typ": "claudenota",
+  "sec": "Resultados del ajuste",
+  "body": "PUNTO CRÍTICO (revisión Claude): $C$ y $\\gamma_0$ son degenerados ---solo $C+\\gamma_0$ es físico--- y $C=-0.45$ es EXTRAPOLACIÓN (los datos no llegan a $\\gKHI<0$; mínimo medido $\\approx0.05$). Todo el resultado central cuelga de un ajuste de 4 parámetros con 2 fantasmas. Hay que decirlo más fuerte y antes: un evaluador preguntará si $C$ es física o mera flexibilidad de ajuste. La defensa válida es solo el hold-out (36\\%)."
+ },
+ "$R^2{=}0.99995$ con residuos autocorrelacionados (lo admites en §val.) es contradictorio: ese $R^2$ no significa lo que aparenta. Contextualizar fuerte o quitar.": {
+  "id": 154,
+  "chap": "Cap. 6 — Resultados",
+  "typ": "claudenota",
+  "sec": "Resultados del ajuste",
+  "body": "$R^2{=}0.99995$ con residuos autocorrelacionados (lo admites en §val.) es contradictorio: ese $R^2$ no significa lo que aparenta. Contextualizar fuerte o quitar."
+ },
+ "AIC casi circular: comparas tu sigmoide (ajustado en $\\sigma\\ge1600$) contra modelos calibrados solo en $\\sigma\\ge4000$ que dan $R^2<0$ global $\\Rightarrow$ ganas por construcción. Suavizar ``decisivo''.": {
+  "id": 155,
+  "chap": "Cap. 6 — Resultados",
+  "typ": "claudenota",
+  "sec": "Resultados del ajuste",
+  "body": "AIC casi circular: comparas tu sigmoide (ajustado en $\\sigma\\ge1600$) contra modelos calibrados solo en $\\sigma\\ge4000$ que dan $R^2<0$ global $\\Rightarrow$ ganas por construcción. Suavizar ``decisivo''."
+ },
+ "PRESENTACIÓN ENGAÑOSA (revisión Claude, prioridad 4): se lidera con ``consenso ponderado $2861\\pm122$'' y tres líneas después se admite ``usen $\\pm1944$''. Los 4 estimadores van de 2815 a 6800 (factor 2.4): no hay un $\\scrit$ fino, hay una ZONA de transición. Reescribir liderando con la banda $[2815,6800]$ y relegar el número fino, no al revés. La Tabla~\\ref{tab:est_v6} y su caption ya lo dicen; el cuerpo debe ser consistente.": {
+  "id": 156,
+  "chap": "Cap. 6 — Resultados",
+  "typ": "claudenota",
+  "sec": "Conductividad crítica $\\scrit$ y sus tres fuentes de incertidumbre",
+  "body": "PRESENTACIÓN ENGAÑOSA (revisión Claude, prioridad 4): se lidera con ``consenso ponderado $2861\\pm122$'' y tres líneas después se admite ``usen $\\pm1944$''. Los 4 estimadores van de 2815 a 6800 (factor 2.4): no hay un $\\scrit$ fino, hay una ZONA de transición. Reescribir liderando con la banda $[2815,6800]$ y relegar el número fino, no al revés. La Tabla~\\ref{tab:est_v6} y su caption ya lo dicen; el cuerpo debe ser consistente."
+ },
+ "El exponente $\\alpha\\approx1.22$ es ROBUSTO ($R^2{=}0.997$), pero el mecanismo (tearing $+$ islas secundarias) se AFIRMA, no se muestra: no hay ni una figura de las láminas/islas. Presentarlo como HIPÓTESIS, no como conclusión; o aportar evidencia directa (mapas 2D de $J_z$, conteo de plasmoides). El piso $\\propto\\sigma^{1/2}$ es un argumento de escala, no un cálculo.": {
+  "id": 157,
+  "chap": "Cap. 6 — Resultados",
+  "typ": "claudenota",
+  "sec": "Leyes de potencia para $\\Omaxzp(\\sigma)$",
+  "body": "El exponente $\\alpha\\approx1.22$ es ROBUSTO ($R^2{=}0.997$), pero el mecanismo (tearing $+$ islas secundarias) se AFIRMA, no se muestra: no hay ni una figura de las láminas/islas. Presentarlo como HIPÓTESIS, no como conclusión; o aportar evidencia directa (mapas 2D de $J_z$, conteo de plasmoides). El piso $\\propto\\sigma^{1/2}$ es un argumento de escala, no un cálculo."
+ },
+ "SOSPECHA DE ARTEFACTO (revisión Claude, prioridad 3): que $E_{\\rm mag}$ se amplifique MÁS a BAJA $\\sigma$ es contraintuitivo (a baja $\\sigma$ el campo difunde, no se amplifica). $E_{\\rm mag}$ TOTAL está dominada por el guía $B_z$; un 15\\% sobre ese fondo enorme puede ser reorganización trivial o ruido del diagnóstico. Verificar con la energía magnética de PERTURBACIÓN ($\\int B'^2$), no la total, antes de afirmar nada. Si no se sostiene, quitar el panel (c).": {
+  "id": 158,
+  "chap": "Cap. 6 — Resultados",
+  "typ": "claudenota",
+  "sec": "Corrientes, disipación y energía magnética",
+  "body": "SOSPECHA DE ARTEFACTO (revisión Claude, prioridad 3): que $E_{\\rm mag}$ se amplifique MÁS a BAJA $\\sigma$ es contraintuitivo (a baja $\\sigma$ el campo difunde, no se amplifica). $E_{\\rm mag}$ TOTAL está dominada por el guía $B_z$; un 15\\% sobre ese fondo enorme puede ser reorganización trivial o ruido del diagnóstico. Verificar con la energía magnética de PERTURBACIÓN ($\\int B'^2$), no la total, antes de afirmar nada. Si no se sostiene, quitar el panel (c)."
+ },
+ "SUPUESTO QUE CARGA EL RESULTADO CENTRAL: con $c_s$ daría 0.016 (fracaso total), con $v_{f\\perp}$ da 0.095 (coincide al 8\\%). La sustitución escalar $c_s\\to v_{f\\perp}$ está motivada (Chow 2023, $\\mathbf k$ alineado) pero es a posteriori y NO es la relación de dispersión magnetizada completa (grado 8). Es un \\emph{check de consistencia}, no una validación cerrada (ya lo dices en limitaciones; reforzarlo aquí). Es el flanco que más te pueden atacar.": {
+  "id": 159,
+  "chap": "Cap. 6 — Resultados",
+  "typ": "claudenota",
+  "sec": "Predicción RMHD compresible (Lees--Lin)",
+  "body": "SUPUESTO QUE CARGA EL RESULTADO CENTRAL: con $c_s$ daría 0.016 (fracaso total), con $v_{f\\perp}$ da 0.095 (coincide al 8\\%). La sustitución escalar $c_s\\to v_{f\\perp}$ está motivada (Chow 2023, $\\mathbf k$ alineado) pero es a posteriori y NO es la relación de dispersión magnetizada completa (grado 8). Es un \\emph{check de consistencia}, no una validación cerrada (ya lo dices en limitaciones; reforzarlo aquí). Es el flanco que más te pueden atacar."
+ },
+ "INCONSISTENCIA INTERNA (revisión Claude, PRIORIDAD 2): en la Campaña A la orientación es Mizuno ($B_y=B_0\\sqrt{0.02}$ \\emph{pequeña}; $B_z=B_0\\sqrt{2}$ domina). La tensión $\\propto(\\mathbf k\\cdot\\mathbf B)^2\\propto B_y^2$ es débil ($M_{A,\\parallel}=9.4$, super-Alfvénico, §\\ref{sec:teoria_v6}, donde TÚ MISMO dices que la tensión es despreciable). Atribuir aquí la supresión al subir $B_0$ \\emph{enteramente a la tensión} contradice tu tabla de Mach. Lo más probable es presión magnética/magnetización ($\\beta\\downarrow$). Reconciliar con §\\ref{sec:teoria_v6}.": {
+  "id": 160,
+  "chap": "Cap. 6 — Resultados",
+  "typ": "claudenota",
+  "sec": "Impacto de la intensidad del campo magnético en el desarrollo de la inestabilidad",
+  "body": "INCONSISTENCIA INTERNA (revisión Claude, PRIORIDAD 2): en la Campaña A la orientación es Mizuno ($B_y=B_0\\sqrt{0.02}$ \\emph{pequeña}; $B_z=B_0\\sqrt{2}$ domina). La tensión $\\propto(\\mathbf k\\cdot\\mathbf B)^2\\propto B_y^2$ es débil ($M_{A,\\parallel}=9.4$, super-Alfvénico, §\\ref{sec:teoria_v6}, donde TÚ MISMO dices que la tensión es despreciable). Atribuir aquí la supresión al subir $B_0$ \\emph{enteramente a la tensión} contradice tu tabla de Mach. Lo más probable es presión magnética/magnetización ($\\beta\\downarrow$). Reconciliar con §\\ref{sec:teoria_v6}."
+ },
+ "AGUJERO FÍSICO (revisión Claude, PRIORIDAD 1): el mínimo de $\\Omega^{\\max}$ NO está en $\\theta=90^\\circ$ (máxima tensión, $\\mathbf k\\cdot\\mathbf B$ máximo) sino en ángulos intermedios ($\\sim45$--$60^\\circ$), y $\\theta=90^\\circ$ da el valor MÁS ALTO. Esto CONTRADICE frontalmente la narrativa ``la tensión suprime'' de toda la campaña B. O la interpretación geométrica está mal, o hay física sin contar (¿reconexión que reinyecta vorticidad a $\\theta$ grande? ¿$\\mathbf k\\cdot\\mathbf B$ no es el parámetro de control correcto?). Sin explicación, un jurado tumba el marco de tensión. Investigar en los datos ANTES de cerrar la campaña B.": {
+  "id": 161,
+  "chap": "Cap. 6 — Resultados",
+  "typ": "claudenota",
+  "sec": "Variación en el plano $y-z$",
+  "body": "AGUJERO FÍSICO (revisión Claude, PRIORIDAD 1): el mínimo de $\\Omega^{\\max}$ NO está en $\\theta=90^\\circ$ (máxima tensión, $\\mathbf k\\cdot\\mathbf B$ máximo) sino en ángulos intermedios ($\\sim45$--$60^\\circ$), y $\\theta=90^\\circ$ da el valor MÁS ALTO. Esto CONTRADICE frontalmente la narrativa ``la tensión suprime'' de toda la campaña B. O la interpretación geométrica está mal, o hay física sin contar (¿reconexión que reinyecta vorticidad a $\\theta$ grande? ¿$\\mathbf k\\cdot\\mathbf B$ no es el parámetro de control correcto?). Sin explicación, un jurado tumba el marco de tensión. Investigar en los datos ANTES de cerrar la campaña B."
  }
 }
