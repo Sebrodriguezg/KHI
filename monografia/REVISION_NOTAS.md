@@ -2,7 +2,7 @@
 
 *Actualizado: 2026-06-25 · rama `revision-monografia`*
 
-## 📊 87/186 cerradas (46%) — pendientes 99
+## 📊 88/187 cerradas (47%) — pendientes 99
 
 > **El # es FIJO** (no cambia aunque cerremos otras). ✅ = cerrada · ⬜ = pendiente.
 
@@ -130,7 +130,7 @@
 | 183 | ⬜ | SEB | Condiciones Iniciales del Problema | cambiar color de las graficas |
 | 184 | ⬜ | SEB | Segunda campaña: variación del campo magnético (objetivo 4) | fija en 2 valores |
 
-## Cap. 6 — Resultados  — 27/81 cerradas
+## Cap. 6 — Resultados  — 28/82 cerradas
 
 | # | Estado | Tipo | Sección | Qué dice |
 |---|---|---|---|---|
@@ -214,7 +214,8 @@
 | 167 | ⬜ | CLAUDE | Resultados del ajuste | ATENDIDO: la evidencia primaria es ahora la comparación anidada $AIC=-126$ (4p vs 3p sobre los mismos $1600$), que NO es circular. La fila vs sub-escala/clásico se conserva solo para ilustrar cobertura global (esos modelos se calibraron en $4000$). Reescribir §val.\ en consecuencia. |
 | 168 | ⬜ | CLAUDE | Predicción RMHD compresible (Lees--Lin) | ATENDIDO (revisión Claude, prioridad ataque): la sustitución $c_s v_f$ ya NO es post-hoc: se justifica por geometría ($ k B$ $$ compresión perpendicular $$ velocidad rápida perpendicular relativista), que es la consecuencia correcta, no un ajuste. Verificado: $v_f=v_A^2+c_s^2(1-v_A^2)=0.691$. Queda HONESTO reconocer que sigue siendo una aproximación escalar a la relación de dispersión magnetizada completa de grado~8 (que añadiría anisotropía); por eso es “consistencia fuerte”, no validación cerrada (§(ref)). El bracket $c_s\!\!0.016$ / $v_f\!\!0.095$ / medido $0.103$ es la sensibilidad. |
 | 185 | ⬜ | SEB | (intro) | y el barrido de configuraciones de campo magnetico |
-| 186 | ⬜ | CLAUDE | Conductividad crítica $$ y sus tres fuentes de incertidumbre | REESCRITO (revisión Claude): la sección ahora se articula como “cascada de activación” (Fig.~(ref)); bordes 1400/7000 anclados en física ($f_Vz$ y 2.º pico $$), estimadores como mecanismos sucesivos, $=_0$ como centro, y ancla Lundquist. Verificar redacción y que la Tabla~(ref) (que aún lidera con “consenso $2861122$”) sea coherente: quizá renombrar esa fila “error formal del sigmoide (subestima)”. |
+| 186 | ✅ | CLAUDE | Conductividad crítica $$ y sus tres fuentes de incertidumbre | REESCRITO (revisión Claude): la sección ahora se articula como “cascada de activación” (Fig.~(ref)); bordes 1400/7000 anclados en física ($f_Vz$ y 2.º pico $$), estimadores como mecanismos sucesivos, $=_0$ como centro, y ancla Lundquist. Verificar redacción y que la Tabla~(ref) (que aún lidera con “consenso $2861122$”) sea coherente: quizá renombrar esa fila “error formal del sigmoide (subestima)”. |
+| 187 | ⬜ | CLAUDE | Conductividad crítica $$ y sus tres fuentes de incertidumbre | REESCRITO (revisión Claude): sección articulada como “cascada de activación” (Fig.~(ref)); bordes 1400/7000 anclados en física ($f_Vz$ y 2.º pico $$); estimadores como mecanismos sucesivos; $=_0$ centro; ancla Lundquist. Tabla~(ref) ya coherente (ordenada por $$, columna de mecanismo, lidera con la zona; el “$2861122$” queda como nota al pie etiquetada “error formal, subestima”). Solo falta tu repaso de redacción. |
 
 ## Cap. 7 — Conclusiones  — 0/8 cerradas
 

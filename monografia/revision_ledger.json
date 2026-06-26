@@ -446,5 +446,12 @@
   "typ": "claudenota",
   "sec": "Conductividad crítica $\\scrit$ y sus tres fuentes de incertidumbre",
   "body": "REESCRITO (revisión Claude): la sección ahora se articula como ``cascada de activación'' (Fig.~\\ref{fig:zona_transicion}); bordes 1400/7000 anclados en física ($f_{Vz}$ y 2.º pico $\\Omaxzp$), estimadores como mecanismos sucesivos, $\\scrit{=}\\sigma_0$ como centro, y ancla Lundquist. Verificar redacción y que la Tabla~\\ref{tab:est_v6} (que aún lidera con ``consenso $2861\\pm122$'') sea coherente: quizá renombrar esa fila ``error formal del sigmoide (subestima)''."
+ },
+ "REESCRITO (revisión Claude): sección articulada como ``cascada de activación'' (Fig.~\\ref{fig:zona_transicion}); bordes 1400/7000 anclados en física ($f_{Vz}$ y 2.º pico $\\Omaxzp$); estimadores como mecanismos sucesivos; $\\scrit{=}\\sigma_0$ centro; ancla Lundquist. Tabla~\\ref{tab:est_v6} ya coherente (ordenada por $\\sigma$, columna de mecanismo, lidera con la zona; el ``$2861\\pm122$'' queda como nota al pie etiquetada ``error formal, subestima''). Solo falta tu repaso de redacción.": {
+  "id": 187,
+  "chap": "Cap. 6 — Resultados",
+  "typ": "claudenota",
+  "sec": "Conductividad crítica $\\scrit$ y sus tres fuentes de incertidumbre",
+  "body": "REESCRITO (revisión Claude): sección articulada como ``cascada de activación'' (Fig.~\\ref{fig:zona_transicion}); bordes 1400/7000 anclados en física ($f_{Vz}$ y 2.º pico $\\Omaxzp$); estimadores como mecanismos sucesivos; $\\scrit{=}\\sigma_0$ centro; ancla Lundquist. Tabla~\\ref{tab:est_v6} ya coherente (ordenada por $\\sigma$, columna de mecanismo, lidera con la zona; el ``$2861\\pm122$'' queda como nota al pie etiquetada ``error formal, subestima''). Solo falta tu repaso de redacción."
  }
 }

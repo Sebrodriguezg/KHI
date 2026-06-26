@@ -194,30 +194,32 @@ $\Delta\mathrm{AIC}$ (vs sub-esc./clásico) & $-337$,\ $-531$ & solo mide cobert
 \end{figure}
 
 \begin{table}[H]\centering
-\caption{Estimadores de $\scrit$ y consenso. El error del consenso ponderado ($\pm122$) es el del método del sigmoide y \emph{subestima}; la banda honesta es la sistemática $\pm1944$.}
+\caption{Estimadores de $\scrit$ ordenados por $\sigma$ (la cascada): cada método marca el punto crítico de un mecanismo distinto. \textbf{Importante:} el error del sigmoide ($\pm123$) es solo la precisión \emph{formal} de ese método y \emph{subestima} (residuos autocorrelacionados); la incertidumbre honesta es la dispersión inter-método ($\pm1944$), y el resultado físico es la \emph{zona} $\sigma\in[1400,7000]$ con centro $\scrit=\sigma_0\approx2815$.}
 \label{tab:est_v6}
-\begin{tabular}{llc}
+\begin{tabular}{l l l c}
 \hline
-Método & Observable & $\scrit\pm\delta\sigma$\\
+Método & Observable & Mecanismo / evento & $\scrit\pm\delta\sigma$\\
 \hline
-M1 & inflexión $\gKHI(\sigma)$       & $6800\pm2625$\\
-M2 & inflexión $\Omaxzp(\sigma)$ & $3400\pm2175$\\
-M3 & inflexión $t_{\mathrm{peak}}(\sigma)$  & $6000\pm1147$\\
-M4 & sigmoide con \emph{offset} ($\sigma_0$)        & $2815\pm123$\\
+M4 & $\sigma_0$ del sigmoide                 & centro del crecimiento lineal              & $2815\pm123$\\
+M2 & inflexión $\Omaxzp(\sigma)$             & transición de la amplitud de saturación    & $3400\pm2175$\\
+M3 & inflexión $t_{\mathrm{peak}}(\sigma)$   & estabilización del tiempo de pico          & $6000\pm1147$\\
+M1 & inflexión $\gKHI(\sigma)$               & aceleración máxima (log) de $\gKHI$        & $6800\pm2625$\\
 \hline
-\multicolumn{2}{l}{Consenso ponderado} & $2861\pm122$\\
-\multicolumn{2}{l}{Media aritmética}   & $4754\pm1944$\\
+\multicolumn{3}{l}{\textbf{Zona de transición} (bordes físicos: $f_{Vz}$ máx / 2.º pico $\Omaxzp$)} & $[1400,\,7000]$\\
+\multicolumn{3}{l}{Centro (valor único): $\scrit=\sigma_0$}                                          & $\approx2815$\\
+\multicolumn{3}{l}{Incertidumbre honesta (dispersión inter-método)}                                  & $\pm1944$\\
+\multicolumn{3}{l}{\emph{\small(media ponderada $\approx\sigma_0$; error formal del sigmoide, subestima)}} & \emph{\small$2861\pm122$}\\
 \hline
 \end{tabular}
 \end{table}
 
 \begin{figure}[H]\centering
-\includegraphics[width=0.82\textwidth]{figuras/fig3_estimadores.pdf}
-\caption{Estimadores de $\scrit$ con sus intervalos, consenso ponderado y media aritmética. La banda naranja es la incertidumbre sistemática real $[2815,6800]$.}
+\includegraphics[width=0.86\textwidth]{figuras/fig_sigma_crit_promedio}
+\caption{Los cuatro estimadores de $\scrit$ con sus incertidumbres, sobre la \emph{zona de transición} (banda naranja $\sigma\in[1400,7000]$). La media ponderada ($\approx\sigma_0$, dominada casi por completo por el sigmoide) y la media aritmética se muestran como referencias; es el \emph{ancho de la banda}, no el error formal del sigmoide, lo que refleja la incertidumbre real.}
 \label{fig:est_v6}
 \end{figure}
 
-\primerparrafo \sebnota{Se dejó a un lado todos los datos, análisis y construcción de la zona de transición.}En síntesis, la dispersión de los cuatro estimadores (factor $\sim2.4$) no es ruido estadístico, sino el reflejo de que $\gKHI$ y la fenomenología no lineal están gobernadas por \emph{múltiples escalas y variables} (la escala de cizalla $L_{\mathrm{shear}}$ frente a $\akh$, la geometría 2D, los efectos relativistas, la orientación e intensidad de $\mathbf B$). Por eso lo físicamente fiel es reportar una \emph{zona} de transición, $\sigma\in[1400,7000]$, dentro de la cual los mecanismos se idealizan de forma escalonada; si se requiere un único valor central, $\scrit=\sigma_0\approx2815$ (el centro del crecimiento lineal). El error formal del sigmoide ($\pm122$) describe solo la precisión de \emph{ese} método y subestima la incertidumbre real, que es la sistemática inter-método ($\pm1944$). En unidades adimensionales, $\scrit$ corresponde a un número de Lundquist $S\sim10^{3}$ (con $S\simeq21\,\Rmst$): advección y difusión magnética comparables en la escala de la capa de cizalla.\claudenota{REESCRITO (revisión Claude): la sección ahora se articula como ``cascada de activación'' (Fig.~\ref{fig:zona_transicion}); bordes 1400/7000 anclados en física ($f_{Vz}$ y 2.º pico $\Omaxzp$), estimadores como mecanismos sucesivos, $\scrit{=}\sigma_0$ como centro, y ancla Lundquist. Verificar redacción y que la Tabla~\ref{tab:est_v6} (que aún lidera con ``consenso $2861\pm122$'') sea coherente: quizá renombrar esa fila ``error formal del sigmoide (subestima)''.}
+\primerparrafo \sebnota{Se dejó a un lado todos los datos, análisis y construcción de la zona de transición.}En síntesis, la dispersión de los cuatro estimadores (factor $\sim2.4$) no es ruido estadístico, sino el reflejo de que $\gKHI$ y la fenomenología no lineal están gobernadas por \emph{múltiples escalas y variables} (la escala de cizalla $L_{\mathrm{shear}}$ frente a $\akh$, la geometría 2D, los efectos relativistas, la orientación e intensidad de $\mathbf B$). Por eso lo físicamente fiel es reportar una \emph{zona} de transición, $\sigma\in[1400,7000]$, dentro de la cual los mecanismos se idealizan de forma escalonada; si se requiere un único valor central, $\scrit=\sigma_0\approx2815$ (el centro del crecimiento lineal). El error formal del sigmoide ($\pm122$) describe solo la precisión de \emph{ese} método y subestima la incertidumbre real, que es la sistemática inter-método ($\pm1944$). En unidades adimensionales, $\scrit$ corresponde a un número de Lundquist $S\sim10^{3}$ (con $S\simeq21\,\Rmst$): advección y difusión magnética comparables en la escala de la capa de cizalla.\claudenota{REESCRITO (revisión Claude): sección articulada como ``cascada de activación'' (Fig.~\ref{fig:zona_transicion}); bordes 1400/7000 anclados en física ($f_{Vz}$ y 2.º pico $\Omaxzp$); estimadores como mecanismos sucesivos; $\scrit{=}\sigma_0$ centro; ancla Lundquist. Tabla~\ref{tab:est_v6} ya coherente (ordenada por $\sigma$, columna de mecanismo, lidera con la zona; el ``$2861\pm122$'' queda como nota al pie etiquetada ``error formal, subestima''). Solo falta tu repaso de redacción.}
 
 \section{Leyes de potencia para $\Omaxzp(\sigma)$}
 \label{sec:leyes_potencia}
