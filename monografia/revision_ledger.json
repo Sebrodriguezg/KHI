@@ -432,5 +432,19 @@
   "typ": "sebnota",
   "sec": "Segunda campaña: variación del campo magnético (objetivo 4)",
   "body": "fija en 2 valores"
+ },
+ "y el barrido de configuraciones de campo magnetico": {
+  "id": 185,
+  "chap": "Cap. 6 — Resultados",
+  "typ": "sebnota",
+  "sec": "(intro)",
+  "body": "y el barrido de configuraciones de campo magnetico "
+ },
+ "REESCRITO (revisión Claude): la sección ahora se articula como ``cascada de activación'' (Fig.~\\ref{fig:zona_transicion}); bordes 1400/7000 anclados en física ($f_{Vz}$ y 2.º pico $\\Omaxzp$), estimadores como mecanismos sucesivos, $\\scrit{=}\\sigma_0$ como centro, y ancla Lundquist. Verificar redacción y que la Tabla~\\ref{tab:est_v6} (que aún lidera con ``consenso $2861\\pm122$'') sea coherente: quizá renombrar esa fila ``error formal del sigmoide (subestima)''.": {
+  "id": 186,
+  "chap": "Cap. 6 — Resultados",
+  "typ": "claudenota",
+  "sec": "Conductividad crítica $\\scrit$ y sus tres fuentes de incertidumbre",
+  "body": "REESCRITO (revisión Claude): la sección ahora se articula como ``cascada de activación'' (Fig.~\\ref{fig:zona_transicion}); bordes 1400/7000 anclados en física ($f_{Vz}$ y 2.º pico $\\Omaxzp$), estimadores como mecanismos sucesivos, $\\scrit{=}\\sigma_0$ como centro, y ancla Lundquist. Verificar redacción y que la Tabla~\\ref{tab:est_v6} (que aún lidera con ``consenso $2861\\pm122$'') sea coherente: quizá renombrar esa fila ``error formal del sigmoide (subestima)''."
  }
 }
