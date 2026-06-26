@@ -131,7 +131,19 @@ Julio de 2026
 \end{center}
 \end{titlepage}
 
+% --- Encabezados limpios (evita el solape capitulo/seccion) ---
 \pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\chaptermark}[1]{\markboth{\thechapter.\ #1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection.\ #1}}
+\fancyhead[L]{\nouppercase{\footnotesize\itshape\leftmark}}
+\fancyhead[R]{\nouppercase{\footnotesize\itshape\rightmark}}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\setlength{\headheight}{14pt}
+% mismo criterio en paginas de inicio de capitulo (estilo plain)
+\fancypagestyle{plain}{%
+  \fancyhf{}\fancyfoot[C]{\thepage}\renewcommand{\headrulewidth}{0pt}}
 
 \tableofcontents
 
