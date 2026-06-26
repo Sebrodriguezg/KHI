@@ -2,7 +2,7 @@
 
 *Actualizado: 2026-06-25 · rama `revision-monografia`*
 
-## 📊 88/187 cerradas (47%) — pendientes 99
+## 📊 88/201 cerradas (43%) — pendientes 113
 
 > **El # es FIJO** (no cambia aunque cerremos otras). ✅ = cerrada · ⬜ = pendiente.
 
@@ -130,7 +130,7 @@
 | 183 | ⬜ | SEB | Condiciones Iniciales del Problema | cambiar color de las graficas |
 | 184 | ⬜ | SEB | Segunda campaña: variación del campo magnético (objetivo 4) | fija en 2 valores |
 
-## Cap. 6 — Resultados  — 28/82 cerradas
+## Cap. 6 — Resultados  — 28/96 cerradas
 
 | # | Estado | Tipo | Sección | Qué dice |
 |---|---|---|---|---|
@@ -216,6 +216,20 @@
 | 185 | ⬜ | SEB | (intro) | y el barrido de configuraciones de campo magnetico |
 | 186 | ✅ | CLAUDE | Conductividad crítica $$ y sus tres fuentes de incertidumbre | REESCRITO (revisión Claude): la sección ahora se articula como “cascada de activación” (Fig.~(ref)); bordes 1400/7000 anclados en física ($f_Vz$ y 2.º pico $$), estimadores como mecanismos sucesivos, $=_0$ como centro, y ancla Lundquist. Verificar redacción y que la Tabla~(ref) (que aún lidera con “consenso $2861122$”) sea coherente: quizá renombrar esa fila “error formal del sigmoide (subestima)”. |
 | 187 | ⬜ | CLAUDE | Conductividad crítica $$ y sus tres fuentes de incertidumbre | REESCRITO (revisión Claude): sección articulada como “cascada de activación” (Fig.~(ref)); bordes 1400/7000 anclados en física ($f_Vz$ y 2.º pico $$); estimadores como mecanismos sucesivos; $=_0$ centro; ancla Lundquist. Tabla~(ref) ya coherente (ordenada por $$, columna de mecanismo, lidera con la zona; el “$2861122$” queda como nota al pie etiquetada “error formal, subestima”). Solo falta tu repaso de redacción. |
+| 188 | ⬜ | SEB | Conductividad crítica $$ y sus tres fuentes de incertidumbre | Aclarar en un anexo o footnote como es que se lee la informacíon de las derivadas logaritmicas |
+| 189 | ⬜ | SEB | Conductividad crítica $$ y sus tres fuentes de incertidumbre | Se sala la tabla de los bordes |
+| 190 | ⬜ | SEB | Corrientes, disipación y energía magnética | La nota es a que en corriente maxima, hay unos valores atipicos que no se di pueden ser un artefacto de las series temporales, convendria revisar si los puntos estann en zonas cercanas de la serie de tiempo, y que nos on datos espirulos de la inicializacion o algun otrao problema, y ademas, hacer una nora que diga que en esta meida de la corriente maxima se puede evidenciar tambien la existencia d ela zona de transicion,, donde se estabiliza la corriebte |
+| 191 | ⬜ | SEB | Variación de Intensidad y Orientación del Campo Magnético | Mirar bien donde se define en el doc la presion y la tension magnetica en que seccion y o que footnotes |
+| 192 | ⬜ | SEB | Impacto de la intensidad del campo magnético en el desarrollo de la inestabilidad | revisar en el setup y loq ue hemos hablado si en realidad hay tension y presion o si es un artefacto de redaccion |
+| 193 | ⬜ | SEB | Impacto de la intensidad del campo magnético en el desarrollo de la inestabilidad | Deberia de haberse definido el parametro de plasma, las velocidades y todos los terminos que se usan como discriminantes que no se si se mencionaron ya |
+| 194 | ⬜ | SEB | Impacto de la intensidad del campo magnético en el desarrollo de la inestabilidad | si es tension o estamos cometiendo un error sitematcio entre presion y tension |
+| 195 | ⬜ | SEB | Impacto de la intensidad del campo magnético en el desarrollo de la inestabilidad | en las graficas añadir el pico con el valor registrado. |
+| 196 | ⬜ | SEB | Impacto de la intensidad del campo magnético en el desarrollo de la inestabilidad | es tension magnetica o no ? |
+| 197 | ⬜ | SEB | Variación en el plano $y-z$ | agregar mapa de calor |
+| 198 | ⬜ | SEB | Variación en el plano $y-z$ | agregar una grafica que ponga estas variables una arriba de la otra, con una linea temporal en picos y valles que sustene estas afirmacíones,que hagan evidente el acople. |
+| 199 | ⬜ | SEB | Variación en el plano $y-z$ | hay que ver bien por que veo maximos y minimos locales no marcados |
+| 200 | ⬜ | SEB | Balance energético y procesos disipativos | Esta herramienta de las animcaiones en interna, no se como deberiamos ponerlas, o si no mencionarlas, quizas un anexo o un link a un repo organizado con estas movies. |
+| 201 | ⬜ | SEB | Balance energético y procesos disipativos | redaccion muy escalonada, mas fluidez |
 
 ## Cap. 7 — Conclusiones  — 0/8 cerradas
 

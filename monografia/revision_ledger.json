@@ -453,5 +453,103 @@
   "typ": "claudenota",
   "sec": "Conductividad crítica $\\scrit$ y sus tres fuentes de incertidumbre",
   "body": "REESCRITO (revisión Claude): sección articulada como ``cascada de activación'' (Fig.~\\ref{fig:zona_transicion}); bordes 1400/7000 anclados en física ($f_{Vz}$ y 2.º pico $\\Omaxzp$); estimadores como mecanismos sucesivos; $\\scrit{=}\\sigma_0$ centro; ancla Lundquist. Tabla~\\ref{tab:est_v6} ya coherente (ordenada por $\\sigma$, columna de mecanismo, lidera con la zona; el ``$2861\\pm122$'' queda como nota al pie etiquetada ``error formal, subestima''). Solo falta tu repaso de redacción."
+ },
+ "Aclarar en un anexo o footnote como es que se lee la informacíon de las derivadas logaritmicas": {
+  "id": 188,
+  "chap": "Cap. 6 — Resultados",
+  "typ": "sebnota",
+  "sec": "Conductividad crítica $\\scrit$ y sus tres fuentes de incertidumbre",
+  "body": "Aclarar en un anexo o footnote como es que se lee la informacíon de las derivadas logaritmicas"
+ },
+ "Se sala la tabla de los bordes": {
+  "id": 189,
+  "chap": "Cap. 6 — Resultados",
+  "typ": "sebnota",
+  "sec": "Conductividad crítica $\\scrit$ y sus tres fuentes de incertidumbre",
+  "body": "Se sala la tabla de los bordes"
+ },
+ "La nota es a que en corriente maxima, hay unos valores atipicos que no se di pueden ser un artefacto de las series temporales, convendria revisar si los puntos estann en zonas cercanas de la serie de tiempo, y que nos on datos espirulos de la inicializacion o algun otrao problema, y ademas, hacer una nora que diga que en esta meida de la corriente maxima se puede evidenciar tambien la existencia d ela zona de transicion,, donde se estabiliza la corriebte": {
+  "id": 190,
+  "chap": "Cap. 6 — Resultados",
+  "typ": "sebnota",
+  "sec": "Corrientes, disipación y energía magnética",
+  "body": "La nota es a que en corriente maxima, hay unos valores atipicos que no se di pueden ser un artefacto de las series temporales, convendria revisar si los puntos estann en zonas cercanas de la serie de tiempo, y que nos on datos espirulos de la inicializacion o algun otrao problema, y ademas, hacer una nora que diga que en esta meida de la corriente maxima se puede evidenciar tambien la existencia d ela zona de transicion,, donde se estabiliza la corriebte"
+ },
+ "Mirar bien donde se define en el doc la presion y la tension magnetica en que seccion y o que footnotes": {
+  "id": 191,
+  "chap": "Cap. 6 — Resultados",
+  "typ": "sebnota",
+  "sec": "Variación de Intensidad y Orientación del Campo Magnético",
+  "body": "Mirar bien donde se define en el doc la presion y la tension magnetica en que seccion y o que footnotes"
+ },
+ "revisar en el setup y loq ue hemos hablado si en realidad hay tension  y presion o si es un artefacto de redaccion": {
+  "id": 192,
+  "chap": "Cap. 6 — Resultados",
+  "typ": "sebnota",
+  "sec": "Impacto de la intensidad del campo magnético en el desarrollo de la inestabilidad",
+  "body": "revisar en el setup y loq ue hemos hablado si en realidad hay tension  y presion o si es un artefacto de redaccion"
+ },
+ "Deberia de haberse definido el parametro de plasma, las velocidades y todos los terminos que se usan como discriminantes que no se si se mencionaron ya": {
+  "id": 193,
+  "chap": "Cap. 6 — Resultados",
+  "typ": "sebnota",
+  "sec": "Impacto de la intensidad del campo magnético en el desarrollo de la inestabilidad",
+  "body": "Deberia de haberse definido el parametro de plasma, las velocidades y todos los terminos que se usan como discriminantes que no se si se mencionaron ya"
+ },
+ "si es tension o estamos cometiendo un error sitematcio entre presion y tension": {
+  "id": 194,
+  "chap": "Cap. 6 — Resultados",
+  "typ": "sebnota",
+  "sec": "Impacto de la intensidad del campo magnético en el desarrollo de la inestabilidad",
+  "body": "si es tension o estamos cometiendo un error sitematcio entre presion y tension"
+ },
+ "en las graficas añadir el pico con el valor registrado.": {
+  "id": 195,
+  "chap": "Cap. 6 — Resultados",
+  "typ": "sebnota",
+  "sec": "Impacto de la intensidad del campo magnético en el desarrollo de la inestabilidad",
+  "body": "en las graficas añadir el pico con el valor registrado. "
+ },
+ "es tension magnetica o no ?": {
+  "id": 196,
+  "chap": "Cap. 6 — Resultados",
+  "typ": "sebnota",
+  "sec": "Impacto de la intensidad del campo magnético en el desarrollo de la inestabilidad",
+  "body": "es tension magnetica o no ? "
+ },
+ "agregar mapa de calor": {
+  "id": 197,
+  "chap": "Cap. 6 — Resultados",
+  "typ": "sebnota",
+  "sec": "Variación en el plano $y-z$",
+  "body": "agregar mapa de calor"
+ },
+ "agregar una grafica que ponga estas variables una arriba de la otra, con una linea temporal en picos y valles que sustene estas afirmacíones,que hagan evidente el acople.": {
+  "id": 198,
+  "chap": "Cap. 6 — Resultados",
+  "typ": "sebnota",
+  "sec": "Variación en el plano $y-z$",
+  "body": "agregar una grafica que ponga estas variables una arriba de la otra, con una linea temporal en picos y valles que sustene estas afirmacíones,que hagan evidente el acople. "
+ },
+ "hay que ver bien por que veo maximos y minimos locales no marcados": {
+  "id": 199,
+  "chap": "Cap. 6 — Resultados",
+  "typ": "sebnota",
+  "sec": "Variación en el plano $y-z$",
+  "body": "hay que ver bien por que veo maximos y minimos locales no marcados"
+ },
+ "Esta herramienta de las animcaiones en interna, no se como deberiamos ponerlas, o si no mencionarlas, quizas un anexo o un link a un repo organizado con estas movies.": {
+  "id": 200,
+  "chap": "Cap. 6 — Resultados",
+  "typ": "sebnota",
+  "sec": "Balance energético y procesos disipativos",
+  "body": "Esta herramienta de las animcaiones en interna, no se como deberiamos ponerlas, o si no mencionarlas, quizas un anexo o un link a un repo organizado con estas movies."
+ },
+ "redaccion muy escalonada, mas fluidez": {
+  "id": 201,
+  "chap": "Cap. 6 — Resultados",
+  "typ": "sebnota",
+  "sec": "Balance energético y procesos disipativos",
+  "body": "redaccion muy escalonada, mas fluidez"
  }
 }
