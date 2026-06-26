@@ -320,5 +320,82 @@
   "typ": "claudenota",
   "sec": "Predicción RMHD compresible (Lees--Lin)",
   "body": "ATENDIDO (revisión Claude, prioridad ataque): la sustitución $c_s\\to v_{f\\perp}$ ya NO es post-hoc: se justifica por geometría ($\\mathbf k\\perp\\mathbf B$ $\\Rightarrow$ compresión perpendicular $\\Rightarrow$ velocidad rápida perpendicular relativista), que es la consecuencia correcta, no un ajuste. Verificado: $v_{f\\perp}=\\sqrt{v_A^2+c_s^2(1-v_A^2)}=0.691$. Queda HONESTO reconocer que sigue siendo una aproximación escalar a la relación de dispersión magnetizada completa de grado~8 (que añadiría anisotropía); por eso es ``consistencia fuerte'', no validación cerrada (§\\ref{sec:limitaciones}). El bracket $c_s\\!\\to\\!0.016$ / $v_{f\\perp}\\!\\to\\!0.095$ / medido $0.103$ es la sensibilidad."
+ },
+ "REVISIÓN GLOBAL (Claude): (1) el Resumen NO menciona la campaña de orientación/intensidad de B (B/C), que sí está en el cap.~6 $\\Rightarrow$ añadir una frase. (2) ``Ω$\\propto\\sigma^{1.22}$ compatible con Sweet--Parker y tearing'' se enuncia como hecho; el exponente es robusto pero el mecanismo (tearing) es \\emph{hipótesis} no demostrada $\\Rightarrow$ suavizar. (3) liderar con la banda $\\scrit\\in[2815,6800]$, no con ``$\\approx2861$''.": {
+  "id": 169,
+  "chap": "Preliminares",
+  "typ": "claudenota",
+  "sec": "Resumen",
+  "body": "REVISIÓN GLOBAL (Claude): (1) el Resumen NO menciona la campaña de orientación/intensidad de B (B/C), que sí está en el cap.~6 $\\Rightarrow$ añadir una frase. (2) ``Ω$\\propto\\sigma^{1.22}$ compatible con Sweet--Parker y tearing'' se enuncia como hecho; el exponente es robusto pero el mecanismo (tearing) es \\emph{hipótesis} no demostrada $\\Rightarrow$ suavizar. (3) liderar con la banda $\\scrit\\in[2815,6800]$, no con ``$\\approx2861$''."
+ },
+ "REVISIÓN GLOBAL (Claude): (1) el objetivo~4 (campaña de orientación/intensidad de B) aparece aquí diluido, sin nombrarse ``objetivo''; enunciarlo explícitamente y anticipar que en B/C el observable pasa de $\\gKHI$ a balance energético (coherencia con cap.~6). (2) La explicación de la rigidez (\\emph{stiff}) e IMEX se repite en intro, cap.~3 y cap.~4: condensar a una sola exposición y referenciarla.": {
+  "id": 170,
+  "chap": "Cap. 1 — Introducción",
+  "typ": "claudenota",
+  "sec": "Objetivos y Estructura de la Monografía",
+  "body": "REVISIÓN GLOBAL (Claude): (1) el objetivo~4 (campaña de orientación/intensidad de B) aparece aquí diluido, sin nombrarse ``objetivo''; enunciarlo explícitamente y anticipar que en B/C el observable pasa de $\\gKHI$ a balance energético (coherencia con cap.~6). (2) La explicación de la rigidez (\\emph{stiff}) e IMEX se repite en intro, cap.~3 y cap.~4: condensar a una sola exposición y referenciarla."
+ },
+ "REVISIÓN GLOBAL (Claude) — capítulo más riguroso del documento, pero: (1) TONO demasiado ornamentado (``clímax'', ``andamiaje exacto'', ``inquebrantable''); bajar a prosa técnica seca. (2) La nota al pie de \\emph{Stueckelberg}/QFT es sobre-ingeniería para una monografía de pregrado: valorar quitarla o reducirla. (3) Hay BLOQUES de líneas en blanco (tras la descomposición relativa al observador, tras 3+1, etc.) que generan huecos en el PDF: limpiar. (4) El capítulo es muy largo; revisar que toda la maquinaria geométrica (formas/Hodge) se \\emph{use} luego y no sea relleno.": {
+  "id": 171,
+  "chap": "Cap. 2 — Teoría RRMHD",
+  "typ": "claudenota",
+  "sec": "(intro)",
+  "body": "REVISIÓN GLOBAL (Claude) — capítulo más riguroso del documento, pero: (1) TONO demasiado ornamentado (``clímax'', ``andamiaje exacto'', ``inquebrantable''); bajar a prosa técnica seca. (2) La nota al pie de \\emph{Stueckelberg}/QFT es sobre-ingeniería para una monografía de pregrado: valorar quitarla o reducirla. (3) Hay BLOQUES de líneas en blanco (tras la descomposición relativa al observador, tras 3+1, etc.) que generan huecos en el PDF: limpiar. (4) El capítulo es muy largo; revisar que toda la maquinaria geométrica (formas/Hodge) se \\emph{use} luego y no sea relleno."
+ },
+ "REVISIÓN GLOBAL (Claude): esta sección usa $\\mu_0$ explícito (ecs.\\ de momento y dispersión MHD), pero el resto del documento adopta Heaviside--Lorentz con $\\mu_0=1$ (cap.~2, cap.~5). Unificar la convención de unidades en TODO el documento (o $\\mu_0=1$ o mantenerlo explícito). Menor: ``la teoría demuestra que…'' (supresión relativista) es más bien argumento de plausibilidad; matizar.": {
+  "id": 172,
+  "chap": "Cap. 3 — KHI",
+  "typ": "claudenota",
+  "sec": "Extensión Magnetohidrodinámica Ideal (MHD)",
+  "body": "REVISIÓN GLOBAL (Claude): esta sección usa $\\mu_0$ explícito (ecs.\\ de momento y dispersión MHD), pero el resto del documento adopta Heaviside--Lorentz con $\\mu_0=1$ (cap.~2, cap.~5). Unificar la convención de unidades en TODO el documento (o $\\mu_0=1$ o mantenerlo explícito). Menor: ``la teoría demuestra que…'' (supresión relativista) es más bien argumento de plausibilidad; matizar."
+ },
+ "REVISIÓN GLOBAL (Claude): contenido técnico correcto pero el TONO es el más grandilocuente del documento (``condena los solucionadores'', ``formidables desafíos'', ``marco inquebrantable'', ``estructurando un marco inquebrantable…''): reescribir en prosa técnica sobria, suena a IA. Además: (1) ``se demuestra matemáticamente que $E^\\mu\\to0$'' (§límites asintóticos) se afirma sin mostrarlo; (2) el \\texttt{\\textbackslash label\\{sec:Acoplamiento\\_GLM\\_HLLC\\}} dice HLLC pero el código y el texto usan HLL (no HLLC): corregir.": {
+  "id": 173,
+  "chap": "Cap. 4 — Métodos numéricos",
+  "typ": "claudenota",
+  "sec": "(intro)",
+  "body": "REVISIÓN GLOBAL (Claude): contenido técnico correcto pero el TONO es el más grandilocuente del documento (``condena los solucionadores'', ``formidables desafíos'', ``marco inquebrantable'', ``estructurando un marco inquebrantable…''): reescribir en prosa técnica sobria, suena a IA. Además: (1) ``se demuestra matemáticamente que $E^\\mu\\to0$'' (§límites asintóticos) se afirma sin mostrarlo; (2) el \\texttt{\\textbackslash label\\{sec:Acoplamiento\\_GLM\\_HLLC\\}} dice HLLC pero el código y el texto usan HLL (no HLLC): corregir."
+ },
+ "INCOHERENCIA DE CFL (revisión Claude): aquí (y en la Tabla~\\ref{tab:setup_summary}) se fija CFL$=0.1$ para el barrido en $\\sigma$, pero la campaña de B usa CFL$=0.04$ ($\\sigma$6000) y $0.02$ ($\\sigma$10000). Tres valores de CFL en el documento sin reconciliar. Aclarar: ¿el barrido principal corrió a 0.1 y las campañas a 0.04/0.02? Documentar la matriz $\\sigma\\times$CFL real y por qué.": {
+  "id": 174,
+  "chap": "Cap. 5 — Setup experimental",
+  "typ": "claudenota",
+  "sec": "Dominio Computacional, Discretización y Sistema de Unidades",
+  "body": "INCOHERENCIA DE CFL (revisión Claude): aquí (y en la Tabla~\\ref{tab:setup_summary}) se fija CFL$=0.1$ para el barrido en $\\sigma$, pero la campaña de B usa CFL$=0.04$ ($\\sigma$6000) y $0.02$ ($\\sigma$10000). Tres valores de CFL en el documento sin reconciliar. Aclarar: ¿el barrido principal corrió a 0.1 y las campañas a 0.04/0.02? Documentar la matriz $\\sigma\\times$CFL real y por qué."
+ },
+ "REVISIÓN GLOBAL (Claude): dos puntos. (1) ``el aumento de $B_0$ refuerza la \\emph{tensión}'' contradice el cap.~6 (corregido): en orientación Mizuno $M_{A,\\parallel}$ es super-Alfvénico siempre $\\Rightarrow$ la supresión es por \\emph{presión/magnetización} ($\\beta\\propto B_0^{-2}$), no tensión. Reformular. (2) Esta tabla lista 5 casos ($B_0=0.25$–$2.0$) pero los débiles ($0.25,0.5$) crashearon y NO están en resultados (cap.~6 solo A3/A4/A5); marcar cuáles se analizan realmente. Igual la Campaña B incluye $\\theta=15°$, excluido de los datos limpios.": {
+  "id": 175,
+  "chap": "Cap. 5 — Setup experimental",
+  "typ": "claudenota",
+  "sec": "Campaña A — Intensidad (orientación Mizuno fija).",
+  "body": "REVISIÓN GLOBAL (Claude): dos puntos. (1) ``el aumento de $B_0$ refuerza la \\emph{tensión}'' contradice el cap.~6 (corregido): en orientación Mizuno $M_{A,\\parallel}$ es super-Alfvénico siempre $\\Rightarrow$ la supresión es por \\emph{presión/magnetización} ($\\beta\\propto B_0^{-2}$), no tensión. Reformular. (2) Esta tabla lista 5 casos ($B_0=0.25$–$2.0$) pero los débiles ($0.25,0.5$) crashearon y NO están en resultados (cap.~6 solo A3/A4/A5); marcar cuáles se analizan realmente. Igual la Campaña B incluye $\\theta=15°$, excluido de los datos limpios."
+ },
+ "ERROR FÍSICO (revisión Claude, PRIORIDAD — incoherencia con cap.~6): $B_x$ NO es paralela al flujo. El flujo de cizalla va en $\\hat y$ ($V_y$) y el modo $\\mathbf k$ también en $\\hat y$; $B_x$ es \\emph{perpendicular} al flujo y normal a la interfaz ($\\mathbf k\\cdot\\mathbf B\\propto B_x\\cdot 0=0$) $\\Rightarrow$ NO ejerce tensión. El cap.~6 ya describe (correctamente) la Campaña C como ``sin tensión''. CORREGIR este párrafo: la tensión la da $B_y$ ($\\parallel\\mathbf k$, Campaña B), no $B_x$. La variación con $\\theta$ en C es por presión/reconexión, no tensión.": {
+  "id": 176,
+  "chap": "Cap. 5 — Setup experimental",
+  "typ": "claudenota",
+  "sec": "Campaña C — Componente paralela al flujo (plano $x$--$z$, $|\\mathbf B|$ fijo).",
+  "body": "ERROR FÍSICO (revisión Claude, PRIORIDAD — incoherencia con cap.~6): $B_x$ NO es paralela al flujo. El flujo de cizalla va en $\\hat y$ ($V_y$) y el modo $\\mathbf k$ también en $\\hat y$; $B_x$ es \\emph{perpendicular} al flujo y normal a la interfaz ($\\mathbf k\\cdot\\mathbf B\\propto B_x\\cdot 0=0$) $\\Rightarrow$ NO ejerce tensión. El cap.~6 ya describe (correctamente) la Campaña C como ``sin tensión''. CORREGIR este párrafo: la tensión la da $B_y$ ($\\parallel\\mathbf k$, Campaña B), no $B_x$. La variación con $\\theta$ en C es por presión/reconexión, no tensión."
+ },
+ "COHERENCIA (revisión Claude): corregido ``total''$\\to$``propia'' (cap.~6 aclara que el panel es la energía magnética comóvil $\\tfrac12\\int b^2$, no $\\int B^2$ de laboratorio, que de hecho crece con $\\sigma$). Mantener consistente.": {
+  "id": 177,
+  "chap": "Cap. 7 — Conclusiones",
+  "typ": "claudenota",
+  "sec": "(3) Efecto sobre las variables globales.",
+  "body": "COHERENCIA (revisión Claude): corregido ``total''$\\to$``propia'' (cap.~6 aclara que el panel es la energía magnética comóvil $\\tfrac12\\int b^2$, no $\\int B^2$ de laboratorio, que de hecho crece con $\\sigma$). Mantener consistente."
+ },
+ "DESACTUALIZADO Y CON FÍSICA INCORRECTA (revisión Claude, PRIORIDAD): (1) la campaña B/C YA está en el cap.~6 $\\Rightarrow$ reescribir este objetivo como ``cumplido'', con sus resultados (intercambio $E_{\\rm kin}\\leftrightarrow E_{\\rm mag}$ en anti-fase; disipación óhmica vs $\\theta$/$\\sigma$; supresión de $\\Omega^{\\rm int}_{zp}$ con la tensión). (2) ``la tensión paralela al flujo $V_{A,\\parallel}$ es el agente dominante'' es FALSO según el cap.~6 (corregido): en intensidad domina la presión/magnetización ($M_{A,\\parallel}$ super-Alfvénico); la tensión (vía $B_y$, Campaña B) solo importa a $\\theta$ grande. Reescribir todo el párrafo.": {
+  "id": 178,
+  "chap": "Cap. 7 — Conclusiones",
+  "typ": "claudenota",
+  "sec": "(4) Efecto de la orientación e intensidad del campo magnético.",
+  "body": "DESACTUALIZADO Y CON FÍSICA INCORRECTA (revisión Claude, PRIORIDAD): (1) la campaña B/C YA está en el cap.~6 $\\Rightarrow$ reescribir este objetivo como ``cumplido'', con sus resultados (intercambio $E_{\\rm kin}\\leftrightarrow E_{\\rm mag}$ en anti-fase; disipación óhmica vs $\\theta$/$\\sigma$; supresión de $\\Omega^{\\rm int}_{zp}$ con la tensión). (2) ``la tensión paralela al flujo $V_{A,\\parallel}$ es el agente dominante'' es FALSO según el cap.~6 (corregido): en intensidad domina la presión/magnetización ($M_{A,\\parallel}$ super-Alfvénico); la tensión (vía $B_y$, Campaña B) solo importa a $\\theta$ grande. Reescribir todo el párrafo."
+ },
+ "DESINCRONIZADO con cap.~6 (revisión Claude): (1) AIC ---el cap.~6 ya reemplazó esta comparación (injusta: modelos calibrados en $\\sigma\\ge4000$) por la comparación ANIDADA JUSTA sig4 vs sig3 sobre los mismos datos, $\\Delta\\mathrm{AIC}=-126$. Actualizar aquí igual: dejar $-126$ como evidencia primaria y $-337/-531$ solo como cobertura global. (2) Aunque el texto dice ``la banda $\\pm1944$ es la honesta'', el bloque LIDERA con el consenso $2861\\pm122$; alinear con el cap.~6 (liderar con la zona). (3) El ``Veredicto'' (§\\ref{ap:veredicto}) duplica §6.7 (ya marcado por el revisor): recortar.": {
+  "id": 179,
+  "chap": "Anexos",
+  "typ": "claudenota",
+  "sec": "Reconstrucción de los estimadores de $\\scrit$",
+  "body": "DESINCRONIZADO con cap.~6 (revisión Claude): (1) AIC ---el cap.~6 ya reemplazó esta comparación (injusta: modelos calibrados en $\\sigma\\ge4000$) por la comparación ANIDADA JUSTA sig4 vs sig3 sobre los mismos datos, $\\Delta\\mathrm{AIC}=-126$. Actualizar aquí igual: dejar $-126$ como evidencia primaria y $-337/-531$ solo como cobertura global. (2) Aunque el texto dice ``la banda $\\pm1944$ es la honesta'', el bloque LIDERA con el consenso $2861\\pm122$; alinear con el cap.~6 (liderar con la zona). (3) El ``Veredicto'' (§\\ref{ap:veredicto}) duplica §6.7 (ya marcado por el revisor): recortar."
  }
 }

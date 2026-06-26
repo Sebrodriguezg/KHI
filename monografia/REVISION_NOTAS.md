@@ -1,19 +1,20 @@
 # Revisión de la monografía — tablero con ID fijo
 
-*Actualizado: 2026-06-24 · rama `revision-monografia`*
+*Actualizado: 2026-06-25 · rama `revision-monografia`*
 
-## 📊 85/168 cerradas (50%) — pendientes 83
+## 📊 85/179 cerradas (47%) — pendientes 94
 
 > **El # es FIJO** (no cambia aunque cerremos otras). ✅ = cerrada · ⬜ = pendiente.
 
 
-## Preliminares  — 0/1 cerradas
+## Preliminares  — 0/2 cerradas
 
 | # | Estado | Tipo | Sección | Qué dice |
 |---|---|---|---|---|
 | 1 | ⬜ | SEB | Resumen | no olvidar implementar la campaña de campo magnetico |
+| 169 | ⬜ | CLAUDE | Resumen | REVISIÓN GLOBAL (Claude): (1) el Resumen NO menciona la campaña de orientación/intensidad de B (B/C), que sí está en el cap.~6 $$ añadir una frase. (2) “Ω$^1.22$ compatible con Sweet--Parker y tearing” se enuncia como hecho; el exponente es robusto pero el mecanismo (tearing) es hipótesis no demostrada $$ suavizar. (3) liderar con la banda $[2815,6800]$, no con “$2861$”. |
 
-## Cap. 1 — Introducción  — 4/4 cerradas
+## Cap. 1 — Introducción  — 4/5 cerradas
 
 | # | Estado | Tipo | Sección | Qué dice |
 |---|---|---|---|---|
@@ -21,8 +22,9 @@
 | 3 | ✅ | CLAUDE | Contexto de Plasmas Relativistas y Astrofísicos | Se solapa con §1.3 (que ya lista jets/vientos/GRBs); mejor integrarlo allí, no aquí. Versión humanizada breve: “La KHI surge dondequiera que dos flujos de plasma se deslizan a velocidades distintas; en astrofísica, en los bordes de jets relativistas, vientos magnetizados y eyecciones compactas, donde favorece la mezcla, la formación de vórtices y la reorganización del campo magnético.” |
 | 4 | ✅ | REV | Objetivos y Estructura de la Monografía | este objetivo (orientación/intensidad de B) NO se desarrolla en el cuerpo de esta versión; es la campaña pendiente (ver Conclusiones, objetivo 4). Alinear la redacción a “se sientan las bases para evaluar…” o presentarlo como trabajo futuro. |
 | 5 | ✅ | CLAUDE | Objetivos y Estructura de la Monografía | Redacción propuesta: “… se sientan las bases para evaluar cómo las variaciones de dirección y magnitud del campo magnético externo modificarían la evolución de la inestabilidad; este objetivo se aborda como continuación inmediata (campaña en curso, cap.~(ref)).” |
+| 170 | ⬜ | CLAUDE | Objetivos y Estructura de la Monografía | REVISIÓN GLOBAL (Claude): (1) el objetivo~4 (campaña de orientación/intensidad de B) aparece aquí diluido, sin nombrarse “objetivo”; enunciarlo explícitamente y anticipar que en B/C el observable pasa de $$ a balance energético (coherencia con cap.~6). (2) La explicación de la rigidez (stiff) e IMEX se repite en intro, cap.~3 y cap.~4: condensar a una sola exposición y referenciarla. |
 
-## Cap. 2 — Teoría RRMHD  — 36/46 cerradas
+## Cap. 2 — Teoría RRMHD  — 36/47 cerradas
 
 | # | Estado | Tipo | Sección | Qué dice |
 |---|---|---|---|---|
@@ -72,8 +74,9 @@
 | 49 | ✅ | CLAUDE | Inercia Térmica Relativista y Anisotropía Magnética | Estilo: cuando los autores son el sujeto (“… demostraron”), va textcite (ya corregido aquí). Revisar otros “ parencite\…\ + verbo” en el capítulo. |
 | 50 | ✅ | CLAUDE | Inercia Térmica Relativista y Anisotropía Magnética | Esta es la definición correcta y estándar ($w= h^2$). El cap.~3 (§3.4.1) escribe $w= h^2+B^2$: unificar a esta (quitar el $+B^2$ del cap.~3), como pide la nota roja de ese capítulo. |
 | 51 | ⬜ | SEB | Enstrofía de Perturbación y Extracción de $$ | En general, revisar todas las citas bien plantedas y utilizadas, y añadir en el marco teorico todas las herramientas estadisticas utilizadad, o discutir si deben de ser anexos , ya que son erramientas validas pero poco convencionales |
+| 171 | ⬜ | CLAUDE | (intro) | REVISIÓN GLOBAL (Claude) — capítulo más riguroso del documento, pero: (1) TONO demasiado ornamentado (“clímax”, “andamiaje exacto”, “inquebrantable”); bajar a prosa técnica seca. (2) La nota al pie de Stueckelberg/QFT es sobre-ingeniería para una monografía de pregrado: valorar quitarla o reducirla. (3) Hay BLOQUES de líneas en blanco (tras la descomposición relativa al observador, tras 3+1, etc.) que generan huecos en el PDF: limpiar. (4) El capítulo es muy largo; revisar que toda la maquinaria geométrica (formas/Hodge) se use luego y no sea relleno. |
 
-## Cap. 3 — KHI  — 10/10 cerradas
+## Cap. 3 — KHI  — 10/11 cerradas
 
 | # | Estado | Tipo | Sección | Qué dice |
 |---|---|---|---|---|
@@ -87,8 +90,9 @@
 | 59 | ✅ | CLAUDE | El Rol de la Resistividad y la Relajación Topológica | Esta pregunta ya queda respondida por el cierre de §3.5 (párrafo nuevo sobre por qué en RRMHD no hay dispersión algebraica cerrada). Sugerencia: dejar esta nota como puntero a ese párrafo o borrarla para no duplicar. |
 | 60 | ✅ | SEB | Motivación Numérica y Relevancia Computacional | explicar a fondo (o en footnote) el esquema IMEX: advección explícita del fluido $+$ tratamiento implícito de las fuentes disipativas rígidas. |
 | 61 | ✅ | CLAUDE | Motivación Numérica y Relevancia Computacional | Footnote IMEX propuesta: “IMEX-RK (Implicit--Explicit Runge--Kutta): integra de forma explícita los flujos advectivos no rígidos e implícita las fuentes resistivas rígidas ($$), evitando el paso de tiempo $ t^-1$ que impondría un esquema totalmente explícito a alta conductividad.” Coherente con la implementación del Cueva (Pareschi--Russo + Aloy--Cordero). |
+| 172 | ⬜ | CLAUDE | Extensión Magnetohidrodinámica Ideal (MHD) | REVISIÓN GLOBAL (Claude): esta sección usa $_0$ explícito (ecs.\ de momento y dispersión MHD), pero el resto del documento adopta Heaviside--Lorentz con $_0=1$ (cap.~2, cap.~5). Unificar la convención de unidades en TODO el documento (o $_0=1$ o mantenerlo explícito). Menor: “la teoría demuestra que…” (supresión relativista) es más bien argumento de plausibilidad; matizar. |
 
-## Cap. 4 — Métodos numéricos  — 7/7 cerradas
+## Cap. 4 — Métodos numéricos  — 7/8 cerradas
 
 | # | Estado | Tipo | Sección | Qué dice |
 |---|---|---|---|---|
@@ -99,8 +103,9 @@
 | 66 | ✅ | SEB | Estructura Espectral de los Potenciales Auxiliares | ¿dónde se muestra esta diagonalización? ¿es pertinente incluirla explícitamente? |
 | 67 | ✅ | CLAUDE | Estructura Espectral de los Potenciales Auxiliares | No es esencial en el cuerpo: basta afirmar que las submatrices $22$ tienen autovalores $ c_h$ (de ahí la propagación causal). Si se quiere el detalle, llevarlo al anexo. Conecta con la nota de cap.~2 sobre derivar el 2$$2 desde el sistema 3+1. |
 | 68 | ✅ | CLAUDE | Recuperación de Variables Primitivas: la Cuártica del Factor de Lorentz | Verificado contra el código (12\_varprimitive.f95, subrutina varprimitivecardano): cuártica en $$ + Tchirnhaus + refinamiento Newton, correcto. Cita: el esquema de recuperación es del Cueva; citar miranda-aranguren-2018 aquí (mizuno-2013 es el paper de EoS, no de recuperación de primitivas). |
+| 173 | ⬜ | CLAUDE | (intro) | REVISIÓN GLOBAL (Claude): contenido técnico correcto pero el TONO es el más grandilocuente del documento (“condena los solucionadores”, “formidables desafíos”, “marco inquebrantable”, “estructurando un marco inquebrantable…”): reescribir en prosa técnica sobria, suena a IA. Además: (1) “se demuestra matemáticamente que $E^0$” (§límites asintóticos) se afirma sin mostrarlo; (2) el label\sec:Acoplamiento\_GLM\_HLLC\ dice HLLC pero el código y el texto usan HLL (no HLLC): corregir. |
 
-## Cap. 5 — Setup experimental  — 3/12 cerradas
+## Cap. 5 — Setup experimental  — 3/15 cerradas
 
 | # | Estado | Tipo | Sección | Qué dice |
 |---|---|---|---|---|
@@ -116,6 +121,9 @@
 | 123 | ⬜ | SEB | Conductividades y paso temporal. | revisar la matriz final $$CFL realmente usada: los datos de llegada incluyen también $=4500,5500,6500,7000$ y versiones CFL $0.10/0.04/0.02$; definir cuáles entran en la monografía. |
 | 124 | ⬜ | SEB | Conductividades y paso temporal. | la comparación entre $$ queda entonces a CFL mixto; decidir si se homogeniza para el análisis final. |
 | 125 | ⬜ | SEB | Conductividades y paso temporal. | el análisis cuantitativo (\,$$ vs $B$, $^$ vs $$, conversión magnética--cinética\,) se desarrolla en el Capítulo~(ref); resultados preliminares, pendientes de revisión a fondo (no fiarse aún del informe de llegada). |
+| 174 | ⬜ | CLAUDE | Dominio Computacional, Discretización y Sistema de Unidades | INCOHERENCIA DE CFL (revisión Claude): aquí (y en la Tabla~(ref)) se fija CFL$=0.1$ para el barrido en $$, pero la campaña de B usa CFL$=0.04$ ($$6000) y $0.02$ ($$10000). Tres valores de CFL en el documento sin reconciliar. Aclarar: ¿el barrido principal corrió a 0.1 y las campañas a 0.04/0.02? Documentar la matriz $$CFL real y por qué. |
+| 175 | ⬜ | CLAUDE | Campaña A — Intensidad (orientación Mizuno fija). | REVISIÓN GLOBAL (Claude): dos puntos. (1) “el aumento de $B_0$ refuerza la tensión” contradice el cap.~6 (corregido): en orientación Mizuno $M_A,$ es super-Alfvénico siempre $$ la supresión es por presión/magnetización ($ B_0^-2$), no tensión. Reformular. (2) Esta tabla lista 5 casos ($B_0=0.25$–$2.0$) pero los débiles ($0.25,0.5$) crashearon y NO están en resultados (cap.~6 solo A3/A4/A5); marcar cuáles se analizan realmente. Igual la Campaña B incluye $=15°$, excluido de los datos limpios. |
+| 176 | ⬜ | CLAUDE | Campaña C — Componente paralela al flujo (plano $x$--$z$, $| B|$ fijo). | ERROR FÍSICO (revisión Claude, PRIORIDAD — incoherencia con cap.~6): $B_x$ NO es paralela al flujo. El flujo de cizalla va en $ y$ ($V_y$) y el modo $ k$ también en $ y$; $B_x$ es perpendicular al flujo y normal a la interfaz ($ k B B_x 0=0$) $$ NO ejerce tensión. El cap.~6 ya describe (correctamente) la Campaña C como “sin tensión”. CORREGIR este párrafo: la tensión la da $B_y$ ($ k$, Campaña B), no $B_x$. La variación con $$ en C es por presión/reconexión, no tensión. |
 
 ## Cap. 6 — Resultados  — 25/79 cerradas
 
@@ -201,7 +209,7 @@
 | 167 | ⬜ | CLAUDE | Resultados del ajuste | ATENDIDO: la evidencia primaria es ahora la comparación anidada $AIC=-126$ (4p vs 3p sobre los mismos $1600$), que NO es circular. La fila vs sub-escala/clásico se conserva solo para ilustrar cobertura global (esos modelos se calibraron en $4000$). Reescribir §val.\ en consecuencia. |
 | 168 | ⬜ | CLAUDE | Predicción RMHD compresible (Lees--Lin) | ATENDIDO (revisión Claude, prioridad ataque): la sustitución $c_s v_f$ ya NO es post-hoc: se justifica por geometría ($ k B$ $$ compresión perpendicular $$ velocidad rápida perpendicular relativista), que es la consecuencia correcta, no un ajuste. Verificado: $v_f=v_A^2+c_s^2(1-v_A^2)=0.691$. Queda HONESTO reconocer que sigue siendo una aproximación escalar a la relación de dispersión magnetizada completa de grado~8 (que añadiría anisotropía); por eso es “consistencia fuerte”, no validación cerrada (§(ref)). El bracket $c_s\!\!0.016$ / $v_f\!\!0.095$ / medido $0.103$ es la sensibilidad. |
 
-## Cap. 7 — Conclusiones  — 0/6 cerradas
+## Cap. 7 — Conclusiones  — 0/8 cerradas
 
 | # | Estado | Tipo | Sección | Qué dice |
 |---|---|---|---|---|
@@ -211,11 +219,14 @@
 | 117 | ⬜ | SEB | (3) Efecto sobre las variables globales. | Se puede agregar un análisis igual al del campo magnético para ver la correlación de las variables energéticas y cómo esta cambia con $$. |
 | 118 | ⬜ | SEB | Trabajo Futuro | no es válido: ya no es “trabajo futuro”, la campaña está en curso. |
 | 119 | ⬜ | CLAUDE | Trabajo Futuro | Correcto: mover “Campaña de campo magnético” de Trabajo Futuro a Resultados/Conclusiones una vez integrada (martes). Si para la entrega aún no está, dejarla como “en curso”, no como futuro. |
+| 177 | ⬜ | CLAUDE | (3) Efecto sobre las variables globales. | COHERENCIA (revisión Claude): corregido “total”$$“propia” (cap.~6 aclara que el panel es la energía magnética comóvil $12 b^2$, no $ B^2$ de laboratorio, que de hecho crece con $$). Mantener consistente. |
+| 178 | ⬜ | CLAUDE | (4) Efecto de la orientación e intensidad del campo magnético. | DESACTUALIZADO Y CON FÍSICA INCORRECTA (revisión Claude, PRIORIDAD): (1) la campaña B/C YA está en el cap.~6 $$ reescribir este objetivo como “cumplido”, con sus resultados (intercambio $E_ kin E_ mag$ en anti-fase; disipación óhmica vs $$/$$; supresión de $^ int_zp$ con la tensión). (2) “la tensión paralela al flujo $V_A,$ es el agente dominante” es FALSO según el cap.~6 (corregido): en intensidad domina la presión/magnetización ($M_A,$ super-Alfvénico); la tensión (vía $B_y$, Campaña B) solo importa a $$ grande. Reescribir todo el párrafo. |
 
-## Anexos  — 0/3 cerradas
+## Anexos  — 0/4 cerradas
 
 | # | Estado | Tipo | Sección | Qué dice |
 |---|---|---|---|---|
 | 120 | ⬜ | SEB | Justificación de $C+_0$: derivación paso a paso | Revisar y contrastar con la bibliografía, o directamente solo poner los resultados. |
 | 121 | ⬜ | CLAUDE | Justificación de $C+_0$: derivación paso a paso | El anexo ya recomputa todo de forma independiente y coincide con el cuerpo; las fuentes (Michalke, Landau, Bodo, Chow) están verificadas. Decisión: dejarlo como auditoría (valor añadido) o condensarlo a la tabla-síntesis. La nota roja del “Veredicto” (duplicado con §6.7) apunta a recortar esa subsección, no la auditoría numérica. |
 | 122 | ⬜ | REV | Veredicto: validez teórica del montaje | REVISAR (revisor): esta subsección repite la discusión de robustez/consistencia ya hecha (con más detalle) en el cap.\ de Resultados (§(ref)). Considerar recortarla a una síntesis breve específica del apéndice o eliminarla para no duplicar. |
+| 179 | ⬜ | CLAUDE | Reconstrucción de los estimadores de $$ | DESINCRONIZADO con cap.~6 (revisión Claude): (1) AIC —el cap.~6 ya reemplazó esta comparación (injusta: modelos calibrados en $4000$) por la comparación ANIDADA JUSTA sig4 vs sig3 sobre los mismos datos, $AIC=-126$. Actualizar aquí igual: dejar $-126$ como evidencia primaria y $-337/-531$ solo como cobertura global. (2) Aunque el texto dice “la banda $1944$ es la honesta”, el bloque LIDERA con el consenso $2861122$; alinear con el cap.~6 (liderar con la zona). (3) El “Veredicto” (§(ref)) duplica §6.7 (ya marcado por el revisor): recortar. |
