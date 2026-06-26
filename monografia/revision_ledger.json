@@ -164,7 +164,7 @@
   "id": 146,
   "chap": "Cap. 6 — Resultados",
   "typ": "claudenota",
-  "sec": "Variación en el plano $x-z$ (Campaña C)",
+  "sec": "Variación en el plano $x-z$",
   "body": "INCONSISTENCIA con el cap.~5: allí (siguiendo al profe) la Campaña C es ``componente \\emph{paralela al flujo} que estabiliza por tensión''; AQUÍ (correcto) es ``sin tensión''. La tensión la da $B_y$ ($\\parallel\\mathbf k$, flujo en $\\hat y$); en C $B_y=0$ y $B_x$ es normal a la interfaz ($\\perp\\mathbf k$) $\\Rightarrow$ NO hay tensión. CORREGIR el cap.~5 (``paralela al flujo'' es engañoso)."
  },
  "En C, $|\\mathbf B|$ (y la presión) es \\emph{constante} en $\\theta$; la variación con $\\theta$ no puede venir de la presión. Aclarar qué cambia con $\\theta$ en C (dirección de $B_x$ respecto a la interfaz / reconexión).": {
@@ -508,7 +508,7 @@
   "chap": "Cap. 6 — Resultados",
   "typ": "sebnota",
   "sec": "Impacto de la intensidad del campo magnético en el desarrollo de la inestabilidad",
-  "body": "en las graficas añadir el pico con el valor registrado. "
+  "body": "en las graficas añadir el pico con el valor registrado."
  },
  "es tension magnetica o no ?": {
   "id": 196,
@@ -551,5 +551,61 @@
   "typ": "sebnota",
   "sec": "Balance energético y procesos disipativos",
   "body": "redaccion muy escalonada, mas fluidez"
+ },
+ "Este comentario de claude no es pertinente, ya que aqui aclaramos que estamos haciendo la MHD ideal guiandonos de lo que se hace en el acheson el cual obviamente no usa unidades naturales. Y lo de ``la teoría demuestra que…'' no lo encontre en ningun lado de este capitulo": {
+  "id": 202,
+  "chap": "Cap. 3 — KHI",
+  "typ": "brynota",
+  "sec": "Extensión Magnetohidrodinámica Ideal (MHD)",
+  "body": "Este comentario de claude no es pertinente, ya que aqui aclaramos que estamos haciendo la MHD ideal guiandonos de lo que se hace en el acheson el cual obviamente no usa unidades naturales. Y lo de ``la teoría demuestra que…'' no lo encontre en ningun lado de este capitulo"
+ },
+ "CORREGIDO (prioridad 2): el texto original (de Bryan) atribuía la supresión a la tensión; los números ($M_{A,\\parallel}$ super-Alfvénico siempre; $\\beta\\propto B_0^{-2}$; $V_{A,\\rm tot}$ creciente) muestran que es presión/magnetización. Bryan adoptó la misma corrección en su versión $\\Rightarrow$ ambos coinciden. REVISAR redacción y, si se quiere, añadir una tablita con $M_{A,\\parallel}$, $V_{A,\\rm tot}$, $\\beta$ por $B_0$.": {
+  "id": 203,
+  "chap": "Cap. 6 — Resultados",
+  "typ": "claudenota",
+  "sec": "Impacto de la intensidad del campo magnético en el desarrollo de la inestabilidad",
+  "body": "CORREGIDO (prioridad 2): el texto original (de Bryan) atribuía la supresión a la tensión; los números ($M_{A,\\parallel}$ super-Alfvénico siempre; $\\beta\\propto B_0^{-2}$; $V_{A,\\rm tot}$ creciente) muestran que es presión/magnetización. Bryan adoptó la misma corrección en su versión $\\Rightarrow$ ambos coinciden. REVISAR redacción y, si se quiere, añadir una tablita con $M_{A,\\parallel}$, $V_{A,\\rm tot}$, $\\beta$ por $B_0$."
+ },
+ "MERGE: Bryan corrigió estos dos ítems de ``tensión'' a presión/magnetización (coincide con la corrección \\#2). Las sebnotas de Sebas ``¿es tensión o no?'' quedan respondidas por el texto.": {
+  "id": 204,
+  "chap": "Cap. 6 — Resultados",
+  "typ": "claudenota",
+  "sec": "Impacto de la intensidad del campo magnético en el desarrollo de la inestabilidad",
+  "body": "MERGE: Bryan corrigió estos dos ítems de ``tensión'' a presión/magnetización (coincide con la corrección \\#2). Las sebnotas de Sebas ``¿es tensión o no?'' quedan respondidas por el texto."
+ },
+ "CORREGIR: toca corregir esta grafica porque en el recuadro no aparece el simbolo de los grados sino un gamma": {
+  "id": 205,
+  "chap": "Cap. 6 — Resultados",
+  "typ": "brynota",
+  "sec": "Variación en el plano $y-z$",
+  "body": "CORREGIR: toca corregir esta grafica porque en el recuadro no aparece el simbolo de los grados sino un gamma"
+ },
+ "Segun yo los colores si son correctos pero si es bueno que los revise porque puedo estar ciego": {
+  "id": 206,
+  "chap": "Cap. 6 — Resultados",
+  "typ": "brynota",
+  "sec": "Variación en el plano $y-z$",
+  "body": "Segun yo los colores si son correctos pero si es bueno que los revise porque puedo estar ciego"
+ },
+ "dejo este comentario para que revise el cap 5": {
+  "id": 207,
+  "chap": "Cap. 6 — Resultados",
+  "typ": "brynota",
+  "sec": "Variación en el plano $x-z$",
+  "body": "dejo este comentario para que revise el cap 5"
+ },
+ "Ya revise esta seccion y le doy visto bueno, solo es que uste la lea y la confirme": {
+  "id": 208,
+  "chap": "Cap. 6 — Resultados",
+  "typ": "brynota",
+  "sec": "Balance energético y procesos disipativos",
+  "body": "Ya revise esta seccion y le doy visto bueno, solo es que uste la lea y la confirme"
+ },
+ "organizar en 2x2": {
+  "id": 209,
+  "chap": "Cap. 6 — Resultados",
+  "typ": "sebnota",
+  "sec": "Variación en el plano $x-z$",
+  "body": "organizar en 2x2"
  }
 }

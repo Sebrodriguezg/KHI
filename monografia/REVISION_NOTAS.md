@@ -1,8 +1,8 @@
 # Revisión de la monografía — tablero con ID fijo
 
-*Actualizado: 2026-06-25 · rama `revision-monografia`*
+*Actualizado: 2026-06-26 · rama `revision-monografia`*
 
-## 📊 88/201 cerradas (43%) — pendientes 113
+## 📊 105/209 cerradas (50%) — pendientes 104
 
 > **El # es FIJO** (no cambia aunque cerremos otras). ✅ = cerrada · ⬜ = pendiente.
 
@@ -76,7 +76,7 @@
 | 51 | ⬜ | SEB | Enstrofía de Perturbación y Extracción de $$ | En general, revisar todas las citas bien plantedas y utilizadas, y añadir en el marco teorico todas las herramientas estadisticas utilizadad, o discutir si deben de ser anexos , ya que son erramientas validas pero poco convencionales |
 | 171 | ⬜ | CLAUDE | (intro) | REVISIÓN GLOBAL (Claude) — capítulo más riguroso del documento, pero: (1) TONO demasiado ornamentado (“clímax”, “andamiaje exacto”, “inquebrantable”); bajar a prosa técnica seca. (2) La nota al pie de Stueckelberg/QFT es sobre-ingeniería para una monografía de pregrado: valorar quitarla o reducirla. (3) Hay BLOQUES de líneas en blanco (tras la descomposición relativa al observador, tras 3+1, etc.) que generan huecos en el PDF: limpiar. (4) El capítulo es muy largo; revisar que toda la maquinaria geométrica (formas/Hodge) se use luego y no sea relleno. |
 
-## Cap. 3 — KHI  — 10/11 cerradas
+## Cap. 3 — KHI  — 10/12 cerradas
 
 | # | Estado | Tipo | Sección | Qué dice |
 |---|---|---|---|---|
@@ -91,8 +91,9 @@
 | 60 | ✅ | SEB | Motivación Numérica y Relevancia Computacional | explicar a fondo (o en footnote) el esquema IMEX: advección explícita del fluido $+$ tratamiento implícito de las fuentes disipativas rígidas. |
 | 61 | ✅ | CLAUDE | Motivación Numérica y Relevancia Computacional | Footnote IMEX propuesta: “IMEX-RK (Implicit--Explicit Runge--Kutta): integra de forma explícita los flujos advectivos no rígidos e implícita las fuentes resistivas rígidas ($$), evitando el paso de tiempo $ t^-1$ que impondría un esquema totalmente explícito a alta conductividad.” Coherente con la implementación del Cueva (Pareschi--Russo + Aloy--Cordero). |
 | 172 | ⬜ | CLAUDE | Extensión Magnetohidrodinámica Ideal (MHD) | REVISIÓN GLOBAL (Claude): esta sección usa $_0$ explícito (ecs.\ de momento y dispersión MHD), pero el resto del documento adopta Heaviside--Lorentz con $_0=1$ (cap.~2, cap.~5). Unificar la convención de unidades en TODO el documento (o $_0=1$ o mantenerlo explícito). Menor: “la teoría demuestra que…” (supresión relativista) es más bien argumento de plausibilidad; matizar. |
+| 202 | ⬜ | BRY | Extensión Magnetohidrodinámica Ideal (MHD) | Este comentario de claude no es pertinente, ya que aqui aclaramos que estamos haciendo la MHD ideal guiandonos de lo que se hace en el acheson el cual obviamente no usa unidades naturales. Y lo de “la teoría demuestra que…” no lo encontre en ningun lado de este capitulo |
 
-## Cap. 4 — Métodos numéricos  — 7/8 cerradas
+## Cap. 4 — Métodos numéricos  — 8/8 cerradas
 
 | # | Estado | Tipo | Sección | Qué dice |
 |---|---|---|---|---|
@@ -103,7 +104,7 @@
 | 66 | ✅ | SEB | Estructura Espectral de los Potenciales Auxiliares | ¿dónde se muestra esta diagonalización? ¿es pertinente incluirla explícitamente? |
 | 67 | ✅ | CLAUDE | Estructura Espectral de los Potenciales Auxiliares | No es esencial en el cuerpo: basta afirmar que las submatrices $22$ tienen autovalores $ c_h$ (de ahí la propagación causal). Si se quiere el detalle, llevarlo al anexo. Conecta con la nota de cap.~2 sobre derivar el 2$$2 desde el sistema 3+1. |
 | 68 | ✅ | CLAUDE | Recuperación de Variables Primitivas: la Cuártica del Factor de Lorentz | Verificado contra el código (12\_varprimitive.f95, subrutina varprimitivecardano): cuártica en $$ + Tchirnhaus + refinamiento Newton, correcto. Cita: el esquema de recuperación es del Cueva; citar miranda-aranguren-2018 aquí (mizuno-2013 es el paper de EoS, no de recuperación de primitivas). |
-| 173 | ⬜ | CLAUDE | (intro) | REVISIÓN GLOBAL (Claude): contenido técnico correcto pero el TONO es el más grandilocuente del documento (“condena los solucionadores”, “formidables desafíos”, “marco inquebrantable”, “estructurando un marco inquebrantable…”): reescribir en prosa técnica sobria, suena a IA. Además: (1) “se demuestra matemáticamente que $E^0$” (§límites asintóticos) se afirma sin mostrarlo; (2) el label\sec:Acoplamiento\_GLM\_HLLC\ dice HLLC pero el código y el texto usan HLL (no HLLC): corregir. |
+| 173 | ✅ | CLAUDE | (intro) | REVISIÓN GLOBAL (Claude): contenido técnico correcto pero el TONO es el más grandilocuente del documento (“condena los solucionadores”, “formidables desafíos”, “marco inquebrantable”, “estructurando un marco inquebrantable…”): reescribir en prosa técnica sobria, suena a IA. Además: (1) “se demuestra matemáticamente que $E^0$” (§límites asintóticos) se afirma sin mostrarlo; (2) el label\sec:Acoplamiento\_GLM\_HLLC\ dice HLLC pero el código y el texto usan HLL (no HLLC): corregir. |
 
 ## Cap. 5 — Setup experimental  — 3/20 cerradas
 
@@ -130,7 +131,7 @@
 | 183 | ⬜ | SEB | Condiciones Iniciales del Problema | cambiar color de las graficas |
 | 184 | ⬜ | SEB | Segunda campaña: variación del campo magnético (objetivo 4) | fija en 2 valores |
 
-## Cap. 6 — Resultados  — 28/96 cerradas
+## Cap. 6 — Resultados  — 44/103 cerradas
 
 | # | Estado | Tipo | Sección | Qué dice |
 |---|---|---|---|---|
@@ -161,26 +162,26 @@
 | 102 | ⬜ | SEB | Buen planteamiento y papel de la resistividad | Poner y organizar todo para la variación del campo magnético. |
 | 103 | ✅ | REV | Buen planteamiento y papel de la resistividad | TONO (revisor): “prueba decisiva” suena tajante y no sabemos si lo será; considerar “una prueba más exhaustiva”. |
 | 104 | ✅ | REV | Limitaciones del análisis y perspectivas | TONO (revisor): esta sección suena a IA y da por seguro que las pruebas futuras “arreglarían” las discrepancias; en realidad no se sabe. Reescribir en condicional/posibilidades (“podría”, “permitiría”) en vez de certezas, y revisar el uso de “prueba decisiva”/“máxima prioridad”. |
-| 105 | ⬜ | SEB | Limitaciones del análisis y perspectivas | límite numérico. |
+| 105 | ✅ | SEB | Limitaciones del análisis y perspectivas | límite numérico. |
 | 106 | ✅ | SEB | Limitaciones del análisis y perspectivas | ¿ya existe? |
 | 107 | ✅ | CLAUDE | Limitaciones del análisis y perspectivas | Sí existe: chow2023 da el análisis lineal RMHD magnetizado (el polinomio de alto grado); ya está citado y subido al NotebookLM. La sustitución $c_s v_f$ es la aproximación que aquí se usa en vez de resolver ese polinomio completo. |
-| 108 | ⬜ | SEB | Limitaciones del análisis y perspectivas | esto lo estamos haciendo nosotros (campaña en curso). |
-| 109 | ⬜ | SEB | Limitaciones del análisis y perspectivas | ¿estamos más arriba del radio de sincrotrón, no? |
-| 110 | ⬜ | CLAUDE | Limitaciones del análisis y perspectivas | El Cueva es un código de fluido (RRMHD), sin escala cinética/giroradio: no hay “radio de sincrotrón” resuelto. La escala micro relevante es la capa resistiva $ S^-1/2$. Si la duda es por Hall/anisotropía, eso sí queda fuera del modelo escalar de $$ (ya anotado en limitaciones). |
-| 111 | ⬜ | SEB | Limitaciones del análisis y perspectivas | No existe inestabilidad, o al menos no se generan tasas de crecimiento. Esto está mal. |
-| 112 | ⬜ | CLAUDE | Limitaciones del análisis y perspectivas | De acuerdo: a $500$ el problema no es “ajuste pobre” sino que la disipación domina desde $t=0$ y no hay fase lineal limpia $$ no se puede extraer una $$ fiable. Reformular así (no “$R^2<0.7$” a secas). |
-| 113 | ⬜ | SEB | Limitaciones del análisis y perspectivas | variación y orientación, inminentes. |
+| 108 | ✅ | SEB | Limitaciones del análisis y perspectivas | esto lo estamos haciendo nosotros (campaña en curso). |
+| 109 | ✅ | SEB | Limitaciones del análisis y perspectivas | ¿estamos más arriba del radio de sincrotrón, no? |
+| 110 | ✅ | CLAUDE | Limitaciones del análisis y perspectivas | El Cueva es un código de fluido (RRMHD), sin escala cinética/giroradio: no hay “radio de sincrotrón” resuelto. La escala micro relevante es la capa resistiva $ S^-1/2$. Si la duda es por Hall/anisotropía, eso sí queda fuera del modelo escalar de $$ (ya anotado en limitaciones). |
+| 111 | ✅ | SEB | Limitaciones del análisis y perspectivas | No existe inestabilidad, o al menos no se generan tasas de crecimiento. Esto está mal. |
+| 112 | ✅ | CLAUDE | Limitaciones del análisis y perspectivas | De acuerdo: a $500$ el problema no es “ajuste pobre” sino que la disipación domina desde $t=0$ y no hay fase lineal limpia $$ no se puede extraer una $$ fiable. Reformular así (no “$R^2<0.7$” a secas). |
+| 113 | ✅ | SEB | Limitaciones del análisis y perspectivas | variación y orientación, inminentes. |
 | 126 | ⬜ | BRY | Variación de Intensidad y Orientación del Campo Magnético | Sección redactada por Bryan (campaña magnética, objetivo 4); pendiente cablear figuras/tablas de ANALISIS\_LIMPIO\_FINAL/figuras. |
-| 127 | ⬜ | CLAUDE | Variación de Intensidad y Orientación del Campo Magnético | Notación: usar $$ como en el resto del documento, no $_i$. |
-| 128 | ⬜ | CLAUDE | Variación de Intensidad y Orientación del Campo Magnético | Definir/referenciar aquí presión magnética ($P_ mag=B^2/2$) y tensión magnética ($( k B)^2$), clave de todo el capítulo. La tensión la ejerce la componente paralela a $ k$ (aquí $B_y$; el flujo y $ k$ van en $ y$). |
+| 127 | ✅ | CLAUDE | Variación de Intensidad y Orientación del Campo Magnético | Notación: usar $$ como en el resto del documento, no $_i$. |
+| 128 | ✅ | CLAUDE | Variación de Intensidad y Orientación del Campo Magnético | Definir/referenciar aquí presión magnética ($P_ mag=B^2/2$) y tensión magnética ($( k B)^2$), clave de todo el capítulo. La tensión la ejerce la componente paralela a $ k$ (aquí $B_y$; el flujo y $ k$ van en $ y$). |
 | 129 | ✅ | CLAUDE | Impacto de la intensidad del campo magnético en el desarrollo de la inestabilidad | OJO física: en la Campaña A la orientación es Mizuno ($B_y=B_00.02$ pequeña; $B_z=B_02$ domina). La tensión $( k B)^2 B_y^2$ es débil ($M_A,=9.4$, super-Alfvénico, §(ref)). ¿La supresión al subir $B_0$ es por tensión o más bien por presión/magnetización ($$)? El texto lo atribuye todo a la tensión; verificar. |
 | 130 | ✅ | CLAUDE | Impacto de la intensidad del campo magnético en el desarrollo de la inestabilidad | ¿Se estabiliza el modo lineal ($$) o solo se atenúa/retrasa el pico no lineal? Respaldarlo midiendo $$ (pendiente en la ventana) por $B_0$. |
 | 131 | ⬜ | CLAUDE | Impacto de la intensidad del campo magnético en el desarrollo de la inestabilidad | La tabla solo incluye $B_01.0$ (casos A3, A4, A5): las configuraciones de campo débil $B_0=0.25$ y $0.5$ (alta $$) crashearon en $t1$ antes de desarrollar la inestabilidad, por lo que se excluyeron de los datos limpios. |
-| 132 | ⬜ | CLAUDE | Impacto de la intensidad del campo magnético en el desarrollo de la inestabilidad | Los colores NO coinciden: las figuras regeneradas usan el ciclo por defecto (A3$=$azul, A4$=$naranja, A5$=$verde), no “verde/rojo/morado”. Unificar: re-generar con ese esquema o quitar las menciones de color del texto. Igual con la “curva roja $=30°$” más abajo. |
+| 132 | ✅ | CLAUDE | Impacto de la intensidad del campo magnético en el desarrollo de la inestabilidad | Los colores NO coinciden: las figuras regeneradas usan el ciclo por defecto (A3$=$azul, A4$=$naranja, A5$=$verde), no “verde/rojo/morado”. Unificar: re-generar con ese esquema o quitar las menciones de color del texto. Igual con la “curva roja $=30°$” más abajo. |
 | 133 | ⬜ | CLAUDE | Impacto de la intensidad del campo magnético en el desarrollo de la inestabilidad | Verificar los tiempos de pico ($t5$ para $B_0=1$; $t7$ para $B_0=2$) midiendo $t_ peak$ real. |
 | 134 | ⬜ | CLAUDE | Impacto de la intensidad del campo magnético en el desarrollo de la inestabilidad | Notación: $_Zp_zp$ (minúscula; macro Ozp) aquí y en toda la sección. Los valores $85$ vs $45$ concuerdan con §(ref). |
 | 135 | ⬜ | CLAUDE | Variación en el plano $y-z$ | ¿Por qué solo $=5.7°$ y no $=0°$? A $=0$ (guía pura, $ k B=0$, sin tensión) cabría esperar la KHI más limpia; sin embargo $^(=0)$ es BAJO ($14$, Fig. del director). Aclarar la contraintuición. |
-| 136 | ⬜ | CLAUDE | Variación en el plano $y-z$ | Precisar: la presión de $B_z$ entra vía la velocidad magnetosónica/compresibilidad, no en $w= h^2$ (que NO lleva $B^2$, ver cap.~2/3). |
+| 136 | ✅ | CLAUDE | Variación en el plano $y-z$ | Precisar: la presión de $B_z$ entra vía la velocidad magnetosónica/compresibilidad, no en $w= h^2$ (que NO lleva $B^2$, ver cap.~2/3). |
 | 137 | ⬜ | CLAUDE | Variación en el plano $y-z$ | Falta $=90°$ aquí: es la de máxima tensión ($ k B$ máximo) y debería ser la más suprimida; incluir su comportamiento. |
 | 138 | ✅ | CLAUDE | Variación en el plano $y-z$ | Esta figura concreta la duda de las notas previas: el mínimo de $^$ NO está en $=90^$ (máxima tensión, $ k B$ máximo) sino en ángulos intermedios, y $=90^$ da el valor MÁS ALTO. Hay que explicar físicamente esta no-monotonía antes de afirmar que “la tensión suprime”. |
 | 139 | ✅ | CLAUDE | Variación en el plano $y-z$ | Orden: la Fig.~(ref) aparece en el .tex antes que la (ref), pero el texto cita primero la de $E_ mag$. Reordenar. Además “Las Figuras” (plural) con una sola referencia. |
@@ -189,9 +190,9 @@
 | 142 | ⬜ | CLAUDE | Variación en el plano $y-z$ | Verificar que el colormap de la Fig.~(ref) coincida con la descripción (azul oscuro $$ morado/fucsia $$ amarillo según $t$); mi script usa el colormap por defecto. |
 | 143 | ✅ | SEB | Variación en el plano $y-z$ | Insertar todas las variables exigidas por el director para esta campaña |
 | 144 | ✅ | CLAUDE | Variación en el plano $y-z$ | Coloqué la correlación cruzada $$--$ B^2$ vs $$ (fuerza de acople y retardo $$ del pico). Si el director pide MÁS variables (p.ej. $E\!\!J$, $J_z$, $E_ mag$), hay figuras listas en figuras/director/ para añadir aquí. |
-| 145 | ⬜ | CLAUDE | Variación en el plano $x-z$ (Campaña C) | Jerarquía inconsistente: “intensidad” es subsection y las orientaciones subsubsection* (sin numerar); y la de $y$-$z$ no dice “(Campaña B)”. Unificar niveles y etiquetas. |
-| 146 | ⬜ | CLAUDE | Variación en el plano $x-z$ (Campaña C) | INCONSISTENCIA con el cap.~5: allí (siguiendo al profe) la Campaña C es “componente paralela al flujo que estabiliza por tensión”; AQUÍ (correcto) es “sin tensión”. La tensión la da $B_y$ ($ k$, flujo en $ y$); en C $B_y=0$ y $B_x$ es normal a la interfaz ($ k$) $$ NO hay tensión. CORREGIR el cap.~5 (“paralela al flujo” es engañoso). |
-| 147 | ⬜ | CLAUDE | Variación en el plano $x-z$ (Campaña C) | En C, $\| B\|$ (y la presión) es constante en $$; la variación con $$ no puede venir de la presión. Aclarar qué cambia con $$ en C (dirección de $B_x$ respecto a la interfaz / reconexión). |
+| 145 | ✅ | CLAUDE | Variación en el plano $x-z$ (Campaña C) | Jerarquía inconsistente: “intensidad” es subsection y las orientaciones subsubsection* (sin numerar); y la de $y$-$z$ no dice “(Campaña B)”. Unificar niveles y etiquetas. |
+| 146 | ⬜ | CLAUDE | Variación en el plano $x-z$ | INCONSISTENCIA con el cap.~5: allí (siguiendo al profe) la Campaña C es “componente paralela al flujo que estabiliza por tensión”; AQUÍ (correcto) es “sin tensión”. La tensión la da $B_y$ ($ k$, flujo en $ y$); en C $B_y=0$ y $B_x$ es normal a la interfaz ($ k$) $$ NO hay tensión. CORREGIR el cap.~5 (“paralela al flujo” es engañoso). |
+| 147 | ✅ | CLAUDE | Variación en el plano $x-z$ (Campaña C) | En C, $\| B\|$ (y la presión) es constante en $$; la variación con $$ no puede venir de la presión. Aclarar qué cambia con $$ en C (dirección de $B_x$ respecto a la interfaz / reconexión). |
 | 148 | ⬜ | CLAUDE | Balance energético y procesos disipativos | Sección redactada por Claude desde los datos limpios (scripts analisis\_energia\_disipacion.py). REVISAR redacción y física. Decisión de fondo aquí: en las campañas de orientación (B y C) la mayoría de las curvas no desarrollan una fase de crecimiento exponencial limpia (solo $=5.7^$ y, a $=10000$, $=30,45^$), por lo que NO se reporta $$ para B/C salvo como dato puntual; el análisis se centra en el intercambio energético y la disipación. Las figuras y los valores numéricos están verificados; el relato físico es mi interpretación y debe contrastarse. |
 | 149 | ⬜ | CLAUDE | Balance energético y procesos disipativos | Caveat numérico para verificar: $E_int$ se estima como $ p$ (proxy del calor); a $=90^$, $=6000$ la óhmica acumulada llega a igualar/superar $ E_int$ (ver Fig.~(ref)), lo que indica que parte del calor óhmico se compensa con pérdidas advectivas o que el proxy subestima; conviene afinar la definición de $E_int$ antes de hacer afirmaciones cuantitativas finas sobre fracciones. |
 | 150 | ✅ | CLAUDE | Variación en el plano $y-z$ | Corrección metodológica (REVISAR): un análisis previo comparaba el único máximo global de $_zp$ con el único mínimo global de $E_ mag$; para señales oscilatorias eso es engañoso (el mínimo global suele caer en el transitorio y da desfases espurios de varios $t$, incluso de signo opuesto). Aquí se identifican todos los extremos locales por cruce-cero de la derivada (filtrados por prominencia) y se mide el desfase ciclo a ciclo. Esto reemplaza la figura y la conclusión anteriores sobre “orden temporal”. |
@@ -206,7 +207,7 @@
 | 159 | ✅ | CLAUDE | Predicción RMHD compresible (Lees--Lin) | SUPUESTO QUE CARGA EL RESULTADO CENTRAL: con $c_s$ daría 0.016 (fracaso total), con $v_f$ da 0.095 (coincide al 8\%). La sustitución escalar $c_s v_f$ está motivada (Chow 2023, $ k$ alineado) pero es a posteriori y NO es la relación de dispersión magnetizada completa (grado 8). Es un check de consistencia, no una validación cerrada (ya lo dices en limitaciones; reforzarlo aquí). Es el flanco que más te pueden atacar. |
 | 160 | ✅ | CLAUDE | Impacto de la intensidad del campo magnético en el desarrollo de la inestabilidad | INCONSISTENCIA INTERNA (revisión Claude, PRIORIDAD 2): en la Campaña A la orientación es Mizuno ($B_y=B_00.02$ pequeña; $B_z=B_02$ domina). La tensión $( k B)^2 B_y^2$ es débil ($M_A,=9.4$, super-Alfvénico, §(ref), donde TÚ MISMO dices que la tensión es despreciable). Atribuir aquí la supresión al subir $B_0$ enteramente a la tensión contradice tu tabla de Mach. Lo más probable es presión magnética/magnetización ($$). Reconciliar con §(ref). |
 | 161 | ✅ | CLAUDE | Variación en el plano $y-z$ | AGUJERO FÍSICO (revisión Claude, PRIORIDAD 1): el mínimo de $^$ NO está en $=90^$ (máxima tensión, $ k B$ máximo) sino en ángulos intermedios ($45$--$60^$), y $=90^$ da el valor MÁS ALTO. Esto CONTRADICE frontalmente la narrativa “la tensión suprime” de toda la campaña B. O la interpretación geométrica está mal, o hay física sin contar (¿reconexión que reinyecta vorticidad a $$ grande? ¿$ k B$ no es el parámetro de control correcto?). Sin explicación, un jurado tumba el marco de tensión. Investigar en los datos ANTES de cerrar la campaña B. |
-| 162 | ⬜ | CLAUDE | Variación en el plano $y-z$ | RESUELTO (prioridad 1): la antigua “paradoja” de que $=90^$ era el más inestable venía de usar el máximo puntual $^_zp$ (figura previa del director). El contenido global $^int_zp$ SÍ decrece con la tensión $$ la narrativa “la tensión suprime” se sostiene con el observable correcto. Figura regenerada con ambos. REVISAR redacción; y decidir qué observable se reporta de forma consistente en toda la campaña B (recomiendo el integrado para el contenido físico y el puntual solo para señalar la reconexión). |
+| 162 | ✅ | CLAUDE | Variación en el plano $y-z$ | RESUELTO (prioridad 1): la antigua “paradoja” de que $=90^$ era el más inestable venía de usar el máximo puntual $^_zp$ (figura previa del director). El contenido global $^int_zp$ SÍ decrece con la tensión $$ la narrativa “la tensión suprime” se sostiene con el observable correcto. Figura regenerada con ambos. REVISAR redacción; y decidir qué observable se reporta de forma consistente en toda la campaña B (recomiendo el integrado para el contenido físico y el puntual solo para señalar la reconexión). |
 | 163 | ⬜ | CLAUDE | Impacto de la intensidad del campo magnético en el desarrollo de la inestabilidad | CORREGIDO (prioridad 2): el texto original (de Bryan) atribuía la supresión a la tensión; los números ($M_A,$ super-Alfvénico siempre; $ B_0^-2$; $V_A, tot$ creciente) muestran que es presión/magnetización. Ahora es coherente con §(ref). REVISAR redacción y, si se quiere, añadir una tablita con $M_A,$, $V_A, tot$, $$ por $B_0$. |
 | 164 | ✅ | CLAUDE | Conductividad crítica $$ y sus tres fuentes de incertidumbre | PRIORIDAD 4 aplicada: ahora se lidera con la zona $[2815,6800]$ en vez de “$2861122$”. REVISAR coherencia: la Tabla~(ref) aún lista el “consenso ponderado $2861122$” como primera fila; valorar reordenarla o renombrar esa fila como “error formal del sigmoide (subestima)”. |
 | 165 | ⬜ | CLAUDE | Corrientes, disipación y energía magnética | REVISADO (revisión Claude, prioridad 3): NO es artefacto del guía. El panel grafica la energía magnética PROPIA/comóvil (emag\_integral\_vol$=12 b^2$), no el $ B^2$ de laboratorio. Verificado en los datos: $ B^2$ lab CRECE con $$ (1.03$$1.07) mientras la amplificación de la energía propia DECRECE (1.15$$1.00); ambas tendencias son reales y compatibles (a alta $$, estiramiento en láminas finas sin ganar energía propia). La interpretación fina (por qué la reorganización resistiva inyecta $15\%$ a baja $$) sigue siendo delicada; mantener con cautela. CORRIGE la nota anterior (no era artefacto). Aclarar en el texto/caption que es la energía PROPIA. |
@@ -222,14 +223,21 @@
 | 191 | ⬜ | SEB | Variación de Intensidad y Orientación del Campo Magnético | Mirar bien donde se define en el doc la presion y la tension magnetica en que seccion y o que footnotes |
 | 192 | ⬜ | SEB | Impacto de la intensidad del campo magnético en el desarrollo de la inestabilidad | revisar en el setup y loq ue hemos hablado si en realidad hay tension y presion o si es un artefacto de redaccion |
 | 193 | ⬜ | SEB | Impacto de la intensidad del campo magnético en el desarrollo de la inestabilidad | Deberia de haberse definido el parametro de plasma, las velocidades y todos los terminos que se usan como discriminantes que no se si se mencionaron ya |
-| 194 | ⬜ | SEB | Impacto de la intensidad del campo magnético en el desarrollo de la inestabilidad | si es tension o estamos cometiendo un error sitematcio entre presion y tension |
+| 194 | ✅ | SEB | Impacto de la intensidad del campo magnético en el desarrollo de la inestabilidad | si es tension o estamos cometiendo un error sitematcio entre presion y tension |
 | 195 | ⬜ | SEB | Impacto de la intensidad del campo magnético en el desarrollo de la inestabilidad | en las graficas añadir el pico con el valor registrado. |
-| 196 | ⬜ | SEB | Impacto de la intensidad del campo magnético en el desarrollo de la inestabilidad | es tension magnetica o no ? |
+| 196 | ✅ | SEB | Impacto de la intensidad del campo magnético en el desarrollo de la inestabilidad | es tension magnetica o no ? |
 | 197 | ⬜ | SEB | Variación en el plano $y-z$ | agregar mapa de calor |
 | 198 | ⬜ | SEB | Variación en el plano $y-z$ | agregar una grafica que ponga estas variables una arriba de la otra, con una linea temporal en picos y valles que sustene estas afirmacíones,que hagan evidente el acople. |
 | 199 | ⬜ | SEB | Variación en el plano $y-z$ | hay que ver bien por que veo maximos y minimos locales no marcados |
 | 200 | ⬜ | SEB | Balance energético y procesos disipativos | Esta herramienta de las animcaiones en interna, no se como deberiamos ponerlas, o si no mencionarlas, quizas un anexo o un link a un repo organizado con estas movies. |
 | 201 | ⬜ | SEB | Balance energético y procesos disipativos | redaccion muy escalonada, mas fluidez |
+| 203 | ⬜ | CLAUDE | Impacto de la intensidad del campo magnético en el desarrollo de la inestabilidad | CORREGIDO (prioridad 2): el texto original (de Bryan) atribuía la supresión a la tensión; los números ($M_A,$ super-Alfvénico siempre; $ B_0^-2$; $V_A, tot$ creciente) muestran que es presión/magnetización. Bryan adoptó la misma corrección en su versión $$ ambos coinciden. REVISAR redacción y, si se quiere, añadir una tablita con $M_A,$, $V_A, tot$, $$ por $B_0$. |
+| 204 | ⬜ | CLAUDE | Impacto de la intensidad del campo magnético en el desarrollo de la inestabilidad | MERGE: Bryan corrigió estos dos ítems de “tensión” a presión/magnetización (coincide con la corrección \#2). Las sebnotas de Sebas “¿es tensión o no?” quedan respondidas por el texto. |
+| 205 | ⬜ | BRY | Variación en el plano $y-z$ | CORREGIR: toca corregir esta grafica porque en el recuadro no aparece el simbolo de los grados sino un gamma |
+| 206 | ⬜ | BRY | Variación en el plano $y-z$ | Segun yo los colores si son correctos pero si es bueno que los revise porque puedo estar ciego |
+| 207 | ⬜ | BRY | Variación en el plano $x-z$ | dejo este comentario para que revise el cap 5 |
+| 208 | ⬜ | BRY | Balance energético y procesos disipativos | Ya revise esta seccion y le doy visto bueno, solo es que uste la lea y la confirme |
+| 209 | ⬜ | SEB | Variación en el plano $x-z$ | organizar en 2x2 |
 
 ## Cap. 7 — Conclusiones  — 0/8 cerradas
 
