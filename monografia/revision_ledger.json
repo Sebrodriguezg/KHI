@@ -397,5 +397,40 @@
   "typ": "claudenota",
   "sec": "Reconstrucción de los estimadores de $\\scrit$",
   "body": "DESINCRONIZADO con cap.~6 (revisión Claude): (1) AIC ---el cap.~6 ya reemplazó esta comparación (injusta: modelos calibrados en $\\sigma\\ge4000$) por la comparación ANIDADA JUSTA sig4 vs sig3 sobre los mismos datos, $\\Delta\\mathrm{AIC}=-126$. Actualizar aquí igual: dejar $-126$ como evidencia primaria y $-337/-531$ solo como cobertura global. (2) Aunque el texto dice ``la banda $\\pm1944$ es la honesta'', el bloque LIDERA con el consenso $2861\\pm122$; alinear con el cap.~6 (liderar con la zona). (3) El ``Veredicto'' (§\\ref{ap:veredicto}) duplica §6.7 (ya marcado por el revisor): recortar."
+ },
+ "Y de la orientacíon e intensidad del campo magnetico": {
+  "id": 180,
+  "chap": "Cap. 5 — Setup experimental",
+  "typ": "sebnota",
+  "sec": "Configuración Experimental",
+  "body": "Y de la orientacíon e intensidad del campo magnetico"
+ },
+ "Aclarar lo de las condiciones de frontea": {
+  "id": 181,
+  "chap": "Cap. 5 — Setup experimental",
+  "typ": "sebnota",
+  "sec": "Condiciones Iniciales del Problema",
+  "body": "Aclarar lo de las condiciones de frontea"
+ },
+ "citar": {
+  "id": 182,
+  "chap": "Cap. 5 — Setup experimental",
+  "typ": "sebnota",
+  "sec": "Condiciones Iniciales del Problema",
+  "body": "citar"
+ },
+ "cambiar color de las graficas": {
+  "id": 183,
+  "chap": "Cap. 5 — Setup experimental",
+  "typ": "sebnota",
+  "sec": "Condiciones Iniciales del Problema",
+  "body": "cambiar color de las graficas"
+ },
+ "fija en 2 valores": {
+  "id": 184,
+  "chap": "Cap. 5 — Setup experimental",
+  "typ": "sebnota",
+  "sec": "Segunda campaña: variación del campo magnético (objetivo 4)",
+  "body": "fija en 2 valores"
  }
 }

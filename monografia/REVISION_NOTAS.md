@@ -2,7 +2,7 @@
 
 *Actualizado: 2026-06-25 · rama `revision-monografia`*
 
-## 📊 85/179 cerradas (47%) — pendientes 94
+## 📊 85/184 cerradas (46%) — pendientes 99
 
 > **El # es FIJO** (no cambia aunque cerremos otras). ✅ = cerrada · ⬜ = pendiente.
 
@@ -105,7 +105,7 @@
 | 68 | ✅ | CLAUDE | Recuperación de Variables Primitivas: la Cuártica del Factor de Lorentz | Verificado contra el código (12\_varprimitive.f95, subrutina varprimitivecardano): cuártica en $$ + Tchirnhaus + refinamiento Newton, correcto. Cita: el esquema de recuperación es del Cueva; citar miranda-aranguren-2018 aquí (mizuno-2013 es el paper de EoS, no de recuperación de primitivas). |
 | 173 | ⬜ | CLAUDE | (intro) | REVISIÓN GLOBAL (Claude): contenido técnico correcto pero el TONO es el más grandilocuente del documento (“condena los solucionadores”, “formidables desafíos”, “marco inquebrantable”, “estructurando un marco inquebrantable…”): reescribir en prosa técnica sobria, suena a IA. Además: (1) “se demuestra matemáticamente que $E^0$” (§límites asintóticos) se afirma sin mostrarlo; (2) el label\sec:Acoplamiento\_GLM\_HLLC\ dice HLLC pero el código y el texto usan HLL (no HLLC): corregir. |
 
-## Cap. 5 — Setup experimental  — 3/15 cerradas
+## Cap. 5 — Setup experimental  — 3/20 cerradas
 
 | # | Estado | Tipo | Sección | Qué dice |
 |---|---|---|---|---|
@@ -124,6 +124,11 @@
 | 174 | ⬜ | CLAUDE | Dominio Computacional, Discretización y Sistema de Unidades | INCOHERENCIA DE CFL (revisión Claude): aquí (y en la Tabla~(ref)) se fija CFL$=0.1$ para el barrido en $$, pero la campaña de B usa CFL$=0.04$ ($$6000) y $0.02$ ($$10000). Tres valores de CFL en el documento sin reconciliar. Aclarar: ¿el barrido principal corrió a 0.1 y las campañas a 0.04/0.02? Documentar la matriz $$CFL real y por qué. |
 | 175 | ⬜ | CLAUDE | Campaña A — Intensidad (orientación Mizuno fija). | REVISIÓN GLOBAL (Claude): dos puntos. (1) “el aumento de $B_0$ refuerza la tensión” contradice el cap.~6 (corregido): en orientación Mizuno $M_A,$ es super-Alfvénico siempre $$ la supresión es por presión/magnetización ($ B_0^-2$), no tensión. Reformular. (2) Esta tabla lista 5 casos ($B_0=0.25$–$2.0$) pero los débiles ($0.25,0.5$) crashearon y NO están en resultados (cap.~6 solo A3/A4/A5); marcar cuáles se analizan realmente. Igual la Campaña B incluye $=15°$, excluido de los datos limpios. |
 | 176 | ⬜ | CLAUDE | Campaña C — Componente paralela al flujo (plano $x$--$z$, $| B|$ fijo). | ERROR FÍSICO (revisión Claude, PRIORIDAD — incoherencia con cap.~6): $B_x$ NO es paralela al flujo. El flujo de cizalla va en $ y$ ($V_y$) y el modo $ k$ también en $ y$; $B_x$ es perpendicular al flujo y normal a la interfaz ($ k B B_x 0=0$) $$ NO ejerce tensión. El cap.~6 ya describe (correctamente) la Campaña C como “sin tensión”. CORREGIR este párrafo: la tensión la da $B_y$ ($ k$, Campaña B), no $B_x$. La variación con $$ en C es por presión/reconexión, no tensión. |
+| 180 | ⬜ | SEB | Configuración Experimental | Y de la orientacíon e intensidad del campo magnetico |
+| 181 | ⬜ | SEB | Condiciones Iniciales del Problema | Aclarar lo de las condiciones de frontea |
+| 182 | ⬜ | SEB | Condiciones Iniciales del Problema | citar |
+| 183 | ⬜ | SEB | Condiciones Iniciales del Problema | cambiar color de las graficas |
+| 184 | ⬜ | SEB | Segunda campaña: variación del campo magnético (objetivo 4) | fija en 2 valores |
 
 ## Cap. 6 — Resultados  — 25/79 cerradas
 

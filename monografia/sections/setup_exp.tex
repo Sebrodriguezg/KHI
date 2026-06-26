@@ -19,12 +19,12 @@
 \section{Configuración Experimental}
 \label{sec:setup_experimental}
 
-Para estudiar el impacto de la resistividad sobre la evolución lineal y no lineal de la Inestabilidad de Kelvin-Helmholtz (KHI), se llevaron a cabo simulaciones numéricas bidimensionales con el código \textit{Cueva}, el cual integra las ecuaciones de la Magnetohidrodinámica Relativista Resistiva (RRMHD) en la forma fuertemente conservativa expuesta en la Sección~\ref{sec:RRMHD_Conservativa}. La discretización espacial se realiza mediante un esquema de volúmenes finitos de alta resolución con reconstrucción \textit{Monotonicity-Preserving} de quinto orden (MP5), flujos numéricos HLL y limpieza hiperbólica de divergencias bajo el formalismo GLM (Sección~\ref{sec:Max-aumentado}). La integración temporal del sistema rígido inducido por los términos fuente resistivos se realiza con un esquema IMEX de Runge--Kutta. A continuación, se detallan las condiciones iniciales, el dominio computacional, el sistema de unidades adoptado y las variables de diagnóstico utilizadas.
+Para estudiar el impacto de la resistividad \sebnota{Y de la orientacíon e intensidad del campo magnetico} sobre la evolución lineal y no lineal de la Inestabilidad de Kelvin-Helmholtz (KHI), se llevaron a cabo simulaciones numéricas bidimensionales con el código \textit{Cueva}, el cual integra las ecuaciones de la Magnetohidrodinámica Relativista Resistiva (RRMHD) en la forma fuertemente conservativa expuesta en la Sección~\ref{sec:RRMHD_Conservativa}. La discretización espacial se realiza mediante un esquema de volúmenes finitos de alta resolución con reconstrucción \textit{Monotonicity-Preserving} de quinto orden (MP5), flujos numéricos HLL y limpieza hiperbólica de divergencias bajo el formalismo GLM (Sección~\ref{sec:Max-aumentado}). La integración temporal del sistema rígido inducido por los términos fuente resistivos se realiza con un esquema IMEX de Runge--Kutta. A continuación, se detallan las condiciones iniciales, el dominio computacional, el sistema de unidades adoptado y las variables de diagnóstico utilizadas.
 
 \subsection{Condiciones Iniciales del Problema}
 \label{subsec:condiciones_iniciales}
 
-El escenario base corresponde a una configuración de cizalladura dual (Test 35A) directamente inspirada en el setup canónico de \parencite{mizuno-2013}, adaptado para aislar de forma controlada el desarrollo de los vórtices de KHI en el marco RRMHD bajo condiciones de contorno periódicas a lo largo de la dirección del flujo (Figura~\ref{fig:setup_inicial}).
+El escenario base corresponde a una configuración de cizalladura dual (Test 35A) directamente inspirada en el setup canónico de \parencite{mizuno-2013}, adaptado para aislar de forma controlada el desarrollo de los vórtices de KHI en el marco RRMHD bajo condiciones de contorno periódicas a lo largo de la dirección del flujo \sebnota{Aclarar lo de las condiciones de frontea} (Figura~\ref{fig:setup_inicial}).
 
 El flujo de fondo se establece a lo largo del eje $y$, con dos interfaces de cizalladura suaves ubicadas simétricamente en $x = \pm 0.5$. El perfil de velocidad longitudinal está dado por:
 \begin{equation}
@@ -46,7 +46,7 @@ Para desencadenar selectivamente la inestabilidad mediante un único modo normal
 \end{equation}
 con amplitud modulada $V_0 = 1.0$, número de onda $k_{kh} = 2\pi/L_y$ (modo fundamental compatible con la periodicidad del dominio) y ancho gaussiano de confinamiento $\alpha_{kh} = 0.2$, lo cual restringe la inyección de energía cinética perturbativa al entorno inmediato de las capas de cizalladura. La componente $V_z$ se inicializa estrictamente nula, en consistencia con el carácter planar 2D de la simulación.
 
-El perfil de densidad sigue la configuración canónica Mizuno-like: el flujo central (interior, $|x|<0.5$) presenta densidad baja, mientras que las regiones externas mantienen una densidad mayor. La transición se construye mediante una ventana suave a partir de funciones tangentes hiperbólicas:
+El perfil de densidad sigue la configuración canónica Mizuno-like: \sebnota{citar} el flujo central (interior, $|x|<0.5$) presenta densidad baja, mientras que las regiones externas mantienen una densidad mayor. La transición se construye mediante una ventana suave a partir de funciones tangentes hiperbólicas:
 \begin{equation}
 \begin{aligned}
     \rho(x) &= \rho_{lo} + (\rho_{up} - \rho_{lo})\left[\,1 - W(x)\,\right],\\[2pt]
@@ -105,7 +105,7 @@ con $B_0 = 1.0$. Este campo de fondo permanece fijo en los objetivos~1--3 (barri
         \small (b) Distribución de densidad $\rho(x,y)$ con contornos isóbaros superpuestos. Se observa nítidamente la región interior de baja densidad ($\rho \simeq \rho_{lo}$, $|x| < 0.5$) embebida en el ambiente externo de alta densidad ($\rho \simeq \rho_{up}$, $|x| > 0.5$), consistente con la ventana hiperbólica prescrita por la Ec.~(\ref{eq:rho_profile}). Las modulaciones longitudinales tempranamente visibles en las interfaces reflejan la incipiente respuesta vortical del fluido a la perturbación inyectada.
     \end{minipage}
 
-    \caption{Visualización del estado inicial del experimento KHI (Test~35A, primer snapshot diagnóstico $t \simeq 0$). Panel superior~(a): topología del campo de velocidad con sus dos capas de cizalladura simétricas y la perturbación senoidal de Kelvin--Helmholtz. Panel inferior~(b): perfil de densidad Mizuno-like, con flujo central diluido y ambiente externo denso. Estas dos distribuciones, junto con el campo magnético uniforme de fondo (Ec.~\ref{eq:B_field_init}), constituyen el estado base sobre el que se realiza el barrido paramétrico en la conductividad $\sigma$.}
+    \caption{Visualización del estado inicial del experimento KHI (Test~35A, primer snapshot diagnóstico $t \simeq 0$). Panel superior~(a): topología del campo de velocidad con sus dos capas de cizalladura simétricas y la perturbación senoidal de Kelvin--Helmholtz. Panel inferior~(b): perfil de densidad Mizuno-like, con flujo central diluido y ambiente externo denso. Estas dos distribuciones, junto con el campo magnético uniforme de fondo (Ec.~\ref{eq:B_field_init}), constituyen el estado base sobre el que se realiza el barrido paramétrico en la conductividad $\sigma$.\sebnota{cambiar color de las graficas}}
     \label{fig:setup_inicial}
 \end{figure}
 
@@ -176,7 +176,16 @@ completa de los $44$ valores explorados se tabula en el capítulo de resultados
 \subsection{Segunda campaña: variación del campo magnético (objetivo 4)}
 \label{subsec:campana_B}
 
-\primerparrafo La segunda campaña aborda el cuarto objetivo ---evaluar cómo la \emph{intensidad} y la \emph{orientación} del campo magnético externo modifican la estabilización o amplificación de la KHI--- variando $\mathbf{B}$ sobre el mismo montaje base (Sección~\ref{subsec:condiciones_iniciales}), con la conductividad \emph{fija} para aislar el efecto magnético del resistivo. Tiene el mismo peso analítico que la campaña de resistividad. La campaña se organiza en tres familias complementarias, todas con $|\mathbf B|=\sqrt{2.02}\,B_0$ en el caso de referencia ($B_0=1$).
+\primerparrafo La segunda campaña aborda el cuarto objetivo ---evaluar cómo la \emph{intensidad} y la \emph{orientación} del campo magnético externo modifican la estabilización o amplificación de la KHI--- variando $\mathbf{B}$ sobre el mismo montaje base (Sección~\ref{subsec:condiciones_iniciales}), con la conductividad \emph{fija} \sebnota{fija en 2 valores} para aislar el efecto magnético del resistivo. Tiene el mismo peso analítico que la campaña de resistividad. La campaña se organiza en tres familias complementarias, todas con $|\mathbf B|=\sqrt{2.02}\,B_0$ en el caso de referencia ($B_0=1$). La Figura~\ref{fig:campanas_BC_3d} ilustra, sobre el montaje del doble-KHI, cómo se varía el campo magnético en cada una.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.32\textwidth]{figuras/campana_A_3d}\hfill
+\includegraphics[width=0.32\textwidth]{figuras/campana_B_3d}\hfill
+\includegraphics[width=0.32\textwidth]{figuras/campana_C_3d}
+\caption{Espacio de parámetros de la campaña magnética sobre el montaje del doble-KHI (plano de simulación con las dos interfaces de cizalla en $x=\pm0.5$, flujo $\mathbf V$ a lo largo de $\hat y$ y campo guía nominal $\hat z$). \emph{A (intensidad):} se conserva la orientación Mizuno y se escala $|\mathbf B|$ ($B_0=1,1.5,2$). \emph{B (orientación $y$--$z$):} $\mathbf B$ rota de $\hat z$ hacia $\hat y$; como $\hat y\parallel\mathbf k$, la componente $B_y$ ejerce tensión ($\propto B_y^2$). \emph{C (orientación $x$--$z$):} $\mathbf B$ rota de $\hat z$ hacia $\hat x$ con $B_y=0$; al ser $B_x\perp\mathbf k$ se tiene $\mathbf k\cdot\mathbf B=0$ y no hay tensión.}
+\label{fig:campanas_BC_3d}
+\end{figure}
 
 \paragraph{Campaña A — Intensidad (orientación Mizuno fija).} Se conserva la orientación del setup base y se escala la magnitud,
 \begin{equation}
@@ -204,7 +213,7 @@ A5 & $2.00$ & $8.080$ & $0.25$  & $1.616$ \\
 \begin{equation}
 B_x=0,\qquad B_y=B_{\rm tot}\sin\theta,\qquad B_z=B_{\rm tot}\cos\theta,\qquad B_{\rm tot}=\sqrt{2.02},
 \end{equation}
-con $\theta\in\{0,\,5.7,\,15,\,30,\,45,\,60,\,90\}^\circ$. El caso Mizuno original corresponde a $\theta_{\rm Mizuno}=\arctan\!\sqrt{0.02/2.0}\approx5.7^\circ$; el extremo $\theta=0^\circ$ es campo guía puro ($\mathbf B=B_{\rm tot}\hat z$) y $\theta=90^\circ$ es campo enteramente en $\hat y$ (Cuadro~\ref{tab:campana_B}). Esta familia aísla si la pequeña componente transversal $B_y$ del setup Mizuno tiene un efecto dinámico apreciable.
+con $\theta\in\{0,\,5.7,\,15,\,30,\,45,\,60,\,90\}^\circ$.\sebmota{Mencionar que se intento pero limitados numericamente no se logro la evolicion de todos los caso 15 muere} El caso Mizuno original corresponde a $\theta_{\rm Mizuno}=\arctan\!\sqrt{0.02/2.0}\approx5.7^\circ$; el extremo $\theta=0^\circ$ es campo guía puro ($\mathbf B=B_{\rm tot}\hat z$) y $\theta=90^\circ$ es campo enteramente en $\hat y$ (Cuadro~\ref{tab:campana_B}). Esta familia aísla si la pequeña componente transversal $B_y$ del setup Mizuno tiene un efecto dinámico apreciable.
 
 \begin{table}[H]\centering
 \caption{Campaña B (orientación en el plano $y$--$z$, $|\mathbf B|=\sqrt{2.02}$ fijo). El caso Mizuno es $\theta\approx5.7^\circ$.}
