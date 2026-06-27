@@ -1,0 +1,28 @@
+i
+
+∂t U = −∂i F (U) + Srig (U)
+|
+{z
+} | {z }
+no rı́gido
+
+Un
+
+rı́gido
+
+Explı́cito (RK)
+flujos hiperbólicos
+−∂i Fi
+MP5 + HLL
+
+Implı́cito
+término resistivo rı́gido
+Srig = −σE
+inversión algebraica local
+
+El paso de tiempo lo fija la advección (∆t ∝ ∆x),
+no la rigidez resistiva (∆t ∝ ∆x2 ).
+
+Un+1
+
+

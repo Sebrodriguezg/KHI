@@ -19,65 +19,16 @@
 \section{Configuración Experimental}
 \label{sec:setup_experimental}
 
-Para estudiar el impacto de la resistividad \sebnota{Y de la orientacíon e intensidad del campo magnetico} sobre la evolución lineal y no lineal de la Inestabilidad de Kelvin-Helmholtz (KHI), se llevaron a cabo simulaciones numéricas bidimensionales con el código \textit{Cueva}, el cual integra las ecuaciones de la Magnetohidrodinámica Relativista Resistiva (RRMHD) en la forma fuertemente conservativa expuesta en la Sección~\ref{sec:RRMHD_Conservativa}. La discretización espacial se realiza mediante un esquema de volúmenes finitos de alta resolución con reconstrucción \textit{Monotonicity-Preserving} de quinto orden (MP5), flujos numéricos HLL y limpieza hiperbólica de divergencias bajo el formalismo GLM (Sección~\ref{sec:Max-aumentado}). La integración temporal del sistema rígido inducido por los términos fuente resistivos se realiza con un esquema IMEX de Runge--Kutta. A continuación, se detallan las condiciones iniciales, el dominio computacional, el sistema de unidades adoptado y las variables de diagnóstico utilizadas.
+Para estudiar el impacto de la resistividad y de la orientación e intensidad del campo magnético sobre la evolución lineal y no lineal de la Inestabilidad de Kelvin-Helmholtz (KHI), se llevaron a cabo simulaciones numéricas bidimensionales con el código \textit{Cueva}, el cual integra las ecuaciones de la Magnetohidrodinámica Relativista Resistiva (RRMHD) en la forma fuertemente conservativa expuesta en la Sección~\ref{sec:RRMHD_Conservativa}. La discretización espacial se realiza mediante un esquema de volúmenes finitos de alta resolución con reconstrucción \textit{Monotonicity-Preserving} de quinto orden (MP5), flujos numéricos HLL y limpieza hiperbólica de divergencias bajo el formalismo GLM (Sección~\ref{sec:Max-aumentado}). La integración temporal del sistema rígido inducido por los términos fuente resistivos se realiza con un esquema IMEX de Runge--Kutta. A continuación, se detallan las condiciones iniciales, el dominio computacional, el sistema de unidades adoptado y las variables de diagnóstico utilizadas.
 
 \subsection{Condiciones Iniciales del Problema}
 \label{subsec:condiciones_iniciales}
 
-El escenario base corresponde a una configuración de cizalladura dual (Test 35A) directamente inspirada en el setup canónico de \parencite{mizuno-2013}, adaptado para aislar de forma controlada el desarrollo de los vórtices de KHI en el marco RRMHD bajo condiciones de contorno periódicas a lo largo de la dirección del flujo \sebnota{Aclarar lo de las condiciones de frontea} (Figura~\ref{fig:setup_inicial}).
-
-El flujo de fondo se establece a lo largo del eje $y$, con dos interfaces de cizalladura suaves ubicadas simétricamente en $x = \pm 0.5$. El perfil de velocidad longitudinal está dado por:
-\begin{equation}
-    V_y(x) = \begin{cases} 
-      +v_{sh}\, \tanh\!\left(\dfrac{x - 0.5}{a_{kh}}\right) & \text{si } x \geq 0 \\[4pt]
-      -v_{sh}\, \tanh\!\left(\dfrac{x + 0.5}{a_{kh}}\right) & \text{si } x < 0 
-   \end{cases}
-   \label{eq:Vy_profile}
-\end{equation}
-donde $v_{sh} = 0.5\, c$ (factor de Lorentz relativo moderado $\Gamma_{\text{rel}} \simeq 1.29$) y $a_{kh} = 0.05$ define el ancho característico de la capa de cizalladura, garantizando que la escala dominante $k_{kh}^{-1}\!\gtrsim\!a_{kh}$ permita una resolución espectral adecuada del modo lineal inestable.
-
-Para desencadenar selectivamente la inestabilidad mediante un único modo normal de longitud de onda compatible con el dominio periódico, se introduce una perturbación transversal localizada de la forma:
-\begin{equation}
-    V_x(x,y) = \begin{cases} 
-      +V_0\, v_{sh}\, \sin(k_{kh}\, y)\, \exp\!\left[-\!\left(\dfrac{x - 0.5}{\alpha_{kh}}\right)^{\!2}\right] & \text{si } x \geq 0 \\[6pt]
-      -V_0\, v_{sh}\, \sin(k_{kh}\, y)\, \exp\!\left[-\!\left(\dfrac{x + 0.5}{\alpha_{kh}}\right)^{\!2}\right] & \text{si } x < 0 
-   \end{cases}
-   \label{eq:Vx_pert}
-\end{equation}
-con amplitud modulada $V_0 = 1.0$, número de onda $k_{kh} = 2\pi/L_y$ (modo fundamental compatible con la periodicidad del dominio) y ancho gaussiano de confinamiento $\alpha_{kh} = 0.2$, lo cual restringe la inyección de energía cinética perturbativa al entorno inmediato de las capas de cizalladura. La componente $V_z$ se inicializa estrictamente nula, en consistencia con el carácter planar 2D de la simulación.
-
-El perfil de densidad sigue la configuración canónica Mizuno-like: \sebnota{citar} el flujo central (interior, $|x|<0.5$) presenta densidad baja, mientras que las regiones externas mantienen una densidad mayor. La transición se construye mediante una ventana suave a partir de funciones tangentes hiperbólicas:
-\begin{equation}
-\begin{aligned}
-    \rho(x) &= \rho_{lo} + (\rho_{up} - \rho_{lo})\left[\,1 - W(x)\,\right],\\[2pt]
-    W(x) &= \tfrac{1}{2}\!\left[1 + \tanh\!\left(\tfrac{x+0.5}{a_{kh}}\right)\right]\!\cdot\!\tfrac{1}{2}\!\left[1 - \tanh\!\left(\tfrac{x-0.5}{a_{kh}}\right)\right]
-\end{aligned}
-    \label{eq:rho_profile}
-\end{equation}
-con $\rho_{up} = 1.0$ y $\rho_{lo} = 0.1\,\rho_{up}$, lo que implica un contraste de densidad $\eta_\rho = \rho_{lo}/\rho_{up} = 0.1$ entre el flujo central y el ambiente envolvente. La presión térmica se asume inicialmente uniforme en todo el dominio con $P_0 = 1.0$, evitando así la inyección espuria de modos magnetoacústicos asociados a gradientes de presión iniciales.
-
-En cuanto al campo magnético\sebnota{inconexo, necesita continuidad.}, se impone una configuración de fondo uniforme y desacoplada de la cizalladura, dominada por una componente fuera del plano y reforzada con una débil componente paralela a la interfaz:
-\begin{equation}
-    B_x = 0,\qquad B_y = B_0\,\sqrt{0.02},\qquad B_z = B_0\,\sqrt{2.0},
-    \label{eq:B_field_init}
-\end{equation}
-con $B_0 = 1.0$. Este campo de fondo permanece fijo en los objetivos~1--3 (barrido en la conductividad $\sigma$); su intensidad y orientación se convierten en las variables de control en la campaña del objetivo~4 (Sección~\ref{subsec:campana_B}). Esta orientación garantiza que la tensión magnética longitudinal ($\mathbf{k}\cdot\mathbf{B}\propto B_y$) sea débil pero no nula, permitiendo el desarrollo de la KHI sin supresión inmediata, mientras que la componente $B_z$ dominante introduce una presión magnética fuera del plano significativa que regula la termodinámica del flujo. El campo eléctrico inicial se anula estrictamente, $E_x = E_y = E_z = 0$, lo que corresponde a un estado fuera del límite ideal $E^\mu = -\epsilon^{\mu\nu\alpha\beta} u_\nu B_\alpha v_\beta$; la ley de Ohm relativista (Sección~\ref{sec:Ohm_Relativista}) se encarga de relajar dinámicamente el sistema hacia su régimen consistente con la conductividad finita prescrita.
-
-% ----------------------------------------------------------------------------
-% Figura compuesta: condición inicial visualizada en el primer snapshot
-% diagnóstico (t=0001 ~ estado inicial). Panel (a): campo vectorial de
-% velocidad con líneas de corriente y magnitud |V| en mapa de color.
-% Panel (b): campo escalar de densidad rho con contornos de nivel.
-% NOTA: ajustar los nombres de archivo a los reales en el directorio /figuras/.
-% ----------------------------------------------------------------------------
-
-
-
-
+El escenario base corresponde a una configuración de cizalladura dual (Test 35A) directamente inspirada en el setup canónico de \parencite{mizuno-2013}, adaptado para aislar de forma controlada el desarrollo de los vórtices de KHI en el marco RRMHD bajo condiciones de contorno periódicas a lo largo de la dirección del flujo  (Figura~\ref{fig:setup_inicial}).
 
 
 % Figura de condición inicial: dos paneles (velocidad y densidad) vía minipage.
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     % --------------------------------------------------------------------
     % Panel (a): Campo vectorial de velocidad (streamlines + |V|)
@@ -105,16 +56,69 @@ con $B_0 = 1.0$. Este campo de fondo permanece fijo en los objetivos~1--3 (barri
         \small (b) Distribución de densidad $\rho(x,y)$ con contornos isóbaros superpuestos. Se observa nítidamente la región interior de baja densidad ($\rho \simeq \rho_{lo}$, $|x| < 0.5$) embebida en el ambiente externo de alta densidad ($\rho \simeq \rho_{up}$, $|x| > 0.5$), consistente con la ventana hiperbólica prescrita por la Ec.~(\ref{eq:rho_profile}). Las modulaciones longitudinales tempranamente visibles en las interfaces reflejan la incipiente respuesta vortical del fluido a la perturbación inyectada.
     \end{minipage}
 
-    \caption{Visualización del estado inicial del experimento KHI (Test~35A, primer snapshot diagnóstico $t \simeq 0$). Panel superior~(a): topología del campo de velocidad con sus dos capas de cizalladura simétricas y la perturbación senoidal de Kelvin--Helmholtz. Panel inferior~(b): perfil de densidad Mizuno-like, con flujo central diluido y ambiente externo denso. Estas dos distribuciones, junto con el campo magnético uniforme de fondo (Ec.~\ref{eq:B_field_init}), constituyen el estado base sobre el que se realiza el barrido paramétrico en la conductividad $\sigma$.\sebnota{cambiar color de las graficas}}
+    \caption{Visualización del estado inicial del experimento KHI (Test~35A, primer snapshot diagnóstico $t \simeq 0$). Panel superior~(a): topología del campo de velocidad con sus dos capas de cizalladura simétricas y la perturbación senoidal de Kelvin--Helmholtz. Panel inferior~(b): perfil de densidad Mizuno-like, con flujo central diluido y ambiente externo denso. Estas dos distribuciones, junto con el campo magnético uniforme de fondo (Ec.~\ref{eq:B_field_init}), constituyen el estado base sobre el que se realiza el barrido paramétrico en la conductividad $\sigma$.}
     \label{fig:setup_inicial}
 \end{figure}
+
+
+El flujo de fondo se establece a lo largo del eje $y$, con dos interfaces de cizalladura suaves ubicadas simétricamente en $x = \pm 0.5$. El perfil de velocidad longitudinal está dado por:
+\begin{equation}
+    V_y(x) = \begin{cases} 
+      +v_{sh}\, \tanh\!\left(\dfrac{x - 0.5}{a_{kh}}\right) & \text{si } x \geq 0 \\[4pt]
+      -v_{sh}\, \tanh\!\left(\dfrac{x + 0.5}{a_{kh}}\right) & \text{si } x < 0 
+   \end{cases}
+   \label{eq:Vy_profile}
+\end{equation}
+donde $v_{sh} = 0.5\, c$ (factor de Lorentz relativo moderado $\Gamma_{\text{rel}} \simeq 1.29$) y $a_{kh} = 0.05$ define el ancho característico de la capa de cizalladura, garantizando que la escala dominante $k_{kh}^{-1}\!\gtrsim\!a_{kh}$ permita una resolución espectral adecuada del modo lineal inestable.
+
+Para desencadenar selectivamente la inestabilidad mediante un único modo normal de longitud de onda compatible con el dominio periódico, se introduce una perturbación transversal localizada de la forma:
+\begin{equation}
+    V_x(x,y) = \begin{cases} 
+      +V_0\, v_{sh}\, \sin(k_{kh}\, y)\, \exp\!\left[-\!\left(\dfrac{x - 0.5}{\alpha_{kh}}\right)^{\!2}\right] & \text{si } x \geq 0 \\[6pt]
+      -V_0\, v_{sh}\, \sin(k_{kh}\, y)\, \exp\!\left[-\!\left(\dfrac{x + 0.5}{\alpha_{kh}}\right)^{\!2}\right] & \text{si } x < 0 
+   \end{cases}
+   \label{eq:Vx_pert}
+\end{equation}
+con amplitud modulada $V_0 = 1.0$, número de onda $k_{kh} = 2\pi/L_y$ (modo fundamental compatible con la periodicidad del dominio) y ancho gaussiano de confinamiento $\alpha_{kh} = 0.2$, lo cual restringe la inyección de energía cinética perturbativa al entorno inmediato de las capas de cizalladura. La componente $V_z$ se inicializa estrictamente nula, en consistencia con el carácter planar 2D de la simulación.
+
+El perfil de densidad sigue la configuración canónica Mizuno-like \parencite{mizuno-2013}: el flujo central (interior, $|x|<0.5$) presenta densidad baja, mientras que las regiones externas mantienen una densidad mayor. La transición se construye mediante una ventana suave a partir de funciones tangentes hiperbólicas:
+\begin{equation}
+\begin{aligned}
+    \rho(x) &= \rho_{lo} + (\rho_{up} - \rho_{lo})\left[\,1 - W(x)\,\right],\\[2pt]
+    W(x) &= \tfrac{1}{2}\!\left[1 + \tanh\!\left(\tfrac{x+0.5}{a_{kh}}\right)\right]\!\cdot\!\tfrac{1}{2}\!\left[1 - \tanh\!\left(\tfrac{x-0.5}{a_{kh}}\right)\right]
+\end{aligned}
+    \label{eq:rho_profile}
+\end{equation}
+con $\rho_{up} = 1.0$ y $\rho_{lo} = 0.1\,\rho_{up}$, lo que implica un contraste de densidad $\eta_\rho = \rho_{lo}/\rho_{up} = 0.1$ entre el flujo central y el ambiente envolvente. La presión térmica se asume inicialmente uniforme en todo el dominio con $P_0 = 1.0$, evitando así la inyección espuria de modos magnetoacústicos asociados a gradientes de presión iniciales.
+
+Para complementar este estado termodinámico base y definir la topología electrodinámica del plasma, se impone una configuración de campo magnético de fondo uniforme y desacoplada de la cizalladura cinemática. Esta estructura se encuentra dominada por una componente fuera del plano y reforzada con una débil componente paralela a la interfaz:
+\begin{equation}
+    B_x = 0,\qquad B_y = B_0\,\sqrt{0.02},\qquad B_z = B_0\,\sqrt{2.0},
+    \label{eq:B_field_init}
+\end{equation}
+con $B_0 = 1.0$. Este campo de fondo permanece fijo en los objetivos~1--3 (barrido en la conductividad $\sigma$); su intensidad y orientación se convierten en las variables de control en la campaña del objetivo~4 (Sección~\ref{subsec:campana_B}). Esta orientación garantiza que la tensión magnética longitudinal ($\mathbf{k}\cdot\mathbf{B}\propto B_y$) sea débil pero no nula, permitiendo el desarrollo de la KHI sin supresión inmediata, mientras que la componente $B_z$ dominante introduce una presión magnética fuera del plano significativa que regula la termodinámica del flujo. El campo eléctrico inicial se anula estrictamente, $E_x = E_y = E_z = 0$, lo que corresponde a un estado fuera del límite ideal $E^\mu = -\epsilon^{\mu\nu\alpha\beta} u_\nu B_\alpha v_\beta$; la ley de Ohm relativista (Sección~\ref{sec:Ohm_Relativista}) se encarga de relajar dinámicamente el sistema hacia su régimen consistente con la conductividad finita prescrita.
+
+% ----------------------------------------------------------------------------
+% Figura compuesta: condición inicial visualizada en el primer snapshot
+% diagnóstico (t=0001 ~ estado inicial). Panel (a): campo vectorial de
+% velocidad con líneas de corriente y magnitud |V| en mapa de color.
+% Panel (b): campo escalar de densidad rho con contornos de nivel.
+% NOTA: ajustar los nombres de archivo a los reales en el directorio /figuras/.
+% ----------------------------------------------------------------------------
+
+
+
+
+
+
+
 
 \subsection{Dominio Computacional, Discretización y Sistema de Unidades}
 \label{subsec:dominio_unidades}
 
 El dominio de simulación se define como una caja cartesiana bidimensional que abarca $x \in [-1.0,\,1.0]$ y $y \in [-0.5,\,0.5]$, con dimensiones físicas $L_x = 2.0$ y $L_y = 1.0$ en unidades de código. La discretización se realiza sobre una malla uniforme y estructurada de $N_x \times N_y = 512 \times 256$ celdas, lo que produce un espaciamiento de $\Delta x = \Delta y \approx 3.906 \times 10^{-3}$ y garantiza una resolución de aproximadamente $a_{kh}/\Delta x \approx 12.8$ celdas a través de la capa de cizalladura, suficiente para resolver la fase lineal del modo dominante sin contaminación numérica significativa por difusividad de truncamiento.
 
-Se emplean condiciones de contorno periódicas en la dirección $y$  y condiciones de frontera abiertas (flujo libre, derivadas normales nulas) en la dirección $x$\sebnota{Mirar bien en el código las condiciones de frontera.}\claudenota{Según el propio §\ref{subsec:dominio_unidades} y el código: periódicas en $y$ y abiertas (derivada normal nula / flujo libre) en $x$. Confirmar el flag exacto en \texttt{parameters.f95}; la descripción del texto es consistente.}, lo que minimiza las reflexiones espurias de ondas magnetoacústicas hacia el centro del dominio. El paso temporal se regula dinámicamente bajo la restricción Courant--Friedrichs--Lewy con $\text{CFL} = 0.1$, valor conservador requerido por la rigidez introducida por la corriente resistiva $\sigma E^\mu$ en el régimen de alta conductividad.\claudenota{INCOHERENCIA DE CFL (revisión Claude): aquí (y en la Tabla~\ref{tab:setup_summary}) se fija CFL$=0.1$ para el barrido en $\sigma$, pero la campaña de B usa CFL$=0.04$ ($\sigma$6000) y $0.02$ ($\sigma$10000). Tres valores de CFL en el documento sin reconciliar. Aclarar: ¿el barrido principal corrió a 0.1 y las campañas a 0.04/0.02? Documentar la matriz $\sigma\times$CFL real y por qué.} La ecuación de estado adoptada es la del gas ideal politrópico con índice adiabático $\Gamma = 4/3$, consistente con un plasma ultrarrelativista dominado por presión de radiación.
+Se emplean condiciones de contorno periódicas en la dirección $y$  y condiciones de frontera abiertas (flujo libre, derivadas normales nulas) en la dirección $x$, lo que minimiza las reflexiones espurias de ondas magnetoacústicas hacia el centro del dominio. El paso temporal se regula dinámicamente bajo la restricción Courant--Friedrichs--Lewy (CFL), valor conservador requerido por la rigidez introducida por la corriente resistiva $\sigma E^\mu$ en el régimen de alta conductividad. La ecuación de estado adoptada es la del gas ideal politrópico con índice adiabático $\Gamma = 4/3$, consistente con un plasma ultrarrelativista dominado por presión de radiación.
 
 \paragraph{Sistema de unidades y equivalencia temporal.} Las simulaciones se ejecutan en el sistema de unidades naturales racionalizadas de Heaviside--Lorentz adoptado a lo largo del marco teórico ($c = \mu_0 = \epsilon_0 = 1$). Bajo esta convención, todas las cantidades del código son adimensionales y se expresan en términos de una escala de longitud característica del problema $L_0$, fijada implícitamente por $L_y = 1$. La equivalencia con cualquier escenario físico se obtiene mediante el reescalado:
 \begin{equation}
@@ -126,9 +130,10 @@ Se emplean condiciones de contorno periódicas en la dirección $y$  y condicion
 \end{equation}
 donde $L_0$ y $\rho_0$ son escalas de referencia dimensionales y $B_0^{\text{fis}} = \sqrt{4\pi\rho_0 c^2}$ en unidades gaussianas. En consecuencia, la unidad de tiempo del código corresponde estrictamente al tiempo de cruce luminoso $\tau_c \equiv L_0 / c$ a través de la escala unitaria del dominio.
 
-Las simulaciones de este estudio fueron ejecutadas para superar la marca de $t_{\text{cod}} > 5$ unidades de tiempo, lo cual equivale a $t_{\text{fis}} > 5\, L_0/c$. La elección de este horizonte temporal garantiza la cobertura completa de las tres fases dinámicas esperadas: (i) la fase lineal de crecimiento exponencial del modo perturbativo dominante; (ii) la fase de transición al régimen no lineal con formación de vórtices coherentes; y (iii) la fase de saturación con eventual cascada turbulenta secundaria y disipación resistiva. Como referencia astrofísica indicativa, si se identifica $L_0$ con escalas típicas de chorros AGN ($L_0 \sim 10^{15}\text{--}10^{17}\,\text{cm}$), $7\,\tau_c$ representa intervalos físicos de minutos a horas; en cambio, para fusiones de objetos compactos ($L_0 \sim 10^{6}\,\text{cm}$), $7\,\tau_c \sim 230\,\mu\text{s}$. La interpretación específica depende del régimen astrofísico al que se mapee el resultado adimensional.\sebnota{Dar un ejemplo concreto con escalas astrofísicas, deduciendo las dimensiones e incluso mostrando el radio de un vórtice generado en los \textit{hd plots}.} Los parámetros operativos consolidados se resumen en la Tabla~\ref{tab:setup_summary}.
+Las simulaciones de este estudio fueron ejecutadas para superar la marca de $t_{\text{cod}} > 5$ unidades de tiempo, lo cual equivale a $t_{\text{fis}} > 5\, L_0/c$. La elección de este horizonte temporal garantiza la cobertura completa de las tres fases dinámicas esperadas: (i) la fase lineal de crecimiento exponencial del modo perturbativo dominante; (ii) la fase de transición al régimen no lineal con formación de vórtices coherentes; y (iii) la fase de saturación con eventual cascada turbulenta secundaria y disipación resistiva. Para materializar esta invariancia de escala con un ejemplo astrofísico concreto, considérese el mapeo del dominio numérico a las condiciones de un chorro relativista en un Núcleo Galáctico Activo (AGN) con una longitud característica de normalización $L_0 = 10^{16}\,\text{cm}$ ($\approx 0.003\,\text{pc}$). En este escenario, la unidad de tiempo del código equivale a $\tau_c = L_0/c \approx 3.8\,\text{días}$, por lo que una ventana temporal de $t=5$ representa aproximadamente $19\,\text{días}$ de evolución física del plasma. Más aún, al analizar las dimensiones estructurales en los mapas hidrodinámicos (\textit{hd plots}) durante la fase de saturación no lineal, el vórtice primario maduro típicamente desarrolla un radio adimensional del orden de $R_v \approx 0.25\, L_0$. Extrapolando este valor a las dimensiones del AGN, el remolino de plasma alcanzaría un radio físico real de $2.5 \times 10^{15}\,\text{cm}$ (cerca de $170\,\text{UA}$), ilustrando la extensión espacial sobre la cual actúan las fuerzas de tensión magnética y cizalladura analizadas en este trabajo. Los parámetros operativos consolidados se resumen en la Tabla~\ref{tab:setup_summary}.
 
-\begin{table}[h]
+
+\begin{table}[H]
 \centering
 \caption{Parámetros operativos consolidados del setup numérico (Test~35A, Mizuno-like).}
 \label{tab:setup_summary}
@@ -150,7 +155,7 @@ Presión térmica             & $P_0$                   & $1.0$ \\
 Magnitud magnética base     & $B_0$                   & $1.0$ \\
 Componentes $(B_x,B_y,B_z)$ & ---                     & $(0,\, \sqrt{0.02},\, \sqrt{2.0})$ \\
 Índice adiabático           & $\Gamma$                & $4/3$ \\
-Número de Courant           & $\text{CFL}$            & $0.1$ \\
+Número de Courant           & $\text{CFL}$            & $0.1$; ($0.04$; $0.02$)-Campaña Magnética\\
 Tiempo final de integración & $t_{\text{end}}$        & $>5\,L_0/c$ \\
 \hline
 \end{tabular}
@@ -176,7 +181,7 @@ completa de los $44$ valores explorados se tabula en el capítulo de resultados
 \subsection{Segunda campaña: variación del campo magnético (objetivo 4)}
 \label{subsec:campana_B}
 
-\primerparrafo La segunda campaña aborda el cuarto objetivo ---evaluar cómo la \emph{intensidad} y la \emph{orientación} del campo magnético externo modifican la estabilización o amplificación de la KHI--- variando $\mathbf{B}$ sobre el mismo montaje base (Sección~\ref{subsec:condiciones_iniciales}), con la conductividad \emph{fija} \sebnota{fija en 2 valores} para aislar el efecto magnético del resistivo. Tiene el mismo peso analítico que la campaña de resistividad. La campaña se organiza en tres familias complementarias, todas con $|\mathbf B|=\sqrt{2.02}\,B_0$ en el caso de referencia ($B_0=1$). La Figura~\ref{fig:campanas_BC_3d} ilustra, sobre el montaje del doble-KHI, cómo se varía el campo magnético en cada una.
+\primerparrafo La segunda campaña aborda el cuarto objetivo ---evaluar cómo la \emph{intensidad} y la \emph{orientación} del campo magnético externo modifican la estabilización o amplificación de la KHI--- variando $\mathbf{B}$ sobre el mismo montaje base (Sección~\ref{subsec:condiciones_iniciales}), con la conductividad \emph{fija en dos valores} para aislar el efecto magnético del resistivo. Tiene el mismo peso analítico que la campaña de resistividad. La campaña se organiza en tres familias complementarias, todas con $|\mathbf B|=\sqrt{2.02}\,B_0$ en el caso de referencia ($B_0=1$). La Figura~\ref{fig:campanas_BC_3d} ilustra, sobre el montaje del doble-KHI, cómo se varía el campo magnético en cada una.
 
 \begin{figure}[H]
 \centering
@@ -189,9 +194,12 @@ completa de los $44$ valores explorados se tabula en el capítulo de resultados
 
 \paragraph{Campaña A — Intensidad (orientación Mizuno fija).} Se conserva la orientación del setup base y se escala la magnitud,
 \begin{equation}
-B_x=0,\qquad B_y=B_0\sqrt{0.02},\qquad B_z=B_0\sqrt{2.0},\qquad B_0\in\{0.25,\,0.5,\,1.0,\,1.5,\,2.0\}.
+\begin{aligned}
+B_x=0,\qquad B_y=B_0\sqrt{0.02}&,\qquad B_z=B_0\sqrt{2.0}, \\[1ex]
+\text{donde } B_0 &\in \{0.25,\,0.5,\,1.0,\,1.5,\,2.0\}.
+\end{aligned}
 \end{equation}
-Al variar $B_0$ dos órdenes de magnitud, la presión magnética $P_{\rm mag}=B^2/2$, el parámetro de plasma $\beta=2P_0/B^2\approx0.99/B_0^2$ y la magnetización $\sigma_m\approx B^2/(\rho h)\approx0.404\,B_0^2$ (con $\rho h=5$) recorren regímenes desde dominado por presión ($\beta\gg1$) hasta dominado por campo ($\beta<1$); se espera que el aumento de $B_0$ refuerce la tensión magnética y estabilice la KHI (Cuadro~\ref{tab:campana_A}).\claudenota{REVISIÓN GLOBAL (Claude): dos puntos. (1) ``el aumento de $B_0$ refuerza la \emph{tensión}'' contradice el cap.~6 (corregido): en orientación Mizuno $M_{A,\parallel}$ es super-Alfvénico siempre $\Rightarrow$ la supresión es por \emph{presión/magnetización} ($\beta\propto B_0^{-2}$), no tensión. Reformular. (2) Esta tabla lista 5 casos ($B_0=0.25$–$2.0$) pero los débiles ($0.25,0.5$) crashearon y NO están en resultados (cap.~6 solo A3/A4/A5); marcar cuáles se analizan realmente. Igual la Campaña B incluye $\theta=15°$, excluido de los datos limpios.}
+Al variar $B_0$ dos órdenes de magnitud, la presión magnética $P_{\rm mag}=B^2/2$, el parámetro de plasma $\beta=2P_0/B^2\approx0.99/B_0^2$ y la magnetización $\sigma_m\approx B^2/(\rho h)\approx0.404\,B_0^2$ (con $\rho h=5$) recorren regímenes desde dominado por presión ($\beta\gg1$) hasta dominado por campo ($\beta<1$). Dado que en esta orientación geométrica el flujo permanece super-Alfvénico respecto a la componente paralela del campo, se espera que el aumento de $B_0$ estabilice el desarrollo de la KHI suprimiendo la compresibilidad del plasma a través del incremento de la \emph{presión magnética} e inercia efectiva, y no por tensión directa. Es fundamental precisar que, si bien el Cuadro~\ref{tab:campana_A} proyecta configuraciones de campo débil ($B_0=0.25$ y $0.5$), estas experimentaron fallos por inestabilidad numérica antes de alcanzar la fase no lineal; en consecuencia, el análisis cuantitativo de resultados se restringe exclusivamente a las simulaciones de $B_0 \in \{1.0, 1.5, 2.0\}$.
 
 \begin{table}[H]\centering
 \caption{Campaña A (intensidad): magnitud, $\beta$ y magnetización por caso (orientación Mizuno fija; $P_0=1$, $\rho h=5$).}
@@ -213,7 +221,7 @@ A5 & $2.00$ & $8.080$ & $0.25$  & $1.616$ \\
 \begin{equation}
 B_x=0,\qquad B_y=B_{\rm tot}\sin\theta,\qquad B_z=B_{\rm tot}\cos\theta,\qquad B_{\rm tot}=\sqrt{2.02},
 \end{equation}
-con $\theta\in\{0,\,5.7,\,15,\,30,\,45,\,60,\,90\}^\circ$.\sebmota{Mencionar que se intento pero limitados numericamente no se logro la evolicion de todos los caso 15 muere} El caso Mizuno original corresponde a $\theta_{\rm Mizuno}=\arctan\!\sqrt{0.02/2.0}\approx5.7^\circ$; el extremo $\theta=0^\circ$ es campo guía puro ($\mathbf B=B_{\rm tot}\hat z$) y $\theta=90^\circ$ es campo enteramente en $\hat y$ (Cuadro~\ref{tab:campana_B}). Esta familia aísla si la pequeña componente transversal $B_y$ del setup Mizuno tiene un efecto dinámico apreciable.
+con un espectro angular inicial propuesto de $\theta\in\{0,\,5.7,\,15,\,30,\,45,\,60,\,90\}^\circ$. No obstante, debido a las limitaciones numéricas impuestas por la rigidez algorítmica frente a configuraciones de alta resolución, no se logró la evolución completa de todos los casos; específicamente, el montaje para $\theta=15^\circ$ sucumbió a una detención prematura por errores de convergencia en el solucionador iterativo de variables primitivas, por lo que fue excluido del conjunto de datos limpio para el análisis final. El caso Mizuno original corresponde a $\theta_{\rm Mizuno}=\arctan\!\sqrt{0.02/2.0}\approx5.7^\circ$; el extremo $\theta=0^\circ$ es campo guía puro ($\mathbf B=B_{\rm tot}\hat z$) y $\theta=90^\circ$ es campo enteramente en $\hat y$ (Tabla~\ref{tab:campana_B}). Esta familia aísla si la pequeña componente transversal $B_y$ del setup Mizuno tiene un efecto dinámico apreciable.
 
 \begin{table}[H]\centering
 \caption{Campaña B (orientación en el plano $y$--$z$, $|\mathbf B|=\sqrt{2.02}$ fijo). El caso Mizuno es $\theta\approx5.7^\circ$.}
@@ -237,7 +245,7 @@ B7 & $90^\circ$   & $1$     & $0$     \\
 \begin{equation}
 B_y=0,\qquad B_x=B_{\rm tot}\sin\theta,\qquad B_z=B_{\rm tot}\cos\theta,\qquad \theta\in\{0,\,30,\,60,\,90\}^\circ.
 \end{equation}
-A diferencia de la Campaña~B, la rotación genera aquí una componente $B_x$ \emph{paralela} al flujo de cizalla, que puede estabilizar de forma más directa las perturbaciones mediante tensión magnética a lo largo de la dirección del corte (Cuadro~\ref{tab:campana_C}).\claudenota{ERROR FÍSICO (revisión Claude, PRIORIDAD — incoherencia con cap.~6): $B_x$ NO es paralela al flujo. El flujo de cizalla va en $\hat y$ ($V_y$) y el modo $\mathbf k$ también en $\hat y$; $B_x$ es \emph{perpendicular} al flujo y normal a la interfaz ($\mathbf k\cdot\mathbf B\propto B_x\cdot 0=0$) $\Rightarrow$ NO ejerce tensión. El cap.~6 ya describe (correctamente) la Campaña C como ``sin tensión''. CORREGIR este párrafo: la tensión la da $B_y$ ($\parallel\mathbf k$, Campaña B), no $B_x$. La variación con $\theta$ en C es por presión/reconexión, no tensión.}
+A diferencia de la Campaña~B, la rotación geométrica en este caso genera una componente $B_x$ que es \emph{perpendicular} al flujo de cizalla y normal a la interfaz. Dado que el vector de onda $\mathbf{k}$ de la inestabilidad se orienta a lo largo de la dirección longitudinal ($\hat{y}$), esta configuración asegura de forma analítica que la componente transversal no ejerza tensión magnética directa sobre la perturbación ($\mathbf{k}\cdot\mathbf{B} = 0$). Por lo tanto, la dinámica evaluada al variar $\theta$ en esta campaña aísla los efectos topológicos derivados de la incidencia angular de $B_x$ sobre la interfaz, propiciando el estudio de procesos de reconexión magnética interfasial en un escenario libre de soporte por tensión (Tabla~\ref{tab:campana_C}).
 
 \begin{table}[H]\centering
 \caption{Campaña C (componente paralela al flujo, plano $x$--$z$, $|\mathbf B|=\sqrt{2.02}$ fijo).}
@@ -254,20 +262,23 @@ C4 & $90^\circ$ & $1$     & $0$     \\
 \end{tabular}
 \end{table}
 
-\paragraph{Conductividades y paso temporal.} Cada familia se ejecuta a conductividad fija. Aunque el diseño original de la campaña fijaba únicamente $\sigma=6000$ (para aislar el efecto magnético del resistivo), en este trabajo se analizan \emph{ambas} conductividades: $\sigma=6000$ (valor de referencia, donde la KHI ya se desarrolla de forma intensa) y $\sigma=10000$ (régimen casi ideal), con el fin de determinar si los efectos magnéticos persisten o se modifican al pasar del régimen de transición al cuasi-ideal.\sebnota{revisar la matriz final $\sigma\times$CFL realmente usada: los datos de llegada incluyen también $\sigma=4500,5500,6500,7000$ y versiones CFL $0.10/0.04/0.02$; definir cuáles entran en la monografía.} A alta conductividad y campo fuerte el sistema se vuelve numéricamente rígido (la recuperación de primitivas puede fallar al formarse láminas de corriente agudas); reducir el número de Courant de CFL$=0.04$ a CFL$=0.02$ estabiliza esas corridas, por lo que $\sigma=10000$ se integra a CFL$=0.02$ y $\sigma=6000$ a CFL$=0.04$.\sebnota{la comparación entre $\sigma$ queda entonces a CFL mixto; decidir si se homogeniza para el análisis final.}
+\paragraph{Conductividades y paso temporal.} Cada familia se ejecuta a conductividad fija. Aunque el diseño original de la campaña fijaba únicamente $\sigma=6000$ (para aislar el efecto magnético del resistivo), en este trabajo se analizan \emph{ambas} conductividades: $\sigma=6000$ (valor de referencia, donde la KHI ya se desarrolla de forma intensa) y $\sigma=10000$ (régimen casi ideal), con el fin de determinar si los efectos magnéticos persisten o se modifican al pasar del régimen de transición al cuasi-ideal. A alta conductividad y campo fuerte el sistema se vuelve numéricamente rígido (la recuperación de primitivas puede fallar al formarse láminas de corriente agudas); reducir el número de Courant de CFL$=0.04$ a CFL$=0.02$ estabiliza esas corridas, por lo que $\sigma=10000$ se integra a CFL$=0.02$ y $\sigma=6000$ a CFL$=0.04$.
 
-\primerparrafo Sobre cada corrida de la campaña se monitorean los mismos diagnósticos de la Sección~\ref{subsec:diagnostico} ($\Omega_{zp}$, $\gamma_{\mathrm{KHI}}=s/2$, $\Omega^{\max}_{zp}$, $t_{\mathrm{peak}}$, $J_{\max}$, $\int\mathbf{E}\!\cdot\!\mathbf{J}\,dA$ y $f_{Vz}$), evaluados ahora como función de la intensidad $B_0$ y del ángulo $\theta$. El criterio operativo es que el campo \emph{estabiliza} si $\gamma_{\mathrm{KHI}}$ y $\Omega^{\max}_{zp}$ decrecen y $t_{\mathrm{peak}}$ aumenta, y \emph{amplifica} en el caso contrario.\sebnota{el análisis cuantitativo (\,$\gamma$ vs $B$, $\Omega^{\max}$ vs $\theta$, conversión magnética--cinética\,) se desarrolla en el Capítulo~\ref{ch:results_discussion}; resultados \emph{preliminares}, pendientes de revisión a fondo (no fiarse aún del informe de llegada).}
+\primerparrafo Sobre cada corrida de la campaña se monitorean los mismos diagnósticos de la Sección~\ref{subsec:diagnostico} ($\Omega_{zp}$, $\gamma_{\mathrm{KHI}}=s/2$, $\Omega^{\max}_{zp}$, $t_{\mathrm{peak}}$, $J_{\max}$, $\int\mathbf{E}\!\cdot\!\mathbf{J}\,dA$ y $f_{Vz}$), evaluados ahora como función de la intensidad $B_0$ y del ángulo $\theta$. El criterio operativo es que el campo \emph{estabiliza} si $\gamma_{\mathrm{KHI}}$ y $\Omega^{\max}_{zp}$ decrecen y $t_{\mathrm{peak}}$ aumenta, y \emph{amplifica} en el caso contrario.
 
 \subsection{Variables de Control y Diagnóstico}
 \label{subsec:diagnostico}
 
 Para extraer rigurosamente la tasa de crecimiento $\gamma_{\text{KHI}}$ y evaluar el impacto disipativo del barrido en $\sigma$ sobre la dinámica vortical, se requiere un conjunto de métricas globales que no se vean contaminadas por la cizalladura del flujo base ni por los gradientes inherentes a las condiciones iniciales. Como se estableció formalmente en la sección dedicada a la formulación geométrica de la vorticidad y enstrofía dentro del marco teórico (Sección~\ref{sec:Energia_Momento} \emph{et seq.}), se adoptan como observables principales las distintas manifestaciones eulerianas de la enstrofía planar previamente definidas.
 
-En particular, se monitorea de manera sistemática a lo largo de la integración temporal:\sebnota{Mirar cuáles de estos diagnósticos sí se usan y cuáles no; además, seguro se usan otros, como campos y energías.}\claudenota{Del código: se usan $\Omega_z$, $\Omega_{\rm tot}$, $f_{Vz}$ y $\Omega'_{zp}$ (estos en cap.~6) y además $J_{\max}$, $\int\mathbf E\!\cdot\!\mathbf J$ y $E_{\rm mag}$ (§\ref{sec:globales}). Conviene listar también estos últimos aquí para que la sección de diagnósticos quede completa.}
+En particular, se monitorea de manera sistemática a lo largo de la integración temporal:
 \begin{itemize}
     \item \textbf{Enstrofía planar bidimensional:} $\Omega_z(t) = \int (\partial_x V_y - \partial_y V_x)^2\, dA$, que cuantifica la energía rotacional asociada a la componente fuera del plano del campo de vorticidad euleriano y constituye el indicador primario del crecimiento vortical en la geometría 2D del problema.
     \item \textbf{Enstrofía total tridimensional euleriana:} $\Omega_{\text{tot}}(t)$, que incorpora contribuciones de los gradientes transversales de $V_z$ y permite detectar la activación de modos fuera del plano por acoplamiento magnético, aun en una simulación nominalmente bidimensional.
     \item \textbf{Factor de anisotropía estructural:} $f_{Vz}(t) = (\Omega_{\text{tot}} - \Omega_z)/\Omega_{\text{tot}}$, cuya desviación respecto a cero señala el inicio de la ruptura de simetría planar inducida por la tensión magnética fuera del plano y el acoplamiento tridimensional emergente.
-    \item \textbf{Enstrofía de perturbación:} $\Omega'_z(t) = \int (\omega'_z)^2\, dA$, definida sobre la vorticidad perturbada $\omega'_z = \omega_z - \langle \omega_z(t=0) \rangle_y$, la cual sustrae el fondo de cizalladura inicial y constituye la métrica fundamental para la extracción de la tasa de crecimiento lineal mediante regresión sobre $\ln \Omega'_z(t) = a + 2\gamma_{\text{KHI}}\, t$, donde $a$ es una constante de ajuste (no debe confundirse con el \emph{offset} $C$ del modelo sigmoide del capítulo de resultados).
+    \item \textbf{Enstrofía de perturbación:} $\Omega'_{zp}(t) = \int (\omega'_z)^2\, dA$, definida sobre la vorticidad perturbada $\omega'_z = \omega_z - \langle \omega_z(t=0) \rangle_y$, la cual sustrae el fondo de cizalladura inicial y constituye la métrica fundamental para la extracción de la tasa de crecimiento lineal mediante regresión sobre $\ln \Omega'_{zp}(t) = a + 2\gamma_{\text{KHI}}\, t$, donde $a$ es una constante de ajuste (no debe confundirse con el \emph{offset} $C$ del modelo sigmoide del Capítulo \ref{ch:results_discussion}).
+    \item \textbf{Máxima densidad de corriente:} $J_{\max}(t)$, correspondiente al valor local máximo del vector $\mathbf{J} = \nabla \times \mathbf{B}$ en el dominio computacional. Resulta fundamental para identificar el adelgazamiento de las capas de corriente y señalar los instantes precisos de reconexión magnética interfasial.
+    \item \textbf{Disipación óhmica global:} $\int \mathbf{E} \cdot \mathbf{J} \, dA$, que cuantifica la tasa integral de conversión de energía electromagnética en calor (calentamiento de Joule), operando como el principal testigo macroscópico de la actividad resistiva del plasma.
+    \item \textbf{Energía magnética:} $E_{\text{mag}}(t) = \int (B^2/2) \, dA$, métrica que, analizada en conjunto con la energía cinética, permite aislar el canal directo de intercambio energético y caracterizar las oscilaciones en anti-fase gobernadas por la tensión magnética.
 \end{itemize}
 La evaluación discreta de estos diagnósticos se realiza mediante diferencias finitas centradas de segundo orden sobre el campo de velocidad reconstruido en los centros de celda, con integración por regla del trapecio sobre todo el dominio físico $A = L_x \times L_y$. La combinación de estos cuatro observables proporciona una caracterización integral altamente sensible al régimen disipativo, permitiendo aislar de forma cuantitativa los efectos de la conductividad finita sobre las distintas fases dinámicas de la KHI.

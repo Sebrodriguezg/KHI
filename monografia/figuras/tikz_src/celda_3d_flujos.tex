@@ -1,0 +1,78 @@
+\documentclass[border=6pt]{standalone}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc}
+\begin{document}
+% Proyeccion 2D directa (cabinet-like): px = x + 0.5 y ; py = z + 0.42 y
+% x -> derecha, y -> profundidad (arriba-derecha), z -> arriba
+\newcommand{\PP}[3]{({#1+0.5*#2},{#3+0.42*#2})}
+\begin{tikzpicture}[>=Latex,scale=1.25,
+  faceA/.style={fill=blue!6},
+  faceB/.style={fill=blue!10},
+  faceC/.style={fill=blue!4},
+  edge/.style={thick,black!80},
+  hidden/.style={thick,black!45,dashed},
+  fluxv/.style={->,very thick,teal!65!black},
+  fluxh/.style={->,thick,orange!75!black,dashed},
+  lbl/.style={teal!55!black,font=\footnotesize},
+  lblh/.style={orange!70!black,font=\footnotesize}]
+
+\def\s{3}
+
+% ---------- caras ocultas (aristas punteadas desde el vertice trasero D=(0,s,0)) ----------
+\draw[hidden] \PP{0}{\s}{0} -- \PP{0}{0}{0};   % D-A
+\draw[hidden] \PP{0}{\s}{0} -- \PP{\s}{\s}{0};  % D-C
+\draw[hidden] \PP{0}{\s}{0} -- \PP{0}{\s}{\s};  % D-H
+
+% ---------- caras visibles ----------
+% cara superior z=s : E F G H
+\draw[faceC] \PP{0}{0}{\s} -- \PP{\s}{0}{\s} -- \PP{\s}{\s}{\s} -- \PP{0}{\s}{\s} -- cycle;
+% cara derecha x=s : B C G F
+\draw[faceB] \PP{\s}{0}{0} -- \PP{\s}{\s}{0} -- \PP{\s}{\s}{\s} -- \PP{\s}{0}{\s} -- cycle;
+% cara frontal y=0 : A B F E
+\draw[faceA] \PP{0}{0}{0} -- \PP{\s}{0}{0} -- \PP{\s}{0}{\s} -- \PP{0}{0}{\s} -- cycle;
+
+% aristas visibles (recalcadas)
+\draw[edge] \PP{0}{0}{0} -- \PP{\s}{0}{0} -- \PP{\s}{0}{\s} -- \PP{0}{0}{\s} -- cycle;
+\draw[edge] \PP{\s}{0}{0} -- \PP{\s}{\s}{0} -- \PP{\s}{\s}{\s} -- \PP{\s}{0}{\s};
+\draw[edge] \PP{0}{0}{\s} -- \PP{\s}{0}{\s} -- \PP{\s}{\s}{\s} -- \PP{0}{\s}{\s} -- cycle;
+
+% ---------- centro: promedio de celda ----------
+\fill[red!75!black] \PP{1.5}{1.5}{1.5} circle (1.6pt);
+\node[red!75!black,font=\small] at \PP{1.5}{1.55}{1.95} {$\bar{\mathbf U}_{i,j,k}$};
+
+% ---------- flujos salientes en caras visibles (solidos) ----------
+% +x (cara derecha)
+\draw[fluxv] \PP{\s}{1.5}{1.5} -- \PP{4.0}{1.5}{1.5};
+\node[lbl,anchor=west] at \PP{4.05}{1.5}{1.5} {$\hat{\mathbf F}^{x}_{i+1/2}$};
+% +z (cara superior)
+\draw[fluxv] \PP{1.5}{1.5}{\s} -- \PP{1.5}{1.5}{4.0};
+\node[lbl,anchor=south] at \PP{1.5}{1.5}{4.05} {$\hat{\mathbf F}^{z}_{k+1/2}$};
+% -y (cara frontal, normal hacia el observador)
+\draw[fluxv] \PP{1.5}{0}{1.5} -- \PP{1.5}{-1.0}{1.5};
+\node[lbl,anchor=north east] at \PP{1.5}{-1.05}{1.5} {$\hat{\mathbf F}^{y}_{j-1/2}$};
+
+% ---------- flujos entrantes en caras ocultas (punteados) ----------
+% -x (cara izquierda)
+\draw[fluxh] \PP{-1.0}{1.5}{1.5} -- \PP{0}{1.5}{1.5};
+\node[lblh,anchor=east] at \PP{-1.05}{1.5}{1.5} {$\hat{\mathbf F}^{x}_{i-1/2}$};
+% -z (cara inferior)
+\draw[fluxh] \PP{1.5}{1.5}{-1.0} -- \PP{1.5}{1.5}{0};
+\node[lblh,anchor=north] at \PP{1.5}{1.5}{-1.05} {$\hat{\mathbf F}^{z}_{k-1/2}$};
+% +y (cara trasera)
+\draw[fluxh] \PP{1.5}{\s}{1.5} -- \PP{1.5}{4.0}{1.5};
+\node[lblh,anchor=south west] at \PP{1.5}{4.05}{1.5} {$\hat{\mathbf F}^{y}_{j+1/2}$};
+
+% ---------- nota: el flujo de cara es el problema de Riemann reconstruido ----------
+\node[align=left,font=\scriptsize,black!70] at \PP{5.0}{0}{-0.2}
+  {$\hat{\mathbf F}^{x}_{i+1/2}=\mathcal{F}_{\mathrm{HLL}}(\mathbf U_L,\mathbf U_R)$\\[1pt]
+   (estados $\mathbf U_L,\mathbf U_R$ por MP5)};
+
+% ---------- triada de ejes ----------
+\def\ox{-1.4}\def\oz{3.6}
+\draw[->,thick,black!70] (\ox,\oz) -- ++(0.9,0) node[right,font=\footnotesize]{$x$};
+\draw[->,thick,black!70] (\ox,\oz) -- ++({0.5*0.9},{0.42*0.9}) node[above right,font=\footnotesize]{$y$};
+\draw[->,thick,black!70] (\ox,\oz) -- ++(0,0.9) node[above,font=\footnotesize]{$z$};
+
+\end{tikzpicture}
+\end{document}

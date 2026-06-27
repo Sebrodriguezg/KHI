@@ -22,7 +22,14 @@ Integrando el sistema de leyes de conservación $\partial_t \mathbf{U} + \partia
 $$
 \frac{d\mathbf{\bar{U}}_i}{dt} = -\frac{1}{\Delta x} \left[ \mathbf{\hat{F}}_{i+1/2}(t) - \mathbf{\hat{F}}_{i-1/2}(t) \right] + \mathbf{\bar{S}}_i(t).
 $$
-Aquí, $\mathbf{\hat{F}}_{i \pm 1/2}$ representa el flujo numérico interfasial. El núcleo de la hidrodinámica computacional consiste en aproximar este flujo $\mathbf{\hat{F}} \approx \mathbf{F}(\mathbf{U}_L, \mathbf{U}_R)$ evaluando el problema de Riemann generado por los estados reconstruidos a la izquierda ($\mathbf{U}_L$) y derecha ($\mathbf{U}_R$) de cada interfaz \parencite{toro-2009}.
+Aquí, $\mathbf{\hat{F}}_{i \pm 1/2}$ representa el flujo numérico interfasial. El núcleo de la hidrodinámica computacional consiste en aproximar este flujo $\mathbf{\hat{F}} \approx \mathbf{F}(\mathbf{U}_L, \mathbf{U}_R)$ evaluando el problema de Riemann generado por los estados reconstruidos a la izquierda ($\mathbf{U}_L$) y derecha ($\mathbf{U}_R$) de cada interfaz \parencite{toro-2009}. En el dominio bi/tridimensional, esta misma construcción se aplica por separado a cada dirección coordenada: la actualización de la celda $(i,j,k)$ es el balance de los flujos numéricos a través de sus seis caras, $\mathbf{\hat F}^{x}_{i\pm1/2}$, $\mathbf{\hat F}^{y}_{j\pm1/2}$ y $\mathbf{\hat F}^{z}_{k\pm1/2}$ (Figura~\ref{fig:celda_3d_flujos}).
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.72\textwidth]{figuras/celda_3d_flujos}
+\caption{Celda de volumen finito $(i,j,k)$ y los flujos numéricos que el esquema reconstruye en cada cara. El estado de la celda es el promedio de las variables conservativas $\bar{\mathbf U}_{i,j,k}$ (punto central). La evolución temporal de la celda es el balance de los flujos a través de sus seis caras: salientes en las caras $+1/2$ (sólidos) y entrantes en las $-1/2$ (punteados). Cada flujo de cara, p.~ej.\ $\mathbf{\hat F}^{x}_{i+1/2}$, es la solución del problema de Riemann local resuelto con el solucionador aproximado HLL a partir de los estados $\mathbf U_L,\mathbf U_R$ reconstruidos con MP5 a ambos lados de la interfaz. La conservación es exacta por construcción: el flujo que abandona una celda por una cara entra íntegramente en la celda vecina.}
+\label{fig:celda_3d_flujos}
+\end{figure}
 
 \subsection{Limitadores de Pendiente y Reconstrucción de Alto Orden}
 
@@ -41,11 +48,17 @@ $$
 \mathbf{U}_L = \text{median}(\mathbf{U}_{i+1/2}^{(5)}, \mathbf{U}_{min}, \mathbf{U}_{max}).
 $$
 Esta topología garantiza una captura de choques sin oscilaciones acoplada a una retención casi espectral de la vorticidad bidimensional, requisito fundamental para resolver la capa límite resistiva de espesor $\sim S^{-1/2}$. Esta motivación ---minimizar la disipación numérica para que sea la disipación \emph{física} la que domine y queden resueltas las hojas de corriente resistivas--- es la misma que impulsa los esquemas Res-RMHD de orden aún mayor (cuarto orden) desarrollados recientemente por \textcite{mignone2024}, dentro de cuya línea metodológica se inscribe el código \textit{Cueva}.
-
 \section{El Problema de Riemann Local en RRMHD}
 \label{sec:Problema_Riemann}
 
-\primerparrafo La reconstrucción espacial genera pares de estados $(\mathbf{U}_L, \mathbf{U}_R)$ en cada interfaz de la malla, definiendo un conjunto de Problemas de Riemann locales. La solución exacta a este problema de valores iniciales discontinuos es un abanico auto-similar de ondas características $\lambda_k = x/t$ centradas en la interfaz.
+\primerparrafo La reconstrucción espacial genera pares de estados $(\mathbf{U}_L, \mathbf{U}_R)$ en cada interfaz de la malla, definiendo un conjunto de Problemas de Riemann locales. La solución exacta a este problema de valores iniciales discontinuos es un abanico auto-similar de ondas características $\lambda_k = x/t$ centradas en la interfaz (Figura~\ref{fig:riemann_hll}).
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.82\textwidth]{figuras/riemann_hll}
+\caption{Problema de Riemann local en el plano $x$--$t$ y la aproximación HLL. La discontinuidad entre los estados reconstruidos $\mathbf U_L$ y $\mathbf U_R$ se resuelve en un abanico auto-similar de ondas características: las magnetosónicas rápidas ($\lambda_f^\pm$), de Alfvén ($\lambda_a^\pm$) y lentas ($\lambda_s^\pm$), más la discontinuidad de contacto ($\lambda_c$). El solucionador aproximado HLL reemplaza toda la estructura interna por un \emph{único} estado intermedio $\mathbf U^{\mathrm{HLL}}$ (región sombreada) acotado por las dos velocidades de señal extremas $S_L$ y $S_R$, estimadas con las ondas rápidas.}
+\label{fig:riemann_hll}
+\end{figure}
 
 \subsection{Estructura Espectral del Jacobiano Conservativo}
 
@@ -69,13 +82,18 @@ $$
 \subsection{El Solucionador Aproximado HLL y el Papel de la Reconstrucción de Alto Orden}
 \label{sec:Solucionador_HLL}
 
-\primerparrafo El \textit{Cueva} resuelve el problema de Riemann local mediante el solucionador aproximado de Harten, Lax y van Leer (HLL), que evita el costo de un solucionador exacto. El esquema HLL aproxima todo el abanico de Riemann ignorando la estructura interna y asumiendo un único estado constante $\mathbf{U}^{hll}$ confinado entre las velocidades extremas de onda $\lambda_L$ y $\lambda_R$. Estas velocidades de señal se estiman a partir de las velocidades magnetoacústicas rápidas extremas del espectro ($\lambda_f^\pm$, Sección~\ref{sec:Reconstruccion_Espacial} \emph{et seq.}): $\lambda_L=\min(\lambda_f^-)$ a la izquierda y $\lambda_R=\max(\lambda_f^+)$ a la derecha.
+\primerparrafo El código \textit{Cueva} resuelve el problema de Riemann local mediante el solucionador aproximado de Harten, Lax y van Leer (HLL), que evita el costo iterativo de un solucionador exacto. El esquema HLL aproxima todo el abanico de Riemann ignorando la estructura interna y asumiendo un único estado constante $\mathbf{U}^{hll}$ confinado entre las velocidades extremas de onda $\lambda_L$ y $\lambda_R$. Estas velocidades de señal se estiman a partir de las velocidades magnetoacústicas rápidas extremas del espectro ($\lambda_f^\pm$, Sección~\ref{sec:Reconstruccion_Espacial} \emph{et seq.}): $\lambda_L=\min(\lambda_f^-)$ a la izquierda y $\lambda_R=\max(\lambda_f^+)$ a la derecha.
 
 El flujo intermedio del HLL resulta de aplicar el teorema de conservación de volumen sobre el abanico:
 $$
 \mathbf{F}^{hll} = \frac{\lambda_R \mathbf{F}_L - \lambda_L \mathbf{F}_R + \lambda_L \lambda_R (\mathbf{U}_R - \mathbf{U}_L)}{\lambda_R - \lambda_L}.
 $$
-Esta aproximación promedia e ignora la estructura interna del abanico, en particular la onda de contacto $\lambda_c = v_x$ que porta la cizalladura tangencial ($v_y$) característica de la KHI. Tomado de forma aislada y a bajo orden, el HLL inyectaría una difusión numérica $\propto(\lambda_R - \lambda_L)$ sobre la discontinuidad tangencial, desdibujando la cizalla. Sin embargo, esta limitación se compensa con la reconstrucción \textit{Monotonicity-Preserving} de quinto orden (MP5, Sección~\ref{sec:Reconstruccion_Espacial}): el alto orden recupera estados interfasiales agudos a ambos lados del contacto, de modo que la combinación HLL$+$MP5 ---la efectivamente empleada en el \textit{Cueva} para el barrido de la KHI--- resuelve con fidelidad la capa de cizalla y el enrollamiento de los vórtices, manteniendo la disipación numérica por debajo de la disipación física resistiva. Es esta sinergia entre un flujo robusto (HLL) y una reconstrucción de alto orden (MP5), y no un solucionador de contacto explícito, la que sostiene la fidelidad de las simulaciones presentadas en este trabajo.
+
+Esta aproximación promedia e ignora la estructura interna del abanico, en particular la onda de contacto $\lambda_c = v_x$ que porta la cizalladura tangencial ($v_y$) característica de la KHI. Tomado de forma aislada y a bajo orden (esquema de Godunov), el HLL inyectaría una difusión numérica espuria $\propto(\lambda_R - \lambda_L)$ sobre la discontinuidad tangencial, desdibujando la cizalla. De hecho, para subsanar esta deficiencia topológica en el límite ideal a primer orden, los autores principales del código formularon una variante HLLC que restaura explícitamente dicha onda de contacto \parencite{miranda-aranguren-2018}.
+
+Sin embargo, para el barrido paramétrico de la presente monografía, la integración se llevó a cabo utilizando la combinación del flujo robusto HLL acoplado a la reconstrucción espacial \textit{Monotonicity-Preserving} de quinto orden (MP5). La justificación de esta elección analítica se fundamenta en los propios hallazgos de \textcite{miranda-aranguren-2018}: al implementar reconstrucciones de muy alto orden como el esquema MP5, la extrema agudeza de los estados interfasiales $(\mathbf{U}_L, \mathbf{U}_R)$ suministrados al solucionador compensa y reduce drásticamente la huella disipativa inherente al HLL. 
+
+Esta sinergia logra resolver las discontinuidades aisladas y los agudos gradientes de la cizalladura en apenas unas pocas celdas computacionales, igualando en la práctica el rendimiento cualitativo de solucionadores más complejos (como el HLLC), pero reteniendo la inigualable simplicidad algebraica, la conservación positiva y la altísima eficiencia computacional (libre de jacobianos) del HLL \parencite{toro-2009}. De este modo, la dupla HLL+MP5 garantiza que la disipación numérica de la malla se mantenga estrictamente por debajo de la disipación física resistiva impuesta, asegurando la fidelidad fenomenológica en la tasa de crecimiento y el enrollamiento de los vórtices presentados en este trabajo.
 
 \section[Acoplamiento con el sistema GLM]{Acoplamiento Numérico con el Sistema Aumentado GLM}
 \label{sec:Acoplamiento_GLM_HLL}
@@ -118,7 +136,14 @@ y se integran junto con el resto del sistema mediante el esquema temporal (Secci
 \begin{equation}
     \mathbf{U}^{(i)} = \mathbf{U}^n + \Delta t \sum_{j=1}^{i-1} \tilde{a}_{ij} \mathcal{F}(\mathbf{U}^{(j)}) + \Delta t \sum_{j=1}^{i} a_{ij} \mathcal{S}(\mathbf{U}^{(j)}).
 \end{equation}
-Donde las matrices triangulares de Butcher $\tilde{A} = (\tilde{a}_{ij})$ y $A = (a_{ij})$ definen, respectivamente, las integraciones explícita e implícita (con $a_{ij} = 0$ para $j > i$).
+Donde las matrices triangulares de Butcher $\tilde{A} = (\tilde{a}_{ij})$ y $A = (a_{ij})$ definen, respectivamente, las integraciones explícita e implícita (con $a_{ij} = 0$ para $j > i$). La Figura~\ref{fig:imex_splitting} resume esta partición de operadores.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.92\textwidth]{figuras/imex_splitting}
+\caption{Partición de operadores del esquema IMEX-RK. El sistema se separa en una parte \emph{no rígida} ---los flujos hiperbólicos $-\partial_i\mathbf F^i$, integrados de forma \emph{explícita} con reconstrucción MP5 y solucionador HLL--- y una parte \emph{rígida} ---el término fuente resistivo $\mathbf S_{\rm rig}=-\sigma\mathbf E$, tratado de forma \emph{implícita} mediante inversión algebraica local---. Así el paso de tiempo queda gobernado por la advección ($\Delta t\propto\Delta x$) y no por la rigidez resistiva ($\Delta t\propto\Delta x^2$), que paralizaría un integrador explícito.}
+\label{fig:imex_splitting}
+\end{figure}
 
 \subsection{Inversión Algebraica Local del Término de Conducción}
 

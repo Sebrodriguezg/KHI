@@ -607,5 +607,180 @@
   "typ": "sebnota",
   "sec": "Variación en el plano $x-z$",
   "body": "organizar en 2x2"
+ },
+ "Mencionar que se intento pero limitados numericamente no se logro la evolicion de todos los caso 15 muere": {
+  "id": 210,
+  "chap": "Cap. 5 — Setup experimental",
+  "typ": "sebnota",
+  "sec": "Campaña B — Orientación en el plano $y$--$z$ ($|\\mathbf B|$ fijo).",
+  "body": "Mencionar que se intento pero limitados numericamente no se logro la evolicion de todos los caso 15 muere"
+ },
+ "Revisar si los valores de CFL en la tabla son todos los usados en las simulaciones": {
+  "id": 211,
+  "chap": "Cap. 5 — Setup experimental",
+  "typ": "brynota",
+  "sec": "Sistema de unidades y equivalencia temporal.",
+  "body": "Revisar si los valores de CFL en la tabla son todos los usados en las simulaciones"
+ },
+ "cambiar contenido del parentesis, no es coherente que aparezca ese \\texttt{curve\\_fit}": {
+  "id": 212,
+  "chap": "Cap. 6 — Resultados",
+  "typ": "brynota",
+  "sec": "Resultados del ajuste",
+  "body": "cambiar contenido del parentesis, no es coherente que aparezca ese \\texttt{curve\\_fit}"
+ },
+ "Creo que ya estan todas las graficas necesarias no?": {
+  "id": 213,
+  "chap": "Cap. 6 — Resultados",
+  "typ": "brynota",
+  "sec": "Conductividad crítica $\\scrit$ y sus tres fuentes de incertidumbre",
+  "body": "Creo que ya estan todas las graficas necesarias no?"
+ },
+ "este articulo creo que no lo tenemos y no lo podemos comprobar": {
+  "id": 214,
+  "chap": "Cap. 6 — Resultados",
+  "typ": "brynota",
+  "sec": "Techo hidrodinámico inviscido (ecuación de Rayleigh)",
+  "body": "este articulo creo que no lo tenemos y no lo podemos comprobar"
+ },
+ "creo que el dato ya se encuentra explicito": {
+  "id": 215,
+  "chap": "Cap. 6 — Resultados",
+  "typ": "brynota",
+  "sec": "Predicción RMHD compresible (Lees--Lin)",
+  "body": "creo que el dato ya se encuentra explicito"
+ },
+ "En el capitulo del set-up se habla sobre esto": {
+  "id": 216,
+  "chap": "Cap. 6 — Resultados",
+  "typ": "brynota",
+  "sec": "Variación de Intensidad y Orientación del Campo Magnético",
+  "body": "En el capitulo del set-up se habla sobre esto"
+ },
+ "poner el enlace en donde se suben los videos": {
+  "id": 217,
+  "chap": "Cap. 6 — Resultados",
+  "typ": "brynota",
+  "sec": "Balance energético y procesos disipativos",
+  "body": "poner el enlace en donde se suben los videos"
+ },
+ "NotebookLM (vs.\\ fuentes): contexto correcto y bien respaldado. La KHI en la capa de cizalla de jets de AGN regula el \\emph{entrainment} y la desaceleración del chorro, y propicia la aceleración de partículas (emisión sincrotrón en bordes de jets como Cygnus~A y M87); el uso de RRMHD para captar la reconexión intermitente está justificado.": {
+  "id": 218,
+  "chap": "Cap. 1 — Introducción",
+  "typ": "notebooknota",
+  "sec": "Relevancia de la RRMHD en Chorros Astrofísicos y AGN",
+  "body": "NotebookLM (vs.\\ fuentes): contexto correcto y bien respaldado. La KHI en la capa de cizalla de jets de AGN regula el \\emph{entrainment} y la desaceleración del chorro, y propicia la aceleración de partículas (emisión sincrotrón en bordes de jets como Cygnus~A y M87); el uso de RRMHD para captar la reconexión intermitente está justificado."
+ },
+ "NotebookLM: la distinción (Vargas) es correcta y profunda, pero conviene no ``corregir'' a toda la literatura. Sugiere una concesión: aclararlo una vez y, en lo sucesivo, adoptar la nomenclatura estándar ``tensor de Faraday'' (Rezzolla, Goedbloed, Miranda) por fidelidad a las referencias.": {
+  "id": 219,
+  "chap": "Cap. 2 — Teoría RRMHD",
+  "typ": "notebooknota",
+  "sec": "El Cuadripotencial y la Definición del Tensor de Faraday",
+  "body": "NotebookLM: la distinción (Vargas) es correcta y profunda, pero conviene no ``corregir'' a toda la literatura. Sugiere una concesión: aclararlo una vez y, en lo sucesivo, adoptar la nomenclatura estándar ``tensor de Faraday'' (Rezzolla, Goedbloed, Miranda) por fidelidad a las referencias."
+ },
+ "NotebookLM: la analogía con Stueckelberg es correcta y pertinente (no sobre-interpretación), respaldada por \\textcite{lee2004} ---que deduce el GLM desde la analogía con las anomalías de gauge en TCC--- y por Dumbser et al.\\ (2024); su validez se sostiene al ``aterrizar'' en la ecuación del telégrafo.": {
+  "id": 220,
+  "chap": "Cap. 2 — Teoría RRMHD",
+  "typ": "notebooknota",
+  "sec": "Extensión Lagrangiana y el Campo Auxiliar Eléctrico $\\Phi$",
+  "body": "NotebookLM: la analogía con Stueckelberg es correcta y pertinente (no sobre-interpretación), respaldada por \\textcite{lee2004} ---que deduce el GLM desde la analogía con las anomalías de gauge en TCC--- y por Dumbser et al.\\ (2024); su validez se sostiene al ``aterrizar'' en la ecuación del telégrafo."
+ },
+ "NotebookLM: equivalentes en el límite continuo (\\textcite{Dedner_etal:2002} deriva la ecuación del telégrafo de su sistema de 1er orden); la integración en 1er orden es \\emph{obligatoria} por el solucionador de Riemann, los términos de Godunov--Powell y la consistencia termodinámica (SHTC, Dumbser 2024).": {
+  "id": 221,
+  "chap": "Cap. 2 — Teoría RRMHD",
+  "typ": "notebooknota",
+  "sec": "Descomposición 3+1 del Sistema Aumentado",
+  "body": "NotebookLM: equivalentes en el límite continuo (\\textcite{Dedner_etal:2002} deriva la ecuación del telégrafo de su sistema de 1er orden); la integración en 1er orden es \\emph{obligatoria} por el solucionador de Riemann, los términos de Godunov--Powell y la consistencia termodinámica (SHTC, Dumbser 2024)."
+ },
+ "NotebookLM (sobre una versión previa del documento) advirtió que las variables conservativas debían incluir la contribución electromagnética (vector de Poynting $\\mathbf E\\times\\mathbf B$ y densidad $\\tfrac12(E^2+B^2)$), no solo el fluido, por exigencia de la forma fuertemente conservativa (Miranda 2018). Esta versión \\emph{ya} usa la convención total: verificado correcto.": {
+  "id": 222,
+  "chap": "Cap. 2 — Teoría RRMHD",
+  "typ": "notebooknota",
+  "sec": "Resumen del Sistema RRMHD en Forma Conservativa",
+  "body": "NotebookLM (sobre una versión previa del documento) advirtió que las variables conservativas debían incluir la contribución electromagnética (vector de Poynting $\\mathbf E\\times\\mathbf B$ y densidad $\\tfrac12(E^2+B^2)$), no solo el fluido, por exigencia de la forma fuertemente conservativa (Miranda 2018). Esta versión \\emph{ya} usa la convención total: verificado correcto."
+ },
+ "NotebookLM: en esta geometría ($\\mathbf B$ dominante perpendicular a la perturbación compresional), la inercia efectiva transversal debería incluir la presión magnética, $w=\\rho h\\Gamma^2+B^2$ (consistente con Chow et al.\\ 2023). Valorar precisarlo aquí.": {
+  "id": 223,
+  "chap": "Cap. 2 — Teoría RRMHD",
+  "typ": "notebooknota",
+  "sec": "Inercia Térmica Relativista y Anisotropía Magnética",
+  "body": "NotebookLM: en esta geometría ($\\mathbf B$ dominante perpendicular a la perturbación compresional), la inercia efectiva transversal debería incluir la presión magnética, $w=\\rho h\\Gamma^2+B^2$ (consistente con Chow et al.\\ 2023). Valorar precisarlo aquí."
+ },
+ "NotebookLM señaló el posible desfase entre la teoría (flujo en $\\hat x$, interfaz $y=0$) y la simulación (flujo en $\\hat y$, interfaces $x=\\pm0.5$); este párrafo puente, que aclara la equivalencia por rotación de ejes, ya atiende esa observación.": {
+  "id": 224,
+  "chap": "Cap. 3 — KHI",
+  "typ": "notebooknota",
+  "sec": "Planteamiento Hidrodinámico",
+  "body": "NotebookLM señaló el posible desfase entre la teoría (flujo en $\\hat x$, interfaz $y=0$) y la simulación (flujo en $\\hat y$, interfaces $x=\\pm0.5$); este párrafo puente, que aclara la equivalencia por rotación de ejes, ya atiende esa observación."
+ },
+ "NotebookLM: elección de MP5 adecuada y bien justificada; supera a los TVD (recorte excesivo de extremos) y a los WENO (más difusivos) según \\textcite{suresh-1997}, y es el requisito para resolver las láminas resistivas $\\delta\\propto S^{-1/2}$ sin que la disipación numérica domine sobre la física.": {
+  "id": 225,
+  "chap": "Cap. 4 — Métodos numéricos",
+  "typ": "notebooknota",
+  "sec": "Difusión Numérica y la Necesidad de Esquemas MP5",
+  "body": "NotebookLM: elección de MP5 adecuada y bien justificada; supera a los TVD (recorte excesivo de extremos) y a los WENO (más difusivos) según \\textcite{suresh-1997}, y es el requisito para resolver las láminas resistivas $\\delta\\propto S^{-1/2}$ sin que la disipación numérica domine sobre la física."
+ },
+ "NotebookLM (DISCREPANCIA a reconciliar): la fuente principal del código (\\textcite{miranda-aranguren-2018}, \\emph{``An HLLC Riemann solver for resistive relativistic MHD''}) indica que CUEVA emplea \\textbf{HLLC}, no HLL. NLM sostiene que el HLL solo debe describirse como el antecedente que \\emph{falla} en la KHI (difunde la onda de contacto) y que el solucionador real es el HLLC. Esta subsección argumenta lo contrario (HLL+MP5 sin solucionador de contacto). Verificar con el director/Bryan cuál es el correcto y unificar.": {
+  "id": 226,
+  "chap": "Cap. 4 — Métodos numéricos",
+  "typ": "notebooknota",
+  "sec": "El Solucionador Aproximado HLL y el Papel de la Reconstrucción de Alto Orden",
+  "body": "NotebookLM (DISCREPANCIA a reconciliar): la fuente principal del código (\\textcite{miranda-aranguren-2018}, \\emph{``An HLLC Riemann solver for resistive relativistic MHD''}) indica que CUEVA emplea \\textbf{HLLC}, no HLL. NLM sostiene que el HLL solo debe describirse como el antecedente que \\emph{falla} en la KHI (difunde la onda de contacto) y que el solucionador real es el HLLC. Esta subsección argumenta lo contrario (HLL+MP5 sin solucionador de contacto). Verificar con el director/Bryan cuál es el correcto y unificar."
+ },
+ "NotebookLM: correcto: solo $B_y$ ($\\parallel\\mathbf k$) ejerce tensión ($\\propto(\\mathbf k\\cdot\\mathbf B)^2$); $B_x$ y $B_z$ ($\\perp\\mathbf k$) solo aportan presión magnética (Chow et al.\\ 2023). Añade un motivo extra para $B_x=0$: si no fuese nula, el flujo de cizalla la estiraría por inducción (Faraday) y rompería el equilibrio base.": {
+  "id": 227,
+  "chap": "Cap. 5 — Setup experimental",
+  "typ": "notebooknota",
+  "sec": "Condiciones Iniciales del Problema",
+  "body": "NotebookLM: correcto: solo $B_y$ ($\\parallel\\mathbf k$) ejerce tensión ($\\propto(\\mathbf k\\cdot\\mathbf B)^2$); $B_x$ y $B_z$ ($\\perp\\mathbf k$) solo aportan presión magnética (Chow et al.\\ 2023). Añade un motivo extra para $B_x=0$: si no fuese nula, el flujo de cizalla la estiraría por inducción (Faraday) y rompería el equilibrio base."
+ },
+ "NotebookLM: el montaje (doble \\emph{tanh}, $a_{kh}=0.05$, contraste 0.1) es canónico y bien elegido. Dos matices: (i)~la malla $512\\times256$ ($\\sim$13 celdas en la capa) es impecable para la fase lineal, pero a alta $\\sigma$ las láminas resistivas $\\delta\\propto S^{-1/2}$ rozan el límite de resolución (podría condicionar el exponente $\\alpha\\approx1.22$); (ii)~CFL$=0.1$ es muy conservador dado que el IMEX ya trata la rigidez ---un IMEX eficiente admitiría CFL$\\sim0.3$--$0.4$---.": {
+  "id": 228,
+  "chap": "Cap. 5 — Setup experimental",
+  "typ": "notebooknota",
+  "sec": "Dominio Computacional, Discretización y Sistema de Unidades",
+  "body": "NotebookLM: el montaje (doble \\emph{tanh}, $a_{kh}=0.05$, contraste 0.1) es canónico y bien elegido. Dos matices: (i)~la malla $512\\times256$ ($\\sim$13 celdas en la capa) es impecable para la fase lineal, pero a alta $\\sigma$ las láminas resistivas $\\delta\\propto S^{-1/2}$ rozan el límite de resolución (podría condicionar el exponente $\\alpha\\approx1.22$); (ii)~CFL$=0.1$ es muy conservador dado que el IMEX ya trata la rigidez ---un IMEX eficiente admitiría CFL$\\sim0.3$--$0.4$---."
+ },
+ "NotebookLM: el sigmoide con \\emph{offset} es legítimo y no incurre en sobreajuste ---lo avalan el AIC, la validación \\emph{hold-out} (predice un $36\\%$ mejor los datos ocultos) y la robustez de $C+\\gamma_0$ ($3.9\\%$)---. La crítica esperable (degeneración $C$--$\\gamma_0$ y $C<0$ extrapolado) ya está respondida en el texto.": {
+  "id": 229,
+  "chap": "Cap. 6 — Resultados",
+  "typ": "notebooknota",
+  "sec": "Resultados del ajuste",
+  "body": "NotebookLM: el sigmoide con \\emph{offset} es legítimo y no incurre en sobreajuste ---lo avalan el AIC, la validación \\emph{hold-out} (predice un $36\\%$ mejor los datos ocultos) y la robustez de $C+\\gamma_0$ ($3.9\\%$)---. La crítica esperable (degeneración $C$--$\\gamma_0$ y $C<0$ extrapolado) ya está respondida en el texto."
+ },
+ "NotebookLM: interpretación razonable y rigurosa, no forzada; refleja la naturaleza multiescala (el crecimiento lineal es posible desde $\\sigma\\sim400$, pero sostener las estructuras no lineales exige $\\sigma\\sim5000$--$7000$). Reportar una \\emph{zona} es lo más honesto; la dispersión inter-método es incertidumbre sistemática física, no ruido.": {
+  "id": 230,
+  "chap": "Cap. 6 — Resultados",
+  "typ": "notebooknota",
+  "sec": "Conductividad crítica $\\scrit$ y sus tres fuentes de incertidumbre",
+  "body": "NotebookLM: interpretación razonable y rigurosa, no forzada; refleja la naturaleza multiescala (el crecimiento lineal es posible desde $\\sigma\\sim400$, pero sostener las estructuras no lineales exige $\\sigma\\sim5000$--$7000$). Reportar una \\emph{zona} es lo más honesto; la dispersión inter-método es incertidumbre sistemática física, no ruido."
+ },
+ "NotebookLM: el exceso sobre el piso $\\sigma^{0.5}$ y el mecanismo (tearing/plasmoides) son sólidos \\emph{cualitativamente} (apoyados en Lyubarsky 2005), pero el valor exacto $1.22$ es empírico (no derivado) y puede estar condicionado por la resolución 2D. Bien presentado aquí como hipótesis/firma fenomenológica.": {
+  "id": 231,
+  "chap": "Cap. 6 — Resultados",
+  "typ": "notebooknota",
+  "sec": "Leyes de potencia para $\\Omaxzp(\\sigma)$",
+  "body": "NotebookLM: el exceso sobre el piso $\\sigma^{0.5}$ y el mecanismo (tearing/plasmoides) son sólidos \\emph{cualitativamente} (apoyados en Lyubarsky 2005), pero el valor exacto $1.22$ es empírico (no derivado) y puede estar condicionado por la resolución 2D. Bien presentado aquí como hipótesis/firma fenomenológica."
+ },
+ "NotebookLM: la sustitución $c_s\\to v_{f\\perp}$ es rigurosa y estándar, demostrada formalmente por \\textcite{chow2023}: para $\\mathbf k\\perp\\mathbf B$ la relación de dispersión se vuelve \\emph{idéntica} al caso hidrodinámico con la velocidad rápida perpendicular $v_{f\\perp}=\\sqrt{v_A^2+c_s^2(1-v_A^2)}$. No es un parámetro \\emph{ad hoc}.": {
+  "id": 232,
+  "chap": "Cap. 6 — Resultados",
+  "typ": "notebooknota",
+  "sec": "Predicción RMHD compresible (Lees--Lin)",
+  "body": "NotebookLM: la sustitución $c_s\\to v_{f\\perp}$ es rigurosa y estándar, demostrada formalmente por \\textcite{chow2023}: para $\\mathbf k\\perp\\mathbf B$ la relación de dispersión se vuelve \\emph{idéntica} al caso hidrodinámico con la velocidad rápida perpendicular $v_{f\\perp}=\\sqrt{v_A^2+c_s^2(1-v_A^2)}$. No es un parámetro \\emph{ad hoc}."
+ },
+ "NotebookLM: criterio correcto y bien aplicado; el umbral $0<M_{re}<\\sqrt2$ es el de \\textcite{bodo-2004} (con el Mach relativista efectivo de Königl 1980), extendido a flujos magnetizados por \\textcite{chow2023}. $M_{re}=0.60$ deja el sistema holgadamente inestable (factor $\\sim2.3$ por debajo del corte).": {
+  "id": 233,
+  "chap": "Cap. 6 — Resultados",
+  "typ": "notebooknota",
+  "sec": "Velocidades características y números de Mach",
+  "body": "NotebookLM: criterio correcto y bien aplicado; el umbral $0<M_{re}<\\sqrt2$ es el de \\textcite{bodo-2004} (con el Mach relativista efectivo de Königl 1980), extendido a flujos magnetizados por \\textcite{chow2023}. $M_{re}=0.60$ deja el sistema holgadamente inestable (factor $\\sim2.3$ por debajo del corte)."
+ },
+ "NotebookLM: físicamente sólido, no es artefacto; es el ciclo dínamo (cinética$\\to$magnética al estirar las líneas) seguido de reconexión (magnética$\\to$cinética/térmica al colapsar las láminas). Es real precisamente porque CUEVA tiene resistividad \\emph{explícita} (en RMHD ideal solo aparecería por error numérico).": {
+  "id": 234,
+  "chap": "Cap. 6 — Resultados",
+  "typ": "notebooknota",
+  "sec": "Variación en el plano $y-z$",
+  "body": "NotebookLM: físicamente sólido, no es artefacto; es el ciclo dínamo (cinética$\\to$magnética al estirar las líneas) seguido de reconexión (magnética$\\to$cinética/térmica al colapsar las láminas). Es real precisamente porque CUEVA tiene resistividad \\emph{explícita} (en RMHD ideal solo aparecería por error numérico)."
  }
 }

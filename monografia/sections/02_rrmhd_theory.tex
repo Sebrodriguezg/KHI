@@ -2,7 +2,7 @@
 
 El sistema aumentado\footnote{La terminología de aumentado no se debe a un cambio en la física del plasma; corresponde a una extensión en el espacio de soluciones del sistema con el fin de amortiguar y transportar errores. Este aspecto se explica en detalle en la Sección~\ref{sec:Max-aumentado}.} planteado por \parencite{komissarov-2007} es descrito desde el punto de vista de un observador inercial, lo que corresponde a una proyección sobre un marco de referencia inercial global; formalmente, en la métrica de Minkowski esto es equivalente a un observador euleriano\footnote{El observador euleriano (normal a las hipersuperficies, en reposo respecto a la malla) no coincide, en general, con el comóvil ---que viaja con el fluido, cuadrivelocidad $u^\mu$---; ambos solo coinciden cuando el fluido está en reposo respecto a la malla. La descomposición 3+1 se realiza respecto al euleriano, mientras que las propiedades constitutivas del plasma (ley de Ohm) se definen respecto al comóvil \parencite{rezzolla-2013}.}, el cual se define por la normal a la hipersuperficie espacial en la foliación 3+1 \parencite{rezzolla-2013}.
 
-A continuación, se detallan las ecuaciones fundamentales que componen el modelo, haciendo la distinción entre las leyes de conservación fundamentales y los artificios matemáticos necesarios para la estabilidad del esquema.\claudenota{REVISIÓN GLOBAL (Claude) — capítulo más riguroso del documento, pero: (1) TONO demasiado ornamentado (``clímax'', ``andamiaje exacto'', ``inquebrantable''); bajar a prosa técnica seca. (2) La nota al pie de \emph{Stueckelberg}/QFT es sobre-ingeniería para una monografía de pregrado: valorar quitarla o reducirla. (3) Hay BLOQUES de líneas en blanco (tras la descomposición relativa al observador, tras 3+1, etc.) que generan huecos en el PDF: limpiar. (4) El capítulo es muy largo; revisar que toda la maquinaria geométrica (formas/Hodge) se \emph{use} luego y no sea relleno.}
+A continuación, se detallan las ecuaciones fundamentales que componen el modelo, haciendo la distinción entre las leyes de conservación fundamentales y los artificios matemáticos necesarios para la estabilidad del esquema.
 
 \section{Las Ecuaciones del Sistema RRMHD}
 
@@ -73,7 +73,7 @@ F_{\mu\nu} =
 \end{pmatrix}
 \end{equation}
 
-Esta visualización confirma que la formulación covariante no es una mera abstracción matemática, sino el andamiaje exacto de la teoría clásica. Al igualar los elementos matriciales correspondientes de las ecuaciones (\ref{eq:Faraday_Campos}) y (\ref{eq:Faraday_Derivadas}), se recuperan de manera directa y natural las definiciones fundamentales que reconstruyen los campos eléctrico y magnético a partir de sus potenciales generadores:
+Esta visualización confirma que la formulación covariante no es una mera abstracción matemática, sino la estructura precisa de la teoría clásica. Al igualar los elementos matriciales correspondientes de las ecuaciones (\ref{eq:Faraday_Campos}) y (\ref{eq:Faraday_Derivadas}), se recuperan de manera directa y natural las definiciones fundamentales que reconstruyen los campos eléctrico y magnético a partir de sus potenciales generadores:
 \begin{align}
     \mathbf{E} &= -\nabla\phi - \partial_t\mathbf{A} \label{eq:E_potencial}\\
     \mathbf{B} &= \nabla \times \mathbf{A} \label{eq:B_potencial}
@@ -99,22 +99,7 @@ Con base en estos dos cuadrivectores, ortogonales al flujo temporal del observad
 \end{equation}
 Esta descomposición geométrica es el pilar fundamental para clasificar el régimen dinámico del plasma. En la aproximación de la magnetohidrodinámica ideal, caracterizada por una conductividad eléctrica infinita ($\sigma \to \infty$), el marco comóvil no puede sostener fuerzas eléctricas netas sin generar corrientes divergentes, lo que impone la condición de campo nulo $E^\mu = 0$. En este límite estricto, el tensor electromagnético colapsa puramente a su componente magnética, $F^{\mu\nu} = \epsilon^{\mu\nu\alpha\beta} u_\alpha B_\beta$. 
 
-En abierto contraste, el régimen de la Magnetohidrodinámica Relativista Resistiva (RRMHD) abandona esta idealización. La introducción de una disipación finita permite la supervivencia de una componente eléctrica comóvil no nula $E^\mu$, la cual gobierna la dinámica disipativa acoplándose directamente a la cuadricorriente del fluido a través de una formulación covariante de la ley de Ohm generalizada.\sebnota{revisar la estructura y jerarquía del documento: capítulos, secciones, subsecciones, subsubsecciones y niveles siguientes (consistencia y profundidad).}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+En abierto contraste, el régimen de la Magnetohidrodinámica Relativista Resistiva (RRMHD) abandona esta idealización. La introducción de una disipación finita permite la supervivencia de una componente eléctrica comóvil no nula $E^\mu$, la cual gobierna la dinámica disipativa acoplándose directamente a la cuadricorriente del fluido a través de una formulación covariante de la ley de Ohm generalizada.
 
 \subsubsection{Ecuaciones de Maxwell en Formalismo Covariante}
 
@@ -176,7 +161,7 @@ Para el campo electromagnético, la acción se construye a partir del único esc
 \begin{equation}
     S_{\text{em}} = \int \left( -\frac{1}{4} F_{\alpha\beta} F_{\gamma\delta} g^{\alpha\gamma} g^{\beta\delta} \right) \sqrt{-g} \, d^4x
 \end{equation}
-\sebnota{(general) revisar el uso de los términos ``tensor'' y ``forma'' a lo largo del capítulo, según el tratamiento de Vargas.}Al hacer explícita la dependencia con la métrica inversa $g^{\mu\nu}$, la aplicación de la derivada funcional de Hilbert arroja indefectiblemente el tensor covariante de esfuerzos de Faraday-Maxwell:\sebnota{añadir en el anexo la derivación paso a paso de $T^{\mu\nu}_{\rm em}$ (derivada funcional de Hilbert).}
+Al hacer explícita la dependencia con la métrica inversa $g^{\mu\nu}$, la aplicación de la derivada funcional de Hilbert arroja indefectiblemente el tensor covariante de esfuerzos de Faraday-Maxwell:
 \begin{equation}
     T^{\mu\nu}_{\text{em}} = F^{\mu\lambda} F^\nu_{\ \lambda} - \frac{1}{4} \eta^{\mu\nu} F_{\alpha\beta} F^{\alpha\beta}
 \end{equation}
@@ -193,8 +178,6 @@ Al aplicar la variación funcional sobre la presión (sujeta a las restricciones
 \end{equation}
 donde $\epsilon$ es la densidad de energía total propia, $\rho$ es la densidad de masa en reposo, y $h$ la entalpía específica definida mediante la relación termodinámica $\rho h = \epsilon + p$.
 
-
-
 Para que esta estructura tensorial sea útil en la integración numérica de las ecuaciones de evolución, es indispensable realizar una descomposición espacial respecto al observador euleriano asociado al fluido. Utilizando los cuadrivectores de campo eléctrico $E^\mu$ y magnético $B^\mu$ medidos por el observador comóvil $u^\mu$, el tensor electromagnético se descompone covariantemente como:
 \begin{equation}
     T^{\mu\nu}_{\text{em}} = \frac{1}{2}(E^2 + B^2) \left( u^\mu u^\nu + h^{\mu\nu} \right) - E^\mu E^\nu - B^\mu B^\nu + u^\mu S^\nu + u^\nu S^\mu
@@ -206,10 +189,6 @@ donde hemos introducido los escalares invariantes $E^2 = E^\mu E_\mu$ y $B^2 = B
 \end{equation}
 el cual describe el flujo de energía electromagnética espacial ortogonal a la cuadrivelocidad.
 
-
-
-
-
 \subsubsection{Dinámica Acoplada y el Sistema Completo de RRMHD}
 
 \primerparrafo La evolución temporal y espacial del plasma magnetizado está dictada por el acoplamiento intrínseco entre la materia y el campo. Esta dinámica acoplada se obtiene imponiendo la conservación local y estricta del tensor de energía-momento total del sistema:
@@ -218,7 +197,7 @@ el cual describe el flujo de energía electromagnética espacial ortogonal a la 
 \end{equation}
 Físicamente, esta ecuación de continuidad establece que cualquier variación en la energía o el momento del campo electromagnético debe ser compensada exactamente por un cambio equivalente en el fluido material. 
 
-Para explicitar este intercambio, tomamos la divergencia del tensor electromagnético. Al derivar la expresión $T^{\mu\nu}_{\text{em}} = F^{\mu\lambda} F^\nu_{\ \lambda} - \frac{1}{4} \eta^{\mu\nu} F_{\alpha\beta} F^{\alpha\beta}$ y hacer uso simultáneo de las ecuaciones de Maxwell inhomogéneas ($\partial_\mu F^{\mu\nu} = J^\nu$) y la identidad de Bianchi ($\partial_{[\mu} F_{\alpha\beta]} = 0$), las derivadas de los campos se simplifican algebraicamente para arrojar una identidad fundamental:\sebnota{hacer explícita la derivación con $T^{\mu\nu}_{\rm tot}$ y separarla; añadir un anexo completo con el paso de (2.30) a (2.31).}
+Para explicitar este intercambio, tomamos la divergencia del tensor electromagnético. Al derivar la expresión $T^{\mu\nu}_{\text{em}} = F^{\mu\lambda} F^\nu_{\ \lambda} - \frac{1}{4} \eta^{\mu\nu} F_{\alpha\beta} F^{\alpha\beta}$ y hacer uso simultáneo de las ecuaciones de Maxwell inhomogéneas ($\partial_\mu F^{\mu\nu} = J^\nu$) y la identidad de Bianchi ($\partial_{[\mu} F_{\alpha\beta]} = 0$), las derivadas de los campos se simplifican algebraicamente para arrojar una identidad fundamental:
 \begin{equation}
     \partial_\mu T^{\mu\nu}_{\text{em}} = - F^{\nu\lambda} J_\lambda
 \end{equation}
@@ -236,15 +215,28 @@ Esta expresión constituye la generalización relativista de las ecuaciones de E
 
 Aunque este sistema tetradimensional es manifiestamente covariante y estéticamente compacto, no es directamente aplicable en esquemas de integración numérica, los cuales requieren distinguir explícitamente entre la evolución temporal y los gradientes espaciales. Para transicionar del formalismo covariante a un sistema de ecuaciones de evolución hiperbólicas, es indispensable realizar una descomposición de tipo 3+1. 
 
-Proyectando estas ecuaciones tensoriales a lo largo de la línea de mundo de un observador euleriano (contrayendo con el vector normal a las hipersuperficies espaciales) y sobre el hiperplano espacial ortogonal (mediante el proyector de métrica espacial), el sistema covariante se fractura de manera natural. La contracción temporal de $\partial_\mu T^{\mu\nu} = 0$ genera la ecuación de evolución de la energía total (el equivalente a la primera ley de la termodinámica), mientras que su proyección espacial rige la conservación del momento (la ecuación de Euler). De manera análoga, la descomposición de las leyes de Maxwell y del cuadrivector corriente $J^\mu$ produce las ecuaciones de evolución para los campos eléctricos y magnéticos tridimensionales observables, cerrando así el sistema de variables primitivas y conservativas que requiere cualquier simulador computacional de plasmas relativistas.
+Proyectando estas ecuaciones tensoriales a lo largo de la línea de mundo de un observador euleriano (contrayendo con el vector normal a las hipersuperficies espaciales) y sobre el hiperplano espacial ortogonal (mediante el proyector de métrica espacial), el sistema covariante se fractura de manera natural. La contracción temporal de $\partial_\mu T^{\mu\nu} = 0$ genera la ecuación de evolución de la energía total (el equivalente a la primera ley de la termodinámica), mientras que su proyección espacial rige la conservación del momento (la ecuación de Euler). De manera análoga, la descomposición de las leyes de Maxwell y del cuadrivector corriente $J^\mu$ produce las ecuaciones de evolución para los campos eléctricos y magnéticos tridimensionales observables, cerrando así el sistema de variables primitivas y conservativas que requiere cualquier simulador computacional de plasmas relativistas (Figura~\ref{fig:foliacion_3p1}).
 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.72\textwidth]{figuras/foliacion_3p1}
+\caption{Descomposición 3+1 del espacio-tiempo. La variedad se folia en hipersuperficies espaciales $\Sigma_t$ de tiempo constante. El observador euleriano (de laboratorio, ligado a la malla) se mueve a lo largo de la normal $n^\mu$ a estas hipersuperficies, mientras que el fluido sigue su propia línea de mundo con cuadrivelocidad $u^\mu$. La descomposición de las ecuaciones de evolución se realiza respecto a $n^\mu$, en tanto que las propiedades constitutivas del plasma (ley de Ohm) se definen respecto a $u^\mu$; ambos observadores solo coinciden cuando el fluido está en reposo respecto a la malla.}
+\label{fig:foliacion_3p1}
+\end{figure}
 
 \subsection{El Sistema Aumentado de Maxwell}
 \label{sec:Max-aumentado}
 
 \primerparrafo De la formulación covariante de la electrodinámica se deriva un sistema de ecuaciones de naturaleza mixta: evolución y restricción. En el espacio-tiempo de Minkowski, las ecuaciones homogéneas e inhomogéneas desarrolladas en la sección \ref{sec:Elec_Cov} se comportan como un sistema semi-hiperbólico sujeto a restricciones elípticas, dictadas por la ley de Gauss eléctrica ($\nabla \cdot \mathbf{E} = \rho_q$) y la condición de divergencia magnética nula ($\nabla \cdot \mathbf{B} = 0$). Estas restricciones carecen de derivadas temporales, limitándose a confinar el espacio de soluciones físicamente admisibles. 
 
-En el ámbito de la simulación numérica, esta estructura matemática presenta un desafío crítico. Los errores de truncamiento inherentes a la reconstrucción espacial y a la discretización temporal generan violaciones inevitables a estas restricciones, produciendo, por ejemplo, monopolos magnéticos espurios ($\nabla \cdot \mathbf{B} \neq 0$) \parencite{Dedner_etal:2002}. En el formalismo estándar, estos errores numéricos no se propagan ni se disipan, provocando una acumulación local que destruye irremediablemente la estabilidad del esquema numérico.
+En el ámbito de la simulación numérica, esta estructura matemática presenta un desafío crítico. Los errores de truncamiento inherentes a la reconstrucción espacial y a la discretización temporal generan violaciones inevitables a estas restricciones, produciendo, por ejemplo, monopolos magnéticos espurios ($\nabla \cdot \mathbf{B} \neq 0$) \parencite{Dedner_etal:2002}. En el formalismo estándar, estos errores numéricos no se propagan ni se disipan, provocando una acumulación local que destruye irremediablemente la estabilidad del esquema numérico (Figura~\ref{fig:glm_limpieza}).
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.92\textwidth]{figuras/glm_limpieza}
+\caption{Principio de la limpieza hiperbólica de divergencias (GLM). (a)~Sin tratamiento, la violación de la restricción $\nabla\!\cdot\!\mathbf B=0$ generada por el error de truncamiento se \emph{acumula} localmente en la malla, degradando la estabilidad. (b)~El método GLM acopla esta violación a un campo escalar auxiliar que la convierte en una perturbación dinámica: el error se \emph{propaga} fuera del dominio a una velocidad característica $c_h$ y, simultáneamente, se \emph{amortigua} de forma exponencial ($\propto e^{-\kappa t}$), sin alterar las soluciones físicas.}
+\label{fig:glm_limpieza}
+\end{figure}
 
 Para sortear esta patología, es imperativo transicionar hacia un sistema estrictamente hiperbólico mediante la formulación de un sistema aumentado. Esto se logra acoplando dinámicamente las restricciones elípticas a las leyes de evolución temporal mediante la introducción de dos campos escalares auxiliares. En esta sección, construiremos una formulación covariante de este sistema extendido utilizando el método de \textit{Generalized Lagrange Multipliers} (GLM)\footnote{GLM (\textit{Generalized Lagrange Multipliers}): técnica de \textcite{Dedner_etal:2002} que acopla las restricciones de divergencia ($\nabla\!\cdot\!\mathbf B=0$ y la ley de Gauss) a campos escalares auxiliares, convirtiéndolas en ecuaciones de transporte amortiguadas que propagan y disipan el error en vez de acumularlo.} \parencite{lee2004, Dedner_etal:2002}. El objetivo fundamental es convertir las restricciones de divergencia en ecuaciones dinámicas, permitiendo que los errores numéricos se propaguen y decaigan, todo ello sin alterar el subespacio de las soluciones físicas exactas de la teoría.
 
@@ -256,7 +248,7 @@ Para sortear esta patología, es imperativo transicionar hacia un sistema estric
 \end{equation}
 En esta expresión, el primer y segundo término corresponden a la acción de Maxwell estándar acoplada a una fuente material, mientras que los dos últimos términos introducen la dinámica del nuevo campo. En particular, el término de acoplamiento $-\Phi\, \partial_\mu A^\mu$ no es arbitrario: está matemáticamente diseñado para incorporar la condición de gauge de Lorenz ($\partial_\mu A^\mu = 0$) no como una restricción rígida \textit{a priori}, sino como una variable dinámica integrada al sistema.\footnote{El término $\tfrac12\partial_\mu\Phi\partial^\mu\Phi$ es la energía cinética del campo escalar $\Phi$, que le confiere dinámica propia (ecuación de onda); $\Phi$ mide y transporta la violación de la ley de Gauss, evacuándola del dominio en vez de acumularla.}
 
-Esta construcción posee una justificación física profunda que trasciende la estabilidad numérica. Desde la perspectiva de la teoría cuántica de campos, la introducción de este acoplamiento evoca el mecanismo de Stueckelberg utilizado para preservar la invariancia de gauge en presencia de fotones masivos\footnote{En el límite de la electrodinámica cuántica, dotar al fotón de una masa espuria por efectos de discretización numérica activa modos de polarización longitudinales que resultan patológicos. El campo auxiliar $\Phi$ actúa mitigando estos errores de polarización longitudinal, aislándolos de los modos transversales físicos y garantizando que las violaciones de la ley de Gauss se comporten estrictamente como un campo escalar desacoplado \parencite{lee2004}.}.
+Este acoplamiento tiene además un análogo formal en el mecanismo de Stueckelberg de la teoría de campos, empleado para preservar la invariancia de gauge en presencia de fotones masivos\footnote{Dotar al fotón de una masa espuria por efectos de discretización activa modos de polarización longitudinales patológicos; el campo auxiliar $\Phi$ los aísla de los modos transversales físicos, de modo que las violaciones de la ley de Gauss se comportan como un campo escalar desacoplado \parencite{lee2004}.}.
 
 Aplicando el principio de acción estacionaria ($\delta S = 0$) y realizando la variación funcional con respecto al cuadripotencial $A_\nu$, la ecuación inhomogénea de Maxwell sufre una modificación estructural. Tras integrar por partes y anular los términos de frontera, se obtiene:
 \begin{align}
@@ -268,7 +260,7 @@ Por otro lado, la variación independiente de la acción con respecto al campo e
     \frac{\delta S}{\delta \Phi} &= 0 \nonumber \\
     \Box \Phi &= -\partial_\mu A^\mu \label{eq:GLM_Phi_Wave}
 \end{align}
-donde $\Box \equiv \partial_\mu \partial^\mu$ es el operador diferencial de d'Alembert.\claudenota{Confirmado: aquí es onda pura. Pero hay un salto de coherencia: la acción y las Ecs.~\eqref{eq:GLM_Cov_3}--\eqref{eq:GLM_Cov_4} dan un sistema de \emph{segundo orden} (telégrafo), mientras que el sistema 3+1 que integra el código, Ecs.~\eqref{eq:GLM_3D_Phi}--\eqref{eq:GLM_3D_Psi}, es de \emph{primer orden} (forma de Dedner). No se muestra la reducción de uno a otro; conviene aclararlo o presentar directamente la forma de Dedner.} 
+donde $\Box \equiv \partial_\mu \partial^\mu$ es el operador diferencial de d'Alembert.
 
 El análisis acoplado de las ecuaciones (\ref{eq:GLM_Phi_Maxwell}) y (\ref{eq:GLM_Phi_Wave}) revela el mecanismo profundo de esta corrección numérica. Al tomar la divergencia de la ecuación (\ref{eq:GLM_Phi_Maxwell}) y aplicar la conservación de la carga ($\partial_\nu J^\nu = 0$) junto con la antisimetría del tensor de Faraday ($\partial_\nu \partial_\mu F^{\mu\nu} = 0$), se encuentra que $\Box \Phi = 0$ en el límite analítico continuo. Sin embargo, en un entorno computacional discreto, cualquier violación local a la ley de Gauss eléctrica actúa inmediatamente como término fuente. En consecuencia, el error espurio no se acumula estáticamente en la malla computacional, sino que se propaga a la velocidad de la luz hacia las fronteras del dominio, restaurando la estabilidad hiperbólica del sector eléctrico.
 
@@ -317,7 +309,7 @@ Al operar en el régimen intermedio dictado por la Ecuación del Telégrafo, el 
 
 \subsubsection{Descomposición 3+1 del Sistema Aumentado}
 
-\primerparrafo El clímax de esta formulación se alcanza al transicionar del marco covariante tetradimensional abstracto hacia el sistema de ecuaciones de evolución empleado en la práctica computacional. Al realizar una descomposición 3+1 del tensor aumentado, proyectándolo sobre el sistema de referencia del observador euleriano de laboratorio (con cuadrivelocidad $n^\mu = (1, 0, 0, 0)$ en el espacio plano), el sistema tensorial se fractura naturalmente en su representación vectorial tridimensional. El sistema aumentado hiperbólico completo de Maxwell se escribe entonces como:\sebnota{añadir un anexo con los procedimientos/derivaciones de las ecuaciones (2.40)--(2.48).}
+\primerparrafo El paso final de esta formulación consiste en transicionar del marco covariante tetradimensional al sistema de ecuaciones de evolución empleado en la práctica computacional. Al realizar una descomposición 3+1 del tensor aumentado, proyectándolo sobre el sistema de referencia del observador euleriano de laboratorio (con cuadrivelocidad $n^\mu = (1, 0, 0, 0)$ en el espacio plano), el sistema tensorial se fractura naturalmente en su representación vectorial tridimensional. El sistema aumentado hiperbólico completo de Maxwell se escribe entonces como:
 \begin{align}
     \partial_t \mathbf{E} - \nabla \times \mathbf{B} + \nabla \Phi &= -\mathbf{J} \label{eq:GLM_3D_E} \\
     \partial_t \mathbf{B} + \nabla \times \mathbf{E} + \nabla \Psi &= 0 \label{eq:GLM_3D_B} \\
@@ -325,7 +317,7 @@ Al operar en el régimen intermedio dictado por la Ecuación del Telégrafo, el 
     \partial_t \Psi + \nabla \cdot \mathbf{B} &= -\kappa_B \Psi \label{eq:GLM_3D_Psi}
 \end{align}
 
-
+Este sistema de \emph{primer orden} en el tiempo (forma de Dedner) es el que integra el código y resulta equivalente a la formulación de \emph{segundo orden} (ecuación de onda/telégrafo) en el límite analítico continuo \parencite{Dedner_etal:2002}. Sin embargo, la integración computacional de este sistema aumentado en su forma de primer orden no es una mera convención, sino una exigencia estricta: es obligatoria para preservar la estructura matricial hiperbólica que requiere el solucionador de Riemann, permite el acoplamiento explícito de los términos no conservativos de Godunov-Powell para estabilizar la fuerza de Lorentz, y devela el modelo como un sistema hiperbólico simétrico termodinámicamente compatible (SHTC) \parencite{dumbser-2025}.
 
 
 \subsection{Descomposición de la Cuadricorriente y la Ley de Ohm Relativista}
@@ -346,7 +338,7 @@ Esta separación define unívocamente un escalar invariante de Lorentz y un vect
 \begin{equation}
     \rho_e \equiv -J^\nu u_\nu
 \end{equation}
-la cual representa la densidad neta de carga medida por un observador que viaja solidariamente con el elemento de fluido (Figura~\ref{fig:marco_comovil}).\sebnota{añadir una figura que distinga $\rho_e$ (propia, marco comóvil) de $\rho_q$ (laboratorio), y en general el marco comóvil vs.\ el de laboratorio.}
+la cual representa la densidad neta de carga medida por un observador que viaja solidariamente con el elemento de fluido (Figura~\ref{fig:marco_comovil}).
 
 \begin{figure}[H]
 \centering
@@ -483,10 +475,6 @@ Para clausurar unívocamente este sistema dinámico durante la integración temp
 
 Esta formulación compacta encapsula la totalidad de la física del plasma resistivo relativista. Al agrupar las identidades geométricas, la termodinámica irreversible y las correcciones numéricas de estabilidad y limpieza de divergencias en un único operador hiperbólico, el modelo teórico queda rigurosamente fundamentado y matemáticamente preparado para ser discretizado e implementado en arquitecturas computacionales de alto rendimiento.
 
-
-
-
-
 \section{Análisis de la KHI en el Límite Lineal}
 
 \primerparrafo El estudio de la estabilidad en flujos astrofísicos exige el análisis del sistema RRMHD ante pequeñas perturbaciones en el marco de la teoría lineal. Formalmente, definimos el estado del plasma mediante el vector de variables primitivas $\mathbf{V} = (\rho, p, u^\mu, B^\mu, E^\mu)$. Asumiendo un estado base estacionario $\mathbf{V}_0$ sujeto a un perfil de cizalladura, introducimos una perturbación euleriana infinitesimal $\delta \mathbf{V}$. En el régimen lineal, la evolución del sistema está dictada por la linealización exacta de las leyes de conservación covariantes deducidas en la Sección \ref{sec:Energia_Momento}:
@@ -497,14 +485,14 @@ Esta formulación compacta encapsula la totalidad de la física del plasma resis
     \nabla_\mu \delta (\star F)^{\mu\nu} &= 0
 \end{align}
 
-Expandiendo las perturbaciones en una base de modos normales de Fourier-Laplace, $\delta \mathbf{V} \propto \exp[i(k_\mu x^\mu)]$, donde $k^\mu = (\omega, \mathbf{k})$ es el cuadrivector de onda, el sistema diferencial se mapea a un problema algebraico de autovalores $\mathcal{M}(\omega, \mathbf{k}) \delta \mathbf{V} = 0$. La condición de existencia de soluciones no triviales, $\det[\mathcal{M}] = 0$, define la relación de dispersión compleja $\omega(\mathbf{k}) = \omega_R + i\gamma$, donde la parte imaginaria $\gamma$ dicta la tasa de crecimiento estricta de la inestabilidad de Kelvin-Helmholtz (KHI).
-\sebnota{Expandir la explicaćion , implicaćion y justificaíon de lo que se dice ahí, es mas como justificar la aparicion de este tema en el marco teorico, entra un poco ortodoxo y seco}\claudenota{Marco sugerido: enlazar con el cap.~3 (cierre §3.5): el $\det[\mathcal M]=0$ existe formalmente, pero en RRMHD \emph{no} se reduce a una relación de dispersión algebraica cerrada (Ohm resistiva = parabólica). Decir que aquí se plantea el problema y que su forma cerrada solo existe en los límites ideal/RMHD (cap.~3) lo haría menos seco y más justificado.}
+Expandiendo las perturbaciones en una base de modos normales de Fourier-Laplace, $\delta \mathbf{V} \propto \exp[i(k_\mu x^\mu)]$, donde $k^\mu = (\omega, \mathbf{k})$ es el cuadrivector de onda, el sistema diferencial se mapea a un problema algebraico de autovalores $\mathcal{M}(\omega, \mathbf{k}) \delta \mathbf{V} = 0$. La condición de existencia de soluciones no triviales, $\det[\mathcal{M}] = 0$, define la relación de dispersión compleja $\omega(\mathbf{k}) = \omega_R + i\gamma$, donde la parte imaginaria $\gamma$ dicta la tasa de crecimiento estricta de la inestabilidad de Kelvin-Helmholtz (KHI). Conviene subrayar, no obstante, que en el régimen resistivo esta condición $\det[\mathcal{M}]=0$ se plantea formalmente pero no se reduce a una relación de dispersión algebraica cerrada: el carácter parabólico que introduce la ley de Ohm de conductividad finita impide una forma analítica compacta, la cual solo existe en los límites ideal y de RMHD discutidos en el Capítulo~\ref{ch:khi}. Aquí, por tanto, se establece el problema de autovalores que fundamenta el análisis lineal, y su resolución cerrada se aborda en dichos límites.
 \subsection{Inercia Térmica Relativista y Anisotropía Magnética}
 \label{sec:KHI_lineal_anisotropia}
 
 \primerparrafo En el límite de la MHD ideal ($\delta E^\mu = 0$), la relación de dispersión revela que la condición de inestabilidad no depende únicamente de la energía cinética de la cizalladura. La tensión magnética, proveniente de la perturbación del tensor de esfuerzos de Maxwell $\delta T^{\mu\nu}_{\text{em}}$, introduce un umbral de estabilización. \textcite{goedbloed-2004A, osmanov-2008, chow2023} demostraron que los modos inestables son suprimidos si el producto interno espacial $(\mathbf{k} \cdot \mathbf{B}_0)^2$ es suficientemente grande, garantizando que el trabajo necesario para curvar las líneas de campo supere la energía libre del flujo.
 
-Al introducir factores de Lorentz $\Gamma \gg 1$ y temperaturas ultrarrelativistas ($p \sim \rho$), el espectro de autovalores se modifica drásticamente. En el tensor de energía-momento material perturbado $\delta T^{\mu\nu}_{\text{fluid}}$, el término de inercia acopla la densidad en reposo con la termodinámica del plasma mediante la entalpía específica $h = 1 + \varepsilon + p/\rho$ (con $\varepsilon$ la energía interna específica). Este acoplamiento define la inercia efectiva transversal $w = \rho h \Gamma^2$. Matemáticamente, la divergencia de $w$ en el régimen relativista penaliza las aceleraciones ortogonales a la cizalladura. Como evidencian \parencite{osmanov-2008} y \parencite{pimentel-2019}, esto reduce asintóticamente la magnitud de la raíz imaginaria $\gamma$, estabilizando los modos de onda larga y alterando los conos de inestabilidad respecto al marco newtoniano, un factor crítico en el confinamiento de chorros extragalácticos \parencite{bucciantini-2006}.
+Al introducir factores de Lorentz $\Gamma \gg 1$ y temperaturas ultrarrelativistas ($p \sim \rho$), el espectro de autovalores se modifica drásticamente. En el tensor de energía-momento perturbado, el término de inercia acopla la densidad en reposo con la termodinámica del plasma mediante la entalpía específica $h = 1 + \varepsilon + p/\rho$ (con $\varepsilon$ la energía interna específica). Sin embargo, para configuraciones donde el campo magnético es predominantemente perpendicular a la perturbación compresional, la presión magnética también se opone a la compresión y contribuye a la inercia total del sistema. Este acoplamiento define la inercia efectiva transversal total como $w = \rho h \Gamma^2 + B^2$ \parencite{chow2023}. Matemáticamente, la divergencia de $w$ en el régimen relativista penaliza las aceleraciones ortogonales a la cizalladura. Como evidencian \parencite{osmanov-2008} y \parencite{pimentel-2019}, esto reduce asintóticamente la magnitud de la raíz imaginaria $\gamma$, estabilizando los modos de onda larga y alterando los conos de inestabilidad respecto al marco newtoniano, un factor crítico en el confinamiento de chorros extragalácticos \parencite{bucciantini-2006}.
+
 
 \subsection{El Límite Resistivo y la Ruptura Topológica}
 
@@ -557,4 +545,4 @@ Durante la fase de crecimiento puramente lineal regida por la relación de dispe
 \begin{equation}
     \ln \Omega'_z(t) = a + 2\gamma_{\text{KHI}}\,t.
 \end{equation}
-Aplicando una regresión lineal sobre la serie temporal de este escalar de diagnóstico, extraemos la pendiente empírica $s$. La tasa de crecimiento $\gamma_{\text{KHI}} = s/2$ obtenida de este ajuste proporciona una métrica rigurosa para validar la disipación intrínseca de los flujos numéricos en la resolución de las ecuaciones RRMHD.\sebnota{En general, revisar todas las citas bien plantedas y utilizadas, y añadir en el marco teorico todas las herramientas estadisticas utilizadad, o discutir si deben de ser anexos , ya que son erramientas validas pero poco convencionales}
+Aplicando una regresión lineal sobre la serie temporal de este escalar de diagnóstico, extraemos la pendiente empírica $s$. La tasa de crecimiento $\gamma_{\text{KHI}} = s/2$ obtenida de este ajuste proporciona una métrica rigurosa para validar la disipación intrínseca de los flujos numéricos en la resolución de las ecuaciones RRMHD.

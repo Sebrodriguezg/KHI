@@ -38,7 +38,10 @@
 \usepackage{amssymb}
 \usepackage{amsfonts}
 \usepackage{bm}           % For bold math symbols, e.g., \bm{v}
-\usepackage{derivative}   % For derivatives notation
+\usepackage{derivative} 
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{caption}  % For derivatives notation
 
 % --- Graphics and Referencing ---
 \usepackage{graphicx}                   % For including images
@@ -53,6 +56,8 @@
 \newcommand{\brynota}[1]{{\color{green}\small\textsf{[REV: #1]}}}
 \definecolor{claudeorange}{rgb}{0.80,0.40,0.0}
 \newcommand{\claudenota}[1]{{\color{claudeorange}\small\textsf{[CLAUDE: #1]}}}
+\definecolor{notebookpurple}{rgb}{0.45,0.10,0.60}
+\newcommand{\notebooknota}[1]{{\color{notebookpurple}\small\textsf{[NLM: #1]}}}
 \usepackage[capitalize]{cleveref}       % For smart cross-referencing (use \cref{})
 
 % --- Bibliography ---
@@ -65,6 +70,9 @@
 \addbibresource{references.bib}         % Link the bibliography file
 
 % --- Comandos personalizados (análisis de la KHI) ---
+% Fallback de \texorpdfstring (definido por hyperref, que aquí no se carga):
+% en títulos sin marcadores PDF basta con usar la versión TeX.
+\providecommand{\texorpdfstring}[2]{#1}
 \providecommand{\gKHI}{\gamma_{\mathrm{KHI}}}
 \providecommand{\scrit}{\sigma_{\mathrm{crit}}}
 \providecommand{\Rmst}{\mathrm{Rm}^{*}}

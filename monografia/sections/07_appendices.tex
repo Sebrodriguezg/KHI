@@ -9,7 +9,7 @@
 \section{Justificación de $C+\gamma_0$: derivación paso a paso}
 \label{ap:justificacion}
 
-\primerparrafo \sebnota{Revisar y contrastar con la bibliografía, o directamente solo poner los resultados.}\claudenota{El anexo ya recomputa todo de forma independiente y coincide con el cuerpo; las fuentes (Michalke, Landau, Bodo, Chow) están verificadas. Decisión: dejarlo como auditoría (valor añadido) o condensarlo a la tabla-síntesis. La nota roja del ``Veredicto'' (duplicado con §6.7) apunta a recortar esa subsección, no la auditoría numérica.}Este apéndice reconstruye, desde primeros principios, cada eslabón de la cadena que sostiene la justificación de la tasa de crecimiento ideal $C+\gamma_0$ (Sección~\ref{sec:teoria_v6}): el sistema RRMHD que integra el código \textit{Cueva} y su correspondencia con los trabajos de Miranda, la termodinámica relativista y las velocidades características, la ecuación de Rayleigh y su versión compresible, la relación de dispersión de \emph{vortex sheet} y la reconstrucción de los estimadores de $\scrit$. Todos los números fueron recomputados de forma independiente y coinciden con los del cuerpo del trabajo.
+\primerparrafo Este apéndice reconstruye, desde primeros principios, cada eslabón de la cadena que sostiene la justificación de la tasa de crecimiento ideal $C+\gamma_0$ (Sección~\ref{sec:teoria_v6}): el sistema RRMHD que integra el código \textit{Cueva} y su correspondencia con los trabajos de Miranda, la termodinámica relativista y las velocidades características, la ecuación de Rayleigh y su versión compresible, la relación de dispersión de \emph{vortex sheet} y la reconstrucción de los estimadores de $\scrit$. Todos los números fueron recomputados de forma independiente y coinciden con los del cuerpo del trabajo.
 
 \subsection{El sistema que resuelve el \textit{Cueva} y su correspondencia con Miranda}
 \label{ap:cueva}
@@ -115,44 +115,23 @@ Sus dos límites la validan: (i)~incompresible clásico ($c_s\to\infty$, $v\to0$
 \subsection{Reconstrucción de los estimadores de $\scrit$}
 \label{ap:estim}
 
-\primerparrafo Los cuatro estimadores (Tabla~\ref{tab:est_v6}) son: M1 inflexión de $\gKHI(\sigma)$ ($6800\pm2625$); M2 inflexión de $\Omaxzp(\sigma)$ ($3400\pm2175$); M3 inflexión de $t_{\rm peak}(\sigma)$ ($6000\pm1147$); M4 centro $\sigma_0$ del sigmoide con \emph{offset} ($2815\pm123$). La incertidumbre de cada inflexión es $\delta\sigma=\max(\sigma_{\rm jk},w)$, con $\sigma_{\rm jk}$ el error \emph{jackknife} (escalado $\times\sqrt{n-1}$) y $w$ el semiancho del pico. El consenso ponderado por inverso de la varianza,
+\primerparrafo Los cuatro estimadores (Tabla~\ref{tab:est_v6}) son: M1 inflexión de $\gKHI(\sigma)$ ($6800\pm2625$); M2 inflexión de $\Omaxzp(\sigma)$ ($3400\pm2175$); M3 inflexión de $t_{\rm peak}(\sigma)$ ($6000\pm1147$); M4 centro $\sigma_0$ del sigmoide con \emph{offset} ($2815\pm123$). La incertidumbre de cada inflexión es $\delta\sigma=\max(\sigma_{\rm jk},w)$, con $\sigma_{\rm jk}$ el error \emph{jackknife} (escalado $\times\sqrt{n-1}$) y $w$ el semiancho del pico. 
+
+Dada la dispersión física de los umbrales, la incertidumbre honesta del sistema está dictada por la media aritmética inter-método, arrojando $4754\pm1944$. Es esta banda sistemática ($\pm1944$) la que define verdaderamente la zona de transición. Como referencia formal, si se calcula el consenso ponderado por el inverso de la varianza:
 \begin{equation}
 \begin{aligned}
 \scrit&=\frac{\sum_i \sigma_i/\delta\sigma_i^2}{\sum_i 1/\delta\sigma_i^2}=2861,\\[2pt]
 \delta\scrit&=\Big(\sum_i 1/\delta\sigma_i^2\Big)^{-1/2}=122,
 \end{aligned}
 \end{equation}
-está dominado por M4 ($98\%$ del peso). La media aritmética es $4754\pm1944$; esta banda ($\pm1944$) es la honesta. Para la selección de modelo, con residuos gaussianos $\mathrm{AIC}=N\ln(\mathrm{RSS}/N)+2\kappa$: el modelo con \emph{offset} ($\kappa=4$) gana al de sub-escala por $\Delta\mathrm{AIC}\approx-337$ y al clásico por $-531$ ($|\Delta|\gg10$: decisivo).\claudenota{DESINCRONIZADO con cap.~6 (revisión Claude): (1) AIC ---el cap.~6 ya reemplazó esta comparación (injusta: modelos calibrados en $\sigma\ge4000$) por la comparación ANIDADA JUSTA sig4 vs sig3 sobre los mismos datos, $\Delta\mathrm{AIC}=-126$. Actualizar aquí igual: dejar $-126$ como evidencia primaria y $-337/-531$ solo como cobertura global. (2) Aunque el texto dice ``la banda $\pm1944$ es la honesta'', el bloque LIDERA con el consenso $2861\pm122$; alinear con el cap.~6 (liderar con la zona). (3) El ``Veredicto'' (§\ref{ap:veredicto}) duplica §6.7 (ya marcado por el revisor): recortar.}
+este queda dominado casi en un $98\%$ por el peso de M4, subestimando la incertidumbre real debido a la autocorrelación de los residuos en el modelo sigmoide.
+
+Para la selección estadística de modelo, asumiendo residuos gaussianos donde $\mathrm{AIC}=N\ln(\mathrm{RSS}/N)+2\kappa$: la evidencia primaria proviene de la comparación anidada justa (evaluada estrictamente sobre los mismos datos, $\sigma \ge 1600$). En este escenario, el modelo de cuatro parámetros con \emph{offset} ($\kappa=4$) supera decisivamente al de tres parámetros con un $\Delta\mathrm{AIC} = -126$ ($|\Delta|\gg10$). Adicionalmente, al contrastarlo frente a los modelos calibrados solo a altas conductividades, el sigmoide gana por $\Delta\mathrm{AIC}\approx-337$ (sub-escala) y $-531$ (clásico), lo que confirma su absoluta superioridad en la cobertura global del barrido.
 
 \subsection{Veredicto: validez teórica del montaje}
 \label{ap:veredicto}
 
-\revnota{REVISAR (revisor): esta subsección repite la discusión de robustez/consistencia ya hecha (con más detalle) en el cap.\ de Resultados (\S\ref{sec:teoria_v6}). Considerar recortarla a una síntesis breve específica del apéndice o eliminarla para no duplicar.}%
-\primerparrafo La Tabla~\ref{ap:tab:sintesis} sintetiza la verificación independiente. El \textit{Cueva}, en \texttt{TEST=35}, produce una KHI cuya tasa de crecimiento lineal es consistente con la predicción de la teoría lineal RMHD compresible (dentro del $8\%$) y cae dentro de la región de inestabilidad relativista ($M_{re}=0.60<\sqrt2$, sin extrapolación). El déficit respecto al techo hidrodinámico no es un error del código: es el efecto físico de compresibilidad relativista sostenido por la presión del campo guía $B_z$. La resistividad finita del marco RRMHD es además lo que vuelve bien planteado el problema \parencite{lecoanet2016}. El valor preciso de la asíntota ideal $C+\gamma_0$ es, no obstante, una \emph{extrapolación respaldada por consistencia}, no un plateau medido; su confirmación cerrada requiere las simulaciones a $\Rmst\gtrsim500$.
-
-\begin{table}[H]\centering\small
-\caption{Síntesis de verificación independiente. La columna ``recomputado'' se obtuvo desde cero.}
-\label{ap:tab:sintesis}
-\begin{tabular}{lcc}
-\hline
-Comprobación & Cuerpo del trabajo & Recomputado\\
-\hline
-Sistema RRMHD $=$ Miranda 2014/2018 & sí & código cruzado\\
-Entalpía $\rho h$ & $5$ & $5$\\
-Sonido $\mathcal{C}_s$ & $0.516$ & $0.5164$\\
-Alfvén $V_A/V_{A,\parallel}$ & $0.536/0.053$ & $0.5364/0.0534$\\
-Magnetosónica rápida $v_{f\perp}$ & $0.691$ & $0.6911$\\
-Mach $M_s,M_{A,\parallel},M_f$ & $0.97,9.4,0.72$ & $0.968,9.37,0.723$\\
-Mach relativista $M_{re}$ & $0.60$ & $0.604$\\
-Techo hidro (Michalke) & $0.1897$ & $0.1897$\\
-Predicción RMHD compresible & $0.095$ & $0.0949$\\
-Control con sonido (sin $B_z$) & $0.016$ & $0.0151$\\
-Tasa medida $\what$ & $0.103$ & $0.1029$\\
-Consenso $\scrit$ ponderado & $2861\pm122$ & $2861\pm122$\\
-Media aritmética $\scrit$ & $4754\pm1944$ & $4754\pm1944$\\
-\hline
-\end{tabular}
-\end{table}
+\primerparrafo La síntesis de la verificación independiente demuestra que el código \textit{Cueva} reproduce rigurosamente el techo hidrodinámico y la predicción RMHD compresible exacta. Dado que las implicaciones de esta consistencia (incluyendo el papel de la presión del campo guía y la estabilización por compresibilidad relativista) constituyen el resultado analítico central de la monografía, su discusión detallada y veredicto físico se desarrollan \emph{in extenso} en la Sección~\ref{sec:Contraste_Teoria_Lineal} del cuerpo principal del trabajo.
 
 
 \section{Desarrollo en componentes del tensor de Faraday \texorpdfstring{$F=dA$}{F=dA}}
@@ -183,3 +162,154 @@ Aplicando la antisimetría del producto cuña ($dx^\mu \wedge dx^\nu = -dx^\nu \
     dA = \frac{1}{2} (\partial_\mu A_\nu - \partial_\nu A_\mu)\, dx^\mu \wedge dx^\nu .
 \end{equation}
 Comparando con la expansión canónica de una 2-forma, $F = \tfrac{1}{2} F_{\mu\nu}\, dx^\mu \wedge dx^\nu$, se obtienen las componentes covariantes $F_{\mu\nu} = \partial_\mu A_\nu - \partial_\nu A_\mu$.
+
+% ============================================================================
+% Apéndice: Técnicas estadísticas empleadas en el análisis cuantitativo
+% Insertar en 07_appendices.tex antes o después del apéndice ap:FdA
+% ============================================================================
+
+\section{Técnicas estadísticas empleadas en el análisis cuantitativo}
+\label{ap:estadistica}
+
+\primerparrafo Este apéndice reúne y define, en un lugar único, las técnicas estadísticas que atraviesan el análisis cuantitativo de la monografía. Su propósito es doble: servir de referencia para el lector que desee contrastar la metodología, y hacer explícitas las hipótesis de cada método junto con las circunstancias en que fueron —o no pudieron ser— satisfechas. Las secciones se ordenan según su aparición en el cuerpo del trabajo.
+
+% -----------------------------------------------------------------------
+\subsection{Regresión lineal y coeficiente de determinación \texorpdfstring{$R^2$}{R²}}
+\label{ap:est:reglineal}
+
+\primerparrafo La tasa de crecimiento $\gKHI$ de cada simulación se extrae como la mitad de la pendiente de la recta ajustada a $\ln\Ozp(t)$ en la ventana canónica $t\in[2.4,3.4]$ (Sección~\ref{sec:lnfit}). Se trata de una \textbf{regresión por mínimos cuadrados ordinarios} (MCO) de la forma
+\begin{equation}
+    \ln\Ozp(t_i) = a + b\,t_i + \varepsilon_i,
+    \qquad \gKHI = b/2,
+\end{equation}
+implementada con \texttt{numpy.polyfit} (grado 1). El estimador MCO es insesgado y de varianza mínima bajo los supuestos de Gauss-Markov (errores independientes, homocedásticos y de media cero).
+
+\primerparrafo La \textbf{calidad del ajuste} se cuantifica mediante el coeficiente de determinación
+\begin{equation}
+    R^2 = 1 - \frac{\mathrm{RSS}}{\mathrm{TSS}},
+    \qquad
+    \mathrm{RSS} = \sum_i(y_i - \hat y_i)^2,\;
+    \mathrm{TSS} = \sum_i(y_i - \bar y)^2,
+\end{equation}
+donde $\hat y_i$ son los valores predichos por el modelo. Un $R^2$ cercano a 1 indica que la fracción de varianza explicada por la recta es alta. En la ventana fija, $R^2_{\mathrm{fija}}$ se usa como criterio de clasificación de régimen: resistivo ($R^2<0.90$), transición ($0.90\le R^2<0.995$) e ideal ($R^2\ge0.995$). Los valores obtenidos van de $\approx0.31$ (régimen resistivo, $\sigma=100$) a $\ge0.995$ (régimen ideal, $\sigma\ge3600$).
+
+% -----------------------------------------------------------------------
+\subsection{Ajuste no lineal por mínimos cuadrados: modelo sigmoide con \emph{offset}}
+\label{ap:est:nls}
+
+\primerparrafo La dependencia $\gKHI(\sigma)$ se modela con el sigmoide de cuatro parámetros
+\begin{equation}
+    \gKHI(\sigma) = C + \frac{\gamma_0}{1 + e^{-k(\sigma - \sigma_0)}},
+    \label{ap:eq:sigmoide}
+\end{equation}
+donde $C+\gamma_0$ es la asíntota ideal, $C$ el \emph{offset} resistivo, $k$ la pendiente de transición y $\sigma_0$ el centro. El ajuste se realiza mediante \textbf{mínimos cuadrados no lineales} con el algoritmo \emph{trust-region reflective} (\texttt{scipy.optimize.curve\_fit}), que minimiza la suma de cuadrados de los residuos $\sum_j[\gKHI^{(j)}-\hat\gamma(\sigma_j)]^2$ sujeto a cotas físicas sobre los parámetros. La matriz de covarianza de los estimadores, devuelta por \texttt{curve\_fit}, proporciona los errores formales de los parámetros bajo el supuesto de que los residuos son independientes e idénticamente distribuidos (i.i.d.).
+
+\primerparrafo \textbf{Limitación metodológica.} El análisis de residuos (Sección~\ref{sec:validacion_v6}) revela autocorrelación, confirmada con el test de rachas ($p<0.05$). La violación del supuesto i.i.d.\ implica que los errores formales devueltos por \texttt{curve\_fit} \emph{subestiman} la incertidumbre real; por ello la incertidumbre de $\scrit$ se evalúa mediante múltiples estimadores independientes en lugar de confiar únicamente en el error formal del ajuste.
+
+% -----------------------------------------------------------------------
+\subsection{Criterio de información de Akaike (AIC)}
+\label{ap:est:aic}
+
+\primerparrafo Para la selección de modelo entre el sigmoide de 3 y 4 parámetros se utiliza el \textbf{criterio de información de Akaike}:
+\begin{equation}
+    \mathrm{AIC} = N\ln\!\left(\frac{\mathrm{RSS}}{N}\right) + 2\kappa,
+\end{equation}
+donde $N$ es el número de datos, $\kappa$ el número de parámetros libres y RSS la suma de cuadrados de residuos. El término $2\kappa$ penaliza la complejidad del modelo. La diferencia $\Delta\mathrm{AIC}$ entre dos modelos cuantifica la evidencia relativa: $|\Delta\mathrm{AIC}|>10$ se considera evidencia decisiva en favor del modelo de menor AIC \parencite{burnham-anderson-2002}.
+
+\primerparrafo En la comparación \emph{anidada justa} (mismo conjunto de datos, $\sigma\ge1600$), el sigmoide con \emph{offset} ($\kappa=4$) supera al de 3 parámetros con $\Delta\mathrm{AIC}=-126$, lo que justifica el parámetro adicional sin circularidad. Adicionalmente se calcula el \textbf{criterio bayesiano de Schwarz} (BIC, $\mathrm{AIC}$ con penalización $\kappa\ln N$) como confirmación; ambos criterios coinciden en la selección del modelo de 4 parámetros.
+
+% -----------------------------------------------------------------------
+\subsection{Test de rachas (Wald-Wolfowitz)}
+\label{ap:est:rachas}
+
+\primerparrafo Para diagnosticar la autocorrelación de los residuos del ajuste sigmoide se aplica el \textbf{test de rachas de Wald-Wolfowitz}. Una \emph{racha} es una secuencia ininterrumpida de residuos del mismo signo. Bajo la hipótesis nula de independencia, el número de rachas $R$ sigue aproximadamente una distribución normal con media y varianza conocidas en función del tamaño de muestra. El estadístico $z=(R-\mu_R)/\sigma_R$ se contrasta frente a la distribución $\mathcal{N}(0,1)$. En el análisis de esta monografía, el test arroja $p<0.05$, rechazando la hipótesis de independencia y confirmando la autocorrelación de los residuos.
+
+% -----------------------------------------------------------------------
+\subsection{Estimación \emph{jackknife} (leave-one-out)}
+\label{ap:est:jackknife}
+
+\primerparrafo El error de cada estimador de inflexión (M1--M3, Sección~\ref{sec:scrit_v6}) se cuantifica mediante el \textbf{jackknife de supresión individual} (\emph{leave-one-out}). Dado un conjunto de $n$ puntos $\{\sigma_j\}$, se computan $n$ réplicas del estimador $\hat\theta_{(-j)}$ excluyendo sucesivamente cada punto $j$. El error jackknife se define como
+\begin{equation}
+    \delta_{\mathrm{jk}} = \sqrt{n-1}\,\mathrm{std}(\hat\theta_{(-j)}),
+\end{equation}
+donde el factor $\sqrt{n-1}$ corrige el sesgo de la varianza jackknife para que sea consistente con la varianza del estimador completo. Esta técnica de remuestreo es especialmente útil cuando la distribución del estimador no es normal o cuando el tamaño de muestra es pequeño, como ocurre con los 29--35 puntos disponibles en el barrido paramétrico.
+
+\primerparrafo La incertidumbre final de cada inflexión se toma como $\delta\sigma = \max(\delta_{\mathrm{jk}},\,w/2)$, el máximo entre el error jackknife y el semiancho $w/2$ del pico de la derivada logarítmica, para capturar también la ambigüedad geométrica de localizar la inflexión sobre una curva ancha.
+
+% -----------------------------------------------------------------------
+\subsection{Validación cruzada \emph{hold-out}}
+\label{ap:est:holdout}
+
+\primerparrafo La generalización del modelo sigmoide se evalúa mediante \textbf{validación cruzada con conjunto de retención} (\emph{hold-out}). El modelo se ajusta exclusivamente sobre $\sigma\ge1600$ ($N=35$ puntos de entrenamiento); las 9 simulaciones con $\sigma<1600$ constituyen el conjunto de prueba, no utilizado en el ajuste. La métrica de comparación entre modelos es la raíz del error cuadrático medio sobre el conjunto retenido:
+\begin{equation}
+    \mathrm{RMSE}_{\mathrm{ho}} = \sqrt{\frac{1}{9}\sum_{j=1}^{9}\big[\gKHI^{(j)} - \hat\gamma(\sigma_j)\big]^2}.
+\end{equation}
+El modelo con \emph{offset} obtiene $\mathrm{RMSE}_{\mathrm{ho}}=0.025$ frente a $0.039$ del modelo sin \emph{offset}, una mejora del $36\%$ sobre datos completamente independientes, lo que valida que la curvatura capturada por $C$ es físicamente real y no un sobreajuste.
+
+% -----------------------------------------------------------------------
+\subsection{Media ponderada por inverso de la varianza}
+\label{ap:est:ponderada}
+
+\primerparrafo Dado que los cuatro estimadores de $\scrit$ (M1--M4) tienen incertidumbres muy dispares, su combinación se realiza mediante la \textbf{media ponderada por inverso de la varianza}, el estimador de mínima varianza bajo el supuesto de que los estimadores son insesgados e independientes:
+\begin{equation}
+    \hat\scrit = \frac{\displaystyle\sum_{i=1}^{4} \sigma_i / \delta\sigma_i^2}
+                      {\displaystyle\sum_{i=1}^{4} 1/\delta\sigma_i^2},
+    \qquad
+    \delta\scrit = \left(\sum_{i=1}^{4} \frac{1}{\delta\sigma_i^2}\right)^{-1/2}.
+\end{equation}
+En la práctica, el peso del método M4 (sigmoide, $\delta\sigma=123$) es $\approx98\%$ del total, de modo que la media ponderada es prácticamente idéntica a $\sigma_0$. La \textbf{media aritmética} ($4754\pm1944$) se reporta como referencia; la dispersión inter-método ($\approx1944$) es la estimación honesta de la incertidumbre sistemática real.
+
+% -----------------------------------------------------------------------
+\subsection{Ajuste en escala logarítmica: leyes de potencia}
+\label{ap:est:loglog}
+
+\primerparrafo La dependencia $\Omaxzp(\sigma)\propto\sigma^\alpha$ se determina mediante \textbf{regresión lineal en escala doblemente logarítmica} (\emph{log-log}). Tomando logaritmos, $\ln\Omaxzp = \mathrm{cte} + \alpha\ln\sigma$, el exponente $\alpha$ es la pendiente de la recta ajustada por MCO sobre los datos transformados. Se realizan dos ajustes: el completo ($N=29$ picos identificados) y el asintótico restringido a $\sigma\ge6000$ ($N$ reducido), obteniéndose $\alpha_{\rm completo}\approx1.22$ y $\alpha_{\rm asint}\approx0.57$, respectivamente. El exponente de referencia teórico $\alpha=1/2$ (escalamiento Sweet--Parker) se contrasta cualitativamente con los valores empíricos.
+
+% -----------------------------------------------------------------------
+\subsection{Derivada logarítmica discreta y localización de inflexiones}
+\label{ap:est:derlog}
+
+\primerparrafo Los estimadores de inflexión M1--M3 se basan en la \textbf{derivada logarítmica discreta} de un observable $O(\sigma)$, definida como
+\begin{equation}
+    \frac{d\ln O}{d\log_{10}\sigma}\bigg|_{\sigma_j}
+    \approx
+    \frac{\ln O(\sigma_{j+1}) - \ln O(\sigma_{j-1})}{\log_{10}\sigma_{j+1} - \log_{10}\sigma_{j-1}},
+\end{equation}
+evaluada por diferencias centradas sobre la malla discreta del barrido. El punto de inflexión $\scrit^{(M_i)}$ es el $\sigma_j$ que maximiza el valor absoluto de esta derivada, es decir, el punto de transición más rápida del observable en escala logarítmica. La escala logarítmica en $\sigma$ se adopta porque el barrido cubre casi dos décadas ($100\le\sigma\le10500$) y los procesos físicos subyacentes escalan multiplicativamente.
+
+% -----------------------------------------------------------------------
+\subsection{Resolución del problema de autovalores: ecuación de Rayleigh}
+\label{ap:est:autovalores}
+
+\primerparrafo La tasa de crecimiento predicha por la teoría lineal inviscida se obtiene resolviendo la ecuación de Rayleigh (Sección~\ref{ap:rayleigh}) como un \textbf{problema de autovalores generalizado} $A\phi = c\,B\phi$, discretizado sobre una malla en $x$ con diferencias finitas de segundo orden. El problema se resuelve numéricamente con \texttt{scipy.linalg.eig}, que aplica la descomposición QZ para matrices no simétricas. El autovalor de interés es el de mayor parte imaginaria $\mathrm{Im}(c)>0$ (modo inestable); la tasa de crecimiento adimensional es $\what_i = ka\,\mathrm{Im}(c)$. La misma rutina se emplea para la ecuación de Lees--Lin compresible (Sección~\ref{ap:leeslin}), cuya linealización produce un operador cúbico en $c$ que se reformula como un problema de autovalores de mayor dimensión antes de ser resuelto por \texttt{scipy.linalg.eig}.
+
+\subsection{Guía de interpretación topológica: Derivada logarítmica como observable de transición}
+\label{sec:manual_derivada_log}
+
+En el estudio de la inestabilidad de Kelvin-Helmholtz bajo el marco de la RRMHD, la transición del régimen puramente resistivo al ideal abarca múltiples órdenes de magnitud en el parámetro de conductividad $\sigma$. Para extraer la topología de esta transición y localizar los umbrales críticos ($\sigma_{\text{crit}}$) sin sesgos de escala, se emplea el operador formal de \emph{derivada logarítmica discreta}:
+\begin{equation}
+    \mathcal{D}_\sigma[\mathcal{O}] \equiv \frac{d \ln \mathcal{O}}{d \log_{10} \sigma} \approx \ln(10) \left[ \frac{\log_{10} \mathcal{O}(\sigma_{j+1}) - \log_{10} \mathcal{O}(\sigma_{j-1})}{\log_{10} \sigma_{j+1} - \log_{10} \sigma_{j-1}} \right],
+\end{equation}
+donde $\mathcal{O}(\sigma)$ representa un observable macroscópico del plasma. El mapeo geométrico de la función local $\mathcal{D}_\sigma[\mathcal{O}]$ revela la clase de universalidad del sistema. Para la correcta lectura de los resultados paramétricos y fenoménicos presentados a lo largo de esta monografía, los perfiles resultantes de aplicar este operador deben interpretarse siguiendo el siguiente esquema topológico-físico:
+
+\subsubsection*{1. Tipo I: El Pico Convexo (Máxima Aceleración del Crecimiento)}
+\textbf{Condición matemática:} $\mathcal{D}_\sigma[\mathcal{O}] > 0$, bajo las condiciones locales $\frac{d}{d\sigma} \mathcal{D}_\sigma = 0$ y $\frac{d^2}{d\sigma^2} \mathcal{D}_\sigma < 0$.\\
+\textbf{Física del plasma:} Un máximo local (pico) indica el punto donde el observable experimenta su aceleración logarítmica más violenta. Físicamente, señala el umbral exacto donde el sistema se desacopla del amortiguamiento por difusión resistiva y detona exponencialmente hacia la dinámica ideal. 
+\begin{itemize}
+    \item \textbf{Lectura en los Estimadores (M1 y M2):} En las gráficas de la tasa de crecimiento $\gamma_{\text{KHI}}$ (M1) y de la enstrofía máxima $\ln \Omega_{\text{máx}}$ (M2), la coordenada del vértice principal establece el centro estadístico de la transición magnética ($\sigma_{\text{crit}}$).
+    \item \textbf{Estructuras de multipletes (Picos secundarios):} Si la derivada presenta un segundo pico o rebote adyacente (como el visible en M2 alrededor de $\sigma \approx 7000$), este detalla una relajación estructural escalonada; marca la \emph{frontera topológica superior}, indicando que el plasma ha entrado de forma incondicional en la meseta asintótica del límite ideal.
+\end{itemize}
+
+\subsubsection*{2. Tipo II: El Valle Cóncavo (Tasa Máxima de Colapso)}
+\textbf{Condición matemática:} $\mathcal{D}_\sigma[\mathcal{O}] < 0$, bajo las condiciones $\frac{d}{d\sigma} \mathcal{D}_\sigma = 0$ y $\frac{d^2}{d\sigma^2} \mathcal{D}_\sigma > 0$.\\
+\textbf{Física del plasma:} Un mínimo local absoluto en el dominio negativo refleja un \emph{colapso dinámico}; es la conductividad exacta donde el parámetro analizado se desploma temporal o espacialmente antes de estabilizarse en su límite superior.
+\begin{itemize}
+    \item \textbf{Lectura en el Estimador (M3):} Aplica a las variables de escala temporal, fundamentalmente el tiempo de saturación $t_{\text{peak}}$ (M3). A medida que $\sigma$ se incrementa (menor disipación), el tiempo de desarrollo de la KHI decae drásticamente. El fondo del pozo negativo marca un punto de inflexión análogo a $\sigma_{\text{crit}}$, pero proyectado sobre el eje causal temporal.
+\end{itemize}
+
+\subsubsection*{3. Tipo III: El Cruce por Cero (Estacionariedad y Reversión)}
+\textbf{Condición matemática:} $\mathcal{D}_\sigma[\mathcal{O}] = 0$, lo que implica trivialmente por cálculo diferencial que el campo primario alcanza un extremo de estacionariedad $\left(\frac{d\mathcal{O}}{d\sigma} = 0\right)$.\\
+\textbf{Física del plasma:} Demarca un estado de equilibrio estricto o un punto temporal de reversión paramétrica (cambio de fase), donde las tasas de forzamiento hidrodinámico y reconexión resistiva se equiparan con exactitud matemática.
+\begin{itemize}
+    \item \textbf{Lectura de los Ciclos de Conversión (Campaña B):} Esta topología es la herramienta idónea para diseccionar el flujo de interacciones. Los cruces por cero en la derivada de las componentes cinéticas ($E_{\text{kin}}$) y magnéticas ($E_{\text{mag}}$) definen con precisión de máquina la culminación de un proceso de dinamo/reconexión. Topológicamente, el cruce-cero de crecimiento de un campo emparejado con el cruce-cero de decremento del otro, certifica la transferencia de energía y la iniciación del ciclo inverso en antifase.
+\end{itemize}

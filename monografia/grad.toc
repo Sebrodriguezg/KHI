@@ -1,119 +1,136 @@
 \babel@toc {spanish}{}\relax 
-\contentsline {chapter}{\numberline {1}Introducción y Contexto Astrofísico}{17}{}%
-\contentsline {section}{\numberline {1.1}Contexto de Plasmas Relativistas y Astrofísicos}{17}{}%
-\contentsline {subsection}{\numberline {1.1.1}Relevancia de la RRMHD en Chorros Astrofísicos y AGN}{17}{}%
+\contentsline {chapter}{\numberline {1}Introducción y Contexto Astrofísico}{16}{}%
+\contentsline {section}{\numberline {1.1}Contexto de Plasmas Relativistas y Astrofísicos}{16}{}%
+\contentsline {subsection}{\numberline {1.1.1}Relevancia de la RRMHD en Chorros Astrofísicos y AGN}{16}{}%
 \contentsline {subsection}{\numberline {1.1.2}La Inestabilidad de Kelvin-Helmholtz (KHI)}{18}{}%
-\contentsline {section}{\numberline {1.2}Transición de RMHD a RRMHD}{18}{}%
-\contentsline {section}{\numberline {1.3}Objetivos y Estructura de la Monografía}{19}{}%
+\contentsline {section}{\numberline {1.2}Transición de RMHD a RRMHD}{19}{}%
+\contentsline {section}{\numberline {1.3}Objetivos y Estructura de la Monografía}{20}{}%
 \contentsline {chapter}{\numberline {2}Marco Teórico: Fundamentos de RRMHD}{21}{}%
 \contentsline {section}{\numberline {2.1}Las Ecuaciones del Sistema RRMHD}{22}{}%
 \contentsline {subsection}{\numberline {2.1.1}Electrodinámica Covariante y el Tensor de Campo Electromagnético}{22}{}%
-\contentsline {subsubsection}{El Cuadripotencial y la Definición del Tensor de Faraday}{22}{}%
+\contentsline {subsubsection}{El Cuadripotencial y la Definición del Tensor de Faraday}{23}{}%
 \contentsline {subsubsection}{Descomposición Relativa a un Observador}{26}{}%
 \contentsline {subsubsection}{Ecuaciones de Maxwell en Formalismo Covariante}{27}{}%
-\contentsline {paragraph}{El par homogéneo y la identidad de Bianchi}{27}{}%
+\contentsline {paragraph}{El par homogéneo y la identidad de Bianchi}{28}{}%
 \contentsline {paragraph}{El par inhomogéneo y el acoplamiento con la fuente}{28}{}%
 \contentsline {subsection}{\numberline {2.1.2}Conservación Hidrodinámica y el Tensor de Energía-Momento Total}{29}{}%
-\contentsline {subsubsection}{Derivación a partir de las Densidades Lagrangianas}{29}{}%
+\contentsline {subsubsection}{Derivación a partir de las Densidades Lagrangianas}{30}{}%
 \contentsline {subsubsection}{Dinámica Acoplada y el Sistema Completo de RRMHD}{31}{}%
-\contentsline {subsection}{\numberline {2.1.3}El Sistema Aumentado de Maxwell}{32}{}%
-\contentsline {subsubsection}{Extensión Lagrangiana y el Campo Auxiliar Eléctrico $\Phi $}{33}{}%
-\contentsline {subsubsection}{Simetría Dual y el Campo Auxiliar Magnético $\Psi $}{34}{}%
-\contentsline {subsubsection}{La Ecuación del Telégrafo: Origen Covariante y Causalidad Disipativa}{36}{}%
-\contentsline {subsubsection}{Descomposición 3+1 del Sistema Aumentado}{37}{}%
-\contentsline {subsection}{\numberline {2.1.4}Descomposición de la Cuadricorriente y la Ley de Ohm Relativista}{38}{}%
-\contentsline {subsubsection}{Descomposición Ortogonal del Cuadrivector Corriente}{38}{}%
-\contentsline {subsubsection}{La Ecuación Constitutiva Covariante}{39}{}%
-\contentsline {subsubsection}{Proyección 3+1 y la Reintegración del Campo Comóvil}{40}{}%
-\contentsline {subsection}{\numberline {2.1.5}Resumen del Sistema RRMHD en Forma Conservativa}{41}{}%
-\contentsline {section}{\numberline {2.2}Análisis de la KHI en el Límite Lineal}{43}{}%
-\contentsline {subsection}{\numberline {2.2.1}Inercia Térmica Relativista y Anisotropía Magnética}{44}{}%
-\contentsline {subsection}{\numberline {2.2.2}El Límite Resistivo y la Ruptura Topológica}{44}{}%
-\contentsline {subsection}{\numberline {2.2.3}Formulación Geométrica de la Vorticidad y Enstrofía}{45}{}%
-\contentsline {subsubsection}{Enstrofía de Perturbación y Extracción de $\gamma $}{46}{}%
-\contentsline {chapter}{\numberline {3}La inestabilidad de Kelvin--Helmholtz}{49}{}%
-\contentsline {section}{\numberline {3.1}Descripción Física General de la Inestabilidad}{49}{}%
-\contentsline {section}{\numberline {3.2}La KHI en Mecánica de Fluidos Clásica}{50}{}%
-\contentsline {subsection}{\numberline {3.2.1}Planteamiento Hidrodinámico}{50}{}%
-\contentsline {subsection}{\numberline {3.2.2}Análisis Lineal y Relación de Dispersión}{51}{}%
-\contentsline {paragraph}{Condición Cinemática:}{51}{}%
-\contentsline {paragraph}{Condición Dinámica:}{51}{}%
-\contentsline {section}{\numberline {3.3}Extensión Magnetohidrodinámica Ideal (MHD)}{52}{}%
-\contentsline {section}{\numberline {3.4}La KHI en RMHD}{53}{}%
-\contentsline {subsection}{\numberline {3.4.1}Correcciones Relativistas y Factor de Inercia}{54}{}%
-\contentsline {subsection}{\numberline {3.4.2}Implicaciones Astrofísicas}{54}{}%
-\contentsline {section}{\numberline {3.5}La KHI en el Marco de la RRMHD}{55}{}%
-\contentsline {subsection}{\numberline {3.5.1}El Rol de la Resistividad y la Relajación Topológica}{55}{}%
-\contentsline {subsection}{\numberline {3.5.2}Motivación Numérica y Relevancia Computacional}{55}{}%
-\contentsline {chapter}{\numberline {4}El código \textit {Cueva}}{57}{}%
-\contentsline {section}{\numberline {4.1}Discretización y Reconstrucción Espacial}{57}{}%
-\contentsline {subsection}{\numberline {4.1.1}Esquemas de Volúmenes Finitos en RRMHD}{58}{}%
-\contentsline {subsection}{\numberline {4.1.2}Limitadores de Pendiente y Reconstrucción de Alto Orden}{58}{}%
-\contentsline {subsubsection}{Difusión Numérica y la Necesidad de Esquemas MP5}{58}{}%
-\contentsline {section}{\numberline {4.2}El Problema de Riemann Local en RRMHD}{59}{}%
-\contentsline {subsection}{\numberline {4.2.1}Estructura Espectral del Jacobiano Conservativo}{59}{}%
-\contentsline {subsubsection}{Degeneración de Velocidades Características}{60}{}%
-\contentsline {subsection}{\numberline {4.2.2}Sistemas con Relajación y la Condición Subcaracterística}{60}{}%
-\contentsline {subsection}{\numberline {4.2.3}El Esquema HLL Clásico y su Fracaso en Discontinuidades Tangenciales}{60}{}%
-\contentsline {section}{\numberline {4.3}El solucionador aproximado HLLC}{61}{}%
-\contentsline {subsection}{\numberline {4.3.1}Topología del Abanico de Riemann y el Estado Estrella ($U^*$)}{61}{}%
-\contentsline {subsection}{\numberline {4.3.2}Condiciones de Salto de Rankine-Hugoniot en el Límite Discreto}{61}{}%
-\contentsline {subsection}{\numberline {4.3.3}Postulados de Cierre y Continuidad de Invariantes Físicos}{62}{}%
-\contentsline {subsection}{\numberline {4.3.4}Resolución Algebraica Exacta de la Onda de Contacto ($\lambda ^*$)}{62}{}%
-\contentsline {section}{\numberline {4.4}Acoplamiento con el sistema GLM}{63}{}%
-\contentsline {subsection}{\numberline {4.4.1}Estructura Espectral de los Potenciales Auxiliares}{63}{}%
-\contentsline {subsection}{\numberline {4.4.2}Flujos Intermedios y Amortiguamiento Fenomenológico}{64}{}%
-\contentsline {section}{\numberline {4.5}Tratamiento de la Rigidez: Esquemas IMEX-RK}{64}{}%
-\contentsline {subsection}{\numberline {4.5.1}Partición de Operadores: Integración Explícita e Implícita}{64}{}%
-\contentsline {subsection}{\numberline {4.5.2}Inversión Algebraica Local del Término de Conducción}{65}{}%
-\contentsline {section}{\numberline {4.6}Recuperación de Variables Primitivas}{65}{}%
-\contentsline {section}{\numberline {4.7}Límites Asintóticos y Consistencia del Esquema}{66}{}%
-\contentsline {subsection}{\numberline {4.7.1}Colapso Analítico al Régimen de MHD Ideal ($\sigma \rightarrow \infty $)}{66}{}%
-\contentsline {subsection}{\numberline {4.7.2}Comportamiento Disipativo en el Límite Altamente Resistivo}{67}{}%
-\contentsline {chapter}{\numberline {5}Set-up Experimental y metodos \textit {Cueva}}{69}{}%
-\contentsline {section}{\numberline {5.1}Configuración Experimental}{69}{}%
-\contentsline {subsection}{\numberline {5.1.1}Condiciones Iniciales del Problema}{69}{}%
-\contentsline {subsection}{\numberline {5.1.2}Dominio Computacional, Discretización y Sistema de Unidades}{71}{}%
-\contentsline {paragraph}{Sistema de unidades y equivalencia temporal.}{71}{}%
-\contentsline {subsection}{\numberline {5.1.3}Exploración del Espacio de Parámetros: Resistividad}{72}{}%
-\contentsline {subsection}{\numberline {5.1.4}Variables de Control y Diagnóstico}{73}{}%
-\contentsline {chapter}{\numberline {6}Resultados y análisis de la KHI}{77}{}%
-\contentsline {section}{\numberline {6.1}Visión global del barrido paramétrico}{77}{}%
-\contentsline {subsection}{\numberline {6.1.1}Trayectorias temporales del barrido}{78}{}%
-\contentsline {subsection}{\numberline {6.1.2}Extracción de la tasa de crecimiento y calidad del ajuste lineal}{79}{}%
-\contentsline {subsection}{\numberline {6.1.3}Tabla canónica del barrido en conductividad}{80}{}%
-\contentsline {section}{\numberline {6.2}Modelo sigmoide con \emph {offset}}{81}{}%
-\contentsline {subsection}{\numberline {6.2.1}Resultados del ajuste}{82}{}%
-\contentsline {section}{\numberline {6.3}Validación estadística del modelo}{85}{}%
-\contentsline {section}{\numberline {6.4}Conductividad crítica $\sigma _{\mathrm {crit}}$}{86}{}%
-\contentsline {section}{\numberline {6.5}Leyes de potencia para $\Omega _{zp}^{\mathop {\mathgroup \symoperators m\acute {a}x}}(\sigma )$}{88}{}%
-\contentsline {section}{\numberline {6.6}Variables globales y estructuras secundarias}{89}{}%
-\contentsline {subsection}{\numberline {6.6.1}Corrientes, disipación y energía magnética}{90}{}%
-\contentsline {subsection}{\numberline {6.6.2}Estructuras secundarias y anisotropía fuera del plano}{90}{}%
-\contentsline {section}{\numberline {6.7}Contraste con la teoría lineal}{91}{}%
-\contentsline {subsection}{\numberline {6.7.1}Techo hidrodinámico inviscido (ecuación de Rayleigh)}{91}{}%
-\contentsline {subsection}{\numberline {6.7.2}El carácter dual del montaje no altera el techo}{92}{}%
-\contentsline {subsection}{\numberline {6.7.3}Predicción RMHD compresible (Lees--Lin)}{93}{}%
-\contentsline {subsection}{\numberline {6.7.4}Velocidades características y números de Mach}{94}{}%
-\contentsline {subsection}{\numberline {6.7.5}Contraste con los marcos MHD, RMHD y RRMHD}{95}{}%
-\contentsline {subsection}{\numberline {6.7.6}Buen planteamiento y papel de la resistividad}{96}{}%
-\contentsline {section}{\numberline {6.8}Limitaciones del análisis y perspectivas}{97}{}%
-\contentsline {chapter}{\numberline {7}Conclusiones y Perspectivas Futuras}{99}{}%
-\contentsline {section}{\numberline {7.1}Conclusiones por objetivo}{99}{}%
-\contentsline {paragraph}{(1) Efecto de la resistividad sobre la tasa de crecimiento lineal.}{99}{}%
-\contentsline {paragraph}{(2) Efecto sobre las estructuras secundarias.}{99}{}%
-\contentsline {paragraph}{(3) Efecto sobre las variables globales.}{100}{}%
-\contentsline {paragraph}{(4) Efecto de la orientación e intensidad del campo magnético.}{100}{}%
-\contentsline {section}{\numberline {7.2}Limitaciones del Modelo y la Simulación}{100}{}%
-\contentsline {section}{\numberline {7.3}Trabajo Futuro}{101}{}%
-\contentsline {chapter}{\numberline {A}Apéndices}{103}{}%
-\contentsline {section}{\numberline {A.1}Justificación de $C+\gamma _0$: derivación paso a paso}{103}{}%
-\contentsline {subsection}{\numberline {A.1.1}El sistema que resuelve el \textit {Cueva} y su correspondencia con Miranda}{103}{}%
-\contentsline {subsection}{\numberline {A.1.2}El observable: por qué $\ln \Omega _{zp}$ crece a pendiente $2\gamma _{\mathrm {KHI}}$}{104}{}%
-\contentsline {subsection}{\numberline {A.1.3}Termodinámica relativista y velocidades características}{104}{}%
-\contentsline {subsection}{\numberline {A.1.4}Números de Mach: la distinción $M_f$ vs $M_{re}$}{105}{}%
-\contentsline {subsection}{\numberline {A.1.5}Techo inviscido: ecuación de Rayleigh desde Euler}{105}{}%
-\contentsline {subsection}{\numberline {A.1.6}Predicción compresible exacta: ecuación de Lees--Lin}{105}{}%
-\contentsline {subsection}{\numberline {A.1.7}Dispersión RMHD de \emph {vortex sheet} y umbral de Landau}{106}{}%
-\contentsline {subsection}{\numberline {A.1.8}Reconstrucción de los estimadores de $\sigma _{\mathrm {crit}}$}{106}{}%
-\contentsline {subsection}{\numberline {A.1.9}Veredicto: validez teórica del montaje}{107}{}%
+\contentsline {subsection}{\numberline {2.1.3}El Sistema Aumentado de Maxwell}{33}{}%
+\contentsline {subsubsection}{Extensión Lagrangiana y el Campo Auxiliar Eléctrico $\Phi $}{35}{}%
+\contentsline {subsubsection}{Simetría Dual y el Campo Auxiliar Magnético $\Psi $}{36}{}%
+\contentsline {subsubsection}{La Ecuación del Telégrafo: Origen Covariante y Causalidad Disipativa}{37}{}%
+\contentsline {subsubsection}{Descomposición 3+1 del Sistema Aumentado}{39}{}%
+\contentsline {subsection}{\numberline {2.1.4}Descomposición de la Cuadricorriente y la Ley de Ohm Relativista}{40}{}%
+\contentsline {subsubsection}{Descomposición Ortogonal del Cuadrivector Corriente}{40}{}%
+\contentsline {subsubsection}{La Ecuación Constitutiva Covariante}{42}{}%
+\contentsline {subsubsection}{Proyección 3+1 y la Reintegración del Campo Comóvil}{43}{}%
+\contentsline {subsection}{\numberline {2.1.5}Resumen del Sistema RRMHD en Forma Conservativa}{44}{}%
+\contentsline {section}{\numberline {2.2}Análisis de la KHI en el Límite Lineal}{47}{}%
+\contentsline {subsection}{\numberline {2.2.1}Inercia Térmica Relativista y Anisotropía Magnética}{48}{}%
+\contentsline {subsection}{\numberline {2.2.2}El Límite Resistivo y la Ruptura Topológica}{48}{}%
+\contentsline {subsection}{\numberline {2.2.3}Formulación Geométrica de la Vorticidad y Enstrofía}{49}{}%
+\contentsline {subsubsection}{Enstrofía de Perturbación y Extracción de $\gamma $}{50}{}%
+\contentsline {chapter}{\numberline {3}La inestabilidad de Kelvin--Helmholtz}{51}{}%
+\contentsline {section}{\numberline {3.1}Descripción Física General de la Inestabilidad}{51}{}%
+\contentsline {section}{\numberline {3.2}La KHI en Mecánica de Fluidos Clásica}{52}{}%
+\contentsline {subsection}{\numberline {3.2.1}Planteamiento Hidrodinámico}{52}{}%
+\contentsline {subsection}{\numberline {3.2.2}Análisis Lineal y Relación de Dispersión}{54}{}%
+\contentsline {paragraph}{Condición Cinemática:}{54}{}%
+\contentsline {paragraph}{Condición Dinámica:}{55}{}%
+\contentsline {section}{\numberline {3.3}Extensión Magnetohidrodinámica Ideal (MHD)}{55}{}%
+\contentsline {section}{\numberline {3.4}La KHI en RMHD}{57}{}%
+\contentsline {subsection}{\numberline {3.4.1}Correcciones Relativistas y Factor de Inercia}{57}{}%
+\contentsline {subsection}{\numberline {3.4.2}Implicaciones Astrofísicas}{58}{}%
+\contentsline {section}{\numberline {3.5}La KHI en el Marco de la RRMHD}{59}{}%
+\contentsline {subsection}{\numberline {3.5.1}El Rol de la Resistividad y la Relajación Topológica}{59}{}%
+\contentsline {subsection}{\numberline {3.5.2}Motivación Numérica y Relevancia Computacional}{59}{}%
+\contentsline {chapter}{\numberline {4}El código \textit {Cueva}}{62}{}%
+\contentsline {section}{\numberline {4.1}Discretización y Reconstrucción Espacial}{63}{}%
+\contentsline {subsection}{\numberline {4.1.1}Esquemas de Volúmenes Finitos en RRMHD}{64}{}%
+\contentsline {subsection}{\numberline {4.1.2}Limitadores de Pendiente y Reconstrucción de Alto Orden}{65}{}%
+\contentsline {subsubsection}{Difusión Numérica y la Necesidad de Esquemas MP5}{66}{}%
+\contentsline {section}{\numberline {4.2}El Problema de Riemann Local en RRMHD}{66}{}%
+\contentsline {subsection}{\numberline {4.2.1}Estructura Espectral del Jacobiano Conservativo}{67}{}%
+\contentsline {subsubsection}{Degeneración de Velocidades Características}{68}{}%
+\contentsline {subsection}{\numberline {4.2.2}Sistemas con Relajación y la Condición Subcaracterística}{68}{}%
+\contentsline {subsection}{\numberline {4.2.3}El Solucionador Aproximado HLL y el Papel de la Reconstrucción de Alto Orden}{68}{}%
+\contentsline {section}{\numberline {4.3}Acoplamiento con el sistema GLM}{69}{}%
+\contentsline {subsection}{\numberline {4.3.1}Estructura Espectral de los Potenciales Auxiliares}{70}{}%
+\contentsline {subsection}{\numberline {4.3.2}Flujos Intermedios y Amortiguamiento Fenomenológico}{70}{}%
+\contentsline {section}{\numberline {4.4}Tratamiento de la Rigidez: Esquemas IMEX-RK}{71}{}%
+\contentsline {subsection}{\numberline {4.4.1}Partición de Operadores: Integración Explícita e Implícita}{71}{}%
+\contentsline {subsection}{\numberline {4.4.2}Inversión Algebraica Local del Término de Conducción}{72}{}%
+\contentsline {section}{\numberline {4.5}Recuperación de Variables Primitivas}{73}{}%
+\contentsline {section}{\numberline {4.6}Límites Asintóticos y Consistencia del Esquema}{74}{}%
+\contentsline {chapter}{\numberline {5}Set-up Experimental y metodos \textit {Cueva}}{75}{}%
+\contentsline {section}{\numberline {5.1}Configuración Experimental}{75}{}%
+\contentsline {subsection}{\numberline {5.1.1}Condiciones Iniciales del Problema}{75}{}%
+\contentsline {subsection}{\numberline {5.1.2}Dominio Computacional, Discretización y Sistema de Unidades}{78}{}%
+\contentsline {paragraph}{Sistema de unidades y equivalencia temporal.}{79}{}%
+\contentsline {subsection}{\numberline {5.1.3}Primera campaña: variación de la conductividad (objetivos 1--3)}{80}{}%
+\contentsline {subsection}{\numberline {5.1.4}Segunda campaña: variación del campo magnético (objetivo 4)}{81}{}%
+\contentsline {paragraph}{Campaña A — Intensidad (orientación Mizuno fija).}{82}{}%
+\contentsline {paragraph}{Campaña B — Orientación en el plano $y$--$z$ ($|\mathbf B|$ fijo).}{83}{}%
+\contentsline {paragraph}{Campaña C — Componente paralela al flujo (plano $x$--$z$, $|\mathbf B|$ fijo).}{84}{}%
+\contentsline {paragraph}{Conductividades y paso temporal.}{84}{}%
+\contentsline {subsection}{\numberline {5.1.5}Variables de Control y Diagnóstico}{85}{}%
+\contentsline {chapter}{\numberline {6}Resultados y análisis de la KHI}{87}{}%
+\contentsline {section}{\numberline {6.1}Visión global del barrido paramétrico}{88}{}%
+\contentsline {subsection}{\numberline {6.1.1}Trayectorias temporales del barrido}{88}{}%
+\contentsline {subsection}{\numberline {6.1.2}Extracción de la tasa de crecimiento y calidad del ajuste lineal}{89}{}%
+\contentsline {subsection}{\numberline {6.1.3}Tabla canónica del barrido en conductividad}{90}{}%
+\contentsline {section}{\numberline {6.2}Modelo sigmoide con \emph {offset}}{91}{}%
+\contentsline {subsection}{\numberline {6.2.1}Resultados del ajuste}{92}{}%
+\contentsline {section}{\numberline {6.3}Validación estadística del modelo}{94}{}%
+\contentsline {section}{\numberline {6.4}Conductividad crítica $\sigma _{\mathrm {crit}}$}{96}{}%
+\contentsline {section}{\numberline {6.5}Leyes de potencia para $\Omega _{zp}^{\mathop {\mathgroup \symoperators m\acute {a}x}}(\sigma )$}{101}{}%
+\contentsline {section}{\numberline {6.6}Variables globales y estructuras secundarias}{103}{}%
+\contentsline {subsection}{\numberline {6.6.1}Corrientes, disipación y topología del transitorio electromagnético}{104}{}%
+\contentsline {subsection}{\numberline {6.6.2}Estructuras secundarias y anisotropía fuera del plano}{105}{}%
+\contentsline {section}{\numberline {6.7}Contraste con la teoría lineal}{106}{}%
+\contentsline {subsection}{\numberline {6.7.1}Techo hidrodinámico inviscido (ecuación de Rayleigh)}{106}{}%
+\contentsline {subsection}{\numberline {6.7.2}El carácter dual del montaje no altera el techo}{107}{}%
+\contentsline {subsection}{\numberline {6.7.3}Predicción RMHD compresible (Lees--Lin)}{108}{}%
+\contentsline {subsection}{\numberline {6.7.4}Velocidades características y números de Mach}{109}{}%
+\contentsline {subsection}{\numberline {6.7.5}Contraste con los marcos MHD, RMHD y RRMHD}{111}{}%
+\contentsline {subsection}{\numberline {6.7.6}Buen planteamiento y papel de la resistividad}{112}{}%
+\contentsline {section}{\numberline {6.8}Variación del campo magnético}{112}{}%
+\contentsline {subsection}{\numberline {6.8.1}Impacto de la intensidad del campo magnético en el desarrollo de la inestabilidad}{113}{}%
+\contentsline {subsection}{\numberline {6.8.2}Impacto de la orientación del campo magnético}{115}{}%
+\contentsline {subsubsection}{Variación en el plano $y-z$}{115}{}%
+\contentsline {subsubsection}{Variación en el plano $x-z$}{126}{}%
+\contentsline {subsection}{\numberline {6.8.3}Balance energético y procesos disipativos}{128}{}%
+\contentsline {section}{\numberline {6.9}Limitaciones del análisis y perspectivas}{134}{}%
+\contentsline {chapter}{\numberline {7}Conclusiones y Perspectivas Futuras}{136}{}%
+\contentsline {section}{\numberline {7.1}Conclusiones por objetivo}{136}{}%
+\contentsline {paragraph}{(1) Efecto de la resistividad sobre la tasa de crecimiento lineal.}{136}{}%
+\contentsline {paragraph}{(2) Efecto sobre las estructuras secundarias.}{137}{}%
+\contentsline {paragraph}{(3) Efecto sobre las variables globales.}{137}{}%
+\contentsline {paragraph}{(4) Efecto de la orientación e intensidad del campo magnético.}{137}{}%
+\contentsline {section}{\numberline {7.2}Limitaciones del Modelo y la Simulación}{138}{}%
+\contentsline {section}{\numberline {7.3}Trabajo Futuro}{138}{}%
+\contentsline {chapter}{\numberline {A}Apéndices}{139}{}%
+\contentsline {section}{\numberline {A.1}Justificación de $C+\gamma _0$: derivación paso a paso}{139}{}%
+\contentsline {subsection}{\numberline {A.1.1}El sistema que resuelve el \textit {Cueva} y su correspondencia con Miranda}{139}{}%
+\contentsline {subsection}{\numberline {A.1.2}El observable: por qué $\ln \Omega _{zp}$ crece a pendiente $2\gamma _{\mathrm {KHI}}$}{140}{}%
+\contentsline {subsection}{\numberline {A.1.3}Termodinámica relativista y velocidades características}{140}{}%
+\contentsline {subsection}{\numberline {A.1.4}Números de Mach: la distinción $M_f$ vs $M_{re}$}{141}{}%
+\contentsline {subsection}{\numberline {A.1.5}Techo inviscido: ecuación de Rayleigh desde Euler}{141}{}%
+\contentsline {subsection}{\numberline {A.1.6}Predicción compresible exacta: ecuación de Lees--Lin}{141}{}%
+\contentsline {subsection}{\numberline {A.1.7}Dispersión RMHD de \emph {vortex sheet} y umbral de Landau}{142}{}%
+\contentsline {subsection}{\numberline {A.1.8}Reconstrucción de los estimadores de $\sigma _{\mathrm {crit}}$}{142}{}%
+\contentsline {subsection}{\numberline {A.1.9}Veredicto: validez teórica del montaje}{143}{}%
+\contentsline {section}{\numberline {A.2}Desarrollo en componentes del tensor de Faraday $F=dA$}{143}{}%
+\contentsline {section}{\numberline {A.3}Técnicas estadísticas empleadas en el análisis cuantitativo}{144}{}%
+\contentsline {subsection}{\numberline {A.3.1}Regresión lineal y coeficiente de determinación $R^2$}{145}{}%
+\contentsline {subsection}{\numberline {A.3.2}Ajuste no lineal por mínimos cuadrados: modelo sigmoide con \emph {offset}}{145}{}%
+\contentsline {subsection}{\numberline {A.3.3}Criterio de información de Akaike (AIC)}{146}{}%
+\contentsline {subsection}{\numberline {A.3.4}Test de rachas (Wald-Wolfowitz)}{146}{}%
+\contentsline {subsection}{\numberline {A.3.5}Estimación \emph {jackknife} (leave-one-out)}{146}{}%
+\contentsline {subsection}{\numberline {A.3.6}Validación cruzada \emph {hold-out}}{147}{}%
+\contentsline {subsection}{\numberline {A.3.7}Media ponderada por inverso de la varianza}{147}{}%
+\contentsline {subsection}{\numberline {A.3.8}Ajuste en escala logarítmica: leyes de potencia}{148}{}%
+\contentsline {subsection}{\numberline {A.3.9}Derivada logarítmica discreta y localización de inflexiones}{148}{}%
+\contentsline {subsection}{\numberline {A.3.10}Resolución del problema de autovalores: ecuación de Rayleigh}{149}{}%
+\contentsline {subsection}{\numberline {A.3.11}Guía de interpretación topológica: Derivada logarítmica como observable de transición}{149}{}%
