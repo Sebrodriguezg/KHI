@@ -2,7 +2,7 @@
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{figuras/volumenes_finitos.pdf}
-\caption{Representación esquemática de la discretización espacial bajo el formalismo de volúmenes finitos unidimensionales. Se ilustra la transición desde el estado continuo del plasma $\mathbf{U}(x,t)$ hacia su representación discreta mediante promedios espaciales $\mathbf{\bar{U}}_i^n$ confinados en los volúmenes de control $I_i$. La evolución temporal del sistema está dictada por los flujos numéricos interfasiales $\mathbf{\hat{F}}_{i \pm 1/2}$, evaluados en las fronteras espaciales $x_{i \pm 1/2}$, los cuales garantizan la conservación estricta de las variables de estado durante el intercambio físico entre celdas adyacentes.}
+\caption{Representación esquemática de la discretización espacial bajo el formalismo de volúmenes finitos unidimensionales. Se ilustra la transición desde el estado continuo del plasma $\mathbf{U}(x,t)$ hacia su representación discreta mediante promedios espaciales $\mathbf{\bar{U}}_i^n$ confinados en los volúmenes de control $I_i$. La evolución temporal del sistema está dictada por los flujos numéricos \prof{de interfaz} (\prof{CAMBIAR INTERFACIAL POR INTERFAZ O DE INTERFAZ}) \sout{interfasiales} $\mathbf{\hat{F}}_{i \pm 1/2}$, evaluados en las fronteras espaciales $x_{i \pm 1/2}$, los cuales garantizan la conservación estricta de las variables de estado durante el intercambio físico entre celdas adyacentes.}
 \label{fig:esquema_vol_fin}
 \end{figure}
 
@@ -47,7 +47,7 @@ Para preservar la monotonicidad sin degradar la precisión en los extremos local
 $$
 \mathbf{U}_L = \text{median}(\mathbf{U}_{i+1/2}^{(5)}, \mathbf{U}_{min}, \mathbf{U}_{max}).
 $$
-Esta topología garantiza una captura de choques sin oscilaciones acoplada a una retención casi espectral de la vorticidad bidimensional, requisito fundamental para resolver la capa límite resistiva de espesor $\sim S^{-1/2}$. Esta motivación ---minimizar la disipación numérica para que sea la disipación \emph{física} la que domine y queden resueltas las hojas de corriente resistivas--- es la misma que impulsa los esquemas Res-RMHD de orden aún mayor (cuarto orden) desarrollados recientemente por \textcite{mignone2024}, dentro de cuya línea metodológica se inscribe el código \textit{Cueva}.
+Esta topología garantiza una captura de choques sin oscilaciones acoplada a una retención casi espectral de la vorticidad bidimensional, requisito fundamental para resolver la capa límite resistiva de espesor $\sim S^{-1/2}$. Esta motivación ---minimizar la disipación numérica para que sea la disipación \emph{física} la que domine y queden resueltas las hojas de corriente resistivas--- es la misma que impulsa los esquemas \sout{Res-RMHD} \prof{RRMHD}  de orden aún mayor (cuarto orden) desarrollados recientemente por \textcite{mignone2024}, dentro de cuya línea metodológica se inscribe el código \textit{Cueva}.
 \section{El Problema de Riemann Local en RRMHD}
 \label{sec:Problema_Riemann}
 
