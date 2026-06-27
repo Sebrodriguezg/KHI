@@ -15,7 +15,9 @@
   \renewcommand{\tablename}{Tabla}%
   \renewcommand{\listtablename}{Índice de tablas}%
 }
-\usepackage{microtype}                  % Improves justification and typography
+\usepackage{microtype}  
+\usepackage[colorlinks=true, linkcolor=blue, urlcolor=blue, citecolor=blue]{hyperref}   % For smart cross-referencing (use \cref{})
+                % Improves justification and typography
 \usepackage{csquotes}
 \usepackage{amsmath}
 \usepackage{parskip} % Elimina sangría global y añade espacio entre párrafos
@@ -58,7 +60,7 @@
 \newcommand{\claudenota}[1]{{\color{claudeorange}\small\textsf{[CLAUDE: #1]}}}
 \definecolor{notebookpurple}{rgb}{0.45,0.10,0.60}
 \newcommand{\notebooknota}[1]{{\color{notebookpurple}\small\textsf{[NLM: #1]}}}
-\usepackage[capitalize]{cleveref}       % For smart cross-referencing (use \cref{})
+\usepackage[capitalize]{cleveref}    
 
 % --- Bibliography ---
 \usepackage[
@@ -197,6 +199,10 @@ Julio de 2026
 \chapter{Conclusiones y Perspectivas Futuras}
 \label{ch:conclusions}
 \input{sections/06_conclusions.tex}
+
+\chapter{Agradecimiento y detalles de computo}
+\label{ch:agr}
+\input{sections/agradecimientos_cluster.tex}
 
 % =============================================
 % APÉNDICES

@@ -1,0 +1,76 @@
+% ============================================================================
+% Apéndice: Recursos computacionales del proyecto CUEVA
+% Insertar en 07_appendices.tex
+% ============================================================================
+
+\section{Recursos computacionales}
+\label{ap:computo}
+
+\primerparrafo Todo el cómputo del proyecto CUEVA se realizó en una única estación de trabajo de acceso dedicado, sin recurrir a infraestructura de clúster distribuida. Las especificaciones de la máquina y el volumen total de trabajo acumulado se documentan aquí como referencia para la reproducibilidad de los resultados.
+
+% -----------------------------------------------------------------------
+\subsection{Especificaciones de la máquina}
+\label{ap:computo:maquina}
+
+\primerparrafo La estación de trabajo utilizada es un nodo de cómputo con las siguientes características (Tabla~\ref{ap:tab:maquina}):
+
+\begin{table}[H]\centering\small
+\caption{Especificaciones del nodo de cómputo del proyecto CUEVA.}
+\label{ap:tab:maquina}
+\begin{tabular}{ll}
+\hline
+\textbf{Componente}   & \textbf{Especificación} \\
+\hline
+Procesador        & AMD Ryzen Threadripper 3990X (Zen~2) \\
+Núcleos / hilos   & 64 núcleos físicos / 128 hilos \\
+Frecuencia        & 2.9~GHz base $\rightarrow$ 4.35~GHz turbo \\
+Arquitectura NUMA & 1 nodo NUMA \\
+Memoria RAM       & 251~GiB (256~GB) DDR4 \\
+Almacenamiento    & SSD NVMe de 1.8~TB \\
+Paralelismo       & OpenMP (hasta 64 hilos por corrida) \\
+\hline
+\end{tabular}
+\end{table}
+
+% -----------------------------------------------------------------------
+\subsection{Trabajo realizado y tiempo de cómputo}
+\label{ap:computo:trabajo}
+
+\primerparrafo El proyecto se desarrolló de forma continua desde julio de 2024 hasta junio de 2026 (cerca de dos años), y comprendió tres grandes bloques de simulaciones de la inestabilidad de Kelvin--Helmholtz en magnetohidrodinámica relativista resistiva, más el post-procesamiento. El costo computacional de cada bloque se resume en la Tabla~\ref{ap:tab:computo}.
+
+\begin{table}[H]\centering\small
+\caption{Bloques de simulaciones y costo computacional acumulado.}
+\label{ap:tab:computo}
+\begin{tabular}{p{6.8cm} c c r}
+\hline
+\textbf{Bloque de simulaciones} & \textbf{Corridas} & \textbf{Resolución} & \textbf{Core-h} \\
+\hline
+Campañas magnéticas A/B/C ($\sigma=6000,\,10\,000$)$^{\,\dagger}$  & 119 & $512\times256$  &  19\,910       \\
+Barrido de conductividad $\sigma\in[100,\,40\,000]$$^{\,\ddagger}$  &  52 & $512\times256$  & $\sim$8\,000   \\
+Simulación de alta resolución$^{\,\ddagger}$                         &   1 & $1024\times512$ & $\sim$1\,800   \\
+Post-procesamiento$^{\,\ddagger}$                                    & --- & ---             & $\sim$100      \\
+\hline
+\textbf{Total estimado}                                              &     &                 & $\sim$\textbf{29\,800} \\
+\hline
+\end{tabular}
+\begin{minipage}{0.90\linewidth}
+\vspace{4pt}\footnotesize
+$^{\dagger}$~Medido directamente con \texttt{/usr/bin/time\,-v}; 60 de las 119 ejecuciones terminaron
+en crash numérico, parte del estudio de estabilidad del campo magnético.\\[2pt]
+$^{\ddagger}$~Estimado a partir de la resolución, el número de pasos temporales y el costo medido de
+las corridas equivalentes de las campañas A/B/C.
+\end{minipage}
+\end{table}
+
+\primerparrafo Las $\sim$29\,800 core-horas acumuladas equivalen a $\sim$1\,240 core-días
+($\approx3.4$~años-núcleo), o bien a unos 19.5~días de los 64 núcleos trabajando sin interrupción.
+El período de mayor intensidad computacional abarcó de febrero a junio de 2026 (barrido de
+conductividad y campañas magnéticas).
+La memoria utilizada alcanzó un pico de $\sim$9~GB por corrida, con un máximo de $\sim$36~GB
+al ejecutar cuatro simulaciones en paralelo; el volumen total de datos generados fue de
+$\sim$522~GB en disco.
+
+Sin el acceso a esta máquina habría sido inviable acumular las cerca de 30\,000 horas-núcleo
+que sostienen este trabajo. Se expresa sincero agradecimiento a quienes facilitaron su uso,
+recurso sin el cual ni el barrido de conductividad, ni el estudio de variación del campo
+magnético, ni las simulaciones de alta resolución hubieran sido posibles.
