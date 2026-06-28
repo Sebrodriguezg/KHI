@@ -1,16 +1,14 @@
 [0] Config.pm:328> INFO - This is Biber 2.21
 [0] Config.pm:331> INFO - Logfile is 'grad.blg'
-[48] biber:342> INFO - === Sat Jun 27, 2026, 20:32:03
+[48] biber:342> INFO - === Sat Jun 27, 2026, 20:36:47
 [58] Biber.pm:421> INFO - Reading 'grad.bcf'
 [113] Biber.pm:1002> INFO - Found 42 citekeys in bib section 0
 [124] Biber.pm:4487> INFO - Processing section 0
-[130] Biber.pm:4678> INFO - Looking for bibtex file 'references.bib' for section 0
+[129] Biber.pm:4678> INFO - Looking for bibtex file 'references.bib' for section 0
 [131] bibtex.pm:1713> INFO - LaTeX decoding ...
 [172] bibtex.pm:1519> INFO - Found BibTeX data source 'references.bib'
-[383] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
-[384] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[384] Biber.pm:4307> INFO - Sorting list 'anyt/global//global/global/global' of type 'entry' with template 'anyt' and locale 'es-ES'
-[410] bbl.pm:676> INFO - Writing 'grad.bbl' with encoding 'UTF-8'
-[420] bbl.pm:779> INFO - Output to grad.bbl
-[420] Biber.pm:132> WARN - I didn't find a database entry for 'burnham-anderson-2002' (section 0)
-[420] Biber.pm:134> INFO - WARNINGS: 1
+[379] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[379] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
+[379] Biber.pm:4307> INFO - Sorting list 'anyt/global//global/global/global' of type 'entry' with template 'anyt' and locale 'es-ES'
+[406] bbl.pm:676> INFO - Writing 'grad.bbl' with encoding 'UTF-8'
+[417] bbl.pm:779> INFO - Output to grad.bbl

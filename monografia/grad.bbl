@@ -227,6 +227,41 @@
       \verb https://doi.org/10.1051/0004-6361:20054491
       \endverb
     \endentry
+    \entry{burnham-anderson-2002}{book}{}{}
+      \name{author}{2}{}{%
+        {{hash=b0c95b47a095e05a82949d66da9b76ae}{%
+           family={Burnham},
+           familyi={B\bibinitperiod},
+           given={Kenneth\bibnamedelima P.},
+           giveni={K\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+        {{hash=9dcae0a4f92c194d22d9b6defb776251}{%
+           family={Anderson},
+           familyi={A\bibinitperiod},
+           given={David\bibnamedelima R.},
+           giveni={D\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York}%
+      }
+      \list{publisher}{1}{%
+        {Springer-Verlag}%
+      }
+      \strng{namehash}{87a82364bd1af40aa1d93f6afb00b14e}
+      \strng{fullhash}{87a82364bd1af40aa1d93f6afb00b14e}
+      \strng{fullhashraw}{87a82364bd1af40aa1d93f6afb00b14e}
+      \strng{bibnamehash}{87a82364bd1af40aa1d93f6afb00b14e}
+      \strng{authorbibnamehash}{87a82364bd1af40aa1d93f6afb00b14e}
+      \strng{authornamehash}{87a82364bd1af40aa1d93f6afb00b14e}
+      \strng{authorfullhash}{87a82364bd1af40aa1d93f6afb00b14e}
+      \strng{authorfullhashraw}{87a82364bd1af40aa1d93f6afb00b14e}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2nd}
+      \field{title}{Model Selection and Multimodel Inference: A Practical Information-Theoretic Approach}
+      \field{year}{2002}
+    \endentry
     \entry{chow2023}{article}{}{}
       \name{author}{6}{}{%
         {{hash=5e468999cd9a2c35cb4d6001e8e48623}{%
@@ -1683,7 +1718,6 @@
       \field{year}{2014}
     \endentry
   \enddatalist
-  \missing{burnham-anderson-2002}
 \endrefsection
 \endinput
 
