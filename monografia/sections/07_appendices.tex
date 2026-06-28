@@ -177,14 +177,14 @@ Comparando con la expansión canónica de una 2-forma, $F = \tfrac{1}{2} F_{\mu\
 \subsection{Regresión lineal y coeficiente de determinación \texorpdfstring{$R^2$}{R²}}
 \label{ap:est:reglineal}
 
-\primerparrafo La tasa de crecimiento $\gKHI$ de cada simulación se extrae como la mitad de la pendiente de la recta ajustada a $\ln\Ozp(t)$ en la ventana canónica $t\in[2.4,3.4]$ (Sección~\ref{sec:lnfit}). Se trata de una \textbf{regresión por mínimos cuadrados ordinarios} (MCO) de la forma
+\primerparrafo La tasa de crecimiento $\gKHI$ de cada simulación se extrae como la mitad de la pendiente de la recta ajustada a $\ln\Ozp(t)$ en la ventana canónica $t\in[2.4,3.4]$ (Sección~\ref{sec:lnfit}). Se trata de una \emph{regresión por mínimos cuadrados ordinarios} (MCO) de la forma
 \begin{equation}
     \ln\Ozp(t_i) = a + b\,t_i + \varepsilon_i,
     \qquad \gKHI = b/2,
 \end{equation}
 implementada con \texttt{numpy.polyfit} (grado 1). El estimador MCO es insesgado y de varianza mínima bajo los supuestos de Gauss-Markov (errores independientes, homocedásticos y de media cero).
 
-\primerparrafo La \textbf{calidad del ajuste} se cuantifica mediante el coeficiente de determinación
+\primerparrafo La \emph{calidad del ajuste} se cuantifica mediante el coeficiente de determinación
 \begin{equation}
     R^2 = 1 - \frac{\mathrm{RSS}}{\mathrm{TSS}},
     \qquad
@@ -202,7 +202,7 @@ donde $\hat y_i$ son los valores predichos por el modelo. Un $R^2$ cercano a 1 i
     \gKHI(\sigma) = C + \frac{\gamma_0}{1 + e^{-k(\sigma - \sigma_0)}},
     \label{ap:eq:sigmoide}
 \end{equation}
-donde $C+\gamma_0$ es la asíntota ideal, $C$ el \emph{offset} resistivo, $k$ la pendiente de transición y $\sigma_0$ el centro. El ajuste se realiza mediante \textbf{mínimos cuadrados no lineales} con el algoritmo \emph{trust-region reflective} (\texttt{scipy.optimize.curve\_fit}), que minimiza la suma de cuadrados de los residuos $\sum_j[\gKHI^{(j)}-\hat\gamma(\sigma_j)]^2$ sujeto a cotas físicas sobre los parámetros. La matriz de covarianza de los estimadores, devuelta por \texttt{curve\_fit}, proporciona los errores formales de los parámetros bajo el supuesto de que los residuos son independientes e idénticamente distribuidos (i.i.d.).
+donde $C+\gamma_0$ es la asíntota ideal, $C$ el \emph{offset} resistivo, $k$ la pendiente de transición y $\sigma_0$ el centro. El ajuste se realiza mediante \emph{mínimos cuadrados no lineales} con el algoritmo \emph{trust-region reflective} (\texttt{scipy.optimize.curve\_fit}), que minimiza la suma de cuadrados de los residuos $\sum_j[\gKHI^{(j)}-\hat\gamma(\sigma_j)]^2$ sujeto a cotas físicas sobre los parámetros. La matriz de covarianza de los estimadores, devuelta por \texttt{curve\_fit}, proporciona los errores formales de los parámetros bajo el supuesto de que los residuos son independientes e idénticamente distribuidos (i.i.d.).
 
 \primerparrafo \textbf{Limitación metodológica.} El análisis de residuos (Sección~\ref{sec:validacion_v6}) revela autocorrelación, confirmada con el test de rachas ($p<0.05$). La violación del supuesto i.i.d.\ implica que los errores formales devueltos por \texttt{curve\_fit} \emph{subestiman} la incertidumbre real; por ello la incertidumbre de $\scrit$ se evalúa mediante múltiples estimadores independientes en lugar de confiar únicamente en el error formal del ajuste.
 
@@ -210,25 +210,25 @@ donde $C+\gamma_0$ es la asíntota ideal, $C$ el \emph{offset} resistivo, $k$ la
 \subsection{Criterio de información de Akaike (AIC)}
 \label{ap:est:aic}
 
-\primerparrafo Para la selección de modelo entre el sigmoide de 3 y 4 parámetros se utiliza el \textbf{criterio de información de Akaike}:
+\primerparrafo Para la selección de modelo entre el sigmoide de 3 y 4 parámetros se utiliza el \emph{criterio de información de Akaike}:
 \begin{equation}
     \mathrm{AIC} = N\ln\!\left(\frac{\mathrm{RSS}}{N}\right) + 2\kappa,
 \end{equation}
 donde $N$ es el número de datos, $\kappa$ el número de parámetros libres y RSS la suma de cuadrados de residuos. El término $2\kappa$ penaliza la complejidad del modelo. La diferencia $\Delta\mathrm{AIC}$ entre dos modelos cuantifica la evidencia relativa: $|\Delta\mathrm{AIC}|>10$ se considera evidencia decisiva en favor del modelo de menor AIC \parencite{burnham-anderson-2002}.
 
-\primerparrafo En la comparación \emph{anidada justa} (mismo conjunto de datos, $\sigma\ge1600$), el sigmoide con \emph{offset} ($\kappa=4$) supera al de 3 parámetros con $\Delta\mathrm{AIC}=-126$, lo que justifica el parámetro adicional sin circularidad. Adicionalmente se calcula el \textbf{criterio bayesiano de Schwarz} (BIC, $\mathrm{AIC}$ con penalización $\kappa\ln N$) como confirmación; ambos criterios coinciden en la selección del modelo de 4 parámetros.
+\primerparrafo En la comparación \emph{anidada justa} (mismo conjunto de datos, $\sigma\ge1600$), el sigmoide con \emph{offset} ($\kappa=4$) supera al de 3 parámetros con $\Delta\mathrm{AIC}=-126$, lo que justifica el parámetro adicional sin circularidad. Adicionalmente se calcula el \emph{criterio bayesiano de Schwarz} (BIC, $\mathrm{AIC}$ con penalización $\kappa\ln N$) como confirmación; ambos criterios coinciden en la selección del modelo de 4 parámetros.
 
 % -----------------------------------------------------------------------
 \subsection{Test de rachas (Wald-Wolfowitz)}
 \label{ap:est:rachas}
 
-\primerparrafo Para diagnosticar la autocorrelación de los residuos del ajuste sigmoide se aplica el \textbf{test de rachas de Wald-Wolfowitz}. Una \emph{racha} es una secuencia ininterrumpida de residuos del mismo signo. Bajo la hipótesis nula de independencia, el número de rachas $R$ sigue aproximadamente una distribución normal con media y varianza conocidas en función del tamaño de muestra. El estadístico $z=(R-\mu_R)/\sigma_R$ se contrasta frente a la distribución $\mathcal{N}(0,1)$. En el análisis de esta monografía, el test arroja $p<0.05$, rechazando la hipótesis de independencia y confirmando la autocorrelación de los residuos.
+\primerparrafo Para diagnosticar la autocorrelación de los residuos del ajuste sigmoide se aplica el \emph{test de rachas de Wald-Wolfowitz}. Una \emph{racha} es una secuencia ininterrumpida de residuos del mismo signo. Bajo la hipótesis nula de independencia, el número de rachas $R$ sigue aproximadamente una distribución normal con media y varianza conocidas en función del tamaño de muestra. El estadístico $z=(R-\mu_R)/\sigma_R$ se contrasta frente a la distribución $\mathcal{N}(0,1)$. En el análisis de esta monografía, el test arroja $p<0.05$, rechazando la hipótesis de independencia y confirmando la autocorrelación de los residuos.
 
 % -----------------------------------------------------------------------
 \subsection{Estimación \emph{jackknife} (leave-one-out)}
 \label{ap:est:jackknife}
 
-\primerparrafo El error de cada estimador de inflexión (M1--M3, Sección~\ref{sec:scrit_v6}) se cuantifica mediante el \textbf{jackknife de supresión individual} (\emph{leave-one-out}). Dado un conjunto de $n$ puntos $\{\sigma_j\}$, se computan $n$ réplicas del estimador $\hat\theta_{(-j)}$ excluyendo sucesivamente cada punto $j$. El error jackknife se define como
+\primerparrafo El error de cada estimador de inflexión (M1--M3, Sección~\ref{sec:scrit_v6}) se cuantifica mediante el \emph{jackknife de supresión individual} (\emph{leave-one-out}). Dado un conjunto de $n$ puntos $\{\sigma_j\}$, se computan $n$ réplicas del estimador $\hat\theta_{(-j)}$ excluyendo sucesivamente cada punto $j$. El error jackknife se define como
 \begin{equation}
     \delta_{\mathrm{jk}} = \sqrt{n-1}\,\mathrm{std}(\hat\theta_{(-j)}),
 \end{equation}
@@ -240,7 +240,7 @@ donde el factor $\sqrt{n-1}$ corrige el sesgo de la varianza jackknife para que 
 \subsection{Validación cruzada \emph{hold-out}}
 \label{ap:est:holdout}
 
-\primerparrafo La generalización del modelo sigmoide se evalúa mediante \textbf{validación cruzada con conjunto de retención} (\emph{hold-out}). El modelo se ajusta exclusivamente sobre $\sigma\ge1600$ ($N=35$ puntos de entrenamiento); las 9 simulaciones con $\sigma<1600$ constituyen el conjunto de prueba, no utilizado en el ajuste. La métrica de comparación entre modelos es la raíz del error cuadrático medio sobre el conjunto retenido:
+\primerparrafo La generalización del modelo sigmoide se evalúa mediante \emph{validación cruzada con conjunto de retención} (\emph{hold-out}). El modelo se ajusta exclusivamente sobre $\sigma\ge1600$ ($N=35$ puntos de entrenamiento); las 9 simulaciones con $\sigma<1600$ constituyen el conjunto de prueba, no utilizado en el ajuste. La métrica de comparación entre modelos es la raíz del error cuadrático medio sobre el conjunto retenido:
 \begin{equation}
     \mathrm{RMSE}_{\mathrm{ho}} = \sqrt{\frac{1}{9}\sum_{j=1}^{9}\big[\gKHI^{(j)} - \hat\gamma(\sigma_j)\big]^2}.
 \end{equation}
@@ -250,26 +250,26 @@ El modelo con \emph{offset} obtiene $\mathrm{RMSE}_{\mathrm{ho}}=0.025$ frente a
 \subsection{Media ponderada por inverso de la varianza}
 \label{ap:est:ponderada}
 
-\primerparrafo Dado que los cuatro estimadores de $\scrit$ (M1--M4) tienen incertidumbres muy dispares, su combinación se realiza mediante la \textbf{media ponderada por inverso de la varianza}, el estimador de mínima varianza bajo el supuesto de que los estimadores son insesgados e independientes:
+\primerparrafo Dado que los cuatro estimadores de $\scrit$ (M1--M4) tienen incertidumbres muy dispares, su combinación se realiza mediante la \emph{media ponderada por inverso de la varianza}, el estimador de mínima varianza bajo el supuesto de que los estimadores son insesgados e independientes:
 \begin{equation}
     \hat\scrit = \frac{\displaystyle\sum_{i=1}^{4} \sigma_i / \delta\sigma_i^2}
                       {\displaystyle\sum_{i=1}^{4} 1/\delta\sigma_i^2},
     \qquad
     \delta\scrit = \left(\sum_{i=1}^{4} \frac{1}{\delta\sigma_i^2}\right)^{-1/2}.
 \end{equation}
-En la práctica, el peso del método M4 (sigmoide, $\delta\sigma=123$) es $\approx98\%$ del total, de modo que la media ponderada es prácticamente idéntica a $\sigma_0$. La \textbf{media aritmética} ($4754\pm1944$) se reporta como referencia; la dispersión inter-método ($\approx1944$) es la estimación honesta de la incertidumbre sistemática real.
+En la práctica, el peso del método M4 (sigmoide, $\delta\sigma=123$) es $\approx98\%$ del total, de modo que la media ponderada es prácticamente idéntica a $\sigma_0$. La \emph{media aritmética} ($4754\pm1944$) se reporta como referencia; la dispersión inter-método ($\approx1944$) es la estimación honesta de la incertidumbre sistemática real.
 
 % -----------------------------------------------------------------------
 \subsection{Ajuste en escala logarítmica: leyes de potencia}
 \label{ap:est:loglog}
 
-\primerparrafo La dependencia $\Omaxzp(\sigma)\propto\sigma^\alpha$ se determina mediante \textbf{regresión lineal en escala doblemente logarítmica} (\emph{log-log}). Tomando logaritmos, $\ln\Omaxzp = \mathrm{cte} + \alpha\ln\sigma$, el exponente $\alpha$ es la pendiente de la recta ajustada por MCO sobre los datos transformados. Se realizan dos ajustes: el completo ($N=29$ picos identificados) y el asintótico restringido a $\sigma\ge6000$ ($N$ reducido), obteniéndose $\alpha_{\rm completo}\approx1.22$ y $\alpha_{\rm asint}\approx0.57$, respectivamente. El exponente de referencia teórico $\alpha=1/2$ (escalamiento Sweet--Parker) se contrasta cualitativamente con los valores empíricos.
+\primerparrafo La dependencia $\Omaxzp(\sigma)\propto\sigma^\alpha$ se determina mediante \emph{regresión lineal en escala doblemente logarítmica} (\emph{log-log}). Tomando logaritmos, $\ln\Omaxzp = \mathrm{cte} + \alpha\ln\sigma$, el exponente $\alpha$ es la pendiente de la recta ajustada por MCO sobre los datos transformados. Se realizan dos ajustes: el completo ($N=29$ picos identificados) y el asintótico restringido a $\sigma\ge6000$ ($N$ reducido), obteniéndose $\alpha_{\rm completo}\approx1.22$ y $\alpha_{\rm asint}\approx0.57$, respectivamente. El exponente de referencia teórico $\alpha=1/2$ (escalamiento Sweet--Parker) se contrasta cualitativamente con los valores empíricos.
 
 % -----------------------------------------------------------------------
 \subsection{Derivada logarítmica discreta y localización de inflexiones}
 \label{ap:est:derlog}
 
-\primerparrafo Los estimadores de inflexión M1--M3 se basan en la \textbf{derivada logarítmica discreta} de un observable $O(\sigma)$, definida como
+\primerparrafo Los estimadores de inflexión M1--M3 se basan en la \emph{derivada logarítmica discreta} de un observable $O(\sigma)$, definida como
 \begin{equation}
     \frac{d\ln O}{d\log_{10}\sigma}\bigg|_{\sigma_j}
     \approx
@@ -281,7 +281,7 @@ evaluada por diferencias centradas sobre la malla discreta del barrido. El punto
 \subsection{Resolución del problema de autovalores: ecuación de Rayleigh}
 \label{ap:est:autovalores}
 
-\primerparrafo La tasa de crecimiento predicha por la teoría lineal inviscida se obtiene resolviendo la ecuación de Rayleigh (Sección~\ref{ap:rayleigh}) como un \textbf{problema de autovalores generalizado} $A\phi = c\,B\phi$, discretizado sobre una malla en $x$ con diferencias finitas de segundo orden. El problema se resuelve numéricamente con \texttt{scipy.linalg.eig}, que aplica la descomposición QZ para matrices no simétricas. El autovalor de interés es el de mayor parte imaginaria $\mathrm{Im}(c)>0$ (modo inestable); la tasa de crecimiento adimensional es $\what_i = ka\,\mathrm{Im}(c)$. La misma rutina se emplea para la ecuación de Lees--Lin compresible (Sección~\ref{ap:leeslin}), cuya linealización produce un operador cúbico en $c$ que se reformula como un problema de autovalores de mayor dimensión antes de ser resuelto por \texttt{scipy.linalg.eig}.
+\primerparrafo La tasa de crecimiento predicha por la teoría lineal inviscida se obtiene resolviendo la ecuación de Rayleigh (Sección~\ref{ap:rayleigh}) como un \emph{problema de autovalores generalizado} $A\phi = c\,B\phi$, discretizado sobre una malla en $x$ con diferencias finitas de segundo orden. El problema se resuelve numéricamente con \texttt{scipy.linalg.eig}, que aplica la descomposición QZ para matrices no simétricas. El autovalor de interés es el de mayor parte imaginaria $\mathrm{Im}(c)>0$ (modo inestable); la tasa de crecimiento adimensional es $\what_i = ka\,\mathrm{Im}(c)$. La misma rutina se emplea para la ecuación de Lees--Lin compresible (Sección~\ref{ap:leeslin}), cuya linealización produce un operador cúbico en $c$ que se reformula como un problema de autovalores de mayor dimensión antes de ser resuelto por \texttt{scipy.linalg.eig}.
 
 \subsection{Guía de interpretación topológica: Derivada logarítmica como observable de transición}
 \label{sec:manual_derivada_log}

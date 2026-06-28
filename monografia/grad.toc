@@ -2,9 +2,9 @@
 \contentsline {chapter}{\numberline {1}Introducción y Contexto Astrofísico}{13}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Contexto de Plasmas Relativistas y Astrofísicos}{13}{section.1.1}%
 \contentsline {subsection}{\numberline {1.1.1}Relevancia de la RRMHD en Chorros Astrofísicos y AGN}{13}{subsection.1.1.1}%
-\contentsline {subsection}{\numberline {1.1.2}La Inestabilidad de Kelvin-Helmholtz (KHI)}{14}{subsection.1.1.2}%
-\contentsline {section}{\numberline {1.2}Transición de RMHD a RRMHD}{15}{section.1.2}%
-\contentsline {section}{\numberline {1.3}Objetivos y Estructura de la Monografía}{16}{section.1.3}%
+\contentsline {subsection}{\numberline {1.1.2}La Inestabilidad de Kelvin-Helmholtz (KHI)}{15}{subsection.1.1.2}%
+\contentsline {section}{\numberline {1.2}Transición de RMHD a RRMHD}{16}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Objetivos y Estructura de la Monografía}{17}{section.1.3}%
 \contentsline {chapter}{\numberline {2}Marco Teórico: Fundamentos de RRMHD}{18}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Las Ecuaciones del Sistema RRMHD}{19}{section.2.1}%
 \contentsline {subsection}{\numberline {2.1.1}Electrodinámica Covariante y el Tensor de Campo Electromagnético}{19}{subsection.2.1.1}%
@@ -17,14 +17,14 @@
 \contentsline {subsubsection}{Derivación a partir de las Densidades Lagrangianas}{27}{section*.12}%
 \contentsline {subsubsection}{Dinámica Acoplada y el Sistema Completo de RRMHD}{28}{section*.13}%
 \contentsline {subsection}{\numberline {2.1.3}El Sistema Aumentado de Maxwell}{30}{subsection.2.1.3}%
-\contentsline {subsubsection}{Extensión Lagrangiana y el Campo Auxiliar Eléctrico $\Phi $}{31}{section*.16}%
+\contentsline {subsubsection}{Extensión Lagrangiana y el Campo Auxiliar Eléctrico $\Phi $}{32}{section*.16}%
 \contentsline {subsubsection}{Simetría Dual y el Campo Auxiliar Magnético $\Psi $}{33}{section*.17}%
 \contentsline {subsubsection}{La Ecuación del Telégrafo: Origen Covariante y Causalidad Disipativa}{34}{section*.18}%
 \contentsline {subsubsection}{Descomposición 3+1 del Sistema Aumentado}{36}{section*.19}%
-\contentsline {subsection}{\numberline {2.1.4}Descomposición de la Cuadricorriente y la Ley de Ohm Relativista}{36}{subsection.2.1.4}%
+\contentsline {subsection}{\numberline {2.1.4}Descomposición de la Cuadricorriente y la Ley de Ohm Relativista}{37}{subsection.2.1.4}%
 \contentsline {subsubsection}{Descomposición Ortogonal del Cuadrivector Corriente}{37}{section*.20}%
 \contentsline {subsubsection}{La Ecuación Constitutiva Covariante}{39}{section*.22}%
-\contentsline {subsubsection}{Proyección 3+1 y la Reintegración del Campo Comóvil}{39}{section*.23}%
+\contentsline {subsubsection}{Proyección 3+1 y la Reintegración del Campo Comóvil}{40}{section*.23}%
 \contentsline {subsection}{\numberline {2.1.5}Resumen del Sistema RRMHD en Forma Conservativa}{41}{subsection.2.1.5}%
 \contentsline {section}{\numberline {2.2}Análisis de la KHI en el Límite Lineal}{44}{section.2.2}%
 \contentsline {subsection}{\numberline {2.2.1}Inercia Térmica Relativista y Anisotropía Magnética}{45}{subsection.2.2.1}%
@@ -49,92 +49,92 @@
 \contentsline {section}{\numberline {4.1}Discretización y Reconstrucción Espacial}{60}{section.4.1}%
 \contentsline {subsection}{\numberline {4.1.1}Esquemas de Volúmenes Finitos en RRMHD}{61}{subsection.4.1.1}%
 \contentsline {subsection}{\numberline {4.1.2}Limitadores de Pendiente y Reconstrucción de Alto Orden}{62}{subsection.4.1.2}%
-\contentsline {subsubsection}{Difusión Numérica y la Necesidad de Esquemas MP5}{62}{section*.30}%
+\contentsline {subsubsection}{Difusión Numérica y la Necesidad de Esquemas MP5}{63}{section*.30}%
 \contentsline {section}{\numberline {4.2}El Problema de Riemann Local en RRMHD}{63}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Estructura Espectral del Jacobiano Conservativo}{63}{subsection.4.2.1}%
-\contentsline {subsubsection}{Degeneración de Velocidades Características}{64}{section*.32}%
-\contentsline {subsection}{\numberline {4.2.2}Sistemas con Relajación y la Condición Subcaracterística}{64}{subsection.4.2.2}%
-\contentsline {subsection}{\numberline {4.2.3}El Solucionador Aproximado HLL y el Papel de la Reconstrucción de Alto Orden}{64}{subsection.4.2.3}%
-\contentsline {section}{\numberline {4.3}Acoplamiento con el sistema GLM}{65}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}Estructura Espectral de los Potenciales Auxiliares}{66}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}Flujos Intermedios y Amortiguamiento Fenomenológico}{66}{subsection.4.3.2}%
-\contentsline {section}{\numberline {4.4}Tratamiento de la Rigidez: Esquemas IMEX-RK}{67}{section.4.4}%
-\contentsline {subsection}{\numberline {4.4.1}Partición de Operadores: Integración Explícita e Implícita}{67}{subsection.4.4.1}%
-\contentsline {subsection}{\numberline {4.4.2}Inversión Algebraica Local del Término de Conducción}{68}{subsection.4.4.2}%
-\contentsline {section}{\numberline {4.5}Recuperación de Variables Primitivas}{68}{section.4.5}%
-\contentsline {section}{\numberline {4.6}Límites Asintóticos y Consistencia del Esquema}{69}{section.4.6}%
-\contentsline {chapter}{\numberline {5}Set-up Experimental y metodos \textit {Cueva}}{71}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Configuración Experimental}{71}{section.5.1}%
-\contentsline {subsection}{\numberline {5.1.1}Condiciones Iniciales del Problema}{71}{subsection.5.1.1}%
-\contentsline {subsection}{\numberline {5.1.2}Dominio Computacional, Discretización y Sistema de Unidades}{74}{subsection.5.1.2}%
-\contentsline {paragraph}{Sistema de unidades y equivalencia temporal.}{75}{section*.35}%
-\contentsline {subsection}{\numberline {5.1.3}Primera campaña: variación de la conductividad (objetivos 1--3)}{76}{subsection.5.1.3}%
-\contentsline {subsection}{\numberline {5.1.4}Segunda campaña: variación del campo magnético (objetivo 4)}{77}{subsection.5.1.4}%
-\contentsline {paragraph}{Campaña A — Intensidad (orientación Mizuno fija).}{78}{section*.38}%
-\contentsline {paragraph}{Campaña B — Orientación en el plano $y$--$z$ ($|\mathbf B|$ fijo).}{79}{section*.40}%
-\contentsline {paragraph}{Campaña C — Componente paralela al flujo (plano $x$--$z$, $|\mathbf B|$ fijo).}{80}{section*.42}%
-\contentsline {paragraph}{Conductividades y paso temporal.}{80}{section*.44}%
-\contentsline {subsection}{\numberline {5.1.5}Variables de Control y Diagnóstico}{81}{subsection.5.1.5}%
-\contentsline {chapter}{\numberline {6}Resultados y análisis de la KHI}{83}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Visión global del barrido paramétrico}{84}{section.6.1}%
-\contentsline {subsection}{\numberline {6.1.1}Trayectorias temporales del barrido}{86}{subsection.6.1.1}%
-\contentsline {subsection}{\numberline {6.1.2}Extracción de la tasa de crecimiento y calidad del ajuste lineal}{88}{subsection.6.1.2}%
-\contentsline {subsection}{\numberline {6.1.3}Tabla canónica del barrido en conductividad}{90}{subsection.6.1.3}%
-\contentsline {section}{\numberline {6.2}Modelo sigmoide con \emph {offset}}{91}{section.6.2}%
-\contentsline {subsection}{\numberline {6.2.1}Resultados del ajuste}{92}{subsection.6.2.1}%
-\contentsline {section}{\numberline {6.3}Validación estadística del modelo}{94}{section.6.3}%
-\contentsline {section}{\numberline {6.4}Conductividad crítica $\sigma _{\mathrm {crit}}$}{96}{section.6.4}%
-\contentsline {section}{\numberline {6.5}Leyes de potencia para $\Omega _{zp}^{\mathop {\mathgroup \symoperators m\acute {a}x}}(\sigma )$}{101}{section.6.5}%
-\contentsline {section}{\numberline {6.6}Variables globales y estructuras secundarias}{104}{section.6.6}%
-\contentsline {subsection}{\numberline {6.6.1}Corrientes, disipación y topología del transitorio electromagnético}{104}{subsection.6.6.1}%
-\contentsline {subsection}{\numberline {6.6.2}Estructuras secundarias y anisotropía fuera del plano}{107}{subsection.6.6.2}%
-\contentsline {section}{\numberline {6.7}Contraste con la teoría lineal}{109}{section.6.7}%
-\contentsline {subsection}{\numberline {6.7.1}Techo hidrodinámico inviscido (ecuación de Rayleigh)}{109}{subsection.6.7.1}%
-\contentsline {subsection}{\numberline {6.7.2}El carácter dual del montaje no altera el techo}{110}{subsection.6.7.2}%
-\contentsline {subsection}{\numberline {6.7.3}Predicción RMHD compresible (Lees--Lin)}{111}{subsection.6.7.3}%
-\contentsline {subsection}{\numberline {6.7.4}Velocidades características y números de Mach}{113}{subsection.6.7.4}%
-\contentsline {subsection}{\numberline {6.7.5}Contraste con los marcos MHD, RMHD y RRMHD}{115}{subsection.6.7.5}%
-\contentsline {subsection}{\numberline {6.7.6}Buen planteamiento y papel de la resistividad}{116}{subsection.6.7.6}%
-\contentsline {section}{\numberline {6.8}Variación del campo magnético}{117}{section.6.8}%
-\contentsline {subsection}{\numberline {6.8.1}Impacto de la intensidad del campo magnético en el desarrollo de la inestabilidad}{118}{subsection.6.8.1}%
-\contentsline {subsection}{\numberline {6.8.2}Impacto de la orientación del campo magnético}{120}{subsection.6.8.2}%
-\contentsline {subsubsection}{Variación en el plano $y-z$}{120}{section*.68}%
-\contentsline {subsubsection}{Variación en el plano $x-z$}{130}{section*.75}%
-\contentsline {subsection}{\numberline {6.8.3}Balance energético y procesos disipativos}{132}{subsection.6.8.3}%
-\contentsline {section}{\numberline {6.9}Limitaciones del análisis y perspectivas}{138}{section.6.9}%
-\contentsline {chapter}{\numberline {7}Conclusiones y Perspectivas Futuras}{140}{chapter.7}%
-\contentsline {section}{\numberline {7.1}Conclusiones por objetivo}{140}{section.7.1}%
-\contentsline {paragraph}{(1) Efecto de la resistividad sobre la tasa de crecimiento lineal.}{140}{section*.83}%
-\contentsline {paragraph}{(2) Efecto sobre las estructuras secundarias.}{141}{section*.84}%
-\contentsline {paragraph}{(3) Efecto sobre las variables globales.}{141}{section*.85}%
-\contentsline {paragraph}{(4) Efecto de la orientación e intensidad del campo magnético.}{141}{section*.86}%
-\contentsline {section}{\numberline {7.2}Limitaciones del Modelo y la Simulación}{142}{section.7.2}%
-\contentsline {section}{\numberline {7.3}Trabajo Futuro}{142}{section.7.3}%
-\contentsline {chapter}{\numberline {8}Agradecimiento y detalles de computo}{143}{chapter.8}%
-\contentsline {section}{\numberline {8.1}Recursos computacionales}{143}{section.8.1}%
-\contentsline {subsection}{\numberline {8.1.1}Especificaciones de la máquina}{143}{subsection.8.1.1}%
-\contentsline {subsection}{\numberline {8.1.2}Trabajo realizado y tiempo de cómputo}{144}{subsection.8.1.2}%
-\contentsline {chapter}{\numberline {A}Apéndices}{145}{appendix.Alph1}%
-\contentsline {section}{\numberline {A.1}Justificación de $C+\gamma _0$: derivación paso a paso}{145}{section.Alph1.1}%
-\contentsline {subsection}{\numberline {A.1.1}El sistema que resuelve el \textit {Cueva} y su correspondencia con Miranda}{145}{subsection.Alph1.1.1}%
-\contentsline {subsection}{\numberline {A.1.2}El observable: por qué $\ln \Omega _{zp}$ crece a pendiente $2\gamma _{\mathrm {KHI}}$}{146}{subsection.Alph1.1.2}%
-\contentsline {subsection}{\numberline {A.1.3}Termodinámica relativista y velocidades características}{146}{subsection.Alph1.1.3}%
-\contentsline {subsection}{\numberline {A.1.4}Números de Mach: la distinción $M_f$ vs $M_{re}$}{147}{subsection.Alph1.1.4}%
-\contentsline {subsection}{\numberline {A.1.5}Techo inviscido: ecuación de Rayleigh desde Euler}{147}{subsection.Alph1.1.5}%
-\contentsline {subsection}{\numberline {A.1.6}Predicción compresible exacta: ecuación de Lees--Lin}{147}{subsection.Alph1.1.6}%
-\contentsline {subsection}{\numberline {A.1.7}Dispersión RMHD de \emph {vortex sheet} y umbral de Landau}{148}{subsection.Alph1.1.7}%
-\contentsline {subsection}{\numberline {A.1.8}Reconstrucción de los estimadores de $\sigma _{\mathrm {crit}}$}{148}{subsection.Alph1.1.8}%
-\contentsline {subsection}{\numberline {A.1.9}Veredicto: validez teórica del montaje}{149}{subsection.Alph1.1.9}%
-\contentsline {section}{\numberline {A.2}Desarrollo en componentes del tensor de Faraday $F=dA$}{149}{section.Alph1.2}%
-\contentsline {section}{\numberline {A.3}Técnicas estadísticas empleadas en el análisis cuantitativo}{150}{section.Alph1.3}%
-\contentsline {subsection}{\numberline {A.3.1}Regresión lineal y coeficiente de determinación $R^2$}{151}{subsection.Alph1.3.1}%
-\contentsline {subsection}{\numberline {A.3.2}Ajuste no lineal por mínimos cuadrados: modelo sigmoide con \emph {offset}}{151}{subsection.Alph1.3.2}%
-\contentsline {subsection}{\numberline {A.3.3}Criterio de información de Akaike (AIC)}{152}{subsection.Alph1.3.3}%
-\contentsline {subsection}{\numberline {A.3.4}Test de rachas (Wald-Wolfowitz)}{152}{subsection.Alph1.3.4}%
-\contentsline {subsection}{\numberline {A.3.5}Estimación \emph {jackknife} (leave-one-out)}{152}{subsection.Alph1.3.5}%
-\contentsline {subsection}{\numberline {A.3.6}Validación cruzada \emph {hold-out}}{153}{subsection.Alph1.3.6}%
-\contentsline {subsection}{\numberline {A.3.7}Media ponderada por inverso de la varianza}{153}{subsection.Alph1.3.7}%
-\contentsline {subsection}{\numberline {A.3.8}Ajuste en escala logarítmica: leyes de potencia}{154}{subsection.Alph1.3.8}%
-\contentsline {subsection}{\numberline {A.3.9}Derivada logarítmica discreta y localización de inflexiones}{154}{subsection.Alph1.3.9}%
-\contentsline {subsection}{\numberline {A.3.10}Resolución del problema de autovalores: ecuación de Rayleigh}{155}{subsection.Alph1.3.10}%
-\contentsline {subsection}{\numberline {A.3.11}Guía de interpretación topológica: Derivada logarítmica como observable de transición}{155}{subsection.Alph1.3.11}%
+\contentsline {subsection}{\numberline {4.2.1}Estructura Espectral del Jacobiano Conservativo}{64}{subsection.4.2.1}%
+\contentsline {subsubsection}{Degeneración de Velocidades Características}{65}{section*.32}%
+\contentsline {subsection}{\numberline {4.2.2}Sistemas con Relajación y la Condición Subcaracterística}{65}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}El Solucionador Aproximado HLL y el Papel de la Reconstrucción de Alto Orden}{65}{subsection.4.2.3}%
+\contentsline {section}{\numberline {4.3}Acoplamiento con el sistema GLM}{66}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Estructura Espectral de los Potenciales Auxiliares}{67}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Flujos Intermedios y Amortiguamiento Fenomenológico}{67}{subsection.4.3.2}%
+\contentsline {section}{\numberline {4.4}Tratamiento de la Rigidez: Esquemas IMEX-RK}{68}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Partición de Operadores: Integración Explícita e Implícita}{68}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.2}Inversión Algebraica Local del Término de Conducción}{69}{subsection.4.4.2}%
+\contentsline {section}{\numberline {4.5}Recuperación de Variables Primitivas}{70}{section.4.5}%
+\contentsline {section}{\numberline {4.6}Límites Asintóticos y Consistencia del Esquema}{71}{section.4.6}%
+\contentsline {chapter}{\numberline {5}Set-up Experimental y metodos \textit {Cueva}}{72}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Configuración Experimental}{72}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Condiciones Iniciales del Problema}{72}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}Dominio Computacional, Discretización y Sistema de Unidades}{75}{subsection.5.1.2}%
+\contentsline {paragraph}{Sistema de unidades y equivalencia temporal.}{76}{section*.35}%
+\contentsline {subsection}{\numberline {5.1.3}Primera campaña: variación de la conductividad (objetivos 1--3)}{77}{subsection.5.1.3}%
+\contentsline {subsection}{\numberline {5.1.4}Segunda campaña: variación del campo magnético (objetivo 4)}{78}{subsection.5.1.4}%
+\contentsline {paragraph}{Campaña A — Intensidad (orientación Mizuno fija).}{79}{section*.38}%
+\contentsline {paragraph}{Campaña B — Orientación en el plano $y$--$z$ ($|\mathbf B|$ fijo).}{80}{section*.40}%
+\contentsline {paragraph}{Campaña C — Componente paralela al flujo (plano $x$--$z$, $|\mathbf B|$ fijo).}{81}{section*.42}%
+\contentsline {paragraph}{Conductividades y paso temporal.}{81}{section*.44}%
+\contentsline {subsection}{\numberline {5.1.5}Variables de Control y Diagnóstico}{82}{subsection.5.1.5}%
+\contentsline {chapter}{\numberline {6}Resultados y análisis de la KHI}{84}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Visión global del barrido paramétrico}{85}{section.6.1}%
+\contentsline {subsection}{\numberline {6.1.1}Trayectorias temporales del barrido}{85}{subsection.6.1.1}%
+\contentsline {subsection}{\numberline {6.1.2}Extracción de la tasa de crecimiento y calidad del ajuste lineal}{86}{subsection.6.1.2}%
+\contentsline {subsection}{\numberline {6.1.3}Tabla canónica del barrido en conductividad}{87}{subsection.6.1.3}%
+\contentsline {section}{\numberline {6.2}Modelo sigmoide con \emph {offset}}{88}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Resultados del ajuste}{89}{subsection.6.2.1}%
+\contentsline {section}{\numberline {6.3}Validación estadística del modelo}{91}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Conductividad crítica $\sigma _{\mathrm {crit}}$}{93}{section.6.4}%
+\contentsline {section}{\numberline {6.5}Leyes de potencia para $\Omega _{zp}^{\mathop {\mathgroup \symoperators m\acute {a}x}}(\sigma )$}{98}{section.6.5}%
+\contentsline {section}{\numberline {6.6}Variables globales y estructuras secundarias}{100}{section.6.6}%
+\contentsline {subsection}{\numberline {6.6.1}Corrientes, disipación y topología del transitorio electromagnético}{101}{subsection.6.6.1}%
+\contentsline {subsection}{\numberline {6.6.2}Estructuras secundarias y anisotropía fuera del plano}{102}{subsection.6.6.2}%
+\contentsline {section}{\numberline {6.7}Contraste con la teoría lineal}{103}{section.6.7}%
+\contentsline {subsection}{\numberline {6.7.1}Techo hidrodinámico inviscido (ecuación de Rayleigh)}{103}{subsection.6.7.1}%
+\contentsline {subsection}{\numberline {6.7.2}El carácter dual del montaje no altera el techo}{104}{subsection.6.7.2}%
+\contentsline {subsection}{\numberline {6.7.3}Predicción RMHD compresible (Lees--Lin)}{105}{subsection.6.7.3}%
+\contentsline {subsection}{\numberline {6.7.4}Velocidades características y números de Mach}{106}{subsection.6.7.4}%
+\contentsline {subsection}{\numberline {6.7.5}Contraste con los marcos MHD, RMHD y RRMHD}{108}{subsection.6.7.5}%
+\contentsline {subsection}{\numberline {6.7.6}Buen planteamiento y papel de la resistividad}{109}{subsection.6.7.6}%
+\contentsline {section}{\numberline {6.8}Variación del campo magnético}{109}{section.6.8}%
+\contentsline {subsection}{\numberline {6.8.1}Impacto de la intensidad del campo magnético en el desarrollo de la inestabilidad}{110}{subsection.6.8.1}%
+\contentsline {subsection}{\numberline {6.8.2}Impacto de la orientación del campo magnético}{112}{subsection.6.8.2}%
+\contentsline {subsubsection}{Variación en el plano $y-z$}{112}{section*.68}%
+\contentsline {subsubsection}{Variación en el plano $x-z$}{123}{section*.75}%
+\contentsline {subsection}{\numberline {6.8.3}Balance energético y procesos disipativos}{125}{subsection.6.8.3}%
+\contentsline {section}{\numberline {6.9}Limitaciones del análisis y perspectivas}{131}{section.6.9}%
+\contentsline {chapter}{\numberline {7}Conclusiones y Perspectivas Futuras}{133}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Conclusiones por objetivo}{133}{section.7.1}%
+\contentsline {paragraph}{(1) Efecto de la resistividad sobre la tasa de crecimiento lineal.}{133}{section*.83}%
+\contentsline {paragraph}{(2) Efecto sobre las estructuras secundarias.}{134}{section*.84}%
+\contentsline {paragraph}{(3) Efecto sobre las variables globales.}{134}{section*.85}%
+\contentsline {paragraph}{(4) Efecto de la orientación e intensidad del campo magnético.}{134}{section*.86}%
+\contentsline {section}{\numberline {7.2}Limitaciones del Modelo y la Simulación}{135}{section.7.2}%
+\contentsline {section}{\numberline {7.3}Trabajo Futuro}{135}{section.7.3}%
+\contentsline {chapter}{\numberline {8}Agradecimiento y detalles de computo}{136}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Recursos computacionales}{136}{section.8.1}%
+\contentsline {subsection}{\numberline {8.1.1}Especificaciones de la máquina}{136}{subsection.8.1.1}%
+\contentsline {subsection}{\numberline {8.1.2}Trabajo realizado y tiempo de cómputo}{137}{subsection.8.1.2}%
+\contentsline {chapter}{\numberline {A}Apéndices}{138}{appendix.Alph1}%
+\contentsline {section}{\numberline {A.1}Justificación de $C+\gamma _0$: derivación paso a paso}{138}{section.Alph1.1}%
+\contentsline {subsection}{\numberline {A.1.1}El sistema que resuelve el \textit {Cueva} y su correspondencia con Miranda}{138}{subsection.Alph1.1.1}%
+\contentsline {subsection}{\numberline {A.1.2}El observable: por qué $\ln \Omega _{zp}$ crece a pendiente $2\gamma _{\mathrm {KHI}}$}{139}{subsection.Alph1.1.2}%
+\contentsline {subsection}{\numberline {A.1.3}Termodinámica relativista y velocidades características}{139}{subsection.Alph1.1.3}%
+\contentsline {subsection}{\numberline {A.1.4}Números de Mach: la distinción $M_f$ vs $M_{re}$}{140}{subsection.Alph1.1.4}%
+\contentsline {subsection}{\numberline {A.1.5}Techo inviscido: ecuación de Rayleigh desde Euler}{140}{subsection.Alph1.1.5}%
+\contentsline {subsection}{\numberline {A.1.6}Predicción compresible exacta: ecuación de Lees--Lin}{140}{subsection.Alph1.1.6}%
+\contentsline {subsection}{\numberline {A.1.7}Dispersión RMHD de \emph {vortex sheet} y umbral de Landau}{141}{subsection.Alph1.1.7}%
+\contentsline {subsection}{\numberline {A.1.8}Reconstrucción de los estimadores de $\sigma _{\mathrm {crit}}$}{141}{subsection.Alph1.1.8}%
+\contentsline {subsection}{\numberline {A.1.9}Veredicto: validez teórica del montaje}{142}{subsection.Alph1.1.9}%
+\contentsline {section}{\numberline {A.2}Desarrollo en componentes del tensor de Faraday $F=dA$}{142}{section.Alph1.2}%
+\contentsline {section}{\numberline {A.3}Técnicas estadísticas empleadas en el análisis cuantitativo}{143}{section.Alph1.3}%
+\contentsline {subsection}{\numberline {A.3.1}Regresión lineal y coeficiente de determinación $R^2$}{144}{subsection.Alph1.3.1}%
+\contentsline {subsection}{\numberline {A.3.2}Ajuste no lineal por mínimos cuadrados: modelo sigmoide con \emph {offset}}{144}{subsection.Alph1.3.2}%
+\contentsline {subsection}{\numberline {A.3.3}Criterio de información de Akaike (AIC)}{145}{subsection.Alph1.3.3}%
+\contentsline {subsection}{\numberline {A.3.4}Test de rachas (Wald-Wolfowitz)}{145}{subsection.Alph1.3.4}%
+\contentsline {subsection}{\numberline {A.3.5}Estimación \emph {jackknife} (leave-one-out)}{145}{subsection.Alph1.3.5}%
+\contentsline {subsection}{\numberline {A.3.6}Validación cruzada \emph {hold-out}}{146}{subsection.Alph1.3.6}%
+\contentsline {subsection}{\numberline {A.3.7}Media ponderada por inverso de la varianza}{146}{subsection.Alph1.3.7}%
+\contentsline {subsection}{\numberline {A.3.8}Ajuste en escala logarítmica: leyes de potencia}{147}{subsection.Alph1.3.8}%
+\contentsline {subsection}{\numberline {A.3.9}Derivada logarítmica discreta y localización de inflexiones}{147}{subsection.Alph1.3.9}%
+\contentsline {subsection}{\numberline {A.3.10}Resolución del problema de autovalores: ecuación de Rayleigh}{148}{subsection.Alph1.3.10}%
+\contentsline {subsection}{\numberline {A.3.11}Guía de interpretación topológica: Derivada logarítmica como observable de transición}{148}{subsection.Alph1.3.11}%
