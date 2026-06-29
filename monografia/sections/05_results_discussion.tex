@@ -135,7 +135,8 @@ $\Delta\mathrm{AIC}$ (vs sub-esc./clásico) & $-337$,\ $-531$ & solo mide cobert
   \begin{minipage}{1.0\textwidth}
     \centering
     \includegraphics[width=0.85\textwidth]{figuras/fig1_ajuste_v6.pdf}
-    \caption{ \prof{Ajuste sigmoide de la tasa de crecimiento efectiva $\gamma_{\rm KHI}$ en función de la conductividad eléctrica $\sigma$. Las bandas sombreadas indican los regímenes resistivo, transitorio e ideal. La línea vertical marca el valor crítico $\sigma_{\rm crit}$, asociado al punto de inflexión del ajuste, mientras que la banda gris representa la incertidumbre ponderada en su estimación. Las líneas punteadas muestran las asíntotas del modelo: la asíntota superior $C+\gamma_0\simeq 1.03$, asociada al régimen casi ideal, y la asíntota inferior $C\simeq -0.45$, que actúa como parámetro de offset del ajuste.} \prof{Yo evitaría llamar a $C\simeq -0.45$ “asíntota disipativa” como un dato físico fuerte, porque una tasa de crecimiento negativa puede sonar problemática si el lector espera crecimiento KHI.} \sout{Ajuste sigmoide con \emph{offset} (v6) \prof{que es v6, versión 6? si es así es un dato irrelevante para el lector}. Las líneas punteadas marcan las dos asíntotas: $C+\gamma_0=1.03$ (ideal) y $C=-0.45$ (disipativo). Bandas: regímenes Resistivo/Transición/Ideal. La línea vertical es $\sigma_0=\sigma_{\text{crit}}$ y la banda gris el consenso ponderado.}} 
+    % [REV-PROF 6.3/6.4] resueltas: se adopta la redacción del director para el caption (elimina "v6"; evita llamar a C "asíntota disipativa" -> "parámetro de offset").
+    \caption{Ajuste sigmoide de la tasa de crecimiento efectiva $\gamma_{\rm KHI}$ en función de la conductividad eléctrica $\sigma$. Las bandas sombreadas indican los regímenes resistivo, transitorio e ideal. La línea vertical marca el valor crítico $\sigma_{\rm crit}$, asociado al punto de inflexión del ajuste, mientras que la banda gris representa la incertidumbre ponderada en su estimación. Las líneas punteadas muestran las asíntotas del modelo: la asíntota superior $C+\gamma_0\simeq 1.03$, asociada al régimen casi ideal, y la asíntota inferior $C\simeq -0.45$, que actúa como parámetro de offset del ajuste.}
     \label{fig:ajuste_v6}
   \end{minipage}
   
@@ -145,7 +146,9 @@ $\Delta\mathrm{AIC}$ (vs sub-esc./clásico) & $-337$,\ $-531$ & solo mide cobert
   \begin{minipage}{1.0\textwidth}
     \centering
     \includegraphics[width=0.82\textwidth]{figuras/fig2_3p_vs_4p.pdf}
-    \caption{Comparación de los modelos de $3$ y $4$ parámetros \prof{así debería ir la grafica anterior en cambio de 3p y 4p, sean consistententes con su formulación y llamado a conceptos}. El \emph{offset} reduce los residuos normalizados (panel inferior) de forma sistemática y desplaza el centro $\sigma_0$ de $\approx 4626$ (sin \emph{offset}) a $\approx 2815$   \prof{en mi compilación este numero aparece tachado}(con \emph{offset}).}
+    % [REV-PROF 6.5] (caption fig. 3v4): «así debería ir la grafica anterior en cambio de 3p y 4p, sean consistentes con su formulación y llamado a conceptos» -> usar "3 y 4 parámetros", no "3p/4p", de forma consistente con la figura anterior. PENDIENTE.
+    % [REV-PROF 6.6] (caption fig. 3v4): el profesor reportó «en mi compilación este numero aparece tachado» (el 2815). Era artefacto local por caption desbordado (notas \prof embebidas); resuelto al sacar las notas del \caption.
+    \caption{Comparación de los modelos de $3$ y $4$ parámetros. El \emph{offset} reduce los residuos normalizados (panel inferior) de forma sistemática y desplaza el centro $\sigma_0$ de $\approx 4626$ (sin \emph{offset}) a $\approx 2815$ (con \emph{offset}).}
     \label{fig:3v4_v6}
   \end{minipage}
 \end{figure}
@@ -158,7 +161,6 @@ $\Delta\mathrm{AIC}$ (vs sub-esc./clásico) & $-337$,\ $-531$ & solo mide cobert
 \item \textbf{Justificación del \emph{offset} (AIC anidado, comparación justa):} \prof{nuevamente no dicen en este capitulo que es AIC anidado ????} sobre los \emph{mismos} datos ($\sigma\ge1600$), el modelo de cuatro parámetros mejora al de tres con $\Delta\mathrm{AIC}=-126$ ($\gg10$). Es una comparación \emph{anidada} (idéntico conjunto, un parámetro adicional), de modo que la ganancia no es un artefacto de calibración: el \emph{offset} está justificado sin circularidad. La comparación frente a los modelos asintóticos clásico y de sub-escala ($\Delta\mathrm{AIC}\approx-337$ y $-531$ sobre las $44$ simulaciones) mide únicamente la \emph{cobertura global} ---esos modelos se calibran solo en $\sigma\ge4000$ y dan $R^2<0$ en todo el rango---, por lo que se reportan como contexto, no como competencia entre iguales.
 \item \textbf{Robustez de $C$:} el óptimo $C=-0.45\pm0.03$ permanece interior al reajustar con cotas amplias, de modo que no está inducido por la frontera. El cociente nominal valor/error del ajuste es alto, pero la autocorrelación de los residuos (punto siguiente) lo \emph{infla}: la evidencia decisiva de que la curvatura aportada por $C$ es física no es ese cociente, sino la validación cruzada fuera de muestra (último punto).
 \item \textbf{Residuos y subestimación del error formal:} El análisis de los residuos del ajuste sigmoide revela una autocorrelación (confirmada mediante un test de rachas con $p < 0.05$) \prof{podrian decirle al lector que es p???}. Dado que la matriz de covarianza generada por el algoritmo de optimización asume estrictamente que los errores son independientes e idénticamente distribuidos (i.i.d.), la presencia de esta autocorrelación implica que el error estadístico devuelto por la rutina computacional \emph{subestima} la incertidumbre física real de los parámetros ajustados. Esta limitación metodológica es precisamente lo que justifica la necesidad de adoptar múltiples estimadores empíricos para delimitar la zona de transición de la conductividad crítica, en lugar de depender exclusivamente del error formal del ajuste (Sección~\ref{sec:scrit_v6}).
-```latex
 \item \prof{ \textbf{Validación fuera de muestra (\textit{hold-out}):}
 para evaluar la capacidad predictiva del modelo, el ajuste se realizó usando
 únicamente los datos con $\sigma \geq 1600$. Los nueve puntos del régimen
@@ -408,19 +410,7 @@ El valor medido $0.103$ cae dentro del rango RRMHD y por debajo del bloque clás
 
 \begin{figure}[H]\centering
 \includegraphics[width=0.84\textwidth]{figuras/fig8_marcos.pdf}
-\caption{\prof{ Comparación de la tasa de crecimiento normalizada del modo primario,
-$\hat{\omega}=\gamma_{\rm KHI}a/v_{\rm sh}$, con rangos de referencia
-reportados para configuraciones MHD, RMHD y RRMHD. La línea roja indica el
-valor medido en este trabajo, $\hat{\omega}=0.103$, mientras que la línea gris
-marca el límite hidrodinámico de referencia, $\hat{\omega}_{\rm hidro}=0.190$.
-El valor medido se ubica dentro del rango relativista RMHD/RRMHD y por debajo
-del límite hidrodinámico, lo que es consistente con una reducción del
-crecimiento asociada a efectos relativistas, compresibles y magnéticos. Los
-rangos denominados RMHD diamagnética y RMHD paramagnética corresponden a las
-configuraciones magnéticas de referencia reportadas por Pimentel y
-Lora-Clavijo.\textcite{pimentel-2019}
-}
-Tasa medida ($\what=0.103$, línea roja) frente a los rangos de referencia de $\sigma_{KHI}$. El techo hidrodinámico (gris, $0.190$) cae en el bloque clásico MHD; el valor medido cae en el bloque relativista (RMHD/RRMHD), confirmando la supresión relativista--compresible. Las filas de polarización magnética corresponden a \textcite{pimentel-2019}. \prof{No se entiende que querian decir con polarización magnetica, el lector puede preguntarse: “¿polarización de qué?, ¿del campo?, ¿de la radiación?, ¿del plasma?” .... no puedo tachar en los caption así que cambienlo por lo que les marco en rojo} }
+\caption{Comparación de la tasa de crecimiento normalizada del modo primario, $\hat{\omega}=\gamma_{\rm KHI}a/v_{\rm sh}$, con rangos de referencia reportados para configuraciones MHD, RMHD y RRMHD. La línea roja indica el valor medido en este trabajo, $\hat{\omega}=0.103$, mientras que la línea gris marca el límite hidrodinámico de referencia, $\hat{\omega}_{\rm hidro}=0.190$. El valor medido se ubica dentro del rango relativista RMHD/RRMHD y por debajo del límite hidrodinámico, lo que es consistente con una reducción del crecimiento asociada a efectos relativistas, compresibles y magnéticos. Los rangos denominados RMHD diamagnética y RMHD paramagnética corresponden a las configuraciones magnéticas de referencia reportadas por \textcite{pimentel-2019}.}
 \label{fig:marcos_v6}
 \end{figure}
 

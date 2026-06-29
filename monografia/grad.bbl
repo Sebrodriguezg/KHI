@@ -1056,6 +1056,66 @@
       \verb https://doi.org/10.1093/mnras/sty419
       \endverb
     \endentry
+    \entry{miranda-aranguren-2014}{inproceedings}{}{}
+      \name{author}{3}{}{%
+        {{hash=59dee04412d361d0be1d5991141b017d}{%
+           family={{Miranda-Aranguren}},
+           familyi={M\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+        {{hash=22d1517d7597aa28921aa2d8aa9a1d72}{%
+           family={{Aloy}},
+           familyi={A\bibinitperiod},
+           given={M.\bibnamedelimi A.},
+           giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=bd32199202f7effda505c1cc7a6c5c44}{%
+           family={{Aloy-Torás}},
+           familyi={A\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod}}}%
+      }
+      \name{editor}{3}{}{%
+        {{hash=c8d63ca48761023ecd3d92e313c60fde}{%
+           family={{Pogorelov}},
+           familyi={P\bibinitperiod},
+           given={N.\bibnamedelimi V.},
+           giveni={N\bibinitperiod\bibinitdelim V\bibinitperiod}}}%
+        {{hash=106bf7d9e574a5626e6d2a22763ec309}{%
+           family={{Audit}},
+           familyi={A\bibinitperiod},
+           given={E.},
+           giveni={E\bibinitperiod}}}%
+        {{hash=e64a3a7c8a07d834cad25df16f57aae5}{%
+           family={{Zank}},
+           familyi={Z\bibinitperiod},
+           given={G.\bibnamedelimi P.},
+           giveni={G\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+      }
+      \strng{namehash}{fc655ef811aba7fa259731ccfcc53fb2}
+      \strng{fullhash}{fc655ef811aba7fa259731ccfcc53fb2}
+      \strng{fullhashraw}{fc655ef811aba7fa259731ccfcc53fb2}
+      \strng{bibnamehash}{fc655ef811aba7fa259731ccfcc53fb2}
+      \strng{authorbibnamehash}{fc655ef811aba7fa259731ccfcc53fb2}
+      \strng{authornamehash}{fc655ef811aba7fa259731ccfcc53fb2}
+      \strng{authorfullhash}{fc655ef811aba7fa259731ccfcc53fb2}
+      \strng{authorfullhashraw}{fc655ef811aba7fa259731ccfcc53fb2}
+      \strng{editorbibnamehash}{10f302ae5cafe5cde4db31d74d24f45b}
+      \strng{editornamehash}{10f302ae5cafe5cde4db31d74d24f45b}
+      \strng{editorfullhash}{10f302ae5cafe5cde4db31d74d24f45b}
+      \strng{editorfullhashraw}{10f302ae5cafe5cde4db31d74d24f45b}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{8th International Conference of Numerical Modeling of Space Plasma Flows (ASTRONUM 2013)}
+      \field{month}{9}
+      \field{series}{Astronomical Society of the Pacific Conference Series}
+      \field{title}{{Building a Numerical Relativistic Non-ideal Magnetohydrodynamics Code for Astrophysical Applications}}
+      \field{volume}{488}
+      \field{year}{2014}
+      \field{pages}{249}
+      \range{pages}{1}
+    \endentry
     \entry{misner1973}{book}{}{}
       \name{author}{3}{}{%
         {{hash=05c5e0e62bd36ef32b9a719149851fdc}{%
