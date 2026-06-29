@@ -110,7 +110,7 @@ Las dos asíntotas se desacoplan: $\gamma_0$ pasa a ser la \emph{amplitud} del s
 \primerparrafo El ajuste por mínimos cuadrados no lineales  sobre $\sigma\ge1600$ entrega los valores de la Tabla~\ref{tab:par_v6}; el ajuste resultante y su comparación con el modelo de tres parámetros se muestran en las Figuras~\ref{fig:ajuste_v6} y~\ref{fig:3v4_v6}. El \emph{offset} es claramente no nulo y su óptimo es interior a las cotas $[-1,1]$ (no forzado por la frontera); su realidad física se apoya en la validación fuera de muestra (Sección~\ref{sec:validacion_v6}), no en el cociente nominal valor/error del ajuste, que la autocorrelación de los residuos infla.
 
 \begin{table}[H]\centering
-\caption{Parámetros del modelo sigmoide con \emph{offset} (v6) y comparación de modelos (AIC/BIC evaluados sobre las $44$ simulaciones).}
+\caption{Parámetros del modelo sigmoide con \emph{offset} (v6) y comparación de modelos (AIC/BIC evaluados sobre las $44$ simulaciones). \prof{no se entiende cuales son los modelos AIC y BIC}}
 \label{tab:par_v6}
 {\small
 \begin{tabular}{l l p{4.4cm}}
@@ -124,7 +124,7 @@ $\sigma_0=\scrit$ (centro)    & $2815\pm123$ & $\gKHI=C+\gamma_0/2$\\
 $k$ (pendiente)               & $(2.83\pm0.06)\times10^{-4}$ & transición gradual\\
 $R^2$ (sobre $\sigma\ge1600$) & $0.99995$ & Maximo alcanzado en la cota física (Zona ideal) \\
 \hline
-$\Delta\mathrm{AIC}$ (4p vs 3p) & $-126$ & comparación anidada \emph{justa} (mismos datos): el \emph{offset} gana\\
+$\Delta\mathrm{AIC}$ (4p vs 3p) & $-126$ & comparación anidada \emph{justa} (mismos datos): el \emph{offset} gana   \prof{mejorar la presentación de estos datos no se dice que es 4p y 3p (obviamente 3 puntos y 4 puntos, pero lo dejan a inferir al lector mala practica), que es comparación anidada?, el lector no se entera que es lo que proponen con estos dos valores que presentan}\\
 $\Delta\mathrm{AIC}$ (vs sub-esc./clásico) & $-337$,\ $-531$ & solo mide cobertura global, no competencia justa\\
 \hline
 \end{tabular}}
@@ -135,7 +135,7 @@ $\Delta\mathrm{AIC}$ (vs sub-esc./clásico) & $-337$,\ $-531$ & solo mide cobert
   \begin{minipage}{1.0\textwidth}
     \centering
     \includegraphics[width=0.85\textwidth]{figuras/fig1_ajuste_v6.pdf}
-    \caption{Ajuste sigmoide con \emph{offset} (v6). Las líneas punteadas marcan las dos asíntotas: $C+\gamma_0=1.03$ (ideal) y $C=-0.45$ (disipativo). Bandas: regímenes Resistivo/Transición/Ideal. La línea vertical es $\sigma_0=\sigma_{\text{crit}}$ y la banda gris el consenso ponderado.}
+    \caption{ \prof{Ajuste sigmoide de la tasa de crecimiento efectiva $\gamma_{\rm KHI}$ en función de la conductividad eléctrica $\sigma$. Las bandas sombreadas indican los regímenes resistivo, transitorio e ideal. La línea vertical marca el valor crítico $\sigma_{\rm crit}$, asociado al punto de inflexión del ajuste, mientras que la banda gris representa la incertidumbre ponderada en su estimación. Las líneas punteadas muestran las asíntotas del modelo: la asíntota superior $C+\gamma_0\simeq 1.03$, asociada al régimen casi ideal, y la asíntota inferior $C\simeq -0.45$, que actúa como parámetro de offset del ajuste.} \prof{Yo evitaría llamar a $C\simeq -0.45$ “asíntota disipativa” como un dato físico fuerte, porque una tasa de crecimiento negativa puede sonar problemática si el lector espera crecimiento KHI.} \sout{Ajuste sigmoide con \emph{offset} (v6) \prof{que es v6, versión 6? si es así es un dato irrelevante para el lector}. Las líneas punteadas marcan las dos asíntotas: $C+\gamma_0=1.03$ (ideal) y $C=-0.45$ (disipativo). Bandas: regímenes Resistivo/Transición/Ideal. La línea vertical es $\sigma_0=\sigma_{\text{crit}}$ y la banda gris el consenso ponderado.}} 
     \label{fig:ajuste_v6}
   \end{minipage}
   
@@ -145,20 +145,45 @@ $\Delta\mathrm{AIC}$ (vs sub-esc./clásico) & $-337$,\ $-531$ & solo mide cobert
   \begin{minipage}{1.0\textwidth}
     \centering
     \includegraphics[width=0.82\textwidth]{figuras/fig2_3p_vs_4p.pdf}
-    \caption{Comparación de los modelos de $3$ y $4$ parámetros. El \emph{offset} reduce los residuos normalizados (panel inferior) de forma sistemática y desplaza el centro $\sigma_0$ de $\approx 4626$ (sin \emph{offset}) a $\approx 2815$ (con \emph{offset}).}
+    \caption{Comparación de los modelos de $3$ y $4$ parámetros \prof{así debería ir la grafica anterior en cambio de 3p y 4p, sean consistententes con su formulación y llamado a conceptos}. El \emph{offset} reduce los residuos normalizados (panel inferior) de forma sistemática y desplaza el centro $\sigma_0$ de $\approx 4626$ (sin \emph{offset}) a $\approx 2815$   \prof{en mi compilación este numero aparece tachado}(con \emph{offset}).}
     \label{fig:3v4_v6}
   \end{minipage}
 \end{figure}
-\primerparrafo El valor $C+\gamma_0 = 1.03 \pm 0.05$ constituye el resultado más fundamental de este análisis: representa la tasa de crecimiento asintótica de la KHI en ausencia de disipación óhmica, es decir, en el límite de la RMHD ideal. Conviene precisar su estatus: es una \emph{inferencia paramétrica} del límite a partir de la curvatura de la transición ---no una corrida numérica directa a $\sigma\to\infty$---, pero \emph{sí} extrapola más allá del último dato (la simulación de mayor conductividad alcanza solo el $\sim85\%$ de la asíntota; véase la Sección~\ref{sec:teoria_v6}). Solo la suma $C+\gamma_0$ tiene lectura física limpia: $\gamma_0$ y $C$ quedan \emph{casi perfectamente degenerados} en el ajuste (anti-correlación $\mathrm{corr}(\gamma_0,C)=-0.997$), de modo que individualmente no son identificables, pero su suma es robusta. Al pasar del ajuste en $\sigma\ge1600$ al de las $44$ simulaciones, $\gamma_0$ varía un $18\%$ ($1.48\!\to\!1.22$) y $C$ casi se duplica ($-0.45\!\to\!-0.23$), mientras que $C+\gamma_0$ apenas cambia un $3.9\%$ ($1.03\!\to\!0.99$): el ajuste fija con precisión la \emph{asíntota}, no su descomposición. Por debajo de $\sigma_{\min}$ el modelo se aproxima a $C<0$, que codifica \emph{amortiguamiento neto} en el límite de alta disipación; conviene leerlo como ``el límite disipativo es consistente con amortiguamiento neto'', pues los datos no alcanzan $\gKHI<0$ (el mínimo medido es $\approx0.05$). Este es el valor de la tasa ideal que se adopta como referencia y que se justifica frente a la teoría lineal en la Sección~\ref{sec:teoria_v6}.
+\primerparrafo El valor $C+\gamma_0 = 1.03 \pm 0.05$ constituye el resultado más fundamental de este análisis: representa la tasa de crecimiento asintótica de la KHI en ausencia de disipación óhmica, es decir, en el límite de la RMHD ideal. Conviene precisar su estatus: es una \emph{inferencia paramétrica} del límite a partir de la curvatura de la transición ---no una corrida numérica directa a $\sigma\to\infty$---, pero \emph{sí} extrapola más allá del último dato (la simulación de mayor conductividad alcanza solo el $\sim85\%$ de la asíntota; véase la Sección~\ref{sec:teoria_v6}). \prof{ En este ajuste, los parámetros $\gamma_0$ y $C$ no son individualmente identificables, ya que presentan una anticorrelación casi perfecta, $\mathrm{corr}(\gamma_0,C)=-0.997$. Esto indica que variaciones opuestas de ambos parámetros producen curvas prácticamente equivalentes. Por esta razón, la interpretación física no debe asignarse a $\gamma_0$ o a $C$ por separado, sino a la combinación $C+\gamma_0$, que define la asíntota superior del ajuste y representa la tasa de crecimiento efectiva en el límite de alta conductividad.} \sout{Solo la suma $C+\gamma_0$ tiene lectura física limpia: $\gamma_0$ y $C$ quedan \emph{casi perfectamente degenerados} en el ajuste (anti-correlación $\mathrm{corr}(\gamma_0,C)=-0.997$), de modo que individualmente no son identificables, pero su suma es robusta}. Al pasar del ajuste en $\sigma\ge1600$ al de las $44$ simulaciones, $\gamma_0$ varía un $18\%$ ($1.48\!\to\!1.22$) y $C$ casi se duplica ($-0.45\!\to\!-0.23$), mientras que $C+\gamma_0$ apenas cambia un $3.9\%$ ($1.03\!\to\!0.99$): el ajuste fija con precisión la \emph{asíntota}, no su descomposición. Por debajo de $\sigma_{\min}$ el modelo se aproxima a $C<0$, que codifica \emph{amortiguamiento neto} en el límite de alta disipación; conviene leerlo como ``el límite disipativo es consistente con amortiguamiento neto'', pues los datos no alcanzan $\gKHI<0$ (el mínimo medido es $\approx0.05$). Este es el valor de la tasa ideal que se adopta como referencia y que se justifica frente a la teoría lineal en la Sección~\ref{sec:teoria_v6}. \prof{ok aquí justifican y aclaran el valor negativo de $C$}
 
 \section{Validación estadística del modelo}
 \label{sec:validacion_v6}
 
 \begin{itemize}
-\item \textbf{Justificación del \emph{offset} (AIC anidado, comparación justa):} sobre los \emph{mismos} datos ($\sigma\ge1600$), el modelo de cuatro parámetros mejora al de tres con $\Delta\mathrm{AIC}=-126$ ($\gg10$). Es una comparación \emph{anidada} (idéntico conjunto, un parámetro adicional), de modo que la ganancia no es un artefacto de calibración: el \emph{offset} está justificado sin circularidad. La comparación frente a los modelos asintóticos clásico y de sub-escala ($\Delta\mathrm{AIC}\approx-337$ y $-531$ sobre las $44$ simulaciones) mide únicamente la \emph{cobertura global} ---esos modelos se calibran solo en $\sigma\ge4000$ y dan $R^2<0$ en todo el rango---, por lo que se reportan como contexto, no como competencia entre iguales.
+\item \textbf{Justificación del \emph{offset} (AIC anidado, comparación justa):} \prof{nuevamente no dicen en este capitulo que es AIC anidado ????} sobre los \emph{mismos} datos ($\sigma\ge1600$), el modelo de cuatro parámetros mejora al de tres con $\Delta\mathrm{AIC}=-126$ ($\gg10$). Es una comparación \emph{anidada} (idéntico conjunto, un parámetro adicional), de modo que la ganancia no es un artefacto de calibración: el \emph{offset} está justificado sin circularidad. La comparación frente a los modelos asintóticos clásico y de sub-escala ($\Delta\mathrm{AIC}\approx-337$ y $-531$ sobre las $44$ simulaciones) mide únicamente la \emph{cobertura global} ---esos modelos se calibran solo en $\sigma\ge4000$ y dan $R^2<0$ en todo el rango---, por lo que se reportan como contexto, no como competencia entre iguales.
 \item \textbf{Robustez de $C$:} el óptimo $C=-0.45\pm0.03$ permanece interior al reajustar con cotas amplias, de modo que no está inducido por la frontera. El cociente nominal valor/error del ajuste es alto, pero la autocorrelación de los residuos (punto siguiente) lo \emph{infla}: la evidencia decisiva de que la curvatura aportada por $C$ es física no es ese cociente, sino la validación cruzada fuera de muestra (último punto).
-\item \textbf{Residuos y subestimación del error formal:} El análisis de los residuos del ajuste sigmoide revela una autocorrelación (confirmada mediante un test de rachas con $p < 0.05$). Dado que la matriz de covarianza generada por el algoritmo de optimización asume estrictamente que los errores son independientes e idénticamente distribuidos (i.i.d.), la presencia de esta autocorrelación implica que el error estadístico devuelto por la rutina computacional \emph{subestima} la incertidumbre física real de los parámetros ajustados. Esta limitación metodológica es precisamente lo que justifica la necesidad de adoptar múltiples estimadores empíricos para delimitar la zona de transición de la conductividad crítica, en lugar de depender exclusivamente del error formal del ajuste (Sección~\ref{sec:scrit_v6}).
-\item \textbf{Validación cruzada (fuera de muestra):} el modelo se ajusta solo a $\sigma\ge1600$; los $9$ puntos resistivos $\sigma<1600$ son un conjunto \emph{hold-out} no usado. El modelo con \emph{offset} los predice un $36\%$ mejor que el de tres parámetros ($\mathrm{RMSE}_{\rm ho}=0.025$ vs $0.039$; Fig.~\ref{fig:holdout_v6}): la curvatura descendente que aporta $C$ es real, validada con datos no ajustados, no un artefacto del ajuste.
+\item \textbf{Residuos y subestimación del error formal:} El análisis de los residuos del ajuste sigmoide revela una autocorrelación (confirmada mediante un test de rachas con $p < 0.05$) \prof{podrian decirle al lector que es p???}. Dado que la matriz de covarianza generada por el algoritmo de optimización asume estrictamente que los errores son independientes e idénticamente distribuidos (i.i.d.), la presencia de esta autocorrelación implica que el error estadístico devuelto por la rutina computacional \emph{subestima} la incertidumbre física real de los parámetros ajustados. Esta limitación metodológica es precisamente lo que justifica la necesidad de adoptar múltiples estimadores empíricos para delimitar la zona de transición de la conductividad crítica, en lugar de depender exclusivamente del error formal del ajuste (Sección~\ref{sec:scrit_v6}).
+```latex
+\item \prof{ \textbf{Validación fuera de muestra (\textit{hold-out}):}
+para evaluar la capacidad predictiva del modelo, el ajuste se realizó usando
+únicamente los datos con $\sigma \geq 1600$. Los nueve puntos del régimen
+resistivo, con $\sigma<1600$, se dejaron por fuera del ajuste y se usaron como
+conjunto de prueba. Sobre este subconjunto se calculó el error cuadrático medio
+de predicción,
+\[
+\mathrm{RMSE}_{\rm HO}
+=
+\sqrt{
+\frac{1}{N_{\rm HO}}
+\sum_{i\in {\rm HO}}
+\left[
+\gamma_i-\gamma_{\rm modelo}(\sigma_i)
+\right]^2
+},
+\]
+donde ${\rm HO}$ denota el conjunto \textit{hold-out}. El modelo sigmoide con
+offset reproduce mejor los puntos no usados en el ajuste que el modelo de tres
+parámetros, reduciendo el error de predicción de
+$\mathrm{RMSE}_{\rm HO}=0.039$ a $\mathrm{RMSE}_{\rm HO}=0.025$ (Fig.~\ref{fig:holdout_v6}), lo que
+corresponde a una mejora relativa de aproximadamente $36\%$. Esto sugiere que
+la asíntota inferior introducida por el offset $C$ no es solamente un artefacto
+del ajuste, sino que mejora la extrapolación hacia el régimen resistivo.}
+\item \sout{\textbf{Validación cruzada (fuera de muestra):} el modelo se ajusta solo a $\sigma\ge1600$; los $9$ puntos resistivos $\sigma<1600$ son un conjunto \emph{hold-out} no usado. El modelo con \emph{offset} los predice un $36\%$ mejor que el de tres parámetros ($\mathrm{RMSE}_{\rm ho}=0.025$ vs $0.039$; Fig.~\ref{fig:holdout_v6}): la curvatura descendente que aporta $C$ es real, validada con datos no ajustados, no un artefacto del ajuste.}
 \end{itemize}
 
 \begin{figure}[H]\centering
@@ -170,7 +195,7 @@ $\Delta\mathrm{AIC}$ (vs sub-esc./clásico) & $-337$,\ $-531$ & solo mide cobert
 \section[Conductividad crítica $\scrit$]{Conductividad crítica $\scrit$ y sus tres fuentes de incertidumbre}
 \label{sec:scrit_v6}
 
-\primerparrafo La conductividad crítica $\scrit$ no es un número único, y el barrido revela por qué: \emph{cada observable transiciona del régimen resistivo al ideal a una conductividad distinta}. En lugar de un umbral abrupto, la idealización procede como una \emph{cascada de activación} de mecanismos a lo largo de casi una década en $\sigma$ (Fig.~\ref{fig:zona_transicion}). Por debajo de $\sigma\approx1400$ ningún proceso se desarrolla: la difusión óhmica borra la fase lineal y no hay inestabilidad limpia ---es además donde las estructuras secundarias fuera del plano ($f_{Vz}$) son máximas (Sección~\ref{sec:globales})---. Por encima de $\sigma\approx7000$ ningún diagnóstico cambia ya apreciablemente: tasa de crecimiento, amplitud de saturación y tiempo de pico están saturados (régimen ideal). \emph{Entre} ambos bordes, los mecanismos alcanzan su punto crítico de forma escalonada ---$\sigma_0\!\approx\!2815$ (centro del crecimiento lineal), $3400$ (inflexión de $\Omaxzp$), $6000$ (inflexión de $t_{\mathrm{peak}}$) y $6800$ (aceleración máxima de $\gKHI$ en escala logarítmica)--- y esa sucesión \emph{es} la zona de transición, $\sigma\in[1400,7000]$. La dispersión entre los estimadores de $\scrit$ no es ambigüedad estadística, sino la firma de que la transición es \emph{multi-escala}: cada escala y cada variable tienen su propio umbral.
+\primerparrafo La conductividad crítica $\scrit$ no es un número único, y el barrido revela por qué: \emph{cada observable transiciona del régimen resistivo al ideal a una conductividad distinta}. \prof{ En lugar de un umbral abrupto, la idealización procede como una cascada de activación de mecanismos a lo largo de un rango logarítmico amplio en $\sigma$ (Fig.~\ref{fig:zona_transicion}). } \sout{En lugar de un umbral abrupto, la idealización procede como una \emph{cascada de activación} de mecanismos a lo largo de casi una década en $\sigma$ (Fig.~\ref{fig:zona_transicion})}. Por debajo de $\sigma\approx1400$ ningún proceso se desarrolla: la difusión óhmica borra la fase lineal y no hay inestabilidad limpia ---es además donde las estructuras secundarias fuera del plano ($f_{Vz}$) son máximas (Sección~\ref{sec:globales})---. Por encima de $\sigma\approx7000$ ningún diagnóstico cambia ya apreciablemente: tasa de crecimiento, amplitud de saturación y tiempo de pico están saturados (régimen ideal). \emph{Entre} ambos bordes, los mecanismos alcanzan su punto crítico de forma escalonada ---$\sigma_0\!\approx\!2815$ (centro del crecimiento lineal), $3400$ (inflexión de $\Omaxzp$), $6000$ (inflexión de $t_{\mathrm{peak}}$) y $6800$ (aceleración máxima de $\gKHI$ en escala logarítmica)--- y esa sucesión \emph{es} la zona de transición, $\sigma\in[1400,7000]$. La dispersión entre los estimadores de $\scrit$ no es ambigüedad estadística, sino la firma de que la transición es \emph{multi-escala}: cada escala y cada variable tienen su propio umbral.
 
 \begin{figure}[h]\centering
 \includegraphics[width=\textwidth]{figuras/fig_zona_transicion}
@@ -209,7 +234,7 @@ $\Delta\mathrm{AIC}$ (vs sub-esc./clásico) & $-337$,\ $-531$ & solo mide cobert
     % SECCIÓN 1: LA TABLA
     % Usamos \captionof{table} para que el índice y contador sean de Cuadro/Tabla
     % ==========================================
-    \captionof{table}{Estimadores de $\sigma_{\text{crit}}$ ordenados por $\sigma$ (la cascada): cada método marca el punto crítico de un mecanismo distinto. El error del sigmoide ($\pm123$) es solo la precisión \emph{formal} de ese método y \emph{subestima} (residuos autocorrelacionados); la incertidumbre honesta es la dispersión inter-método ($\pm1944$), y el resultado físico es la \emph{zona} $\sigma\in[1400,7000]$ con centro $\sigma_{\text{crit}}=\sigma_0\approx2815$.}
+    \captionof{table}{Estimadores de $\sigma_{\text{crit}}$ ordenados por $\sigma$ (la cascada): cada método marca el punto crítico de un mecanismo distinto. El error del sigmoide ($\pm123$) es solo la precisión \emph{formal} de ese método y \emph{subestima} (residuos autocorrelacionados); la incertidumbre \sout{honesta} \prof{esto suena a IA} es la dispersión inter-método ($\pm1944$), y el resultado físico es la \emph{zona} $\sigma\in[1400,7000]$ con centro $\sigma_{\text{crit}}=\sigma_0\approx2815$.}
     \label{tab:est_v6}
     \begin{tabularx}{\linewidth}{l l >{\raggedright\arraybackslash}X c}
     \toprule
@@ -222,7 +247,7 @@ $\Delta\mathrm{AIC}$ (vs sub-esc./clásico) & $-337$,\ $-531$ & solo mide cobert
     \midrule
     \multicolumn{3}{l}{\textbf{Zona de transición} (bordes físicos: $f_{Vz}$ máx / 2.º pico $\Omega_{\text{zp}}^{\text{máx}}$)} & $[1400,\,7000]$ \\ \addlinespace[0.5ex]
     \multicolumn{3}{l}{Centro (valor único): $\sigma_{\text{crit}}=\sigma_0$}                                          & $\approx2815$ \\ \addlinespace[0.5ex]
-    \multicolumn{3}{l}{Incertidumbre honesta (dispersión inter-método)}                                   & $\pm1944$ \\ \addlinespace[0.5ex]
+    \multicolumn{3}{l}{Incertidumbre \sout{honesta} \prof{IA} (dispersión inter-método)}                                   & $\pm1944$ \\ \addlinespace[0.5ex]
     \multicolumn{3}{l}{\small\emph{(Media ponderada $\approx\sigma_0$; error formal del sigmoide, subestima)}} & {\small $2861\pm122$} \\
     \bottomrule
 \end{tabularx}
@@ -241,7 +266,7 @@ $\Delta\mathrm{AIC}$ (vs sub-esc./clásico) & $-337$,\ $-531$ & solo mide cobert
 \end{minipage}
 \end{figure}
 
-\primerparrafo En síntesis, la dispersión de los cuatro estimadores (factor $\sim2.4$) no es ruido estadístico, sino el reflejo de que $\gKHI$ y la fenomenología no lineal están gobernadas por \emph{múltiples escalas y variables} (la escala de cizalla $L_{\mathrm{shear}}$ frente a $\akh$, la geometría 2D, los efectos relativistas, la orientación e intensidad de $\mathbf B$). Por eso lo físicamente fiel es reportar una \emph{zona} de transición, $\sigma\in[1400,7000]$, dentro de la cual los mecanismos se idealizan de forma escalonada; si se requiere un único valor central, $\scrit=\sigma_0\approx2815$ (el centro del crecimiento lineal). El error formal del sigmoide ($\pm122$) describe solo la precisión de \emph{ese} método y subestima la incertidumbre real, que es la sistemática inter-método ($\pm1944$). En unidades adimensionales, $\scrit$ corresponde a un número de Lundquist $S\sim10^{3}$ (con $S\simeq21\,\Rmst$): advección y difusión magnética comparables en la escala de la capa de cizalla.
+\primerparrafo En síntesis, la dispersión de los cuatro estimadores (factor $\sim2.4$) no es ruido estadístico, sino el reflejo de que $\gKHI$ y la fenomenología no lineal están gobernadas por \emph{múltiples escalas y variables} (la escala de cizalla $L_{\mathrm{shear}}$ frente a $\akh$, la geometría 2D, los efectos relativistas, la orientación e intensidad de $\mathbf B$). Por eso lo físicamente fiel es reportar una \emph{zona} de transición, $\sigma\in[1400,7000]$, dentro de la cual los mecanismos se idealizan de forma escalonada; si se requiere un único valor central, $\scrit=\sigma_0\approx2815$ (el centro del crecimiento lineal). El error formal del sigmoide ($\pm122$) describe solo la precisión de \emph{ese} método y subestima la incertidumbre real, que es la sistemática inter-método ($\pm1944$). En unidades adimensionales, $\scrit$ corresponde a un número de Lundquist $S\sim10^{3}$ (con $S\simeq21\,\Rmst$) \prof{$\Rmst$ es un numero de  Reynolds magnético, lo han definido antes, por favor hacer llamdo a esa definición o definirlo en este momento} : advección y difusión magnética comparables en la escala de la capa de cizalla.
 
 \section{Leyes de potencia para $\Omaxzp(\sigma)$}
 \label{sec:leyes_potencia}
@@ -272,7 +297,13 @@ Piso de lámina Sweet--Parker única ($\propto\sigma^{1/2}$) & $0.5$ & --- \\
 
 \primerparrafo El exponente empírico $\alpha_{\mathrm{exp}} \approx 1.22$ no puede derivarse del análisis lineal de la inestabilidad (el cual rige exclusivamente la fase de crecimiento exponencial $\gKHI$ abordada en la Sección~\ref{sec:teoria_v6}), sino que emerge como una consecuencia directa de la fenomenología \emph{no lineal} dominada por la disipación resistiva. Durante el enrollamiento de los vórtices primarios, la tensión magnética estira y aproxima líneas de campo de polaridad opuesta, induciendo la formación de láminas de corriente sumamente delgadas donde se dispara la reconexión magnética. El marco teórico clásico para este proceso, el modelo estacionario de Sweet--Parker \parencite{parker1957}, establece analíticamente que el espesor $\delta$ de estas láminas escala de manera inversa a la raíz del número de Lundquist, $\delta \propto S^{-1/2}$ (con $S \propto \sigma$; en la parametrización de este montaje $S \simeq 21\,\Rmst$). Si la enstrofía máxima estuviera confinada espacialmente a una \emph{única} lámina de corriente (con una vorticidad estimada $\omega \sim \Delta V / \delta$ distribuida sobre un área $\sim \delta L$), el escalamiento analítico resultante sería $\Omaxzp \sim \Delta V^2 L / \delta \propto \sigma^{1/2}$. Este valor teórico de $\alpha = 0.5$ define, por consiguiente, el \emph{piso} mínimo de disipación asociado a una lámina única. La validez de utilizar esta dependencia clásica $\propto \sigma^{-1/2}$ como métrica de referencia en nuestro sistema queda estrictamente justificada por las deducciones de \textcite{lyubarsky2005}: su tratamiento analítico de la reconexión tipo Sweet--Parker en el marco de la RRMHD demuestra que, si bien la inercia térmica y la cinemática covariante modifican drásticamente las velocidades de salida del plasma, la dependencia del espesor de la capa disipativa con respecto a la conductividad se mantiene estructuralmente invariante frente a las correcciones relativistas.
 
-\primerparrafo El valor medido, $\alpha\approx1.22>0.5$, \emph{excede} el límite inferior dictado por el argumento de escala de lámina única por un factor de $\sim2.4$. Ante esta discrepancia, se plantea la \emph{hipótesis} de que la enstrofía crece a un ritmo superior debido a que la lámina de corriente primaria se vuelve a su vez inestable, fragmentándose en una cascada de islas y sub-láminas magnéticas (modo \emph{tearing}, \parencite{furth1963}), lo cual multiplicaría la superficie disipativa efectiva. Bajo este escenario, el exponente $\alpha\approx1.22$ constituiría la firma fenomenológica de una reconexión resistiva no lineal con \emph{tearing} secundario, una dinámica que resulta consistente con la inyección de enstrofía por inestabilidades secundarias sobre los vórtices enrollados reportada por \textcite{nastro2022}. Sin embargo, al carecer en el presente análisis de métricas morfológicas directas esta interpretación topológica mantiene un carácter hipotético. Una demostración concluyente y la derivación cuantitativa exacta del exponente exigen resolver dicha jerarquía de láminas de corriente con alta fidelidad numérica ---para lo cual los esquemas de alto orden en RRMHD, que minimizan la disipación numérica frente a la física \parencite{mignone2024}, representan la herramienta idónea---, constituyendo una línea prioritaria para trabajo futuro.
+\primerparrafo El valor medido, $\alpha\approx1.22>0.5$, \emph{excede} el límite inferior dictado por el argumento de escala de lámina única por un factor de $\sim2.4$. Ante esta discrepancia, se plantea la \emph{hipótesis} de que la enstrofía crece a un ritmo superior debido a que la lámina de corriente primaria se vuelve a su vez inestable, fragmentándose en una cascada de islas y sub-láminas magnéticas (modo \emph{tearing}, \parencite{furth1963}), lo cual multiplicaría la superficie disipativa efectiva. Bajo este escenario, el exponente $\alpha\approx1.22$ constituiría la firma fenomenológica de una reconexión resistiva no lineal con \emph{tearing} secundario, una dinámica que resulta consistente con la inyección de enstrofía por inestabilidades secundarias sobre los vórtices enrollados reportada por \textcite{nastro2022}. Sin embargo, al carecer en el presente análisis de métricas morfológicas directas esta interpretación topológica mantiene un carácter hipotético. \prof{ Una demostración concluyente y la derivación cuantitativa exacta del exponente
+requieren resolver dicha jerarquía de láminas de corriente con alta fidelidad
+numérica. Para ello resultan necesarios esquemas RRMHD de alta resolución, que
+combinen reconstrucciones espaciales de alto orden, solucionadores de Riemann
+poco difusivos e integradores temporales adecuados para los términos resistivos
+rígidos, como los esquemas IMEX. Esta combinación permite reducir la disipación
+numérica y distinguirla con mayor claridad de la disipación física \parencite{mignone2024}. Estos esquemas representan la herramienta idónea---, constituyendo una línea prioritaria para trabajo futuro.} \sout{Una demostración concluyente y la derivación cuantitativa exacta del exponente exigen resolver dicha jerarquía de láminas de corriente con alta fidelidad numérica ---para lo cual los esquemas de alto orden en RRMHD, que minimizan la disipación numérica frente a la física \parencite{mignone2024}, representan la herramienta idónea---, constituyendo una línea prioritaria para trabajo futuro.}
 
 \section[Variables globales y estructuras secundarias]{Variables globales: campos, corrientes y estructuras secundarias}
 \label{sec:globales}
@@ -297,7 +328,7 @@ Piso de lámina Sweet--Parker única ($\propto\sigma^{1/2}$) & $0.5$ & --- \\
 
 \subsection{Estructuras secundarias y anisotropía fuera del plano}
 
-\primerparrafo Para cuantificar el desarrollo de estructuras secundarias se emplea la fracción de enstrofía fuera del plano $f_{Vz}=(\Otot-\Omega_z)/\Otot$, que mide el acoplamiento hacia la componente transversal $V_z$ inducido por el campo guía $B_z$ y la resistividad. La Fig.~\ref{fig:global_estructuras}(a) muestra que $f_{Vz}$ en saturación \emph{no} es monótona: alcanza un máximo ($\approx0.37$) en $\sigma\approx1400$ ---justo en la frontera resistivo$\to$transición (Sección~\ref{sec:scrit_v6})--- y decae hasta $\approx0.08$ en el régimen ideal. Es decir, las estructuras secundarias fuera del plano son máximas en la zona de transición y quedan suprimidas en el límite ideal, donde el flujo permanece esencialmente planar. La Fig.~\ref{fig:global_estructuras}(b) muestra la enstrofía total máxima $\Omega_{\mathrm{tot}}^{\max}$, con un mínimo en $\sigma\approx10^3$ y un crecimiento sostenido posterior: la energía rotacional de los vórtices se intensifica con la conductividad una vez superado el umbral resistivo.
+\primerparrafo Para cuantificar el desarrollo de estructuras secundarias se emplea la fracción de enstrofía fuera del plano $f_{Vz}=(\Otot-\Omega_z)/\Otot$, \prof{esta ecuación debería estar numerada y referenciada en los llamados que se hacen con anterioridad en el texto}  que mide el acoplamiento hacia la componente transversal $V_z$ inducido por el campo guía $B_z$ y la resistividad. La Fig.~\ref{fig:global_estructuras}(a) muestra que $f_{Vz}$ en saturación \emph{no} es monótona: alcanza un máximo ($\approx0.37$) en $\sigma\approx1400$ ---justo en la frontera resistivo$\to$transición (Sección~\ref{sec:scrit_v6})--- y decae hasta $\approx0.08$ en el régimen ideal. Es decir, las estructuras secundarias fuera del plano son máximas en la zona de transición y quedan suprimidas en el límite ideal, donde el flujo permanece esencialmente planar. La Fig.~\ref{fig:global_estructuras}(b) muestra la enstrofía total máxima $\Omega_{\mathrm{tot}}^{\max}$, con un mínimo en $\sigma\approx10^3$ y un crecimiento sostenido posterior: la energía rotacional de los vórtices se intensifica con la conductividad una vez superado el umbral resistivo.
 
 \begin{figure}[H]\centering
 \includegraphics[width=0.9\textwidth]{figuras/fig_global_estructuras.pdf}
@@ -334,7 +365,7 @@ Piso de lámina Sweet--Parker única ($\propto\sigma^{1/2}$) & $0.5$ & --- \\
 
 \subsection{Predicción RMHD compresible (Lees--Lin)}
 
-\primerparrafo El techo hidrodinámico \emph{no} es la predicción final porque el sistema es relativista, compresible y magnetizado. El tratamiento lineal relativista de la KHI fue desarrollado para el caso hidrodinámico por \textcite{bodo-2004} ---que obtuvo la cota de inestabilidad $0<M_{re}<\sqrt{2}$--- y para el caso magnetizado por \textcite{osmanov-2008} (campo alineado) y \textcite{chow2023} (orientación arbitraria). Resolviendo la ecuación de Rayleigh compresible (Lees--Lin) para el perfil $\tanh$ como problema de autovalores polinomial (Apéndice~\ref{ap:justificacion}), validada en el límite incompresible contra \textcite{michalke1964} y contra el umbral de \textcite{landau1944} ($v/c_s=\sqrt2$), se obtiene la tasa exacta de espesor finito. La elección de la velocidad compresional no es libre, sino que la fija la geometría. El modo excitado tiene su vector de onda en el plano y a lo largo del flujo ($\mathbf k\parallel\hat y$), mientras que el campo está dominado por la componente guía fuera del plano ($B_z\hat z$); por tanto $\mathbf k\cdot\mathbf B\approx0$ y la perturbación comprime el campo \emph{perpendicularmente}. La velocidad de restitución compresional correcta es entonces la magnetosónica rápida perpendicular relativista, $v_{f\perp}=\sqrt{v_A^2+c_s^2\,(1-v_A^2)}=0.691$ ---consecuencia de $\mathbf k\perp\mathbf B$, no un parámetro de ajuste. Esto coincide con \textcite{chow2023}, que para vector de onda alineado con el flujo muestra que ``el campo magnético aporta presión pero no tensión'' y reemplaza $c_s$ por la velocidad rápida en $M_{re}$. Usar $c_s$ en su lugar ignoraría la presión magnética que se opone a esa compresión. El resultado, convergido (Fig.~\ref{fig:compresible_v6}), es
+\primerparrafo El techo hidrodinámico \emph{no} es la predicción final porque el sistema es relativista, compresible y magnetizado. El tratamiento lineal relativista de la KHI fue desarrollado para el caso hidrodinámico por \textcite{bodo-2004} ---que obtuvo la cota de inestabilidad $0<M_{re}<\sqrt{2}$--- y para el caso magnetizado por \textcite{osmanov-2008} (campo alineado) y \textcite{chow2023} (orientación arbitraria). Resolviendo la ecuación de Rayleigh compresible (Lees--Lin) para el perfil $\tanh$ como problema de autovalores polinomial (Apéndice~\ref{ap:justificacion}), validada en el límite incompresible contra \textcite{michalke1964} y contra el umbral de \textcite{landau1944} ($v/c_s=\sqrt2$), \prof{sean rigurosos y no dejen terminos a adivinar $c_s$ que es? obviamente la velocidad del sonido, pero si introducen un simbolo nuevo deben especificarlo} se obtiene la tasa exacta de espesor finito. La elección de la velocidad compresional no es libre, sino que la fija la geometría. El modo excitado tiene su vector de onda en el plano y a lo largo del flujo ($\mathbf k\parallel\hat y$), mientras que el campo está dominado por la componente guía fuera del plano ($B_z\hat z$); por tanto $\mathbf k\cdot\mathbf B\approx0$ y la perturbación comprime el campo \emph{perpendicularmente}. La velocidad de restitución compresional correcta es entonces la magnetosónica rápida perpendicular relativista, $v_{f\perp}=\sqrt{v_A^2+c_s^2\,(1-v_A^2)}=0.691$ ---consecuencia de $\mathbf k\perp\mathbf B$, no un parámetro de ajuste. Esto coincide con \textcite{chow2023}, que para vector de onda alineado con el flujo muestra que ``el campo magnético aporta presión pero no tensión'' y reemplaza $c_s$ por la velocidad rápida en $M_{re}$. Usar $c_s$ en su lugar ignoraría la presión magnética que se opone a esa compresión. El resultado, convergido (Fig.~\ref{fig:compresible_v6}), es
 \begin{equation}
 \boxed{\ \what_{\mathrm{RMHD}}=0.095\ }\qquad\text{(modo excitado, $ka=0.314$)},
 \label{eq:what_rmhd}
@@ -343,20 +374,20 @@ notablemente \emph{en el pico} de la curva compresible. El valor medido $\what=(
 
 \begin{figure}[H]\centering
 \includegraphics[width=0.74\textwidth]{figuras/fig9_compresible.pdf}
-\caption{Cálculo compresible exacto de espesor finito (Lees--Lin), validado contra \textcite{michalke1964} en el límite incompresible. La curva magnetosónica pica en $ka\simeq0.32$ con $\what=0.095$, justo en el modo excitado; el valor medido ($0.103$) coincide dentro del $8\%$.}
+\caption{Cálculo compresible exacto de espesor finito (Lees--Lin), validado contra \textcite{michalke1964} en el límite incompresible. La curva magnetosónica pica en $ka\simeq0.32$ con $\what=0.095$, justo en el modo excitado; el valor medido ($0.103$) coincide dentro del $8\%$. \prof{ los puntos estrella de incompresible y de michaelke no aparecen en la gráfica}}
 \label{fig:compresible_v6}
 \end{figure}
 
 \subsection{Velocidades características y números de Mach}
 
 \begin{table}[H]\centering
-\caption{Velocidades (relativistas, $c=1$) y números de Mach del montaje. $M_{re}$ es el Mach relativista efectivo de Königl, al que se aplica el criterio de inestabilidad $0<M_{re}<\sqrt2$.}
+\caption{Velocidades (relativistas, $c=1$) y números de Mach del montaje. $M_{re}$ es el Mach relativista efectivo de Königl \prof{ya lo definieron con anterioridad???}, al que se aplica el criterio de inestabilidad $0<M_{re}<\sqrt2$.}
 \label{tab:mach_v6}
 {\small\setlength{\tabcolsep}{4pt}
 \begin{tabular}{llll}
 \hline
 $C_s=0.516$ & $V_{A,\mathrm{tot}}=0.536$ & $V_{A,\parallel}(B_y)=0.053$ & $v_{f\perp}=0.691$\\
-$M_s=\vsh/C_s=0.97$ & $M_{A,\parallel}=9.4$ & $M_f=\vsh/v_{f\perp}=0.72$ & $M_{re}=0.60<\sqrt{2}$\\
+$M_s=\vsh/C_s=0.97$ \prof{$C_s$ es tambien la velocidad del sonido?, sean consistentes con su notación}& $M_{A,\parallel}=9.4$ & $M_f=\vsh/v_{f\perp}=0.72$ & $M_{re}=0.60<\sqrt{2}$\\
 \hline
 \end{tabular}}
 \end{table}
@@ -371,13 +402,25 @@ $M_s=\vsh/C_s=0.97$ & $M_{A,\parallel}=9.4$ & $M_f=\vsh/v_{f\perp}=0.72$ & $M_{r
 \subsection{Contraste con los marcos MHD, RMHD y RRMHD}
 \label{sec:marcos_v6}
 
-\primerparrafo La literatura de la KHI reporta la tasa del modo primario $\sigma_{KHI}$ y la de la enstrofía $\sigma_Z$ (notación estándar de la literatura que, \emph{pese al símbolo}, no debe confundirse con la conductividad $\sigma$ usada en el resto del capítulo), ambas normalizadas por el tiempo de tránsito de cizalla $\akh/\vsh$ ---la misma normalización que aquí. Como la enstrofía es cuadrática en la amplitud de la vorticidad, $\sigma_Z=2\,\sigma_{KHI}$; nuestro observable lo cumple ($\ln\Ozp$ crece con pendiente $2\gKHI$), de modo que $\sigma_{KHI}=\what=0.103$ y $\sigma_Z=0.206$. 
+\primerparrafo La literatura de la KHI reporta la tasa del modo primario $\sigma_{KHI}$ y la de la enstrofía $\sigma_Z$ (notación estándar de la literatura que, \emph{pese al símbolo}, no debe confundirse con la conductividad $\sigma$ usada en el resto del capítulo), ambas normalizadas por el tiempo de tránsito de cizalla $\akh/\vsh$ ---la misma normalización que aquí. Como la enstrofía es cuadrática en la amplitud de la vorticidad, $\sigma_Z=2\,\sigma_{KHI}$; nuestro observable lo cumple ($\ln\Ozp$ crece con pendiente $2\gKHI$), de modo que $\sigma_{KHI}=\what=0.103$ y $\sigma_Z=0.206$. \prof{el uso de $\sigma_{KHI}$ puede ser contrproducente pues utilizamos $\sigma$ continuamente para conductividad, aunque en el campo de la KHI se utilice para enstrofía o tasa de crecimiento es mejor mantener nuestra simbología, pues estamos en un area donde $\sigma$ tiene un significado especial} 
 
 El valor medido $0.103$ cae dentro del rango RRMHD y por debajo del bloque clásico MHD/hidrodinámico (donde vive el techo hidro $0.190$), confirmando de forma independiente la supresión relativista--compresible (Fig.~\ref{fig:marcos_v6}). La reducción observada, donde el valor medido representa un factor $\sim 0,54$ respecto al techo clásico ($0,103/0,190$), es fuertemente consistente con el factor de supresión de $\sim 0,50$ predicho analíticamente por la relación de dispersión compresible (Lees-Lin), confirmando que el salto entre los bloques se debe a la inercia térmica relativista.
 
 \begin{figure}[H]\centering
 \includegraphics[width=0.84\textwidth]{figuras/fig8_marcos.pdf}
-\caption{Tasa medida ($\what=0.103$, línea roja) frente a los rangos de referencia de $\sigma_{KHI}$. El techo hidrodinámico (gris, $0.190$) cae en el bloque clásico MHD; el valor medido cae en el bloque relativista (RMHD/RRMHD), confirmando la supresión relativista--compresible. Las filas de polarización magnética corresponden a \textcite{pimentel-2019}.}
+\caption{\prof{ Comparación de la tasa de crecimiento normalizada del modo primario,
+$\hat{\omega}=\gamma_{\rm KHI}a/v_{\rm sh}$, con rangos de referencia
+reportados para configuraciones MHD, RMHD y RRMHD. La línea roja indica el
+valor medido en este trabajo, $\hat{\omega}=0.103$, mientras que la línea gris
+marca el límite hidrodinámico de referencia, $\hat{\omega}_{\rm hidro}=0.190$.
+El valor medido se ubica dentro del rango relativista RMHD/RRMHD y por debajo
+del límite hidrodinámico, lo que es consistente con una reducción del
+crecimiento asociada a efectos relativistas, compresibles y magnéticos. Los
+rangos denominados RMHD diamagnética y RMHD paramagnética corresponden a las
+configuraciones magnéticas de referencia reportadas por Pimentel y
+Lora-Clavijo.\textcite{pimentel-2019}
+}
+Tasa medida ($\what=0.103$, línea roja) frente a los rangos de referencia de $\sigma_{KHI}$. El techo hidrodinámico (gris, $0.190$) cae en el bloque clásico MHD; el valor medido cae en el bloque relativista (RMHD/RRMHD), confirmando la supresión relativista--compresible. Las filas de polarización magnética corresponden a \textcite{pimentel-2019}. \prof{No se entiende que querian decir con polarización magnetica, el lector puede preguntarse: “¿polarización de qué?, ¿del campo?, ¿de la radiación?, ¿del plasma?” .... no puedo tachar en los caption así que cambienlo por lo que les marco en rojo} }
 \label{fig:marcos_v6}
 \end{figure}
 
@@ -507,9 +550,7 @@ Para aislar este intercambio del crecimiento global de la inestabilidad, se sepa
 
 \subsubsection{Variación en el plano $x-z$}
 
-Para complementar el análisis vectorial del campo magnético, se examina la dinámica de la inestabilidad bajo variaciones de orientación en el plano $x-z$. A diferencia de la campaña anterior, el rasgo definitorio de esta configuración geométrica es la ausencia de una componente de tensión magnética que se oponga directamente a la cizalladura del fluido.
-
-(Fig.~\ref{fig:campC_enstrofia})
+Para complementar el análisis vectorial del campo magnético, se examina la dinámica de la inestabilidad bajo variaciones de orientación en el plano $x-z$. A diferencia de la campaña anterior, el rasgo definitorio de esta configuración geométrica es la ausencia de una componente de tensión magnética que se oponga directamente a la cizalladura del fluido. (Fig.~\ref{fig:campC_enstrofia})
 
 \begin{figure}[H]
 \centering
@@ -520,7 +561,7 @@ Para complementar el análisis vectorial del campo magnético, se examina la din
 
 Al observar la evolución de la enstrofía de perturbación para esta campaña, el contraste dinámico es evidente. La inestabilidad no exhibe el crecimiento lineal limpio ni las oscilaciones periódicas estructuradas que caracterizaban al plano $y-z$. En su lugar, las curvas de $\Omega_{zp}(t)$ muestran fluctuaciones irregulares de alta frecuencia desde las etapas tempranas de la simulación. 
 
-Físicamente, dado que en esta campaña la magnitud total del campo $|\mathbf{B}|$ —y por ende, la presión magnética— se mantiene estrictamente constante frente a las variaciones de $\theta$, la fenomenología observada no puede atribuirse a cambios termodinámicos en la compresibilidad del plasma. En su lugar, la dinámica está gobernada por la reorientación geométrica de la componente $B_x$ respecto a la interfaz del flujo. Al modificar esta incidencia angular, se altera la topología local del campo y se propician o inhiben procesos de reconexión magnética interfasial. Sin una tensión directa ($B_y$) que guíe y restrinja el desarrollo hidrodinámico, el vórtice carece del soporte estructural continuo. Como resultado, la fase lineal se ve severamente truncada o enmascarada, forzando al plasma a transicionar de manera abrupta hacia un régimen no lineal, topológicamente complejo y altamente turbulento.
+Físicamente, dado que en esta campaña la magnitud total del campo $|\mathbf{B}|$ —y por ende, la presión magnética— se mantiene estrictamente constante frente a las variaciones de $\theta$, la fenomenología observada no puede atribuirse a cambios termodinámicos en la compresibilidad del plasma. En su lugar, la dinámica está gobernada por la reorientación geométrica de la componente $B_x$ respecto a la interfaz del flujo. Al modificar esta incidencia angular, se altera la topología local del campo y se propician o inhiben procesos de reconexión magnética \sout{interfasial}. Sin una tensión directa ($B_y$) que guíe y restrinja el desarrollo hidrodinámico, el vórtice carece del soporte estructural continuo. Como resultado, la fase lineal se ve severamente truncada o enmascarada, forzando al plasma a transicionar de manera abrupta hacia un régimen no lineal, topológicamente complejo y altamente turbulento.
 
 Al comparar los resultados entre $\sigma = 6000$ y $\sigma = 10000$, se corrobora que este comportamiento se mantiene consistente independientemente del régimen resistivo. Esta falta de estructuración coherente reafirma que la tensión magnética es el mecanismo estabilizador primario en la RRMHD para la KHI, y que su ausencia permite una cascada de energía mucho más rápida hacia escalas menores, dificultando la estabilización termodinámica del sistema.
 
@@ -559,7 +600,7 @@ Esta dependencia se sintetiza en la Figura~\ref{fig:campB_disipacion_resumen}: l
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{figuras/fig_campB_disipacion_resumen}
-\caption{Campaña B: disipación óhmica acumulada, calentamiento neto $\Delta E_{\mathrm{int}}$ y pérdida cinética neta $-\Delta E_{\mathrm{kin}}$ en función del ángulo $\theta$, para ambas conductividades.}
+\caption{Campaña B: disipación óhmica acumulada, calentamiento neto $\Delta E_{\mathrm{int}}$ y pérdida cinética neta $-\Delta E_{\mathrm{kin}}$ en función del ángulo $\theta$, para ambas conductividades. \prof{el titulo de la grafica de disipación ohmnica hay que corregirlo}}
 \label{fig:campB_disipacion_resumen}
 \end{figure}
 
@@ -579,7 +620,7 @@ En la campaña C (plano $x$--$z$, sin tensión) el balance energético sigue el 
 \label{fig:campC_disipacion_resumen}
 \end{figure}
 
-En conjunto, las campañas de orientación muestran que el papel de la resistividad no se agota en modular la tasa de crecimiento —métrica que, de hecho, pierde sentido ante la ausencia de una fase lineal limpia—, sino que gobierna el reparto energético entre el intercambio reversible y la disipación irreversible: a mayor conductividad, aumenta la reversibilidad del acoplamiento cinético-magnético; a menor conductividad, predomina la conversión directa en calor mediante la reconexión en las láminas de corriente. Dado que la energía interna se estima mediante  el proxy$E_{\mathrm{int}} \propto \int p \, dA$, para configuraciones de alta tensión y resistividad moderada ($\theta=90^\circ$, $\sigma=6000$), la disipación óhmica acumulada alcanza valores comparables al incremento de energía interna observado. Esta discrepancia sugiere que el proxy subestima el calentamiento total o que existen contribuciones por pérdidas advectivas no contabilizadas.
+En conjunto, las campañas de orientación muestran que el papel de la resistividad no se agota en modular la tasa de crecimiento —métrica que, de hecho, pierde sentido ante la ausencia de una fase lineal limpia—, sino que gobierna el reparto energético entre el intercambio reversible y la disipación irreversible: a mayor conductividad, aumenta la reversibilidad del acoplamiento cinético-magnético; a menor conductividad, predomina la conversión directa en calor mediante la reconexión en las láminas de corriente. Dado que la energía interna se estima mediante \sout{ el proxy} \prof{el estimador indirecto} $E_{\mathrm{int}} \propto \int p \, dA$, para configuraciones de alta tensión y resistividad moderada ($\theta=90^\circ$, $\sigma=6000$), la disipación óhmica acumulada alcanza valores comparables al incremento de energía interna observado. Esta discrepancia sugiere que el \sout{proxy} \prof{estimador} subestima el calentamiento total o que existen contribuciones por pérdidas advectivas no contabilizadas.
 
 \section{Limitaciones del análisis y perspectivas}
 \label{sec:limitaciones}

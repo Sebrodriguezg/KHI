@@ -62,7 +62,7 @@ Esta topología garantiza una captura de choques sin oscilaciones acoplada a una
 
 \subsection{Estructura Espectral del Jacobiano Conservativo}
 
-\primerparrafo Reescribiendo el sistema homogéneo en forma cuasilineal $\partial_t \mathbf{U} + \mathbf{A}(\mathbf{U}) \partial_x \mathbf{U} = 0$, la topología de propagación está dictada por la matriz jacobiana $\mathbf{A}_{13\times13} = \partial \mathbf{F} / \partial \mathbf{U}$. El espectro diferencial comprende 13 autovalores independientes. Para el transporte longitudinal de fluido, las raíces de la ecuación característica determinan las velocidades de las ondas magnetoacústicas lentas ($\lambda_s^\pm$), ondas de Alfvén ($\lambda_a^\pm$), ondas magnetoacústicas rápidas ($\lambda_f^\pm$) y la discontinuidad de contacto entrópica ($\lambda_c = v_x$). 
+\primerparrafo Reescribiendo el sistema homogéneo en forma cuasilineal $\partial_t \mathbf{U} + \mathbf{A}(\mathbf{U}) \partial_x \mathbf{U} = 0$, la topología de propagación está dictada por la matriz jacobiana \prof{Ojo el jacobiano debe ser una matriz de $14\times 14$ revisen bien esto} $\mathbf{A}_{13\times13} = \partial \mathbf{F} / \partial \mathbf{U}$. El espectro diferencial comprende 13 autovalores independientes. Para el transporte longitudinal de fluido, las raíces de la ecuación característica determinan las velocidades de las ondas magnetoacústicas lentas ($\lambda_s^\pm$), ondas de Alfvén ($\lambda_a^\pm$), ondas magnetoacústicas rápidas ($\lambda_f^\pm$) y la discontinuidad de contacto entrópica ($\lambda_c = v_x$). 
 
 \subsubsection{Degeneración de Velocidades Características}
 
@@ -70,7 +70,7 @@ Esta topología garantiza una captura de choques sin oscilaciones acoplada a una
 $$
 \lim_{\Gamma \to \infty} (\lambda_s^\pm, \lambda_a^\pm, \lambda_f^\pm) \rightarrow \pm c.
 $$
-Esta acumulación del espectro limita la aplicabilidad de los solucionadores de Riemann exactos, induciendo singularidades algebraicas al intentar resolver el problema de valores propios inverso.
+Esta acumulación del espectro limita la aplicabilidad de los solucionadores de Riemann exactos, induciendo singularidades algebraicas al intentar resolver el problema de valores propios inverso. \prof{referencias a esta afirmación}
 
 \subsection{Sistemas con Relajación y la Condición Subcaracterística}
 
@@ -91,7 +91,7 @@ $$
 
 Esta aproximación promedia e ignora la estructura interna del abanico, en particular la onda de contacto $\lambda_c = v_x$ que porta la cizalladura tangencial ($v_y$) característica de la KHI. Tomado de forma aislada y a bajo orden (esquema de Godunov), el HLL inyectaría una difusión numérica espuria $\propto(\lambda_R - \lambda_L)$ sobre la discontinuidad tangencial, desdibujando la cizalla. De hecho, para subsanar esta deficiencia topológica en el límite ideal a primer orden, los autores principales del código formularon una variante HLLC que restaura explícitamente dicha onda de contacto \parencite{miranda-aranguren-2018}.
 
-Sin embargo, para el barrido paramétrico de la presente monografía, la integración se llevó a cabo utilizando la combinación del flujo robusto HLL acoplado a la reconstrucción espacial \textit{Monotonicity-Preserving} de quinto orden (MP5). La justificación de esta elección analítica se fundamenta en los propios hallazgos de \textcite{miranda-aranguren-2018}: al implementar reconstrucciones de muy alto orden como el esquema MP5, la extrema agudeza de los estados interfasiales $(\mathbf{U}_L, \mathbf{U}_R)$ suministrados al solucionador compensa y reduce drásticamente la huella disipativa inherente al HLL. 
+Sin embargo, para el barrido paramétrico de la presente monografía, la integración se llevó a cabo utilizando la combinación del flujo robusto HLL acoplado a la reconstrucción espacial \textit{Monotonicity-Preserving} de quinto orden (MP5). La justificación de esta elección analítica se fundamenta en los propios hallazgos de \textcite{miranda-aranguren-2018}: al implementar reconstrucciones de muy alto orden como el esquema MP5, la extrema agudeza de los estados \sout{interfasiales}\prof{este termino suena poco natural, cambienlo por de interfaz} $(\mathbf{U}_L, \mathbf{U}_R)$ suministrados al solucionador compensa y reduce drásticamente la huella disipativa inherente al HLL. 
 
 Esta sinergia logra resolver las discontinuidades aisladas y los agudos gradientes de la cizalladura en apenas unas pocas celdas computacionales, igualando en la práctica el rendimiento cualitativo de solucionadores más complejos (como el HLLC), pero reteniendo la inigualable simplicidad algebraica, la conservación positiva y la altísima eficiencia computacional (libre de jacobianos) del HLL \parencite{toro-2009}. De este modo, la dupla HLL+MP5 garantiza que la disipación numérica de la malla se mantenga estrictamente por debajo de la disipación física resistiva impuesta, asegurando la fidelidad fenomenológica en la tasa de crecimiento y el enrollamiento de los vórtices presentados en este trabajo.
 
@@ -128,7 +128,7 @@ y se integran junto con el resto del sistema mediante el esquema temporal (Secci
 \section{Tratamiento de la Rigidez: Esquemas IMEX-RK}
 \label{sec:IMEX_RK}
 
-\primerparrafo La Ley de Ohm covariante introduce al sistema hiperbólico un régimen de disipación dictaminado por la conductividad eléctrica $\sigma$. En escalas macroscópicas, el plasma astrofísico posee un tiempo característico de relajación conductiva $\tau = \sigma^{-1}$ que resulta, por lo general, órdenes de magnitud menor que la escala dinámica de advección $\Delta t_{\text{CFL}} = \text{CFL} \cdot \Delta x / |\lambda_{\max}|$. Acoplar este término a un integrador totalmente explícito forzaría el paso de tiempo computacional a obedecer la asintótica parabólica $\Delta t \propto \Delta x^2 / \sigma$, paralizando el código \parencite{palenzuela-2009}.
+\primerparrafo La Ley de Ohm covariante introduce al sistema hiperbólico en un régimen de disipación dictaminado por la conductividad eléctrica $\sigma$. En escalas macroscópicas, el plasma astrofísico posee un tiempo característico de relajación conductiva $\tau = \sigma^{-1}$ que resulta, por lo general, órdenes de magnitud menor que la escala dinámica de advección $\Delta t_{\text{CFL}} = \text{CFL} \cdot \Delta x / |\lambda_{\max}|$. Acoplar este término a un integrador totalmente explícito forzaría el paso de tiempo computacional a obedecer la asintótica parabólica $\Delta t \propto \Delta x^2 / \sigma$, paralizando el código \parencite{palenzuela-2009}.
 
 \subsection{Partición de Operadores: Integración Explícita e Implícita}
 
@@ -153,18 +153,18 @@ Donde las matrices triangulares de Butcher $\tilde{A} = (\tilde{a}_{ij})$ y $A =
 \end{equation}
 donde $\alpha = a_{ii} \Delta t$ y $\mathbf{E}^*$ acumula los subpasos previos. La inversión de esta relación tensorial en $3 \times 3$ arroja una solución analítica explícita para la actualización, suprimiendo la necesidad de iteradores matriciales intrincados para el campo electrodinámico.
 
-\section[Recuperación de Variables Primitivas]{Recuperación de Variables Primitivas: la Cuártica del Factor de Lorentz}
+\section[Recuperación de Variables Primitivas]{\prof{Recuperación de variables primitivas mediante el método de Ferrari--Cardano} \sout{Recuperación de Variables Primitivas: la Cuártica del Factor de Lorentz}}
 \label{sec:Recuperacion_Primitivas}
 
-\primerparrafo A diferencia de los códigos fluidos clásicos, la actualización de $\mathbf{U} \to \mathbf{U}^{n+1}$ no garantiza el conocimiento inmediato del estado dinámico del plasma. Los flujos numéricos $\mathbf{F}(\mathbf{P})$ están condicionados por el vector de variables primitivas $\mathbf{P} = (\rho, v^j, p, B^j, E^j)^T$. En RRMHD, la dependencia cruzada del factor de Lorentz inercial $\Gamma = (1 - \mathbf{v}^2)^{-1/2}$ enclava las ecuaciones en un mapeo $\mathbf{U}(\mathbf{P})$ que carece de inversa analítica.
+\primerparrafo A diferencia de los códigos fluidos clásicos, la actualización de $\mathbf{U} \to \mathbf{U}^{n+1}$ no garantiza el conocimiento inmediato del estado dinámico del plasma. Los flujos numéricos $\mathbf{F}(\mathbf{P})$ están condicionados por el vector de variables primitivas $\mathbf{P} = (\rho, v^j, p, B^j, E^j,q)^T$ \prof{acá les hace falta la carga, por ello la dimensión del jacobiano no es la correcta}. En RRMHD, la dependencia cruzada del factor de Lorentz inercial $\Gamma = (1 - \mathbf{v}^2)^{-1/2}$ enclava las ecuaciones en un mapeo $\mathbf{U}(\mathbf{P})$ que carece de inversa analítica.
 
-Para invertir esta correspondencia, el \textit{Cueva} reduce el problema a una \emph{ecuación cuártica en el factor de Lorentz} $\Gamma$. Eliminando las demás primitivas con ayuda de las variables conservadas y de la ecuación de estado del gas politrópico, la recuperación se condensa en
+Para invertir esta correspondencia, \prof{ojo no llamen al codigo \sout{EL CUEVA}, solamente cueva} \sout{el} \textit{Cueva} reduce el problema a una \emph{ecuación cuártica en el factor de Lorentz} $\Gamma$. Eliminando las demás primitivas con ayuda de las variables conservadas y de la ecuación de estado del gas politrópico, la recuperación se condensa en
 \begin{equation}
     \Gamma^4 + b_3\,\Gamma^3 + b_2\,\Gamma^2 + b_1\,\Gamma + b_0 = 0,
 \end{equation}
 cuyos coeficientes dependen únicamente de cantidades conocidas tras la actualización: la densidad de energía material $C_2 = \tau - \tfrac{1}{2}(E^2+B^2)$, el cuadrado del momento puramente material $C_1 = |\mathbf{S} - \mathbf{E}\times\mathbf{B}|^2$, la densidad conservada $D = \rho\Gamma$ y el índice adiabático a través de $\hat{\gamma} = (\Gamma_{\rm ad}-1)/\Gamma_{\rm ad}$.
 
-Esta cuártica se resuelve de forma \emph{analítica} mediante el método de Ferrari--Cardano: una transformación de Tchirnhaus $\Gamma \to y - b_3/4$ la lleva a la forma deprimida $y^4 + d_2\,y^2 + d_1\,y + d_0 = 0$, de la que se extrae la raíz físicamente admisible; dicha raíz se refina con unas pocas iteraciones de Newton--Raphson sobre el polinomio. En el régimen de baja velocidad ($v^2 \lesssim 10^{-2}$) se emplea una rama linealizada equivalente, numéricamente más estable. Determinado $\Gamma$, las primitivas restantes se recuperan en cascada: la velocidad de $v^2 = 1 - \Gamma^{-2}$, la densidad $\rho = D/\Gamma$ y la presión de la ecuación de estado. El procedimiento incorpora guardias defensivas que rechazan velocidades superlumínicas ($v^2 \ge 1$) y violaciones de la positividad ($p > 0$), revirtiendo a promedios de celdas vecinas cuando es necesario \parencite{mizuno-2013}.
+Esta cuártica se resuelve de forma \emph{analítica} mediante el método de Ferrari--Cardano: una transformación de \prof{Tschirnhaus} \sout{Tchirnhaus} $\Gamma \to y - b_3/4$ \prof{lleva la ecuación a una cuártica sin término cúbico, también conocida como cuártica reducida} \sout{la lleva a la forma deprimida} \prof{el término deprimida corresponde al inglés ``depressed'', suprimida, ... reducida} $y^4 + d_2\,y^2 + d_1\,y + d_0 = 0$, de la que se extrae la raíz físicamente admisible; dicha raíz se refina con unas pocas iteraciones de Newton--Raphson sobre el polinomio. En el régimen de baja velocidad ($v^2 \lesssim 10^{-2}$) se emplea una rama linealizada equivalente, numéricamente más estable. Determinado $\Gamma$, las primitivas restantes se recuperan en cascada: la velocidad de $v^2 = 1 - \Gamma^{-2}$, la densidad $\rho = D/\Gamma$ y la presión de la ecuación de estado. El procedimiento incorpora guardias defensivas que rechazan velocidades superlumínicas ($v^2 \ge 1$) y violaciones de la positividad ($p > 0$), revirtiendo a promedios de celdas vecinas cuando es necesario \parencite{mizuno-2013}.
 
 \section{Límites Asintóticos y Consistencia del Esquema}
 \label{sec:Limites_Asintoticos}
