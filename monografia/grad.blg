@@ -1,14 +1,14 @@
 [0] Config.pm:328> INFO - This is Biber 2.21
 [0] Config.pm:331> INFO - Logfile is 'grad.blg'
-[47] biber:342> INFO - === Mon Jun 29, 2026, 01:48:23
-[57] Biber.pm:421> INFO - Reading 'grad.bcf'
-[112] Biber.pm:1002> INFO - Found 43 citekeys in bib section 0
-[123] Biber.pm:4487> INFO - Processing section 0
-[129] Biber.pm:4678> INFO - Looking for bibtex file 'references.bib' for section 0
-[130] bibtex.pm:1713> INFO - LaTeX decoding ...
-[175] bibtex.pm:1519> INFO - Found BibTeX data source 'references.bib'
-[409] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
-[409] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[409] Biber.pm:4307> INFO - Sorting list 'anyt/global//global/global/global' of type 'entry' with template 'anyt' and locale 'es-ES'
-[436] bbl.pm:676> INFO - Writing 'grad.bbl' with encoding 'UTF-8'
-[447] bbl.pm:779> INFO - Output to grad.bbl
+[52] biber:342> INFO - === Wed Jul  1, 2026, 07:44:55
+[64] Biber.pm:421> INFO - Reading 'grad.bcf'
+[128] Biber.pm:1002> INFO - Found 44 citekeys in bib section 0
+[140] Biber.pm:4487> INFO - Processing section 0
+[146] Biber.pm:4678> INFO - Looking for bibtex file 'references.bib' for section 0
+[148] bibtex.pm:1713> INFO - LaTeX decoding ...
+[196] bibtex.pm:1519> INFO - Found BibTeX data source 'references.bib'
+[453] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
+[453] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[453] Biber.pm:4307> INFO - Sorting list 'anyt/global//global/global/global' of type 'entry' with template 'anyt' and locale 'es-ES'
+[485] bbl.pm:676> INFO - Writing 'grad.bbl' with encoding 'UTF-8'
+[498] bbl.pm:779> INFO - Output to grad.bbl

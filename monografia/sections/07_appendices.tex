@@ -11,7 +11,7 @@
 
 \primerparrafo Este apéndice reconstruye, desde primeros principios, cada eslabón de la cadena que sostiene la justificación de la tasa de crecimiento ideal $C+\gamma_0$ (Sección~\ref{sec:teoria_v6}): el sistema RRMHD que integra el código \textit{Cueva} y su correspondencia con los trabajos de Miranda, la termodinámica relativista y las velocidades características, la ecuación de Rayleigh y su versión compresible, la relación de dispersión de \emph{vortex sheet} y la reconstrucción de los estimadores de $\scrit$. Todos los números fueron recomputados de forma independiente y coinciden con los del cuerpo del trabajo.
 
-\subsection{El sistema que resuelve el \textit{Cueva} y su correspondencia con Miranda}
+\subsection{El sistema que resuelve \textit{Cueva} y su correspondencia con Miranda}
 \label{ap:cueva}
 
 \primerparrafo \textcite{miranda2014} construyen el código (extensión resistiva de \textsc{MR-genesis}) integrando el sistema de balance RRMHD con \emph{limpieza de divergencia} a la Dedner (dos potenciales escalares $\Phi,\Psi$):
@@ -35,7 +35,7 @@ El cierre no ideal es la ley de Ohm relativista resistiva
 -(\mathbf{E}\!\cdot\!\mathbf{V})\mathbf{V}\big]+q\,\mathbf{V}\;}
 \label{ap:eq:ohm}
 \end{equation}
-con $W$ el factor de Lorentz, $\sigma$ la conductividad y $q$ la densidad de carga. En el límite ideal $\sigma\to\infty$ la Ec.~\eqref{ap:eq:ohm} solo es finita si el corchete se anula, $\mathbf{E}=-\mathbf{V}\times\mathbf{B}$ (MHD ideal); la rigidez de ese límite obliga a un integrador IMEX-RK \parencite{miranda2014,miranda-aranguren-2018}. Las variables conservadas son $D=\rho W$, $\mathbf{S}=\mathbf{E}\times\mathbf{B}+\rho h\,W^2\mathbf{V}$ y $\tau=\tfrac12(E^2+B^2)+\rho h\,W^2-p$, con $\rho h=\rho(1+\varepsilon)+p$ y $\varepsilon=p/[(\Gamma-1)\rho]$. Cruzando el término rígido de la Ec.~\eqref{ap:eq:ohm} con la inversión implícita que el \textit{Cueva} resuelve para $\mathbf{E}$ (módulo \texttt{11\_elecvarint.f95}), se confirma que el código integra exactamente el sistema RRMHD de \textcite{miranda2014,miranda-aranguren-2018}: el parámetro $\sigma$ es la conductividad física y $\eta=1/\sigma$ la resistividad.
+con $W$ el factor de Lorentz, $\sigma$ la conductividad y $q$ la densidad de carga. En el límite ideal $\sigma\to\infty$ la Ec.~\eqref{ap:eq:ohm} solo es finita si el corchete se anula, $\mathbf{E}=-\mathbf{V}\times\mathbf{B}$ (MHD ideal); la rigidez de ese límite obliga a un integrador IMEX-RK \parencite{miranda2014,miranda-aranguren-2018}. Las variables conservadas son $D=\rho W$, $\mathbf{S}=\mathbf{E}\times\mathbf{B}+\rho h\,W^2\mathbf{V}$ y $\tau=\tfrac12(E^2+B^2)+\rho h\,W^2-p$, con $\rho h=\rho(1+\varepsilon)+p$ y $\varepsilon=p/[(\Gamma-1)\rho]$. Cruzando el término rígido de la Ec.~\eqref{ap:eq:ohm} con la inversión implícita que \textit{Cueva} resuelve para $\mathbf{E}$ (módulo \texttt{11\_elecvarint.f95}), se confirma que el código integra exactamente el sistema RRMHD de \textcite{miranda2014,miranda-aranguren-2018}: el parámetro $\sigma$ es la conductividad física y $\eta=1/\sigma$ la resistividad.
 
 \subsection{El observable: por qué $\ln\Ozp$ crece a pendiente $2\gKHI$}
 
@@ -45,33 +45,34 @@ con $W$ el factor de Lorentz, $\sigma$ la conductividad y $q$ la densidad de car
 \;\Longrightarrow\;
 \ln\Ozp=\text{cte}+2\gKHI\,t.
 \end{equation}
-De ahí el factor $2$: se ajusta una recta a $\ln\Ozp$ en la ventana canónica $t\in[2.4,3.4]$ y la pendiente dividida por dos es $\gKHI$. Esta es la misma relación $\sigma_Z=2\sigma_{KHI}$ que usa la literatura.
+De ahí el factor $2$: se ajusta una recta a $\ln\Ozp$ en la ventana canónica $t\in[2.4,3.4]$ y la pendiente dividida por dos es $\gKHI$. Esta es la misma relación (tasa de la enstrofía $=2\gKHI$) que usa la literatura.
 
 \subsection{Termodinámica relativista y velocidades características}
 \label{ap:speeds}
 
-\primerparrafo Gas ideal con ley $\Gamma$: la entalpía específica es $h=1+\Gamma/(\Gamma-1)\,p/\rho$. Para el estado base ($\rho=1$, $p=1$, $\Gamma=4/3$): $h=1+4\cdot1=5$, de modo que $\rho h=5$ es la inercia relativista efectiva. La velocidad del sonido relativista sale de $\mathcal{C}_s^2=(\partial p/\partial e)_s=\Gamma p/(\rho h)$:
+\primerparrafo Gas ideal con ley $\Gamma$: la entalpía específica es $h=1+\Gamma/(\Gamma-1)\,p/\rho$. Para el estado base ($\rho=1$, $p=1$, $\Gamma=4/3$): $h=1+4\cdot1=5$, de modo que $\rho h=5$ es la inercia relativista efectiva. La velocidad del sonido relativista sale de $c_s^2=(\partial p/\partial e)_s=\Gamma p/(\rho h)$:
 \begin{equation}
-\mathcal{C}_s^2=\frac{(4/3)(1)}{5}=\frac{4}{15}=0.2667\;\Rightarrow\;\mathcal{C}_s=0.5164 .
+c_s^2=\frac{(4/3)(1)}{5}=\frac{4}{15}=0.2667\;\Rightarrow\;c_s=0.5164 .
 \end{equation}
 Nótese el denominador $\rho h$ (no $\rho$): es la corrección relativista que el límite clásico pierde. Con $B^2=B_y^2+B_z^2=0.02+2=2.02$, las velocidades de Alfvén (total y paralela al flujo) y la magnetosónica rápida perpendicular son
 \begin{equation}
 \begin{aligned}
 V_A&=\sqrt{\frac{B^2}{\rho h+B^2}}=0.5364, \qquad
 V_{A,\parallel}=\sqrt{\frac{B_y^2}{\rho h+B^2}}=0.0534,\\[2pt]
-v_{f\perp}^2&=V_A^2+\mathcal{C}_s^2(1-V_A^2)\;\Rightarrow\; v_{f\perp}=0.6911 .
+v_{f\perp}^2&=V_A^2+c_s^2(1-V_A^2)\;\Rightarrow\; v_{f\perp}=0.6911 .
 \end{aligned}
 \end{equation}
 Se usa la rápida $v_{f\perp}$ y no el sonido porque la compresión del modo KH ocurre en el plano $x$--$y$ y $B_z$ es perpendicular a ese plano: su presión magnética se suma a la del gas. Es lo que \textcite{chow2023} formaliza para $\cos\theta=1$ (``presión pero no tensión'').
 
 \subsection{Números de Mach: la distinción $M_f$ vs $M_{re}$}
+\label{ap:mach}
 
-\primerparrafo Los Mach simples son $M_s=\vsh/\mathcal{C}_s=0.968$, $M_{A,\parallel}=\vsh/V_{A,\parallel}=9.37$ y $M_f=\vsh/v_{f\perp}=0.723$. La teoría lineal relativista \parencite{osmanov-2008,bodo-2004,chow2023} no usa el cociente simple sino el Mach \emph{relativista} de Königl, que pondera cada velocidad por su factor de Lorentz:
+\primerparrafo Los Mach simples son $M_s=\vsh/c_s=0.968$, $M_{A,\parallel}=\vsh/V_{A,\parallel}=9.37$ y $M_f=\vsh/v_{f\perp}=0.723$. La teoría lineal relativista \parencite{osmanov-2008,bodo-2004,chow2023} no usa el cociente simple sino el Mach \emph{relativista} introducido por \textcite{konigl1980}, que pondera cada velocidad por su factor de Lorentz:
 \begin{equation}
 M_{re}=\frac{\vsh}{v_{f\perp}}\sqrt{\frac{1-v_{f\perp}^2}{1-\vsh^2}}
 =0.7235\times0.8346=0.604 .
 \end{equation}
-Este es el $0.60$ del cuerpo del trabajo, no $0.72$. El criterio de inestabilidad $0<M_{re}<\sqrt2$ \parencite{chow2023,bodo-2004} se aplica a \emph{esta} cantidad: con $M_{re}=0.604$ el sistema está holgadamente inestable, a un factor $2.3$ del corte. La tasa medida normalizada es $\what=(C+\gamma_0)\akh/\vsh=0.103$ y $\sigma_Z=2\what=0.206$.
+Este es el $0.60$ del cuerpo del trabajo, no $0.72$. El criterio de inestabilidad $0<M_{re}<\sqrt2$ \parencite{chow2023,bodo-2004} se aplica a \emph{esta} cantidad: con $M_{re}=0.604$ el sistema está holgadamente inestable, a un factor $2.3$ del corte. La tasa medida normalizada es $\what=(C+\gamma_0)\akh/\vsh=0.103$ y la tasa de la enstrofía $2\what=0.206$.
 
 \subsection{Techo inviscido: ecuación de Rayleigh desde Euler}
 \label{ap:rayleigh}
@@ -105,8 +106,8 @@ que cae \emph{en el pico} de la curva compresible. \textbf{Control negativo:} co
 \primerparrafo En el límite de interfaz delgada, en cada semiespacio la perturbación de presión satisface la ecuación de onda convectada relativista; pasando al marco comóvil con cada flujo $U_i=\pm v$ e imponiendo continuidad de la presión total y del desplazamiento normal, se obtiene la relación de dispersión
 \begin{equation}
 \begin{aligned}
-&\frac{\gamma_1^2(\omega-U_1k)^2}{a_1}+\frac{\gamma_2^2(\omega-U_2k)^2}{a_2}=0,\\[2pt]
-&\text{con}\quad a_i^2=\gamma_i^2\Big[(k-U_i\omega)^2-\frac{(\omega-U_ik)^2}{c_s^2}\Big] .
+&\frac{W_1^2(\omega-U_1k)^2}{a_1}+\frac{W_2^2(\omega-U_2k)^2}{a_2}=0,\\[2pt]
+&\text{con}\quad a_i^2=W_i^2\Big[(k-U_i\omega)^2-\frac{(\omega-U_ik)^2}{c_s^2}\Big] .
 \end{aligned}
 \label{ap:eq:DR}
 \end{equation}
@@ -117,7 +118,7 @@ Sus dos límites la validan: (i)~incompresible clásico ($c_s\to\infty$, $v\to0$
 
 \primerparrafo Los cuatro estimadores (Tabla~\ref{tab:est_v6}) son: M1 inflexión de $\gKHI(\sigma)$ ($6800\pm2625$); M2 inflexión de $\Omaxzp(\sigma)$ ($3400\pm2175$); M3 inflexión de $t_{\rm peak}(\sigma)$ ($6000\pm1147$); M4 centro $\sigma_0$ del sigmoide con \emph{offset} ($2815\pm123$). La incertidumbre de cada inflexión es $\delta\sigma=\max(\sigma_{\rm jk},w)$, con $\sigma_{\rm jk}$ el error \emph{jackknife} (escalado $\times\sqrt{n-1}$) y $w$ el semiancho del pico. 
 
-Dada la dispersión física de los umbrales, la incertidumbre honesta del sistema está dictada por la media aritmética inter-método, arrojando $4754\pm1944$. Es esta banda sistemática ($\pm1944$) la que define verdaderamente la zona de transición. Como referencia formal, si se calcula el consenso ponderado por el inverso de la varianza:
+Dada la dispersión física de los umbrales, la incertidumbre real del sistema está dictada por la media aritmética inter-método, arrojando $4754\pm1944$. Es esta banda sistemática ($\pm1944$) la que define verdaderamente la zona de transición. Como referencia formal, si se calcula el consenso ponderado por el inverso de la varianza:
 \begin{equation}
 \begin{aligned}
 \scrit&=\frac{\sum_i \sigma_i/\delta\sigma_i^2}{\sum_i 1/\delta\sigma_i^2}=2861,\\[2pt]
@@ -257,7 +258,7 @@ El modelo con \emph{offset} obtiene $\mathrm{RMSE}_{\mathrm{ho}}=0.025$ frente a
     \qquad
     \delta\scrit = \left(\sum_{i=1}^{4} \frac{1}{\delta\sigma_i^2}\right)^{-1/2}.
 \end{equation}
-En la práctica, el peso del método M4 (sigmoide, $\delta\sigma=123$) es $\approx98\%$ del total, de modo que la media ponderada es prácticamente idéntica a $\sigma_0$. La \emph{media aritmética} ($4754\pm1944$) se reporta como referencia; la dispersión inter-método ($\approx1944$) es la estimación honesta de la incertidumbre sistemática real.
+En la práctica, el peso del método M4 (sigmoide, $\delta\sigma=123$) es $\approx98\%$ del total, de modo que la media ponderada es prácticamente idéntica a $\sigma_0$. La \emph{media aritmética} ($4754\pm1944$) se reporta como referencia; la dispersión inter-método ($\approx1944$) es la mejor estimación de la incertidumbre sistemática real.
 
 % -----------------------------------------------------------------------
 \subsection{Ajuste en escala logarítmica: leyes de potencia}

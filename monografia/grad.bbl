@@ -669,6 +669,37 @@
       \verb https://doi.org/10.1111/j.1365-2966.2007.12448.x
       \endverb
     \endentry
+    \entry{konigl1980}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=76d8f81e5973b1b427d01de5289603de}{%
+           family={Königl},
+           familyi={K\bibinitperiod},
+           given={Arieh},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{76d8f81e5973b1b427d01de5289603de}
+      \strng{fullhash}{76d8f81e5973b1b427d01de5289603de}
+      \strng{fullhashraw}{76d8f81e5973b1b427d01de5289603de}
+      \strng{bibnamehash}{76d8f81e5973b1b427d01de5289603de}
+      \strng{authorbibnamehash}{76d8f81e5973b1b427d01de5289603de}
+      \strng{authornamehash}{76d8f81e5973b1b427d01de5289603de}
+      \strng{authorfullhash}{76d8f81e5973b1b427d01de5289603de}
+      \strng{authorfullhashraw}{76d8f81e5973b1b427d01de5289603de}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Physics of Fluids}
+      \field{number}{6}
+      \field{title}{Relativistic gasdynamics in two dimensions}
+      \field{volume}{23}
+      \field{year}{1980}
+      \field{pages}{1083\bibrangedash 1090}
+      \range{pages}{8}
+      \verb{doi}
+      \verb 10.1063/1.863110
+      \endverb
+    \endentry
     \entry{landau1944}{article}{}{}
       \name{author}{1}{}{%
         {{hash=ab77fc1405f1025268c1fed8c4fe3104}{%

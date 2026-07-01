@@ -377,36 +377,36 @@ Por lo tanto, es matemáticamente obligatorio reintegrar la definición operacio
     J^\mu = (\rho_q, \mathbf{J})
 \end{equation}
 \begin{equation}
-    u^\mu = (\Gamma, \Gamma \mathbf{v})
+    u^\mu = (W, W \mathbf{v})
 \end{equation}
-donde $\rho_q$ es la densidad de carga observable, $\mathbf{v}$ es la velocidad tridimensional del fluido, y $\Gamma = (1 - \mathbf{v}^2)^{-1/2}$ es el factor de Lorentz macroscópico. La contracción del tensor de Faraday explícito con esta cuadrivelocidad genera las componentes espacio-temporales del campo eléctrico comóvil expresado mediante variables eulerianas:
+donde $\rho_q$ es la densidad de carga observable, $\mathbf{v}$ es la velocidad tridimensional del fluido, y $W = (1 - \mathbf{v}^2)^{-1/2}$ es el factor de Lorentz macroscópico. Siguiendo la formulación de Valencia \parencite{rezzolla-2013}, a lo largo de este trabajo el factor de Lorentz se denota con $W$ y el símbolo $\Gamma$ se reserva exclusivamente para el índice adiabático de la ecuación de estado, evitando así la ambigüedad entre ambas cantidades. La contracción del tensor de Faraday explícito con esta cuadrivelocidad genera las componentes espacio-temporales del campo eléctrico comóvil expresado mediante variables eulerianas:
 \begin{equation}
-    E^\mu = \Big( \Gamma (\mathbf{E} \cdot \mathbf{v}), \, \Gamma (\mathbf{E} + \mathbf{v} \times \mathbf{B}) \Big)
+    E^\mu = \Big( W (\mathbf{E} \cdot \mathbf{v}), \, W (\mathbf{E} + \mathbf{v} \times \mathbf{B}) \Big)
 \end{equation}
 
 Para clausurar el sistema, se despeja el vector espacial observable $\mathbf{J}$. Evaluando explícitamente la componente temporal ($\mu=0$) de la ley covariante $J^\mu = \rho_e u^\mu + \sigma E^\mu$, se vinculan las densidades de carga propia y observable:
 \begin{equation}
-    \rho_q = \rho_e \Gamma + \sigma \Gamma (\mathbf{E} \cdot \mathbf{v})
+    \rho_q = \rho_e W + \sigma W (\mathbf{E} \cdot \mathbf{v})
 \end{equation}
 Despejando la densidad de carga propia $\rho_e$, la cual representa el estado interno del fluido, se obtiene:
 \begin{equation}
-    \rho_e = \frac{\rho_q}{\Gamma} - \sigma (\mathbf{E} \cdot \mathbf{v})
+    \rho_e = \frac{\rho_q}{W} - \sigma (\mathbf{E} \cdot \mathbf{v})
 \end{equation}
 
 A continuación, al evaluar la componente puramente espacial ($\mu = i = 1,2,3$) de la ley covariante, surge el vector de corriente:
 \begin{equation}
-    \mathbf{J} = \rho_e \Gamma \mathbf{v} + \sigma \Gamma (\mathbf{E} + \mathbf{v} \times \mathbf{B})
+    \mathbf{J} = \rho_e W \mathbf{v} + \sigma W (\mathbf{E} + \mathbf{v} \times \mathbf{B})
 \end{equation}
 Sustituyendo la expresión derivada para $\rho_e$ en este vector espacial —el paso que acopla formalmente la carga inducida por la relatividad con la conducción clásica— la dependencia de la carga propia se cancela de manera analítica:
 \begin{equation}
-    \mathbf{J} = \left[ \frac{\rho_q}{\Gamma} - \sigma (\mathbf{E} \cdot \mathbf{v}) \right] \Gamma \mathbf{v} + \sigma \Gamma (\mathbf{E} + \mathbf{v} \times \mathbf{B})
+    \mathbf{J} = \left[ \frac{\rho_q}{W} - \sigma (\mathbf{E} \cdot \mathbf{v}) \right] W \mathbf{v} + \sigma W (\mathbf{E} + \mathbf{v} \times \mathbf{B})
 \end{equation}
 Agrupando términos, se obtiene finalmente:
 \begin{equation}
-    \mathbf{J} = \rho_q \mathbf{v} + \sigma \Gamma \Big[ \mathbf{E} + \mathbf{v} \times \mathbf{B} - (\mathbf{E} \cdot \mathbf{v})\mathbf{v} \Big]
+    \mathbf{J} = \rho_q \mathbf{v} + \sigma W \Big[ \mathbf{E} + \mathbf{v} \times \mathbf{B} - (\mathbf{E} \cdot \mathbf{v})\mathbf{v} \Big]
 \end{equation}
 
-Esta expresión constituye la forma tridimensional cerrada de la Ley de Ohm relativista. La formulación revela analíticamente que la corriente macroscópica observada por el laboratorio no es una simple suma galileana. Es una superposición no trivial del transporte convectivo estricto ($\rho_q \mathbf{v}$) y un término de conducción fuertemente modificado por las contracciones espaciales de Lorentz (el factor $\Gamma$) y los acoplamientos transversales entre los campos. 
+Esta expresión constituye la forma tridimensional cerrada de la Ley de Ohm relativista. La formulación revela analíticamente que la corriente macroscópica observada por el laboratorio no es una simple suma galileana. Es una superposición no trivial del transporte convectivo estricto ($\rho_q \mathbf{v}$) y un término de conducción fuertemente modificado por las contracciones espaciales de Lorentz (el factor $W$) y los acoplamientos transversales entre los campos. 
 
 \subsection{Resumen del Sistema RRMHD en Forma Conservativa}
 \label{sec:RRMHD_Conservativa}
@@ -436,19 +436,19 @@ Con base en la proyección euleriana de las leyes de conservación hidrodinámic
 donde las variables conservativas se construyen en la convención \emph{total} (materia $+$ campo) que integra el código \textit{Cueva}, a partir de las primitivas ($\rho, \mathbf{v}, p, \mathbf{E}, \mathbf{B}$):
 \begin{equation}
 \label{eq:def_conservativas}
-    D = \rho\Gamma, \qquad
-    S^j = \rho h \Gamma^2 v^j + (\mathbf{E}\times\mathbf{B})^j, \qquad
-    \tau = \tfrac{1}{2}\!\left(E^2+B^2\right) + \rho h \Gamma^2 - p .
+    D = \rho W, \qquad
+    S^j = \rho h W^2 v^j + (\mathbf{E}\times\mathbf{B})^j, \qquad
+    \tau = \tfrac{1}{2}\!\left(E^2+B^2\right) + \rho h W^2 - p .
 \end{equation}
-A diferencia de una formulación que evolucione únicamente el fluido y trate la interacción electromagnética como una fuerza externa, aquí el momento $S^j$ y la energía $\tau$ agrupan \emph{simultáneamente} la contribución del fluido ($\rho h \Gamma^2 v^j$ y $\rho h \Gamma^2 - p$) y la del campo —el vector de Poynting $\mathbf{E}\times\mathbf{B}$ y la densidad de energía $\tfrac{1}{2}(E^2+B^2)$—. Esta elección es la consecuencia directa de imponer la conservación del tensor de energía-momento \emph{total} ($\partial_\mu T^{\mu\nu} = 0$, Sección~\ref{sec:Energia_Momento}): al no separar el sector material del electromagnético, la fuerza de Lorentz deja de ser un término fuente y queda absorbida en la divergencia del flujo total. Explícitamente, $D = \rho u^0 = \rho\Gamma$ es la densidad de masa, mientras que $S^j$ y $\tau$ son las componentes eulerianas $T^{0j}$ y $T^{00}$ del tensor total $T^{\mu\nu}_{\text{fluid}} + T^{\mu\nu}_{\text{em}}$ (Ecuaciones~\eqref{eq:T_fluid} y~\eqref{eq:T_em_decomp}): al evaluarlas en el marco del observador de laboratorio ($u^\mu \to (\Gamma, \Gamma\mathbf{v})$, $n^\mu = (1,\mathbf{0})$) se recupera, término a término, el momento $\rho h \Gamma^2 v^j + (\mathbf{E}\times\mathbf{B})^j$ (densidad de fluido más vector de Poynting) y la energía $\rho h \Gamma^2 - p + \tfrac{1}{2}(E^2+B^2)$ (energía del fluido más la del campo).
+A diferencia de una formulación que evolucione únicamente el fluido y trate la interacción electromagnética como una fuerza externa, aquí el momento $S^j$ y la energía $\tau$ agrupan \emph{simultáneamente} la contribución del fluido ($\rho h W^2 v^j$ y $\rho h W^2 - p$) y la del campo —el vector de Poynting $\mathbf{E}\times\mathbf{B}$ y la densidad de energía $\tfrac{1}{2}(E^2+B^2)$—. Esta elección es la consecuencia directa de imponer la conservación del tensor de energía-momento \emph{total} ($\partial_\mu T^{\mu\nu} = 0$, Sección~\ref{sec:Energia_Momento}): al no separar el sector material del electromagnético, la fuerza de Lorentz deja de ser un término fuente y queda absorbida en la divergencia del flujo total. Explícitamente, $D = \rho u^0 = \rho W$ es la densidad de masa, mientras que $S^j$ y $\tau$ son las componentes eulerianas $T^{0j}$ y $T^{00}$ del tensor total $T^{\mu\nu}_{\text{fluid}} + T^{\mu\nu}_{\text{em}}$ (Ecuaciones~\eqref{eq:T_fluid} y~\eqref{eq:T_em_decomp}): al evaluarlas en el marco del observador de laboratorio ($u^\mu \to (W, W\mathbf{v})$, $n^\mu = (1,\mathbf{0})$) se recupera, término a término, el momento $\rho h W^2 v^j + (\mathbf{E}\times\mathbf{B})^j$ (densidad de fluido más vector de Poynting) y la energía $\rho h W^2 - p + \tfrac{1}{2}(E^2+B^2)$ (energía del fluido más la del campo).
 
 Los flujos espaciales $\mathbf{F}^i(\mathbf{U})$, que dictan el transporte advectivo de estas cantidades a través del dominio computacional y la propagación de las ondas electromagnéticas causales, toman la forma explícita:
 \begin{equation}
     \mathbf{F}^i(\mathbf{U}) = 
     \begin{pmatrix}
         D v^i \\
-        \rho h \Gamma^2 v^i v^j + \left[\, p + \tfrac{1}{2}(E^2+B^2) \,\right]\delta^{ij} - E^i E^j - B^i B^j \\
-        (\mathbf{E}\times\mathbf{B})^i + \rho h \Gamma^2 v^i \\
+        \rho h W^2 v^i v^j + \left[\, p + \tfrac{1}{2}(E^2+B^2) \,\right]\delta^{ij} - E^i E^j - B^i B^j \\
+        (\mathbf{E}\times\mathbf{B})^i + \rho h W^2 v^i \\
         \epsilon^{ijk} E_k + \Psi \delta^{ij} \\
         -\epsilon^{ijk} B_k + \Phi \delta^{ij} \\
         B^i \\
@@ -456,7 +456,7 @@ Los flujos espaciales $\mathbf{F}^i(\mathbf{U})$, que dictan el transporte advec
     \end{pmatrix}
 \end{equation}
 
-En estas filas, las dos componentes dinámicas son trazables hasta objetos ya construidos: la fila del momento es el tensor espacial de esfuerzos total $T^{ij}$ ---el esfuerzo de Reynolds $\rho h \Gamma^2 v^i v^j$, la presión total $[\,p + \tfrac{1}{2}(E^2+B^2)\,]\delta^{ij}$ y los esfuerzos de Maxwell $-E^i E^j - B^i B^j$---, y la fila de la energía es el flujo $T^{0i}$, que por la simetría de $T^{\mu\nu}$ coincide idénticamente con la densidad de momento $S^i$. Las cuatro filas electromagnéticas restantes reproducen el sistema aumentado de Maxwell en su forma 3+1 (Ecuaciones~\eqref{eq:GLM_3D_E}--\eqref{eq:GLM_3D_Psi}), de modo que cada renglón del flujo se deduce de una ley de conservación previamente establecida.
+En estas filas, las dos componentes dinámicas son trazables hasta objetos ya construidos: la fila del momento es el tensor espacial de esfuerzos total $T^{ij}$ ---el esfuerzo de Reynolds $\rho h W^2 v^i v^j$, la presión total $[\,p + \tfrac{1}{2}(E^2+B^2)\,]\delta^{ij}$ y los esfuerzos de Maxwell $-E^i E^j - B^i B^j$---, y la fila de la energía es el flujo $T^{0i}$, que por la simetría de $T^{\mu\nu}$ coincide idénticamente con la densidad de momento $S^i$. Las cuatro filas electromagnéticas restantes reproducen el sistema aumentado de Maxwell en su forma 3+1 (Ecuaciones~\eqref{eq:GLM_3D_E}--\eqref{eq:GLM_3D_Psi}), de modo que cada renglón del flujo se deduce de una ley de conservación previamente establecida.
 
 Finalmente, en esta formulación de variables totales el acoplamiento entre materia y campo ya está contenido en la divergencia del flujo $\mathbf{F}^i$ ---a través del vector de Poynting y del tensor de esfuerzos de Maxwell---, por lo que la fuerza de Lorentz \emph{no} figura como término fuente. El vector $\mathbf{S}(\mathbf{U})$ recoge únicamente la corriente de conducción $-J^j$ del sector eléctrico (cerrada por la ley de Ohm relativista), los sumideros de disipación telegráfica y la densidad de carga que alimenta la limpieza de la ley de Gauss. De manera crítica para la formulación numérica, la supervivencia transitoria de monopolos magnéticos espurios en la malla altera la topología del campo e induce inconsistencias en la conservación y la corrupción de la estabilidad de entropía. Para restaurar el rigor termodinámico, es obligatorio incluir de forma explícita los términos no conservativos de Godunov-Powell proporcionales al pseudopotencial magnético $\Psi$ en las ecuaciones de momento y energía \parencite{ruedaramirez2023}\footnote{Los términos de Godunov-Powell (e.g., $-\Psi B^j$ en la ecuación del momento) actúan geométricamente como fuerzas y trabajos ficticios. Su propósito analítico es compensar exactamente la aceleración artificial producida por los monopolos no nulos ($\nabla \cdot \mathbf{B} \neq 0$). Su inclusión es imperativa para garantizar la estabilidad no lineal robusta y asegurar que la dinámica del plasma satisfaga localmente la segunda ley de la termodinámica, especialmente en regímenes altamente magnetizados \parencite{ruedaramirez2023}.}. Incorporando estas correcciones, el vector fuente adopta su forma definitiva:
 \begin{equation}
@@ -491,7 +491,7 @@ Expandiendo las perturbaciones en una base de modos normales de Fourier-Laplace,
 
 \primerparrafo En el límite de la MHD ideal ($\delta E^\mu = 0$), la relación de dispersión revela que la condición de inestabilidad no depende únicamente de la energía cinética de la cizalladura. La tensión magnética, proveniente de la perturbación del tensor de esfuerzos de Maxwell $\delta T^{\mu\nu}_{\text{em}}$, introduce un umbral de estabilización. \textcite{goedbloed-2004A, osmanov-2008, chow2023} demostraron que los modos inestables son suprimidos si el producto interno espacial $(\mathbf{k} \cdot \mathbf{B}_0)^2$ es suficientemente grande, garantizando que el trabajo necesario para curvar las líneas de campo supere la energía libre del flujo.
 
-Al introducir factores de Lorentz $\Gamma \gg 1$ y temperaturas ultrarrelativistas ($p \sim \rho$), el espectro de autovalores se modifica drásticamente. En el tensor de energía-momento perturbado, el término de inercia acopla la densidad en reposo con la termodinámica del plasma mediante la entalpía específica $h = 1 + \varepsilon + p/\rho$ (con $\varepsilon$ la energía interna específica). Sin embargo, para configuraciones donde el campo magnético es predominantemente perpendicular a la perturbación compresional, la presión magnética también se opone a la compresión y contribuye a la inercia total del sistema. Este acoplamiento define la inercia efectiva transversal total como $w = \rho h \Gamma^2 + B^2$ \parencite{chow2023}. Matemáticamente, la divergencia de $w$ en el régimen relativista penaliza las aceleraciones ortogonales a la cizalladura. Como evidencian \parencite{osmanov-2008} y \parencite{pimentel-2019}, esto reduce asintóticamente la magnitud de la raíz imaginaria $\gamma$, estabilizando los modos de onda larga y alterando los conos de inestabilidad respecto al marco newtoniano, un factor crítico en el confinamiento de chorros extragalácticos \parencite{bucciantini-2006}.
+Al introducir factores de Lorentz $W \gg 1$ y temperaturas ultrarrelativistas ($p \sim \rho$), el espectro de autovalores se modifica drásticamente. En el tensor de energía-momento perturbado, el término de inercia acopla la densidad en reposo con la termodinámica del plasma mediante la entalpía específica $h = 1 + \varepsilon + p/\rho$ (con $\varepsilon$ la energía interna específica). Sin embargo, para configuraciones donde el campo magnético es predominantemente perpendicular a la perturbación compresional, la presión magnética también se opone a la compresión y contribuye a la inercia total del sistema. Este acoplamiento define la inercia efectiva transversal total como $w = \rho h W^2 + B^2$ \parencite{chow2023}. Matemáticamente, la divergencia de $w$ en el régimen relativista penaliza las aceleraciones ortogonales a la cizalladura. Como evidencian \parencite{osmanov-2008} y \parencite{pimentel-2019}, esto reduce asintóticamente la magnitud de la raíz imaginaria $\gamma$, estabilizando los modos de onda larga y alterando los conos de inestabilidad respecto al marco newtoniano, un factor crítico en el confinamiento de chorros extragalácticos \parencite{bucciantini-2006}.
 
 
 \subsection{El Límite Resistivo y la Ruptura Topológica}
@@ -530,6 +530,7 @@ La ruptura de la simetría planar bidimensional, inducida por la tensión magné
 Con ambas magnitudes clausuradas, definimos el factor de anisotropía estructural $f_{Vz}(t)$ para comparar la desviación tridimensional respecto a la contribución puramente bidimensional:
 \begin{equation}
     f_{Vz}(t) = \frac{\Omega_{\text{tot}}(t) - \Omega_z(t)}{\Omega_{\text{tot}}(t)}.
+    \label{eq:fvz}
 \end{equation}
 La desviación de $f_{Vz}$ respecto a cero señala empíricamente el inicio de la turbulencia plenamente desarrollada y el acoplamiento tridimensional \parencite{bodo-2004}.
 
