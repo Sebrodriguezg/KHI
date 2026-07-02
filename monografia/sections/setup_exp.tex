@@ -35,11 +35,11 @@ El escenario base corresponde a una configuración de cizalladura dual (Test 35A
     % --------------------------------------------------------------------
     \begin{minipage}{0.95\textwidth}
         \centering
-        \includegraphics[width=\linewidth]{figuras/campo_V_inicial.png}
+        \includegraphics[width=\linewidth]{figuras/velocidad_inicial.pdf}
         % \includegraphics[width=\linewidth]{figuras/frame_0001_campoV.png}
 
         \vspace{0.3em}
-        \small (a) Campo vectorial de velocidad: líneas de corriente superpuestas al mapa de color de la magnitud $|\mathbf{V}(x,y)|$. Se aprecian las dos capas de cizalladura simétricas localizadas en $x = \pm 0.5$ (regiones oscuras de baja magnitud), el cambio de signo de $V_y$ a través de cada interfaz, y la modulación senoidal transversal de período $L_y$ introducida por la perturbación de la Ec.~(\ref{eq:Vx_pert}), responsable de la semilla del modo inestable dominante.
+        \small (a) Campo de velocidad: líneas de corriente sobre el mapa de $|\mathbf{V}(x,y)|$. Se aprecian las dos capas de cizalla en $x = \pm 0.5$ y la modulación senoidal de la perturbación (Ec.~\ref{eq:Vx_pert}), semilla del modo inestable.
     \end{minipage}
 
     \vspace{1.0em}
@@ -49,14 +49,14 @@ El escenario base corresponde a una configuración de cizalladura dual (Test 35A
     % --------------------------------------------------------------------
     \begin{minipage}{0.95\textwidth}
         \centering
-        \includegraphics[width=\linewidth]{figuras/rho_inicial.png}
+        \includegraphics[width=\linewidth]{figuras/rho_inicial.pdf}
         % \includegraphics[width=\linewidth]{figuras/frame_0001_rho.png}
 
         \vspace{0.3em}
-        \small (b) Distribución de densidad $\rho(x,y)$ con contornos isóbaros superpuestos. Se observa nítidamente la región interior de baja densidad ($\rho \simeq \rho_{lo}$, $|x| < 0.5$) embebida en el ambiente externo de alta densidad ($\rho \simeq \rho_{up}$, $|x| > 0.5$), consistente con la ventana hiperbólica prescrita por la Ec.~(\ref{eq:rho_profile}). Las modulaciones longitudinales tempranamente visibles en las interfaces reflejan la incipiente respuesta vortical del fluido a la perturbación inyectada.
+        \small (b) Densidad $\rho(x,y)$: flujo central diluido ($\rho \simeq \rho_{lo}$, $|x| < 0.5$) embebido en un ambiente denso ($\rho \simeq \rho_{up}$), según la Ec.~\ref{eq:rho_profile}. En $t=0$ las interfaces son rectas; la semilla reside en la velocidad (panel~a).
     \end{minipage}
 
-    \caption{Visualización del estado inicial del experimento KHI (Test~35A, primer snapshot diagnóstico $t \simeq 0$). Panel superior~(a): topología del campo de velocidad con sus dos capas de cizalladura simétricas y la perturbación senoidal de Kelvin--Helmholtz. Panel inferior~(b): perfil de densidad Mizuno-like, con flujo central diluido y ambiente externo denso. Estas dos distribuciones, junto con el campo magnético uniforme de fondo (Ec.~\ref{eq:B_field_init}), constituyen el estado base sobre el que se realiza el barrido paramétrico en la conductividad $\sigma$.}
+    \caption{Estado inicial del experimento KHI (Test~35A, $t=0$): campo de velocidad~(a) y densidad~(b). Junto con el campo magnético uniforme de fondo (Ec.~\ref{eq:B_field_init}), constituyen el estado base del barrido en la conductividad $\sigma$.}
     \label{fig:setup_inicial}
 \end{figure}
 
@@ -137,9 +137,10 @@ Las simulaciones de este estudio fueron ejecutadas para superar la marca de $t_{
 \centering
 \caption{Parámetros operativos consolidados del setup numérico (Test~35A, Mizuno-like).}
 \label{tab:setup_summary}
-\begin{tabular}{lll}
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}ll p{4.2cm}@{}}
 \hline
-\textbf{Parámetro} & \textbf{Símbolo} & \textbf{Valor (unidades de código)} \\
+\textbf{Parámetro} & \textbf{Símbolo} & \textbf{Valor} \\
 \hline
 Dominio en $x$              & $[x_{\min}, x_{\max}]$ & $[-1.0,\, 1.0]$ \\
 Dominio en $y$              & $[y_{\min}, y_{\max}]$ & $[-0.5,\, 0.5]$ \\
@@ -185,9 +186,11 @@ completa de los $44$ valores explorados se tabula en el capítulo de resultados
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.32\textwidth]{figuras/campana_A_3d}\hfill
-\includegraphics[width=0.32\textwidth]{figuras/campana_B_3d}\hfill
-\includegraphics[width=0.32\textwidth]{figuras/campana_C_3d}
+\includegraphics[width=0.48\textwidth]{figuras/campana_A_3d}\hfill
+\includegraphics[width=0.48\textwidth]{figuras/campana_B_3d}
+
+\vspace{0.6em}
+\includegraphics[width=0.48\textwidth]{figuras/campana_C_3d}
 \caption{Espacio de parámetros de la campaña magnética sobre el montaje del doble-KHI (plano de simulación con las dos interfaces de cizalla en $x=\pm0.5$, flujo $\mathbf V$ a lo largo de $\hat y$ y campo guía nominal $\hat z$). \emph{A (intensidad):} se conserva la orientación Mizuno y se escala $|\mathbf B|$ ($B_0=1,1.5,2$). \emph{B (orientación $y$--$z$):} $\mathbf B$ rota de $\hat z$ hacia $\hat y$; como $\hat y\parallel\mathbf k$, la componente $B_y$ ejerce tensión ($\propto B_y^2$). \emph{C (orientación $x$--$z$):} $\mathbf B$ rota de $\hat z$ hacia $\hat x$ con $B_y=0$; al ser $B_x\perp\mathbf k$ se tiene $\mathbf k\cdot\mathbf B=0$ y no hay tensión.}
 \label{fig:campanas_BC_3d}
 \end{figure}

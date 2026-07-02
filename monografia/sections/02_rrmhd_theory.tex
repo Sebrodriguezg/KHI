@@ -219,7 +219,7 @@ Proyectando estas ecuaciones tensoriales a lo largo de la línea de mundo de un 
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.72\textwidth]{figuras/foliacion_3p1}
+\includegraphics[width=\textwidth]{figuras/foliacion_3p1}
 \caption{Descomposición 3+1 del espacio-tiempo. La variedad se folia en hipersuperficies espaciales $\Sigma_t$ de tiempo constante. El observador euleriano (de laboratorio, ligado a la malla) se mueve a lo largo de la normal $n^\mu$ a estas hipersuperficies, mientras que el fluido sigue su propia línea de mundo con cuadrivelocidad $u^\mu$. La descomposición de las ecuaciones de evolución se realiza respecto a $n^\mu$, en tanto que las propiedades constitutivas del plasma (ley de Ohm) se definen respecto a $u^\mu$; ambos observadores solo coinciden cuando el fluido está en reposo respecto a la malla.}
 \label{fig:foliacion_3p1}
 \end{figure}
@@ -233,7 +233,7 @@ En el ámbito de la simulación numérica, esta estructura matemática presenta 
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.92\textwidth]{figuras/glm_limpieza}
+\includegraphics[width=\textwidth]{figuras/glm_limpieza}
 \caption{Principio de la limpieza hiperbólica de divergencias (GLM). (a)~Sin tratamiento, la violación de la restricción $\nabla\!\cdot\!\mathbf B=0$ generada por el error de truncamiento se \emph{acumula} localmente en la malla, degradando la estabilidad. (b)~El método GLM acopla esta violación a un campo escalar auxiliar que la convierte en una perturbación dinámica: el error se \emph{propaga} fuera del dominio a una velocidad característica $c_h$ y, simultáneamente, se \emph{amortigua} de forma exponencial ($\propto e^{-\kappa t}$), sin alterar las soluciones físicas.}
 \label{fig:glm_limpieza}
 \end{figure}
@@ -342,7 +342,7 @@ la cual representa la densidad neta de carga medida por un observador que viaja 
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.62\textwidth]{figuras/marco_comovil_lab}
+\includegraphics[width=\textwidth]{figuras/marco_comovil_lab}
 \caption{Distinción entre el marco del laboratorio y el comóvil en un diagrama espacio-tiempo. La densidad de carga \emph{propia} $\rho_e=-J^\mu u_\mu$ es la medida en el sistema de reposo del fluido ---sobre una rebanada paralela al eje espacial comóvil $x'$, ortogonal a la línea de mundo $u^\mu$---, mientras que la densidad observada en el laboratorio $\rho_q$ corresponde a una rebanada de tiempo constante ($t$ cte). Ambas coinciden solo cuando el fluido está en reposo respecto a la malla ($\beta\to0$).}
 \label{fig:marco_comovil}
 \end{figure} Simultáneamente, se define la cuadricorriente de conducción $j^\mu$ como la proyección espacial:
