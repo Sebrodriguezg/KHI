@@ -117,7 +117,7 @@ Las dos asíntotas se desacoplan: $\gamma_0$ pasa a ser la \emph{amplitud} del s
 \primerparrafo El ajuste por mínimos cuadrados no lineales  sobre $\sigma\ge1600$ entrega los valores de la Tabla~\ref{tab:par_v6}; el ajuste resultante y su comparación con el modelo de tres parámetros se muestran en las Figuras~\ref{fig:ajuste_v6} y~\ref{fig:3v4_v6}. El \emph{offset} es claramente no nulo y su óptimo es interior a las cotas $[-1,1]$ (no forzado por la frontera); su realidad física se apoya en la validación fuera de muestra (Sección~\ref{sec:validacion_v6}), no en el cociente nominal valor/error del ajuste, que la autocorrelación de los residuos infla.
 
 \begin{table}[H]\centering
-\caption{Parámetros del modelo sigmoide con \emph{offset} (v6) y comparación de modelos mediante los criterios de información de Akaike (AIC) y bayesiano de Schwarz (BIC), definidos en el Apéndice~\ref{ap:est:aic}, evaluados sobre las $44$ simulaciones.}
+\caption{Parámetros del modelo sigmoide con \emph{offset} y comparación de modelos mediante los criterios de información de Akaike (AIC) y bayesiano de Schwarz (BIC), definidos en el Apéndice~\ref{ap:est:aic}, evaluados sobre las $44$ simulaciones.}
 \label{tab:par_v6}
 {\small
 \begin{tabular}{l l p{4.4cm}}
@@ -439,7 +439,7 @@ Adicionalmente, el estudio del rol de la resistividad debe extenderse al resto d
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{figuras/fig_campA_rho_collage.pdf}
-\caption{Campaña A (intensidad del campo magnético) a $\sigma=10^{4}$, CFL$=0.02$: densidad $\rho(x,y)$ para tres intensidades ---filas: $B_0=1.0,\,1.5,\,2.0$--- en tres instantes ---columnas: $t=3,\,7,\,11$. Al aumentar $B_0$ crecen la presión magnética y la magnetización, que rigidizan el flujo y retrasan y debilitan el enrollamiento del vórtice. Escala de color común a los nueve paneles.}
+\caption{Campaña A (intensidad del campo magnético) a $\sigma=10^{4}$, CFL$=0.02$: densidad $\rho(x,y)$ para tres intensidades ---filas: $B_0=1.0,\,1.5,\,2.0$--- en tres instantes ---columnas: $t=3,\,7,\,11$. Al aumentar $B_0$ crecen la presión magnética y la magnetización, \prof{incrementando la tensión magnética del plasma, lo que retrasa y debilita} \sout{que rigidizan el flujo y retrasan y debilitan} el enrollamiento de los vórtices. Escala de color común a los nueve paneles.}
 \label{fig:mapa_campA}
 \end{figure}
 
