@@ -1,4 +1,4 @@
-\primerparrafo La inestabilidad de Kelvin-Helmholtz (KHI) constituye uno de los mecanismos fundamentales de generación de estructuras vorticales y mezcla en fluidos y plasmas. Su estudio resulta clave en contextos que abarcan desde la hidrodinámica clásica hasta la astrofísica relativista, donde la presencia de campos magnéticos, efectos relativistas y procesos disipativos modifican sustancialmente su evolución. En este capítulo se presenta una revisión teórica progresiva de la KHI, partiendo del límite incompresible newtoniano hasta alcanzar el marco de la Magnetohidrodinámica Relativista Resistiva (RRMHD).
+\primerparrafo La inestabilidad de Kelvin--Helmholtz (KHI) constituye uno de los mecanismos fundamentales de generación de estructuras vorticales y mezcla en fluidos y plasmas. Su estudio resulta clave en contextos que abarcan desde la hidrodinámica clásica hasta la astrofísica relativista, donde la presencia de campos magnéticos, efectos relativistas y procesos disipativos modifican sustancialmente su evolución. En este capítulo se presenta una revisión teórica progresiva de la KHI, partiendo del límite incompresible newtoniano hasta alcanzar el marco de la Magnetohidrodinámica Relativista Resistiva (RRMHD).
 
 %-----------------------------------------------------------
 \section{Descripción Física General de la Inestabilidad}
@@ -7,12 +7,12 @@
 
 El origen cinemático de la inestabilidad reside en la dinámica del transporte de vorticidad. Al someter la interfaz a una perturbación espectral, la conservación del momento dicta que el flujo se acelera sobre las crestas y se desacelera en los valles. Por el principio de Bernoulli, esta asimetría induce gradientes locales de presión que ejercen un torque neto sobre la interfaz, amplificando el desplazamiento inicial y conduciendo a un crecimiento exponencial durante la fase lineal. 
 
-Al saturarse este crecimiento, el sistema transiciona hacia una fase no lineal dominada por la deformación y el colapso topológico de la capa de vorticidad, manifestándose en el enrollamiento característico de los vórtices de Kelvin-Helmholtz. En un contexto astrofísico, esta evolución morfológica es de vital importancia. En presencia de campos magnéticos, la KHI trasciende la simple mezcla de fluidos para actuar como un dinamo: las grandes estructuras vorticales estiran advectivamente las líneas de flujo magnético, transformando la energía cinética macroscópica en una intensa amplificación de la energía magnética local \parencite{pimentel-2019}.
+Al saturarse este crecimiento, el sistema transiciona hacia una fase no lineal dominada por la deformación y el colapso topológico de la capa de vorticidad, manifestándose en el enrollamiento característico de los vórtices de Kelvin--Helmholtz. En un contexto astrofísico, esta evolución morfológica es de vital importancia. En presencia de campos magnéticos, la KHI trasciende la simple mezcla de fluidos para actuar como un dinamo: las grandes estructuras vorticales estiran advectivamente las líneas de flujo magnético, transformando la energía cinética macroscópica en una intensa amplificación de la energía magnética local \parencite{pimentel-2019}.
 
 %-----------------------------------------------------------
 \section{La KHI en Mecánica de Fluidos Clásica}
 
-\primerparrafo Para comprender el impacto posterior de la magnetización y la relatividad, se analiza primero la inestabilidad en su forma fundamental. Siguiendo la formulación geométrica bidimensional de \parencite{acheson-1990}, consideramos el límite incompresible clásico.
+\primerparrafo Para comprender el impacto posterior de la magnetización y la relatividad, se analiza primero la inestabilidad en su forma fundamental. Siguiendo la formulación geométrica bidimensional de \textcite{acheson-1990}, consideramos el límite incompresible clásico.
 
 \subsection{Planteamiento Hidrodinámico}
 
@@ -38,13 +38,13 @@ donde $\hat{\eta}$ es la amplitud de perturbación, $k$ el número de onda real,
 \begin{figure}[h]
 \centering
 \includegraphics[width=\textwidth]{figuras/KHI_una_interfaz.pdf}
-\caption{Esquema del modelo hidrodinámico para la inestabilidad de Kelvin-Helmholtz. Se representa la interfaz perturbada $\eta(x,t)$ en $y=0$, la cual separa dos medios incompresibles con densidades $\rho_1$ (superior) y $\rho_2$ (inferior). Las velocidades asintóticas $U_1$ y $U_2$ denotan la cizalladura aplicada en la dirección del flujo, manteniendo $U_1 > U_2$ como condición de inestabilidad.}
+\caption{Esquema del modelo hidrodinámico para la inestabilidad de Kelvin--Helmholtz. Se representa la interfaz perturbada $\eta(x,t)$ en $y=0$, la cual separa dos medios incompresibles con densidades $\rho_1$ (superior) y $\rho_2$ (inferior). Las velocidades asintóticas $U_1$ y $U_2$ denotan la cizalladura aplicada en la dirección del flujo, manteniendo $U_1 > U_2$ como condición de inestabilidad.}
 \label{fig:esquema_khi_teorico}
 \end{figure}
 
 \subsection{Análisis Lineal y Relación de Dispersión}
 
-\primerparrafo Para aislar $\omega(k)$, imponemos las condiciones de contorno linealizadas sobre la frontera inperturbada $y = 0$.
+\primerparrafo Para aislar $\omega(k)$, imponemos las condiciones de contorno linealizadas sobre la frontera no perturbada $y = 0$.
 
 \paragraph{Condición Cinemática:}
 \primerparrafo Las partículas de fluido no pueden abandonar la interfaz, por lo que la derivada material de la superficie $F(x,y,t) = y - \eta(x,t) = 0$ debe ser nula. A primer orden, la velocidad vertical perturbada es $v'_{y,j} = \partial_t \eta + U_j \partial_x \eta$. Evaluando las derivadas normales de las ecuaciones (\ref{eq:phi1}) y (\ref{eq:phi2}) en $y=0$:
@@ -125,7 +125,7 @@ A diferencia del límite fluido clásico, en MHD ideal el sistema puede estabili
 \subsection{Correcciones Relativistas y Factor de Inercia}
 \label{subsec:khi_rmhd_rel}
 
-\primerparrafo En la formulación covariante, el acoplamiento entre la materia y la energía impone que la inercia efectiva de un elemento de fluido deje de estar definida exclusivamente por su masa en reposo $\rho$. El tensor de energía-momento relativista pondera la inercia mediante la entalpía específica $h = 1 + \epsilon + p/\rho$, de modo que la inercia direccional efectiva puramente hidrodinámica adopta la forma $w = \rho h W^2$, como ya se comentó en el Capítulo \ref{ch:rrmhd_theory}.
+\primerparrafo En la formulación covariante, el acoplamiento entre la materia y la energía impone que la inercia efectiva de un elemento de fluido deje de estar definida exclusivamente por su masa en reposo $\rho$. El tensor de energía-momento relativista pondera la inercia mediante la entalpía específica $h = 1 + \varepsilon + p/\rho$, de modo que la inercia direccional efectiva puramente hidrodinámica adopta la forma $w = \rho h W^2$, como ya se comentó en el Capítulo \ref{ch:rrmhd_theory}.
 
 Este acoplamiento inercial genera un marcado efecto estabilizador transversal. En el régimen ultrarrelativista ($W \gg 1$), el incremento masivo de la inercia térmica restringe severamente la aceleración baroclínica\footnote{El término \emph{baroclínico} ($\nabla\rho\times\nabla p$) genera vorticidad cuando los gradientes de presión y densidad no son paralelos; es el motor del torque que amplifica la perturbación.} inducida por la perturbación inicial de presión. Analizando el número de Mach relativista ($M_r = \frac{v}{c_s}\sqrt{\frac{1-c_s^2/c^2}{1-v^2/c^2}}$), la teoría de perturbaciones demuestra que en el límite de Lorentz asintótico, la contracción espacial deforma los conos de luz y reduce la comunicación causal a través de la capa de cizalladura, suprimiendo las tasas de crecimiento $\gamma$ y estabilizando modos inestables intrínsecos al límite newtoniano, incluso en ausencia de campo magnético \parencite{osmanov-2008, pimentel-2019}.
 
@@ -134,7 +134,7 @@ Este acoplamiento inercial genera un marcado efecto estabilizador transversal. E
 \subsection{Implicaciones Astrofísicas}
 \label{subsec:khi_rmhd_astro}
 
-\primerparrafo La fenomenología de la KHI relativista es el motor explicativo detrás de múltiples observables en la astrofísica de altas energías. En las fronteras de los chorros relativistas eyectados por Núcleos Activos de Galaxias (AGN) y Estallidos de Rayos Gamma (GRBs), la fricción contra el viento estelar circundante desata violentas inestabilidades de Kelvin-Helmholtz.
+\primerparrafo La fenomenología de la KHI relativista es el motor explicativo detrás de múltiples observables en la astrofísica de altas energías. En las fronteras de los chorros relativistas eyectados por Núcleos Activos de Galaxias (AGN) y Estallidos de Rayos Gamma (GRBs), la fricción contra el viento estelar circundante desata violentas inestabilidades de Kelvin--Helmholtz.
 
 La saturación de esta inestabilidad genera ondas de choque de recolimación (\textit{recollimation shocks})\footnote{Choques que reconfinan (recolimar) el chorro cuando la presión del medio externo lo comprime tras una fase de sobre-expansión.} y vórtices tridimensionales que enredan las líneas del campo magnético \parencite{bucciantini-2006}. Este plegamiento propicia la reconexión magnética local, un mecanismo capaz de pre-energizar leptones que posteriormente sufren aceleración por cizalladura (\textit{shear-driven acceleration})\footnote{Mecanismo de aceleración de partículas que aprovecha el gradiente de velocidad (la cizalla) en la frontera del chorro.}. Adicionalmente, el arrastre de material bariónico externo (\textit{entrainment}) producto de los vórtices masivos frena el chorro, constituyendo el mecanismo principal para explicar morfológicamente la dicotomía entre radio-galaxias de tipo FRI (fuertemente frenadas e inestables) y FRII (altamente colimadas) \parencite{osmanov-2008}.
 

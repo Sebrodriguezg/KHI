@@ -22,7 +22,7 @@ Integrando el sistema de leyes de conservación $\partial_t \mathbf{U} + \partia
 $$
 \frac{d\mathbf{\bar{U}}_i}{dt} = -\frac{1}{\Delta x} \left[ \mathbf{\hat{F}}_{i+1/2}(t) - \mathbf{\hat{F}}_{i-1/2}(t) \right] + \mathbf{\bar{S}}_i(t).
 $$
-Aquí, $\mathbf{\hat{F}}_{i \pm 1/2}$ representa el flujo numérico interfasial. El núcleo de la hidrodinámica computacional consiste en aproximar este flujo $\mathbf{\hat{F}} \approx \mathbf{F}(\mathbf{U}_L, \mathbf{U}_R)$ evaluando el problema de Riemann generado por los estados reconstruidos a la izquierda ($\mathbf{U}_L$) y derecha ($\mathbf{U}_R$) de cada interfaz \parencite{toro-2009}. En el dominio bi/tridimensional, esta misma construcción se aplica por separado a cada dirección coordenada: la actualización de la celda $(i,j,k)$ es el balance de los flujos numéricos a través de sus seis caras, $\mathbf{\hat F}^{x}_{i\pm1/2}$, $\mathbf{\hat F}^{y}_{j\pm1/2}$ y $\mathbf{\hat F}^{z}_{k\pm1/2}$ (Figura~\ref{fig:celda_3d_flujos}).
+Aquí, $\mathbf{\hat{F}}_{i \pm 1/2}$ representa el flujo numérico de interfaz. El núcleo de la hidrodinámica computacional consiste en aproximar este flujo $\mathbf{\hat{F}} \approx \mathbf{F}(\mathbf{U}_L, \mathbf{U}_R)$ evaluando el problema de Riemann generado por los estados reconstruidos a la izquierda ($\mathbf{U}_L$) y derecha ($\mathbf{U}_R$) de cada interfaz \parencite{toro-2009}. En el dominio bi/tridimensional, esta misma construcción se aplica por separado a cada dirección coordenada: la actualización de la celda $(i,j,k)$ es el balance de los flujos numéricos a través de sus seis caras, $\mathbf{\hat F}^{x}_{i\pm1/2}$, $\mathbf{\hat F}^{y}_{j\pm1/2}$ y $\mathbf{\hat F}^{z}_{k\pm1/2}$ (Figura~\ref{fig:celda_3d_flujos}).
 
 \begin{figure}[H]
 \centering
@@ -33,17 +33,17 @@ Aquí, $\mathbf{\hat{F}}_{i \pm 1/2}$ representa el flujo numérico interfasial.
 
 \subsection{Limitadores de Pendiente y Reconstrucción de Alto Orden}
 
-\primerparrafo Asumir que el estado interfasial es idéntico al promedio de celda ($\mathbf{U}_L = \mathbf{\bar{U}}_i$) arroja el esquema de Godunov de primer orden.\footnote{El esquema de Godunov de primer orden toma el estado interfasial igual al promedio de celda; es robusto y monótono, pero introduce una fuerte difusión numérica $\propto\mathcal{O}(\Delta x)$.} Si bien es incondicionalmente monótono, introduce un término de error de truncamiento equivalente a una viscosidad artificial $\propto \mathcal{O}(\Delta x)$. Esta difusión parásita amortigua los gradientes de velocidad tangencial, destruyendo la resolución espectral de la inestabilidad de Kelvin-Helmholtz (KHI) antes de su saturación no lineal. Para mitigar esto, se requiere la interpolación de los estados hacia la interfaz utilizando polinomios de orden superior \parencite{toro-2009}.
+\primerparrafo Asumir que el estado de interfaz es idéntico al promedio de celda ($\mathbf{U}_L = \mathbf{\bar{U}}_i$) arroja el esquema de Godunov de primer orden.\footnote{El esquema de Godunov de primer orden toma el estado de interfaz igual al promedio de celda; es robusto y monótono, pero introduce una fuerte difusión numérica $\propto\mathcal{O}(\Delta x)$.} Si bien es incondicionalmente monótono, introduce un término de error de truncamiento equivalente a una viscosidad artificial $\propto \mathcal{O}(\Delta x)$. Esta difusión parásita amortigua los gradientes de velocidad tangencial, destruyendo la resolución espectral de la inestabilidad de Kelvin--Helmholtz (KHI) antes de su saturación no lineal. Para mitigar esto, se requiere la interpolación de los estados hacia la interfaz utilizando polinomios de orden superior \parencite{toro-2009}.
 
 \subsubsection{Difusión Numérica y la Necesidad de Esquemas MP5}
 
 \primerparrafo El Teorema de Godunov demuestra que cualquier esquema lineal espacial de orden superior al primero generará oscilaciones espurias (fenómeno de Gibbs\footnote{El \emph{fenómeno de Gibbs} son las oscilaciones espurias que aparecen al aproximar una discontinuidad con un esquema lineal de alto orden.}) en la vecindad de discontinuidades. Los esquemas TVD (\textit{Total Variation Diminishing}) clásicos con limitadores de pendiente de segundo orden (\textit{minmod}, \textit{van Leer}) evitan estas oscilaciones, pero ``recortan'' severamente los extremos locales físicos, disipando la enstrofía a pequeña escala característica de la turbulencia en RRMHD.
 
-Por lo tanto, la reconstrucción en \textit{Cueva} exige un esquema \textit{Monotonicity-Preserving} de quinto orden (MP5), formulado por \parencite{suresh-1997} y adoptado en \textit{Cueva} \parencite{miranda-aranguren-2018}. Se parte de un \textit{stencil} simétrico de cinco puntos para obtener la interpolación base de quinto orden en $x_{i+1/2}$:
+Por lo tanto, la reconstrucción en \textit{Cueva} exige un esquema \textit{Monotonicity-Preserving} de quinto orden (MP5), formulado por \textcite{suresh-1997} y adoptado en \textit{Cueva} \parencite{miranda-aranguren-2018}. Se parte de un \textit{stencil} simétrico de cinco puntos para obtener la interpolación base de quinto orden en $x_{i+1/2}$:
 $$
 \mathbf{U}_{i+1/2}^{(5)} = \frac{2}{60} \mathbf{\bar{U}}_{i-2} - \frac{13}{60} \mathbf{\bar{U}}_{i-1} + \frac{47}{60} \mathbf{\bar{U}}_i + \frac{27}{60} \mathbf{\bar{U}}_{i+1} - \frac{3}{60} \mathbf{\bar{U}}_{i+2}.
 $$
-Para preservar la monotonicidad sin degradar la precisión en los extremos locales (como ocurre en los esquemas WENO), el algoritmo MP5 define un intervalo permisible $[\mathbf{U}_{min}, \mathbf{U}_{max}]$ construido analíticamente a partir de las diferencias segundas limitadas de las celdas circundantes. El valor interfasial reconstruido $\mathbf{U}_L$ se restringe a través de la función mediana proyectiva:
+Para preservar la monotonicidad sin degradar la precisión en los extremos locales (como ocurre en los esquemas WENO), el algoritmo MP5 define un intervalo permisible $[\mathbf{U}_{min}, \mathbf{U}_{max}]$ construido analíticamente a partir de las diferencias segundas limitadas de las celdas circundantes. El valor reconstruido $\mathbf{U}_L$ se restringe a través de la función mediana proyectiva:
 $$
 \mathbf{U}_L = \text{median}(\mathbf{U}_{i+1/2}^{(5)}, \mathbf{U}_{min}, \mathbf{U}_{max}).
 $$
@@ -66,7 +66,7 @@ Esta topología garantiza una captura de choques sin oscilaciones acoplada a una
 
 \subsubsection{Degeneración de Velocidades Características}
 
-\primerparrafo A diferencia del límite Newtoniano clásico, la cinemática covariante impone que la matriz jacobiana incluya el acoplamiento de la entalpía específica $h = 1 + \epsilon + p/\rho$ en los términos inerciales. Esto da origen a la degeneración característica ultrarrelativista \parencite{rezzolla-2013}. Evaluando el límite asintótico $W \to \infty$ (donde $v_x \to 1$), la inercia térmica efectiva diverge, y las velocidades de las ondas acústicas y alfvénicas en el marco del laboratorio colapsan hacia el cono de luz:
+\primerparrafo A diferencia del límite Newtoniano clásico, la cinemática covariante impone que la matriz jacobiana incluya el acoplamiento de la entalpía específica $h = 1 + \varepsilon + p/\rho$ en los términos inerciales. Esto da origen a la degeneración característica ultrarrelativista \parencite{rezzolla-2013}. Evaluando el límite asintótico $W \to \infty$ (donde $v_x \to 1$), la inercia térmica efectiva diverge, y las velocidades de las ondas acústicas y alfvénicas en el marco del laboratorio colapsan hacia el cono de luz:
 $$
 \lim_{W \to \infty} (\lambda_s^\pm, \lambda_a^\pm, \lambda_f^\pm) \rightarrow \pm c.
 $$
@@ -74,7 +74,7 @@ Esta acumulación del espectro limita la aplicabilidad de los solucionadores de 
 
 \subsection{Sistemas con Relajación y la Condición Subcaracterística}
 
-\primerparrafo Al acoplar el vector fuente $\mathbf{S}(\mathbf{U})$, el sistema RRMHD se clasifica matemáticamente como un sistema hiperbólico con relajación térmica. La conductividad eléctrica finita $\sigma$ impone un tiempo de relajación fenomenológico $\tau \sim 1/\sigma$. Para que la integración espacio-temporal de la malla sea causalmente estable, el sistema debe satisfacer estrictamente la condición subcaracterística formulada por \parencite{liu-1987}. Esta condición dicta que las velocidades de propagación máxima del sistema subyacente disipativo ($\lambda_{RRMHD}$) deben estar encapsuladas dentro del espectro asintótico ideal ($\lambda_{MHD}$), es decir:
+\primerparrafo Al acoplar el vector fuente $\mathbf{S}(\mathbf{U})$, el sistema RRMHD se clasifica matemáticamente como un sistema hiperbólico con relajación térmica. La conductividad eléctrica finita $\sigma$ impone un tiempo de relajación fenomenológico $\tau \sim 1/\sigma$. Para que la integración espacio-temporal de la malla sea causalmente estable, el sistema debe satisfacer estrictamente la condición subcaracterística formulada por \textcite{liu-1987}. Esta condición dicta que las velocidades de propagación máxima del sistema subyacente disipativo ($\lambda_{RRMHD}$) deben estar encapsuladas dentro del espectro asintótico ideal ($\lambda_{MHD}$), es decir:
 $$
 |\lambda_{RRMHD}| \le |\lambda_{MHD}| \le c.
 $$
@@ -109,11 +109,11 @@ Esta sinergia logra resolver las discontinuidades aisladas y los agudos gradient
     \partial_t \begin{pmatrix} B^x \\ \Psi \end{pmatrix} + \begin{pmatrix} 0 & c_h^2 \\ 1 & 0 \end{pmatrix} \partial_x \begin{pmatrix} B^x \\ \Psi \end{pmatrix} = 0.
 \end{equation}
 
-La diagonalización de las matrices jacobianas de estos subsistemas revela que los errores espurios se propagan característicamente a velocidades $\lambda_{\text{GLM}} = \pm c_h$, donde $c_h$ se fija convencionalmente al límite relativista ($c_h = 1$) para empujar las perturbaciones al cono causal máximo permitido por el reticulado. El desarrollo algebraico explícito de esta diagonalización puede consultarse en \parencite{Dedner_etal:2002} o en formulaciones 3+1 como la des de \parencite{palenzuela-2009}.
+La diagonalización de las matrices jacobianas de estos subsistemas revela que los errores espurios se propagan característicamente a velocidades $\lambda_{\text{GLM}} = \pm c_h$, donde $c_h$ se fija convencionalmente al límite relativista ($c_h = 1$) para empujar las perturbaciones al cono causal máximo permitido por el reticulado. El desarrollo algebraico explícito de esta diagonalización puede consultarse en \textcite{Dedner_etal:2002} o en formulaciones 3+1 como la de \textcite{palenzuela-2009}.
 
 \subsection{Flujos Intermedios y Amortiguamiento Fenomenológico}
 
-\primerparrafo Al ser un subsistema estrictamente lineal con velocidades de onda constantes, la solución del problema de Riemann asociado es analíticamente trivial. El flujo numérico interfasial para estabilizar las variables electromagnéticas longitudinales adopta la topología de un esquema de diferencias centrales (tipo Lax-Friedrichs) \parencite{toro-2009} con una disipación óptima parametrizada por $c_h$:
+\primerparrafo Al ser un subsistema estrictamente lineal con velocidades de onda constantes, la solución del problema de Riemann asociado es analíticamente trivial. El flujo numérico de interfaz para estabilizar las variables electromagnéticas longitudinales adopta la topología de un esquema de diferencias centrales (tipo Lax-Friedrichs) \parencite{toro-2009} con una disipación óptima parametrizada por $c_h$:
 \begin{align}
     F_{i+1/2}^{(\Phi)} &= \frac{c_h^2}{2} (\Phi_L + \Phi_R) - \frac{c_h}{2} (E^x_R - E^x_L) \\
     F_{i+1/2}^{(\Psi)} &= \frac{c_h^2}{2} (\Psi_L + \Psi_R) - \frac{c_h}{2} (B^x_R - B^x_L)
@@ -177,6 +177,6 @@ Al dividir toda la expresión por el factor divergente $\alpha \sigma W$ y tomar
 $$
 \mathbf{E}^{(i)} - (\mathbf{v} \cdot \mathbf{E}^{(i)}) \mathbf{v} = - (\mathbf{v} \times \mathbf{B}).
 $$
-Dado que el producto escalar $\mathbf{v} \cdot \mathbf{E}$ aproxima a cero bajo la ortogonalidad propia del régimen de alta conductividad, la expresión se reduce a la ley de Ohm ideal $\mathbf{E} + \mathbf{v} \times \mathbf{B} = 0$. De esta forma, el esquema demuestra analíticamente que fuerza la convergencia al campo eléctrico ideal ($E^\mu \to 0$ en el marco propio), recuperando la condición de congelamiento de flujo sin inestabilidades restrictivas de CFL.
+Dado que el producto escalar $\mathbf{v} \cdot \mathbf{E}$ se aproxima a cero bajo la ortogonalidad propia del régimen de alta conductividad, la expresión se reduce a la ley de Ohm ideal $\mathbf{E} + \mathbf{v} \times \mathbf{B} = 0$. De esta forma, el esquema demuestra analíticamente que fuerza la convergencia al campo eléctrico ideal ($E^\mu \to 0$ en el marco propio), recuperando la condición de congelamiento de flujo sin inestabilidades restrictivas de CFL.
 
 \primerparrafo En el límite opuesto, correspondiente a un medio puramente dieléctrico o de gas neutro ($\sigma \to 0$), el tensor de conductividad se anula. La partición de Butcher desacopla la integración de las variables hidrodinámicas de las ecuaciones de Maxwell, las cuales se reducen a su forma en el vacío. El solucionador de Riemann HLL interseca de forma asintóticamente congruente los flujos, asegurando que el código \textit{Cueva} capture tanto la disipación óhmica en regímenes resistivos como el transporte hiperbólico puro en el límite no conductivo, proporcionando una base numérica consistente para la simulación astrofísica.

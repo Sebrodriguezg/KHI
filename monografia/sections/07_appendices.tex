@@ -37,6 +37,8 @@ El cierre no ideal es la ley de Ohm relativista resistiva
 \end{equation}
 con $W$ el factor de Lorentz, $\sigma$ la conductividad y $q$ la densidad de carga. En el límite ideal $\sigma\to\infty$ la Ec.~\eqref{ap:eq:ohm} solo es finita si el corchete se anula, $\mathbf{E}=-\mathbf{V}\times\mathbf{B}$ (MHD ideal); la rigidez de ese límite obliga a un integrador IMEX-RK \parencite{miranda2014,miranda-aranguren-2018}. Las variables conservadas son $D=\rho W$, $\mathbf{S}=\mathbf{E}\times\mathbf{B}+\rho h\,W^2\mathbf{V}$ y $\tau=\tfrac12(E^2+B^2)+\rho h\,W^2-p$, con $\rho h=\rho(1+\varepsilon)+p$ y $\varepsilon=p/[(\Gamma-1)\rho]$. Cruzando el término rígido de la Ec.~\eqref{ap:eq:ohm} con la inversión implícita que \textit{Cueva} resuelve para $\mathbf{E}$ (módulo \texttt{11\_elecvarint.f95}), se confirma que el código integra exactamente el sistema RRMHD de \textcite{miranda2014,miranda-aranguren-2018}: el parámetro $\sigma$ es la conductividad física y $\eta=1/\sigma$ la resistividad.
 
+Conviene una aclaración sobre los términos no conservativos de la Ec.~\eqref{ap:eq:rrmhd}: las contribuciones $-(\nabla\!\cdot\!\mathbf{B})\mathbf{B}$ en el momento y $-\mathbf{B}\!\cdot\!\nabla\Psi-\mathbf{E}\!\cdot\!\nabla\Phi$ en la energía corresponden a la variante de Godunov--Powell del control de monopolos tal como la escriben \textcite{miranda2014}, mientras que en la Sección~\ref{sec:RRMHD_Conservativa} se presentó la variante equivalente proporcional al pseudopotencial de limpieza ($-\Psi B^j$ y $-\Psi\,(\mathbf{v}\cdot\mathbf{B})$) \parencite{ruedaramirez2023}. Ambas formas cumplen el mismo propósito ---compensar la aceleración artificial inducida por los monopolos espurios--- y se anulan idénticamente en el límite continuo, donde $\nabla\!\cdot\!\mathbf{B}=0$ y $\Psi\to0$.
+
 \subsection{El observable: por qué $\ln\Ozp$ crece a pendiente $2\gKHI$}
 
 \primerparrafo El diagnóstico es la enstrofía de perturbación $\Ozp(t)=\int(\omega_z')^2\,dA$, con $\omega_z'=\omega_z-\langle\omega_{z0}\rangle$. En la fase lineal cada modo crece como $\delta\propto e^{\gKHI t}$, de modo que $\omega_z'\propto e^{\gKHI t}$ y su cuadrado integrado
@@ -116,7 +118,7 @@ Sus dos límites la validan: (i)~incompresible clásico ($c_s\to\infty$, $v\to0$
 \subsection{Reconstrucción de los estimadores de $\scrit$}
 \label{ap:estim}
 
-\primerparrafo Los cuatro estimadores (Tabla~\ref{tab:est_v6}) son: M1 inflexión de $\gKHI(\sigma)$ ($6800\pm2625$); M2 inflexión de $\Omaxzp(\sigma)$ ($3400\pm2175$); M3 inflexión de $t_{\rm peak}(\sigma)$ ($6000\pm1147$); M4 centro $\sigma_0$ del sigmoide con \emph{offset} ($2815\pm123$). La incertidumbre de cada inflexión es $\delta\sigma=\max(\sigma_{\rm jk},w)$, con $\sigma_{\rm jk}$ el error \emph{jackknife} (escalado $\times\sqrt{n-1}$) y $w$ el semiancho del pico. 
+\primerparrafo Los cuatro estimadores (Tabla~\ref{tab:est_v6}) son: M1 inflexión de $\gKHI(\sigma)$ ($6800\pm2625$); M2 inflexión de $\Omaxzp(\sigma)$ ($3400\pm2175$); M3 inflexión de $t_{\rm peak}(\sigma)$ ($6000\pm1147$); M4 centro $\sigma_0$ del sigmoide con \emph{offset} ($2815\pm123$). La incertidumbre de cada inflexión es $\delta\sigma=\max(\delta_{\rm jk},\,w/2)$, con $\delta_{\rm jk}$ el error \emph{jackknife} (escalado $\times\sqrt{n-1}$) y $w/2$ el semiancho del pico (Sección~\ref{ap:est:jackknife}).
 
 Dada la dispersión física de los umbrales, la incertidumbre real del sistema está dictada por la media aritmética inter-método, arrojando $4754\pm1944$. Es esta banda sistemática ($\pm1944$) la que define verdaderamente la zona de transición. Como referencia formal, si se calcula el consenso ponderado por el inverso de la varianza:
 \begin{equation}
@@ -132,7 +134,7 @@ Para la selección estadística de modelo, asumiendo residuos gaussianos donde $
 \subsection{Veredicto: validez teórica del montaje}
 \label{ap:veredicto}
 
-\primerparrafo La síntesis de la verificación independiente demuestra que el código \textit{Cueva} reproduce rigurosamente el techo hidrodinámico y la predicción RMHD compresible exacta. Dado que las implicaciones de esta consistencia (incluyendo el papel de la presión del campo guía y la estabilización por compresibilidad relativista) constituyen el resultado analítico central de la monografía, su discusión detallada y veredicto físico se desarrollan \emph{in extenso} en la Sección~\ref{sec:Contraste_Teoria_Lineal} del cuerpo principal del trabajo.
+\primerparrafo La síntesis de la verificación independiente demuestra que el código \textit{Cueva} reproduce rigurosamente el techo hidrodinámico y la predicción RMHD compresible exacta. Dado que las implicaciones de esta consistencia (incluyendo el papel de la presión del campo guía y la estabilización por compresibilidad relativista) constituyen el resultado analítico central de la monografía, su discusión detallada y veredicto físico se desarrollan \emph{in extenso} en la Sección~\ref{sec:teoria_v6} del cuerpo principal del trabajo.
 
 
 \section{Desarrollo en componentes del tensor de Faraday \texorpdfstring{$F=dA$}{F=dA}}
@@ -264,7 +266,7 @@ En la práctica, el peso del método M4 (sigmoide, $\delta\sigma=123$) es $\appr
 \subsection{Ajuste en escala logarítmica: leyes de potencia}
 \label{ap:est:loglog}
 
-\primerparrafo La dependencia $\Omaxzp(\sigma)\propto\sigma^\alpha$ se determina mediante \emph{regresión lineal en escala doblemente logarítmica} (\emph{log-log}). Tomando logaritmos, $\ln\Omaxzp = \mathrm{cte} + \alpha\ln\sigma$, el exponente $\alpha$ es la pendiente de la recta ajustada por MCO sobre los datos transformados. Se realizan dos ajustes: el completo ($N=29$ picos identificados) y el asintótico restringido a $\sigma\ge6000$ ($N$ reducido), obteniéndose $\alpha_{\rm completo}\approx1.22$ y $\alpha_{\rm asint}\approx0.57$, respectivamente. El exponente de referencia teórico $\alpha=1/2$ (escalamiento Sweet--Parker) se contrasta cualitativamente con los valores empíricos.
+\primerparrafo La dependencia $\Omaxzp(\sigma)\propto\sigma^\alpha$ se determina mediante \emph{regresión lineal en escala doblemente logarítmica} (\emph{log-log}). Tomando logaritmos, $\ln\Omaxzp = \mathrm{cte} + \alpha\ln\sigma$, el exponente $\alpha$ es la pendiente de la recta ajustada por MCO sobre los datos transformados. Se realizan dos ajustes: el completo ($N=29$ picos identificados) y el asintótico restringido a $\sigma\ge6000$ ($N$ reducido), obteniéndose $\alpha_{\rm completo}\approx1.21$ y $\alpha_{\rm asint}\approx1.24$, respectivamente (Tabla~\ref{tab:leyes_potencia}). El exponente de referencia teórico $\alpha=1/2$ (escalamiento Sweet--Parker) se contrasta cualitativamente con los valores empíricos.
 
 % -----------------------------------------------------------------------
 \subsection{Derivada logarítmica discreta y localización de inflexiones}
@@ -287,11 +289,11 @@ evaluada por diferencias centradas sobre la malla discreta del barrido. El punto
 \subsection{Guía de interpretación topológica: Derivada logarítmica como observable de transición}
 \label{sec:manual_derivada_log}
 
-En el estudio de la inestabilidad de Kelvin-Helmholtz bajo el marco de la RRMHD, la transición del régimen puramente resistivo al ideal abarca múltiples órdenes de magnitud en el parámetro de conductividad $\sigma$. Para extraer la topología de esta transición y localizar los umbrales críticos ($\sigma_{\text{crit}}$) sin sesgos de escala, se emplea el operador formal de \emph{derivada logarítmica discreta}:
+En el estudio de la inestabilidad de Kelvin--Helmholtz bajo el marco de la RRMHD, la transición del régimen puramente resistivo al ideal abarca múltiples órdenes de magnitud en el parámetro de conductividad $\sigma$. Para extraer la topología de esta transición y localizar los umbrales críticos ($\sigma_{\text{crit}}$) sin sesgos de escala, se emplea el operador formal de \emph{derivada logarítmica discreta}:
 \begin{equation}
     \mathcal{D}_\sigma[\mathcal{O}] \equiv \frac{d \ln \mathcal{O}}{d \log_{10} \sigma} \approx \ln(10) \left[ \frac{\log_{10} \mathcal{O}(\sigma_{j+1}) - \log_{10} \mathcal{O}(\sigma_{j-1})}{\log_{10} \sigma_{j+1} - \log_{10} \sigma_{j-1}} \right],
 \end{equation}
-donde $\mathcal{O}(\sigma)$ representa un observable macroscópico del plasma. El mapeo geométrico de la función local $\mathcal{D}_\sigma[\mathcal{O}]$ revela la clase de universalidad del sistema. Para la correcta lectura de los resultados paramétricos y fenoménicos presentados a lo largo de esta monografía, los perfiles resultantes de aplicar este operador deben interpretarse siguiendo el siguiente esquema topológico-físico:
+donde $\mathcal{O}(\sigma)$ representa un observable macroscópico del plasma. El mapeo geométrico de la función local $\mathcal{D}_\sigma[\mathcal{O}]$ revela la clase de universalidad del sistema. Para la correcta lectura de los resultados paramétricos y fenomenológicos presentados a lo largo de esta monografía, los perfiles resultantes de aplicar este operador deben interpretarse siguiendo el siguiente esquema topológico-físico:
 
 \subsubsection*{1. Tipo I: El Pico Convexo (Máxima Aceleración del Crecimiento)}
 \textbf{Condición matemática:} $\mathcal{D}_\sigma[\mathcal{O}] > 0$, bajo las condiciones locales $\frac{d}{d\sigma} \mathcal{D}_\sigma = 0$ y $\frac{d^2}{d\sigma^2} \mathcal{D}_\sigma < 0$.\\
