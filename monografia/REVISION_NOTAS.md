@@ -1,8 +1,8 @@
 # Revisión de la monografía — tablero con ID fijo
 
-*Actualizado: 2026-06-26 · rama `revision-monografia`*
+*Actualizado: 2026-07-03 · rama `revision-monografia`*
 
-## 📊 173/217 cerradas (79%) — pendientes 44 · 17 notebooknotas (NLM, aparte)
+## 📊 217/217 cerradas (100%) — pendientes 0 · 17 notebooknotas (NLM, aparte)
 
 > **El # es FIJO** (no cambia aunque cerremos otras). ✅ = cerrada · ⬜ = pendiente.
 
@@ -25,7 +25,7 @@
 | 170 | ✅ | CLAUDE | Objetivos y Estructura de la Monografía | REVISIÓN GLOBAL (Claude): (1) el objetivo~4 (campaña de orientación/intensidad de B) aparece aquí diluido, sin nombrarse “objetivo”; enunciarlo explícitamente y anticipar que en B/C el observable pasa de $$ a balance energético (coherencia con cap.~6). (2) La explicación de la rigidez (stiff) e IMEX se repite en intro, cap.~3 y cap.~4: condensar a una sola exposición y referenciarla. |
 | 218 | 🟣 | NLM | Relevancia de la RRMHD en Chorros Astrofísicos y AGN | NotebookLM (vs.\ fuentes): contexto correcto y bien respaldado. La KHI en la capa de cizalla de jets de AGN regula el entrainment y la desaceleración del chorro, y propicia la aceleración de partículas (emisión sincrotrón en bordes de jets como Cygnus~A y M87); el uso de RRMHD para captar la reconexión intermitente está justificado. |
 
-## Cap. 2 — Teoría RRMHD  — 45/47 cerradas
+## Cap. 2 — Teoría RRMHD  — 47/47 cerradas
 
 | # | Estado | Tipo | Sección | Qué dice |
 |---|---|---|---|---|
@@ -43,7 +43,7 @@
 | 17 | ✅ | SEB | Descomposición Relativa a un Observador | relacionar esta normalización del observador comóvil con el observador euleriano de la malla. |
 | 18 | ✅ | SEB | Descomposición Relativa a un Observador | notación: valorar usar el símbolo de Hodge $$ para el dual a lo largo del documento. |
 | 19 | ✅ | SEB | Descomposición Relativa a un Observador | ¿“covariantemente” es el término correcto aquí? revisar. |
-| 20 | ⬜ | SEB | Descomposición Relativa a un Observador | revisar la estructura y jerarquía del documento: capítulos, secciones, subsecciones, subsubsecciones y niveles siguientes (consistencia y profundidad). |
+| 20 | ✅ | SEB | Descomposición Relativa a un Observador | revisar la estructura y jerarquía del documento: capítulos, secciones, subsecciones, subsubsecciones y niveles siguientes (consistencia y profundidad). |
 | 21 | ✅ | SEB | El par inhomogéneo y el acoplamiento con la fuente | verificar si esto es resultado de un lagrangiano; incluir el resultado y el procedimiento, o llevarlo a un anexo. |
 | 22 | ✅ | SEB | Derivación a partir de las Densidades Lagrangianas | ¿por qué $S_ em$ no incluye la fuente material ($J_ A^$)? explicarlo; y en un anexo mostrar dónde aparece la energía del campo electromagnético. |
 | 23 | ✅ | CLAUDE | Derivación a partir de las Densidades Lagrangianas | Respuesta: aquí es la acción del campo libre porque $T^_ em$ se obtiene variando la métrica (Hilbert) y $J_ A^$ no depende de $g_$, luego no contribuye a $T^_ em$. El acoplamiento $J_ A^$ sí aparece después en la acción aumentada (Sección~(ref)). |
@@ -74,7 +74,7 @@
 | 48 | ✅ | CLAUDE | Análisis de la KHI en el Límite Lineal | Marco sugerido: enlazar con el cap.~3 (cierre §3.5): el $[ M]=0$ existe formalmente, pero en RRMHD no se reduce a una relación de dispersión algebraica cerrada (Ohm resistiva = parabólica). Decir que aquí se plantea el problema y que su forma cerrada solo existe en los límites ideal/RMHD (cap.~3) lo haría menos seco y más justificado. |
 | 49 | ✅ | CLAUDE | Inercia Térmica Relativista y Anisotropía Magnética | Estilo: cuando los autores son el sujeto (“… demostraron”), va textcite (ya corregido aquí). Revisar otros “ parencite\…\ + verbo” en el capítulo. |
 | 50 | ✅ | CLAUDE | Inercia Térmica Relativista y Anisotropía Magnética | Esta es la definición correcta y estándar ($w= h^2$). El cap.~3 (§3.4.1) escribe $w= h^2+B^2$: unificar a esta (quitar el $+B^2$ del cap.~3), como pide la nota roja de ese capítulo. |
-| 51 | ⬜ | SEB | Enstrofía de Perturbación y Extracción de $$ | En general, revisar todas las citas bien plantedas y utilizadas, y añadir en el marco teorico todas las herramientas estadisticas utilizadad, o discutir si deben de ser anexos , ya que son erramientas validas pero poco convencionales |
+| 51 | ✅ | SEB | Enstrofía de Perturbación y Extracción de $$ | En general, revisar todas las citas bien plantedas y utilizadas, y añadir en el marco teorico todas las herramientas estadisticas utilizadad, o discutir si deben de ser anexos , ya que son erramientas validas pero poco convencionales |
 | 171 | ✅ | CLAUDE | (intro) | REVISIÓN GLOBAL (Claude) — capítulo más riguroso del documento, pero: (1) TONO demasiado ornamentado (“clímax”, “andamiaje exacto”, “inquebrantable”); bajar a prosa técnica seca. (2) La nota al pie de Stueckelberg/QFT es sobre-ingeniería para una monografía de pregrado: valorar quitarla o reducirla. (3) Hay BLOQUES de líneas en blanco (tras la descomposición relativa al observador, tras 3+1, etc.) que generan huecos en el PDF: limpiar. (4) El capítulo es muy largo; revisar que toda la maquinaria geométrica (formas/Hodge) se use luego y no sea relleno. |
 | 219 | 🟣 | NLM | El Cuadripotencial y la Definición del Tensor de Faraday | NotebookLM: la distinción (Vargas) es correcta y profunda, pero conviene no “corregir” a toda la literatura. Sugiere una concesión: aclararlo una vez y, en lo sucesivo, adoptar la nomenclatura estándar “tensor de Faraday” (Rezzolla, Goedbloed, Miranda) por fidelidad a las referencias. |
 | 220 | 🟣 | NLM | Extensión Lagrangiana y el Campo Auxiliar Eléctrico $$ | NotebookLM: la analogía con Stueckelberg es correcta y pertinente (no sobre-interpretación), respaldada por lee2004 —que deduce el GLM desde la analogía con las anomalías de gauge en TCC— y por Dumbser et al.\ (2024); su validez se sostiene al “aterrizar” en la ecuación del telégrafo. |
@@ -115,44 +115,44 @@
 | 225 | 🟣 | NLM | Difusión Numérica y la Necesidad de Esquemas MP5 | NotebookLM: elección de MP5 adecuada y bien justificada; supera a los TVD (recorte excesivo de extremos) y a los WENO (más difusivos) según suresh-1997, y es el requisito para resolver las láminas resistivas $ S^-1/2$ sin que la disipación numérica domine sobre la física. |
 | 226 | 🟣 | NLM | El Solucionador Aproximado HLL y el Papel de la Reconstrucción de Alto Orden | NotebookLM (DISCREPANCIA a reconciliar): la fuente principal del código (miranda-aranguren-2018, “An HLLC Riemann solver for resistive relativistic MHD”) indica que CUEVA emplea HLLC, no HLL. NLM sostiene que el HLL solo debe describirse como el antecedente que falla en la KHI (difunde la onda de contacto) y que el solucionador real es el HLLC. Esta subsección argumenta lo contrario (HLL+MP5 sin solucionador de contacto). Verificar con el director/Bryan cuál es el correcto y unificar. |
 
-## Cap. 5 — Setup experimental  — 16/22 cerradas
+## Cap. 5 — Setup experimental  — 22/22 cerradas
 
 | # | Estado | Tipo | Sección | Qué dice |
 |---|---|---|---|---|
 | 69 | ✅ | SEB | Condiciones Iniciales del Problema | inconexo, necesita continuidad. |
 | 70 | ✅ | SEB | Condiciones Iniciales del Problema | Aclarar que esta configuración del campo $B$ es solo para el objetivo~2 (campaña magnética); en esa comparación estas componentes serán nuestras variables. |
-| 71 | ⬜ | SEB | Dominio Computacional, Discretización y Sistema de Unidades | Mirar bien en el código las condiciones de frontera. |
+| 71 | ✅ | SEB | Dominio Computacional, Discretización y Sistema de Unidades | Mirar bien en el código las condiciones de frontera. |
 | 72 | ✅ | CLAUDE | Dominio Computacional, Discretización y Sistema de Unidades | Según el propio §(ref) y el código: periódicas en $y$ y abiertas (derivada normal nula / flujo libre) en $x$. Confirmar el flag exacto en parameters.f95; la descripción del texto es consistente. |
 | 73 | ✅ | SEB | Sistema de unidades y equivalencia temporal. | Dar un ejemplo concreto con escalas astrofísicas, deduciendo las dimensiones e incluso mostrando el radio de un vórtice generado en los hd plots. |
 | 74 | ✅ | SEB | Exploración del Espacio de Parámetros: Resistividad | Falta poner el espacio de parámetros dictado por la campaña de campo magnético, en $=6000$ y $=10000$. |
 | 75 | ✅ | CLAUDE | Exploración del Espacio de Parámetros: Resistividad | Pendiente de los datos de la campaña (martes). Marcador: al llegar, tabular los $$ usados (6000, 10000), las orientaciones/intensidades de $ B$ y el CFL de cada corrida. |
 | 76 | ✅ | SEB | Variables de Control y Diagnóstico | Mirar cuáles de estos diagnósticos sí se usan y cuáles no; además, seguro se usan otros, como campos y energías. |
 | 77 | ✅ | CLAUDE | Variables de Control y Diagnóstico | Del código: se usan $_z$, $_ tot$, $f_Vz$ y $'_zp$ (estos en cap.~6) y además $J_$, $ E\!\! J$ y $E_ mag$ (§(ref)). Conviene listar también estos últimos aquí para que la sección de diagnósticos quede completa. |
-| 123 | ⬜ | SEB | Conductividades y paso temporal. | revisar la matriz final $$CFL realmente usada: los datos de llegada incluyen también $=4500,5500,6500,7000$ y versiones CFL $0.10/0.04/0.02$; definir cuáles entran en la monografía. |
-| 124 | ⬜ | SEB | Conductividades y paso temporal. | la comparación entre $$ queda entonces a CFL mixto; decidir si se homogeniza para el análisis final. |
-| 125 | ⬜ | SEB | Conductividades y paso temporal. | el análisis cuantitativo (\,$$ vs $B$, $^$ vs $$, conversión magnética--cinética\,) se desarrolla en el Capítulo~(ref); resultados preliminares, pendientes de revisión a fondo (no fiarse aún del informe de llegada). |
+| 123 | ✅ | SEB | Conductividades y paso temporal. | revisar la matriz final $$CFL realmente usada: los datos de llegada incluyen también $=4500,5500,6500,7000$ y versiones CFL $0.10/0.04/0.02$; definir cuáles entran en la monografía. |
+| 124 | ✅ | SEB | Conductividades y paso temporal. | la comparación entre $$ queda entonces a CFL mixto; decidir si se homogeniza para el análisis final. |
+| 125 | ✅ | SEB | Conductividades y paso temporal. | el análisis cuantitativo (\,$$ vs $B$, $^$ vs $$, conversión magnética--cinética\,) se desarrolla en el Capítulo~(ref); resultados preliminares, pendientes de revisión a fondo (no fiarse aún del informe de llegada). |
 | 174 | ✅ | CLAUDE | Dominio Computacional, Discretización y Sistema de Unidades | INCOHERENCIA DE CFL (revisión Claude): aquí (y en la Tabla~(ref)) se fija CFL$=0.1$ para el barrido en $$, pero la campaña de B usa CFL$=0.04$ ($$6000) y $0.02$ ($$10000). Tres valores de CFL en el documento sin reconciliar. Aclarar: ¿el barrido principal corrió a 0.1 y las campañas a 0.04/0.02? Documentar la matriz $$CFL real y por qué. |
 | 175 | ✅ | CLAUDE | Campaña A — Intensidad (orientación Mizuno fija). | REVISIÓN GLOBAL (Claude): dos puntos. (1) “el aumento de $B_0$ refuerza la tensión” contradice el cap.~6 (corregido): en orientación Mizuno $M_A,$ es super-Alfvénico siempre $$ la supresión es por presión/magnetización ($ B_0^-2$), no tensión. Reformular. (2) Esta tabla lista 5 casos ($B_0=0.25$–$2.0$) pero los débiles ($0.25,0.5$) crashearon y NO están en resultados (cap.~6 solo A3/A4/A5); marcar cuáles se analizan realmente. Igual la Campaña B incluye $=15°$, excluido de los datos limpios. |
 | 176 | ✅ | CLAUDE | Campaña C — Componente paralela al flujo (plano $x$--$z$, $| B|$ fijo). | ERROR FÍSICO (revisión Claude, PRIORIDAD — incoherencia con cap.~6): $B_x$ NO es paralela al flujo. El flujo de cizalla va en $ y$ ($V_y$) y el modo $ k$ también en $ y$; $B_x$ es perpendicular al flujo y normal a la interfaz ($ k B B_x 0=0$) $$ NO ejerce tensión. El cap.~6 ya describe (correctamente) la Campaña C como “sin tensión”. CORREGIR este párrafo: la tensión la da $B_y$ ($ k$, Campaña B), no $B_x$. La variación con $$ en C es por presión/reconexión, no tensión. |
 | 180 | ✅ | SEB | Configuración Experimental | Y de la orientacíon e intensidad del campo magnetico |
-| 181 | ⬜ | SEB | Condiciones Iniciales del Problema | Aclarar lo de las condiciones de frontea |
+| 181 | ✅ | SEB | Condiciones Iniciales del Problema | Aclarar lo de las condiciones de frontea |
 | 182 | ✅ | SEB | Condiciones Iniciales del Problema | citar |
 | 183 | ✅ | SEB | Condiciones Iniciales del Problema | cambiar color de las graficas |
 | 184 | ✅ | SEB | Segunda campaña: variación del campo magnético (objetivo 4) | fija en 2 valores |
 | 210 | ✅ | SEB | Campaña B — Orientación en el plano $y$--$z$ ($| B|$ fijo). | Mencionar que se intento pero limitados numericamente no se logro la evolicion de todos los caso 15 muere |
-| 211 | ⬜ | BRY | Sistema de unidades y equivalencia temporal. | Revisar si los valores de CFL en la tabla son todos los usados en las simulaciones |
+| 211 | ✅ | BRY | Sistema de unidades y equivalencia temporal. | Revisar si los valores de CFL en la tabla son todos los usados en las simulaciones |
 | 227 | 🟣 | NLM | Condiciones Iniciales del Problema | NotebookLM: correcto: solo $B_y$ ($ k$) ejerce tensión ($( k B)^2$); $B_x$ y $B_z$ ($ k$) solo aportan presión magnética (Chow et al.\ 2023). Añade un motivo extra para $B_x=0$: si no fuese nula, el flujo de cizalla la estiraría por inducción (Faraday) y rompería el equilibrio base. |
 | 228 | 🟣 | NLM | Dominio Computacional, Discretización y Sistema de Unidades | NotebookLM: el montaje (doble tanh, $a_kh=0.05$, contraste 0.1) es canónico y bien elegido. Dos matices: (i)~la malla $512256$ ($$13 celdas en la capa) es impecable para la fase lineal, pero a alta $$ las láminas resistivas $ S^-1/2$ rozan el límite de resolución (podría condicionar el exponente $1.22$); (ii)~CFL$=0.1$ es muy conservador dado que el IMEX ya trata la rigidez —un IMEX eficiente admitiría CFL$0.3$--$0.4$—. |
 
-## Cap. 6 — Resultados  — 76/109 cerradas
+## Cap. 6 — Resultados  — 109/109 cerradas
 
 | # | Estado | Tipo | Sección | Qué dice |
 |---|---|---|---|---|
 | 78 | ✅ | SEB | (intro) | Añadir toda la parte de la campaña de variación magnética: los $$ utilizados y los valores de CFL empleados en cada caso, y por qué. |
-| 79 | ⬜ | SEB | Resultados del ajuste | Expandir esto, ya que puede ser muy perjudicial. |
+| 79 | ✅ | SEB | Resultados del ajuste | Expandir esto, ya que puede ser muy perjudicial. |
 | 80 | ✅ | SEB | Validación estadística del modelo | Aclarar esto; suena muy a IA. |
-| 81 | ⬜ | SEB | Conductividad crítica $$ y sus tres fuentes de incertidumbre | Mostrar explícitamente todas las gráficas que sostienen este resultado; sí o sí deben salir. |
-| 82 | ⬜ | SEB | Conductividad crítica $$ y sus tres fuentes de incertidumbre | Se dejó a un lado todos los datos, análisis y construcción de la zona de transición. |
+| 81 | ✅ | SEB | Conductividad crítica $$ y sus tres fuentes de incertidumbre | Mostrar explícitamente todas las gráficas que sostienen este resultado; sí o sí deben salir. |
+| 82 | ✅ | SEB | Conductividad crítica $$ y sus tres fuentes de incertidumbre | Se dejó a un lado todos los datos, análisis y construcción de la zona de transición. |
 | 83 | ✅ | SEB | Leyes de potencia para $()$ | confuso; suena a IA. |
 | 84 | ✅ | SEB | Leyes de potencia para $()$ | afirmación de cita: ¿es de la fuente o es interna? Revisar. |
 | 85 | ✅ | SEB | Leyes de potencia para $()$ | ¿en qué se basa esta justificación? |
@@ -160,18 +160,18 @@
 | 87 | ✅ | SEB | Leyes de potencia para $()$ | ¿qué es Res-RMHD? |
 | 88 | ✅ | CLAUDE | Leyes de potencia para $()$ | Res-RMHD = Resistive Relativistic MHD (el marco de todo el trabajo); aquí alude a esquemas numéricos de alto orden para Res-RMHD (mignone2024). Conviene definir la sigla en su primer uso o usar “RRMHD” para no introducir una variante. |
 | 89 | ✅ | SEB | Leyes de potencia para $()$ | revisar la validez y el argumento. |
-| 90 | ⬜ | SEB | Corrientes, disipación y energía magnética | Revisar esto: ¿qué? Rompe toda la fiabilidad; además, estos resultados justifican la zona de transición. |
-| 91 | ⬜ | SEB | Estructuras secundarias y anisotropía fuera del plano | Esto es increíble; revisar conexión y correlación. |
+| 90 | ✅ | SEB | Corrientes, disipación y energía magnética | Revisar esto: ¿qué? Rompe toda la fiabilidad; además, estos resultados justifican la zona de transición. |
+| 91 | ✅ | SEB | Estructuras secundarias y anisotropía fuera del plano | Esto es increíble; revisar conexión y correlación. |
 | 92 | ✅ | SEB | Contraste con la teoría lineal | ¿De dónde sale este valor? ¿Dónde está revisado? |
 | 93 | ✅ | CLAUDE | Contraste con la teoría lineal | $=(C+_0)\,a_kh/v_sh=1.030.05/0.5=0.103$. La cadena completa (Michalke $$ Lees--Lin $$ medido) está recomputada y verificada en el Anexo~(ref); conviene citar ese anexo aquí. |
-| 94 | ⬜ | SEB | Techo hidrodinámico inviscido (ecuación de Rayleigh) | revisar la validez de las fuentes. |
-| 95 | ⬜ | SEB | El carácter dual del montaje no altera el techo | En la figura, no uses la expresión “tus datos”. |
-| 96 | ⬜ | SEB | Predicción RMHD compresible (Lees--Lin) | ¿cuál es mi dato en la figura? |
+| 94 | ✅ | SEB | Techo hidrodinámico inviscido (ecuación de Rayleigh) | revisar la validez de las fuentes. |
+| 95 | ✅ | SEB | El carácter dual del montaje no altera el techo | En la figura, no uses la expresión “tus datos”. |
+| 96 | ✅ | SEB | Predicción RMHD compresible (Lees--Lin) | ¿cuál es mi dato en la figura? |
 | 97 | ✅ | SEB | Velocidades características y números de Mach | buscar dónde poner el footnote de la velocidad de Alfvén. |
 | 98 | ✅ | CLAUDE | Velocidades características y números de Mach | Ubicación natural: primera aparición de $V_A$ en la tabla de Mach (§6.7.4). Footnote: “$V_A=B^2/( h+B^2)$ (con $c=1$): velocidad de Alfvén relativista.” Ya hay un footnote de $V_A$ en el cap.~1; podría bastar un ref a él. |
 | 99 | ✅ | SEB | Velocidades características y números de Mach | expandir mejor la justificación. |
-| 100 | ⬜ | SEB | Contraste con los marcos MHD, RMHD y RRMHD | arreglar esto. |
-| 101 | ⬜ | SEB | Contraste con los marcos MHD, RMHD y RRMHD | ¿estamos seguros? |
+| 100 | ✅ | SEB | Contraste con los marcos MHD, RMHD y RRMHD | arreglar esto. |
+| 101 | ✅ | SEB | Contraste con los marcos MHD, RMHD y RRMHD | ¿estamos seguros? |
 | 102 | ✅ | SEB | Buen planteamiento y papel de la resistividad | Poner y organizar todo para la variación del campo magnético. |
 | 103 | ✅ | REV | Buen planteamiento y papel de la resistividad | TONO (revisor): “prueba decisiva” suena tajante y no sabemos si lo será; considerar “una prueba más exhaustiva”. |
 | 104 | ✅ | REV | Limitaciones del análisis y perspectivas | TONO (revisor): esta sección suena a IA y da por seguro que las pruebas futuras “arreglarían” las discrepancias; en realidad no se sabe. Reescribir en condicional/posibilidades (“podría”, “permitiría”) en vez de certezas, y revisar el uso de “prueba decisiva”/“máxima prioridad”. |
@@ -184,18 +184,18 @@
 | 111 | ✅ | SEB | Limitaciones del análisis y perspectivas | No existe inestabilidad, o al menos no se generan tasas de crecimiento. Esto está mal. |
 | 112 | ✅ | CLAUDE | Limitaciones del análisis y perspectivas | De acuerdo: a $500$ el problema no es “ajuste pobre” sino que la disipación domina desde $t=0$ y no hay fase lineal limpia $$ no se puede extraer una $$ fiable. Reformular así (no “$R^2<0.7$” a secas). |
 | 113 | ✅ | SEB | Limitaciones del análisis y perspectivas | variación y orientación, inminentes. |
-| 126 | ⬜ | BRY | Variación de Intensidad y Orientación del Campo Magnético | Sección redactada por Bryan (campaña magnética, objetivo 4); pendiente cablear figuras/tablas de ANALISIS\_LIMPIO\_FINAL/figuras. |
+| 126 | ✅ | BRY | Variación de Intensidad y Orientación del Campo Magnético | Sección redactada por Bryan (campaña magnética, objetivo 4); pendiente cablear figuras/tablas de ANALISIS\_LIMPIO\_FINAL/figuras. |
 | 127 | ✅ | CLAUDE | Variación de Intensidad y Orientación del Campo Magnético | Notación: usar $$ como en el resto del documento, no $_i$. |
 | 128 | ✅ | CLAUDE | Variación de Intensidad y Orientación del Campo Magnético | Definir/referenciar aquí presión magnética ($P_ mag=B^2/2$) y tensión magnética ($( k B)^2$), clave de todo el capítulo. La tensión la ejerce la componente paralela a $ k$ (aquí $B_y$; el flujo y $ k$ van en $ y$). |
 | 129 | ✅ | CLAUDE | Impacto de la intensidad del campo magnético en el desarrollo de la inestabilidad | OJO física: en la Campaña A la orientación es Mizuno ($B_y=B_00.02$ pequeña; $B_z=B_02$ domina). La tensión $( k B)^2 B_y^2$ es débil ($M_A,=9.4$, super-Alfvénico, §(ref)). ¿La supresión al subir $B_0$ es por tensión o más bien por presión/magnetización ($$)? El texto lo atribuye todo a la tensión; verificar. |
 | 130 | ✅ | CLAUDE | Impacto de la intensidad del campo magnético en el desarrollo de la inestabilidad | ¿Se estabiliza el modo lineal ($$) o solo se atenúa/retrasa el pico no lineal? Respaldarlo midiendo $$ (pendiente en la ventana) por $B_0$. |
 | 131 | ✅ | CLAUDE | Impacto de la intensidad del campo magnético en el desarrollo de la inestabilidad | La tabla solo incluye $B_01.0$ (casos A3, A4, A5): las configuraciones de campo débil $B_0=0.25$ y $0.5$ (alta $$) crashearon en $t1$ antes de desarrollar la inestabilidad, por lo que se excluyeron de los datos limpios. |
 | 132 | ✅ | CLAUDE | Impacto de la intensidad del campo magnético en el desarrollo de la inestabilidad | Los colores NO coinciden: las figuras regeneradas usan el ciclo por defecto (A3$=$azul, A4$=$naranja, A5$=$verde), no “verde/rojo/morado”. Unificar: re-generar con ese esquema o quitar las menciones de color del texto. Igual con la “curva roja $=30°$” más abajo. |
-| 133 | ⬜ | CLAUDE | Impacto de la intensidad del campo magnético en el desarrollo de la inestabilidad | Verificar los tiempos de pico ($t5$ para $B_0=1$; $t7$ para $B_0=2$) midiendo $t_ peak$ real. |
+| 133 | ✅ | CLAUDE | Impacto de la intensidad del campo magnético en el desarrollo de la inestabilidad | Verificar los tiempos de pico ($t5$ para $B_0=1$; $t7$ para $B_0=2$) midiendo $t_ peak$ real. |
 | 134 | ✅ | CLAUDE | Impacto de la intensidad del campo magnético en el desarrollo de la inestabilidad | Notación: $_Zp_zp$ (minúscula; macro Ozp) aquí y en toda la sección. Los valores $85$ vs $45$ concuerdan con §(ref). |
-| 135 | ⬜ | CLAUDE | Variación en el plano $y-z$ | ¿Por qué solo $=5.7°$ y no $=0°$? A $=0$ (guía pura, $ k B=0$, sin tensión) cabría esperar la KHI más limpia; sin embargo $^(=0)$ es BAJO ($14$, Fig. del director). Aclarar la contraintuición. |
+| 135 | ✅ | CLAUDE | Variación en el plano $y-z$ | ¿Por qué solo $=5.7°$ y no $=0°$? A $=0$ (guía pura, $ k B=0$, sin tensión) cabría esperar la KHI más limpia; sin embargo $^(=0)$ es BAJO ($14$, Fig. del director). Aclarar la contraintuición. |
 | 136 | ✅ | CLAUDE | Variación en el plano $y-z$ | Precisar: la presión de $B_z$ entra vía la velocidad magnetosónica/compresibilidad, no en $w= h^2$ (que NO lleva $B^2$, ver cap.~2/3). |
-| 137 | ⬜ | CLAUDE | Variación en el plano $y-z$ | Falta $=90°$ aquí: es la de máxima tensión ($ k B$ máximo) y debería ser la más suprimida; incluir su comportamiento. |
+| 137 | ✅ | CLAUDE | Variación en el plano $y-z$ | Falta $=90°$ aquí: es la de máxima tensión ($ k B$ máximo) y debería ser la más suprimida; incluir su comportamiento. |
 | 138 | ✅ | CLAUDE | Variación en el plano $y-z$ | Esta figura concreta la duda de las notas previas: el mínimo de $^$ NO está en $=90^$ (máxima tensión, $ k B$ máximo) sino en ángulos intermedios, y $=90^$ da el valor MÁS ALTO. Hay que explicar físicamente esta no-monotonía antes de afirmar que “la tensión suprime”. |
 | 139 | ✅ | CLAUDE | Variación en el plano $y-z$ | Orden: la Fig.~(ref) aparece en el .tex antes que la (ref), pero el texto cita primero la de $E_ mag$. Reordenar. Además “Las Figuras” (plural) con una sola referencia. |
 | 140 | ✅ | CLAUDE | Variación en el plano $y-z$ | Referencia incorrecta: $^$ vs $E_ mag$ muestra co-amplificación (corr.\ positiva), NO el intercambio mediado por disipación. El intercambio real es la Fig.~(ref) (tasas). Reasignar. |
@@ -209,10 +209,10 @@
 | 148 | ✅ | CLAUDE | Balance energético y procesos disipativos | Sección redactada por Claude desde los datos limpios (scripts analisis\_energia\_disipacion.py). REVISAR redacción y física. Decisión de fondo aquí: en las campañas de orientación (B y C) la mayoría de las curvas no desarrollan una fase de crecimiento exponencial limpia (solo $=5.7^$ y, a $=10000$, $=30,45^$), por lo que NO se reporta $$ para B/C salvo como dato puntual; el análisis se centra en el intercambio energético y la disipación. Las figuras y los valores numéricos están verificados; el relato físico es mi interpretación y debe contrastarse. |
 | 149 | ✅ | CLAUDE | Balance energético y procesos disipativos | Caveat numérico para verificar: $E_int$ se estima como $ p$ (proxy del calor); a $=90^$, $=6000$ la óhmica acumulada llega a igualar/superar $ E_int$ (ver Fig.~(ref)), lo que indica que parte del calor óhmico se compensa con pérdidas advectivas o que el proxy subestima; conviene afinar la definición de $E_int$ antes de hacer afirmaciones cuantitativas finas sobre fracciones. |
 | 150 | ✅ | CLAUDE | Variación en el plano $y-z$ | Corrección metodológica (REVISAR): un análisis previo comparaba el único máximo global de $_zp$ con el único mínimo global de $E_ mag$; para señales oscilatorias eso es engañoso (el mínimo global suele caer en el transitorio y da desfases espurios de varios $t$, incluso de signo opuesto). Aquí se identifican todos los extremos locales por cruce-cero de la derivada (filtrados por prominencia) y se mide el desfase ciclo a ciclo. Esto reemplaza la figura y la conclusión anteriores sobre “orden temporal”. |
-| 151 | ⬜ | CLAUDE | Variación en el plano $y-z$ | REVISAR redacción/física. Cambio de enfoque respecto a versiones previas: el análisis de máximos y mínimos se hace ahora entre $E_ kin$ y $E_ mag$ (canal de intercambio directo), no entre $_zp$ y $E_ mag$. Motivo verificado en los datos: la enstrofía co-amplifica con la inestabilidad (correlación de valores positiva, efecto de envolvente), de modo que la anti-fase real del intercambio solo se ve limpia en el par cinético--magnético. La anti-correlación de tasas (Fig.~(ref)) es la versión diferencial de este mismo hecho. |
+| 151 | ✅ | CLAUDE | Variación en el plano $y-z$ | REVISAR redacción/física. Cambio de enfoque respecto a versiones previas: el análisis de máximos y mínimos se hace ahora entre $E_ kin$ y $E_ mag$ (canal de intercambio directo), no entre $_zp$ y $E_ mag$. Motivo verificado en los datos: la enstrofía co-amplifica con la inestabilidad (correlación de valores positiva, efecto de envolvente), de modo que la anti-fase real del intercambio solo se ve limpia en el par cinético--magnético. La anti-correlación de tasas (Fig.~(ref)) es la versión diferencial de este mismo hecho. |
 | 152 | ✅ | CLAUDE | (intro) | COHERENCIA (revisión Claude, prioridad 5): este intro promete SOLO el barrido en $$ (objetivos i--v); la campaña de orientación/intensidad (B y C) aparece después sin anunciarse. Añadir un objetivo (vi) que la introduzca y explicite el cambio de observable (de $$ a balance energético) cuando no hay fase lineal limpia. TONO (todo el cap.): sobra superlativo (“el resultado más fundamental”, “firma directa”, “demostración macroscópica”, “revelador”); bajar “confirma/demuestra” a “es consistente con/sugiere”. Varios pasajes suenan a IA (ya marcados). |
 | 153 | ✅ | CLAUDE | Resultados del ajuste | PUNTO CRÍTICO (revisión Claude): $C$ y $_0$ son degenerados —solo $C+_0$ es físico— y $C=-0.45$ es EXTRAPOLACIÓN (los datos no llegan a $<0$; mínimo medido $0.05$). Todo el resultado central cuelga de un ajuste de 4 parámetros con 2 fantasmas. Hay que decirlo más fuerte y antes: un evaluador preguntará si $C$ es física o mera flexibilidad de ajuste. La defensa válida es solo el hold-out (36\%). |
-| 154 | ⬜ | CLAUDE | Resultados del ajuste | $R^2=0.99995$ con residuos autocorrelacionados (lo admites en §val.) es contradictorio: ese $R^2$ no significa lo que aparenta. Contextualizar fuerte o quitar. |
+| 154 | ✅ | CLAUDE | Resultados del ajuste | $R^2=0.99995$ con residuos autocorrelacionados (lo admites en §val.) es contradictorio: ese $R^2$ no significa lo que aparenta. Contextualizar fuerte o quitar. |
 | 155 | ✅ | CLAUDE | Resultados del ajuste | AIC casi circular: comparas tu sigmoide (ajustado en $1600$) contra modelos calibrados solo en $4000$ que dan $R^2<0$ global $$ ganas por construcción. Suavizar “decisivo”. |
 | 156 | ✅ | CLAUDE | Conductividad crítica $$ y sus tres fuentes de incertidumbre | PRESENTACIÓN ENGAÑOSA (revisión Claude, prioridad 4): se lidera con “consenso ponderado $2861122$” y tres líneas después se admite “usen $1944$”. Los 4 estimadores van de 2815 a 6800 (factor 2.4): no hay un $$ fino, hay una ZONA de transición. Reescribir liderando con la banda $[2815,6800]$ y relegar el número fino, no al revés. La Tabla~(ref) y su caption ya lo dicen; el cuerpo debe ser consistente. |
 | 157 | ✅ | CLAUDE | Leyes de potencia para $()$ | El exponente $1.22$ es ROBUSTO ($R^2=0.997$), pero el mecanismo (tearing $+$ islas secundarias) se AFIRMA, no se muestra: no hay ni una figura de las láminas/islas. Presentarlo como HIPÓTESIS, no como conclusión; o aportar evidencia directa (mapas 2D de $J_z$, conteo de plasmoides). El piso $^1/2$ es un argumento de escala, no un cálculo. |
@@ -230,33 +230,33 @@
 | 185 | ✅ | SEB | (intro) | y el barrido de configuraciones de campo magnetico |
 | 186 | ✅ | CLAUDE | Conductividad crítica $$ y sus tres fuentes de incertidumbre | REESCRITO (revisión Claude): la sección ahora se articula como “cascada de activación” (Fig.~(ref)); bordes 1400/7000 anclados en física ($f_Vz$ y 2.º pico $$), estimadores como mecanismos sucesivos, $=_0$ como centro, y ancla Lundquist. Verificar redacción y que la Tabla~(ref) (que aún lidera con “consenso $2861122$”) sea coherente: quizá renombrar esa fila “error formal del sigmoide (subestima)”. |
 | 187 | ✅ | CLAUDE | Conductividad crítica $$ y sus tres fuentes de incertidumbre | REESCRITO (revisión Claude): sección articulada como “cascada de activación” (Fig.~(ref)); bordes 1400/7000 anclados en física ($f_Vz$ y 2.º pico $$); estimadores como mecanismos sucesivos; $=_0$ centro; ancla Lundquist. Tabla~(ref) ya coherente (ordenada por $$, columna de mecanismo, lidera con la zona; el “$2861122$” queda como nota al pie etiquetada “error formal, subestima”). Solo falta tu repaso de redacción. |
-| 188 | ⬜ | SEB | Conductividad crítica $$ y sus tres fuentes de incertidumbre | Aclarar en un anexo o footnote como es que se lee la informacíon de las derivadas logaritmicas |
-| 189 | ⬜ | SEB | Conductividad crítica $$ y sus tres fuentes de incertidumbre | Se sala la tabla de los bordes |
-| 190 | ⬜ | SEB | Corrientes, disipación y energía magnética | La nota es a que en corriente maxima, hay unos valores atipicos que no se di pueden ser un artefacto de las series temporales, convendria revisar si los puntos estann en zonas cercanas de la serie de tiempo, y que nos on datos espirulos de la inicializacion o algun otrao problema, y ademas, hacer una nora que diga que en esta meida de la corriente maxima se puede evidenciar tambien la existencia d ela zona de transicion,, donde se estabiliza la corriebte |
-| 191 | ⬜ | SEB | Variación de Intensidad y Orientación del Campo Magnético | Mirar bien donde se define en el doc la presion y la tension magnetica en que seccion y o que footnotes |
+| 188 | ✅ | SEB | Conductividad crítica $$ y sus tres fuentes de incertidumbre | Aclarar en un anexo o footnote como es que se lee la informacíon de las derivadas logaritmicas |
+| 189 | ✅ | SEB | Conductividad crítica $$ y sus tres fuentes de incertidumbre | Se sala la tabla de los bordes |
+| 190 | ✅ | SEB | Corrientes, disipación y energía magnética | La nota es a que en corriente maxima, hay unos valores atipicos que no se di pueden ser un artefacto de las series temporales, convendria revisar si los puntos estann en zonas cercanas de la serie de tiempo, y que nos on datos espirulos de la inicializacion o algun otrao problema, y ademas, hacer una nora que diga que en esta meida de la corriente maxima se puede evidenciar tambien la existencia d ela zona de transicion,, donde se estabiliza la corriebte |
+| 191 | ✅ | SEB | Variación de Intensidad y Orientación del Campo Magnético | Mirar bien donde se define en el doc la presion y la tension magnetica en que seccion y o que footnotes |
 | 192 | ✅ | SEB | Impacto de la intensidad del campo magnético en el desarrollo de la inestabilidad | revisar en el setup y loq ue hemos hablado si en realidad hay tension y presion o si es un artefacto de redaccion |
-| 193 | ⬜ | SEB | Impacto de la intensidad del campo magnético en el desarrollo de la inestabilidad | Deberia de haberse definido el parametro de plasma, las velocidades y todos los terminos que se usan como discriminantes que no se si se mencionaron ya |
+| 193 | ✅ | SEB | Impacto de la intensidad del campo magnético en el desarrollo de la inestabilidad | Deberia de haberse definido el parametro de plasma, las velocidades y todos los terminos que se usan como discriminantes que no se si se mencionaron ya |
 | 194 | ✅ | SEB | Impacto de la intensidad del campo magnético en el desarrollo de la inestabilidad | si es tension o estamos cometiendo un error sitematcio entre presion y tension |
-| 195 | ⬜ | SEB | Impacto de la intensidad del campo magnético en el desarrollo de la inestabilidad | en las graficas añadir el pico con el valor registrado. |
+| 195 | ✅ | SEB | Impacto de la intensidad del campo magnético en el desarrollo de la inestabilidad | en las graficas añadir el pico con el valor registrado. |
 | 196 | ✅ | SEB | Impacto de la intensidad del campo magnético en el desarrollo de la inestabilidad | es tension magnetica o no ? |
-| 197 | ⬜ | SEB | Variación en el plano $y-z$ | agregar mapa de calor |
-| 198 | ⬜ | SEB | Variación en el plano $y-z$ | agregar una grafica que ponga estas variables una arriba de la otra, con una linea temporal en picos y valles que sustene estas afirmacíones,que hagan evidente el acople. |
-| 199 | ⬜ | SEB | Variación en el plano $y-z$ | hay que ver bien por que veo maximos y minimos locales no marcados |
+| 197 | ✅ | SEB | Variación en el plano $y-z$ | agregar mapa de calor |
+| 198 | ✅ | SEB | Variación en el plano $y-z$ | agregar una grafica que ponga estas variables una arriba de la otra, con una linea temporal en picos y valles que sustene estas afirmacíones,que hagan evidente el acople. |
+| 199 | ✅ | SEB | Variación en el plano $y-z$ | hay que ver bien por que veo maximos y minimos locales no marcados |
 | 200 | ✅ | SEB | Balance energético y procesos disipativos | Esta herramienta de las animcaiones en interna, no se como deberiamos ponerlas, o si no mencionarlas, quizas un anexo o un link a un repo organizado con estas movies. |
 | 201 | ✅ | SEB | Balance energético y procesos disipativos | redaccion muy escalonada, mas fluidez |
 | 203 | ✅ | CLAUDE | Impacto de la intensidad del campo magnético en el desarrollo de la inestabilidad | CORREGIDO (prioridad 2): el texto original (de Bryan) atribuía la supresión a la tensión; los números ($M_A,$ super-Alfvénico siempre; $ B_0^-2$; $V_A, tot$ creciente) muestran que es presión/magnetización. Bryan adoptó la misma corrección en su versión $$ ambos coinciden. REVISAR redacción y, si se quiere, añadir una tablita con $M_A,$, $V_A, tot$, $$ por $B_0$. |
 | 204 | ✅ | CLAUDE | Impacto de la intensidad del campo magnético en el desarrollo de la inestabilidad | MERGE: Bryan corrigió estos dos ítems de “tensión” a presión/magnetización (coincide con la corrección \#2). Las sebnotas de Sebas “¿es tensión o no?” quedan respondidas por el texto. |
-| 205 | ⬜ | BRY | Variación en el plano $y-z$ | CORREGIR: toca corregir esta grafica porque en el recuadro no aparece el simbolo de los grados sino un gamma |
+| 205 | ✅ | BRY | Variación en el plano $y-z$ | CORREGIR: toca corregir esta grafica porque en el recuadro no aparece el simbolo de los grados sino un gamma |
 | 206 | ✅ | BRY | Variación en el plano $y-z$ | Segun yo los colores si son correctos pero si es bueno que los revise porque puedo estar ciego |
 | 207 | ✅ | BRY | Variación en el plano $x-z$ | dejo este comentario para que revise el cap 5 |
 | 208 | ✅ | BRY | Balance energético y procesos disipativos | Ya revise esta seccion y le doy visto bueno, solo es que uste la lea y la confirme |
-| 209 | ⬜ | SEB | Variación en el plano $x-z$ | organizar en 2x2 |
-| 212 | ⬜ | BRY | Resultados del ajuste | cambiar contenido del parentesis, no es coherente que aparezca ese curve\_fit |
-| 213 | ⬜ | BRY | Conductividad crítica $$ y sus tres fuentes de incertidumbre | Creo que ya estan todas las graficas necesarias no? |
-| 214 | ⬜ | BRY | Techo hidrodinámico inviscido (ecuación de Rayleigh) | este articulo creo que no lo tenemos y no lo podemos comprobar |
-| 215 | ⬜ | BRY | Predicción RMHD compresible (Lees--Lin) | creo que el dato ya se encuentra explicito |
-| 216 | ⬜ | BRY | Variación de Intensidad y Orientación del Campo Magnético | En el capitulo del set-up se habla sobre esto |
-| 217 | ⬜ | BRY | Balance energético y procesos disipativos | poner el enlace en donde se suben los videos |
+| 209 | ✅ | SEB | Variación en el plano $x-z$ | organizar en 2x2 |
+| 212 | ✅ | BRY | Resultados del ajuste | cambiar contenido del parentesis, no es coherente que aparezca ese curve\_fit |
+| 213 | ✅ | BRY | Conductividad crítica $$ y sus tres fuentes de incertidumbre | Creo que ya estan todas las graficas necesarias no? |
+| 214 | ✅ | BRY | Techo hidrodinámico inviscido (ecuación de Rayleigh) | este articulo creo que no lo tenemos y no lo podemos comprobar |
+| 215 | ✅ | BRY | Predicción RMHD compresible (Lees--Lin) | creo que el dato ya se encuentra explicito |
+| 216 | ✅ | BRY | Variación de Intensidad y Orientación del Campo Magnético | En el capitulo del set-up se habla sobre esto |
+| 217 | ✅ | BRY | Balance energético y procesos disipativos | poner el enlace en donde se suben los videos |
 | 229 | 🟣 | NLM | Resultados del ajuste | NotebookLM: el sigmoide con offset es legítimo y no incurre en sobreajuste —lo avalan el AIC, la validación hold-out (predice un $36\%$ mejor los datos ocultos) y la robustez de $C+_0$ ($3.9\%$)—. La crítica esperable (degeneración $C$--$_0$ y $C<0$ extrapolado) ya está respondida en el texto. |
 | 230 | 🟣 | NLM | Conductividad crítica $$ y sus tres fuentes de incertidumbre | NotebookLM: interpretación razonable y rigurosa, no forzada; refleja la naturaleza multiescala (el crecimiento lineal es posible desde $400$, pero sostener las estructuras no lineales exige $5000$--$7000$). Reportar una zona es lo más honesto; la dispersión inter-método es incertidumbre sistemática física, no ruido. |
 | 231 | 🟣 | NLM | Leyes de potencia para $()$ | NotebookLM: el exceso sobre el piso $^0.5$ y el mecanismo (tearing/plasmoides) son sólidos cualitativamente (apoyados en Lyubarsky 2005), pero el valor exacto $1.22$ es empírico (no derivado) y puede estar condicionado por la resolución 2D. Bien presentado aquí como hipótesis/firma fenomenológica. |
@@ -277,11 +277,11 @@
 | 177 | ✅ | CLAUDE | (3) Efecto sobre las variables globales. | COHERENCIA (revisión Claude): corregido “total”$$“propia” (cap.~6 aclara que el panel es la energía magnética comóvil $12 b^2$, no $ B^2$ de laboratorio, que de hecho crece con $$). Mantener consistente. |
 | 178 | ✅ | CLAUDE | (4) Efecto de la orientación e intensidad del campo magnético. | DESACTUALIZADO Y CON FÍSICA INCORRECTA (revisión Claude, PRIORIDAD): (1) la campaña B/C YA está en el cap.~6 $$ reescribir este objetivo como “cumplido”, con sus resultados (intercambio $E_ kin E_ mag$ en anti-fase; disipación óhmica vs $$/$$; supresión de $^ int_zp$ con la tensión). (2) “la tensión paralela al flujo $V_A,$ es el agente dominante” es FALSO según el cap.~6 (corregido): en intensidad domina la presión/magnetización ($M_A,$ super-Alfvénico); la tensión (vía $B_y$, Campaña B) solo importa a $$ grande. Reescribir todo el párrafo. |
 
-## Anexos  — 1/4 cerradas
+## Anexos  — 4/4 cerradas
 
 | # | Estado | Tipo | Sección | Qué dice |
 |---|---|---|---|---|
-| 120 | ⬜ | SEB | Justificación de $C+_0$: derivación paso a paso | Revisar y contrastar con la bibliografía, o directamente solo poner los resultados. |
+| 120 | ✅ | SEB | Justificación de $C+_0$: derivación paso a paso | Revisar y contrastar con la bibliografía, o directamente solo poner los resultados. |
 | 121 | ✅ | CLAUDE | Justificación de $C+_0$: derivación paso a paso | El anexo ya recomputa todo de forma independiente y coincide con el cuerpo; las fuentes (Michalke, Landau, Bodo, Chow) están verificadas. Decisión: dejarlo como auditoría (valor añadido) o condensarlo a la tabla-síntesis. La nota roja del “Veredicto” (duplicado con §6.7) apunta a recortar esa subsección, no la auditoría numérica. |
-| 122 | ⬜ | REV | Veredicto: validez teórica del montaje | REVISAR (revisor): esta subsección repite la discusión de robustez/consistencia ya hecha (con más detalle) en el cap.\ de Resultados (§(ref)). Considerar recortarla a una síntesis breve específica del apéndice o eliminarla para no duplicar. |
-| 179 | ⬜ | CLAUDE | Reconstrucción de los estimadores de $$ | DESINCRONIZADO con cap.~6 (revisión Claude): (1) AIC —el cap.~6 ya reemplazó esta comparación (injusta: modelos calibrados en $4000$) por la comparación ANIDADA JUSTA sig4 vs sig3 sobre los mismos datos, $AIC=-126$. Actualizar aquí igual: dejar $-126$ como evidencia primaria y $-337/-531$ solo como cobertura global. (2) Aunque el texto dice “la banda $1944$ es la honesta”, el bloque LIDERA con el consenso $2861122$; alinear con el cap.~6 (liderar con la zona). (3) El “Veredicto” (§(ref)) duplica §6.7 (ya marcado por el revisor): recortar. |
+| 122 | ✅ | REV | Veredicto: validez teórica del montaje | REVISAR (revisor): esta subsección repite la discusión de robustez/consistencia ya hecha (con más detalle) en el cap.\ de Resultados (§(ref)). Considerar recortarla a una síntesis breve específica del apéndice o eliminarla para no duplicar. |
+| 179 | ✅ | CLAUDE | Reconstrucción de los estimadores de $$ | DESINCRONIZADO con cap.~6 (revisión Claude): (1) AIC —el cap.~6 ya reemplazó esta comparación (injusta: modelos calibrados en $4000$) por la comparación ANIDADA JUSTA sig4 vs sig3 sobre los mismos datos, $AIC=-126$. Actualizar aquí igual: dejar $-126$ como evidencia primaria y $-337/-531$ solo como cobertura global. (2) Aunque el texto dice “la banda $1944$ es la honesta”, el bloque LIDERA con el consenso $2861122$; alinear con el cap.~6 (liderar con la zona). (3) El “Veredicto” (§(ref)) duplica §6.7 (ya marcado por el revisor): recortar. |
