@@ -1,0 +1,920 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-noshorthands]{babel}
+\usepackage[margin=1.9cm]{geometry}
+\usepackage{xcolor}
+\usepackage{fvextra}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage[colorlinks=true,linkcolor=blue!60!black]{hyperref}
+\DeclareUnicodeCharacter{2248}{\ensuremath{\approx}}
+\DeclareUnicodeCharacter{2013}{--}
+\DeclareUnicodeCharacter{2192}{\ensuremath{\to}}
+\DeclareUnicodeCharacter{00D7}{\ensuremath{\times}}
+\DeclareUnicodeCharacter{00B7}{\ensuremath{\cdot}}
+\DeclareUnicodeCharacter{00B0}{\ensuremath{^\circ}}
+\DeclareUnicodeCharacter{03B3}{\ensuremath{\gamma}}
+\DeclareUnicodeCharacter{03C3}{\ensuremath{\sigma}}
+\definecolor{antesbg}{RGB}{253,236,236}
+\definecolor{despbg}{RGB}{235,248,238}
+\definecolor{okbg}{RGB}{214,238,220}
+\definecolor{critbg}{RGB}{255,228,196}
+\definecolor{usrbg}{RGB}{214,228,250}
+\definecolor{revbg}{RGB}{230,230,230}
+\definecolor{antesline}{RGB}{200,60,60}
+\definecolor{despline}{RGB}{50,140,70}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+\title{\textbf{Registro completo de modificaciones a la monografía}\\[2pt]
+\large Revisión final (Claude) --- rama \texttt{revision-monografia}}
+\author{Para aprobación de Sebastián y Bryan}
+\date{3 de julio de 2026}
+\begin{document}
+\maketitle
+
+\section*{Cómo leer este documento}
+Cada cambio muestra el texto \textbf{completo} tal como estaba (\textcolor{antesline}{\textbf{ANTES}}) y tal como quedó (\textcolor{despline}{\textbf{DESPUÉS}}), copiado literalmente del fuente \LaTeX. Etiquetas:
+\begin{itemize}
+\item \colorbox{okbg}{\textbf{\footnotesize ERROR OBJETIVO}}: typo, gramática, tilde o inconsistencia numérica/notacional verificable. Aplicado.
+\item \colorbox{critbg}{\textbf{\footnotesize CRITERIO --- REQUIERE LUZ VERDE}}: decisión editorial o de contenido que debí consultar. Aplicado, \textbf{reversible}: marca los que quieras deshacer.
+\item \colorbox{usrbg}{\textbf{\footnotesize SOLICITADO POR SEBASTIÁN}}: pedido explícitamente el 3 de julio (14 variables, aclaración Powell).
+\item \colorbox{revbg}{\textbf{\footnotesize APLICADO Y REVERTIDO}}: ya deshecho tras la aclaración (figuras).
+\end{itemize}
+Ningún cambio está commiteado en git: todo vive en el working tree. \textbf{Estado 4-jul:} Sebastián dio \textbf{luz verde} a todos los cambios de criterio, salvo dos que se \textbf{revirtieron} (cambios 5 y 47); además pidió eliminar «v6/v5» del PDF (cambio 53, hecho). El documento compila: \textbf{167 páginas, 0 referencias indefinidas, 0 apariciones de v5/v6/Res-RMHD}.
+
+\vspace{4pt}
+\subsection*{Resumen}
+\begin{tabular}{lc}
+\toprule
+Errores objetivos aplicados & 34 \\
+Cambios de criterio (pendientes de luz verde) & 11 \\
+Solicitados por Sebastián (3-jul) & 5 \\
+Aplicados y revertidos & 3 \\
+\bottomrule
+\end{tabular}
+
+\section*{references.bib}
+\subsection*{Cambio 1 --- entrada tian-2016 (título)}
+\colorbox{okbg}{\textbf{\footnotesize ERROR OBJETIVO}}
+
+\textbf{Por qué:} El título tenía un salto de línea interno: en la bibliografía impresa salía «KELVIN-- HELMHOLTZ» con un espacio roto tras el guion. Además estaba todo en MAYÚSCULAS sostenidas (la parte de pasarlo a minúsculas tipo oración es criterio de estilo).
+
+\textcolor{antesline}{\textbf{ANTES:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{antesline}, framerule=1.2pt]
+	title = {{NUMERICAL SIMULATIONS OF KELVIN–
+              HELMHOLTZ INSTABILITY: a TWO-DIMENSIONAL PARAMETRIC STUDY}},
+\end{Verbatim}
+\textcolor{despline}{\textbf{DESPUÉS:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{despline}, framerule=1.2pt]
+	title = {{Numerical simulations of Kelvin--Helmholtz instability: a two-dimensional parametric study}},
+\end{Verbatim}
+
+\subsection*{Cambio 2 --- entrada mizuno-2013 (título)}
+\colorbox{critbg}{\textbf{\footnotesize CRITERIO --- REQUIERE LUZ VERDE}}
+
+\textbf{Por qué:} Título en MAYÚSCULAS sostenidas, desentonaba con el resto de la bibliografía. Cambio puramente estético.
+
+\textcolor{antesline}{\textbf{ANTES:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{antesline}, framerule=1.2pt]
+	title = {{THE ROLE OF THE EQUATION OF STATE IN RESISTIVE RELATIVISTIC MAGNETOHYDRODYNAMICS}},
+\end{Verbatim}
+\textcolor{despline}{\textbf{DESPUÉS:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{despline}, framerule=1.2pt]
+	title = {{The role of the equation of state in resistive relativistic magnetohydrodynamics}},
+\end{Verbatim}
+
+\subsection*{Cambio 3 --- entrada Dedner\_etal:2002 (journal)}
+\colorbox{critbg}{\textbf{\footnotesize CRITERIO --- REQUIERE LUZ VERDE}}
+
+\textbf{Por qué:} Única entrada con el journal abreviado; munz2000 y suresh-1997 usan el nombre completo del mismo journal. Consistencia de la bibliografía impresa.
+
+\textcolor{antesline}{\textbf{ANTES:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{antesline}, framerule=1.2pt]
+  journal = {J. Comp. Phys.},
+\end{Verbatim}
+\textcolor{despline}{\textbf{DESPUÉS:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{despline}, framerule=1.2pt]
+  journal = {Journal of Computational Physics},
+\end{Verbatim}
+
+\subsection*{Cambio 4 --- entrada miranda2014 (páginas)}
+\colorbox{okbg}{\textbf{\footnotesize ERROR OBJETIVO}}
+
+\textbf{Por qué:} Verificado contra el registro oficial de Cambridge Core (Proc. IAU Symp. 302): las páginas correctas del artículo del director son 64--65, no 63--66.
+
+\textcolor{antesline}{\textbf{ANTES:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{antesline}, framerule=1.2pt]
+  volume={302}, pages={63--66}, year={2014}, publisher={Cambridge University Press},
+\end{Verbatim}
+\textcolor{despline}{\textbf{DESPUÉS:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{despline}, framerule=1.2pt]
+  volume={302}, pages={64--65}, year={2014}, publisher={Cambridge University Press},
+\end{Verbatim}
+
+
+\section*{sections/04\_numerical\_methods.tex}
+\subsection*{Cambio 5 --- línea 1 (presentación del código Cueva)}
+\colorbox{revbg}{\textbf{\footnotesize APLICADO Y REVERTIDO}}
+
+\textbf{Por qué:} Había unificado las dos claves del trabajo 2014 del director (ambos proceedings existen: IAU S302 y ASPC 488). Sebastián indicó dejar las citas de Miranda COMO ESTABAN → revertido el 4-jul: la cita vuelve a ser miranda-aranguren-2014 y ambas entradas conviven en la bibliografía.
+
+\textcolor{antesline}{\textbf{ANTES:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{antesline}, framerule=1.2pt]
+(texto original con \parencite{miranda-aranguren-2014})
+\end{Verbatim}
+\textcolor{despline}{\textbf{DESPUÉS:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{despline}, framerule=1.2pt]
+(idéntico al original: cambio revertido el 4-jul por indicación de Sebastián)
+\end{Verbatim}
+
+\subsection*{Cambio 6 --- sección MP5}
+\colorbox{okbg}{\textbf{\footnotesize ERROR OBJETIVO}}
+
+\textbf{Por qué:} \textbackslash{}parencite produce cita entre paréntesis: «formulado por (Suresh y Huynh 1997)» es gramaticalmente incorrecto cuando el autor es sujeto de la frase; \textbackslash{}textcite produce «formulado por Suresh y Huynh (1997)».
+
+\textcolor{antesline}{\textbf{ANTES:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{antesline}, framerule=1.2pt]
+de quinto orden (MP5), formulado por \parencite{suresh-1997} y adoptado en \textit{Cueva} \parencite{miranda-aranguren-2018}.
+\end{Verbatim}
+\textcolor{despline}{\textbf{DESPUÉS:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{despline}, framerule=1.2pt]
+de quinto orden (MP5), formulado por \textcite{suresh-1997} y adoptado en \textit{Cueva} \parencite{miranda-aranguren-2018}.
+\end{Verbatim}
+
+\subsection*{Cambio 7 --- condición subcaracterística}
+\colorbox{okbg}{\textbf{\footnotesize ERROR OBJETIVO}}
+
+\textbf{Por qué:} Misma razón gramatical que el cambio 6.
+
+\textcolor{antesline}{\textbf{ANTES:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{antesline}, framerule=1.2pt]
+el sistema debe satisfacer estrictamente la condición subcaracterística formulada por \parencite{liu-1987}.
+\end{Verbatim}
+\textcolor{despline}{\textbf{DESPUÉS:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{despline}, framerule=1.2pt]
+el sistema debe satisfacer estrictamente la condición subcaracterística formulada por \textcite{liu-1987}.
+\end{Verbatim}
+
+\subsection*{Cambio 8 --- sección GLM (diagonalización)}
+\colorbox{okbg}{\textbf{\footnotesize ERROR OBJETIVO}}
+
+\textbf{Por qué:} Typo «la des de» → «la de». Aproveché para poner \textbackslash{}textcite por la misma razón gramatical de los cambios 6--7.
+
+\textcolor{antesline}{\textbf{ANTES:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{antesline}, framerule=1.2pt]
+puede consultarse en \parencite{Dedner_etal:2002} o en formulaciones 3+1 como la des de \parencite{palenzuela-2009}.
+\end{Verbatim}
+\textcolor{despline}{\textbf{DESPUÉS:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{despline}, framerule=1.2pt]
+puede consultarse en \textcite{Dedner_etal:2002} o en formulaciones 3+1 como la de \textcite{palenzuela-2009}.
+\end{Verbatim}
+
+\subsection*{Cambio 9 --- límite asintótico ideal}
+\colorbox{okbg}{\textbf{\footnotesize ERROR OBJETIVO}}
+
+\textbf{Por qué:} Faltaba el pronombre: «aproxima a cero» → «se aproxima a cero».
+
+\textcolor{antesline}{\textbf{ANTES:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{antesline}, framerule=1.2pt]
+Dado que el producto escalar $\mathbf{v} \cdot \mathbf{E}$ aproxima a cero bajo la ortogonalidad propia del régimen de alta conductividad
+\end{Verbatim}
+\textcolor{despline}{\textbf{DESPUÉS:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{despline}, framerule=1.2pt]
+Dado que el producto escalar $\mathbf{v} \cdot \mathbf{E}$ se aproxima a cero bajo la ortogonalidad propia del régimen de alta conductividad
+\end{Verbatim}
+
+\subsection*{Cambio 10 --- degeneración característica}
+\colorbox{okbg}{\textbf{\footnotesize ERROR OBJETIVO}}
+
+\textbf{Por qué:} El cap. 2 define la energía interna específica con \textbackslash{}varepsilon (nota de revisión ya cerrada sobre unificar epsilon/varepsilon); aquí se coló \textbackslash{}epsilon.
+
+\textcolor{antesline}{\textbf{ANTES:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{antesline}, framerule=1.2pt]
+la matriz jacobiana incluya el acoplamiento de la entalpía específica $h = 1 + \epsilon + p/\rho$ en los términos inerciales.
+\end{Verbatim}
+\textcolor{despline}{\textbf{DESPUÉS:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{despline}, framerule=1.2pt]
+la matriz jacobiana incluya el acoplamiento de la entalpía específica $h = 1 + \varepsilon + p/\rho$ en los términos inerciales.
+\end{Verbatim}
+
+
+\section*{sections/01\_introduction.tex}
+\subsection*{Cambio 11 --- sección Transición RMHD→RRMHD}
+\colorbox{okbg}{\textbf{\footnotesize ERROR OBJETIVO}}
+
+\textbf{Por qué:} Anacoluto (frase sin sujeto): «al incluir el término, permite que…».
+
+\textcolor{antesline}{\textbf{ANTES:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{antesline}, framerule=1.2pt]
+Sin embargo, al incluir el término de resistividad $\eta$, permite que la reconexión aparezca de forma natural, predictiva y, sobre todo, física
+\end{Verbatim}
+\textcolor{despline}{\textbf{DESPUÉS:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{despline}, framerule=1.2pt]
+Sin embargo, la inclusión del término de resistividad $\eta$ permite que la reconexión aparezca de forma natural, predictiva y, sobre todo, física
+\end{Verbatim}
+
+\subsection*{Cambio 12 --- misma sección (congelamiento)}
+\colorbox{critbg}{\textbf{\footnotesize CRITERIO --- REQUIERE LUZ VERDE}}
+
+\textbf{Por qué:} Físicamente lo que queda congelado son las líneas de campo B en el fluido, no el fluido (el propio footnote del documento lo explica así, vía el teorema de Alfvén). CAMBIO DE CONTENIDO FÍSICO: debí consultarlo.
+
+\textcolor{antesline}{\textbf{ANTES:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{antesline}, framerule=1.2pt]
+El RMHD ideal impone la condición de ``congelamiento'' del fluido\footnote{
+\end{Verbatim}
+\textcolor{despline}{\textbf{DESPUÉS:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{despline}, framerule=1.2pt]
+El RMHD ideal impone la condición de ``congelamiento'' de las líneas de campo en el fluido\footnote{
+\end{Verbatim}
+
+
+\section*{sections/02\_rrmhd\_theory.tex}
+\subsection*{Cambio 13 --- matriz de flujos F\textasciicircum{}i (filas de B y E)}
+\colorbox{okbg}{\textbf{\footnotesize ERROR OBJETIVO}}
+
+\textbf{Por qué:} ERROR MATEMÁTICO DE SIGNO. Con los signos originales, la divergencia del flujo reproduce la ecuación de inducción con el signo del rotacional invertido (contradice las ecuaciones GLM 3+1 del mismo capítulo, ecs. GLM\_3D\_E y GLM\_3D\_B). Verificación independiente: con el flujo corregido, el límite ideal E=-v×B da el flujo de inducción estándar v\textasciicircum{}i B\textasciicircum{}j - B\textasciicircum{}i v\textasciicircum{}j.
+
+\textcolor{antesline}{\textbf{ANTES:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{antesline}, framerule=1.2pt]
+        (\mathbf{E}\times\mathbf{B})^i + \rho h W^2 v^i \\
+        \epsilon^{ijk} E_k + \Psi \delta^{ij} \\
+        -\epsilon^{ijk} B_k + \Phi \delta^{ij} \\
+\end{Verbatim}
+\textcolor{despline}{\textbf{DESPUÉS:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{despline}, framerule=1.2pt]
+        (\mathbf{E}\times\mathbf{B})^i + \rho h W^2 v^i \\
+        -\epsilon^{ijk} E_k + \Psi \delta^{ij} \\
+        \epsilon^{ijk} B_k + \Phi \delta^{ij} \\
+\end{Verbatim}
+
+\subsection*{Cambio 14 --- párrafo inicial del capítulo}
+\colorbox{okbg}{\textbf{\footnotesize ERROR OBJETIVO}}
+
+\textbf{Por qué:} «planteado por (Komissarov 2007)» → «planteado por Komissarov (2007)». Misma razón gramatical de los cambios 6--8. El footnote intermedio no cambió.
+
+\textcolor{antesline}{\textbf{ANTES:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{antesline}, framerule=1.2pt]
+El sistema aumentado\footnote{...footnote sin cambios...} planteado por \parencite{komissarov-2007}
+\end{Verbatim}
+\textcolor{despline}{\textbf{DESPUÉS:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{despline}, framerule=1.2pt]
+El sistema aumentado\footnote{...footnote sin cambios...} planteado por \textcite{komissarov-2007}
+\end{Verbatim}
+
+\subsection*{Cambio 15 --- sección KHI lineal (anisotropía)}
+\colorbox{okbg}{\textbf{\footnotesize ERROR OBJETIVO}}
+
+\textbf{Por qué:} «Como evidencian (Osmanov et al. 2008) y (Pimentel y Lora 2019)» — los autores son sujeto del verbo «evidencian».
+
+\textcolor{antesline}{\textbf{ANTES:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{antesline}, framerule=1.2pt]
+Como evidencian \parencite{osmanov-2008} y \parencite{pimentel-2019}, esto reduce asintóticamente
+\end{Verbatim}
+\textcolor{despline}{\textbf{DESPUÉS:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{despline}, framerule=1.2pt]
+Como evidencian \textcite{osmanov-2008} y \textcite{pimentel-2019}, esto reduce asintóticamente
+\end{Verbatim}
+
+\subsection*{Cambio 16 --- enstrofía de perturbación}
+\colorbox{okbg}{\textbf{\footnotesize ERROR OBJETIVO}}
+
+\textbf{Por qué:} «Siguiendo a (Nastro et al. 2022)» — mismo caso.
+
+\textcolor{antesline}{\textbf{ANTES:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{antesline}, framerule=1.2pt]
+Siguiendo a \parencite{nastro2022}, definimos el campo de vorticidad perturbada
+\end{Verbatim}
+\textcolor{despline}{\textbf{DESPUÉS:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{despline}, framerule=1.2pt]
+Siguiendo a \textcite{nastro2022}, definimos el campo de vorticidad perturbada
+\end{Verbatim}
+
+\subsection*{Cambio 17 --- campo auxiliar Psi}
+\colorbox{okbg}{\textbf{\footnotesize ERROR OBJETIVO}}
+
+\textbf{Por qué:} «fenoménico» no es la palabra (término filosófico); tres líneas después el propio texto usa «fenomenológico».
+
+\textcolor{antesline}{\textbf{ANTES:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{antesline}, framerule=1.2pt]
+se introducen términos de amortiguamiento fenoménico, parametrizados por los coeficientes
+\end{Verbatim}
+\textcolor{despline}{\textbf{DESPUÉS:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{despline}, framerule=1.2pt]
+se introducen términos de amortiguamiento fenomenológico, parametrizados por los coeficientes
+\end{Verbatim}
+
+\subsection*{Cambio 18 --- vector de estado U (sistema conservativo)}
+\colorbox{usrbg}{\textbf{\footnotesize SOLICITADO POR SEBASTIÁN}}
+
+\textbf{Por qué:} SOLICITADO POR SEBASTIÁN (03-jul): unificar el documento a 14 variables. El cap. 2 presentaba U con 13 componentes (sin la carga), mientras el cap. 4 habla del jacobiano 14×14 y el apéndice da el sistema de Miranda con la ecuación de la carga. Se añadió rho\_q al vector de estado.
+
+\textcolor{antesline}{\textbf{ANTES:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{antesline}, framerule=1.2pt]
+Con base en la proyección euleriana de las leyes de conservación hidrodinámicas y el sistema aumentado de Maxwell (GLM), el vector de estado completo del sistema de Magnetohidrodinámica Relativista Resistiva (RRMHD) queda constituido por $13$ componentes independientes:
+\begin{equation}
+    \mathbf{U} =
+    \begin{pmatrix}
+        D \\
+        S^j \\
+        \tau \\
+        B^j \\
+        E^j \\
+        \Psi \\
+        \Phi
+    \end{pmatrix}
+\end{equation}
+donde las variables conservativas se construyen en la convención \emph{total} (materia $+$ campo) que integra el código \textit{Cueva}, a partir de las primitivas ($\rho, \mathbf{v}, p, \mathbf{E}, \mathbf{B}$):
+\end{Verbatim}
+\textcolor{despline}{\textbf{DESPUÉS:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{despline}, framerule=1.2pt]
+Con base en la proyección euleriana de las leyes de conservación hidrodinámicas, la conservación de la carga eléctrica y el sistema aumentado de Maxwell (GLM), el vector de estado completo del sistema de Magnetohidrodinámica Relativista Resistiva (RRMHD) queda constituido por $14$ componentes independientes:
+\begin{equation}
+    \mathbf{U} =
+    \begin{pmatrix}
+        D \\
+        S^j \\
+        \tau \\
+        B^j \\
+        E^j \\
+        \rho_q \\
+        \Psi \\
+        \Phi
+    \end{pmatrix}
+\end{equation}
+donde las variables conservativas se construyen en la convención \emph{total} (materia $+$ campo) que integra el código \textit{Cueva}, a partir de las primitivas ($\rho, \mathbf{v}, p, \mathbf{E}, \mathbf{B}, \rho_q$):
+\end{Verbatim}
+
+\subsection*{Cambio 19 --- matriz de flujos + descripción de filas}
+\colorbox{usrbg}{\textbf{\footnotesize SOLICITADO POR SEBASTIÁN}}
+
+\textbf{Por qué:} Continuación del cambio 18: fila de flujo J\textasciicircum{}i para la carga y frase que explica la nueva fila (conservación local de la carga). Nota: los signos de las filas B/E ya corregidos en el cambio 13.
+
+\textcolor{antesline}{\textbf{ANTES:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{antesline}, framerule=1.2pt]
+        (\mathbf{E}\times\mathbf{B})^i + \rho h W^2 v^i \\
+        -\epsilon^{ijk} E_k + \Psi \delta^{ij} \\
+        \epsilon^{ijk} B_k + \Phi \delta^{ij} \\
+        B^i \\
+        E^i
+    \end{pmatrix}
+\end{equation}
+
+[...] Las cuatro filas electromagnéticas restantes reproducen el sistema aumentado de Maxwell en su forma 3+1 (Ecuaciones~\eqref{eq:GLM_3D_E}--\eqref{eq:GLM_3D_Psi}), de modo que cada renglón del flujo se deduce de una ley de conservación previamente establecida.
+\end{Verbatim}
+\textcolor{despline}{\textbf{DESPUÉS:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{despline}, framerule=1.2pt]
+        (\mathbf{E}\times\mathbf{B})^i + \rho h W^2 v^i \\
+        -\epsilon^{ijk} E_k + \Psi \delta^{ij} \\
+        \epsilon^{ijk} B_k + \Phi \delta^{ij} \\
+        J^i \\
+        B^i \\
+        E^i
+    \end{pmatrix}
+\end{equation}
+
+[...] Las filas electromagnéticas restantes reproducen el sistema aumentado de Maxwell en su forma 3+1 (Ecuaciones~\eqref{eq:GLM_3D_E}--\eqref{eq:GLM_3D_Psi}), y la fila de la carga expresa su conservación local, $\partial_t \rho_q + \nabla\cdot\mathbf{J} = 0$ (Sección~\ref{sec:Elec_Cov}), de modo que cada renglón del flujo se deduce de una ley de conservación previamente establecida.
+\end{Verbatim}
+
+\subsection*{Cambio 20 --- vector fuente S(U) + párrafo de clausura}
+\colorbox{usrbg}{\textbf{\footnotesize SOLICITADO POR SEBASTIÁN}}
+
+\textbf{Por qué:} Continuación del cambio 18: fila fuente 0 para la carga y reescritura del párrafo de clausura (antes decía que rho\_q y J se evaluaban ambas con la ley de Ohm; ahora rho\_q es variable evolucionada y solo J viene de Ohm).
+
+\textcolor{antesline}{\textbf{ANTES:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{antesline}, framerule=1.2pt]
+    \mathbf{S}(\mathbf{U}) =
+    \begin{pmatrix}
+        0 \\
+        - \Psi B^j \\
+        - \Psi (\mathbf{v} \cdot \mathbf{B}) \\
+        0 \\
+        -J^j \\
+        -\kappa_B \Psi \\
+        \rho_q - \kappa_E \Phi
+    \end{pmatrix}
+\end{equation}
+Para clausurar unívocamente este sistema dinámico durante la integración temporal, las densidades de carga y corriente ($\rho_q$ y $\mathbf{J}$) requeridas en el vector fuente se evalúan en cada paso computacional sustituyendo de forma explícita la Ley de Ohm relativista deducida anteriormente.
+\end{Verbatim}
+\textcolor{despline}{\textbf{DESPUÉS:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{despline}, framerule=1.2pt]
+    \mathbf{S}(\mathbf{U}) =
+    \begin{pmatrix}
+        0 \\
+        - \Psi B^j \\
+        - \Psi (\mathbf{v} \cdot \mathbf{B}) \\
+        0 \\
+        -J^j \\
+        0 \\
+        -\kappa_B \Psi \\
+        \rho_q - \kappa_E \Phi
+    \end{pmatrix}
+\end{equation}
+Para clausurar unívocamente este sistema dinámico durante la integración temporal, la corriente de conducción $\mathbf{J}$ requerida en el vector fuente y en el flujo de la carga se evalúa en cada paso computacional sustituyendo de forma explícita la Ley de Ohm relativista deducida anteriormente, empleando la densidad de carga $\rho_q$ que el propio sistema evoluciona como variable conservativa.
+\end{Verbatim}
+
+
+\section*{sections/03\_KHI.tex}
+\subsection*{Cambio 21 --- sección KHI clásica}
+\colorbox{okbg}{\textbf{\footnotesize ERROR OBJETIVO}}
+
+\textbf{Por qué:} «formulación geométrica de (Acheson 1990)» → «de Acheson (1990)». Igual que los cambios 6--8.
+
+\textcolor{antesline}{\textbf{ANTES:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{antesline}, framerule=1.2pt]
+Siguiendo la formulación geométrica bidimensional de \parencite{acheson-1990}, consideramos el límite incompresible clásico.
+\end{Verbatim}
+\textcolor{despline}{\textbf{DESPUÉS:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{despline}, framerule=1.2pt]
+Siguiendo la formulación geométrica bidimensional de \textcite{acheson-1990}, consideramos el límite incompresible clásico.
+\end{Verbatim}
+
+\subsection*{Cambio 22 --- análisis lineal (condiciones de contorno)}
+\colorbox{okbg}{\textbf{\footnotesize ERROR OBJETIVO}}
+
+\textbf{Por qué:} «inperturbada» no existe en español.
+
+\textcolor{antesline}{\textbf{ANTES:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{antesline}, framerule=1.2pt]
+imponemos las condiciones de contorno linealizadas sobre la frontera inperturbada $y = 0$.
+\end{Verbatim}
+\textcolor{despline}{\textbf{DESPUÉS:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{despline}, framerule=1.2pt]
+imponemos las condiciones de contorno linealizadas sobre la frontera no perturbada $y = 0$.
+\end{Verbatim}
+
+\subsection*{Cambio 23 --- correcciones relativistas (inercia)}
+\colorbox{okbg}{\textbf{\footnotesize ERROR OBJETIVO}}
+
+\textbf{Por qué:} Igual que el cambio 10: \textbackslash{}epsilon → \textbackslash{}varepsilon por la convención del cap. 2.
+
+\textcolor{antesline}{\textbf{ANTES:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{antesline}, framerule=1.2pt]
+pondera la inercia mediante la entalpía específica $h = 1 + \epsilon + p/\rho$, de modo que la inercia direccional efectiva
+\end{Verbatim}
+\textcolor{despline}{\textbf{DESPUÉS:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{despline}, framerule=1.2pt]
+pondera la inercia mediante la entalpía específica $h = 1 + \varepsilon + p/\rho$, de modo que la inercia direccional efectiva
+\end{Verbatim}
+
+
+\section*{sections/setup\_exp.tex}
+\subsection*{Cambio 24 --- condiciones iniciales}
+\colorbox{okbg}{\textbf{\footnotesize ERROR OBJETIVO}}
+
+\textbf{Por qué:} «setup canónico de (Mizuno 2013)» → «de Mizuno (2013)». Igual que 6--8 y 21.
+
+\textcolor{antesline}{\textbf{ANTES:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{antesline}, framerule=1.2pt]
+directamente inspirada en el setup canónico de \parencite{mizuno-2013}
+\end{Verbatim}
+\textcolor{despline}{\textbf{DESPUÉS:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{despline}, framerule=1.2pt]
+directamente inspirada en el setup canónico de \textcite{mizuno-2013}
+\end{Verbatim}
+
+\subsection*{Cambio 25 --- campo magnético inicial (campo eléctrico)}
+\colorbox{critbg}{\textbf{\footnotesize CRITERIO --- REQUIERE LUZ VERDE}}
+
+\textbf{Por qué:} La fórmula original mezclaba la cuadrivelocidad u\_nu y la trivelocidad v\_beta dentro de un mismo tensor cuatridimensional (expresión mal formada, no es un objeto covariante válido). La reemplacé por la forma tridimensional estándar del límite ideal. CAMBIO DE FÓRMULA: debí consultarlo.
+
+\textcolor{antesline}{\textbf{ANTES:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{antesline}, framerule=1.2pt]
+El campo eléctrico inicial se anula estrictamente, $E_x = E_y = E_z = 0$, lo que corresponde a un estado fuera del límite ideal $E^\mu = -\epsilon^{\mu\nu\alpha\beta} u_\nu B_\alpha v_\beta$;
+\end{Verbatim}
+\textcolor{despline}{\textbf{DESPUÉS:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{despline}, framerule=1.2pt]
+El campo eléctrico inicial se anula estrictamente, $E_x = E_y = E_z = 0$, lo que corresponde a un estado fuera del límite ideal ($\mathbf{E} = -\mathbf{v}\times\mathbf{B}$);
+\end{Verbatim}
+
+\subsection*{Cambio 26 --- dominio computacional (CFL)}
+\colorbox{critbg}{\textbf{\footnotesize CRITERIO --- REQUIERE LUZ VERDE}}
+
+\textbf{Por qué:} La frase decía «bajo la restricción CFL, valor conservador requerido…» sin dar nunca el valor. Añadí CFL=0.1 y la referencia a la tabla que ya lo contenía. AÑADE CONTENIDO: debí consultarlo.
+
+\textcolor{antesline}{\textbf{ANTES:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{antesline}, framerule=1.2pt]
+El paso temporal se regula dinámicamente bajo la restricción Courant--Friedrichs--Lewy (CFL), valor conservador requerido por la rigidez
+\end{Verbatim}
+\textcolor{despline}{\textbf{DESPUÉS:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{despline}, framerule=1.2pt]
+El paso temporal se regula dinámicamente bajo la restricción Courant--Friedrichs--Lewy con $\mathrm{CFL}=0.1$ (Tabla~\ref{tab:setup_summary}), valor conservador requerido por la rigidez
+\end{Verbatim}
+
+\subsection*{Cambio 27 --- cierre de variables de diagnóstico}
+\colorbox{okbg}{\textbf{\footnotesize ERROR OBJETIVO}}
+
+\textbf{Por qué:} La lista de observables tiene SIETE ítems, no cuatro.
+
+\textcolor{antesline}{\textbf{ANTES:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{antesline}, framerule=1.2pt]
+La combinación de estos cuatro observables proporciona una caracterización integral
+\end{Verbatim}
+\textcolor{despline}{\textbf{DESPUÉS:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{despline}, framerule=1.2pt]
+La combinación de estos observables proporciona una caracterización integral
+\end{Verbatim}
+
+
+\section*{sections/05\_results\_discussion.tex}
+\subsection*{Cambio 28 --- tabla de parámetros del sigmoide}
+\colorbox{okbg}{\textbf{\footnotesize ERROR OBJETIVO}}
+
+\textbf{Por qué:} Tilde faltante en una celda de la tabla.
+
+\textcolor{antesline}{\textbf{ANTES:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{antesline}, framerule=1.2pt]
+$R^2$ (sobre $\sigma\ge1600$) & $0.99995$ & Maximo alcanzado en la cota física (Zona ideal) \\
+\end{Verbatim}
+\textcolor{despline}{\textbf{DESPUÉS:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{despline}, framerule=1.2pt]
+$R^2$ (sobre $\sigma\ge1600$) & $0.99995$ & Máximo alcanzado en la cota física (Zona ideal) \\
+\end{Verbatim}
+
+\subsection*{Cambio 29 --- síntesis de sigma\_crit}
+\colorbox{okbg}{\textbf{\footnotesize ERROR OBJETIVO}}
+
+\textbf{Por qué:} El error formal del sigmoide es ±123 (así aparece en la tabla de parámetros y en la lista de fuentes de incertidumbre); el ±122 corresponde a la media ponderada, que es otra cantidad.
+
+\textcolor{antesline}{\textbf{ANTES:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{antesline}, framerule=1.2pt]
+El error formal del sigmoide ($\pm122$) describe solo la precisión de \emph{ese} método
+\end{Verbatim}
+\textcolor{despline}{\textbf{DESPUÉS:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{despline}, framerule=1.2pt]
+El error formal del sigmoide ($\pm123$) describe solo la precisión de \emph{ese} método
+\end{Verbatim}
+
+\subsection*{Cambio 30 --- leyes de potencia (hipótesis tearing)}
+\colorbox{okbg}{\textbf{\footnotesize ERROR OBJETIVO}}
+
+\textbf{Por qué:} \textbackslash{}parencite dentro de un paréntesis existente producía doble paréntesis: «(modo tearing, (Furth et al. 1963))».
+
+\textcolor{antesline}{\textbf{ANTES:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{antesline}, framerule=1.2pt]
+fragmentándose en una cascada de islas y sub-láminas magnéticas (modo \emph{tearing}, \parencite{furth1963}), lo cual multiplicaría la superficie disipativa efectiva.
+\end{Verbatim}
+\textcolor{despline}{\textbf{DESPUÉS:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{despline}, framerule=1.2pt]
+fragmentándose en una cascada de islas y sub-láminas magnéticas (modo \emph{tearing}, \cite{furth1963}), lo cual multiplicaría la superficie disipativa efectiva.
+\end{Verbatim}
+
+\subsection*{Cambio 31 --- misma sección}
+\colorbox{okbg}{\textbf{\footnotesize ERROR OBJETIVO}}
+
+\textbf{Por qué:} Coma faltante tras el inciso.
+
+\textcolor{antesline}{\textbf{ANTES:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{antesline}, framerule=1.2pt]
+Sin embargo, al carecer en el presente análisis de métricas morfológicas directas esta interpretación topológica mantiene un carácter hipotético.
+\end{Verbatim}
+\textcolor{despline}{\textbf{DESPUÉS:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{despline}, framerule=1.2pt]
+Sin embargo, al carecer en el presente análisis de métricas morfológicas directas, esta interpretación topológica mantiene un carácter hipotético.
+\end{Verbatim}
+
+\subsection*{Cambio 32 --- contraste con marcos MHD/RMHD/RRMHD}
+\colorbox{okbg}{\textbf{\footnotesize ERROR OBJETIVO}}
+
+\textbf{Por qué:} Decimales con coma (0,54 · 0,103/0,190 · 0,50) en un documento que usa punto decimal en todas partes; además «Lees-Lin» con guion simple cuando el resto del documento usa «Lees--Lin».
+
+\textcolor{antesline}{\textbf{ANTES:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{antesline}, framerule=1.2pt]
+La reducción observada, donde el valor medido representa un factor $\sim 0,54$ respecto al techo clásico ($0,103/0,190$), es fuertemente consistente con el factor de supresión de $\sim 0,50$ predicho analíticamente por la relación de dispersión compresible (Lees-Lin), confirmando que el salto entre los bloques se debe a la inercia térmica relativista.
+\end{Verbatim}
+\textcolor{despline}{\textbf{DESPUÉS:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{despline}, framerule=1.2pt]
+La reducción observada, donde el valor medido representa un factor $\sim 0.54$ respecto al techo clásico ($0.103/0.190$), es fuertemente consistente con el factor de supresión de $\sim 0.50$ predicho analíticamente por la relación de dispersión compresible (Lees--Lin), confirmando que el salto entre los bloques se debe a la inercia térmica relativista.
+\end{Verbatim}
+
+\subsection*{Cambio 33 --- velocidades características}
+\colorbox{okbg}{\textbf{\footnotesize ERROR OBJETIVO}}
+
+\textbf{Por qué:} Coma espuria entre sujeto y verbo.
+
+\textcolor{antesline}{\textbf{ANTES:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{antesline}, framerule=1.2pt]
+Este resultado central, se sintetiza en la Figura~\ref{fig:escalera_v6}.
+\end{Verbatim}
+\textcolor{despline}{\textbf{DESPUÉS:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{despline}, framerule=1.2pt]
+Este resultado central se sintetiza en la Figura~\ref{fig:escalera_v6}.
+\end{Verbatim}
+
+\subsection*{Cambio 34 --- campaña A (texto tras la tabla)}
+\colorbox{okbg}{\textbf{\footnotesize ERROR OBJETIVO}}
+
+\textbf{Por qué:} Espacio antes de coma («lograron ,») y «en las Figuras (Fig.\textasciitilde{}X)»: plural y redundancia para una sola figura.
+
+\textcolor{antesline}{\textbf{ANTES:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{antesline}, framerule=1.2pt]
+Para aquellos casos que sí lo lograron , es posible comparar sus tasas de crecimiento, el instante temporal en que alcanzan el pico máximo de enstrofía y la magnitud de dichas cimas. Esto se ilustra claramente en las Figuras (Fig.~\ref{fig:campA_enstrofia}).
+\end{Verbatim}
+\textcolor{despline}{\textbf{DESPUÉS:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{despline}, framerule=1.2pt]
+Para aquellos casos que sí lo lograron, es posible comparar sus tasas de crecimiento, el instante temporal en que alcanzan el pico máximo de enstrofía y la magnitud de dichas cimas. Esto se ilustra en la Figura~\ref{fig:campA_enstrofia}.
+\end{Verbatim}
+
+\subsection*{Cambio 35 --- campaña A (comparación de conductividades)}
+\colorbox{critbg}{\textbf{\footnotesize CRITERIO --- REQUIERE LUZ VERDE}}
+
+\textbf{Por qué:} El texto decía «roza valores de \textasciitilde{}85» y «\textasciitilde{}45», pero la tabla de la misma campaña dice 87.3 y 46.1. Ajusté el redondeo y añadí la referencia a la tabla. TOCA NÚMEROS DEL TEXTO: debí consultarlo (aunque la fuente es su propia tabla).
+
+\textcolor{antesline}{\textbf{ANTES:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{antesline}, framerule=1.2pt]
+el plasma roza valores de $\Omega_{zp} \approx 85$ para $\sigma=10000$, frente a los $\approx 45$ obtenidos en su contraparte más resistiva de $\sigma=6000$.
+\end{Verbatim}
+\textcolor{despline}{\textbf{DESPUÉS:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{despline}, framerule=1.2pt]
+el plasma alcanza valores de $\Omega_{zp} \approx 87$ para $\sigma=10000$, frente a los $\approx 46$ obtenidos en su contraparte más resistiva de $\sigma=6000$ (Tabla~\ref{tab:campA_enstrofia}).
+\end{Verbatim}
+
+\subsection*{Cambio 36 --- campaña B (ciclo evolutivo)}
+\colorbox{okbg}{\textbf{\footnotesize ERROR OBJETIVO}}
+
+\textbf{Por qué:} Decimal con coma (5,7°) → punto, consistencia con el resto del documento.
+
+\textcolor{antesline}{\textbf{ANTES:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{antesline}, framerule=1.2pt]
+correspondiente al ángulo de $5,7^\circ$, es la única que presenta el ciclo evolutivo clásico:
+\end{Verbatim}
+\textcolor{despline}{\textbf{DESPUÉS:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{despline}, framerule=1.2pt]
+correspondiente al ángulo de $5.7^\circ$, es la única que presenta el ciclo evolutivo clásico:
+\end{Verbatim}
+
+\subsection*{Cambio 37 --- campaña B (diseño de Mizuno)}
+\colorbox{okbg}{\textbf{\footnotesize ERROR OBJETIVO}}
+
+\textbf{Por qué:} Igual que el cambio 36: decimales con coma → punto (5,7° y mu\_p=0,01).
+
+\textcolor{antesline}{\textbf{ANTES:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{antesline}, framerule=1.2pt]
+La leve inclinación de $5,7^\circ$ (parametrizada en la literatura mediante la magnetización poloidal $\mu_p=0,01$)
+\end{Verbatim}
+\textcolor{despline}{\textbf{DESPUÉS:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{despline}, framerule=1.2pt]
+La leve inclinación de $5.7^\circ$ (parametrizada en la literatura mediante la magnetización poloidal $\mu_p=0.01$)
+\end{Verbatim}
+
+\subsection*{Cambio 38 --- campaña B (rol de presión vs tensión)}
+\colorbox{critbg}{\textbf{\footnotesize CRITERIO --- REQUIERE LUZ VERDE}}
+
+\textbf{Por qué:} CONTRADICCIÓN INTERNA: el texto decía que w = rho h W\textasciicircum{}2 «como se expuso en los capítulos previos, carece de contribución magnética directa», pero el cap. 2 define la inercia efectiva transversal como w = rho h W\textasciicircum{}2 + B\textasciicircum{}2 (Chow 2023), es decir CON contribución magnética. Reformulé para que la afirmación (verdadera) recaiga sobre la entalpía hidrodinámica rho h. CAMBIO FÍSICO: debí consultarlo.
+
+\textcolor{antesline}{\textbf{ANTES:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{antesline}, framerule=1.2pt]
+se introduce formalmente vía la velocidad magnetosónica y los efectos de compresibilidad del medio, y no a través de la densidad de entalpía inercial relativista $w = \rho h W^2$ (la cual, como se expuso en los capítulos previos, carece de contribución magnética directa).
+\end{Verbatim}
+\textcolor{despline}{\textbf{DESPUÉS:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{despline}, framerule=1.2pt]
+se introduce formalmente vía la velocidad magnetosónica y los efectos de compresibilidad del medio, y no a través de la entalpía hidrodinámica $\rho h$ (que no contiene contribución magnética directa).
+\end{Verbatim}
+
+\subsection*{Cambio 39 --- campaña C (apertura)}
+\colorbox{okbg}{\textbf{\footnotesize ERROR OBJETIVO}}
+
+\textbf{Por qué:} La referencia «(Fig.\textasciitilde{}X)» estaba huérfana entre dos oraciones (después del punto); la integré a la frase anterior.
+
+\textcolor{antesline}{\textbf{ANTES:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{antesline}, framerule=1.2pt]
+es la ausencia de una componente de tensión magnética que se oponga directamente a la cizalladura del fluido. (Fig.~\ref{fig:campC_enstrofia}) Los mapas de densidad de la Figura~\ref{fig:mapa_campC}
+\end{Verbatim}
+\textcolor{despline}{\textbf{DESPUÉS:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{despline}, framerule=1.2pt]
+es la ausencia de una componente de tensión magnética que se oponga directamente a la cizalladura del fluido (Fig.~\ref{fig:campC_enstrofia}). Los mapas de densidad de la Figura~\ref{fig:mapa_campC}
+\end{Verbatim}
+
+\subsection*{Cambio 40 --- campaña B (análisis de extremos)}
+\colorbox{okbg}{\textbf{\footnotesize ERROR OBJETIVO}}
+
+\textbf{Por qué:} Guiones simples usados como rayas de inciso → rayas (---), convención del resto del documento.
+
+\textcolor{antesline}{\textbf{ANTES:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{antesline}, framerule=1.2pt]
+El análisis de los extremos locales -identificados mediante la condición de derivada nula ($dE/dt=0$) y filtrados por prominencia para descartar ruido de fondo- demuestra
+\end{Verbatim}
+\textcolor{despline}{\textbf{DESPUÉS:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{despline}, framerule=1.2pt]
+El análisis de los extremos locales ---identificados mediante la condición de derivada nula ($dE/dt=0$) y filtrados por prominencia para descartar ruido de fondo--- demuestra
+\end{Verbatim}
+
+\subsection*{Cambio 41 --- balance energético (canales disipativos)}
+\colorbox{okbg}{\textbf{\footnotesize ERROR OBJETIVO}}
+
+\textbf{Por qué:} Igual que el cambio 40.
+
+\textcolor{antesline}{\textbf{ANTES:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{antesline}, framerule=1.2pt]
+cuantifica los dos canales disipativos en juego: el \emph{óhmico} -resistivo, $\propto\eta J^2$- y un canal \emph{efectivo} no óhmico -viscosidad numérica y mezcla turbulenta de la cizalla-.
+\end{Verbatim}
+\textcolor{despline}{\textbf{DESPUÉS:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{despline}, framerule=1.2pt]
+cuantifica los dos canales disipativos en juego: el \emph{óhmico} ---resistivo, $\propto\eta J^2$--- y un canal \emph{efectivo} no óhmico ---viscosidad numérica y mezcla turbulenta de la cizalla---.
+\end{Verbatim}
+
+\subsection*{Cambio 42 --- figuras fig\_campA\_rho\_collage y fig\_campB\_energia\_todos}
+\colorbox{revbg}{\textbf{\footnotesize APLICADO Y REVERTIDO}}
+
+\textbf{Por qué:} Moví dos figuras [H] que estaban insertadas a mitad de oración, creyendo que partían la frase por error. Sebastián aclaró que esa colocación era intencional, por estética del documento. AMBAS FIGURAS FUERON DEVUELTAS A SU POSICIÓN ORIGINAL EXACTA. Estado actual = estado original (sin cambio neto).
+
+\textcolor{antesline}{\textbf{ANTES:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{antesline}, framerule=1.2pt]
+(posición original de ambas figuras, a mitad de la oración)
+\end{Verbatim}
+\textcolor{despline}{\textbf{DESPUÉS:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{despline}, framerule=1.2pt]
+(idéntico al original: cambio revertido el 03-jul tras la aclaración)
+\end{Verbatim}
+
+
+\section*{sections/06\_conclusions.tex}
+\subsection*{Cambio 43 --- comentario interno de cabecera (no se renderiza)}
+\colorbox{critbg}{\textbf{\footnotesize CRITERIO --- REQUIERE LUZ VERDE}}
+
+\textbf{Por qué:} El comentario decía que las conclusiones eran un «BORRADOR/ESQUELETO» pendiente de revisión de los coautores — obsoleto para la versión final entregable. Solo afecta el fuente, no el PDF.
+
+\textcolor{antesline}{\textbf{ANTES:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{antesline}, framerule=1.2pt]
+% ============================================================================
+% BORRADOR/ESQUELETO de conclusiones — estructurado por los 4 objetivos de la
+% propuesta. Contiene los resultados reales del análisis; los coautores deben
+% revisar/ampliar (sobre todo la parte de implementación numérica) y pulir.
+% ============================================================================
+\end{Verbatim}
+\textcolor{despline}{\textbf{DESPUÉS:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{despline}, framerule=1.2pt]
+% ============================================================================
+% Conclusiones — estructuradas por los 4 objetivos de la propuesta.
+% ============================================================================
+\end{Verbatim}
+
+\subsection*{Cambio 44 --- trabajo futuro (último ítem)}
+\colorbox{critbg}{\textbf{\footnotesize CRITERIO --- REQUIERE LUZ VERDE}}
+
+\textbf{Por qué:} Dos problemas: (a) Mignone et al. 2024 es un esquema de volúmenes finitos de 4.º orden (espacial), no un «esquema de integración temporal»; (b) \textbackslash{}parencite dentro de paréntesis duplicaba paréntesis. NOTA: en mi primera corrección escribí «Res-RMHD», término que el documento NO usa (solo RRMHD) — ya corregido a «la RRMHD» por indicación de Sebastián. Se muestra el texto original y el texto final vigente.
+
+\textcolor{antesline}{\textbf{ANTES:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{antesline}, framerule=1.2pt]
+\item \textbf{Esquemas de integración temporal de orden aún mayor:} (p.ej.\ cuarto orden, \parencite{mignone2024}) para reducir la disipación numérica y resolver las hojas resistivas.
+\end{Verbatim}
+\textcolor{despline}{\textbf{DESPUÉS:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{despline}, framerule=1.2pt]
+\item \textbf{Esquemas de orden aún mayor:} p.ej.\ los esquemas de volúmenes finitos de cuarto orden para la RRMHD \parencite{mignone2024}, para reducir la disipación numérica y resolver las hojas resistivas.
+\end{Verbatim}
+
+
+\section*{sections/07\_appendices.tex}
+\subsection*{Cambio 45 --- técnicas estadísticas (leyes de potencia)}
+\colorbox{critbg}{\textbf{\footnotesize CRITERIO --- REQUIERE LUZ VERDE}}
+
+\textbf{Por qué:} CONTRADICCIÓN NUMÉRICA: el apéndice decía alfa\_asint ≈ 0.57, pero la Tabla de leyes de potencia del cuerpo dice 1.238 (R²=0.9931) y el Resumen/Conclusiones usan sigma\textasciicircum{}1.22. Asumí que 0.57 era un residuo de un análisis anterior y lo alineé con la tabla. ES UN NÚMERO DE RESULTADOS: queda pendiente que Sebastián lo verifique contra el pipeline.
+
+\textcolor{antesline}{\textbf{ANTES:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{antesline}, framerule=1.2pt]
+Se realizan dos ajustes: el completo ($N=29$ picos identificados) y el asintótico restringido a $\sigma\ge6000$ ($N$ reducido), obteniéndose $\alpha_{\rm completo}\approx1.22$ y $\alpha_{\rm asint}\approx0.57$, respectivamente.
+\end{Verbatim}
+\textcolor{despline}{\textbf{DESPUÉS:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{despline}, framerule=1.2pt]
+Se realizan dos ajustes: el completo ($N=29$ picos identificados) y el asintótico restringido a $\sigma\ge6000$ ($N$ reducido), obteniéndose $\alpha_{\rm completo}\approx1.21$ y $\alpha_{\rm asint}\approx1.24$, respectivamente (Tabla~\ref{tab:leyes_potencia}).
+\end{Verbatim}
+
+\subsection*{Cambio 46 --- reconstrucción de estimadores de sigma\_crit}
+\colorbox{okbg}{\textbf{\footnotesize ERROR OBJETIVO}}
+
+\textbf{Por qué:} El criterio de incertidumbre estaba escrito con símbolos inconsistentes respecto al cap. 6 y a la propia subsección jackknife del apéndice (que definen max(delta\_jk, w/2), con w/2 el semiancho).
+
+\textcolor{antesline}{\textbf{ANTES:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{antesline}, framerule=1.2pt]
+La incertidumbre de cada inflexión es $\delta\sigma=\max(\sigma_{\rm jk},w)$, con $\sigma_{\rm jk}$ el error \emph{jackknife} (escalado $\times\sqrt{n-1}$) y $w$ el semiancho del pico. 
+\end{Verbatim}
+\textcolor{despline}{\textbf{DESPUÉS:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{despline}, framerule=1.2pt]
+La incertidumbre de cada inflexión es $\delta\sigma=\max(\delta_{\rm jk},\,w/2)$, con $\delta_{\rm jk}$ el error \emph{jackknife} (escalado $\times\sqrt{n-1}$) y $w/2$ el semiancho del pico (Sección~\ref{ap:est:jackknife}).
+\end{Verbatim}
+
+\subsection*{Cambio 47 --- dispersión de vortex sheet}
+\colorbox{revbg}{\textbf{\footnotesize APLICADO Y REVERTIDO}}
+
+\textbf{Por qué:} Había cambiado Gamma/k por omega\_i/k pensando en la reserva de Gamma para el índice adiabático. Sebastián indicó NO hacer cambios de omega (omega queda reservado para su uso ya establecido) → revertido el 4-jul: el texto vuelve a Gamma/k.
+
+\textcolor{antesline}{\textbf{ANTES:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{antesline}, framerule=1.2pt]
+(texto original con Gamma/k)
+\end{Verbatim}
+\textcolor{despline}{\textbf{DESPUÉS:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{despline}, framerule=1.2pt]
+(idéntico al original: cambio revertido el 4-jul por indicación de Sebastián)
+\end{Verbatim}
+
+\subsection*{Cambio 48 --- guía de interpretación topológica}
+\colorbox{okbg}{\textbf{\footnotesize ERROR OBJETIVO}}
+
+\textbf{Por qué:} Igual que el cambio 17: «fenoménicos» → «fenomenológicos».
+
+\textcolor{antesline}{\textbf{ANTES:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{antesline}, framerule=1.2pt]
+Para la correcta lectura de los resultados paramétricos y fenoménicos presentados a lo largo de esta monografía
+\end{Verbatim}
+\textcolor{despline}{\textbf{DESPUÉS:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{despline}, framerule=1.2pt]
+Para la correcta lectura de los resultados paramétricos y fenomenológicos presentados a lo largo de esta monografía
+\end{Verbatim}
+
+\subsection*{Cambio 49 --- sección ap:cueva (tras la ley de Ohm)}
+\colorbox{usrbg}{\textbf{\footnotesize SOLICITADO POR SEBASTIÁN}}
+
+\textbf{Por qué:} SOLICITADO POR SEBASTIÁN (03-jul): aclaración sobre las dos variantes de los términos de Godunov--Powell (la de Miranda en el apéndice vs. la proporcional a Psi del cap. 2). Se AÑADIÓ este párrafo (no existía).
+
+\textcolor{antesline}{\textbf{ANTES:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{antesline}, framerule=1.2pt]
+(no existía)
+\end{Verbatim}
+\textcolor{despline}{\textbf{DESPUÉS:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{despline}, framerule=1.2pt]
+Conviene una aclaración sobre los términos no conservativos de la Ec.~\eqref{ap:eq:rrmhd}: las contribuciones $-(\nabla\!\cdot\!\mathbf{B})\mathbf{B}$ en el momento y $-\mathbf{B}\!\cdot\!\nabla\Psi-\mathbf{E}\!\cdot\!\nabla\Phi$ en la energía corresponden a la variante de Godunov--Powell del control de monopolos tal como la escriben \textcite{miranda2014}, mientras que en la Sección~\ref{sec:RRMHD_Conservativa} se presentó la variante equivalente proporcional al pseudopotencial de limpieza ($-\Psi B^j$ y $-\Psi\,(\mathbf{v}\cdot\mathbf{B})$) \parencite{ruedaramirez2023}. Ambas formas cumplen el mismo propósito ---compensar la aceleración artificial inducida por los monopolos espurios--- y se anulan idénticamente en el límite continuo, donde $\nabla\!\cdot\!\mathbf{B}=0$ y $\Psi\to0$.
+\end{Verbatim}
+
+
+\section*{grad.tex}
+\subsection*{Cambio 50 --- bloque de Agradecimientos (final del documento)}
+\colorbox{okbg}{\textbf{\footnotesize ERROR OBJETIVO}}
+
+\textbf{Por qué:} DOBLE ENCABEZADO verificado en el índice compilado: aparecían «C. Agradecimientos» (p. 155, capítulo de apéndice numerado) y «Agradecimientos» (p. 156, del \textbackslash{}chapter* interno del archivo). El archivo agradecimientos.tex ya trae su propio \textbackslash{}chapter* con entrada al índice, así que el wrapper sobraba. El label ap:agradecimientos no se referenciaba en ninguna parte.
+
+\textcolor{antesline}{\textbf{ANTES:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{antesline}, framerule=1.2pt]
+\chapter{Agradecimientos}
+\label{ap:agradecimientos}
+\input{sections/agradecimientos.tex}
+\end{Verbatim}
+\textcolor{despline}{\textbf{DESPUÉS:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{despline}, framerule=1.2pt]
+\input{sections/agradecimientos.tex}
+\end{Verbatim}
+
+\subsection*{Cambio 51 --- título del capítulo 5}
+\colorbox{okbg}{\textbf{\footnotesize ERROR OBJETIVO}}
+
+\textbf{Por qué:} Tilde faltante y doble espacio en el título del capítulo.
+
+\textcolor{antesline}{\textbf{ANTES:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{antesline}, framerule=1.2pt]
+\chapter{Set-up Experimental y metodos  \textit{Cueva}}
+\end{Verbatim}
+\textcolor{despline}{\textbf{DESPUÉS:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{despline}, framerule=1.2pt]
+\chapter{Set-up Experimental y métodos \textit{Cueva}}
+\end{Verbatim}
+
+
+\section*{TODOS los .tex (sed global)}
+\subsection*{Cambio 52 --- 21 apariciones en 7 archivos}
+\colorbox{critbg}{\textbf{\footnotesize CRITERIO --- REQUIERE LUZ VERDE}}
+
+\textbf{Por qué:} Coexistían tres grafías: «Kelvin-Helmholtz» (guion simple, 10 veces), «Kelvin--Helmholtz» (raya, 10 veces) y «Kelvin–Helmholtz» (en-dash unicode, 1 vez). Unifiqué todo a «Kelvin--Helmholtz» (raya: convención tipográfica para nombres de dos personas, la que usa el título de la tesis). CAMBIO MASIVO CON SED: debí consultarlo. Líneas afectadas: 01\_introduction 19, 21, 38 · 02\_rrmhd\_theory 488 · 03\_KHI 1, 10, 41, 137 · 04\_numerical\_methods 36 · setup\_exp 22 · 07\_appendices 290.
+
+\textcolor{antesline}{\textbf{ANTES:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{antesline}, framerule=1.2pt]
+Kelvin-Helmholtz   /   Kelvin–Helmholtz   (según el sitio)
+\end{Verbatim}
+\textcolor{despline}{\textbf{DESPUÉS:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{despline}, framerule=1.2pt]
+Kelvin--Helmholtz   (en las 21 apariciones)
+\end{Verbatim}
+
+
+\section*{figuras (pipeline lab\_offsetC)}
+\subsection*{Cambio 53 --- fig1\_ajuste\_v6.pdf, fig10\_holdout.pdf, fig\_sigma\_crit\_promedio.pdf}
+\colorbox{usrbg}{\textbf{\footnotesize SOLICITADO POR SEBASTIÁN}}
+
+\textbf{Por qué:} SOLICITADO POR SEBASTIÁN (4-jul): que 'v6'/'v5' no se vea en el PDF. Esos rótulos estaban DENTRO de tres figuras (títulos y leyendas de los plots). Se editaron solo los strings de los scripts del lab (gen\_figuras\_justificacion.py, gen\_figs\_bulletproof.py, validacion\_khi.py), se regeneraron las figuras con los MISMOS datos (números idénticos: RMSE 0.039/0.025, sigma\_crit 2861±122) y se copiaron a monografia/figuras/. Verificado: pdftotext del PDF completo → 0 apariciones de v5/v6.
+
+\textcolor{antesline}{\textbf{ANTES:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{antesline}, framerule=1.2pt]
+Rótulos en las figuras: 'Ajuste sigmoide v6 (offset C)' / 'v6: C+...' / 'v5 (sin C)' / 'v6 (+C)' / '(b) Validación cruzada: v6 predice...' / 'M4 sigmoide v6'
+\end{Verbatim}
+\textcolor{despline}{\textbf{DESPUÉS:}}
+\begin{Verbatim}[breaklines=true, breakanywhere=true, fontsize=\small, frame=leftline, rulecolor=\color{despline}, framerule=1.2pt]
+Rótulos nuevos: 'Ajuste sigmoide con offset C' / 'Sigmoide con offset: C+...' / 'sin offset (3 parám.)' / 'con offset C (4 parám.)' / '(b) Validación cruzada: el modelo con offset predice...' / 'M4 sigmoide (offset C)'
+\end{Verbatim}
+
+\section*{Cambios ya aprobados en esta sesión (contexto)}
+\subsection*{A. 4 archivos de Bryan aplicados (aprobado por Sebastián)}
+Se copiaron sobre el repo: setup\_exp.tex y 05\_results\_discussion.tex (eliminan «interfasial» y aceptan la corrección \textbackslash{}prof del director en la fig. 6.20), 04\_numerical\_methods.tex («interfasial» → «de interfaz», 4 sitios) y grad.tex (Agradecimientos movido al final, antes de la bibliografía).
+
+\subsection*{B. Referencia rota: sec:Contraste\_Teoria\_Lineal → sec:teoria\_v6 (07\_appendices.tex, aprobado)}
+El label no existía en ninguna parte; el destino evidente es \textbackslash{}section\{Contraste con la teoría lineal\} (label sec:teoria\_v6). Aprobado con la opción «Sí, con mis candidatos».
+
+\subsection*{C. Label faltante: \textbackslash{}label\{sec:lnfit\} añadido a la subsección de extracción de la tasa (05\_results\_discussion.tex, aprobado)}
+El apéndice referenciaba «Sección\textasciitilde{}\textbackslash{}ref\{sec:lnfit\}» pero el label no existía (solo la figura fig:lnfit). Se añadió el label a la \textbackslash{}subsection\{Extracción de la tasa de crecimiento y calidad del ajuste lineal\}.
+
+\subsection*{D. Res-RMHD → RRMHD (06\_conclusions.tex y comentario del .bib, corregido por indicación de Sebastián)}
+En mi corrección del ítem de trabajo futuro introduje el término «Res-RMHD», que el documento no usa. Corregido a «la RRMHD». También se limpió un comentario del references.bib que decía «Esquema Res-RMHD de 4º orden» (comentario, no se renderiza).
+
+\section*{Pendientes que NO se tocaron (informativo)}
+\begin{itemize}
+\item Notación de la enstrofía: conviven $\Omega'_z$ (cap.~2), $\Omega'_{zp}$ y $\Omega_{zp}$ (cap.~5--6) y la macro \texttt{\textbackslash Ozp}. No se unificó por ser decisión de los autores.
+\item El símbolo de la carga: el cap.~2 usa $\rho_q$ y el apéndice usa $q$ para la misma variable evolucionada. Se dejó así (cada uno es consistente internamente).
+\end{itemize}
+\end{document}

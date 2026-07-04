@@ -364,7 +364,7 @@
       \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{J. Comp. Phys.}
+      \field{journaltitle}{Journal of Computational Physics}
       \field{month}{1}
       \field{title}{{Hyperbolic Divergence Cleaning for the MHD Equations}}
       \field{volume}{175}
@@ -1033,8 +1033,8 @@
       \field{title}{Building a numerical relativistic non-ideal magnetohydrodynamics code for astrophysical applications}
       \field{volume}{302}
       \field{year}{2014}
-      \field{pages}{63\bibrangedash 66}
-      \range{pages}{4}
+      \field{pages}{64\bibrangedash 65}
+      \range{pages}{2}
       \verb{doi}
       \verb 10.1017/S1743921314001732
       \endverb
@@ -1210,7 +1210,7 @@
       \field{journaltitle}{The Astrophysical Journal Supplement Series}
       \field{month}{2}
       \field{number}{1}
-      \field{title}{{THE ROLE OF THE EQUATION OF STATE IN RESISTIVE RELATIVISTIC MAGNETOHYDRODYNAMICS}}
+      \field{title}{{The role of the equation of state in resistive relativistic magnetohydrodynamics}}
       \field{volume}{205}
       \field{year}{2013}
       \field{pages}{7}
@@ -1737,7 +1737,7 @@
       \field{journaltitle}{The Astrophysical Journal}
       \field{month}{6}
       \field{number}{1}
-      \field{title}{{NUMERICAL SIMULATIONS OF KELVIN– HELMHOLTZ INSTABILITY: a TWO-DIMENSIONAL PARAMETRIC STUDY}}
+      \field{title}{{Numerical simulations of Kelvin--Helmholtz instability: a two-dimensional parametric study}}
       \field{volume}{824}
       \field{year}{2016}
       \field{pages}{60}
