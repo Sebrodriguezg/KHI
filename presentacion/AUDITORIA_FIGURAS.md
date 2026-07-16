@@ -32,6 +32,10 @@ verificando contra los valores publicados:
    r≈−0.6 a −0.9 de la monografía. Si el clúster recupera el script original
    (PARTE 1.3 del prompt), se pueden reponer los r por panel.
    La lámina S26 se reestructuró: figura arriba a ancho completo, hallazgos abajo.
+5. **P27 (NUEVA, 15-jul) `fig_campC_enstrofia_slide.pdf` + `fig_campC_ekin_emag_scatter_slide.pdf`**
+   — `gen_campC_enstrofia_slide.py` / `gen_campC_scatter_slide.py`. Lámina nueva
+   "Campaña Magnética III" para dar a la campaña C el mismo protagonismo que A y B.
+   **El deck pasó de 46 a 47 pp: las páginas ≥27 de esta auditoría corren +1.**
 
 ---
 

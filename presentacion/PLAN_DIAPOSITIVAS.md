@@ -14,12 +14,12 @@ Plantilla: Beamer 16:9 de `~/Downloads/New Project(5)/main.tex` (paleta Inferno,
 |---|---|---|---|
 | 0. Portada + hoja de ruta | 2 | 1.5 min | 5% |
 | 1. Motivación y fenomenología | 3 | 3 min | 10% |
-| 2. Marco teórico RRMHD | 6 | 6.5 min | 22% |
-| 3. Implementación numérica + setup | 6 | 7 min | 23% |
-| 4. Resultados | 8 | 9 min | 30% |
+| 2. Marco teórico RRMHD | 6 | 6 min | 20% |
+| 3. Implementación numérica + setup | 6 | 6.5 min | 22% |
+| 4. Resultados | 9 | 10 min | 33% |
 | 5. Conclusiones y perspectivas | 2 | 2.5 min | 8% |
 | Cierre | 1 | 0.5 min | 2% |
-| **Total cuerpo** | **28 frames** | **30 min** | |
+| **Total cuerpo** | **29 frames** | **30 min** | |
 | Backup (no se presentan) | ~12 | — | |
 
 Regla de ritmo: ~65 s/slide de contenido; las de resultados con figura grande pueden ir a 75–90 s compensando con slides visuales rápidas.
@@ -138,7 +138,7 @@ Regla de ritmo: ~65 s/slide de contenido; las de resultados con figura grande pu
 
 ---
 
-## BLOQUE 4 — Resultados (8 slides, 9 min)
+## BLOQUE 4 — Resultados (9 slides, 10 min)
 
 ### S18 — Visión global del barrido: fenomenología
 - Figura: `figuras/fig_conductividad_rho_collage.pdf` (ρ(x,y): 3 σ × 3 tiempos).
@@ -189,23 +189,29 @@ Regla de ritmo: ~65 s/slide de contenido; las de resultados con figura grande pu
 - Anti-fase E_kin↔E_mag ciclo a ciclo (r≈−0.6 a −0.98): canal de conversión directo y reversible. La resistividad decide el **destino** de la energía: a σ=10000 intercambio cuasi-reversible; a σ=6000 la disipación óhmica desvía energía a calor (a θ=90° hasta un orden de magnitud más). Conservación de E_tot a ≲10⁻³ (validación interna del esquema).
 - Mensaje del objetivo 4: cuando la geometría enmascara la fase lineal, el observable correcto no es γ sino el balance energético.
 
+### S27 — Campaña magnética III: orientación sin tensión (campaña C) *(añadida 15-jul)*
+- Figuras: `figures/fig_campC_enstrofia_slide.pdf` + `figures/fig_campC_ekin_emag_scatter_slide.pdf` (θ=60°, 90°).
+- El experimento de control: B_y=0 elimina la tensión. |B| (y la presión magnética) constante con θ ⟹ la fenomenología es puramente geométrica (reorientación de B_x, topología de reconexión).
+- Sin tensión no hay fase lineal limpia: crecimiento irregular, mezcla difusa — idéntico en ambas σ ⟹ **la tensión es el estabilizador primario** de la KHI en RRMHD.
+- La conversión queda al desnudo: anti-correlación E'_kin–E'_mag se intensifica con θ hasta r≈−0.98 (60°, 90°): conversión casi uno a uno; disipación óhmica monótona con θ.
+
 ---
 
 ## BLOQUE 5 — Cierre (3 slides, 3 min)
 
-### S27 — Conclusiones (por objetivo, espejo de la monografía)
+### S28 — Conclusiones (por objetivo, espejo de la monografía)
 1. γ_KHI(σ): sigmoide con offset; asíntota ideal 1.03±0.05, consistente al 8% con teoría lineal RMHD compresible; transición como zona [1400,7000].
 2. Estructuras secundarias: Ω∝σ^1.22 > piso Sweet–Parker (hipótesis tearing); f_Vz máxima en la transición.
 3. Variables globales: la conductividad controla láminas de corriente, disipación acumulada y amplificación magnética.
 4. Campo magnético: supresión por presión/magnetización (A); tensión solo vía B_y∥k (B); sin tensión, reconexión y disipación directa (C); anti-fase cinético↔magnética como canal universal.
 - SIN "[objetivo cumplido]" — lección del director: eso lo decide el evaluador.
 
-### S28 — Limitaciones y trabajo futuro (honestidad epistemológica)
+### S29 — Limitaciones y trabajo futuro (honestidad epistemológica)
 - Dos columnas. Limitaciones: 2D (sin cascada 3D), EoS politrópica Γ=4/3, **σ escalar (sin Hall/anisotropía; el continuo unifluido es un truncamiento de la jerarquía de momentos de Vlasov — válido mientras la escala disipativa relevante sea la capa resistiva δ~S^{−1/2}, no el giroradio)**, resolución roza las láminas a alta σ, asíntota ideal extrapolada (dato máximo = 85%).
 - Futuro: plateau directo a Rm*≳500, dispersión RMHD grado 8 completa, 3D/GRMHD, esquemas de 4.º orden (mignone2024), frontera tensión-vs-presión con más ángulos.
 - 🛡️ (Cobertura filosófica del informe): reconocer el límite colisional/cinético del modelo ANTES de que lo pregunten. Es la slide de "madurez intelectual" que ambos informes recomiendan cerrar.
 
-### S29 — Gracias `[plain]`
+### S30 — Gracias `[plain]`
 - Imagen fuerte (vórtice), datos de contacto, "Preguntas".
 
 ---
@@ -235,5 +241,5 @@ Regla de ritmo: ~65 s/slide de contenido; las de resultados con figura grande pu
 - **Figuras**: TODAS ya existen en `monografia/figuras/` (PDF vectorial). Copiarlas a `presentacion/figures/`. Solo habría que producir: (a) esquema de flechas del mapa de límites (TikZ, S10), (b) diagrama de campañas (S5/S17 — puede reusarse `figuras/campana_A_3d` etc.).
 - **Paleta**: la Inferno de la plantilla YA es la paleta de las gráficas del barrido (negro→púrpura→naranja) — coherencia visual automática.
 - **Notación en slides = notación de la monografía**: W Lorentz, Γ adiabático, ω̂ tasa normalizada, σ SOLO conductividad. Cueva sin artículo ("Cueva", no "el Cueva"). Sin jerga interna (nada de "v5/v6", "35A" solo como "setup tipo Mizuno").
-- **Ensayos**: cronometrar bloques con checkpoints — min 4:30 fin motivación, min 11 fin teoría, min 18 fin numérica, min 27 fin resultados.
+- **Ensayos**: cronometrar bloques con checkpoints — min 4:30 fin motivación, min 11 fin teoría, min 17:30 fin numérica, min 27:30 fin resultados.
 - **Respuestas de 60 s a ensayar** (del perfil del jurado): (1) KHI sin ecuaciones; (2) ∇·B/Bianchi/GLM/causalidad; (3) disipación numérica vs física (plateau J_max + Lecoanet + diseño MP5); (4) origen cinético de η y límites del continuo; (5) límite no relativista del sistema; (6) por qué HLL y no HLLC.
