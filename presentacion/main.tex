@@ -269,7 +269,7 @@
 \framesubtitle{Qu\'e es, d\'onde vive y por qu\'e importa}
 \begin{columns}[T]
 \begin{column}{0.50\textwidth}
-  \begin{block}{El mecanismo f\'isico (sin f\'ormulas)}
+  \begin{block}{El mecanismo f\'isico}
     \scriptsize
     \begin{itemize}\setlength\itemsep{2pt}
       \item Dos flujos en contacto con \textbf{velocidades distintas}
@@ -346,7 +346,7 @@
     \end{itemize}
   \end{tcolorbox}
   \vspace{0.12cm}
-  \begin{block}{La pregunta de esta tesis}
+  \begin{block}{La pregunta de este trabajo}
     \scriptsize
     ?`\textbf{C\'omo gobiernan la conductividad finita $\sigma$ y la geometr\'ia
     del campo $\mathbf B$} el crecimiento, la morfolog\'ia y el balance
@@ -381,7 +381,7 @@
   \begin{tcolorbox}[HYP={Campa\~na 2 --- Campo magn\'etico (objetivo 4)}]
     \scriptsize
     Conductividad \textbf{fija} en dos reg\'imenes
-    ($\sigma=6000$ y $\sigma=10^4$); se var\'ia $\mathbf B$:
+    ($\sigma=6000$ y $\sigma=10000$); se var\'ia $\mathbf B$:
     \begin{itemize}\setlength\itemsep{1pt}
       \item \textbf{A --- intensidad}: $B_0=1.0,\,1.5,\,2.0$
             (orientaci\'on Mizuno fija);
@@ -393,11 +393,11 @@
   \end{tcolorbox}
 \end{column}
 \end{columns}
-\vspace{0.15cm}
+\vspace{0.05cm}
 \begin{center}
-  \includegraphics[width=0.32\textwidth]{figures/campana_A_3d.pdf}\hfill
-  \includegraphics[width=0.32\textwidth]{figures/campana_B_3d.pdf}\hfill
-  \includegraphics[width=0.32\textwidth]{figures/campana_C_3d.pdf}
+  \includegraphics[width=0.245\textwidth]{figures/campana_A_3d.pdf}\hfill
+  \includegraphics[width=0.245\textwidth]{figures/campana_B_3d.pdf}\hfill
+  \includegraphics[width=0.245\textwidth]{figures/campana_C_3d.pdf}
 \end{center}
 \end{frame}
 
@@ -499,7 +499,7 @@
             anisotrop\'ia respecto a $\mathbf B$.
       \item $\eta$ es un \textbf{coeficiente de transporte macrosc\'opico}:
             emerge de las integrales de colisi\'on del nivel cin\'etico
-            (Vlasov--Boltzmann). \hfill{\tiny[resp.\ B11]}
+            (Vlasov--Boltzmann). \hfill{\tiny[resp.\ B9]}
       \item La escala micro relevante del modelo es la capa resistiva
             $\delta\sim S^{-1/2}$, no el girorradio.
     \end{itemize}
@@ -590,10 +590,12 @@
 \begin{column}{0.46\textwidth}
   \begin{tcolorbox}[EQ={Vector fuente}]
     \scriptsize
-    \[
-      \mathbf{S}(\mathbf U)=\bigl(0,\;-\Psi B^j,\;-\Psi(\mathbf v\!\cdot\!\mathbf B),\;
-      0,\;-J^j,\;0,\;-\kappa_B\Psi,\;\rho_q-\kappa_E\Phi\bigr)^{T}
-    \]
+    \begin{center}
+      \resizebox{0.98\linewidth}{!}{$
+        \mathbf{S}(\mathbf U)=\bigl(0,\;-\Psi B^j,\;-\Psi(\mathbf v\!\cdot\!\mathbf B),\;
+        0,\;-J^j,\;0,\;-\kappa_B\Psi,\;\rho_q-\kappa_E\Phi\bigr)^{T}
+      $}
+    \end{center}
     \begin{itemize}\setlength\itemsep{1pt}
       \item $-J^j$: cierre de Ohm (\'unico acople resistivo).
       \item $-\Psi B^j$, $-\Psi(\mathbf v\!\cdot\!\mathbf B)$: t\'erminos de
@@ -620,6 +622,7 @@
 \begin{frame}{Mapa de L\'imites: del RRMHD a la F\'isica Conocida}
 \framesubtitle{Cada l\'imite recupera una teor\'ia consolidada --- y una versi\'on de la KHI}
 \begin{center}
+\resizebox{0.97\textwidth}{!}{%
 \begin{tikzpicture}[
   box/.style={draw=primary,fill=bgwarm,rounded corners=1.5pt,align=center,
               minimum width=2.55cm,minimum height=0.95cm,font=\scriptsize},
@@ -627,9 +630,9 @@
   lim/.style={-{Stealth[length=2mm]},very thick,accent},
   note/.style={align=center,font=\tiny,text width=2.75cm,color=INF2}]
   \node[hbox] (rrmhd) {\textbf{RRMHD}\\$0<\sigma<\infty$};
-  \node[box,right=0.95cm of rrmhd] (rmhd) {\textbf{RMHD ideal}\\$\mathbf E'=0$ (congelado)};
-  \node[box,right=0.95cm of rmhd] (mhd) {\textbf{MHD cl\'asica}};
-  \node[box,right=0.95cm of mhd] (hidro) {\textbf{Hidrodin\'amica}\\(Euler)};
+  \node[box,right=1.6cm of rrmhd] (rmhd) {\textbf{RMHD ideal}\\$\mathbf E'=0$ (congelado)};
+  \node[box,right=1.6cm of rmhd] (mhd) {\textbf{MHD cl\'asica}};
+  \node[box,right=1.6cm of mhd] (hidro) {\textbf{Hidrodin\'amica}\\(Euler)};
   \draw[lim] (rrmhd) -- node[above,font=\tiny\bfseries]{$\sigma\to\infty$} (rmhd);
   \draw[lim] (rmhd) -- node[above,font=\tiny\bfseries]{$v\ll c,\ W\to1$} (mhd);
   \draw[lim] (mhd) -- node[above,font=\tiny\bfseries]{$\mathbf B\to0$} (hidro);
@@ -642,10 +645,10 @@
     si $(\mathbf k\!\cdot\!\mathbf B)^2$ supera\\ la energ\'ia de cizalla};
   \node[note,below=1.5pt of hidro]{KHI: discontinuidad\\
     \textbf{incondicionalmente}\\ inestable {\tiny(Kelvin, Helmholtz)}};
-\end{tikzpicture}
+\end{tikzpicture}}
 \end{center}
 \vspace{0.05cm}
-\begin{tcolorbox}[WRN={El punto que define esta tesis}]
+\begin{tcolorbox}[WRN={El punto que define este trabajo}]
   \scriptsize
   En RRMHD \textbf{no existe relaci\'on de dispersi\'on algebraica cerrada}
   para la discontinuidad tangencial: el t\'ermino $\eta\nabla^2\mathbf B$ es
@@ -830,7 +833,7 @@
 \end{column}
 \begin{column}{0.46\textwidth}
   \begin{center}
-    \includegraphics[width=\linewidth]{figures/imex_splitting.pdf}\\[2pt]
+    \includegraphics[width=\linewidth]{figures/imex_splitting_slide.pdf}\\[2pt]
     {\tiny\color{INF3} Partici\'on IMEX: advecci\'on expl\'icita
      ($\Delta t\propto\Delta x$) $+$ fuente resistiva impl\'icita
      (evita $\Delta t\propto\Delta x^2/\sigma$).}
@@ -943,7 +946,7 @@
 % S17 · MATRIZ DE CAMPAÑAS Y TRANSPARENCIA
 %------------------------------------------------------------------------------
 \begin{frame}{Matriz de Simulaciones y Criterios de Exclusi\'on}
-\framesubtitle{Qu\'e se corri\'o, con qu\'e CFL, y qu\'e se excluy\'o (y por qu\'e)}
+\framesubtitle{Qu\'e se ejecut\'o, con qu\'e CFL, y qu\'e se excluy\'o (y por qu\'e)}
 \begin{columns}[T]
 \begin{column}{0.50\textwidth}
   \begin{tcolorbox}[EQ={Matriz $\sigma\times$CFL}]
@@ -959,7 +962,7 @@
     \end{tabular}\\[4pt]
     A alta $\sigma$ y campo fuerte las l\'aminas de corriente agudizan la
     recuperaci\'on de primitivas $\Rightarrow$ reducir el CFL estabiliza
-    esas corridas.
+    esas simulaciones.
   \end{tcolorbox}
   \vspace{0.1cm}
   {\scriptsize $\approx3\times10^4$ horas-n\'ucleo acumuladas;
@@ -976,7 +979,7 @@
             convergencia del solucionador de primitivas
             $\Rightarrow$ excluida del conjunto limpio.
       \item \textbf{Barrido}: el an\'alisis cuantitativo de $\gamma_{\rm KHI}$
-            usa $\sigma\ge1600$ ($R^2\ge0.90$); las corridas resistivas
+            usa $\sigma\ge1600$ ($R^2\ge0.90$); las simulaciones resistivas
             extremas se conservan solo para clasificar el r\'egimen.
     \end{itemize}
   \end{tcolorbox}
@@ -987,6 +990,36 @@
 %==============================================================================
 \section{Resultados I: barrido en conductividad}
 %==============================================================================
+
+%------------------------------------------------------------------------------
+% S18 · BARRIDO COMPLETO (antes B10)
+%------------------------------------------------------------------------------
+\begin{frame}{El Barrido Completo en Conductividad}
+\begin{columns}[T]
+\begin{column}{0.58\textwidth}
+  \begin{center}
+    \includegraphics[width=\linewidth]{figures/fig_ultrawide_omega_zp_slide.pdf}\\[2pt]
+    {\tiny\color{INF3} $\Omega_{zp}(t)$, 44 simulaciones; color $=$ \'indice
+     can\'onico (negro$\to$naranja $=$ $\sigma$ creciente).}
+  \end{center}
+\end{column}
+\begin{column}{0.40\textwidth}
+  \begin{tcolorbox}[EQ={Subconjuntos de an\'alisis}]
+    \scriptsize
+    \begin{itemize}\setlength\itemsep{2pt}
+      \item $\sigma\in[100,10\,500]$, $N=44$ (\'indice can\'onico $j$).
+      \item Ajuste de $\gamma_{\rm KHI}$ y $\sigma_{\rm crit}$:
+            $N=35$ ($\sigma\ge1600$, $R^2\ge0.90$, SNR $\ge3$).
+      \item Ajustes de pico ($\Omega^{\max}$, $t_{\rm peak}$):
+            $N=29$ ($\sigma\ge2800$, pico identificable dentro del
+            horizonte temporal).
+    \end{itemize}
+    Los dos subconjuntos difieren porque la pendiente lineal es medible
+    antes ($\sigma\ge1600$) que el pico ($\sigma\ge2800$).
+  \end{tcolorbox}
+\end{column}
+\end{columns}
+\end{frame}
 
 %------------------------------------------------------------------------------
 % S18 · VISIÓN GLOBAL
@@ -1004,7 +1037,7 @@
   \begin{block}{Lectura fenomenol\'ogica}
     \scriptsize
     \begin{itemize}\setlength\itemsep{3pt}
-      \item Tres fases en todos los casos: \textbf{lineal} ($t\sim3$)
+      \item Tres reg\'imenes en todos los casos: \textbf{lineal} ($t\sim3$)
             $\to$ \textbf{enrollamiento no lineal} ($t\sim8$)
             $\to$ \textbf{saturaci\'on} ($t\sim14$).
       \item $\sigma=100$ (resistivo): la difusi\'on \'ohmica amortigua
@@ -1045,9 +1078,8 @@
   \end{block}
   \begin{tcolorbox}[WRN={Precisi\'on conceptual}]
     \scriptsize
-    A $\sigma\lesssim1400$ \textbf{no hay fase lineal limpia}: la difusi\'on
-    domina desde $t=0$. No es un ``ajuste pobre'': es f\'isica
-    --- el modo no alcanza a establecerse.
+    A $\sigma\lesssim1400$ \textbf{no hay r\'egimen lineal limpio}: la difusi\'on
+    domina desde $t=0$. El modo no alcanza a establecerse.
   \end{tcolorbox}
 \end{column}
 \end{columns}
@@ -1094,6 +1126,37 @@
 \end{frame}
 
 %------------------------------------------------------------------------------
+% S21 · ESTIMADORES SIGMA CRIT (antes B9)
+%------------------------------------------------------------------------------
+\begin{frame}{Los Cuatro Estimadores de $\sigma_{\rm crit}$}
+\begin{columns}[T]
+\begin{column}{0.55\textwidth}
+  \begin{center}
+    \includegraphics[height=0.74\textheight]{figures/fig_derivadas_scrit.pdf}
+  \end{center}
+\end{column}
+\begin{column}{0.43\textwidth}
+  \begin{tcolorbox}[EQ={M\'etodo por inflexi\'on}]
+    \scriptsize
+    $\sigma_{\rm crit}$ de cada observable $=$ m\'aximo de
+    $|d/d\log_{10}\sigma|$; error $=\max(\delta_{\rm jackknife},\,w/2)$.
+    \begin{itemize}\setlength\itemsep{1pt}
+      \item M4 (sigmoide): $2815\pm123$
+      \item M2 ($\Omega^{\max}_{zp}$): $3400\pm2175$
+      \item M3 ($t_{\rm peak}$): $6000\pm1147$
+      \item M1 ($\gamma$, log): $6800\pm2625$
+    \end{itemize}
+    Dispersi\'on inter-m\'etodo $\pm1944$ $\Rightarrow$ zona
+    $[1400,7000]$, no valor \'unico.
+  \end{tcolorbox}
+  \begin{center}
+    \includegraphics[width=0.85\linewidth]{figures/fig_regimenes.pdf}
+  \end{center}
+\end{column}
+\end{columns}
+\end{frame}
+
+%------------------------------------------------------------------------------
 % S21 · ZONA DE TRANSICIÓN
 %------------------------------------------------------------------------------
 \begin{frame}{$\sigma_{\rm crit}$ No Es un N\'umero: Es una Zona de Transici\'on}
@@ -1101,7 +1164,7 @@
 \begin{columns}[T]
 \begin{column}{0.62\textwidth}
   \begin{center}
-    \includegraphics[width=\linewidth]{figures/fig_zona_transicion.pdf}
+    \includegraphics[width=\linewidth]{figures/fig_zona_transicion_slide.pdf}
   \end{center}
 \end{column}
 \begin{column}{0.36\textwidth}
@@ -1111,8 +1174,7 @@
       \item Cuatro estimadores independientes:
             $\sigma_0{=}2815$ (lineal), $3400$ ($\Omega^{\max}$),
             $6000$ ($t_{\rm peak}$), $6800$ ($\gamma$ log).
-      \item Bordes le\'idos de los datos:
-            $f_{Vz}$ m\'aximo ($\sigma\approx1400$) y saturaci\'on
+      \item $f_{Vz}$ m\'aximo ($\sigma\approx1400$) y saturaci\'on
             no lineal ($\sigma\approx7000$).
       \item Resultado: \textbf{zona} $\sigma\in[1400,7000]$,
             centro $\approx2815$; en Lundquist $S\sim10^3$.
@@ -1164,7 +1226,7 @@
             \citep{konigl1980,bodo-2004}: holgadamente inestable.
     \end{enumerate}
   \end{block}
-  \begin{tcolorbox}[WRN={Alcance del resultado (honestidad)}]
+  \begin{tcolorbox}[WRN={Alcance del resultado}]
     \scriptsize
     Es una \textbf{consistencia cuantitativa fuerte}, no una validaci\'on
     cerrada: la as\'intota es extrapolaci\'on (el dato m\'aximo alcanza el
@@ -1228,7 +1290,7 @@
           $\sim15\%\to0$ --- el congelamiento ideal impide reorganizar
           la topolog\'ia.
     \item $f_{Vz}$ (estructuras fuera del plano): m\'aximo $0.37$ en
-          $\sigma\approx1400$, suprimidas en el ideal. {\tiny[resp.\ B13]}
+          $\sigma\approx1400$, suprimidas en el ideal. {\tiny[resp.\ B11]}
   \end{itemize}}
 \end{column}
 \begin{column}{0.43\textwidth}
@@ -1322,7 +1384,7 @@
   \begin{tcolorbox}[RES={Control de calidad interno}]
     \scriptsize
     Conservaci\'on de $E_{\rm tot}$ con error relativo $\lesssim10^{-3}$
-    en todas las corridas: validaci\'on independiente del esquema.
+    en todas las simulaciones: validaci\'on independiente del esquema.
   \end{tcolorbox}
 \end{column}
 \end{columns}
@@ -1432,7 +1494,7 @@
             El continuo unifluido trunca la jerarqu\'ia de momentos de
             Vlasov; v\'alido mientras la escala disipativa sea la capa
             resistiva $\delta\sim S^{-1/2}$, no el girorradio.
-            \hfill{\tiny[resp.\ B11]}
+            \hfill{\tiny[resp.\ B9]}
       \item \textbf{Resoluci\'on}: a alta $\sigma$ las l\'aminas rozan
             el l\'imite de malla (condiciona el exponente $1.22$).
       \item \textbf{As\'intota ideal extrapolada}: el dato m\'aximo
@@ -1464,6 +1526,8 @@
 %------------------------------------------------------------------------------
 % REFERENCIAS
 %------------------------------------------------------------------------------
+% Se listan TODAS las citas de la monografía (44), no solo las citadas en el deck
+\nocite{Aloy_Cordero-Carrion:2016,Dedner_etal:2002,acheson-1990,bachman-2006,baez-muniain-1994,bodo-2004,bucciantini-2006,burnham-anderson-2002,chow2023,dumbser-2025,furth1963,goedbloed-2004A,gomes-2017,gomes2015,hehl-obukhov-2003,komissarov-2007,konigl1980,landau1944,lecoanet2016,lee2004,liu-1987,lyubarsky2005,michalke1964,mignone2024,miranda-aranguren-2014,miranda-aranguren-2018,miranda2014,misner1973,mizuno-2013,munz2000,nakahara-2003,nastro2022,osmanov-2008,palenzuela-2009,pareschi-2005,parker1957,pimentel-2019,rezzolla-2013,ruedaramirez2023,schutz2009,suresh-1997,tian-2016,toro-2009,vargas-2014}
 \begin{frame}[allowframebreaks]{Referencias}
 \scriptsize
 \bibliographystyle{unsrtnat}
@@ -1841,70 +1905,9 @@
 \end{frame}
 
 %------------------------------------------------------------------------------
-% B9 · ESTIMADORES SIGMA CRIT
+% B9 · VLASOV → FLUIDO
 %------------------------------------------------------------------------------
-\begin{frame}{B9 · Los Cuatro Estimadores de $\sigma_{\rm crit}$}
-\begin{columns}[T]
-\begin{column}{0.55\textwidth}
-  \begin{center}
-    \includegraphics[height=0.74\textheight]{figures/fig_derivadas_scrit.pdf}
-  \end{center}
-\end{column}
-\begin{column}{0.43\textwidth}
-  \begin{tcolorbox}[EQ={M\'etodo por inflexi\'on}]
-    \scriptsize
-    $\sigma_{\rm crit}$ de cada observable $=$ m\'aximo de
-    $|d/d\log_{10}\sigma|$; error $=\max(\delta_{\rm jackknife},\,w/2)$.
-    \begin{itemize}\setlength\itemsep{1pt}
-      \item M4 (sigmoide): $2815\pm123$
-      \item M2 ($\Omega^{\max}_{zp}$): $3400\pm2175$
-      \item M3 ($t_{\rm peak}$): $6000\pm1147$
-      \item M1 ($\gamma$, log): $6800\pm2625$
-    \end{itemize}
-    Dispersi\'on inter-m\'etodo $\pm1944$ $\Rightarrow$ zona
-    $[1400,7000]$, no valor \'unico.
-  \end{tcolorbox}
-  \begin{center}
-    \includegraphics[width=0.85\linewidth]{figures/fig_regimenes.pdf}
-  \end{center}
-\end{column}
-\end{columns}
-\end{frame}
-
-%------------------------------------------------------------------------------
-% B10 · TABLA CANÓNICA
-%------------------------------------------------------------------------------
-\begin{frame}{B10 · El Barrido Completo en Conductividad}
-\begin{columns}[T]
-\begin{column}{0.58\textwidth}
-  \begin{center}
-    \includegraphics[width=\linewidth]{figures/fig_ultrawide_omega_zp.pdf}\\[2pt]
-    {\tiny\color{INF3} $\Omega_{zp}(t)$, 44 simulaciones; color $=$ \'indice
-     can\'onico (negro$\to$naranja $=$ $\sigma$ creciente).}
-  \end{center}
-\end{column}
-\begin{column}{0.40\textwidth}
-  \begin{tcolorbox}[EQ={Subconjuntos de an\'alisis}]
-    \scriptsize
-    \begin{itemize}\setlength\itemsep{2pt}
-      \item $\sigma\in[100,10\,500]$, $N=44$ (\'indice can\'onico $j$).
-      \item Ajuste de $\gamma_{\rm KHI}$ y $\sigma_{\rm crit}$:
-            $N=35$ ($\sigma\ge1600$, $R^2\ge0.90$, SNR $\ge3$).
-      \item Ajustes de pico ($\Omega^{\max}$, $t_{\rm peak}$):
-            $N=29$ ($\sigma\ge2800$, pico identificable dentro del
-            horizonte temporal).
-    \end{itemize}
-    Los dos subconjuntos difieren porque la pendiente lineal es medible
-    antes ($\sigma\ge1600$) que el pico ($\sigma\ge2800$).
-  \end{tcolorbox}
-\end{column}
-\end{columns}
-\end{frame}
-
-%------------------------------------------------------------------------------
-% B11 · VLASOV → FLUIDO
-%------------------------------------------------------------------------------
-\begin{frame}{B11 · Del Espacio de Fase al Fluido: Fundamento del Continuo}
+\begin{frame}{B9 · Del Espacio de Fase al Fluido: Fundamento del Continuo}
 \begin{columns}[T]
 \begin{column}{0.50\textwidth}
   \begin{tcolorbox}[EQ={La jerarqu\'ia de momentos}]
@@ -1943,9 +1946,9 @@
 \end{frame}
 
 %------------------------------------------------------------------------------
-% B12 · RECURSOS COMPUTACIONALES
+% B10 · RECURSOS COMPUTACIONALES
 %------------------------------------------------------------------------------
-\begin{frame}{B12 · Recursos Computacionales y Flujo de Trabajo}
+\begin{frame}{B10 · Recursos Computacionales y Flujo de Trabajo}
 \begin{columns}[T]
 \begin{column}{0.48\textwidth}
   \begin{tcolorbox}[EQ={El c\'odigo}]
@@ -1982,9 +1985,9 @@
 \end{frame}
 
 %------------------------------------------------------------------------------
-% B13 · FIGURAS ADICIONALES
+% B11 · FIGURAS ADICIONALES
 %------------------------------------------------------------------------------
-\begin{frame}{B13 · Estructuras Secundarias y Campa\~na C}
+\begin{frame}{B11 · Estructuras Secundarias y Campa\~na C}
 \begin{columns}[T]
 \begin{column}{0.48\textwidth}
   \begin{center}
@@ -2004,9 +2007,9 @@
 \end{frame}
 
 %------------------------------------------------------------------------------
-% B14 · MAPAS DE DENSIDAD CAMPAÑAS
+% B12 · MAPAS DE DENSIDAD CAMPAÑAS
 %------------------------------------------------------------------------------
-\begin{frame}{B14 · Mapas de Densidad de las Campa\~nas Magn\'eticas}
+\begin{frame}{B12 · Mapas de Densidad de las Campa\~nas Magn\'eticas}
 \begin{columns}[T]
 \begin{column}{0.48\textwidth}
   \begin{center}
@@ -2026,9 +2029,9 @@
 \end{frame}
 
 %------------------------------------------------------------------------------
-% B15 · TABLERO DINÁMICO DE LA CAMPAÑA B (frame del video)
+% B13 · TABLERO DINÁMICO DE LA CAMPAÑA B (frame del video)
 %------------------------------------------------------------------------------
-\begin{frame}{B15 · Tablero Din\'amico de la Campa\~na B ($\sigma=6000$ vs $10^4$)}
+\begin{frame}{B13 · Tablero Din\'amico de la Campa\~na B ($\sigma=6000$ vs $\sigma=10000$)}
 \begin{center}
   \includegraphics[width=0.84\textwidth]{figures/campB_dashboard_t7p5.pdf}\\[2pt]
   {\tiny\color{INF3} Fotograma $t=7.5$ del tablero animado (150 frames):

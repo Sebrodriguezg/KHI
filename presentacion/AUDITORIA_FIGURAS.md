@@ -105,4 +105,18 @@ Las figuras de la monografía se diseñaron para página completa a 11 pt; al re
   hubo script con ese nombre (`graficas_conversion.py` es otra cantidad: tasas
   dE/dt). La decisión de citar el rango r≈−0.6 a −0.9 de la monografía queda firme.
 
-**🔴 7/7 COMPLETADAS.** Quedan solo las 🟡 opcionales (P21, P43, B14, P5).
+**🔴 7/7 COMPLETADAS.**
+
+## 2ª ronda (15-jul, revisión de Bryan) — deck ahora 50 pp
+
+- 🟡 P21 resuelta: `fig_zona_transicion_slide.pdf` (`gen_zona_transicion_slide.py`,
+  pipeline lab_offsetC) — sin anotaciones internas, bandas y estimadores con
+  rótulos cortos grandes; los valores viven en el recuadro de la lámina.
+- 🟡 ultrawide resuelta: `fig_ultrawide_omega_zp_slide.pdf` (`gen_ultrawide_slide.py`)
+  — ahora es lámina de cuerpo ("El Barrido Completo", ex-B10).
+- `imex_splitting_slide.pdf`: ecuación de la partición rígida/no-rígida en \large
+  (fuente TikZ en `monografia/figuras/tikz_src/`, variante compilada aparte).
+- B9/B10 movidas al cuerpo (propuesta de Bryan); respaldo renumerado B9–B13.
+- Pendiente menor: las figuras de "Los Cuatro Estimadores" (ex-B9, ahora cuerpo)
+  conservan fuentes de respaldo — regenerar en versión slide si molesta al proyectar.
+- Quedan 🟡 opcionales: collages B12 sin ejes, etiquetas de campana_X_3d (P5).

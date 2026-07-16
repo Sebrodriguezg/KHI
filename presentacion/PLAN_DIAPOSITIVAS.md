@@ -8,6 +8,20 @@ Plantilla: Beamer 16:9 de `~/Downloads/New Project(5)/main.tex` (paleta Inferno,
 
 ---
 
+## Cambios del 15-jul (2ª ronda — revisión de Bryan)
+
+- **B10 → cuerpo** ("El Barrido Completo en Conductividad", tras S17-matriz) y
+  **B9 → cuerpo** ("Los Cuatro Estimadores de σ_crit", tras S20-sigmoide), como
+  propuso Bryan. El respaldo se renumeró: B9=Vlasov, B10=recursos, B11=figuras
+  adicionales, B12=mapas de densidad, B13=tablero campB. **Cuerpo: 31 frames** —
+  las dos láminas nuevas son visuales de ~30 s; los checkpoints de ensayo se
+  corren ~1 min desde teoría en adelante.
+- Figuras regeneradas en versión slide: zona de transición (sin anotaciones
+  internas; valores en el recuadro), ultrawide del barrido (compacta), IMEX con
+  la ecuación rígida/no-rígida grande.
+- Las **44 citas de la monografía** aparecen completas en Referencias (\nocite).
+- Texto: "corridas"→"simulaciones"; "tesis"→"trabajo"; σ=10^4→10000 junto a 6000.
+
 ## Presupuesto de tiempo (30 min)
 
 | Bloque | Slides | Tiempo | % |
