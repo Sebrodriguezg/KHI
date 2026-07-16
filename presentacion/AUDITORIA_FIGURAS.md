@@ -36,6 +36,15 @@ verificando contra los valores publicados:
    — `gen_campC_enstrofia_slide.py` / `gen_campC_scatter_slide.py`. Lámina nueva
    "Campaña Magnética III" para dar a la campaña C el mismo protagonismo que A y B.
    **El deck pasó de 46 a 47 pp: las páginas ≥27 de esta auditoría corren +1.**
+6. **P16 `setup_inicial_slide.pdf`** — `gen_setup_inicial_slide.py`, desde la
+   **condición inicial real t=0** que volcó el clúster
+   (`INFO/lab/bundle_cluster_figs/run_base_init/init_{rho,vx,vy}.dat`; verificada:
+   ρ centro=0.10/fuera=1.00, v_y∈[-0.5,0.5]). Un solo PDF, 2 paneles apilados,
+   estilo dark AVP, sin títulos. OJO: los runs locales `cueva_*RELOADED*` tienen el
+   perfil de densidad INVERTIDO (centro denso) — no sirven para el setup Mizuno.
+7. **B15 (NUEVA, 15-jul) `campB_dashboard_t7p5.pdf`** — fotograma t=7.5 del tablero
+   animado de la campaña B (`movie_collage_campB_6000_vs_10000 (2)/frames_pdf/frame_0075.pdf`);
+   respaldo cualitativo + puntero al video para la discusión. Deck: 48 pp.
 
 ---
 
@@ -85,5 +94,10 @@ Las figuras de la monografía se diseñaron para página completa a 11 pt; al re
 ## Pendiente
 
 - [x] Regenerar y sustituir las 4 figuras locales (P19, P25×2, P26); recompilado y re-auditado 15-jul.
-- [ ] Correr `PROMPT_CLUSTER_FIGS_SLIDE.txt` en el clúster → `fig_conductividad_rho_collage_slide.pdf` (P18) y `setup_inicial_slide.pdf` (P16); copiarlas a `figures/`, actualizar main.tex y recompilar.
+- [x] P16 rehecha con la CI real t=0 del bundle del clúster (15-jul).
+- [ ] **P18 (collage conductividad)**: el bundle llegó TRUNCADO (63 MB de ~1 GB) —
+  llegaron completos `run_base_init/`, `conductividad/s3` y `s4` (15 frames c/u) y
+  `fig3_integrales/`; faltan `s1` (¿?) completo, casi todo `s2`, los **scripts** del
+  informe PARTE 1 y las figuras que haya generado el clúster. Pedir re-envío
+  (sin los frames de video pesa mucho menos).
 - [ ] Si el clúster encuentra el script original del scatter: reponer los r por panel en P26.
