@@ -1,16 +1,37 @@
 # Auditoría de figuras — presentación de sustentación
 
-*Revisión página por página del `main.pdf` (46 pp) a 130 dpi — 2026-07-14.*
+*Revisión página por página del `main.pdf` (46 pp) a 130 dpi — 2026-07-14; actualizada 2026-07-15.*
 Criterios: (a) ¿texto y números legibles proyectados?, (b) ¿la imagen cabe completa?
 
 ## Resumen
 
 | Categoría | Páginas | Acción |
 |---|---|---|
-| 🔴 REHACER (versión slide) | P19, P25(×2), P26, P16(×2), P18 | necesitan regenerarse con fuentes grandes |
+| ✅ REHECHAS versión slide (15-jul) | P19, P25(×2), P26 | regeneradas desde datos con `scripts_slide/`, re-auditadas a 130 dpi |
+| 🔵 Delegadas al clúster | P16(×2), P18 | datos 2D solo allá — prompt en `PROMPT_CLUSTER_FIGS_SLIDE.txt` |
 | 🟡 Recorte/ajuste opcional | P21, P42, P46, P5 | mejorarían, no bloquean |
-| 🟢 Reacomodadas (ya corregido en main.tex) | P16, P26, P41 | cortes eliminados el 14-jul |
-| ✅ OK sin cambios | resto (35 páginas) | — |
+| 🟢 Reacomodadas (ya corregido en main.tex) | P16, P41 | cortes eliminados el 14-jul |
+| ✅ OK sin cambios | resto | — |
+
+## ✅ Rehechas el 15-jul (scripts en `presentacion/scripts_slide/`)
+
+Los generadores originales de las `fig_camp*` no existían (scripts ad-hoc de junio,
+no guardados); se reconstruyeron desde `DATOS_LIMPIOS`/pipeline `lab_offsetC`
+verificando contra los valores publicados:
+
+1. **P19 `ln_omega_vs_t_slide.pdf`** — `gen_ln_omega_slide.py` (corre desde
+   `INFO/lab/lab_offsetC`, reusa el pipeline: mismos ajustes/regímenes).
+   Colorbar continua de σ (6 ticks) en vez de 44 ítems; sin título; fuentes 16-19pt.
+2. **P25 `fig_campA_enstrofia_slide.pdf`** — `gen_campA_enstrofia_slide.py`.
+   Picos idénticos al original ((5.7,46)…(7.5,25)).
+3. **P25 `fig_campB_omegamax_theta_slide.pdf`** — `gen_omegamax_theta_slide.py`.
+   Picos verificados exactos contra la figura de la monografía (8.2→87.0 etc.).
+4. **P26 `fig_campB_ekin_emag_scatter_slide.pdf`** — `gen_ekin_emag_scatter_slide.py`,
+   1×3 (θ=0°,45°,90°), t≥1. **Sin r por panel**: el método de detrending exacto del
+   original no se pudo reproducir (difs hasta ±0.13 en r); la lámina cita el rango
+   r≈−0.6 a −0.9 de la monografía. Si el clúster recupera el script original
+   (PARTE 1.3 del prompt), se pueden reponer los r por panel.
+   La lámina S26 se reestructuró: figura arriba a ancho completo, hallazgos abajo.
 
 ---
 
@@ -59,5 +80,6 @@ Las figuras de la monografía se diseñaron para página completa a 11 pt; al re
 
 ## Pendiente
 
-- [ ] Ubicar scripts generadores (el usuario indicará el directorio) y regenerar las 7 figuras de la categoría 🔴 en versión slide.
-- [ ] Sustituir en `figures/` y recompilar; re-auditar P16, P18, P19, P25, P26.
+- [x] Regenerar y sustituir las 4 figuras locales (P19, P25×2, P26); recompilado y re-auditado 15-jul.
+- [ ] Correr `PROMPT_CLUSTER_FIGS_SLIDE.txt` en el clúster → `fig_conductividad_rho_collage_slide.pdf` (P18) y `setup_inicial_slide.pdf` (P16); copiarlas a `figures/`, actualizar main.tex y recompilar.
+- [ ] Si el clúster encuentra el script original del scatter: reponer los r por panel en P26.
