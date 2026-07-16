@@ -1,0 +1,58 @@
+PROMPT PARA RETOMAR LA SESIÓN — presentación de sustentación (2026-07-15)
+(cópialo tal cual en una sesión nueva de Claude Code en ~/Documents/Grado/REPO_GH)
+
+================================================================================
+
+Retomamos la presentación de sustentación en presentacion/ (rama
+revision-monografia, último commit 1edff39). Estado: deck de 50 pp compilando
+limpio (pdflatex + bibtex, 0 citas rotas), con:
+
+- Las 7 figuras 🔴 de AUDITORIA_FIGURAS.md rehechas en versión slide con
+  scripts versionados en presentacion/scripts_slide/ (cada script dice cómo
+  y desde dónde correrse; venv: INFO/lab/.venv, pipeline: INFO/lab/lab_offsetC,
+  datos del clúster: INFO/lab/bundle_cluster_figs/).
+- Lámina propia para la campaña C (S27 "Campaña Magnética III") y respaldo
+  B13 con el tablero animado de la campaña B (hay video para la discusión).
+- La revisión completa de Bryan integrada (sus 8 ediciones + los 12
+  comentarios): B10→cuerpo ("El Barrido Completo", tras la matriz) y
+  B9→cuerpo ("Los Cuatro Estimadores", tras el sigmoide), respaldo renumerado
+  B9–B13, las 44 citas de la monografía en Referencias vía \nocite,
+  "corridas"→"simulaciones", arreglos de desbordes en S5/S9/S10/S26.
+
+PENDIENTES (en orden de prioridad):
+
+1. Regenerar en versión slide las figuras de "Los Cuatro Estimadores"
+   (fig_derivadas_scrit y la clasificación de regímenes): ahora son lámina de
+   cuerpo (~p. 22) pero conservan fuentes de respaldo. Generador: pipeline
+   lab_offsetC (fig_derivadas_tres_metodos y fig_gamma_vs_sigma en
+   analisis_maestro.py); receta igual que gen_zona_transicion_slide.py.
+2. Decidir con Bryan lo de "fases"→"regímenes" en S19 (su edición): colisiona
+   con los regímenes R/T/I de σ; la monografía usa "fases dinámicas" para
+   lineal→enrollamiento→saturación. Sugerencia: revertir a "fases".
+3. Overfulls preexistentes en 2 láminas de respaldo (main.tex ~líneas 2007 y
+   2029, 31.6pt y 17.4pt): B11 "Estructuras Secundarias" y B12 "Mapas de
+   densidad". Arreglar reduciendo las figuras.
+4. Opcionales 🟡 restantes: collages de B12 sin ejes (misma receta que
+   gen_conductividad_collage_slide.py, pero los datos 2D de las campañas
+   A/B/C solo están en el clúster) y etiquetas de campana_A/B/C_3d en S5.
+5. Ensayo de tiempos con PLAN_DIAPOSITIVAS.md (31 frames de cuerpo, 30 min;
+   ver "Cambios del 15-jul" al inicio del plan). Las 6 respuestas de 60 s
+   siguen ahí.
+6. Limpieza al cerrar: decidir si borrar presentacion/bundle_prompt_figs.tar.gz
+   (87 MB, ya extraído en INFO/lab/bundle_cluster_figs/), presentacion.zip y
+   si commitear jurado.md (perfil del jurado Juan Carlos Giraldo).
+
+GOTCHAS (también en la memoria persistente):
+- Los runs locales cueva_*RELOADED* tienen la densidad INVERTIDA (centro
+  denso): NO son el run base Mizuno; la CI real t=0 está en
+  INFO/lab/bundle_cluster_figs/run_base_init/.
+- En los dumps 2D el prefijo cambia rho_→rhoo_ desde el frame 0010.
+- BibTeX trata las claves case-insensitive (por eso se eliminaron
+  Misner1973/Schutz2009 duplicadas de references.bib).
+- Los títulos de cajas tcolorbox (EQ/RES/HYP/WRN) no admiten comas ni "=".
+- El scatter de P26/28 va SIN r por panel (el script original nunca existió;
+  confirmado por el clúster): la lámina cita el rango r≈−0.6 a −0.9.
+
+El estado detallado está en presentacion/AUDITORIA_FIGURAS.md (secciones
+"Rehechas" y "2ª ronda") y en la memoria persistente del proyecto.
+================================================================================
