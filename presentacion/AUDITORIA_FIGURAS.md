@@ -95,9 +95,14 @@ Las figuras de la monografía se diseñaron para página completa a 11 pt; al re
 
 - [x] Regenerar y sustituir las 4 figuras locales (P19, P25×2, P26); recompilado y re-auditado 15-jul.
 - [x] P16 rehecha con la CI real t=0 del bundle del clúster (15-jul).
-- [ ] **P18 (collage conductividad)**: el bundle llegó TRUNCADO (63 MB de ~1 GB) —
-  llegaron completos `run_base_init/`, `conductividad/s3` y `s4` (15 frames c/u) y
-  `fig3_integrales/`; faltan `s1` (¿?) completo, casi todo `s2`, los **scripts** del
-  informe PARTE 1 y las figuras que haya generado el clúster. Pedir re-envío
-  (sin los frames de video pesa mucho menos).
-- [ ] Si el clúster encuentra el script original del scatter: reponer los r por panel en P26.
+- [x] **P18 rehecha (15-jul, bundle completo)**: `fig_conductividad_rho_collage_slide.pdf`
+  vía `gen_conductividad_collage_slide.py` — mismos runs/frames/estilo que
+  `render_collages_2D.py` del clúster (filas σ=100/1000/10⁴, columnas t=3/8/14,
+  fondo blanco, escala global), sin ticks, rótulos grandes, colorbar 4 ticks.
+  Datos y scripts del clúster en `INFO/lab/bundle_cluster_figs/` (con README).
+  Nota: el "frame 14 faltante" del README del clúster sí existe (`rhoo_0014`).
+- [x] r por panel del scatter (P26): **cerrado** — el clúster confirmó que NUNCA
+  hubo script con ese nombre (`graficas_conversion.py` es otra cantidad: tasas
+  dE/dt). La decisión de citar el rango r≈−0.6 a −0.9 de la monografía queda firme.
+
+**🔴 7/7 COMPLETADAS.** Quedan solo las 🟡 opcionales (P21, P43, B14, P5).
