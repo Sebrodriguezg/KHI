@@ -1,0 +1,368 @@
+%========================= PARTE A: categorías 1–5 ===========================
+
+\section{Fenomenología y contexto astrofísico}
+
+\Q{nivel básico · lámina 3}{Explique la inestabilidad de Kelvin--Helmholtz
+sin usar ecuaciones.}
+\A{Dos flujos en contacto a velocidades distintas almacenan energía libre en
+su capa de cizalla. Si la interfaz se ondula, el flujo se acelera sobre las
+crestas y se frena en los valles; por Bernoulli, esa asimetría genera
+gradientes de presión que ejercen un torque sobre la interfaz y amplifican
+la ondulación. La retroalimentación produce crecimiento exponencial (fase
+lineal) y, al saturar, la interfaz se enrolla en vórtices que mezclan ambos
+medios (fase no lineal).}
+
+\Q{nivel básico · lámina 3}{¿Dónde opera esta inestabilidad en el universo
+relativista y por qué es importante?}
+\A{En toda frontera entre un flujo relativista y su entorno: bordes de
+chorros de AGN y GRBs, vientos de púlsares (Bucciantini 2006), eyecciones
+de objetos compactos, e incluso la magnetopausa terrestre en el régimen
+clásico (Hasegawa 2004). Gobierna la mezcla y el frenado del chorro
+(\emph{entrainment}), participa en la dicotomía morfológica FR-I/FR-II,
+actúa como dínamo local amplificando $B$ (Pimentel 2019) y crea las
+láminas de corriente donde la reconexión acelera partículas.}
+
+\Q{nivel medio · lámina 10}{¿Qué diferencia a la KHI relativista de la
+clásica?}
+\A{Tres cosas. La inercia efectiva es $\rho h W^2$: el factor de Lorentz y
+la entalpía aumentan la ``masa'' de la capa y modifican la tasa. La
+compresibilidad estabiliza: en el régimen clásico la discontinuidad es
+incondicionalmente inestable, mientras que en el relativista rige el
+criterio $0<M_{re}<\sqrt2$ con el Mach relativista construido con la
+velocidad de restitución apropiada (Königl 1980; Bodo 2004; Chow 2023). Y
+la señal se propaga con cota $c$, lo que acopla los sectores
+electromagnético e hidrodinámico de manera no galileana.}
+
+\Q{nivel medio · lámina 4}{¿Por qué la reconexión magnética que muestran los
+códigos ideales es un problema conceptual?}
+\A{Porque en RMHD ideal el teorema de Alfvén prohíbe cambiar la topología
+de $\mathbf B$: si un código ideal reconecta, lo hace por el error de
+truncamiento de la malla, una ``resistividad numérica'' que depende de la
+resolución y no de la física (Komissarov 2007). El resultado no es
+predictivo: cambiar la malla cambia la tasa de reconexión. La RRMHD
+convierte ese defecto en un parámetro físico controlado, $\eta=1/\sigma$.}
+
+\Q{nivel básico · lámina 16}{Traduzca sus unidades de código a escalas
+astrofísicas.}
+\A{Con una longitud de referencia $L_0=10^{16}$~cm (subparsec, típica de la
+zona interna de un jet de AGN), el tiempo característico de cruce de luz es
+$\tau_c\approx3.8$~días; nuestro horizonte $t=5$ equivale a unos 19 días de
+evolución física y el vórtice maduro alcanza $\sim$170 unidades
+astronómicas. La física adimensional (números de Mach, Lundquist, $\beta$)
+es la que se transporta a otros sistemas.}
+
+\Q{nivel medio · lámina 29}{Su estudio es bidimensional. ¿No invalida eso las
+conclusiones?}
+\A{No para lo que se mide. La fase lineal del modo fundamental y el
+enrollamiento primario son esencialmente bidimensionales; los modos
+genuinamente tridimensionales actúan después, fragmentando los vórtices
+(Bodo 2004). Lo declaramos como limitación: en 3D esperamos cascada
+turbulenta plena y posiblemente otro exponente no lineal. Precisamente por
+eso monitoreamos $f_{Vz}$, la fracción de enstrofía fuera del plano, que
+señala dónde la dinámica 3D sería más relevante: en la zona de transición.}
+
+\Q{nivel alto · lámina 3}{¿Qué relación tiene la KHI con la aceleración de
+partículas que se observa en los jets?}
+\A{Indirecta pero central: la KHI genera y adelgaza láminas de corriente en
+la capa de mezcla; con resistividad finita esas láminas reconectan y el
+campo eléctrico resistivo $\mathbf E'\neq0$ puede acelerar partículas. Es
+el escenario invocado para llamaradas rápidas en AGN. Nuestro trabajo
+cuantifica el primer eslabón magnetohidrodinámico de esa cadena ---cuánta
+corriente y cuánta disipación óhmica produce la inestabilidad según
+$\sigma$--- sin modelar las partículas mismas, que exigirían un tratamiento
+cinético.}
+
+\section{Marco covariante y geometría}
+
+\Q{nivel básico · lámina 6}{Declare sus convenciones. ¿Por qué es importante
+fijarlas una sola vez?}
+\A{Unidades de Heaviside--Lorentz con $c=\mu_0=\epsilon_0=1$; signatura
+$\eta_{\mu\nu}=\mathrm{diag}(-,+,+,+)$; $W$ es el factor de Lorentz y
+$\Gamma$ exclusivamente el índice adiabático (formulación de Valencia,
+Rezzolla \& Zanotti 2013). Fijarlas una vez evita errores de signo al
+comparar con literatura que usa $(+,-,-,-)$ ---típica de teoría de
+campos--- y elimina ambigüedad entre factor de Lorentz e índice adiabático,
+que comparten símbolo en parte de la bibliografía.}
+
+\Q{nivel medio · lámina 6 · respaldo B1}{¿Por qué $\nabla\cdot\mathbf B=0$
+no es una ecuación dinámica?}
+\A{Porque el tensor de Faraday es la derivada exterior del cuadripotencial,
+$F=dA$, y la derivada exterior es nilpotente: $dF=d^2A=0$. Esa identidad
+---la identidad de Bianchi--- contiene las dos ecuaciones homogéneas de
+Maxwell, entre ellas la ausencia de monopolos. Es geometría, no dinámica:
+se cumple para cualquier $A$, sin usar las ecuaciones de movimiento. La
+dinámica está en las inhomogéneas, $\partial_\mu F^{\mu\nu}=J^\nu$, que sí
+provienen de la acción con fuente $J_\mu A^\mu$.}
+
+\Q{nivel alto · respaldo B2}{¿De dónde sale el tensor de energía-momento que
+usan? Derívelo conceptualmente.}
+\A{Por derivada funcional de la acción respecto de la métrica
+(procedimiento de Hilbert): $T^{\mu\nu}=-\frac{2}{\sqrt{-g}}
+\frac{\delta S}{\delta g_{\mu\nu}}$. Para el sector electromagnético,
+$S_{\rm em}=-\frac14\int F^2\sqrt{-g}\,d^4x$ da el tensor de
+Faraday--Maxwell; para el fluido, la acción de Taub $S=\int p\sqrt{-g}$
+reproduce el fluido perfecto $\rho h u^\mu u^\nu+p\eta^{\mu\nu}$. El
+término de interacción $J_\mu A^\mu$ no contribuye porque no depende de la
+métrica. La conservación del total, $\partial_\mu T^{\mu\nu}=0$, expresa la
+invariancia bajo traslaciones.}
+
+\Q{nivel medio · lámina 9}{¿Por qué conservan el tensor de energía-momento
+\emph{total} y no el del fluido con la fuerza de Lorentz como fuente?}
+\A{Ambas formulaciones son equivalentes en el continuo, pero no en la
+malla. Al conservar el total, el momento incluye el vector de Poynting y la
+energía incluye $\frac12(E^2+B^2)$; la fuerza de Lorentz queda absorbida en
+la divergencia del flujo y el esquema de volúmenes finitos conserva energía
+y momento \emph{exactamente} a nivel discreto. Con la fuerza como término
+fuente, el balance dependería de la cuadratura de la fuente y los choques
+se capturarían con saltos incorrectos.}
+
+\Q{nivel medio · lámina 6}{¿Qué papel juega el tensor dual $\star F$?}
+\A{Compacta las ecuaciones homogéneas: $\partial_\mu(\star F)^{\mu\nu}=0$
+equivale a $dF=0$, es decir, a $\nabla\cdot\mathbf B=0$ y a la ley de
+Faraday. En RRMHD el dual es además la vía natural para evolucionar
+$\mathbf B$: el sector magnético del sistema conservativo es exactamente la
+componente espacial de esa ecuación. En la formulación resistiva, a
+diferencia de la ideal, $\mathbf E$ es variable independiente y las
+inhomogéneas se evolucionan explícitamente con la corriente de Ohm.}
+
+\Q{nivel alto · lámina 6}{Muestre que su formulación recupera la fuerza de
+Lorentz clásica en el límite no relativista.}
+\A{La divergencia espacial de $T^{\mu\nu}_{\rm em}$ da, con $W\to1$ y
+$v\ll c$, $\partial_t(\mathbf E\times\mathbf B)+\nabla\cdot\mathsf T=
+-(\rho_q\mathbf E+\mathbf J\times\mathbf B)$, con $\mathsf T$ el tensor de
+esfuerzos de Maxwell: el intercambio de momento entre campo y materia es
+exactamente $\rho_q\mathbf E+\mathbf J\times\mathbf B$, la fuerza de
+Lorentz de la electrodinámica de pregrado. En el balance del fluido
+aparece con signo opuesto, como debe ser por tercera ley.}
+
+\Q{nivel básico · lámina 9}{Enumere sus 14 variables conservadas y por qué
+son 14.}
+\A{Densidad relativista $D=\rho W$; tres momentos totales $S^j$ (incluyen
+Poynting); energía total $\tau$; tres componentes de $\mathbf B$; tres de
+$\mathbf E$ ---independientes porque el cierre es resistivo---; la densidad
+de carga $\rho_q$; y los dos escalares de limpieza $\Psi,\Phi$ del sistema
+GLM. Total: $1+3+1+3+3+1+2=14$. En RMHD ideal serían 8, porque $\mathbf E$
+deja de ser independiente y no se evoluciona la carga ni la limpieza
+eléctrica.}
+
+\Q{nivel medio · respaldo B5}{¿Qué diferencia hay entre $\rho_e$ y $\rho_q$
+en su ley de Ohm?}
+\A{$\rho_e$ es la densidad de carga medida en el marco comóvil del fluido
+---la que multiplica a $u^\mu$ en la forma covariante---; $\rho_q$ es la
+densidad de carga en el marco del laboratorio, la que se evoluciona en la
+malla euleriana. Se relacionan por la proyección $3+1$:
+$\rho_q=\rho_e W+\sigma W\,(\mathbf v\cdot\mathbf E)/c$ en nuestra
+normalización. Confundirlas produce una ley de Ohm inconsistente con la
+conservación de la carga.}
+
+\Q{nivel alto · lámina 6}{¿Su sistema es invariante gauge? ¿Dónde vive el
+cuadripotencial en el código?}
+\A{La física lo es: el código no evoluciona $A^\mu$ sino los campos
+$F^{\mu\nu}$ ---$\mathbf E$ y $\mathbf B$---, que son invariantes gauge. El
+potencial solo interviene conceptualmente, para demostrar que $dF=0$ es
+identidad (respaldo B1) y en el origen variacional del GLM, donde los
+escalares de limpieza actúan como campos auxiliares tipo Stueckelberg que
+restauran la consistencia de las ligaduras (Lee 2004, respaldo B3).}
+
+\section{Ley de Ohm, resistividad y fundamento cinético}
+
+\Q{nivel básico · lámina 7}{Escriba la ley de Ohm relativista y señale su
+huella relativista.}
+\A{Covariante: $J^\mu=\rho_e u^\mu+\sigma F^{\mu\nu}u_\nu$, respuesta
+lineal e isótropa en el marco comóvil. Proyectada al laboratorio:
+$\mathbf J=\rho_q\mathbf v+\sigma W[\mathbf E+\mathbf v\times\mathbf B
+-(\mathbf E\cdot\mathbf v)\mathbf v]$. La huella relativista es el factor
+$W$ y el término $(\mathbf E\cdot\mathbf v)\mathbf v$: no es la suma
+galileana de conducción más convección, sino la transformación de Lorentz
+del campo eléctrico comóvil.}
+
+\Q{nivel básico · lámina 7}{¿Qué ocurre en los límites $\sigma\to\infty$ y
+$\sigma\to0$?}
+\A{Con $\sigma\to\infty$, para que la corriente sea finita debe anularse el
+campo comóvil: $\mathbf E+\mathbf v\times\mathbf B=0$, el congelamiento
+ideal. Con $\sigma\to0$ la materia y el campo se desacoplan: quedan las
+ecuaciones de Maxwell en vacío (con la carga advectada) y la hidrodinámica
+pura. Entre ambos, el campo comóvil sobrevive y produce calentamiento de
+Joule ($j^\mu E_\mu>0$) y reconexión: el régimen de este trabajo.}
+
+\Q{nivel alto · lámina 7 · respaldo B9}{¿Cuál es el origen microscópico de
+la resistividad que usted puso a mano?}
+\A{Es un coeficiente de transporte que emerge al truncar la jerarquía
+cinética: partiendo del teorema de Liouville, la ecuación de
+Vlasov--Boltzmann para la función de distribución incluye integrales de
+colisión; al tomar momentos y cerrar en el nivel unifluido, la
+transferencia de momento entre especies por colisiones se condensa en
+$\eta$. El cierre escalar e isótropo exige colisionalidad alta
+($\nu_{\rm col}\gg\omega_{\rm cicl}$), que borra la memoria direccional del
+campo. En plasmas reales $\eta$ depende de la temperatura (tipo Spitzer);
+aquí se toma constante y uniforme para aislar su efecto dinámico como
+parámetro de control.}
+
+\Q{nivel medio · lámina 7}{¿Por qué es lícito despreciar el efecto Hall y la
+anisotropía de $\sigma$?}
+\A{Porque el régimen declarado es colisional y macroscópico: si la
+frecuencia de colisiones domina sobre la de ciclotrón, los electrones no
+completan giros entre colisiones y la conducción no distingue direcciones
+respecto de $\mathbf B$; el término de Hall, del orden del cociente entre
+la escala iónica y la escala del sistema, es despreciable cuando la escala
+disipativa relevante es la capa resistiva $\delta\sim S^{-1/2}L$ y no el
+girorradio. Lo enunciamos como límite de validez, no como teorema: fuera de
+él se necesitaría Ohm generalizada o descripción cinética.}
+
+\Q{nivel medio · lámina 23}{Defina el número de Lundquist y ubique su
+transición en esa escala.}
+\A{$S=\tau_\eta/\tau_A=Lv_A/\eta$: cociente entre el tiempo de difusión
+resistiva y el de cruce de Alfvén. Con las escalas de nuestra capa, la zona
+de transición $\sigma\in[1400,7000]$ corresponde a $S\sim10^3$. Es un valor
+físicamente razonable: por debajo la difusión domina la dinámica de la
+capa; por encima el congelamiento es efectivo durante la vida de la
+inestabilidad, y coincide con el orden en que la literatura de reconexión
+sitúa la activación de dinámicas de láminas inestables.}
+
+\Q{nivel básico · lámina 14}{¿Por qué su sistema es rígido y qué escala lo
+gobierna?}
+\A{El término fuente de Ampère es $-\sigma\mathbf E$ (más los acoples de
+velocidad): induce una relajación del campo eléctrico hacia su valor de
+Ohm en un tiempo $\tau_{\rm relax}\sim1/\sigma$. A $\sigma=10^4$ ese tiempo
+es cuatro órdenes de magnitud menor que el paso advectivo permitido por
+Courant. Un integrador explícito debería resolverlo ($\Delta t\lesssim
+1/\sigma$) aunque la física de interés viva en el tiempo dinámico: esa
+disparidad es la rigidez.}
+
+\Q{nivel medio · lámina 26}{¿Dónde aparece $\eta$ en el balance energético y
+con qué signo?}
+\A{En el trabajo del campo sobre la materia, $\mathbf E\cdot\mathbf J$.
+Separando la corriente de Ohm, el término conductivo da
+$\sigma W|\mathbf E'|^2\ge0$ en el comóvil: disipación de Joule
+estrictamente positiva, irreversible, que convierte energía
+electromagnética en interna. Por eso la integral $\int\mathbf E\cdot
+\mathbf J\,dA$ es nuestro diagnóstico de disipación óhmica global, y por
+eso la resistividad decide si el intercambio cinético-magnético de la
+campaña B es reversible ($\sigma=10^4$) o termina en calor ($\sigma=6000$).}
+
+\section{Divergencias, GLM y estructura del sistema aumentado}
+
+\Q{nivel básico · lámina 8}{Si $\nabla\cdot\mathbf B=0$ es una identidad,
+¿por qué su código tiene que ``limpiarla''?}
+\A{Porque la identidad depende de la nilpotencia $d^2=0$, y los operadores
+en diferencias de una malla no son nilpotentes: el rotacional discreto de
+un gradiente discreto no es exactamente cero. El error de truncamiento
+inyecta una divergencia espuria ---monopolos numéricos--- que, sin
+tratamiento, se acumula, produce fuerzas paralelas artificiales a
+$\mathbf B$ y desestabiliza la simulación (Dedner 2002).}
+
+\Q{nivel medio · lámina 8 · respaldo B3}{Explique el mecanismo GLM y por qué
+no destruye la causalidad.}
+\A{Se agregan dos escalares $\Phi,\Psi$ ---multiplicadores de Lagrange
+generalizados--- que acoplan las ligaduras de Gauss magnética y eléctrica a
+la evolución. Eliminando los multiplicadores, el error de divergencia
+obedece la ecuación del telégrafo:
+$\partial_t^2\xi+\kappa\partial_t\xi-c_h^2\nabla^2\xi=0$. Es hiperbólica
+---el error se \emph{propaga} con velocidad $c_h=1$, dentro del cono de
+luz--- y disipativa ---decae como $e^{-\kappa t/2}$---. El error ni se
+acumula ni viaja superlumínicamente: se evacúa y se amortigua.}
+
+\Q{nivel alto · respaldo B3}{¿Cuál es el origen variacional del GLM?}
+\A{Se obtiene extendiendo la acción electromagnética con términos tipo
+Stueckelberg en los escalares de limpieza, que restauran como dinámica lo
+que la discretización rompió como identidad (Munz 2000 para Maxwell; Lee
+2004 para la estructura lagrangiana y de simetrías). La forma de segundo
+orden (telégrafo) es equivalente a la formulación de primer orden de
+Dedner que integra el código; la ventaja de la primera es conceptual
+---exhibe causalidad y disipación--- y la de la segunda es práctica: encaja
+en el esquema hiperbólico de volúmenes finitos.}
+
+\Q{nivel alto · lámina 9}{¿Por qué su vector fuente contiene términos de
+Godunov--Powell si son no conservativos?}
+\A{Porque mientras el error de divergencia es transitoriamente distinto de
+cero, la forma puramente conservativa acelera los monopolos numéricos y
+viola la compatibilidad termodinámica. Los términos proporcionales a
+$\Psi$ ---$-\Psi B^j$ en el momento y $-\Psi(\mathbf v\cdot\mathbf B)$ en
+la energía--- compensan exactamente ese defecto y hacen el sistema
+compatible con una desigualdad de entropía (Rueda-Ramírez 2023). Son
+formalmente nulos en el continuo, donde $\nabla\cdot\mathbf B=0$: no
+cambian la física, blindan la termodinámica del transitorio numérico.}
+
+\Q{nivel medio · lámina 8}{¿Monitorearon el error de divergencia? ¿Qué
+comportamiento tiene?}
+\A{Sí: la norma del error se registra en el tiempo. Con GLM activo
+permanece acotada y decae tras cada transitorio; la figura de la lámina 8
+contrasta la acumulación sin tratamiento con la propagación y el
+amortiguamiento con GLM. Además la ligadura eléctrica ---ley de Gauss con
+$\rho_q$--- se trata con el segundo escalar, de modo que ambas divergencias
+quedan controladas con el mismo mecanismo telegráfico.}
+
+\Q{nivel medio · lámina 8}{¿Por qué GLM y no transporte restringido
+(constrained transport)?}
+\A{CT mantiene $\nabla\cdot\mathbf B$ a error de máquina, pero exige mallas
+escalonadas y una discretización específica del rotacional que complica el
+acople con reconstrucción de quinto orden, con el sector eléctrico
+independiente de la RRMHD y con la recuperación de primitivas. GLM
+mantiene todas las variables colocalizadas, encaja en el mismo esquema
+hiperbólico de las demás ecuaciones, controla también la ligadura
+eléctrica y su error es acotado, monitoreado y físicamente inocuo. Es la
+solución de compromiso estándar en los códigos RRMHD de referencia
+(Komissarov 2007; Palenzuela 2009; Miranda-Aranguren 2018).}
+
+\section{Hiperbolicidad, espectro característico y límites}
+
+\Q{nivel medio · respaldo B4}{Describa el espectro del jacobiano de su
+sistema.}
+\A{El jacobiano $14\times14$ de los flujos tiene 14 autovalores reales: 8
+degenerados en $\pm c$ ---los sectores electromagnético y GLM propagan a
+la velocidad de la luz---, las magnetosónicas rápidas del sector fluido,
+los modos de entropía y cizalla que viajan con el fluido, y el modo de
+advección de carga. El sistema es hiperbólico; la degeneración en $\pm c$
+es la firma de que Maxwell no se ``esclaviza'' al fluido como en RMHD
+ideal.}
+
+\Q{nivel alto · respaldo B4}{¿Qué garantiza la estabilidad del sistema
+relajado frente al rígido? (condición subcaracterística)}
+\A{La condición de Liu (1987): en un sistema hiperbólico de relajación, las
+velocidades características del sistema de equilibrio ---aquí la RMHD
+ideal que emerge cuando $\sigma\to\infty$--- deben quedar entrelazadas por
+las del sistema completo. Se cumple: las magnetosónicas ideales son
+subluminales y el sistema resistivo propaga hasta $\pm c$. Esto asegura
+que el límite rígido no produce inestabilidades de relajación y da soporte
+teórico a la preservación asintótica del integrador.}
+
+\Q{nivel básico · lámina 17}{¿Cómo fijan el paso de tiempo? ¿Por qué CFL
+distintos entre campañas?}
+\A{Por la condición de Courant sobre la velocidad característica máxima,
+que en RRMHD es $c$: $\Delta t=\mathrm{CFL}\cdot\Delta x/c$. El barrido usa
+CFL $=0.1$; las campañas magnéticas a $\sigma=6000$ y $10000$ usan $0.04$ y
+$0.02$ porque el campo fuerte y las láminas de corriente agudas estresan la
+recuperación de primitivas, y reducir el paso da margen de robustez. La
+rigidez resistiva no limita $\Delta t$: la absorbe la parte implícita del
+IMEX.}
+
+\Q{nivel medio · lámina 10}{¿Por qué no existe relación de dispersión
+cerrada en RRMHD y qué consecuencia metodológica tiene?}
+\A{El análisis lineal clásico de la discontinuidad tangencial empalma
+soluciones a ambos lados de una interfaz que se supone persistente. En
+RRMHD el término $\eta\nabla^2\mathbf B$ es parabólico: difunde la
+discontinuidad en tiempo arbitrariamente corto, de modo que el estado base
+del análisis modal deja de existir y el empalme algebraico es inválido
+(Palenzuela 2009). Consecuencia: $\gamma_{\rm KHI}(\sigma)$ debe
+caracterizarse numéricamente, con la teoría lineal ideal como referencia
+asintótica. Esa imposibilidad es la justificación epistemológica del
+trabajo.}
+
+\Q{nivel básico · lámina 10}{Recorra el mapa de límites de su sistema.}
+\A{RRMHD con $\sigma\to\infty$ da RMHD ideal ($\mathbf E'=0$, congelamiento);
+con $v\ll c$ y $W\to1$, MHD clásica; con $\mathbf B\to0$, hidrodinámica de
+Euler; y con $\sigma\to0$, Maxwell en vacío más hidrodinámica desacoplada.
+En paralelo, la KHI: incondicionalmente inestable en hidrodinámica; en MHD
+la tensión estabiliza si $(\mathbf k\cdot\mathbf B)^2$ basta; en RMHD rige
+$0<M_{re}<\sqrt2$; y en RRMHD la tasa se vuelve función medible de
+$\sigma$, que es exactamente lo que medimos.}
+
+\Q{nivel alto · lámina 14}{¿En qué sentido su esquema ``respeta el límite
+ideal por construcción''?}
+\A{Preservación asintótica: en la actualización implícita del campo
+eléctrico, al dividir por $\alpha\sigma W$ y tomar $\sigma\to\infty$, la
+solución converge algebraicamente a $\mathbf E=-\mathbf v\times\mathbf B$,
+la ley de Ohm ideal, sin pasos intermedios inestables ni necesidad de
+resolver la escala $1/\sigma$. El esquema discreto reproduce el mismo
+límite que el sistema continuo; por eso pudimos barrer hasta
+$\sigma=10^4$ con el paso de tiempo dictado solo por la advección.}

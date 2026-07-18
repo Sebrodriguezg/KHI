@@ -1,58 +1,77 @@
-PROMPT PARA RETOMAR LA SESIÓN — presentación de sustentación (2026-07-15)
+PROMPT PARA RETOMAR LA SESIÓN — sustentación (2026-07-17)
 (cópialo tal cual en una sesión nueva de Claude Code en ~/Documents/Grado/REPO_GH)
 
 ================================================================================
 
-Retomamos la presentación de sustentación en presentacion/ (rama
-revision-monografia, último commit 1edff39). Estado: deck de 50 pp compilando
-limpio (pdflatex + bibtex, 0 citas rotas), con:
+Retomamos la preparación de la sustentación en presentacion/ (rama
+revision-monografia). Estado al 17-jul:
 
-- Las 7 figuras 🔴 de AUDITORIA_FIGURAS.md rehechas en versión slide con
-  scripts versionados en presentacion/scripts_slide/ (cada script dice cómo
-  y desde dónde correrse; venv: INFO/lab/.venv, pipeline: INFO/lab/lab_offsetC,
-  datos del clúster: INFO/lab/bundle_cluster_figs/).
-- Lámina propia para la campaña C (S27 "Campaña Magnética III") y respaldo
-  B13 con el tablero animado de la campaña B (hay video para la discusión).
-- La revisión completa de Bryan integrada (sus 8 ediciones + los 12
-  comentarios): B10→cuerpo ("El Barrido Completo", tras la matriz) y
-  B9→cuerpo ("Los Cuatro Estimadores", tras el sigmoide), respaldo renumerado
-  B9–B13, las 44 citas de la monografía en Referencias vía \nocite,
-  "corridas"→"simulaciones", arreglos de desbordes en S5/S9/S10/S26.
+DECK (main.tex → main.pdf, 51 páginas físicas / numeración 50):
+- Interludio [plain] con KHI_una_interfaz.pdf (cap. 3) en la p. 3 del PDF,
+  SIN numerar (\addtocounter{framenumber}{-1}): el pie sigue N/50 y las
+  referencias "lámina N" del guion/banco valen; las páginas físicas corren
+  +1 desde la lámina 3 (gracias=37, divisor=38, respaldo Bn=38+n).
+- Figuras del cuerpo numeradas F1–F34 (\figtag; excluye fondos, logos y el
+  interludio). Índice espaciado, "honestidad" eliminado (S7), memoria
+  estimada ~0.15 GB/sim en S17, F2–F4/F14/F15/F19/F23/F24 agrandadas,
+  F5 y col. izquierda de S13 centradas verticalmente.
+- Figuras regeneradas: glm_limpieza (label ∝e^{-κt} movido; fuente TikZ en
+  monografia/figuras/tikz_src/), fig1_ajuste_v6 (leyenda abajo; generador
+  INFO/lab/lab_offsetC/justificacion/gen_figuras_justificacion.py),
+  fig_ultrawide_omega_zp_slide (xlim 15; scripts_slide/gen_ultrawide_slide.py).
 
-PENDIENTES (en orden de prioridad):
+ENTREGABLES NUEVOS (todos compilan limpio):
+- presentacion/guion/guion_sustentacion.tex → .pdf (20 pp): guion de 45 min
+  para 2 ponentes. Roles: BRYAN = segmentos I/III/V (apertura+motivación
+  S1–5, numérica S12–17, campaña magnética+cierre S27–32); SEBASTIÁN =
+  II/IV (teoría S6–11, resultados barrido S18–26). 44:30 + 0:30 margen;
+  checkpoints 7:30/17:00/24:30/37:30/41:30/44:30; comprimibles 15, 19, 22;
+  Anexo A (6 respuestas de 60 s) y Anexo B (mapa respaldo B1–B13).
+- presentacion/banco_preguntas/banco_preguntas.tex (+parte_a/b/c) → .pdf
+  (24 pp): 111 preguntas+respuestas en 15 categorías, con nivel y puntero
+  a lámina/respaldo.
+- presentacion/anexo_figuras/figuras_anexo.pdf (35 pp): las 34 figuras a
+  página completa, orden cronológico; Fn del deck = figura n del anexo.
+- presentacion/video_guion/: pipeline de video con edge-tts
+  (~/Downloads/Seminario_Electrodinamica_Covariante/tts_env) + ffmpeg.
+  build_video.py (v1: solo guion; su mp4 de 41.8 min quedó DESACTUALIZADO
+  por el interludio). build_video2.py (v2 COMPLETO: guion + anexos A/B +
+  banco; voz jurado=es-CO-Salome para preguntas, respuestas alternando
+  Gonzalo(CO)/Jorge(MX); 97 preguntas muestran su lámina/respaldo, 14 una
+  tarjeta generada; mapeos YA corregidos al deck de 51 pp; cachés
+  slides2/seg2 limpias).
 
-1. Regenerar en versión slide las figuras de "Los Cuatro Estimadores"
-   (fig_derivadas_scrit y la clasificación de regímenes): ahora son lámina de
-   cuerpo (~p. 22) pero conservan fuentes de respaldo. Generador: pipeline
-   lab_offsetC (fig_derivadas_tres_metodos y fig_gamma_vs_sigma en
-   analisis_maestro.py); receta igual que gen_zona_transicion_slide.py.
-2. Decidir con Bryan lo de "fases"→"regímenes" en S19 (su edición): colisiona
-   con los regímenes R/T/I de σ; la monografía usa "fases dinámicas" para
-   lineal→enrollamiento→saturación. Sugerencia: revertir a "fases".
-3. Overfulls preexistentes en 2 láminas de respaldo (main.tex ~líneas 2007 y
-   2029, 31.6pt y 17.4pt): B11 "Estructuras Secundarias" y B12 "Mapas de
-   densidad". Arreglar reduciendo las figuras.
-4. Opcionales 🟡 restantes: collages de B12 sin ejes (misma receta que
-   gen_conductividad_collage_slide.py, pero los datos 2D de las campañas
-   A/B/C solo están en el clúster) y etiquetas de campana_A/B/C_3d en S5.
-5. Ensayo de tiempos con PLAN_DIAPOSITIVAS.md (31 frames de cuerpo, 30 min;
-   ver "Cambios del 15-jul" al inicio del plan). Las 6 respuestas de 60 s
-   siguen ahí.
-6. Limpieza al cerrar: decidir si borrar presentacion/bundle_prompt_figs.tar.gz
-   (87 MB, ya extraído en INFO/lab/bundle_cluster_figs/), presentacion.zip y
-   si commitear jurado.md (perfil del jurado Juan Carlos Giraldo).
+PENDIENTE INMEDIATO:
+1. LANZAR el video completo (quedó en espera por decisión del usuario):
+     cd presentacion/video_guion && python3 build_video2.py
+   (background; ~250 TTS + encode ≈ 30–60 min; requiere internet).
+   Verificar al final: duración ~2h20m, pistas video/audio/mov_text,
+   linea_de_tiempo.txt, sincronía con 2–3 fotogramas.
+2. Ensayo de tiempos con el guion (checkpoints arriba); decidir con Bryan
+   "fases" vs "regímenes" en S19 (pendiente heredado).
+3. Limpieza: bundle_prompt_figs.tar.gz (87 MB), presentacion.zip, jurado.md
+   y los directorios de trabajo del video (audio/, seg/, slides/, cards/)
+   siguen sin commitear; decidir qué se queda.
 
-GOTCHAS (también en la memoria persistente):
-- Los runs locales cueva_*RELOADED* tienen la densidad INVERTIDA (centro
-  denso): NO son el run base Mizuno; la CI real t=0 está en
-  INFO/lab/bundle_cluster_figs/run_base_init/.
-- En los dumps 2D el prefijo cambia rho_→rhoo_ desde el frame 0010.
-- BibTeX trata las claves case-insensitive (por eso se eliminaron
-  Misner1973/Schutz2009 duplicadas de references.bib).
-- Los títulos de cajas tcolorbox (EQ/RES/HYP/WRN) no admiten comas ni "=".
-- El scatter de P26/28 va SIN r por panel (el script original nunca existió;
-  confirmado por el clúster): la lámina cita el rango r≈−0.6 a −0.9.
+GOTCHAS NUEVOS (además de los de la memoria persistente):
+- babel-spanish: "\,\%" rompe la compilación (\es@sppercent, "Incompatible
+  glue units") — usar \% sin espacio fino.
+- edge-tts escribe los .vtt en formato SRT con comas en los tiempos.
+- Los títulos de cajas tcolorbox (EQ/RES/HYP/WRN) siguen sin admitir comas
+  ni "=".
+- El generador del sigmoide corre con INFO/lab/.venv desde su propia
+  carpeta; el ultrawide desde INFO/lab/lab_offsetC.
+- Si se inserta/quita una lámina: revisar PAG_GUION/PAG_ANEXO_A/
+  pagina_de_tag en build_video2.py y regenerar anexo_figuras (su script
+  está embebido en la historia de la sesión; reconstruible del patrón
+  \figtag de main.tex).
 
-El estado detallado está en presentacion/AUDITORIA_FIGURAS.md (secciones
-"Rehechas" y "2ª ronda") y en la memoria persistente del proyecto.
+GOTCHAS HEREDADOS: runs locales cueva_*RELOADED* con densidad INVERTIDA
+(no son el run base Mizuno; CI real en INFO/lab/bundle_cluster_figs/
+run_base_init/); prefijo rho_→rhoo_ desde frame 0010; BibTeX
+case-insensitive; scatter de campaña B sin r por panel (decisión firme).
+
+El detalle por figura sigue en AUDITORIA_FIGURAS.md y el plan por lámina en
+PLAN_DIAPOSITIVAS.md (ojo: el plan aún dice "30 min"; la duración oficial
+es 45 min con dos ponentes, según el guion).
 ================================================================================

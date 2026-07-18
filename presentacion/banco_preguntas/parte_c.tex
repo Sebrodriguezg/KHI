@@ -1,0 +1,408 @@
+%========================= PARTE C: categorías 11–15 =========================
+
+\section{Régimen no lineal y variables globales}
+
+\Q{nivel básico · lámina 25}{Enuncie su resultado no lineal principal.}
+\A{El máximo de la enstrofía de perturbación escala como ley de potencia
+con la conductividad: $\Omega^{\max}_{zp}\propto\sigma^{1.22}$ con
+$R^2=0.997$ sobre las 29 simulaciones con pico identificable. El punto de
+comparación es el piso teórico de una lámina de corriente única de
+Sweet--Parker, que daría exponente $1/2$: nuestro exponente lo excede en un
+factor $\sim2.4$.}
+
+\Q{nivel medio · lámina 25}{¿Qué es el piso de Sweet--Parker y por qué es la
+referencia?}
+\A{En el modelo de Sweet--Parker (Parker 1957) una lámina de corriente
+laminar de longitud $L$ tiene espesor $\delta\sim L\,S^{-1/2}$: la
+vorticidad concentrable en ella escala entonces como $\sigma^{1/2}$. Es la
+referencia natural porque es el régimen de reconexión resistiva más
+sencillo y porque el escalamiento del espesor es robusto frente a
+correcciones relativistas (Lyubarsky 2005): si el sistema tuviera una sola
+lámina laminar, mediríamos $1/2$.}
+
+\Q{nivel medio · lámina 25}{¿Cómo interpretan el exceso del exponente y con
+qué grado de certeza?}
+\A{Como hipótesis fenomenológica, declarada como tal: el exceso sugiere que
+la lámina primaria se fragmenta por el modo de desgarro (\emph{tearing},
+Furth, Killeen \& Rosenbluth 1963), generando plasmoides que multiplican la
+superficie disipativa efectiva; la firma es consistente con lo reportado
+por Nastro et al.\ (2022). No lo presentamos como constante derivada:
+demostrarlo exige resolver la jerarquía de sub-láminas, que a nuestras
+resoluciones está en el borde de la malla ---de ahí la propuesta de
+esquemas de cuarto orden (Mignone 2024) como trabajo futuro.}
+
+\Q{nivel básico · lámina 26}{Resuma la firma electromagnética de $\sigma$ en
+las variables globales.}
+\A{Tres tendencias monótonas. El trabajo electromagnético disipado
+acumulado crece de $0.03$ a $0.44$ a lo largo del barrido: más
+conductividad permite más violencia hidrodinámica que procesa más energía
+magnética. La amplificación de la energía magnética propia decae del
+15\% a 0 hacia el ideal: el congelamiento impide reorganizar la
+topología. Y las estructuras fuera del plano ($f_{Vz}$) tienen su máximo
+$0.37$ en $\sigma\approx1400$, dentro de la transición.}
+
+\Q{nivel alto · lámina 26}{¿No es contradictorio que la disipación acumulada
+\emph{crezca} con $\sigma$, si $\eta=1/\sigma$ decrece?}
+\A{Es la paradoja aparente que más nos gusta explicar. La potencia óhmica
+local es $\sim\eta J^2$: al subir $\sigma$, $\eta$ cae pero las láminas de
+corriente se adelgazan y $J$ crece más que compensando ($J\propto
+\delta^{-1}$ con $\delta\sim S^{-1/2}$). Además la inestabilidad es más
+vigorosa ---$\gamma$ y $\Omega^{\max}$ crecen--- y procesa más energía
+magnética por unidad de tiempo. El integrando pequeño sobre estructuras
+intensas y duraderas gana: la disipación acumulada crece con $\sigma$ en
+todo nuestro rango.}
+
+\Q{nivel medio · lámina 26}{¿Por qué el plateau de $J_{\max}$ es el
+argumento decisivo contra la disipación numérica?}
+\A{Porque $J_{\max}$ mide el gradiente más agudo del campo: si lo limitara
+la malla, crecería sin saturar al aumentar $\sigma$ hasta el límite de
+resolución en todos los casos. Lo observado es una saturación ---plateau---
+a partir de la conductividad en que la capa resistiva física es más ancha
+que el error de truncamiento: desde ahí la difusividad \emph{física}
+gobierna el espesor. Que la zona de transición completa esté dentro del
+plateau acredita que sus resultados no están contaminados por disipación
+artificial.}
+
+\section{Campaña magnética (objetivo 4)}
+
+\Q{nivel básico · lámina 27}{Campaña A: ¿qué suprime la inestabilidad al
+aumentar $B_0$?}
+\A{La presión magnética, no la tensión. Al pasar $B_0$ de $1.0$ a $2.0$
+(a $\sigma=10^4$), $\gamma$ cae de $0.81$ a $0.38$ y $\Omega^{\max}$ de
+$87$ a $25$; pero el flujo sigue siendo súper-alfvénico paralelo
+($M_{A,\parallel}$ de $9.4$ a $6.4$), de modo que la tensión es incapaz de
+frenar la cizalla. El agente es la magnetización creciente: $\beta$ cae de
+$0.99$ a $0.25$, el medio se rigidiza por presión magnética y el
+reservorio de energía libre se procesa menos eficientemente.}
+
+\Q{nivel medio · lámina 27}{Explique la ``paradoja'' de $\theta=0^\circ$ en
+la campaña B.}
+\A{Con campo guía puro no hay tensión sobre el modo, y sin embargo la
+enstrofía es mínima: parecería que quitar el freno diera menos vorticidad.
+La resolución es de Mizuno (2013): en 2D el vórtice solo puede estirar
+líneas de campo que tengan componente en el plano; sin $B_y$ no hay
+estiramiento, luego no hay dínamo local ni reconexión que realimenten la
+vorticidad. La pequeña $B_y$ de los demás ángulos actúa como semilla de
+amplificación. La paradoja se disuelve al distinguir el papel de freno
+(tensión sobre el modo) del papel de alimentación (estiramiento en el
+plano).}
+
+\Q{nivel medio · lámina 27}{En $\theta=90^\circ$ el máximo local de
+enstrofía crece pero la integrada decrece. ¿Contradicción?}
+\A{No: es un efecto del observable. Con tensión máxima ($B\parallel
+\mathbf k$) el crecimiento global está suprimido y la enstrofía
+\emph{integrada} decrece, como manda la teoría. Pero la misma tensión
+organiza capas de reconexión finas e intensas cuyo máximo \emph{local} es
+alto. Un observable global y uno local miden física distinta; reportarlos
+juntos desambigua la aparente paradoja y es una lección metodológica del
+trabajo.}
+
+\Q{nivel básico · lámina 29}{¿Qué papel juega la campaña C en el diseño?}
+\A{Es el experimento de control. Al rotar el campo en el plano $x$--$z$ se
+mantiene $\mathbf k\cdot\mathbf B=0$ para todo ángulo: no hay tensión sobre
+el modo, y además $|\mathbf B|$ ---y con él la presión magnética--- es
+constante con $\theta$. Cualquier variación observada es entonces
+puramente geométrica (reorientación de $B_x$, topología de reconexión).
+Comparar B (tensión creciente) contra C (tensión nula) aísla el efecto de
+la tensión con la presión controlada.}
+
+\Q{nivel medio · lámina 29}{¿Qué encontraron sin tensión y qué concluyen?}
+\A{Sin tensión no hay fase lineal limpia: el crecimiento pierde el carácter
+exponencial y la mezcla se vuelve difusa, de forma idéntica a
+$\sigma=6000$ y $10\,000$. Con tensión (campaña B) la fase exponencial
+existe. Conclusión: la tensión magnética es el estabilizador ---y
+organizador--- primario de la KHI en este régimen; la presión modula la
+amplitud, pero es la tensión la que estructura la dinámica. Además, sin el
+intercambio elástico guiado por tensión, la anticorrelación
+cinético-magnética se intensifica hasta $r\approx-0.98$: conversión casi
+uno a uno.}
+
+\Q{nivel básico · lámina 28}{Describa la anti-fase energética y qué decide
+la resistividad.}
+\A{Las partes oscilatorias de $E_{\rm kin}$ y $E_{\rm mag}$ oscilan en
+contrafase ciclo a ciclo (correlaciones de $-0.6$ a $-0.9$ en B; hasta
+$-0.98$ en C): el vórtice estira campo ---dínamo, cinética a magnética--- y
+la tensión devuelve ---rebote elástico---. La resistividad decide el
+destino: a $\sigma=10^4$ el intercambio es cuasi-reversible; a
+$\sigma=6000$ la disipación óhmica desvía parte de cada ciclo a calor,
+hasta un orden de magnitud más a $\theta=90^\circ$, donde las capas de
+reconexión son más intensas.}
+
+\Q{nivel medio · lámina 28}{¿Por qué usar el balance energético como
+observable en la campaña magnética?}
+\A{Porque la geometría del campo enmascara la fase lineal: con tensión
+fuerte o sin fase exponencial no hay pendiente que ajustar, y $\gamma$
+deja de ser un observable útil. Las energías, en cambio, existen siempre,
+son integrales (robustas) y su intercambio y disipación son exactamente la
+física que el objetivo 4 pregunta. La lección metodológica: el observable
+debe elegirse según el régimen, no imponerse por costumbre.}
+
+\Q{nivel medio · lámina 28}{¿Qué control de calidad interno acompaña estos
+resultados?}
+\A{La conservación de la energía total: en todas las simulaciones de la
+campaña el error relativo de $E_{\rm tot}$ es $\lesssim10^{-3}$ en el
+horizonte completo. Es una validación independiente del esquema ---la
+conservación no se impone a las energías parciales, emerge de la
+formulación conservativa--- y garantiza que la anti-fase no es un artefacto
+de pérdida numérica de energía.}
+
+\section{Estadística y validación del ajuste}
+
+\Q{nivel básico · respaldo B8}{¿Qué es el AIC y qué significa su
+$\Delta\mathrm{AIC}=-126$?}
+\A{El criterio de información de Akaike, $\mathrm{AIC}=2k-2\ln\hat L$,
+penaliza la verosimilitud con el número de parámetros: castiga el
+sobreajuste. Comparando modelos anidados sobre los \emph{mismos} datos, el
+sigmoide con desplazamiento mejora el AIC en 126 unidades respecto del de
+tres parámetros; en la escala de Burnham \& Anderson (2002), diferencias
+mayores que 10 ya son evidencia decisiva. El parámetro extra paga su costo
+con creces.}
+
+\Q{nivel medio · respaldo B8}{Describa su validación fuera de muestra.}
+\A{Los 9 puntos más resistivos ($\sigma<1600$) no participan del ajuste
+---allí no hay fase lineal limpia y su peso sería dudoso---. Usados como
+conjunto de prueba, el sigmoide con desplazamiento los predice con RMSE
+$0.025$ contra $0.039$ del modelo sin desplazamiento: 36\% mejor. Es la
+prueba más exigente disponible: capacidad predictiva en el régimen donde el
+modelo no fue entrenado.}
+
+\Q{nivel alto · respaldo B8}{Sus parámetros $C$ y $\gamma_0$ están
+degenerados. ¿Cómo lo manejan?}
+\A{La correlación es $r(C,\gamma_0)=-0.997$: el ajuste puede intercambiar
+desplazamiento por amplitud casi libremente, así que ninguno de los dos es
+confiable por separado. La combinación que la degeneración deja invariante
+es la suma $C+\gamma_0$ ---la asíntota---, que varía menos del 4\% entre
+variantes del ajuste. Por eso el resultado reportado es la asíntota, con
+su incertidumbre, y no los parámetros individuales.}
+
+\Q{nivel medio · respaldo B8}{¿Qué revelaron los residuos del ajuste y qué
+hicieron al respecto?}
+\A{Autocorrelación: rachas de residuos del mismo signo, confirmadas con un
+test de rachas. Significa que el sigmoide no captura toda la estructura
+fina de $\gamma(\sigma)$ y que los errores formales de la covarianza
+\emph{subestiman} la incertidumbre real. La respuesta metodológica fue no
+confiar en el error formal: $\sigma_{\rm crit}$ se estimó con cuatro
+métodos independientes y se reporta la banda completa $[1400,7000]$.}
+
+\Q{nivel medio · lámina 22}{¿Cómo asignaron errores a los cuatro
+estimadores?}
+\A{Para cada observable, el estimador es el punto de inflexión respecto de
+$\log_{10}\sigma$; el error es el máximo entre dos medidas conservadoras:
+la dispersión jackknife ---repetir la estimación quitando un punto a la
+vez--- y el semiancho de la región de inflexión. Así, estimadores basados
+en pocos puntos o con inflexión ancha ($\Omega^{\max}$: $\pm2175$) llevan
+honestamente errores grandes, y el promedio inter-método no queda dominado
+por una precisión ilusoria.}
+
+\Q{nivel alto · lámina 21}{¿Consideraron modelos alternativos al sigmoide?}
+\A{Sí, dentro de la familia razonable para una transición suave entre dos
+plateaus en $\log\sigma$: el sigmoide simple (descartado por AIC y
+hold-out), y leyes de potencia con saturación, que carecen de plateau
+resistivo y describen mal el extremo bajo. El sigmoide con desplazamiento
+es el modelo mínimo que captura ambos regímenes con parámetros
+interpretables ---asíntota, centro y anchura de la transición---. No
+afirmamos que sea la forma funcional verdadera: es el descriptor
+fenomenológico más parsimonioso compatible con los datos.}
+
+\section{Epistemología, limitaciones y trabajo futuro}
+
+\Q{nivel alto · respaldo B9}{Desde Liouville hasta su código: justifique la
+cadena de aproximaciones.}
+\A{El teorema de Liouville conserva la densidad de probabilidad en el
+espacio de fase; para un plasma, la jerarquía BBGKY la reduce a la
+ecuación cinética de una partícula: Vlasov--Boltzmann con integrales de
+colisión. Tomando momentos (densidad, momento, energía) y cerrando con
+equilibrio termodinámico local ---válido si el camino libre medio es corto
+frente a la escala hidrodinámica--- se llega al fluido único con
+coeficientes de transporte, entre ellos $\eta$. Nuestro código integra ese
+nivel. La cadena es explícita y cada eslabón tiene su condición de validez
+declarada; el respaldo B9 la recorre paso a paso.}
+
+\Q{nivel alto · lámina 31}{¿Cuándo colapsa epistemológicamente su
+descripción de fluido único?}
+\A{Cuando la escala disipativa relevante deja de ser fluida: si la capa
+resistiva $\delta\sim S^{-1/2}L$ se hace comparable al girorradio iónico o
+al camino libre medio, el cierre colisional pierde sentido y harían falta
+efecto Hall, presiones anisótropas o descripción cinética
+(Particle-in-Cell). En nuestro régimen declarado ---plasma colisional
+denso, $\nu_{\rm col}\gg\omega_{\rm cicl}$--- la jerarquía está del lado
+seguro. Lo importante metodológicamente es que el límite está identificado
+\emph{antes} de interpretar los resultados, no después.}
+
+\Q{nivel medio · lámina 31}{Enumere las limitaciones declaradas del
+trabajo.}
+\A{Cinco. Bidimensionalidad: sin modos 3D ni cascada turbulenta plena. EoS
+politrópica con $\Gamma=4/3$ fijo: sin composición ni radiación.
+Conductividad escalar constante: sin Hall, anisotropía ni dependencia
+térmica. Resolución: a las $\sigma$ más altas las láminas rozan la malla,
+lo que condiciona el exponente $1.22$. Y la asíntota ideal es
+extrapolación: el dato máximo alcanza el 85\% del plateau. Cada una está
+declarada junto al resultado que condiciona.}
+
+\Q{nivel medio · lámina 31}{¿Cuál es su programa de trabajo futuro y su
+prioridad?}
+\A{En orden: (1) medir el plateau directamente con 2--3 simulaciones a
+$\sigma\sim2$--$3\times10^4$ y mayor resolución, convirtiendo la
+extrapolación en medición; (2) resolver la dispersión RMHD compresible
+completa de grado 8 en nuestros parámetros, cerrando el contraste teórico;
+(3) mapa fino de la frontera tensión-presión con más ángulos y
+conductividades; (4) extensión 3D con esquemas de cuarto orden (Mignone
+2024) para resolver la jerarquía de sub-láminas y poner a prueba la
+hipótesis de \emph{tearing}; y a largo plazo, híbridos fluido-cinéticos
+para la frontera no colisional.}
+
+\Q{nivel alto}{¿Qué resultado numérico falsaría su modelo sigmoide?}
+\A{Varios, y son medibles: si al simular $\sigma\sim2$--$3\times10^4$ la
+tasa siguiera creciendo en lugar de saturar en $1.03\pm0.05$, la asíntota
+---y con ella el contraste con la teoría ideal--- quedaría refutada; si al
+duplicar la resolución el exponente no lineal se moviera sustancialmente
+de $1.22$, la firma de \emph{tearing} sería un artefacto; y si el plateau
+de $J_{\max}$ se desplazara con la malla, la separación disipación
+física/numérica caería. El diseño deja definidos los experimentos que
+podrían derribar cada afirmación: esa es nuestra noción operativa de
+falsabilidad.}
+
+\Q{nivel alto}{¿No es la simulación una ``caja negra'' entre la teoría y
+usted?}
+\A{No en este trabajo, por tres razones. Conocemos el interior: qué
+polinomio resuelve la recuperación de primitivas, qué ecuación obedece el
+error de divergencia, qué límite asintótico preserva el integrador.
+Controlamos los extremos: el sistema recupera analíticamente RMHD ideal,
+MHD clásica y Maxwell, y el solucionador lineal reproduce a Michalke. Y
+medimos la frontera entre lo físico y lo numérico (plateau de $J_{\max}$).
+La simulación funciona aquí como un experimento controlado sobre unas
+ecuaciones que no admiten solución cerrada: un puente entre la teoría de
+campos y la fenomenología, no una caja negra.}
+
+\Q{nivel medio}{¿Por qué su trabajo usa ``experimento numérico'' como
+categoría? ¿No es un oxímoron?}
+\A{Lo usamos con precisión: hay variable independiente ($\sigma$, y luego
+$B_0,\theta$), variables dependientes definidas antes de medir, protocolo
+fijo (misma malla, misma ventana, mismos criterios), controles (límites
+analíticos, conservación de $E_{\rm tot}$, validación de Michalke) y
+condiciones de exclusión declaradas. Que el aparato sea un sistema de
+ecuaciones discretizado y no un túnel de viento no cambia la lógica
+inferencial; cambia el tipo de error sistemático, que por eso dedicamos
+tanto espacio a acotar.}
+
+\Q{nivel medio · lámina 30}{¿Por qué sus conclusiones no afirman
+``objetivo cumplido''?}
+\A{Por respeto al proceso de evaluación: las conclusiones enuncian los
+resultados en correspondencia uno a uno con los objetivos ---qué se midió,
+con qué incertidumbre y con qué alcance--- y la valoración del cumplimiento
+corresponde al jurado y al director. Es además coherencia epistemológica:
+un trabajo que insiste en declarar límites no puede autocertificarse.}
+
+\section{Sobre la bibliografía citada}
+
+\Q{nivel medio}{¿Qué toman de Komissarov (2007) y de Palenzuela et al.\
+(2009)?}
+\A{Son los dos pilares de la formulación. De Komissarov: el esquema RRMHD
+multidimensional con el sistema aumentado ---telégrafo para las
+ligaduras--- y el diagnóstico de que la reconexión ideal-numérica es
+incontrolada. De Palenzuela: el tratamiento IMEX del término rígido, la
+filosofía ``beyond ideal MHD'' y el argumento del suavizado parabólico de
+la discontinuidad tangencial, que fundamenta por qué $\gamma(\sigma)$ debe
+medirse numéricamente.}
+
+\Q{nivel básico}{¿Cuál es el linaje del código Cueva en la literatura?}
+\A{Miranda-Aranguren, Aloy \& Aloy-Torás (2014, IAU) presentan la
+construcción del código RRMHD no ideal; Miranda-Aranguren et al.\ (2018)
+publican el solucionador HLLC para RRMHD y las pruebas de convergencia y
+choques del esquema, incluyendo la observación ---central para nosotros---
+de que MP5 compensa la difusión de contacto de HLL. Nuestro trabajo hereda
+esa infraestructura validada y la aplica al problema físico del barrido en
+conductividad.}
+
+\Q{nivel medio}{¿Qué papel juegan Dedner (2002), Munz (2000) y Lee (2004) en
+su capítulo de divergencias?}
+\A{Munz introduce la limpieza hiperbólica generalizada para Maxwell
+---nuestro sector electromagnético---; Dedner la formula para MHD con la
+pareja hiperbólico-parabólica que usamos en la práctica; y Lee aporta la
+estructura lagrangiana y de simetrías de la limpieza, que es la base del
+respaldo B3: el GLM no es un truco, tiene origen variacional y por eso
+respeta causalidad y disipación de forma controlada.}
+
+\Q{nivel medio}{¿Por qué citan a Rueda-Ramírez et al.\ (2023), que es de
+métodos entropía-estables?}
+\A{Porque justifica los términos de Godunov--Powell de nuestro vector
+fuente: ese trabajo demuestra que, en presencia de errores de divergencia
+transitorios, la variante con términos no conservativos proporcionales a
+las ligaduras es compatible con una desigualdad de entropía. Es la
+referencia moderna que convierte una corrección históricamente heurística
+en un requisito termodinámico riguroso.}
+
+\Q{nivel básico}{¿Qué aportan Suresh \& Huynh (1997), Toro (2009) y Harten,
+Lax \& van Leer (1983)?}
+\A{La caja de herramientas hiperbólica. Harten--Lax--van Leer: el marco de
+solucionadores aproximados de dos ondas del que sale HLL. Toro: el
+tratado de referencia sobre solucionadores de Riemann y las condiciones de
+Rankine--Hugoniot en volúmenes finitos. Suresh \& Huynh: la reconstrucción
+MP5 con preservación de monotonicidad, clave para retener extremos de
+vorticidad sin oscilaciones de Gibbs.}
+
+\Q{nivel medio}{¿Y Pareschi \& Russo (2005) y Aloy \& Cordero-Carrión
+(2016)?}
+\A{Pareschi \& Russo definen los esquemas IMEX Runge--Kutta fuertemente
+estables (SSP) para sistemas hiperbólicos con relajación rígida: nuestro
+integrador pertenece a esa familia y hereda sus propiedades de estabilidad
+y preservación asintótica. Aloy \& Cordero-Carrión desarrollan la
+alternativa mínimamente implícita (MIRK) para RRMHD: la citamos como la
+otra rama contemporánea del mismo problema, contra la cual se entiende la
+elección IMEX de Cueva.}
+
+\Q{nivel básico}{¿Por qué Mizuno (2013) es el origen de su montaje?}
+\A{Define el problema de referencia: estudia el rol de la ecuación de
+estado en la KHI resistiva relativista con la doble capa de cizalla que
+adoptamos (nuestro ``tipo Mizuno''), incluyendo el argumento de $B_y$ como
+semilla de amplificación que resuelve la paradoja de $\theta=0^\circ$.
+Partir de un montaje publicado hace comparables nuestros resultados y
+separa nuestra contribución ---el barrido sistemático en $\sigma$ y la
+campaña de orientación--- de la definición del escenario.}
+
+\Q{nivel medio}{Sitúe a Michalke (1964), Landau (1944), Königl (1980), Bodo
+et al.\ (2004), Osmanov et al.\ (2008) y Chow et al.\ (2023) en su cadena
+teórica.}
+\A{Michalke: la solución clásica del perfil $\tanh$ inviscido, nuestro
+techo y validación del solucionador. Landau: la estabilización compresible
+del \emph{vortex sheet} (umbral $\sqrt2$), el origen histórico del
+criterio. Königl: su extensión relativista. Bodo: el criterio y la
+evolución 3D en cizalla magnetizada relativista. Osmanov: la dispersión
+RMHD plana completa (grado 8), la referencia de lo que dejamos como
+futuro. Chow: la teoría lineal relativista magnetizada reciente, de donde
+tomamos ``presión pero no tensión'' y la sustitución $c_s\to v_{f\perp}$.}
+
+\Q{nivel medio}{¿Qué aportan Parker (1957), Furth et al.\ (1963), Lyubarsky
+(2005), Nastro et al.\ (2022), Lecoanet et al.\ (2016) y Mignone et al.\
+(2024) al análisis de resultados?}
+\A{Parker: el modelo Sweet--Parker, nuestro piso $\sigma^{1/2}$. Furth,
+Killeen \& Rosenbluth: el modo \emph{tearing}, la hipótesis del exceso.
+Lyubarsky: la robustez relativista del escalamiento del espesor. Nastro:
+el estudio KHI resistivo con el que comparamos metodología (enstrofía,
+factor 2) y la firma de fragmentación. Lecoanet: la no convergencia de la
+KHI 2D ideal, pilar del argumento de buen planteamiento. Mignone: los
+esquemas de cuarto orden que harían resoluble la jerarquía de sub-láminas.}
+
+\Q{nivel básico}{¿Qué papel cumplen los textos de fondo (Misner--Thorne--%
+Wheeler, Schutz, Rezzolla--Zanotti, Goedbloed, Nakahara, Baez--Muniain,
+Bachman, Hehl--Obukhov, Burnham--Anderson)?}
+\A{Fijan lenguaje y convenciones. Misner y Schutz: cálculo tensorial y
+signatura. Rezzolla--Zanotti: la formulación de Valencia y la
+hidrodinámica relativista numérica. Goedbloed: la MHD clásica de
+referencia. Nakahara, Baez--Muniain, Bachman y Hehl--Obukhov: el lenguaje
+de formas diferenciales con el que presentamos $F=dA$, la nilpotencia y la
+electrodinámica geométrica (respaldos B1--B3). Burnham--Anderson: la
+metodología de selección de modelos por AIC. Citarlos delimita qué es
+estándar y qué es contribución propia.}
+
+\Q{nivel alto}{Si el jurado le pide una referencia que conecte su trabajo
+con la física que él enseña (electrodinámica y mecánica estadística),
+¿cuál elige y cómo la presenta?}
+\A{Dos. Hehl \& Obukhov para electrodinámica: presenta las ecuaciones de
+Maxwell como enunciados geométricos sobre formas diferenciales
+---conservación de flujo y de carga--- independientes de la métrica, el
+puente exacto entre la electrodinámica de pregrado y nuestro $F=dA$ con
+Bianchi. Y para mecánica estadística, la cadena
+Liouville$\to$Vlasov$\to$momentos del respaldo B9, con Goedbloed como
+texto de referencia del cierre fluido: es literalmente el contenido del
+teorema de Liouville aplicado hasta donde nace nuestra $\eta$.}

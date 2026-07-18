@@ -58,6 +58,7 @@ def main():
 
     ax.set_xlabel(r"$t$")
     ax.set_ylabel(r"$\Omega_{zp}(t)$")
+    ax.set_xlim(-0.6, 15)
     ax.grid(True, ls="--", alpha=0.35)
 
     sigma_por_idx = {idx[s]: s for s in sigmas}

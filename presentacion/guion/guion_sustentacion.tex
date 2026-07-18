@@ -1,0 +1,1070 @@
+%==============================================================================
+% GUION DE SUSTENTACIÓN — 45 MINUTOS, DOS PONENTES
+% Tratamiento Numérico de la Inestabilidad de Kelvin–Helmholtz
+% bajo el Marco de la Magnetohidrodinámica Relativista Resistiva
+%
+% Compilación: pdflatex guion_sustentacion.tex  (×2)
+% El guion sigue lámina a lámina el deck presentacion/main.pdf (50 pp,
+% 31 láminas de cuerpo + referencias + agradecimiento + respaldo B1–B13).
+%==============================================================================
+\documentclass[11pt,letterpaper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-tabla]{babel}
+\usepackage{lmodern}
+\usepackage[margin=2.4cm]{geometry}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage[most]{tcolorbox}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage[hidelinks]{hyperref}
+
+%---------------------------------------------------------- paleta (coherente con el deck)
+\definecolor{primary}{HTML}{1B0C41}   % púrpura Inferno profundo
+\definecolor{accent}{HTML}{E65D2F}    % naranja Inferno
+\definecolor{gold}{HTML}{F5B841}
+\definecolor{soft}{HTML}{F7F1E1}
+\definecolor{grisnota}{HTML}{555555}
+
+%---------------------------------------------------------- encabezado / pie
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\footnotesize\itshape Guion de sustentación --- KHI en RRMHD}
+\fancyhead[R]{\footnotesize Martinez \& Rodriguez}
+\fancyfoot[C]{\footnotesize Página \thepage\ de \pageref{LastPage}}
+\renewcommand{\headrulewidth}{0.4pt}
+
+%---------------------------------------------------------- cajas
+% Parlamento: el texto que se pronuncia literalmente.
+\newtcolorbox{parlamento}[1]{%
+  breakable, enhanced,
+  colback=soft!35, colframe=primary,
+  boxrule=0.6pt, arc=1.5pt,
+  left=8pt, right=8pt, top=6pt, bottom=6pt,
+  title={\small\bfseries #1 --- texto para pronunciar},
+  fonttitle=\color{white},
+  colbacktitle=primary}
+
+% Indicaciones escénicas y técnicas (no se pronuncian).
+\newtcolorbox{indicaciones}{%
+  breakable,
+  colback=white, colframe=accent,
+  boxrule=0.5pt, arc=1.5pt,
+  left=8pt, right=8pt, top=4pt, bottom=4pt,
+  title={\small\bfseries Indicaciones (no se pronuncian)},
+  fonttitle=\color{white},
+  colbacktitle=accent}
+
+% Encabezado de lámina
+\newcommand{\lamina}[5]{%
+  \subsection*{Lámina #1 --- #2}
+  \noindent
+  \begin{tabular}{@{}llll@{}}
+    \textbf{Ponente:} #3 &\quad \textbf{Duración:} #4 &\quad
+    \textbf{Tiempo acumulado al cierre:} #5 &
+  \end{tabular}
+  \vspace{2pt}}
+
+\newcommand{\relevo}[1]{%
+  \begin{center}
+  \begin{tcolorbox}[colback=gold!20,colframe=gold!80!black,boxrule=0.6pt,
+    width=0.92\linewidth,arc=1.5pt,left=6pt,right=6pt,top=4pt,bottom=4pt]
+    \small\textbf{Relevo de ponente.} #1
+  \end{tcolorbox}
+  \end{center}}
+
+\setlength{\parskip}{4pt}
+\setlength{\parindent}{0pt}
+
+%==============================================================================
+\begin{document}
+
+%---------------------------------------------------------- portada
+\begin{titlepage}
+\centering
+\vspace*{1.2cm}
+{\color{primary}\rule{\linewidth}{2pt}}\\[0.9cm]
+{\large Universidad Distrital Francisco José de Caldas}\\[2pt]
+{\small Facultad de Ciencias Matemáticas y Naturales --- Programa Académico de Física}\\[1.6cm]
+{\LARGE\bfseries Guion de Sustentación}\\[0.5cm]
+{\large Trabajo de Grado}\\[0.9cm]
+{\color{primary}\Large\bfseries Tratamiento Numérico de la Inestabilidad de
+Kelvin--Helmholtz bajo el Marco de la Magnetohidrodinámica Relativista
+Resistiva}\\[1.4cm]
+\begin{tabular}{rl}
+\textbf{Autores y ponentes:} & Bryan Martinez Anzola\\
+                             & Sebastián Rodriguez Garcia\\[6pt]
+\textbf{Director:}           & Prof.\ Ph.D.\ Sergio Miranda-Aranguren\\[6pt]
+\textbf{Jurado:}             & Prof.\ Juan Carlos Giraldo Acuña\\[6pt]
+\textbf{Duración prevista:}  & 45 minutos (exposición) $+$ turno de preguntas\\[6pt]
+\textbf{Material:}           & \texttt{presentacion/main.pdf} (50 páginas;
+                               31 láminas de cuerpo,\\
+                             & referencias y material de respaldo B1--B13)\\
+\end{tabular}\\[1.6cm]
+{\color{primary}\rule{\linewidth}{2pt}}\\[0.8cm]
+{\small Bogotá, D.C.\ --- Julio de 2026}
+\vfill
+\end{titlepage}
+
+\tableofcontents
+\newpage
+
+%==============================================================================
+\section{Instrucciones generales de uso}
+%==============================================================================
+
+\subsection{Naturaleza del documento}
+El presente guion acompaña, lámina por lámina, la presentación
+\texttt{main.pdf} de la sustentación. Para cada lámina se indica el ponente a
+cargo, la duración asignada, el tiempo acumulado al cierre, el \emph{texto
+para pronunciar} (registro formal, redactado para ser leído o memorizado con
+fidelidad conceptual, no necesariamente literal) y las \emph{indicaciones}
+escénicas o técnicas que no se pronuncian. El texto está calibrado a un ritmo
+de dicción de 130--150 palabras por minuto, apropiado para una exposición
+académica formal.
+
+\subsection{Distribución de ponentes}
+Se alterna por bloques temáticos, de modo que ambos autores demuestren dominio
+de la totalidad del trabajo y el relevo coincida siempre con una transición
+natural del argumento. La asignación propuesta es simétrica y puede
+intercambiarse de común acuerdo sin alterar tiempos ni transiciones.
+
+\begin{center}
+\begin{tabular}{@{}clccc@{}}
+\toprule
+Segmento & Bloque temático & Láminas & Ponente & Duración\\
+\midrule
+I   & Apertura, motivación y diseño          & 1--5   & Bryan Martinez & 7:30\\
+II  & Marco teórico RRMHD                    & 6--11  & Sebastián Rodriguez      & 9:30\\
+III & Implementación numérica y montaje      & 12--17 & Bryan Martinez & 7:30\\
+IV  & Resultados I: barrido en conductividad & 18--26 & Sebastián Rodriguez      & 13:00\\
+V   & Resultados II: campaña magnética; cierre & 27--32 & Bryan Martinez & 7:00\\
+\midrule
+\multicolumn{4}{r}{Total de exposición} & 44:30\\
+\multicolumn{4}{r}{Margen de contingencia} & 0:30\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Totales por ponente: Bryan Martinez, 22:00; Sebastián Rodriguez, 22:30.
+
+\subsection{Puntos de control de ensayo}
+Al cronometrar los ensayos deben verificarse los siguientes hitos. Si en un
+punto de control se acumula un retraso superior a un minuto, se comprimen las
+láminas marcadas como \emph{comprimibles} (láminas 15, 19 y 22), que admiten
+una versión de treinta segundos sin pérdida del argumento central.
+
+\begin{center}
+\begin{tabular}{@{}lc@{}}
+\toprule
+Hito & Minuto objetivo\\
+\midrule
+Fin de motivación y diseño (lámina 5)            & 7:30\\
+Fin del marco teórico (lámina 11)                & 17:00\\
+Fin de implementación y montaje (lámina 17)      & 24:30\\
+Fin de resultados del barrido (lámina 26)        & 37:30\\
+Fin de la campaña magnética (lámina 29)          & 41:30\\
+Cierre de la exposición (lámina 32)              & 44:30\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{Protocolo de relevos}
+Cada relevo se ejecuta con una frase puente pronunciada por el ponente
+saliente, que cede la palabra nombrando el bloque siguiente; el ponente
+entrante inicia sin saludo adicional. Los cuatro relevos están escritos en
+el cuerpo del guion en recuadros dorados. Durante el segmento del compañero,
+el ponente en espera permanece atento al cronómetro y opera, si así se
+acuerda, el avance de láminas.
+
+\subsection{Convenciones de notación al hablar}
+En todo el guion, y en coherencia con la monografía: $W$ denota el factor de
+Lorentz; $\Gamma$, exclusivamente el índice adiabático; $\hat\omega$, la tasa
+de crecimiento normalizada; y $\sigma$ se reserva de manera exclusiva para la
+conductividad eléctrica. El código se nombra «Cueva», sin artículo. No se
+emplea jerga interna del repositorio.
+
+%==============================================================================
+\section{Segmento I --- Apertura, motivación y diseño (Bryan Martinez, 7:30)}
+%==============================================================================
+
+\lamina{1}{Portada}{Bryan Martinez}{1:00}{1:00}
+
+\begin{parlamento}{Bryan Martinez}
+Muy buenos días. Señor jurado, profesor Juan Carlos Giraldo; señor director,
+profesor Sergio Miranda-Aranguren; señoras y señores. Mi nombre es Bryan
+Martinez Anzola y me acompaña mi compañero Sebastián Rodriguez Garcia. Presentamos
+a ustedes la sustentación de nuestro trabajo de grado, titulado
+\emph{Tratamiento Numérico de la Inestabilidad de Kelvin--Helmholtz bajo el
+Marco de la Magnetohidrodinámica Relativista Resistiva}, dirigido por el
+profesor Miranda-Aranguren.
+
+En una frase, este trabajo cuantifica cómo la resistividad finita y la
+geometría del campo magnético gobiernan la inestabilidad de
+Kelvin--Helmholtz relativista, mediante más de sesenta simulaciones
+numéricas realizadas con el código Cueva.
+\end{parlamento}
+
+\begin{indicaciones}
+Postura frontal, sin leer la lámina. La frase-tesis final se pronuncia con
+pausa previa: es el enunciado que el jurado debe retener. Verificar de
+antemano proyector, apuntador y cronómetro visible.
+\end{indicaciones}
+
+\lamina{2}{Estructura de la Presentación}{Bryan Martinez}{1:30}{2:30}
+
+\begin{parlamento}{Bryan Martinez}
+La exposición sigue la estructura que ustedes observan. Primero, la
+motivación física y astrofísica del problema; segundo, el marco teórico de la
+magnetohidrodinámica relativista resistiva; tercero, la implementación
+numérica y el montaje experimental; y finalmente los resultados, organizados
+en dos partes, con sus conclusiones.
+
+Quiero destacar desde ahora los cuatro objetivos específicos aprobados en la
+propuesta, porque los resultados y las conclusiones se presentarán en
+correspondencia uno a uno con ellos. Primero, cuantificar el efecto de la
+resistividad sobre la tasa de crecimiento lineal de la inestabilidad.
+Segundo, analizar su efecto en la formación de estructuras secundarias:
+vórtices y láminas de corriente. Tercero, evaluar el impacto de la difusión
+magnética sobre las variables electromagnéticas globales. Y cuarto, evaluar
+cómo la intensidad y la orientación del campo magnético externo modifican la
+evolución de la inestabilidad. La herramienta es el código Cueva, un código
+de magnetohidrodinámica relativista resistiva en volúmenes finitos, y la base
+de datos comprende cuarenta y cuatro simulaciones del barrido en
+conductividad más dieciocho configuraciones magnéticas.
+\end{parlamento}
+
+\begin{indicaciones}
+Señalar la caja de objetivos al enumerarlos, marcando con la mano uno a
+cuatro. La correspondencia objetivo--resultado--conclusión es el hilo
+argumentativo que el jurado debe ver desde el primer minuto.
+\end{indicaciones}
+
+\lamina{3}{El Fenómeno: la KHI en el Universo Relativista}{Bryan Martinez}{2:00}{4:30}
+
+\begin{parlamento}{Bryan Martinez}
+Comencemos por el fenómeno, sin ecuaciones. La inestabilidad de
+Kelvin--Helmholtz aparece dondequiera que dos flujos en contacto se mueven a
+velocidades distintas. Esa capa de cizalla constituye un reservorio de
+energía libre. Si la interfaz se ondula levemente, el flujo se acelera sobre
+las crestas y se frena en los valles; por el principio de Bernoulli, esa
+diferencia de velocidades genera gradientes de presión que ejercen un torque
+sobre la interfaz. El torque amplifica la ondulación, la ondulación
+intensifica el torque, y el resultado es un crecimiento exponencial: la fase
+lineal. Cuando la amplitud deja de ser pequeña, la interfaz se enrolla en los
+vórtices característicos que ustedes observan en la figura: la fase no
+lineal.
+
+En el universo relativista este mecanismo es ubicuo: opera en las fronteras
+de los chorros de núcleos galácticos activos y de los estallidos de rayos
+gamma, donde un flujo cercano a la velocidad de la luz roza un medio en
+reposo. Allí gobierna la mezcla y el frenado del chorro ---el llamado
+\emph{entrainment}, vinculado a la dicotomía morfológica entre radiofuentes
+FR-I y FR-II--- y actúa además como dínamo: los vórtices estiran las líneas
+de campo magnético y lo amplifican. Entender qué controla esta inestabilidad
+es, por tanto, entender un regulador central de la dinámica de los chorros
+astrofísicos.
+\end{parlamento}
+
+\begin{indicaciones}
+Esta lámina es, a la vez, la respuesta ensayada a la pregunta pedagógica
+«explíquela sin fórmulas» (véase el Anexo A.1). Señalar la figura del chorro
+al mencionar las fronteras de los jets.
+\end{indicaciones}
+
+\lamina{4}{Por Qué Resistiva: los Límites del Congelamiento Ideal}{Bryan Martinez}{1:30}{6:00}
+
+\begin{parlamento}{Bryan Martinez}
+Ahora bien, ¿por qué resistiva? La ecuación de inducción contiene dos
+términos: advección y difusión, y la difusión está pesada por la
+resistividad, que es el inverso de la conductividad. En el límite de
+conductividad infinita ---la magnetohidrodinámica ideal--- rige el teorema de
+congelamiento de Alfvén: la topología del campo magnético no puede cambiar y
+la reconexión está prohibida. Sin embargo, cuando un código ideal muestra
+reconexión, esta proviene del error de truncamiento de la malla: es una
+resistividad numérica, incontrolada, que depende de la resolución y no de la
+física.
+
+El marco resistivo invierte esa situación: al introducir una conductividad
+finita como parámetro físico, la reconexión y el calentamiento óhmico se
+vuelven procesos naturales, predictivos y controlados, imprescindibles en
+escenarios como las llamaradas de núcleos activos o las magnetosferas de
+púlsares. De aquí nace la pregunta central de este trabajo: ¿cómo gobiernan
+la conductividad finita y la geometría del campo magnético el crecimiento, la
+morfología y el balance energético de la inestabilidad de Kelvin--Helmholtz
+relativista?
+\end{parlamento}
+
+\begin{indicaciones}
+Aquí se planta, desde la motivación, la respuesta a la objeción «¿su
+disipación es física o numérica?»; la evidencia empírica se anunciará en la
+lámina 26. Enfatizar el contraste «incontrolado» frente a «controlado».
+\end{indicaciones}
+
+\lamina{5}{Diseño del Experimento Numérico: Dos Campañas}{Bryan Martinez}{1:30}{7:30}
+
+\begin{parlamento}{Bryan Martinez}
+Para responder esa pregunta diseñamos dos campañas sobre un único montaje
+base. La primera campaña aborda los objetivos uno a tres: un barrido de
+cuarenta y cuatro simulaciones en las que la conductividad recorre el
+intervalo de cien a diez mil quinientos, con todos los demás parámetros
+fijos; de este modo se aísla el efecto de la difusividad magnética sobre la
+tasa lineal, la fenomenología no lineal y los diagnósticos
+electromagnéticos globales.
+
+La segunda campaña aborda el objetivo cuatro: se fija la conductividad en dos
+regímenes ---seis mil y diez mil--- y se varía el campo magnético en tres
+familias. La familia A varía la intensidad; la familia B rota el campo en el
+plano $y$--$z$, activando progresivamente la tensión magnética, porque
+aparece componente paralela al vector de onda; y la familia C rota el campo
+en el plano $x$--$z$, donde el producto escalar entre el vector de onda y el
+campo es nulo y, por tanto, no hay tensión: es nuestro experimento de
+control. Con esta arquitectura, cedo la palabra a mi compañero Sebastián
+Rodriguez, quien presentará el marco teórico del sistema.
+\end{parlamento}
+
+\relevo{Bryan Martinez concluye el segmento I con la frase anterior y
+Sebastián Rodriguez toma la palabra directamente, sin saludo adicional.
+Minuto de control: 7:30.}
+
+%==============================================================================
+\section{Segmento II --- Marco teórico RRMHD (Sebastián Rodriguez, 9:30)}
+%==============================================================================
+
+\lamina{6}{Estructura Covariante del Sistema RRMHD}{Sebastián Rodriguez}{2:00}{9:30}
+
+\begin{parlamento}{Sebastián Rodriguez}
+Gracias, Bryan. Antes de escribir cualquier ecuación, fijemos las
+convenciones que regirán toda la presentación: unidades de
+Heaviside--Lorentz, con la velocidad de la luz y las permitividades iguales a
+uno; signatura métrica menos, más, más, más; $W$ denotará el factor de
+Lorentz y la letra $\Gamma$ se reserva exclusivamente para el índice
+adiabático, en la formulación de Valencia.
+
+El sistema descansa sobre cuatro leyes covariantes. La conservación del
+número bariónico; la conservación del tensor de energía-momento
+\emph{total}, suma del término de fluido perfecto y del término
+electromagnético de Faraday--Maxwell, ambos obtenidos por variación de la
+métrica según el procedimiento de Hilbert; las ecuaciones de Maxwell
+inhomogéneas, que sí son dinámica, pues provienen de mínima acción con
+fuente; y las homogéneas. Sobre estas últimas conviene un punto fino: dado
+que el tensor de Faraday es la derivada exterior del cuadripotencial, su
+derivada exterior se anula por nilpotencia. Es decir, la ausencia de
+monopolos magnéticos no es una ecuación dinámica sino una identidad
+geométrica, la identidad de Bianchi. Esta distinción, que parece un
+tecnicismo, será decisiva cuando pasemos al problema discreto. Las
+derivaciones completas están disponibles en el material de respaldo.
+\end{parlamento}
+
+\begin{indicaciones}
+Las convenciones se declaran aquí una única vez y no se vuelven a mencionar.
+La distinción identidad geométrica frente a ecuación dinámica prepara la
+lámina 8 y responde por anticipado al examen tensorial del jurado
+(respaldos B1 y B2).
+\end{indicaciones}
+
+\lamina{7}{La Ley de Ohm Relativista: el Cierre Resistivo}{Sebastián Rodriguez}{2:00}{11:30}
+
+\begin{parlamento}{Sebastián Rodriguez}
+El sistema anterior no está cerrado: falta la ecuación constitutiva que
+define el régimen resistivo, la ley de Ohm relativista. En el marco comóvil,
+para una respuesta lineal e isótropa, la corriente es la suma del término
+convectivo de carga y del término conductivo, proporcional a la contracción
+del tensor de Faraday con la cuadrivelocidad. Al proyectarla sobre la malla
+euleriana en el formalismo tres más uno se obtiene la expresión enmarcada:
+nótese que no es una suma galileana; el factor de Lorentz y los
+acoplamientos transversales son la huella genuinamente relativista.
+
+Esta ley contiene los dos límites físicos del problema. Cuando la
+conductividad tiende a infinito, el campo eléctrico comóvil se anula y se
+recupera el congelamiento ideal. Cuando la conductividad es finita, el campo
+eléctrico comóvil sobrevive, y con él el calentamiento de Joule y la
+reconexión. Declaramos aquí, con honestidad, los límites de validez del
+cierre: la conductividad es escalar e isótropa, lo que presupone un plasma
+colisional, con frecuencia de colisiones mucho mayor que la frecuencia de
+ciclotrón, sin efecto Hall. La resistividad es un coeficiente de transporte
+macroscópico que emerge de las integrales de colisión del nivel cinético de
+Vlasov--Boltzmann. Y este cierre tiene una consecuencia dinámica que
+condiciona todo el trabajo numérico: el término fuente proporcional a la
+conductividad vuelve el sistema rígido cuando ella es grande. Ese es el reto
+central de la sección siguiente.
+\end{parlamento}
+
+\begin{indicaciones}
+La frase sobre el origen cinético de la resistividad es una respuesta
+ensayada (Anexo A.4; respaldos B5 y B9). Señalar la ecuación enmarcada al
+pronunciar «expresión enmarcada».
+\end{indicaciones}
+
+\lamina{8}{Restricciones de Divergencia: el Sistema Aumentado GLM}{Sebastián Rodriguez}{1:30}{13:00}
+
+\begin{parlamento}{Sebastián Rodriguez}
+Retomo la identidad de Bianchi. En el continuo, la nilpotencia de la derivada
+exterior garantiza que la divergencia del campo magnético sea nula. Pero los
+operadores discretos de una malla no son nilpotentes: el error de
+truncamiento genera monopolos espurios que, sin tratamiento, se acumulan y
+destruyen la estabilidad de la simulación.
+
+La solución adoptada es el método de multiplicadores de Lagrange
+generalizados, GLM: se introducen dos campos escalares que acoplan las
+restricciones a la evolución, y puede demostrarse que el error de divergencia
+obedece la ecuación del telégrafo. Esa ecuación tiene dos propiedades
+exactamente deseables: es hiperbólica, de modo que el error se propaga a la
+velocidad de limpieza, igual a la velocidad de la luz, sin violar jamás el
+cono causal; y es disipativa, de modo que el error decae exponencialmente.
+La figura ilustra el contraste: sin tratamiento el error se acumula; con GLM
+se propaga fuera del dominio y se amortigua, sin alterar las soluciones
+físicas. Con esto respondemos de manera constructiva cómo se garantiza la
+ausencia de monopolos sin destruir la causalidad.
+\end{parlamento}
+
+\begin{indicaciones}
+Esta lámina es la respuesta completa a la pregunta prevista del jurado sobre
+divergencia y causalidad (Anexo A.2; respaldo B3 para el origen
+variacional).
+\end{indicaciones}
+
+\lamina{9}{El Sistema en Forma Fuertemente Conservativa}{Sebastián Rodriguez}{1:00}{14:00}
+
+\begin{parlamento}{Sebastián Rodriguez}
+Todo lo anterior se ensambla en un sistema de leyes de balance con catorce
+variables conservadas: densidad relativista, momento, energía, los campos
+magnético y eléctrico, la carga y los dos escalares de limpieza. Subrayo una
+consecuencia de conservar el tensor total: el momento y la energía incluyen
+el vector de Poynting y la densidad de energía electromagnética, de modo que
+la fuerza de Lorentz no aparece como término fuente, sino absorbida en la
+divergencia del flujo; esto garantiza conservación exacta a nivel discreto,
+esencial para la captura de choques. El vector fuente contiene únicamente el
+acople resistivo de Ohm, los sumideros telegráficos y los términos de
+Godunov--Powell, que preservan la compatibilidad termodinámica frente a los
+monopolos transitorios. El jacobiano del sistema, de catorce por catorce,
+posee ocho autovalores degenerados a más y menos la velocidad de la luz; su
+espectro completo está en el material de respaldo.
+\end{parlamento}
+
+\lamina{10}{Mapa de Límites: del RRMHD a la Física Conocida}{Sebastián Rodriguez}{1:30}{15:30}
+
+\begin{parlamento}{Sebastián Rodriguez}
+Este mapa sitúa nuestro sistema en la física conocida. Tomando el límite de
+conductividad infinita se recupera la magnetohidrodinámica ideal
+relativista; con velocidades pequeñas, la magnetohidrodinámica clásica; sin
+campo, la hidrodinámica de Euler; y en el límite de conductividad nula, las
+ecuaciones de Maxwell en vacío con la hidrodinámica desacoplada. La misma
+escalera existe para la inestabilidad que nos ocupa: en hidrodinámica la
+discontinuidad es incondicionalmente inestable; en magnetohidrodinámica
+clásica la tensión estabiliza si la componente del campo paralela al vector
+de onda es suficiente; y en el régimen relativista ideal rige el criterio de
+Mach relativista entre cero y raíz de dos.
+
+El punto que define este trabajo es el peldaño que falta: en
+magnetohidrodinámica relativista resistiva no existe relación de dispersión
+algebraica cerrada para la discontinuidad tangencial, porque el término
+difusivo es parabólico y suaviza la interfaz en tiempo arbitrariamente
+corto. Por consiguiente, la tasa de crecimiento en función de la
+conductividad debe caracterizarse numéricamente; la teoría lineal ideal
+queda como referencia del límite asintótico. Esta es la justificación
+epistemológica del enfoque del trabajo.
+\end{parlamento}
+
+\begin{indicaciones}
+Recorrer el diagrama de izquierda a derecha con el apuntador. La lámina
+también contiene la respuesta al «límite no relativista del sistema»
+(Anexo A.5).
+\end{indicaciones}
+
+\lamina{11}{El Observable: Vorticidad y Enstrofía de Perturbación}{Sebastián Rodriguez}{1:30}{17:00}
+
+\begin{parlamento}{Sebastián Rodriguez}
+Antes de mostrar resultados, definimos con precisión qué se mide. El
+observable primario es la enstrofía de perturbación: a la vorticidad se le
+sustrae el promedio de la configuración inicial, para no contaminar la señal
+con la cizalla base, y se integra su cuadrado en el dominio. En la fase
+lineal, cada modo crece exponencialmente y, como la enstrofía es cuadrática
+en la amplitud, el logaritmo de la enstrofía crece con pendiente igual a dos
+veces la tasa de crecimiento; la regresión se efectúa en la ventana canónica
+de tiempo entre dos punto cuatro y tres punto cuatro. Este factor dos,
+explícito, evita cualquier ambigüedad en la extracción.
+
+Complementan este estimador la enstrofía total y su fracción fuera del
+plano, que diagnostican estructuras secundarias; el máximo de la densidad de
+corriente, que mide el adelgazamiento de las láminas; la integral del
+producto del campo eléctrico por la corriente, que es la disipación óhmica
+global; y las energías magnética, cinética e interna. Para comparar con la
+literatura, la tasa se adimensionaliza con el espesor de la capa y la
+velocidad de cizalla. Ningún número que verán en adelante carece de una
+definición operativa dada en esta lámina. Con el sistema y el observable
+definidos, devuelvo la palabra a Bryan Martinez para la implementación
+numérica.
+\end{parlamento}
+
+\relevo{Fin del segmento II. Minuto de control: 17:00. Bryan Martinez
+retoma directamente con la lámina 12.}
+
+%==============================================================================
+\section{Segmento III --- Implementación numérica y montaje (Bryan Martinez, 7:30)}
+%==============================================================================
+
+\lamina{12}{Volúmenes Finitos: la Formulación Integral Obligatoria}{Bryan Martinez}{1:30}{18:30}
+
+\begin{parlamento}{Bryan Martinez}
+Gracias, Sebastián. ¿Por qué volúmenes finitos? Porque en flujos relativistas
+emergen choques que vuelven singular la forma diferencial de las ecuaciones:
+la formulación integral es matemáticamente obligatoria, pues admite
+soluciones débiles, y los flujos numéricos respetan las condiciones de salto
+de Rankine--Hugoniot. En esta formulación, la evolución del promedio de cada
+celda es el balance de los flujos de Riemann en sus caras, de modo que la
+conservación es exacta por construcción: el flujo que sale de una celda
+entra íntegramente en la vecina. Cabe la comparación con elementos finitos:
+la formulación débil global es óptima para dominios complejos con soluciones
+suaves; para sistemas hiperbólicos de leyes de conservación con
+discontinuidades, la captura conservativa de choques exige volúmenes
+finitos.
+\end{parlamento}
+
+\lamina{13}{Reconstrucción MP5 y Solucionador HLL}{Bryan Martinez}{1:00}{19:30}
+
+\begin{parlamento}{Bryan Martinez}
+Dentro de cada celda, la reconstrucción de los estados es de quinto orden,
+del tipo MP5 de Suresh y Huynh: los esquemas TVD de segundo orden recortan
+los extremos y, con ello, destruyen precisamente la enstrofía que queremos
+medir; MP5 la retiene de manera casi espectral. Los flujos de interfaz se
+calculan con el solucionador HLL, robusto, positivo y libre de jacobianos;
+su difusión sobre la onda de contacto queda compensada por la agudeza de los
+estados de quinto orden, como demostró el propio grupo del director. El
+criterio de diseño del estudio se enuncia en una línea: la disipación
+numérica debe ser menor que la disipación física en todo el barrido; la
+evidencia empírica de que así ocurre se presentará con los resultados.
+\end{parlamento}
+
+\begin{indicaciones}
+Comprimible a 30 segundos si hay retraso. La pregunta previsible «¿por qué
+no HLLC?» tiene respuesta dedicada en el respaldo B7 y en el Anexo A.6; no
+se aborda aquí salvo que el jurado la formule.
+\end{indicaciones}
+
+\lamina{14}{Rigidez Resistiva e Integración IMEX--RK}{Bryan Martinez}{1:30}{21:00}
+
+\begin{parlamento}{Bryan Martinez}
+Como anticipó mi compañero, el término de Ohm vuelve el sistema rígido: el
+tiempo de relajación resistivo es inversamente proporcional a la
+conductividad y, a conductividades altas, resulta muchísimo menor que el
+paso temporal hidrodinámico. Un esquema totalmente explícito exigiría pasos
+de tiempo proporcionales al cuadrado del espaciamiento dividido por la
+conductividad: la parálisis numérica. La solución es la partición
+implícito-explícita de Runge--Kutta, en la variante fuertemente estable de
+Pareschi y Russo: los flujos hiperbólicos se integran explícitamente, y la
+fuente rígida, implícitamente. Y aquí está el punto técnico clave: como la
+fuente no acopla celdas vecinas, la actualización implícita se reduce a un
+sistema algebraico local de tres por tres con solución analítica; no hay
+método de Newton global ni inversión matricial iterativa, de modo que el
+sobrecosto es despreciable. Además, el esquema posee preservación
+asintótica: al tomar el límite de conductividad infinita en la actualización
+implícita se recupera exactamente la ley de Ohm ideal. El esquema respeta el
+límite físico por construcción.
+\end{parlamento}
+
+\lamina{15}{Recuperación de Variables Primitivas: Ferrari--Cardano}{Bryan Martinez}{1:00}{22:00}
+
+\begin{parlamento}{Bryan Martinez}
+Queda un eslabón: los flujos requieren las variables primitivas, pero el
+factor de Lorentz acopla cinemática y termodinámica y el mapeo conservadas a
+primitivas carece de inversa explícita. Cueva reduce el problema a una
+cuártica en el factor de Lorentz, que se resuelve analíticamente mediante la
+transformación de Tschirnhaus y el método de Ferrari--Cardano, con un
+refinamiento final de Newton--Raphson y guardias físicas: rechazo de
+velocidades superlumínicas y de presiones no positivas, y una rama
+linealizada estable a bajas velocidades. Esta rutina se ejecuta en cada
+celda y en cada subpaso; su robustez frente a láminas de corriente agudas es
+la que define el límite práctico del barrido y explica las exclusiones que
+declararé enseguida.
+\end{parlamento}
+
+\begin{indicaciones}
+Comprimible a 30 segundos: basta la frase «la inversión se reduce a una
+cuártica resuelta analíticamente con guardias físicas», más la conexión con
+las exclusiones.
+\end{indicaciones}
+
+\lamina{16}{Montaje Experimental: Doble Capa de Cizalla tipo Mizuno}{Bryan Martinez}{1:30}{23:30}
+
+\begin{parlamento}{Bryan Martinez}
+El montaje es la doble capa de cizalla de Mizuno. El perfil base es una
+tangente hiperbólica doble centrada en más y menos cero coma cinco, con
+velocidad de cizalla de la mitad de la velocidad de la luz y espesor de cero
+coma cero cinco. Subrayo un punto importante: la semilla de la inestabilidad
+es una perturbación senoidal en la velocidad transversal, el modo
+fundamental compatible con la caja, con confinamiento gaussiano; el
+contraste de densidad ---un flujo central diluido en un ambiente diez veces
+más denso--- modela la configuración chorro--medio, pero no gatilla la
+inestabilidad. El campo magnético inicial tiene una componente de guía
+dominante perpendicular al plano: aporta presión pero no tensión, una
+decisión topológica que permite que la inestabilidad se desarrolle y aísla
+el efecto resistivo. La malla es de quinientos doce por doscientos
+cincuenta y seis celdas, con unas trece celdas por capa de cizalla,
+condiciones periódicas en la dirección del flujo y abiertas en la
+transversal. Para dar escala astrofísica: con una longitud de referencia de
+diez a la dieciséis centímetros, el tiempo característico es de unos cuatro
+días, y el vórtice maduro alcanza unas ciento setenta unidades
+astronómicas.
+\end{parlamento}
+
+\begin{indicaciones}
+Señalar en la figura las dos interfaces rectas en el estado inicial. La
+precisión «la densidad no gatilla nada» corrige una lectura errónea
+previsible del montaje.
+\end{indicaciones}
+
+\lamina{17}{Matriz de Simulaciones y Criterios de Exclusión}{Bryan Martinez}{1:00}{24:30}
+
+\begin{parlamento}{Bryan Martinez}
+Esta es la matriz completa de simulaciones: el barrido de cuarenta y cuatro
+valores de conductividad con número de Courant de cero coma uno, y las
+campañas magnéticas a conductividad seis mil y diez mil, con Courant
+reducido a cero coma cero cuatro y cero coma cero dos, porque las láminas de
+corriente agudas exigen mayor estabilidad en la recuperación de primitivas.
+En total, unas treinta mil horas-núcleo de cómputo. Y declaramos
+explícitamente los datos excluidos: en la campaña A, los dos casos de campo
+más débil fallaron por inestabilidad numérica antes de la fase no lineal; en
+la campaña B, el ángulo de quince grados se detuvo por un fallo de
+convergencia del solucionador de primitivas; y en el barrido, el análisis
+cuantitativo de la tasa lineal usa las simulaciones con conductividad mayor
+o igual a mil seiscientos, con coeficiente de determinación de al menos cero
+coma noventa. Preferimos declarar estas exclusiones a ocultarlas: son parte
+del resultado. Con esto, mi compañero presenta los resultados del barrido en
+conductividad.
+\end{parlamento}
+
+\relevo{Fin del segmento III. Minuto de control: 24:30. Sebastián Rodriguez
+retoma con la lámina 18.}
+
+%==============================================================================
+\section{Segmento IV --- Resultados I: barrido en conductividad (Sebastián Rodriguez, 13:00)}
+%==============================================================================
+
+\lamina{18}{El Barrido Completo en Conductividad}{Sebastián Rodriguez}{1:00}{25:30}
+
+\begin{parlamento}{Sebastián Rodriguez}
+Gracias, Bryan. Esta es la vista panorámica del barrido: la enstrofía de
+perturbación en el tiempo para las cuarenta y cuatro simulaciones, con la
+conductividad codificada en color de negro a naranja. Obsérvese la
+estratificación monótona y limpia de las curvas. Sobre este conjunto se
+definen los subconjuntos de análisis, con criterios explícitos: el ajuste de
+la tasa lineal emplea treinta y cinco simulaciones, aquellas con
+conductividad mayor o igual a mil seiscientos y ajuste de calidad; los
+ajustes de pico emplean veintinueve, porque el pico solo es identificable
+dentro del horizonte temporal a partir de conductividad dos mil
+ochocientos. La pendiente lineal es medible antes que el pico; de ahí la
+diferencia entre ambos subconjuntos.
+\end{parlamento}
+
+\lamina{19}{Visión Global del Barrido: Fenomenología}{Sebastián Rodriguez}{1:00}{26:30}
+
+\begin{parlamento}{Sebastián Rodriguez}
+Cualitativamente, el barrido exhibe tres regímenes temporales en todos los
+casos: fase lineal hacia tiempo tres, enrollamiento no lineal hacia tiempo
+ocho y saturación hacia tiempo catorce. El contraste morfológico entre
+columnas es el mensaje: a conductividad cien, la difusión óhmica amortigua y
+difumina los vórtices; a conductividad diez mil, con el campo casi
+congelado, aparecen subestructura fina y turbulencia de pequeña escala. Las
+cuarenta y cuatro simulaciones alcanzaron tiempos superiores a cinco sin
+inestabilidades numéricas espurias.
+\end{parlamento}
+
+\begin{indicaciones}
+Comprimible a 30 segundos: basta recorrer la figura señalando las tres
+columnas. No detenerse en detalles de paneles.
+\end{indicaciones}
+
+\lamina{20}{Extracción de la Tasa de Crecimiento Lineal}{Sebastián Rodriguez}{1:30}{28:00}
+
+\begin{parlamento}{Sebastián Rodriguez}
+La extracción cuantitativa procede como se definió: regresión del logaritmo
+de la enstrofía en la ventana canónica, con pendiente igual a dos veces la
+tasa. Los criterios de calidad son explícitos: la ventana es fija,
+posterior al transitorio inicial y anterior a la saturación; el coeficiente
+de determinación clasifica los regímenes en resistivo, de transición e
+ideal; y el análisis cuantitativo emplea las treinta y cinco simulaciones
+con conductividad de mil seiscientos en adelante. Una precisión conceptual
+importante: por debajo de conductividad alrededor de mil cuatrocientos no
+existe régimen lineal limpio; no se trata de un ajuste pobre, sino de que
+la difusión domina desde el instante inicial y el modo no alcanza a
+establecerse. Reconocer ese límite es parte del rigor del análisis, no una
+debilidad.
+\end{parlamento}
+
+\lamina{21}{La Transición Resistivo--Ideal: Sigmoide con Offset}{Sebastián Rodriguez}{2:00}{30:00}
+
+\begin{parlamento}{Sebastián Rodriguez}
+Llegamos al resultado paramétrico central del objetivo uno. La dependencia
+de la tasa de crecimiento con la conductividad queda descrita por un modelo
+sigmoide con desplazamiento, de cuatro parámetros. Dos números resumen el
+ajuste: la asíntota ideal, suma del desplazamiento y de la amplitud, vale
+uno coma cero tres, con incertidumbre de cero coma cero cinco; y el centro
+de la transición se sitúa en conductividad dos mil ochocientos quince, con
+error de ciento veintitrés.
+
+La validación se sostiene en tres argumentos independientes. Primero, el
+criterio de información de Akaike en comparación anidada: agregar el
+parámetro de desplazamiento, sobre los mismos datos, mejora el criterio en
+ciento veintiséis unidades, evidencia estadísticamente decisiva. Segundo,
+validación fuera de muestra: los nueve puntos resistivos que no
+participaron del ajuste se predicen un treinta y seis por ciento mejor con
+el modelo completo. Tercero, honestidad sobre los residuos: están
+autocorrelacionados, de modo que el error formal subestima la incertidumbre
+real; precisamente por eso la conductividad crítica se estima con múltiples
+métodos, como muestro a continuación. Subrayo, además, que el
+desplazamiento es un parámetro del modelo con soporte predictivo, no una
+tasa de crecimiento negativa con interpretación física directa.
+\end{parlamento}
+
+\begin{indicaciones}
+Lámina central: no acelerar. Los tres argumentos de validación se enumeran
+con los dedos. El detalle estadístico completo está en el respaldo B8.
+\end{indicaciones}
+
+\lamina{22}{Los Cuatro Estimadores de la Conductividad Crítica}{Sebastián Rodriguez}{1:00}{31:00}
+
+\begin{parlamento}{Sebastián Rodriguez}
+¿Dónde ocurre la transición? Lo preguntamos a cuatro observables
+independientes, con un método común: el punto de inflexión de cada curva
+respecto del logaritmo de la conductividad, con errores por remuestreo. El
+sigmoide de la tasa lineal responde dos mil ochocientos quince; el máximo
+de enstrofía, tres mil cuatrocientos; el tiempo del pico, seis mil; y la
+tasa en escala logarítmica, seis mil ochocientos. Cuatro respuestas
+distintas y legítimas: esa dispersión es el dato que motiva la lámina
+siguiente.
+\end{parlamento}
+
+\begin{indicaciones}
+Comprimible a 30 segundos. Los valores están escritos en pantalla; no es
+necesario repetir los errores individuales de viva voz.
+\end{indicaciones}
+
+\lamina{23}{La Conductividad Crítica No Es un Número: Es una Zona}{Sebastián Rodriguez}{1:30}{32:30}
+
+\begin{parlamento}{Sebastián Rodriguez}
+La lectura conjunta es esta cascada de activación: cada observable se
+idealiza a una conductividad distinta, desde el máximo de estructuras fuera
+del plano alrededor de mil cuatrocientos hasta la saturación no lineal
+cerca de siete mil. La conclusión honesta es que la conductividad crítica
+no es un número, sino una zona de transición: el intervalo de mil
+cuatrocientos a siete mil, con centro en torno a dos mil ochocientos
+quince, que en número de Lundquist corresponde a un orden de mil. Y el
+mensaje epistemológico es explícito: la dispersión entre métodos, de más o
+menos mil novecientos, no es ruido; es la firma de una transición
+multiescala, en la que cada fenómeno físico se congela a su propia escala.
+Reportar la banda completa ---y no un falso valor único con un error formal
+de ciento veintitrés--- es lo científicamente riguroso.
+\end{parlamento}
+
+\lamina{24}{Contraste con la Teoría Lineal: la Escalera de Predicciones}{Sebastián Rodriguez}{2:00}{34:30}
+
+\begin{parlamento}{Sebastián Rodriguez}
+Este es, a nuestro juicio, el resultado central del trabajo. ¿Es correcto el
+valor asintótico medido? La cadena lógica tiene tres peldaños. Primero, el
+techo hidrodinámico inviscido: la ecuación de Rayleigh para el perfil de
+tangente hiperbólica, con nuestro solucionador validado contra el resultado
+clásico de Michalke, da una tasa normalizada máxima de cero coma ciento
+noventa. Segundo, la geometría fija la física: como el vector de onda es
+perpendicular al campo de guía, el campo aporta presión pero no tensión, y
+la velocidad de restitución no es la del sonido sino la magnetosónica
+rápida perpendicular, cero coma seiscientos noventa y uno; con ella, la
+teoría lineal compresible de Lees y Lin predice cero coma cero noventa y
+cinco. Tercero, nuestro valor medido: cero coma ciento tres. El acuerdo es
+del ocho por ciento, sin ningún parámetro de ajuste. El control negativo
+refuerza la cadena: si se usara la velocidad del sonido sola, la predicción
+colapsaría a cero coma cero dieciséis; es la presión magnética del campo de
+guía la que sostiene la inestabilidad. Además, el número de Mach
+relativista vale cero coma sesenta, holgadamente por debajo del umbral de
+estabilización de raíz de dos.
+
+Declaramos el alcance con precisión: se trata de una consistencia
+cuantitativa fuerte, no de una validación cerrada, porque la asíntota es
+una extrapolación ---nuestro dato máximo alcanza el ochenta y cinco por
+ciento del plateau--- y la predicción emplea la sustitución escalar de la
+velocidad característica, no la relación de dispersión completa de grado
+ocho.
+\end{parlamento}
+
+\begin{indicaciones}
+Lámina de mayor peso: dicción pausada en los tres peldaños de la escalera,
+señalándolos sobre la figura. La frase final de alcance se pronuncia
+literalmente; es el blindaje de honestidad del resultado.
+\end{indicaciones}
+
+\lamina{25}{No Linealidad: Ley de Potencia de la Enstrofía Máxima}{Sebastián Rodriguez}{1:30}{36:00}
+
+\begin{parlamento}{Sebastián Rodriguez}
+En el régimen no lineal, objetivo dos, el máximo de la enstrofía de
+perturbación sigue una ley de potencia en la conductividad con exponente
+uno coma veintidós y coeficiente de determinación de cero coma novecientos
+noventa y siete. El punto de referencia teórico es el piso de una lámina de
+corriente única de Sweet--Parker, cuyo espesor escala como la raíz del
+número de Lundquist y daría exponente un medio; ese escalamiento es robusto
+frente a correcciones relativistas. Nuestro exponente lo excede en un
+factor de dos coma cuatro. La interpretación se declara expresamente como
+hipótesis fenomenológica: el exceso sugiere que la lámina primaria se
+fragmenta por el modo de desgarro ---el \emph{tearing}--- multiplicando la
+superficie disipativa disponible; la firma es consistente con la
+literatura, pero su demostración cuantitativa exigiría resolver la
+jerarquía de sub-láminas con esquemas de orden superior, y queda planteada
+como trabajo futuro.
+\end{parlamento}
+
+\lamina{26}{Variables Globales: la Firma Electromagnética de la Conductividad}{Sebastián Rodriguez}{1:30}{37:30}
+
+\begin{parlamento}{Sebastián Rodriguez}
+El objetivo tres se responde con los diagnósticos globales. El trabajo
+electromagnético disipado acumulado crece de cero coma cero tres a cero
+coma cuarenta y cuatro a lo largo del barrido: a mayor conductividad, más
+violencia hidrodinámica procesa más energía magnética. La amplificación de
+la energía magnética propia decae del quince por ciento a cero hacia el
+límite ideal: el congelamiento impide reorganizar la topología. Y la
+fracción de estructuras fuera del plano alcanza su máximo, cero coma
+treinta y siete, justo en la zona de transición.
+
+Y aquí, señor jurado, está la evidencia empírica que anunciamos: el panel
+de la densidad de corriente máxima exhibe un plateau que marca dónde la
+difusividad física supera el error de truncamiento de la malla. Esto
+demuestra que los resultados en la zona de transición no están contaminados
+por disipación artificial. Más aún: se sabe, por Lecoanet y colaboradores,
+que la inestabilidad de Kelvin--Helmholtz bidimensional ideal no converge
+con la resolución; es precisamente la resistividad explícita la que da
+significado convergente a la tasa de crecimiento como función de la
+conductividad. La disipación de nuestras simulaciones es física, no
+numérica. Con los resultados del barrido completos, Bryan Martinez
+presenta la campaña magnética y las conclusiones.
+\end{parlamento}
+
+\relevo{Fin del segmento IV. Minuto de control: 37:30. Bryan Martinez
+retoma con la lámina 27.}
+
+%==============================================================================
+\section{Segmento V --- Resultados II: campaña magnética y cierre (Bryan Martinez, 7:00)}
+%==============================================================================
+
+\lamina{27}{Campaña Magnética I: Intensidad y Orientación}{Bryan Martinez}{1:30}{39:00}
+
+\begin{parlamento}{Bryan Martinez}
+Gracias, Sebastián. El objetivo cuatro pregunta quién suprime la inestabilidad:
+¿la presión magnética o la tensión? La campaña A, de intensidad, responde
+lo primero: al duplicar el campo, la tasa de crecimiento cae de cero coma
+ochenta y uno a cero coma treinta y ocho, y la enstrofía máxima, de
+ochenta y siete a veinticinco. Pero el flujo permanece súper-alfvénico en
+la dirección paralela en todos los casos: la tensión es incapaz de frenar
+la cizalla, de modo que el agente supresor es la presión magnética, es
+decir, la magnetización creciente. La campaña B, de orientación en el
+plano que contiene al vector de onda, muestra que la tensión solo actúa a
+través de la componente paralela a dicho vector. Destaco la aparente
+paradoja del ángulo cero: campo de guía puro, sin tensión, y sin embargo
+enstrofía mínima; la resolución es que, sin componente en el plano, el
+vórtice bidimensional no puede estirar líneas de campo, y sin estiramiento
+no hay dínamo ni reconexión que realimenten la dinámica. Y en el ángulo de
+noventa grados, el máximo local proviene de capas de reconexión finas
+mientras la enstrofía integrada sí decrece con la tensión: un efecto del
+observable, no de la física.
+\end{parlamento}
+
+\lamina{28}{Campaña Magnética II: Balance Energético y Canales de Disipación}{Bryan Martinez}{1:30}{40:30}
+
+\begin{parlamento}{Bryan Martinez}
+Cuando la geometría enmascara la fase lineal, el observable correcto no es
+la tasa de crecimiento sino la energía. Tres hallazgos. Primero, las
+energías cinética y magnética oscilan en anti-fase, ciclo a ciclo, con
+correlaciones entre menos cero coma seis y menos cero coma nueve: existe
+un canal de conversión directo y reversible, el dínamo de ida y el rebote
+elástico de la tensión de vuelta. Segundo, la resistividad decide el
+destino final de esa energía: a conductividad diez mil el intercambio es
+cuasi-reversible; a seis mil, la disipación óhmica desvía energía a calor,
+hasta un orden de magnitud más en la orientación perpendicular. Tercero,
+como control de calidad interno, la energía total se conserva con error
+relativo menor que una parte en mil en todas las simulaciones: una
+validación independiente del esquema numérico.
+\end{parlamento}
+
+\lamina{29}{Campaña Magnética III: Orientación sin Tensión}{Bryan Martinez}{1:00}{41:30}
+
+\begin{parlamento}{Bryan Martinez}
+La campaña C es el experimento de control: al anular la componente del
+campo en la dirección del flujo, el producto del vector de onda con el
+campo es nulo y la tensión desaparece, mientras el módulo del campo ---y
+con él la presión magnética--- permanece constante con el ángulo. El
+resultado es contundente: sin tensión no hay fase lineal limpia; el
+crecimiento pierde su carácter exponencial y la mezcla se vuelve difusa,
+de manera idéntica en ambas conductividades. La tensión magnética es, por
+tanto, el estabilizador primario de la inestabilidad en este régimen. Y
+con la tensión ausente, la conversión energética queda al desnudo: la
+anti-correlación entre las energías cinética y magnética se intensifica
+hasta menos cero coma noventa y ocho en los ángulos altos ---conversión
+casi uno a uno--- con disipación óhmica monótona en el ángulo.
+\end{parlamento}
+
+\lamina{30}{Conclusiones (por objetivo)}{Bryan Martinez}{1:30}{43:00}
+
+\begin{parlamento}{Bryan Martinez}
+Concluimos en correspondencia con los cuatro objetivos. Sobre el primero:
+la transición del régimen resistivo al ideal queda descrita por el modelo
+sigmoide con desplazamiento; la asíntota ideal es uno coma cero tres más
+menos cero coma cero cinco, consistente al ocho por ciento con la teoría
+lineal compresible, y la conductividad crítica es una zona, de mil
+cuatrocientos a siete mil, con centro cerca de dos mil ochocientos.
+Sobre el segundo: la enstrofía máxima escala con exponente uno coma
+veintidós, excede el piso de Sweet--Parker y sugiere desgarro secundario
+de las láminas; las estructuras tridimensionales emergen donde difusión y
+advección compiten. Sobre el tercero: la conductividad controla la
+intensidad de las láminas de corriente, la disipación acumulada y la
+amplificación de la energía magnética propia. Y sobre el cuarto: la
+supresión por intensidad es un efecto de presión y magnetización; la
+tensión actúa únicamente a través de la componente del campo paralela al
+vector de onda; sin tensión dominan la reconexión y la disipación
+directa; y la anti-fase entre energías cinética y magnética constituye el
+canal universal de conversión, cuyo destino ---intercambio reversible o
+calor--- lo decide la resistividad.
+\end{parlamento}
+
+\begin{indicaciones}
+Se enuncian los resultados sin autoevaluación: la valoración del
+cumplimiento de los objetivos corresponde al jurado.
+\end{indicaciones}
+
+\lamina{31}{Limitaciones del Modelo y Trabajo Futuro}{Bryan Martinez}{1:00}{44:00}
+
+\begin{parlamento}{Bryan Martinez}
+Declaramos los límites del trabajo, que son a la vez su mapa de
+continuación. El estudio es bidimensional, con ecuación de estado
+politrópica; la conductividad es escalar, sin efecto Hall ni anisotropía
+---el modelo de fluido único trunca la jerarquía de momentos de Vlasov y
+es válido mientras la escala disipativa relevante sea la capa resistiva y
+no el girorradio---; a las conductividades más altas las láminas de
+corriente rozan el límite de resolución de la malla; y la asíntota ideal
+es una extrapolación, pues el dato máximo alcanza el ochenta y cinco por
+ciento del plateau. En consecuencia, el trabajo futuro contempla: medir
+directamente el plateau con simulaciones de mayor conductividad; resolver
+la relación de dispersión completa de grado ocho en estos parámetros;
+cartografiar con más ángulos la frontera entre tensión y presión; y
+extender el estudio a tres dimensiones con esquemas de cuarto orden,
+capaces de resolver las hojas resistivas.
+\end{parlamento}
+
+\lamina{32}{Agradecimiento y apertura del turno de preguntas}{Bryan Martinez}{0:30}{44:30}
+
+\begin{parlamento}{Bryan Martinez}
+Señor jurado, señor director, señoras y señores: agradecemos su atención.
+Quedamos, con mi compañero, a su entera disposición para las preguntas y
+la discusión que consideren pertinentes.
+\end{parlamento}
+
+\begin{indicaciones}
+Ambos ponentes de pie durante el turno de preguntas. La lámina de
+referencias no se expone: se salta directamente a la de agradecimiento. El
+material de respaldo B1--B13 queda listo para navegar según la pregunta
+(mapa en el Anexo B).
+\end{indicaciones}
+
+%==============================================================================
+\appendix
+\section{Anexo A --- Respuestas ensayadas de sesenta segundos}
+%==============================================================================
+
+Se transcriben las seis respuestas preparadas para el turno de preguntas,
+derivadas del perfil del jurado. Cada una está calibrada a un minuto y
+puede ampliarse con la lámina de respaldo indicada.
+
+\subsection{«Explique la inestabilidad sin fórmulas»}
+Dos flujos en contacto a velocidades distintas almacenan energía libre en
+su capa de cizalla. Una ondulación mínima de la interfaz acelera el flujo
+sobre las crestas y lo frena en los valles; por Bernoulli, esa asimetría
+de presiones ejerce un torque que amplifica la ondulación. La
+retroalimentación produce crecimiento exponencial y, al saturar, la
+interfaz se enrolla en vórtices que mezclan ambos medios. En un chorro
+astrofísico, ese mecanismo frena el chorro, mezcla materia del ambiente y
+amplifica el campo magnético. \emph{(Lámina 3.)}
+
+\subsection{«¿Cómo garantiza la ausencia de monopolos sin destruir la causalidad?»}
+En el continuo no hay nada que garantizar: la divergencia nula es una
+identidad geométrica, consecuencia de la nilpotencia de la derivada
+exterior. La malla discreta rompe esa nilpotencia y genera monopolos
+espurios. El método GLM acopla las restricciones a la evolución mediante
+dos escalares con origen variacional; el error resultante obedece la
+ecuación del telégrafo: se propaga hiperbólicamente a la velocidad de
+limpieza ---dentro del cono causal--- y decae exponencialmente. La
+causalidad queda intacta por construcción. \emph{(Lámina 8; respaldo B3.)}
+
+\subsection{«¿Su disipación es física o numérica?»}
+Tres argumentos. De diseño: reconstrucción MP5 de quinto orden con flujo
+HLL, elegida para que la disipación numérica sea menor que la física en
+todo el barrido. Empírico: el plateau de la densidad de corriente máxima
+marca dónde la difusividad física supera el error de truncamiento; los
+resultados de la zona de transición están dentro de ese régimen.
+Conceptual: la KHI bidimensional ideal ni siquiera converge con la
+resolución (Lecoanet 2016); es la resistividad explícita la que da
+significado convergente a la tasa medida. \emph{(Láminas 13 y 26;
+respaldo B7.)}
+
+\subsection{«¿De dónde sale la resistividad? ¿Cuál es su origen microscópico?»}
+La resistividad es un coeficiente de transporte fenomenológico que emerge
+de las integrales de colisión del nivel cinético de Vlasov--Boltzmann al
+truncar la jerarquía de momentos en el fluido único. El cierre escalar e
+isótropo exige que la frecuencia de colisiones domine sobre la frecuencia
+de ciclotrón; el modelo es válido mientras la escala disipativa relevante
+sea la capa resistiva, del orden del inverso de la raíz del número de
+Lundquist, y no el girorradio. Fuera de ese régimen se requerirían efecto
+Hall, anisotropía o descripción cinética. \emph{(Lámina 7; respaldos B5 y
+B9.)}
+
+\subsection{«¿Cómo se recupera la física conocida desde su sistema?»}
+Por límites sucesivos: con conductividad infinita, el campo eléctrico
+comóvil se anula y se recupera la magnetohidrodinámica ideal relativista;
+con velocidades pequeñas y factor de Lorentz unidad, la
+magnetohidrodinámica clásica; sin campo magnético, la hidrodinámica de
+Euler; y con conductividad nula, Maxwell en vacío con la hidrodinámica
+desacoplada. El integrador respeta el primer límite por construcción:
+posee preservación asintótica y converge exactamente a la ley de Ohm ideal
+cuando la conductividad diverge. \emph{(Láminas 10 y 14; respaldo B4.)}
+
+\subsection{«El artículo del código usa HLLC; ¿por qué ustedes HLL?»}
+Es una decisión de diseño documentada. HLLC restaura la onda de contacto,
+pero HLL con reconstrucción MP5 de quinto orden logra un efecto
+equivalente por otra vía: la agudeza de los estados reconstruidos compensa
+la difusión del solucionador sobre el contacto ---hallazgo del propio
+grupo del director--- con mayor simplicidad, positividad garantizada y
+menor costo en un barrido de sesenta y dos simulaciones. La verificación
+empírica de que la disipación numérica quedó por debajo de la física es el
+plateau de la corriente máxima. \emph{(Lámina 13; respaldo B7.)}
+
+%==============================================================================
+\section{Anexo B --- Mapa del material de respaldo}
+%==============================================================================
+
+\begin{center}
+\begin{tabular}{@{}cll@{}}
+\toprule
+Respaldo & Contenido & Se invoca si preguntan por\ldots\\
+\midrule
+B1  & Tensor de Faraday desde el cuadripotencial & formalismo tensorial, Bianchi\\
+B2  & Tensor energía-momento por vía de Hilbert  & origen variacional de $T^{\mu\nu}$\\
+B3  & GLM desde la acción extendida              & telégrafo, forma de Dedner\\
+B4  & Espectro característico $14\times14$       & autovalores, CFL, estabilidad\\
+B5  & Proyección $3+1$ de la ley de Ohm          & álgebra de la ley de Ohm\\
+B6  & Validación del solucionador lineal          & Michalke, umbral $\sqrt2$\\
+B7  & ¿Por qué HLL$+$MP5 y no HLLC?              & elección del solucionador\\
+B8  & Estadística del ajuste sigmoide             & AIC/BIC, degeneración de parámetros\\
+B9  & De Vlasov al fluido                         & fundamento cinético del continuo\\
+B10 & Recursos computacionales                    & horas-núcleo, flujo de trabajo\\
+B11 & Estructuras secundarias y campaña C         & repreguntas del objetivo 4\\
+B12 & Mapas de densidad de las campañas           & morfología de las campañas\\
+B13 & Tablero dinámico de la campaña B            & evolución comparada $\sigma=6000$/$10000$\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\vspace{6pt}
+La lámina de referencias contiene las cuarenta y cuatro fuentes de la
+monografía; no se expone, pero permanece disponible si el jurado solicita
+una cita en particular.
+
+\end{document}

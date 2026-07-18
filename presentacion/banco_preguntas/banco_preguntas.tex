@@ -1,0 +1,90 @@
+%==============================================================================
+% BANCO DE PREGUNTAS Y RESPUESTAS PARA LA SUSTENTACIÓN
+% Tratamiento Numérico de la KHI bajo el Marco de la RRMHD
+% Compilación: pdflatex banco_preguntas.tex (×2)
+%==============================================================================
+\documentclass[11pt,letterpaper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-tabla]{babel}
+\usepackage{lmodern}
+\usepackage[margin=2.3cm]{geometry}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{amsmath,amssymb}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage[hidelinks]{hyperref}
+
+\definecolor{primary}{HTML}{1B0C41}
+\definecolor{accent}{HTML}{E65D2F}
+\definecolor{grisnota}{HTML}{666666}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\footnotesize\itshape Banco de preguntas --- KHI en RRMHD}
+\fancyhead[R]{\footnotesize Martinez \& Rodriguez}
+\fancyfoot[C]{\footnotesize Página \thepage\ de \pageref{LastPage}}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\setlength{\parskip}{3pt}
+\setlength{\parindent}{0pt}
+
+% P: pregunta con etiqueta [nivel · apoyo]; R: respuesta
+\newcounter{preg}
+\newcommand{\Q}[2]{\par\addvspace{11pt}\stepcounter{preg}%
+  \noindent{\color{primary}\bfseries P\thepreg.}\ \textbf{#2}\par
+  \nopagebreak{\scriptsize\color{grisnota}#1}\par\nopagebreak\vspace{1pt}}
+\newcommand{\A}[1]{\noindent\emph{R.}\ #1\par}
+
+\begin{document}
+
+%---------------------------------------------------------- portada
+\begin{titlepage}
+\centering
+\vspace*{1.2cm}
+{\color{primary}\rule{\linewidth}{2pt}}\\[0.9cm]
+{\large Universidad Distrital Francisco José de Caldas}\\[2pt]
+{\small Facultad de Ciencias Matemáticas y Naturales --- Programa Académico de Física}\\[1.6cm]
+{\LARGE\bfseries Banco de Preguntas y Respuestas}\\[0.5cm]
+{\large Preparación de la Sustentación del Trabajo de Grado}\\[0.9cm]
+{\color{primary}\Large\bfseries Tratamiento Numérico de la Inestabilidad de
+Kelvin--Helmholtz bajo el Marco de la Magnetohidrodinámica Relativista
+Resistiva}\\[1.4cm]
+\begin{tabular}{rl}
+\textbf{Autores:}  & Bryan Martinez Anzola \;$\cdot$\; Sebastián Rodriguez Garcia\\[4pt]
+\textbf{Director:} & Prof.\ Ph.D.\ Sergio Miranda-Aranguren\\[4pt]
+\textbf{Jurado:}   & Prof.\ Juan Carlos Giraldo Acuña\\[4pt]
+\textbf{Base:}     & monografía (167 pp), presentación (50 láminas) y las\\
+                   & 44 referencias citadas\\
+\end{tabular}\\[1.5cm]
+{\color{primary}\rule{\linewidth}{2pt}}\\[0.8cm]
+{\small Bogotá, D.C.\ --- Julio de 2026}
+\vfill
+\end{titlepage}
+
+\tableofcontents
+\newpage
+
+\section*{Cómo usar este banco}
+\addcontentsline{toc}{section}{Cómo usar este banco}
+Cada pregunta lleva una etiqueta con el \emph{nivel} esperado de exigencia
+(básico $=$ verificación de comprensión; medio $=$ dominio del trabajo;
+alto $=$ frontera del trabajo o de la literatura) y, cuando aplica, la
+\emph{lámina} de la presentación o la lámina de \emph{respaldo} (B1--B13)
+que sirve de apoyo visual al responder. Las respuestas están redactadas en
+la extensión adecuada para el turno de preguntas: entre treinta segundos y
+un minuto de exposición oral. Las categorías siguen el orden de la
+sustentación; las dos últimas cubren la dimensión epistemológica ---la de
+mayor probabilidad dado el perfil del jurado--- y la bibliografía citada.
+Conviene ensayar en voz alta, en particular, todas las preguntas de nivel
+básico (fallarlas cuesta más que acertar las de nivel alto) y las marcadas
+en las categorías de epistemología y disipación numérica.
+
+\input{parte_a}
+\input{parte_b}
+\input{parte_c}
+
+\end{document}

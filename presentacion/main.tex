@@ -162,6 +162,10 @@
 \date{Bogot\'a, Julio 2026}
 
 %==============================================================================
+
+% --- numeración de figuras (F1, F2, ...) ---
+\newcounter{fignum}
+\newcommand{\figtag}{\stepcounter{fignum}{\tiny\color{INF3}\,F\arabic{fignum}}}
 \begin{document}
 %==============================================================================
 
@@ -231,7 +235,9 @@
 \begin{frame}{Estructura de la Presentaci\'on}
 \begin{columns}[T]
 \begin{column}{0.52\textwidth}
-  \tableofcontents
+  \vspace*{0.25cm}
+  {\addtobeamertemplate{section in toc}{}{\vspace{11pt}}%
+   \tableofcontents}
 \end{column}
 \begin{column}{0.44\textwidth}
   \begin{tcolorbox}[RES={Objetivos espec\'ificos del trabajo}]
@@ -261,6 +267,25 @@
 %==============================================================================
 \section{Motivaci\'on y fenomenolog\'ia}
 %==============================================================================
+
+%------------------------------------------------------------------------------
+% S2b · INTERLUDIO VISUAL: LA INESTABILIDAD (cap. 3 de la monografía)
+%       [plain]; no incrementa la numeración de láminas
+%------------------------------------------------------------------------------
+{
+\setbeamertemplate{footline}{}\setbeamertemplate{headline}{}
+\begin{frame}[plain]
+  \begin{center}
+    \includegraphics[width=0.9\paperwidth,height=0.8\paperheight,
+                     keepaspectratio]{figures/KHI_una_interfaz.pdf}\\[4pt]
+    {\tiny\color{INF3} La inestabilidad de Kelvin--Helmholtz: dos medios con
+     cizalla tangencial ($U_1>U_2$) separados por la interfaz perturbada
+     $\eta(x,t)$, que crece a costa de la energ\'ia libre de la cizalla
+     (cap.~3 de la monograf\'ia).}
+  \end{center}
+\end{frame}
+\addtocounter{framenumber}{-1}
+}
 
 %------------------------------------------------------------------------------
 % S3 · LA KHI SIN ECUACIONES
@@ -296,7 +321,7 @@
 \end{column}
 \begin{column}{0.46\textwidth}
   \begin{center}
-    \includegraphics[width=\linewidth]{figures/contexto_jet.pdf}\\[2pt]
+    \includegraphics[width=\linewidth]{figures/contexto_jet.pdf}\figtag\\[2pt]
     {\tiny\color{INF3} Capa de cizalla en la frontera de un chorro de AGN:
      el contraste $\mathbf{v}\sim c$ / medio en reposo es
      inherentemente inestable frente a la KHI.}
@@ -395,9 +420,9 @@
 \end{columns}
 \vspace{0.05cm}
 \begin{center}
-  \includegraphics[width=0.245\textwidth]{figures/campana_A_3d.pdf}\hfill
-  \includegraphics[width=0.245\textwidth]{figures/campana_B_3d.pdf}\hfill
-  \includegraphics[width=0.245\textwidth]{figures/campana_C_3d.pdf}
+  \includegraphics[width=0.30\textwidth]{figures/campana_A_3d.pdf}\figtag\hfill
+  \includegraphics[width=0.30\textwidth]{figures/campana_B_3d.pdf}\figtag\hfill
+  \includegraphics[width=0.30\textwidth]{figures/campana_C_3d.pdf}\figtag
 \end{center}
 \end{frame}
 
@@ -491,7 +516,7 @@
   \end{tcolorbox}
 \end{column}
 \begin{column}{0.46\textwidth}
-  \begin{tcolorbox}[WRN={Honestidad del cierre: l\'imites de validez}]
+  \begin{tcolorbox}[WRN={El cierre y sus l\'imites de validez}]
     \scriptsize
     \begin{itemize}\setlength\itemsep{2pt}
       \item $\sigma$ \textbf{escalar e is\'otropa}: exige plasma colisional
@@ -548,8 +573,9 @@
   \end{tcolorbox}
 \end{column}
 \begin{column}{0.50\textwidth}
+  \vspace*{0.85cm}
   \begin{center}
-    \includegraphics[width=\linewidth]{figures/glm_limpieza.pdf}\\[2pt]
+    \includegraphics[width=\linewidth]{figures/glm_limpieza.pdf}\figtag\\[2pt]
     {\tiny\color{INF3} (a) Sin tratamiento el error se acumula;
      (b) con GLM se \emph{propaga} fuera del dominio a $c_h$ y se
      \emph{amortigua} exponencialmente, sin alterar las soluciones f\'isicas.}
@@ -748,7 +774,7 @@
 \end{column}
 \begin{column}{0.48\textwidth}
   \begin{center}
-    \includegraphics[width=0.9\linewidth]{figures/celda_3d_flujos.pdf}\\[2pt]
+    \includegraphics[width=0.9\linewidth]{figures/celda_3d_flujos.pdf}\figtag\\[2pt]
     {\tiny\color{INF3} Celda $(i,j,k)$: la evoluci\'on del promedio
      $\bar{\mathbf U}$ es el balance de los flujos de Riemann en sus seis
      caras.}
@@ -764,6 +790,7 @@
 \framesubtitle{El control expl\'icito de la difusi\'on num\'erica}
 \begin{columns}[T]
 \begin{column}{0.52\textwidth}
+  \vspace*{0.55cm}
   \begin{block}{Reconstrucci\'on de 5.º orden \citep{suresh-1997}}
     \scriptsize
     Teorema de Godunov: alto orden lineal $\Rightarrow$ oscilaciones
@@ -786,7 +813,7 @@
 \end{column}
 \begin{column}{0.44\textwidth}
   \begin{center}
-    \includegraphics[width=\linewidth]{figures/riemann_hll.pdf}
+    \includegraphics[width=\linewidth]{figures/riemann_hll.pdf}\figtag
   \end{center}
   \vspace{-0.1cm}
   \begin{tcolorbox}[RES={Criterio de dise\~no del estudio}]
@@ -833,7 +860,7 @@
 \end{column}
 \begin{column}{0.46\textwidth}
   \begin{center}
-    \includegraphics[width=\linewidth]{figures/imex_splitting_slide.pdf}\\[2pt]
+    \includegraphics[width=\linewidth]{figures/imex_splitting_slide.pdf}\figtag\\[2pt]
     {\tiny\color{INF3} Partici\'on IMEX: advecci\'on expl\'icita
      ($\Delta t\propto\Delta x$) $+$ fuente resistiva impl\'icita
      (evita $\Delta t\propto\Delta x^2/\sigma$).}
@@ -903,7 +930,7 @@
 \begin{columns}[T]
 \begin{column}{0.55\textwidth}
   \begin{center}
-    \includegraphics[height=0.63\textheight]{figures/setup_inicial_slide.pdf}\\[2pt]
+    \includegraphics[height=0.63\textheight]{figures/setup_inicial_slide.pdf}\figtag\\[2pt]
     {\tiny\color{INF3} $t=0$: (arriba) l\'ineas de corriente sobre $|\mathbf V|$,
      capas en $x=\pm0.5$; (abajo) $\rho$: flujo central diluido
      ($\eta_\rho=0.1$) en ambiente denso --- modela chorro/medio, las
@@ -966,7 +993,10 @@
   \end{tcolorbox}
   \vspace{0.1cm}
   {\scriptsize $\approx3\times10^4$ horas-n\'ucleo acumuladas;
-   horizonte $t>5$ (fase lineal $+$ no lineal $+$ saturaci\'on).}
+   horizonte $t>5$ (fase lineal $+$ no lineal $+$ saturaci\'on).\\[2pt]
+   \textbf{Memoria estimada}: $\approx0.15$ GB por simulaci\'on
+   (14 campos conservados $+$ primitivas y etapas IMEX,
+   malla $512\times256$ en doble precisi\'on).}
 \end{column}
 \begin{column}{0.46\textwidth}
   \begin{tcolorbox}[WRN={Datos excluidos --- declarados y justificados}]
@@ -998,7 +1028,7 @@
 \begin{columns}[T]
 \begin{column}{0.58\textwidth}
   \begin{center}
-    \includegraphics[width=\linewidth]{figures/fig_ultrawide_omega_zp_slide.pdf}\\[2pt]
+    \includegraphics[width=\linewidth]{figures/fig_ultrawide_omega_zp_slide.pdf}\figtag\\[2pt]
     {\tiny\color{INF3} $\Omega_{zp}(t)$, 44 simulaciones; color $=$ \'indice
      can\'onico (negro$\to$naranja $=$ $\sigma$ creciente).}
   \end{center}
@@ -1029,7 +1059,7 @@
 \begin{columns}[T]
 \begin{column}{0.60\textwidth}
   \begin{center}
-    \includegraphics[width=\linewidth]{figures/fig_conductividad_rho_collage_slide.pdf}
+    \includegraphics[width=\linewidth]{figures/fig_conductividad_rho_collage_slide.pdf}\figtag
   \end{center}
 \end{column}
 \begin{column}{0.38\textwidth}
@@ -1062,7 +1092,7 @@
 \begin{columns}[T]
 \begin{column}{0.60\textwidth}
   \begin{center}
-    \includegraphics[width=\linewidth]{figures/ln_omega_vs_t_slide.pdf}
+    \includegraphics[width=\linewidth]{figures/ln_omega_vs_t_slide.pdf}\figtag
   \end{center}
 \end{column}
 \begin{column}{0.38\textwidth}
@@ -1093,7 +1123,7 @@
 \begin{columns}[T]
 \begin{column}{0.58\textwidth}
   \begin{center}
-    \includegraphics[width=\linewidth]{figures/fig1_ajuste_v6.pdf}
+    \includegraphics[width=\linewidth]{figures/fig1_ajuste_v6.pdf}\figtag
   \end{center}
 \end{column}
 \begin{column}{0.40\textwidth}
@@ -1132,7 +1162,7 @@
 \begin{columns}[T]
 \begin{column}{0.55\textwidth}
   \begin{center}
-    \includegraphics[height=0.74\textheight]{figures/fig_derivadas_scrit.pdf}
+    \includegraphics[height=0.80\textheight]{figures/fig_derivadas_scrit.pdf}\figtag
   \end{center}
 \end{column}
 \begin{column}{0.43\textwidth}
@@ -1150,7 +1180,7 @@
     $[1400,7000]$, no valor \'unico.
   \end{tcolorbox}
   \begin{center}
-    \includegraphics[width=0.85\linewidth]{figures/fig_regimenes.pdf}
+    \includegraphics[width=\linewidth]{figures/fig_regimenes.pdf}\figtag
   \end{center}
 \end{column}
 \end{columns}
@@ -1164,7 +1194,7 @@
 \begin{columns}[T]
 \begin{column}{0.62\textwidth}
   \begin{center}
-    \includegraphics[width=\linewidth]{figures/fig_zona_transicion_slide.pdf}
+    \includegraphics[width=\linewidth]{figures/fig_zona_transicion_slide.pdf}\figtag
   \end{center}
 \end{column}
 \begin{column}{0.36\textwidth}
@@ -1199,7 +1229,7 @@
 \begin{columns}[T]
 \begin{column}{0.56\textwidth}
   \begin{center}
-    \includegraphics[width=0.94\linewidth]{figures/fig6_escalera.pdf}
+    \includegraphics[width=0.94\linewidth]{figures/fig6_escalera.pdf}\figtag
   \end{center}
   \vspace{-0.08cm}
   \begin{tcolorbox}[RES={Acuerdo al 8\% sin par\'ametros de ajuste}]
@@ -1245,7 +1275,7 @@
 \begin{columns}[T]
 \begin{column}{0.58\textwidth}
   \begin{center}
-    \includegraphics[width=\linewidth]{figures/fig_omega_max_leypotencias.pdf}
+    \includegraphics[width=\linewidth]{figures/fig_omega_max_leypotencias.pdf}\figtag
   \end{center}
 \end{column}
 \begin{column}{0.40\textwidth}
@@ -1276,7 +1306,7 @@
 \begin{frame}{Variables Globales: la Firma Electromagn\'etica de $\sigma$}
 \framesubtitle{Objetivo 3 --- y la evidencia de que la disipaci\'on es f\'isica, no num\'erica}
 \begin{center}
-  \includegraphics[width=0.9\textwidth]{figures/fig_global_campos_transitorio.pdf}
+  \includegraphics[width=0.98\textwidth]{figures/fig_global_campos_transitorio.pdf}\figtag
 \end{center}
 \vspace{-0.12cm}
 \begin{columns}[T]
@@ -1319,7 +1349,7 @@
 \begin{columns}[T]
 \begin{column}{0.50\textwidth}
   \begin{center}
-    \includegraphics[width=\linewidth]{figures/fig_campA_enstrofia_slide.pdf}
+    \includegraphics[width=\linewidth]{figures/fig_campA_enstrofia_slide.pdf}\figtag
   \end{center}
   \vspace{-0.1cm}
   \begin{tcolorbox}[RES={A --- Intensidad: suprime la \emph{presi\'on}}]
@@ -1334,7 +1364,7 @@
 \end{column}
 \begin{column}{0.48\textwidth}
   \begin{center}
-    \includegraphics[width=\linewidth]{figures/fig_campB_omegamax_theta_slide.pdf}
+    \includegraphics[width=\linewidth]{figures/fig_campB_omegamax_theta_slide.pdf}\figtag
   \end{center}
   \vspace{-0.1cm}
   \begin{tcolorbox}[HYP={B --- Orientaci\'on: la tensi\'on la ejerce solo $B_y\parallel\mathbf k$}]
@@ -1356,7 +1386,7 @@
 \begin{frame}{Campa\~na Magn\'etica II: Balance Energ\'etico y Canales de Disipaci\'on}
 \framesubtitle{Cuando la geometr\'ia enmascara la fase lineal, el observable es la energ\'ia}
 \begin{center}
-  \includegraphics[width=0.72\textwidth]{figures/fig_campB_ekin_emag_scatter_slide.pdf}\\
+  \includegraphics[width=0.72\textwidth]{figures/fig_campB_ekin_emag_scatter_slide.pdf}\figtag\\
   {\tiny\color{INF3} Parte oscilatoria de $E_{\rm kin}$ vs.\ $E_{\rm mag}$
    ($\theta=0^\circ,45^\circ,90^\circ$): anti-correlaci\'on
    $r\simeq-0.6$ a $-0.9$ (Campa\~na B; 6 \'angulos en la monograf\'ia).}
@@ -1398,7 +1428,7 @@
 \begin{columns}[T]
 \begin{column}{0.52\textwidth}
   \begin{center}
-    \includegraphics[height=0.55\textheight]{figures/fig_campC_enstrofia_slide.pdf}
+    \includegraphics[height=0.60\textheight]{figures/fig_campC_enstrofia_slide.pdf}\figtag
   \end{center}
   \vspace{-0.2cm}
   \begin{tcolorbox}[WRN={C --- sin tensi\'on no hay fase lineal limpia}]
@@ -1413,7 +1443,7 @@
 \end{column}
 \begin{column}{0.44\textwidth}
   \begin{center}
-    \includegraphics[height=0.55\textheight]{figures/fig_campC_ekin_emag_scatter_slide.pdf}
+    \includegraphics[height=0.60\textheight]{figures/fig_campC_ekin_emag_scatter_slide.pdf}\figtag
   \end{center}
   \vspace{-0.2cm}
   \begin{tcolorbox}[RES={La conversi\'on queda al desnudo}]
@@ -1788,7 +1818,7 @@
 \end{column}
 \begin{column}{0.44\textwidth}
   \begin{center}
-    \includegraphics[width=\linewidth]{figures/marco_comovil_lab.pdf}\\[2pt]
+    \includegraphics[width=\linewidth]{figures/marco_comovil_lab.pdf}\figtag\\[2pt]
     {\tiny\color{INF3} $\rho_e$ (com\'ovil, rebanada ortogonal a $u^\mu$)
      vs.\ $\rho_q$ (laboratorio, $t=$ cte): coinciden solo si el fluido
      est\'a en reposo respecto a la malla.}
@@ -1804,12 +1834,12 @@
 \begin{columns}[T]
 \begin{column}{0.48\textwidth}
   \begin{center}
-    \includegraphics[width=0.92\linewidth]{figures/fig4_michalke.pdf}
+    \includegraphics[width=0.92\linewidth]{figures/fig4_michalke.pdf}\figtag
   \end{center}
 \end{column}
 \begin{column}{0.48\textwidth}
   \begin{center}
-    \includegraphics[width=0.92\linewidth]{figures/fig7_dual.pdf}
+    \includegraphics[width=0.92\linewidth]{figures/fig7_dual.pdf}\figtag
   \end{center}
 \end{column}
 \end{columns}
@@ -1877,12 +1907,12 @@
 \begin{columns}[T]
 \begin{column}{0.50\textwidth}
   \begin{center}
-    \includegraphics[width=0.95\linewidth]{figures/fig2_3p_vs_4p.pdf}
+    \includegraphics[width=0.95\linewidth]{figures/fig2_3p_vs_4p.pdf}\figtag
   \end{center}
 \end{column}
 \begin{column}{0.46\textwidth}
   \begin{center}
-    \includegraphics[width=0.9\linewidth]{figures/fig10_holdout.pdf}
+    \includegraphics[width=0.9\linewidth]{figures/fig10_holdout.pdf}\figtag
   \end{center}
 \end{column}
 \end{columns}
@@ -1991,14 +2021,14 @@
 \begin{columns}[T]
 \begin{column}{0.48\textwidth}
   \begin{center}
-    \includegraphics[width=\linewidth]{figures/fig_global_estructuras.pdf}\\[1pt]
+    \includegraphics[width=\linewidth]{figures/fig_global_estructuras.pdf}\figtag\\[1pt]
     {\tiny\color{INF3} $f_{Vz}$ en saturaci\'on: m\'aximo en la transici\'on
      ($\sigma\approx1400$), suprimido en el ideal.}
   \end{center}
 \end{column}
 \begin{column}{0.48\textwidth}
   \begin{center}
-    \includegraphics[width=\linewidth]{figures/fig_campC_ekin_emag_scatter.pdf}\\[1pt]
+    \includegraphics[width=\linewidth]{figures/fig_campC_ekin_emag_scatter.pdf}\figtag\\[1pt]
     {\tiny\color{INF3} Campa\~na C (sin tensi\'on): anti-correlaci\'on
      cin\'etico--magn\'etica hasta $r\approx-0.98$.}
   \end{center}
@@ -2013,14 +2043,14 @@
 \begin{columns}[T]
 \begin{column}{0.48\textwidth}
   \begin{center}
-    \includegraphics[width=\linewidth]{figures/fig_campB_rho_collage.pdf}\\[1pt]
+    \includegraphics[width=\linewidth]{figures/fig_campB_rho_collage.pdf}\figtag\\[1pt]
     {\tiny\color{INF3} Campa\~na B: al crecer $\theta$ (tensi\'on),
      el enrollamiento se suprime.}
   \end{center}
 \end{column}
 \begin{column}{0.48\textwidth}
   \begin{center}
-    \includegraphics[width=\linewidth]{figures/fig_campC_rho_collage.pdf}\\[1pt]
+    \includegraphics[width=\linewidth]{figures/fig_campC_rho_collage.pdf}\figtag\\[1pt]
     {\tiny\color{INF3} Campa\~na C: sin tensi\'on, crecimiento sin fase
      lineal limpia y mezcla difusa.}
   \end{center}
@@ -2033,7 +2063,7 @@
 %------------------------------------------------------------------------------
 \begin{frame}{B13 · Tablero Din\'amico de la Campa\~na B ($\sigma=6000$ vs $\sigma=10000$)}
 \begin{center}
-  \includegraphics[width=0.84\textwidth]{figures/campB_dashboard_t7p5.pdf}\\[2pt]
+  \includegraphics[width=0.84\textwidth]{figures/campB_dashboard_t7p5.pdf}\figtag\\[2pt]
   {\tiny\color{INF3} Fotograma $t=7.5$ del tablero animado (150 frames):
    filas $=\theta$; por $\sigma$: 6 diagn\'osticos globales $+$ mapa
    $\rho(x,y)$ sincronizados (cursor rojo). Hay video para la discusi\'on.}
