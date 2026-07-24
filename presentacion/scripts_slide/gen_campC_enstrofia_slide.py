@@ -34,7 +34,8 @@ def thlbl(nm):
 
 
 def main():
-    fig, axs = plt.subplots(2, 1, figsize=(7.6, 8.6), sharex=True)
+    # (ronda 3) paneles HORIZONTALES (σ=6000 | σ=10000) para agrandar la figura
+    fig, axs = plt.subplots(1, 2, figsize=(14.0, 5.2), sharey=True)
     for ax, (sg, cfl) in zip(axs, [("sigma6000", "0.04"), ("sigma10000", "0.02")]):
         for r in sorted(glob.glob(os.path.join(CLEAN, "C_orientacion_xz", sg, "run_*"))):
             nm = os.path.basename(r).replace("run_", "")
@@ -42,11 +43,11 @@ def main():
             if t is None:
                 continue
             ax.semilogy(t, o, lw=2.2, label=thlbl(nm))
-        ax.set_ylabel(r"$\Omega_{zp}$")
+        ax.set_xlabel(r"$t$")
         ax.grid(alpha=0.3)
         ax.set_title(rf"$\sigma={sg.replace('sigma','')}$ (CFL={cfl})", pad=8)
+    axs[0].set_ylabel(r"$\Omega_{zp}$")
     axs[0].legend(loc="lower right", ncol=2, framealpha=0.9)
-    axs[1].set_xlabel(r"$t$")
     fig.tight_layout()
     fig.savefig(OUT, dpi=160, bbox_inches='tight')
     plt.close(fig)

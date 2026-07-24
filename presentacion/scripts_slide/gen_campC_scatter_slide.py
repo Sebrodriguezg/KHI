@@ -45,7 +45,8 @@ def osc(y, win=21, order=3):
 
 
 def main():
-    fig, axs = plt.subplots(2, 1, figsize=(5.3, 7.8))
+    # (ronda 3) paneles HORIZONTALES (θ=60° | θ=90°) para agrandar la figura
+    fig, axs = plt.subplots(1, 2, figsize=(11.5, 4.8), sharey=True)
     for ax, (ak, tlab) in zip(axs, ANGS):
         for sig, st in STYLE.items():
             K, E = cargar(sig, ak)
@@ -53,12 +54,12 @@ def main():
         ax.axhline(0, color='k', ls=':', lw=1.0)
         ax.axvline(0, color='k', ls=':', lw=1.0)
         ax.set_title(tlab, pad=8)
-        ax.set_ylabel(r"$E'_{\rm mag}$ (osc.)")
+        ax.set_xlabel(r"$E'_{\rm kin}$ (osc.)")
         ax.ticklabel_format(style='sci', scilimits=(-2, 2))
         ax.xaxis.get_offset_text().set_fontsize(11)
         ax.yaxis.get_offset_text().set_fontsize(11)
+    axs[0].set_ylabel(r"$E'_{\rm mag}$ (osc.)")
     axs[0].legend(loc='upper right', framealpha=0.9)
-    axs[1].set_xlabel(r"$E'_{\rm kin}$ (osc.)")
     fig.tight_layout()
     fig.savefig(OUT, dpi=160, bbox_inches='tight')
     plt.close(fig)
