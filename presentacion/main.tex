@@ -241,6 +241,7 @@
    \tableofcontents}
 \end{column}
 \begin{column}{0.44\textwidth}
+  \pause
   \begin{tcolorbox}[RES={Objetivos espec\'ificos del trabajo}]
     \scriptsize
     \begin{enumerate}\setlength\itemsep{3pt}
@@ -255,7 +256,7 @@
             magn\'etico externo modifican la evoluci\'on de la inestabilidad.
     \end{enumerate}
   \end{tcolorbox}
-  \vspace{0.15cm}
+  \pause\vspace{0.15cm}
   {\scriptsize\color{primary}\textbf{Herramienta:} c\'odigo \texttt{Cueva}
    \citep{miranda-aranguren-2014,miranda-aranguren-2018} ---
    RRMHD en volumenes finitos, 2D.\\
@@ -352,7 +353,7 @@
     (teorema de Alfv\'en) $\Rightarrow$ la topolog\'ia de $\mathbf B$
     \emph{no puede} cambiar: la reconexi\'on est\'a prohibida.
   \end{tcolorbox}
-  \vspace{0.12cm}
+  \pause\vspace{0.12cm}
   \begin{tcolorbox}[WRN={El problema de la MHD ideal num\'erica}]
     \scriptsize
     Cuando un c\'odigo \emph{ideal} muestra reconexi\'on, esta proviene del
@@ -362,6 +363,7 @@
   \end{tcolorbox}
 \end{column}
 \begin{column}{0.48\textwidth}
+  \pause
   \begin{tcolorbox}[RES={Lo que habilita la resistividad f\'isica}]
     \scriptsize
     \begin{itemize}\setlength\itemsep{2pt}
@@ -374,7 +376,7 @@
             \citep{palenzuela-2009,miranda-aranguren-2018}.
     \end{itemize}
   \end{tcolorbox}
-  \vspace{0.12cm}
+  \pause\vspace{0.12cm}
   \begin{block}{La pregunta de este trabajo}
     \scriptsize
     ?`\textbf{C\'omo gobiernan la conductividad finita $\sigma$ y la geometr\'ia
@@ -416,13 +418,13 @@
     \textbf{incondicionalmente}\\ inestable {\tiny(Kelvin, Helmholtz)}};
 \end{tikzpicture}}
 \end{center}
-\vspace{0.02cm}
+\pause\vspace{0.02cm}
 \begin{center}
   {\scriptsize\color{INF2}\textbf{Qu\'e hace la resistividad:} $\sigma$ finita
    rompe el congelamiento en las capas finas ---habilita reconexi\'on y
    difusi\'on del campo---; $\sigma\to\infty$ recupera el congelamiento ideal.}
 \end{center}
-\vspace{0.02cm}
+\pause\vspace{0.02cm}
 \begin{tcolorbox}[WRN={El punto que define este trabajo}]
   \scriptsize
   En RRMHD \textbf{no existe relaci\'on de dispersi\'on algebraica cerrada}
@@ -461,6 +463,7 @@
   \end{tcolorbox}
 \end{column}
 \begin{column}{0.46\textwidth}
+  \pause
   \begin{tcolorbox}[HYP={Campa\~na 2 --- Campo magn\'etico (objetivo 4)}]
     \scriptsize
     Conductividad \textbf{fija} en dos reg\'imenes
@@ -476,7 +479,7 @@
   \end{tcolorbox}
 \end{column}
 \end{columns}
-\vfill
+\pause\vfill
 \begin{center}
   {\scriptsize\color{INF3}\itshape Las tres geometr\'ias del campo gu\'ia
    (A $\cdot$ B $\cdot$ C) se detallan en la l\'amina siguiente.}
@@ -494,9 +497,11 @@
 \begin{column}{0.33\textwidth}\centering
   \includegraphics[width=\linewidth]{figures/campana_A_3d.pdf}\figtag
 \end{column}
+\pause
 \begin{column}{0.33\textwidth}\centering
   \includegraphics[width=\linewidth]{figures/campana_B_3d.pdf}\figtag
 \end{column}
+\pause
 \begin{column}{0.33\textwidth}\centering
   \includegraphics[width=\linewidth]{figures/campana_C_3d.pdf}\figtag
 \end{column}
@@ -523,7 +528,7 @@
     $\Gamma$ \emph{solo} \'indice adiab\'atico
     (formulaci\'on de Valencia, \citealp{rezzolla-2013}).
   \end{tcolorbox}
-  \vspace{0.1cm}
+  \pause\vspace{0.1cm}
   \begin{tcolorbox}[EQ={Sistema covariante}]
     \scriptsize
     \begin{align*}
@@ -535,6 +540,7 @@
   \end{tcolorbox}
 \end{column}
 \begin{column}{0.48\textwidth}
+  \pause
   \begin{tcolorbox}[EQ={Tensor de energ\'ia-momento total}]
     \scriptsize
     \begin{align*}
@@ -547,7 +553,7 @@
     de $S_{\rm em}$ y de la acci\'on de Taub $S_{\rm fluid}=\int p\sqrt{-g}\,d^4x$
     \hfill{\tiny[resp.\ B2]}
   \end{tcolorbox}
-  \vspace{0.1cm}
+  \pause\vspace{0.1cm}
   \begin{block}{Punto geom\'etrico clave}
     \scriptsize
     $F\equiv dA$ (2-forma de Faraday) $\Rightarrow$ $dF=d^2A=0$
@@ -582,7 +588,7 @@
     {\tiny No es una suma galileana: $W$ y los acoples transversales son
     la huella relativista. \hfill[resp.\ B5]}
   \end{tcolorbox}
-  \vspace{0.1cm}
+  \pause\vspace{0.1cm}
   \begin{tcolorbox}[RES={Los dos l\'imites f\'isicos}]
     \scriptsize
     \begin{itemize}\setlength\itemsep{2pt}
@@ -594,6 +600,7 @@
   \end{tcolorbox}
 \end{column}
 \begin{column}{0.46\textwidth}
+  \pause
   \begin{tcolorbox}[WRN={El cierre y sus l\'imites de validez}]
     \scriptsize
     \begin{itemize}\setlength\itemsep{2pt}
@@ -607,7 +614,7 @@
             $\delta\sim S^{-1/2}$, no el girorradio.
     \end{itemize}
   \end{tcolorbox}
-  \vspace{0.1cm}
+  \pause\vspace{0.1cm}
   \begin{block}{Consecuencia din\'amica}
     \scriptsize
     El t\'ermino fuente $-\sigma\mathbf E$ vuelve el sistema
@@ -634,6 +641,7 @@
     sin tratamiento, se \emph{acumulan} y destruyen la estabilidad
     \citep{Dedner-2002}.
   \end{block}
+  \pause
   \begin{tcolorbox}[EQ={Soluci\'on GLM: la ecuaci\'on del tel\'egrafo}]
     \scriptsize
     Dos escalares $\Phi,\Psi$ (multiplicadores de Lagrange generalizados)
@@ -651,6 +659,7 @@
   \end{tcolorbox}
 \end{column}
 \begin{column}{0.50\textwidth}
+  \pause
   \vspace*{0.12cm}
   \begin{center}
     \includegraphics[height=0.72\textheight]{figures/glm_limpieza.pdf}\figtag\\[2pt]
@@ -675,6 +684,7 @@
    \;+\;\underbrace{\mathbf S_{\rm rig}(\mathbf U)}_{\text{r\'igido}\;\to\;\text{impl\'icito}}$
 \end{center}
 \vspace{-0.28cm}
+\pause
 \begin{columns}[T]
 \begin{column}{0.50\textwidth}
   \begin{tcolorbox}[EQ={Vector de estado (variables \emph{totales})}]
@@ -690,7 +700,7 @@
       \tau &= \tfrac12\!\left(E^2+B^2\right)+\rho h W^2-p
     \end{align*}
   \end{tcolorbox}
-  \vspace{0.08cm}
+  \pause\vspace{0.08cm}
   \begin{block}{Consecuencia de conservar el tensor \emph{total}}
     \scriptsize
     Momento y energ\'ia incluyen el vector de Poynting y
@@ -700,6 +710,7 @@
   \end{block}
 \end{column}
 \begin{column}{0.46\textwidth}
+  \pause
   \begin{tcolorbox}[EQ={Vector fuente}]
     \scriptsize
     \begin{center}
@@ -716,7 +727,7 @@
             compatibilidad termodin\'amica \citep{ruedaramirez2023}.
     \end{itemize}
   \end{tcolorbox}
-  \vspace{0.08cm}
+  \pause\vspace{0.08cm}
   \begin{tcolorbox}[HYP={Estructura caracter\'istica}]
     \scriptsize
     Jacobiano $\mathbf A_{14\times14}=\partial\mathbf F/\partial\mathbf U$:
@@ -757,6 +768,7 @@
   \end{tcolorbox}
 \end{column}
 \begin{column}{0.46\textwidth}
+  \pause
   \begin{block}{Diagn\'osticos complementarios}
     \scriptsize
     \begin{itemize}\setlength\itemsep{2pt}
@@ -769,7 +781,7 @@
             e intercambio energ\'etico.
     \end{itemize}
   \end{block}
-  \vspace{0.1cm}
+  \pause\vspace{0.1cm}
   \begin{tcolorbox}[RES={Normalizaci\'on para comparar con la literatura}]
     \scriptsize
     Tasa adimensional:
@@ -777,7 +789,7 @@
     (tiempo de tr\'ansito de cizalla).\\
     Se reserva $\sigma$ \emph{exclusivamente} para la conductividad.
   \end{tcolorbox}
-  \vspace{0.08cm}
+  \pause\vspace{0.08cm}
   \begin{center}
     \includegraphics[width=\linewidth]{figures/fig_enstrofia_observable_slide.pdf}\figtag
   \end{center}
@@ -806,6 +818,7 @@
     Admite \textbf{choques} (soluciones d\'ebiles, Rankine--Hugoniot) y la
     conservaci\'on es \textbf{exacta por construcci\'on} \citep{toro-2009}.
   \end{tcolorbox}
+  \pause
   \begin{block}{Reconstrucci\'on MP5 $+$ flujo HLL}
     \scriptsize
     MP5 (5.º orden) \textbf{no recorta los extremos} $\Rightarrow$ retiene
@@ -813,6 +826,7 @@
     su difusi\'on la compensa la agudeza MP5
     \citep{miranda-aranguren-2018}. \hfill{\tiny[resp.\ B7]}
   \end{block}
+  \pause
   \begin{tcolorbox}[RES={Criterio de dise\~no del estudio}]
     \scriptsize
     \textbf{Disipaci\'on num\'erica $<$ disipaci\'on f\'isica $\eta$} en todo
@@ -828,6 +842,7 @@
    barrido ($\sigma\le10\,500$). \hfill[detalle: resp.\ B14--B17]}
 \end{column}
 \begin{column}{0.44\textwidth}
+  \pause
   \begin{center}
     \includegraphics[width=0.62\linewidth]{figures/celda_3d_flujos.pdf}\figtag\\[3pt]
     \includegraphics[width=0.97\linewidth]{figures/imex_flow_slide.pdf}\figtag
@@ -858,6 +873,7 @@
   \end{center}
 \end{column}
 \begin{column}{0.42\textwidth}
+  \pause
   \begin{tcolorbox}[EQ={Estado base y semilla}]
     \scriptsize
     \begin{itemize}\setlength\itemsep{1pt}
@@ -875,7 +891,7 @@
             consistente con $\sigma$.
     \end{itemize}
   \end{tcolorbox}
-  \vspace{0.08cm}
+  \pause\vspace{0.08cm}
   \begin{tcolorbox}[RES={Dominio y escalas}]
     \scriptsize
     Malla $512\times256$ en $[-1,1]\times[-0.5,0.5]$
@@ -911,7 +927,7 @@
     recuperaci\'on de primitivas $\Rightarrow$ reducir el CFL estabiliza
     esas simulaciones.
   \end{tcolorbox}
-  \vspace{0.1cm}
+  \pause\vspace{0.1cm}
   {\scriptsize $\approx3\times10^4$ horas-n\'ucleo acumuladas;
    horizonte $t>5$ (fase lineal $+$ no lineal $+$ saturaci\'on).\\[2pt]
    \textbf{Memoria estimada}: $\approx0.15$ GB por simulaci\'on
@@ -919,6 +935,7 @@
    malla $512\times256$ en doble precisi\'on).}
 \end{column}
 \begin{column}{0.46\textwidth}
+  \pause
   \begin{tcolorbox}[WRN={Datos excluidos --- declarados y justificados}]
     \scriptsize
     \begin{itemize}\setlength\itemsep{2pt}
@@ -957,6 +974,7 @@
   \end{center}
 \end{column}
 \begin{column}{0.40\textwidth}
+  \pause
   \begin{tcolorbox}[EQ={Subconjuntos de an\'alisis}]
     \scriptsize
     \begin{itemize}\setlength\itemsep{2pt}
@@ -986,6 +1004,7 @@
   \end{center}
 \end{column}
 \begin{column}{0.38\textwidth}
+  \pause
   \vspace{0.4cm}
   \begin{block}{Lectura fenomenol\'ogica}
     \scriptsize
@@ -999,7 +1018,7 @@
             subestructura fina y turbulencia de peque\~na escala.
     \end{itemize}
   \end{block}
-  \vspace{0.1cm}
+  \pause\vspace{0.1cm}
   {\scriptsize\color{INF3} Las 44 simulaciones alcanzaron $t>5$ sin
    inestabilidades num\'ericas espurias; la estratificaci\'on de las curvas
    con $\sigma$ es mon\'otona y limpia.}
@@ -1019,6 +1038,7 @@
   \end{center}
 \end{column}
 \begin{column}{0.38\textwidth}
+  \pause
   \begin{block}{Criterios de calidad (expl\'icitos)}
     \scriptsize
     \begin{itemize}\setlength\itemsep{2pt}
@@ -1029,6 +1049,7 @@
       \item An\'alisis cuantitativo: $35$ sims con $\sigma\ge1600$.
     \end{itemize}
   \end{block}
+  \pause
   \begin{tcolorbox}[WRN={Precisi\'on conceptual}]
     \scriptsize
     A $\sigma\lesssim1400$ \textbf{no hay r\'egimen lineal limpio}: la difusi\'on
@@ -1050,6 +1071,7 @@
   \end{center}
 \end{column}
 \begin{column}{0.40\textwidth}
+  \pause
   \begin{tcolorbox}[EQ={Modelo de 4 par\'ametros}]
     \scriptsize
     \[
@@ -1060,7 +1082,7 @@
     \]
     $\sigma_0=2815\pm123$ (centro de la transici\'on).
   \end{tcolorbox}
-  \vspace{0.08cm}
+  \pause\vspace{0.08cm}
   \begin{tcolorbox}[RES={Validaci\'on (sin sobreajuste)}]
     \scriptsize
     \begin{itemize}\setlength\itemsep{2pt}
@@ -1154,6 +1176,7 @@
   \end{center}
 \end{column}
 \begin{column}{0.36\textwidth}
+  \pause
   \begin{block}{Lectura f\'isica}
     \scriptsize
     \begin{itemize}\setlength\itemsep{2pt}
@@ -1166,6 +1189,7 @@
             centro $\approx2815$; en Lundquist $S\sim10^3$.
     \end{itemize}
   \end{block}
+  \pause
   \begin{tcolorbox}[HYP={Mensaje epistemol\'ogico}]
     \scriptsize
     La dispersi\'on inter-m\'etodo ($\pm1944$) \textbf{no es ruido}:
@@ -1187,7 +1211,7 @@
   \begin{center}
     \includegraphics[width=0.94\linewidth]{figures/fig6_escalera.pdf}\figtag
   \end{center}
-  \vspace{-0.08cm}
+  \pause\vspace{-0.08cm}
   \begin{tcolorbox}[RES={Acuerdo al 8\% sin par\'ametros de ajuste}]
     \scriptsize
     $\hat\omega_{\rm medido}=(C+\gamma_0)\,a_{kh}/v_{\rm sh}=0.103$
@@ -1198,6 +1222,7 @@
   \end{tcolorbox}
 \end{column}
 \begin{column}{0.42\textwidth}
+  \pause
   \begin{block}{La cadena l\'ogica}
     \scriptsize
     \begin{enumerate}\setlength\itemsep{2pt}
@@ -1212,6 +1237,7 @@
             \citep{konigl1980,bodo-2004}: holgadamente inestable.
     \end{enumerate}
   \end{block}
+  \pause
   \begin{tcolorbox}[WRN={Alcance del resultado}]
     \scriptsize
     Es una \textbf{consistencia cuantitativa fuerte}, no una validaci\'on
@@ -1235,6 +1261,7 @@
   \end{center}
 \end{column}
 \begin{column}{0.40\textwidth}
+  \pause
   \begin{block}{El piso te\'orico}
     \scriptsize
     Una l\'amina de corriente \textbf{Sweet--Parker \'unica}
@@ -1244,6 +1271,7 @@
     robusto relativ\'isticamente (\textbf{Lyubarsky 2005}
     \citealp{lyubarsky2005}).
   \end{block}
+  \pause
   \begin{tcolorbox}[HYP={Interpretaci\'on (declarada como hip\'otesis)}]
     \scriptsize
     El exceso ($\alpha\approx1.22$, factor $\sim2.4$) sugiere que la
@@ -1267,7 +1295,7 @@
 \begin{center}
   \includegraphics[width=0.98\textwidth]{figures/fig_global_campos_ventanas_slide.pdf}\figtag
 \end{center}
-\vspace{-0.12cm}
+\pause\vspace{-0.12cm}
 \begin{columns}[T]
 \begin{column}{0.55\textwidth}
   {\scriptsize
@@ -1284,6 +1312,7 @@
   \end{itemize}}
 \end{column}
 \begin{column}{0.43\textwidth}
+  \pause
   \begin{tcolorbox}[RES={Blindaje num\'erico emp\'irico --- panel (a)}]
     \scriptsize
     El \textbf{plateau de $J_{\max}$} marca d\'onde la difusividad
@@ -1315,6 +1344,7 @@
   \end{center}
 \end{column}
 \begin{column}{0.49\textwidth}
+  \pause
   \begin{center}
     \includegraphics[width=\linewidth,height=0.66\textheight,keepaspectratio]{figures/fig_campC_rho_collage.pdf}\figtag\\[2pt]
     {\scriptsize\color{INF3}\textbf{Campa\~na C} ($B_y=0$): sin tensi\'on,
@@ -1334,7 +1364,7 @@
   \begin{center}
     \includegraphics[width=0.90\linewidth]{figures/fig_campA_enstrofia_slide.pdf}\figtag
   \end{center}
-  \vspace{-0.1cm}
+  \pause\vspace{-0.1cm}
   \begin{tcolorbox}[RES={A --- Intensidad: suprime la \emph{presi\'on}}]
     \scriptsize
     Al subir $B_0$: $\gamma_{\rm KHI}$ cae $0.81\to0.38$ y
@@ -1346,10 +1376,11 @@
   \end{tcolorbox}
 \end{column}
 \begin{column}{0.48\textwidth}
+  \pause
   \begin{center}
     \includegraphics[width=0.90\linewidth]{figures/fig_campB_omegamax_theta_slide.pdf}\figtag
   \end{center}
-  \vspace{-0.1cm}
+  \pause\vspace{-0.1cm}
   \begin{tcolorbox}[HYP={B --- Orientaci\'on: la tensi\'on la ejerce solo $B_y\parallel\mathbf k$}]
     \scriptsize
     \textbf{Paradoja de $\theta=0^\circ$} (gu\'ia pura, sin tensi\'on,
@@ -1374,7 +1405,7 @@
    ($\theta=0^\circ,45^\circ,90^\circ$): anti-correlaci\'on
    $r\simeq-0.6$ a $-0.9$ (Campa\~na B; 6 \'angulos en la monograf\'ia).}
 \end{center}
-\vspace{-0.3cm}
+\pause\vspace{-0.3cm}
 \begin{columns}[T]
 \begin{column}{0.58\textwidth}
   \begin{block}{Tres hallazgos}
@@ -1394,6 +1425,7 @@
   \end{block}
 \end{column}
 \begin{column}{0.40\textwidth}
+  \pause
   \begin{tcolorbox}[RES={Control de calidad interno}]
     \scriptsize
     Conservaci\'on de $E_{\rm tot}$ con error relativo $\lesssim10^{-3}$
@@ -1427,7 +1459,7 @@
   \end{center}
 \end{column}
 \end{columns}
-\vspace{0.02cm}
+\pause\vspace{0.02cm}
 % --- Fila 2: gr\'afica (izq) + texto (der), orden invertido ---
 \begin{columns}[c]
 \begin{column}{0.63\textwidth}
@@ -1468,7 +1500,7 @@
     compresible. $\sigma_{\rm crit}$: \textbf{zona} $[1400,7000]$,
     centro $\approx2815$.
   \end{tcolorbox}
-  \vspace{0.08cm}
+  \pause\vspace{0.08cm}
   {\tiny\color{accent}\textbf{$\blacktriangleright$ En referencia al Objetivo 2:}
    efecto sobre las estructuras secundarias (v\'ortices, l\'aminas de corriente).}\\[2pt]
   \begin{tcolorbox}[EQ={2 · Estructuras secundarias}]
@@ -1481,6 +1513,7 @@
   \end{tcolorbox}
 \end{column}
 \begin{column}{0.48\textwidth}
+  \pause
   {\tiny\color{accent}\textbf{$\blacktriangleright$ En referencia al Objetivo 3:}
    impacto de la difusi\'on magn\'etica sobre las variables EM globales.}\\[2pt]
   \begin{tcolorbox}[EQ={3 · Variables globales}]
@@ -1490,7 +1523,7 @@
     amplificaci\'on de la energ\'ia magn\'etica propia
     ($15\%\to0$ hacia el ideal).
   \end{tcolorbox}
-  \vspace{0.08cm}
+  \pause\vspace{0.08cm}
   {\tiny\color{accent}\textbf{$\blacktriangleright$ En referencia al Objetivo 4:}
    c\'omo la intensidad y orientaci\'on de $\mathbf B$ modifican la evoluci\'on.}\\[2pt]
   \begin{tcolorbox}[EQ={4 · Intensidad y orientaci\'on de $\mathbf B$}]
@@ -1531,6 +1564,7 @@
   \end{tcolorbox}
 \end{column}
 \begin{column}{0.48\textwidth}
+  \pause
   \begin{tcolorbox}[RES={Trabajo futuro}]
     \scriptsize
     \begin{itemize}\setlength\itemsep{2pt}
