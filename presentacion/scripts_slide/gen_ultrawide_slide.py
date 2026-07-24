@@ -21,10 +21,17 @@ import matplotlib as mpl
 import matplotlib.gridspec as gridspec
 
 from config_khi import (
-    BASE_DIR, ARCHIVO_DIAGNOSTICO, T_FILTRO,
+    BASE_DIR, ARCHIVO_DIAGNOSTICO, T_FILTRO, T_FIT_MIN, T_FIT_MAX,
     cargar_simulaciones_validas, asignar_indices_canonicos,
     construir_cmap_canonico,
 )
+
+# Ronda 2 (obs. del profesor): 4 regiones dinámicas sobre el eje temporal.
+# Fronteras RIGUROSAS: la ventana lineal es la canónica del pipeline
+# [T_FIT_MIN, T_FIT_MAX] = [2.4, 3.4] (la misma de todos los ajustes de γ);
+# el fin de la fase explosiva es el t_peak MEDIDO del run ideal de referencia
+# σ=10000 (argmax de su Ω_zp). Fronteras ilustrativas para σ bajas.
+SIGMA_REF = 10000
 
 OUT = Path.home() / "Documents/Grado/REPO_GH/presentacion/figures/fig_ultrawide_omega_zp_slide.pdf"
 
@@ -60,6 +67,43 @@ def main():
     ax.set_ylabel(r"$\Omega_{zp}(t)$")
     ax.set_xlim(-0.6, 15)
     ax.grid(True, ls="--", alpha=0.35)
+
+    # ---- 4 regiones dinámicas (fronteras del pipeline + run de referencia) ----
+    ref = next(s for s in sims if s['sigma'] == SIGMA_REF)
+    t_peak = float(ref['t'][int(np.argmax(ref['omega_zp']))])
+    # Fin del transiente numérico: primer máximo local de Ω_zp del run de
+    # referencia (el ajuste inicial de la CI termina ahí, t ~ 0.5).
+    o_ref, t_ref = ref['omega_zp'], ref['t']
+    i_num = next(i for i in range(1, len(o_ref) - 1)
+                 if o_ref[i] >= o_ref[i + 1] and t_ref[i] < 1.5)
+    t_num = float(t_ref[i_num])
+    print(f"t_num = {t_num:.2f};  t_peak(sigma={SIGMA_REF}) = {t_peak:.2f};  "
+          f"ventana de ajuste = [{T_FIT_MIN}, {T_FIT_MAX}]")
+    T_END = 15.0
+    regiones = [
+        (0.0,        t_num,     "#9e9e9e", "num."),
+        (t_num,      T_FIT_MAX, "#2e7d32", "lineal"),
+        (T_FIT_MAX,  t_peak,    "#e65100", "explosiva"),
+        (t_peak,     T_END,     "#1565c0", "relajación / turbulencia"),
+    ]
+    # (ronda 3) la zona "numérica" es sólo el crecimiento rápido inicial
+    # (transiente de arranque, SIN física); se resalta con trama y más
+    # opacidad para distinguirla claramente del resto.
+    for k, (t0, t1, color, _) in enumerate(regiones):
+        if k == 0:
+            ax.axvspan(t0, t1, facecolor=color, alpha=0.30,
+                       hatch="////", edgecolor="#546e7a", linewidth=0.0,
+                       zorder=0)
+        else:
+            ax.axvspan(t0, t1, color=color, alpha=0.10, zorder=0)
+    for t0, t1, color, nombre in regiones:
+        ax.axvline(t1, color="k", lw=0.8, ls=":", alpha=0.5)
+        ax.text(0.5 * (t0 + t1), 0.985, nombre, color=color,
+                fontsize=13, fontweight="bold", ha="center", va="top",
+                transform=mpl.transforms.blended_transform_factory(
+                    ax.transData, ax.transAxes))
+    # ventana canónica de ajuste, marcada dentro de la región lineal
+    ax.axvspan(T_FIT_MIN, T_FIT_MAX, color="#2e7d32", alpha=0.10, zorder=0)
 
     sigma_por_idx = {idx[s]: s for s in sigmas}
     sm = mpl.cm.ScalarMappable(norm=norm, cmap=cmap)

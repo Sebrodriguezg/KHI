@@ -24,6 +24,9 @@ FILAS = [(r"$\sigma=100$" + "\n(resistiva)", "s2"),
          (r"$\sigma=1000$", "s3"),
          (r"$\sigma=10^4$" + "\n(ideal)", "s4")]
 TIEMPOS = [3, 8, 14]
+# Ronda 2 (obs. del profesor): encabezado de columna = fase dinámica
+# (t en unidades de código; fases definidas sobre el régimen ideal)
+FASES = ["Fase lineal", "Pico", "Turbulenta"]
 
 plt.rcParams.update({
     "font.family": "serif",
@@ -76,7 +79,7 @@ def main():
                        colors="k", linewidths=0.3, alpha=0.28)
             ax.set_xticks([]); ax.set_yticks([])
             if i == 0:
-                ax.set_title(f"$t={t}$", fontsize=24, pad=10)
+                ax.set_title(f"{FASES[j]}\n$t={t}$", fontsize=21, pad=10)
             if j == 0:
                 ax.set_ylabel(lab, fontsize=21, labelpad=12)
 

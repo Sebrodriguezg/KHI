@@ -15,8 +15,11 @@ OUT = os.path.expanduser("~/Documents/Grado/REPO_GH/presentacion/figures/fig_cam
 warnings.filterwarnings("ignore")
 plt.rcParams.update({
     "font.family": "serif", "mathtext.fontset": "cm",
-    "axes.labelsize": 20, "axes.titlesize": 20, "font.size": 15,
-    "legend.fontsize": 15, "xtick.labelsize": 16, "ytick.labelsize": 16,
+    # (ronda 3) fuentes subidas: la figura se muestra a ~media lámina y los
+    # números quedaban chicos al reescalar; agrandarlas en el origen las hace
+    # legibles tras el downscale del deck.
+    "axes.labelsize": 28, "axes.titlesize": 26, "font.size": 20,
+    "legend.fontsize": 21, "xtick.labelsize": 23, "ytick.labelsize": 23,
     "pdf.fonttype": 42,
 })
 
@@ -50,7 +53,7 @@ def main():
             va = 'bottom' if idx % 2 == 0 else 'top'
             offset = 1.25 if idx % 2 == 0 else 0.80
             ax.text(t_p, o_p * offset, f"({t_p:.1f}, {o_p:.0f})",
-                    color=ln.get_color(), fontsize=14, ha='center', va=va,
+                    color=ln.get_color(), fontsize=19, ha='center', va=va,
                     bbox=dict(boxstyle='round,pad=0.22', facecolor='white',
                               edgecolor='none', alpha=0.75))
         ax.axvspan(2.4, 3.4, color="gray", alpha=0.12)

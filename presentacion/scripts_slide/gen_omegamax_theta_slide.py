@@ -14,8 +14,11 @@ OUT = os.path.expanduser("~/Documents/Grado/REPO_GH/presentacion/figures/fig_cam
 
 plt.rcParams.update({
     "font.family": "serif", "mathtext.fontset": "cm",
-    "axes.labelsize": 20, "axes.titlesize": 20, "font.size": 15,
-    "legend.fontsize": 16, "xtick.labelsize": 16, "ytick.labelsize": 16,
+    # (ronda 3) fuentes subidas: la figura se muestra a ~media lámina y los
+    # números quedaban chicos al reescalar; agrandarlas en el origen las hace
+    # legibles tras el downscale del deck.
+    "axes.labelsize": 28, "axes.titlesize": 26, "font.size": 20,
+    "legend.fontsize": 21, "xtick.labelsize": 23, "ytick.labelsize": 23,
     "pdf.fonttype": 42,
 })
 

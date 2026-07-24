@@ -18,7 +18,8 @@
 \end{scope}
 
 % ====== Panel B: con GLM (se propaga y amortigua) ======
-\begin{scope}[xshift=6.2cm]
+% (ronda 3) apilado DEBAJO del panel A para ganar tamano vertical
+\begin{scope}[yshift=-4.6cm]
   \draw[thick,->] (-2.3,0) -- (2.3,0) node[right,font=\scriptsize]{$x$};
   \draw[thick,->] (-2.3,0) -- (-2.3,2.3) node[above,font=\scriptsize]{$\nabla\!\cdot\!\mathbf B$};
   % pico inicial alto
@@ -27,8 +28,8 @@
   \draw[teal!65!black,thick,smooth,samples=60,domain=-2:2] plot (\x,{0.8*exp(-((\x+1.1)*(\x+1.1))/0.12)});
   \draw[teal!65!black,thick,smooth,samples=60,domain=-2:2] plot (\x,{0.8*exp(-((\x-1.1)*(\x-1.1))/0.12)});
   % flechas de propagacion a c_h
-  \draw[->,teal!65!black,thick] (-0.5,0.5) -- (-1.6,0.5) node[midway,above,font=\scriptsize]{$c_h$};
-  \draw[->,teal!65!black,thick] (0.5,0.5) -- (1.6,0.5) node[midway,above,font=\scriptsize]{$c_h$};
+  \draw[->,teal!65!black,thick] (-0.5,1.05) -- (-1.6,1.05) node[midway,above,font=\scriptsize]{$c_h$};
+  \draw[->,teal!65!black,thick] (0.5,1.05) -- (1.6,1.05) node[midway,above,font=\scriptsize]{$c_h$};
   % decaimiento (arriba a la derecha, sin tocar los pulsos)
   \node[orange!75!black,font=\scriptsize] at (1.72,1.85) {$\propto e^{-\kappa t}$};
   \node[font=\small,align=center] at (0,-0.75) {(b) con GLM:\\[-1pt]\scriptsize se \emph{propaga} ($c_h$) y \emph{amortigua}};
