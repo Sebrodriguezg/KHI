@@ -218,3 +218,37 @@ __marimo__/
 *.fls
 *.fdb_latexmk
 
+
+# ---------------------------------------------------------------
+# Material de trabajo interno: no forma parte del entregable
+# ---------------------------------------------------------------
+# Notas de revisión y planificación
+REVISION_*.md
+REVISION_*.tex
+REVISION_*.pdf
+NOTAS_*.md
+NOTAS_*.pdf
+PLAN_*.md
+AUDITORIA_*.md
+COSAS_POR_REPASAR.md
+INTERPRETACION_*.md
+PROMPT_*.txt
+revision_ledger.json
+gen_revision.py
+jurado.md
+compendio/
+
+# Guion y producción de video
+presentacion/guion/
+presentacion/video_guion/
+presentacion/movies_enstrofia/
+
+# Banco de preguntas (preparación de la sustentación)
+presentacion/banco_preguntas/
+
+# Empaquetados y respaldos
+*.zip
+*.tar.gz
+*.bak_*
+test_animacion.*
+figuras/galeria_Jmax_auditoria.pdf

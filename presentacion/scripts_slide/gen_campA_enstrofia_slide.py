@@ -45,22 +45,19 @@ def main():
             t, o = load(os.path.join(r, "data_global", "2d_data_Omega_zp_int.dat"))
             if t is None:
                 continue
-            ln, = ax.semilogy(t, o, lw=2.6, label=ALBL.get(nm, nm))
             i_max = np.argmax(o)
             t_p, o_p = t[i_max], o[i_max]
+            # (ronda 4) el pico va en la LEYENDA para que no se solapen las etiquetas
+            lbl = rf"{ALBL.get(nm, nm)}:  $\Omega^{{\max}}\!=\!{o_p:.0f}$ en $t\!=\!{t_p:.1f}$"
+            ln, = ax.semilogy(t, o, lw=2.6, label=lbl)
             ax.axvline(t_p, color=ln.get_color(), ls='--', lw=1.2, alpha=0.5)
-            ax.scatter([t_p], [o_p], s=110, color=ln.get_color(), marker='*', zorder=6)
-            va = 'bottom' if idx % 2 == 0 else 'top'
-            offset = 1.25 if idx % 2 == 0 else 0.80
-            ax.text(t_p, o_p * offset, f"({t_p:.1f}, {o_p:.0f})",
-                    color=ln.get_color(), fontsize=19, ha='center', va=va,
-                    bbox=dict(boxstyle='round,pad=0.22', facecolor='white',
-                              edgecolor='none', alpha=0.75))
+            ax.scatter([t_p], [o_p], s=150, color=ln.get_color(), marker='*',
+                       zorder=6, edgecolor='k', linewidth=0.6)
         ax.axvspan(2.4, 3.4, color="gray", alpha=0.12)
         ax.set_xlabel(r"$t$")
         ax.set_ylabel(r"$\Omega_{zp}$")
         ax.grid(alpha=0.3)
-        ax.legend(loc="lower right", framealpha=0.9)
+        ax.legend(loc="lower right", framealpha=0.95, fontsize=15)
         ax.set_title(rf"$\sigma={sg.replace('sigma','')}$ (CFL={cfl})", pad=10)
     fig.tight_layout()
     fig.savefig(OUT, dpi=160, bbox_inches='tight')

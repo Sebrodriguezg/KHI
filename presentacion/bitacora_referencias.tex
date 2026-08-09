@@ -1,0 +1,794 @@
+%=====================================================================
+%  BITÁCORA DE REFERENCIAS — apoyo para la sustentación
+%  Cada cita de la monografía y de las diapositivas: dónde y por qué.
+%  Generado a partir de un barrido automático de \cite/\parencite/\textcite
+%  sobre monografia/sections/*.tex y presentacion/main.tex.
+%=====================================================================
+\documentclass[11pt,openany]{report}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage[margin=2.3cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+
+\definecolor{azulud}{RGB}{20,70,130}
+\definecolor{grisclaro}{RGB}{242,242,244}
+\definecolor{verdeok}{RGB}{20,110,60}
+\definecolor{rojoalerta}{RGB}{160,30,30}
+
+\usepackage[colorlinks=true,linkcolor=azulud,urlcolor=azulud,citecolor=azulud]{hyperref}
+
+\setlist{noitemsep,topsep=3pt,leftmargin=1.4em}
+
+\titleformat{\chapter}[hang]{\LARGE\bfseries\color{azulud}}{\thechapter.}{0.6em}{}
+\titlespacing*{\chapter}{0pt}{0pt}{18pt}
+\titleformat{\section}[hang]{\large\bfseries\color{azulud}}{\thesection}{0.6em}{}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\color{azulud}Bitácora de referencias — sustentación}
+\fancyhead[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+%--- macros de la ficha -------------------------------------------------
+\newcommand{\clave}[1]{\texttt{\small #1}}
+\newcommand{\Mono}{\textbf{\color{azulud}M}}
+\newcommand{\Dia}{\textbf{\color{verdeok}D}}
+
+\newenvironment{ficha}[2]%
+  {\par\vspace{6pt}\noindent\rule{\textwidth}{0.8pt}\par\vspace{2pt}%
+   \begingroup\raggedright\noindent{\bfseries\large #1}\hspace{1em}\hfill{\small\clave{#2}}\par\endgroup\vspace{3pt}%
+   \begin{description}[style=nextline,leftmargin=0pt,labelindent=0pt,font=\bfseries\color{azulud}]}
+  {\end{description}\vspace{-2pt}}
+
+\newcommand{\refe}[1]{\item[Referencia] #1}
+\newcommand{\aporta}[1]{\item[Qué aporta] #1}
+\newcommand{\dondeM}[1]{\item[Dónde — monografía] #1}
+\newcommand{\dondeD}[1]{\item[Dónde — diapositivas] #1}
+\newcommand{\porque}[1]{\item[Por qué esta y no otra] #1}
+\newcommand{\pregunta}[2]{\item[Si el jurado pregunta] \emph{«#1»} $\rightarrow$ #2}
+\newcommand{\nocitada}{\item[Dónde — diapositivas] \textcolor{rojoalerta}{No se cita en el deck.}}
+\newcommand{\nocitadam}{\item[Dónde — monografía] \textcolor{rojoalerta}{No se cita en la monografía.}}
+
+\begin{document}
+
+%=====================================================================
+\begin{titlepage}
+\centering
+\vspace*{3cm}
+{\Huge\bfseries\color{azulud} Bitácora de referencias\par}
+\vspace{0.6cm}
+{\LARGE Dónde y por qué se usa cada cita\par}
+\vspace{0.4cm}
+{\large Monografía + diapositivas de sustentación\par}
+\vspace{2.5cm}
+{\large\itshape Inestabilidad de Kelvin--Helmholtz en Magnetohidrodinámica\\ Relativista Resistiva (RRMHD)\par}
+\vspace{2.5cm}
+{\large Documento de apoyo para la defensa del trabajo de grado\par}
+\vspace{0.3cm}
+{\normalsize Universidad Distrital Francisco José de Caldas\par}
+\vfill
+{\small Generado por barrido automático de todos los comandos de cita
+sobre \texttt{monografia/sections/*.tex} y \texttt{presentacion/main.tex}.\par}
+\end{titlepage}
+
+\tableofcontents
+\clearpage
+
+%=====================================================================
+\chapter{Cómo usar este documento}
+
+\section{Qué contiene}
+
+Este documento recoge \textbf{las 47 claves bibliográficas efectivamente
+citadas} en el trabajo: 45 en la monografía y 28 en las diapositivas
+(26 comunes a ambas). Para cada una se responde a tres preguntas que
+un jurado puede formular sin previo aviso:
+
+\begin{enumerate}
+  \item \textbf{¿Dónde la usas?} Capítulo y sección de la monografía,
+        número y título de lámina en el deck.
+  \item \textbf{¿Por qué esa referencia y no otra?} Qué afirmación
+        concreta sostiene y qué pasaría si se retirara.
+  \item \textbf{¿Qué te pueden preguntar sobre ella?} Una pregunta
+        probable con su respuesta corta.
+\end{enumerate}
+
+\section{Convenciones}
+
+\begin{itemize}
+  \item Los números de lámina (\textbf{L\,\#}) corresponden al orden de
+        \verb|\begin{frame}| en \texttt{presentacion/main.tex}
+        (65 marcos en total, incluido el bloque de anexos B1--B19).
+        No coinciden necesariamente con el contador impreso del PDF,
+        porque hay marcos sin numeración.
+  \item Los capítulos de la monografía siguen el orden de
+        \texttt{grad.tex}: 1~Introducción, 2~Marco teórico RRMHD,
+        3~La KHI, 4~El código \textit{Cueva}, 5~Set-up experimental,
+        6~Resultados y análisis, 7~Conclusiones, A~Apéndices.
+  \item Las fichas están agrupadas \textbf{por función argumental}, no
+        alfabéticamente: así se lee como un mapa de la defensa. El
+        índice alfabético maestro está en el Capítulo~\ref{ch:tabla}.
+\end{itemize}
+
+\section{La respuesta corta que sirve para casi cualquier cita}
+
+Si preguntan «¿por qué citas esto?», la estructura de la bibliografía
+tiene cinco motivos y solo cinco:
+
+\begin{enumerate}
+  \item \textbf{Fundamento formal} --- de dónde sale una ecuación que
+        no se deduce en el trabajo (formas diferenciales, tensor de
+        Faraday, formulación de Valencia).
+  \item \textbf{Definición del modelo} --- qué sistema exacto integra
+        \textit{Cueva} y con qué cierre constitutivo (Komissarov,
+        Miranda-Aranguren, Dedner).
+  \item \textbf{Justificación algorítmica} --- por qué MP5, por qué
+        HLL, por qué IMEX (Suresh \& Huynh, Toro, Pareschi \& Russo,
+        Liu).
+  \item \textbf{Predicción contrastable} --- el número contra el que se
+        compara el resultado medido (Michalke, Landau, Bodo, Chow,
+        Parker, Lyubarsky).
+  \item \textbf{Contexto y motivación} --- por qué el problema importa
+        (Osmanov, Bucciantini, Pimentel, Yamada).
+\end{enumerate}
+
+Cada ficha indica a cuál de estos cinco roles pertenece.
+
+%=====================================================================
+\chapter{Tabla maestra de referencias}
+\label{ch:tabla}
+
+\Mono~= citada en la monografía \quad \Dia~= citada en las diapositivas.
+
+\begin{small}
+\begin{longtable}{@{}p{0.215\textwidth} p{0.055\textwidth} p{0.185\textwidth} p{0.47\textwidth}@{}}
+\toprule
+\textbf{Clave} & \textbf{Usos} & \textbf{Bloque} & \textbf{Papel en el argumento} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Clave} & \textbf{Usos} & \textbf{Bloque} & \textbf{Papel en el argumento} \\
+\midrule
+\endhead
+\clave{schutz2009}          & \Mono            & Geometría   & El cuadripotencial como 1-forma \\
+\clave{misner1973}          & \Mono            & Geometría   & Ídem, referencia canónica de RG \\
+\clave{baez-muniain-1994}   & \Mono            & Geometría   & Formas, gauge, derivada exterior, Hodge \\
+\clave{nakahara-2003}       & \Mono            & Geometría   & Leibniz graduada, $d^2=0$, Levi-Civita \\
+\clave{vargas-2014}         & \Mono            & Geometría   & Por qué $F$ es forma y no tensor \\
+\clave{bachman-2006}        & \Mono            & Geometría   & Derivada exterior vs.\ grad/rot/div \\
+\clave{hehl-obukhov-2003}   & \Mono            & Geometría   & Electrodinámica premétrica \\
+\midrule
+\clave{goedbloed-2004A}     & \Mono            & MHD base    & 90\,\% de la materia bariónica es plasma; umbral $(\mathbf k\!\cdot\!\mathbf B_0)^2$ \\
+\clave{goedbloed-2004}      & \Dia             & MHD base    & Definición de MHD en la lámina de motivación \\
+\clave{rezzolla-2013}       & \Mono\,\Dia      & MHD base    & Foliación 3+1, formulación de Valencia, Riemann exacto \\
+\clave{komissarov-2007}     & \Mono\,\Dia      & RRMHD       & \textbf{La formulación que integra \textit{Cueva}} \\
+\clave{palenzuela-2009}     & \Mono\,\Dia      & RRMHD       & Por qué resistiva; 3+1; rigidez; \textit{tearing} \\
+\clave{miranda-aranguren-2018} & \Mono\,\Dia   & RRMHD       & \textbf{Paper del código}: 14 autovalores, HLLC, MP5 \\
+\clave{miranda-aranguren-2014} & \Mono\,\Dia   & RRMHD       & Presentación original de \textit{Cueva} (ASTRONUM) \\
+\clave{miranda2014}         & \Mono\,\Dia      & RRMHD       & Construcción del código (IAU 302): forma exacta del sistema \\
+\clave{mizuno-2013}         & \Mono\,\Dia      & RRMHD       & \textbf{El montaje Test 35A}; EOS; guardias de primitivas \\
+\clave{yamada-2010}         & \Mono\,\Dia      & RRMHD       & Cuándo el fluido deja de valer (escalas cinéticas) \\
+\midrule
+\clave{Dedner\_etal:2002}    & \Mono            & GLM         & \textbf{Método GLM} de limpieza de divergencia \\
+\clave{Dedner-2002}         & \Dia             & GLM         & Ídem, clave del \texttt{.bib} del deck \\
+\clave{munz2000}            & \Mono            & GLM         & Origen del GLM en solvers de Maxwell \\
+\clave{lee2004}             & \Mono\,\Dia      & GLM         & Estructura lagrangiana/Stueckelberg del GLM \\
+\clave{gomes2015}           & \Mono            & GLM         & Corrección parabólico-hiperbólica ($\kappa$) \\
+\clave{ruedaramirez2023}    & \Mono\,\Dia      & GLM         & Términos Godunov--Powell y estabilidad de entropía \\
+\clave{dumbser-2025}        & \Mono            & GLM         & El sistema aumentado es SHTC \\
+\midrule
+\clave{toro-2009}           & \Mono\,\Dia      & Numérico    & Volúmenes finitos, Riemann, Lax--Friedrichs \\
+\clave{suresh-1997}         & \Mono\,\Dia      & Numérico    & \textbf{Reconstrucción MP5} \\
+\clave{pareschi-2005}       & \Mono\,\Dia      & Numérico    & \textbf{IMEX-RK SSP} \\
+\clave{liu-1987}            & \Mono            & Numérico    & Condición subcaracterística (estabilidad del término rígido) \\
+{\scriptsize\ttfamily Aloy\_Cordero-Carrion:2016} & \Mono & Numérico    & Alternativa MIRK a IMEX ante la rigidez \\
+\clave{mignone2024}         & \Mono\,\Dia      & Numérico    & Cuarto orden RRMHD: límite y trabajo futuro \\
+\midrule
+\clave{acheson-1990}        & \Mono            & KHI clásica & Derivación clásica de la KHI incompresible \\
+\clave{michalke1964}        & \Mono\,\Dia      & KHI clásica & \textbf{Validación del solver}: $\hat\omega_i=0.1897$ \\
+\clave{landau1944}          & \Mono\,\Dia      & KHI clásica & \textbf{Umbral compresible} $v/c_s=\sqrt2$ \\
+\clave{gomes-2017}          & \Mono            & KHI clásica & Definición de la KHI en la introducción \\
+\clave{tian-2016}           & \Mono            & KHI clásica & Ídem, estudio paramétrico 2D \\
+\midrule
+\clave{bodo-2004}           & \Mono\,\Dia      & KHI rel.    & \textbf{Cota} $0<M_{re}<\sqrt2$ (hidrodinámica relativista) \\
+\clave{osmanov-2008}        & \Mono\,\Dia      & KHI rel.    & \textbf{Teoría lineal RMHD} (campo alineado); FR\,I/FR\,II \\
+\clave{chow2023}            & \Mono\,\Dia      & KHI rel.    & \textbf{Orientación arbitraria}: presión vs.\ tensión \\
+\clave{konigl1980}          & \Mono\,\Dia      & KHI rel.    & \textbf{Definición de $M_{re}$} (Mach relativista) \\
+\clave{pimentel-2019}       & \Mono\,\Dia      & KHI rel.    & Dinamo por KHI; estabilización relativista \\
+\midrule
+\clave{parker1957}          & \Mono\,\Dia      & Reconexión  & \textbf{Sweet--Parker}: $\delta\propto S^{-1/2}$ \\
+\clave{lyubarsky2005}       & \Mono\,\Dia      & Reconexión  & \textbf{Sweet--Parker relativista}: valida el exponente \\
+\clave{furth1963}           & \Mono\,\Dia      & Reconexión  & \textbf{Modo \textit{tearing}}: explica el exceso $\alpha=1.22$ \\
+\clave{nastro2022}          & \Mono\,\Dia      & Reconexión  & \textbf{Definición de enstrofía de perturbación} y $\sigma_Z$ \\
+\midrule
+\clave{lecoanet2016}        & \Mono\,\Dia      & Método      & \textbf{La KHI 2D ideal no converge}: justifica $\eta$ explícita \\
+\clave{burnham-anderson-2002} & \Mono          & Estadística & AIC y el criterio $|\Delta\mathrm{AIC}|>10$ \\
+\midrule
+\clave{bucciantini-2006}    & \Mono            & Contexto    & KHI local y modulación sincrotrón en PWN \\
+\bottomrule
+\end{longtable}
+\end{small}
+
+%=====================================================================
+\chapter{Bloque A --- Fundamento geométrico y relativista}
+
+Estas siete referencias sostienen el Capítulo~2 antes de que aparezca
+un solo plasma. Son \emph{fundamento formal}: nada de lo que dicen se
+mide en el trabajo, pero sin ellas las ecuaciones de partida quedarían
+postuladas sin justificación.
+
+\begin{ficha}{Schutz (2009), \textit{A First Course in General Relativity}}{schutz2009}
+\refe{Schutz, B.~F. (2009). \textit{A First Course in General Relativity}, 2.\textsuperscript{a} ed., Cambridge University Press.}
+\aporta{Texto introductorio estándar de relatividad: define vectores, covectores y el espacio cotangente $T^*_p\mathcal M$.}
+\dondeM{Cap.~2, §\,Electrodinámica covariante (\texttt{02\_rrmhd\_theory.tex}:18). Sostiene el postulado de que el cuadripotencial $A$ es una \textbf{1-forma diferencial}, no un cuadrivector.}
+\nocitada
+\porque{Es la referencia más accesible para el jurado que no trabaje en geometría diferencial. Va acompañada de \clave{misner1973} (canónica), \clave{baez-muniain-1994} (lenguaje de formas) y \clave{vargas-2014} (argumento premétrico): las cuatro cubren el mismo punto en registros distintos.}
+\pregunta{¿Por qué cuatro citas para una sola afirmación?}{Porque la afirmación —que $A$ es 1-forma— es una \emph{elección de formalismo}, no un teorema; se apoya en el consenso de la literatura estándar, no en un resultado puntual.}
+\end{ficha}
+
+\begin{ficha}{Misner, Thorne \& Wheeler (1973), \textit{Gravitation}}{misner1973}
+\refe{Misner, C.~W., Thorne, K.~S. \& Wheeler, J.~A. (1973). \textit{Gravitation}. W.~H.~Freeman.}
+\aporta{El tratado canónico donde el electromagnetismo se presenta ya en lenguaje de formas diferenciales.}
+\dondeM{Cap.~2 (\texttt{02\_rrmhd\_theory.tex}:18), en el mismo bloque que \clave{schutz2009}.}
+\nocitada
+\porque{Es la autoridad histórica del formalismo geométrico; su presencia le dice al lector que la elección de formas no es una excentricidad del trabajo.}
+\pregunta{¿Usaron MTW para algo más?}{No: solo para respaldar el postulado del cuadripotencial. El desarrollo posterior (derivada exterior, dual de Hodge) se apoya en \clave{nakahara-2003} y \clave{baez-muniain-1994}, que son más operativos.}
+\end{ficha}
+
+\begin{ficha}{Baez \& Muniain (1994), \textit{Gauge Fields, Knots and Gravity}}{baez-muniain-1994}
+\refe{Baez, J.~C. \& Muniain, J.~P. (1994). \textit{Gauge Fields, Knots and Gravity}. World Scientific.}
+\aporta{Introducción moderna a formas diferenciales, invariancia de gauge y estructura fibrada del electromagnetismo.}
+\dondeM{Es la referencia geométrica \textbf{más citada del trabajo} (siete apariciones): Cap.~2 en el postulado de $A$ como 1-forma (l.\,18), en la redundancia de gauge (l.\,26), en la interpretación del producto cuña (l.\,45), en el dual de Hodge y $\star\star F=-F$ (l.\,90), en la identidad de Bianchi $dF=0$ (l.\,114) y en el acople a la corriente (l.\,127); y en el Apéndice~A (l.\,150) para la regla de Leibniz graduada.}
+\nocitada
+\porque{Cubre exactamente la secuencia lógica del capítulo (1-forma $\to$ gauge $\to$ $d$ $\to$ $\star$ $\to$ Bianchi) con notación compatible con la del trabajo.}
+\pregunta{¿Qué es exactamente la redundancia de gauge que citan aquí?}{Que $A\to A+d\Lambda$ deja $F=dA$ invariante por $d^2=0$: los grados de libertad sobrantes del potencial no son observables. La afirmación se apoya en Baez--Muniain y \clave{bachman-2006}.}
+\end{ficha}
+
+\begin{ficha}{Nakahara (2003), \textit{Geometry, Topology and Physics}}{nakahara-2003}
+\refe{Nakahara, M. (2003). \textit{Geometry, Topology and Physics}, 2.\textsuperscript{a} ed., IOP Publishing.}
+\aporta{Manual operativo de geometría diferencial para físicos: regla de Leibniz graduada, nilpotencia $d^2=0$, dual de Hodge dependiente de métrica, distinción tensor de Levi-Civita vs.\ símbolo.}
+\dondeM{Cap.~2 (\texttt{02\_rrmhd\_theory.tex}:18, 26, 90 ×2, 114) y Apéndice~A (l.\,150). Es la que sostiene los \emph{cálculos}, no solo los postulados: en particular la deducción $dA=\tfrac12 F_{\mu\nu}dx^\mu\wedge dx^\nu$ del apéndice.}
+\nocitada
+\porque{Es el único de los textos geométricos citados que da la regla de Leibniz graduada con el signo $(-1)^p$ que la deducción del apéndice necesita.}
+\pregunta{¿Por qué distinguen tensor y símbolo de Levi-Civita?}{Porque $\epsilon^{\mu\nu\alpha\beta}=\tilde\epsilon^{\mu\nu\alpha\beta}/\sqrt{-g}$: en Minkowski coinciden numéricamente, pero escribirlo mal rompería la covariancia en métrica general. Nakahara es la fuente de esa distinción.}
+\end{ficha}
+
+\begin{ficha}{Vargas (2014), \textit{Differential Geometry for Physicists and Mathematicians}}{vargas-2014}
+\refe{Vargas, J.~G. (2014). \textit{Differential Geometry for Physicists and Mathematicians: Moving Frames and Differential Forms}. World Scientific.}
+\aporta{Tratamiento con marcos móviles que enfatiza qué operaciones requieren métrica y cuáles no.}
+\dondeM{Cap.~2 (\texttt{02\_rrmhd\_theory.tex}:18 y 45). En l.\,45 sostiene el argumento clave: \emph{$F$ debe ser una forma y no un tensor} porque las ecuaciones de Maxwell no dependen de la conexión, y $d$ no requiere métrica ni conexión.}
+\nocitada
+\porque{Es la que articula el argumento premétrico junto con \clave{hehl-obukhov-2003}; los textos de RG estándar no lo enuncian con esa nitidez.}
+\pregunta{¿Qué gana el trabajo con el argumento premétrico?}{Que la mitad homogénea de Maxwell ($dF=0$, ausencia de monopolos) queda como identidad topológica independiente de la métrica, y solo la mitad inhomogénea ($d\star F=J$) introduce $\eta_{\mu\nu}$. Eso es lo que después justifica tratar $\nabla\!\cdot\!\mathbf B=0$ como restricción y no como ecuación dinámica.}
+\end{ficha}
+
+\begin{ficha}{Bachman (2006), \textit{A Geometric Approach to Differential Forms}}{bachman-2006}
+\refe{Bachman, D. (2006). \textit{A Geometric Approach to Differential Forms}. Birkhäuser.}
+\aporta{Texto elemental que muestra cómo la derivada exterior $d$ unifica gradiente, rotacional y divergencia, e incluye la nilpotencia $d^2=0$.}
+\dondeM{Cap.~2 (\texttt{02\_rrmhd\_theory.tex}:26), en la nota al pie que remite al lector no especialista para la definición de $d$.}
+\nocitada
+\porque{Se cita explícitamente como \emph{lectura de apoyo} («véase»), no como autoridad: es el nivel de entrada al formalismo. Junto con \clave{nakahara-2003} da dos niveles de profundidad para el mismo concepto.}
+\pregunta{¿Es una referencia de peso?}{Es una referencia \emph{pedagógica}, y así está declarada en el texto. El contenido técnico lo sostiene Nakahara.}
+\end{ficha}
+
+\begin{ficha}{Hehl \& Obukhov (2003), \textit{Foundations of Classical Electrodynamics}}{hehl-obukhov-2003}
+\refe{Hehl, F.~W. \& Obukhov, Y.~N. (2003). \textit{Foundations of Classical Electrodynamics: Charge, Flux, and Metric}. Birkhäuser.}
+\aporta{La formulación \emph{premétrica} del electromagnetismo: carga y flujo son conceptos topológicos; la métrica solo entra en la relación constitutiva.}
+\dondeM{Cap.~2 (\texttt{02\_rrmhd\_theory.tex}:14 y 45): sostiene el marco de covariancia del capítulo y el argumento de que $F$ es una 2-forma.}
+\nocitada
+\porque{Es \emph{la} referencia del programa premétrico. Su cita es lo que permite afirmar, sin retórica, que la estructura $dF=0$ / $d\star F=J$ separa topología de métrica.}
+\pregunta{¿Eso tiene consecuencia práctica en el código?}{Sí: es la raíz conceptual de por qué la limpieza GLM actúa sobre la restricción $\nabla\!\cdot\!\mathbf B=0$ (parte topológica, violada solo por truncamiento) y no sobre la ley de Ampère.}
+\end{ficha}
+
+%=====================================================================
+\chapter{Bloque B --- MHD, RRMHD y el modelo que integra el código}
+
+Aquí está el núcleo del \emph{qué se resuelve}. Si el jurado solo lee un
+bloque de esta bitácora, que sea este.
+
+\begin{ficha}{Goedbloed \& Poedts (2004), \textit{Principles of Magnetohydrodynamics}}{goedbloed-2004A \textnormal{/} goedbloed-2004}
+\refe{Goedbloed, J.~P.~H. \& Poedts, S. (2004). \textit{Principles of Magnetohydrodynamics}. Cambridge University Press.}
+\aporta{Tratado de referencia en MHD: define el régimen de validez del modelo de fluido y desarrolla la teoría de estabilidad MHD, incluida la supresión de modos por $(\mathbf k\!\cdot\!\mathbf B_0)^2$.}
+\dondeM{Con la clave \clave{goedbloed-2004A}: Cap.~1 (l.\,4) para el dato de que más del $90$\,\% de la materia bariónica del Universo es plasma y para la lista de escenarios (AGN, chorros, GRB, magnetares); Cap.~1 (l.\,31) en la transición RMHD$\to$RRMHD; y Cap.~2 (l.\,495) para el \textbf{umbral de estabilización magnética}, el resultado que después se contrasta con la campaña de orientaciones.}
+\dondeD{Con la clave \clave{goedbloed-2004} (entrada distinta en \texttt{presentacion/references.bib}): \textbf{L\,5} «Por qué resistiva: los límites del congelamiento ideal», en la definición misma de MHD.}
+\porque{Es el texto que da simultáneamente el marco (qué es MHD) y el resultado técnico (criterio $(\mathbf k\!\cdot\!\mathbf B_0)^2$). Ese criterio es el ancla teórica de toda la campaña magnética: predice que un campo guía ortogonal ($\mathbf k\!\cdot\!\mathbf B_0=0$) \emph{no} estabiliza por tensión.}
+\pregunta{¿La estabilización magnética que ustedes miden es la de Goedbloed?}{No exactamente: Goedbloed da el criterio ideal para campo con componente a lo largo de $\mathbf k$. En el montaje de este trabajo el campo es mayoritariamente guía ($B_z$), de modo que aporta \emph{presión} y no \emph{tensión}; esa distinción se formaliza con \clave{chow2023} y se verifica en la campaña de orientaciones.}
+\item[\textcolor{rojoalerta}{Aviso de higiene}] En \texttt{monografia/references.bib} la clave \clave{goedbloed-2004} apunta a una \emph{reseña} del libro publicada en \textit{J.~Fluid Mech.}~519, no al libro. La monografía cita correctamente \clave{goedbloed-2004A} (el libro). En \texttt{presentacion/references.bib} la clave \clave{goedbloed-2004} sí es el libro. Si alguien compara ambas bibliografías, esta es la explicación.
+\end{ficha}
+
+\begin{ficha}{Rezzolla \& Zanotti (2013), \textit{Relativistic Hydrodynamics}}{rezzolla-2013}
+\refe{Rezzolla, L. \& Zanotti, O. (2013). \textit{Relativistic Hydrodynamics}. Oxford University Press.}
+\aporta{Tratado de hidrodinámica relativista: descomposición 3+1, observador euleriano vs.\ comóvil, formulación de Valencia, estructura del problema de Riemann relativista y su coste.}
+\dondeM{Cinco lugares, todos estructurales: Cap.~1 (l.\,4) marcos relativistas; Cap.~2 (l.\,3) \textbf{distinción euleriano/comóvil} —la 3+1 se hace respecto al euleriano, la ley de Ohm se define en el comóvil—; Cap.~2 (l.\,382) \textbf{convención de Valencia} ($W$ para Lorentz, $\Gamma$ solo para el adiabático); Cap.~4 (l.\,69) degeneración ultrarrelativista del jacobiano; Cap.~4 (l.\,73) por qué el Riemann exacto es inviable en multi-D.}
+\dondeD{\textbf{L\,5} (definición de MHD relativista) y \textbf{L\,9} «Estructura covariante del sistema RRMHD», dos veces: fluido perfecto en el marco comóvil y convención de Valencia.}
+\porque{Es la fuente de \emph{convenciones}, y las convenciones son lo que hace legible el trabajo. La confusión $W$/$\Gamma$ es un error frecuente en tesis de RRMHD; declarar Valencia lo cierra de entrada.}
+\pregunta{¿Por qué la ley de Ohm se escribe en el marco comóvil si integran en el euleriano?}{Porque la conductividad es una propiedad \emph{constitutiva} del material y solo tiene sentido en su propio reposo; la 3+1 es una elección de foliación numérica. Ambos coinciden solo si el fluido está en reposo respecto a la malla. Está explícito en Cap.~2, l.\,3.}
+\end{ficha}
+
+\begin{ficha}{Komissarov (2007), esquema multidimensional para RRMHD}{komissarov-2007}
+\refe{Komissarov, S.~S. (2007). \textit{Multidimensional numerical scheme for resistive relativistic magnetohydrodynamics}. MNRAS 382(3), 995--1004.}
+\aporta{\textbf{La formulación RRMHD que resuelve \textit{Cueva}}: sistema aumentado con campos de limpieza para $\nabla\!\cdot\!\mathbf B$ y ley de Gauss, con la ley de Ohm relativista como término fuente rígido.}
+\dondeM{Cap.~1 (l.\,31) reconexión numérica vs.\ física; Cap.~1 (l.\,40) declaración de que \textit{Cueva} resuelve la RRMHD «en la formulación de Komissarov»; Cap.~2 (l.\,3) origen del sistema aumentado; Cap.~2 (l.\,360) \textbf{ley de Ohm covariante}.}
+\dondeD{\textbf{L\,5} ×2 (definición de RRMHD y «resistividad numérica»), \textbf{L\,9} (toda la disipación reside en la ley de Ohm), \textbf{L\,53} (anexo B10: \textit{Cueva} implementa la formulación de Komissarov).}
+\porque{Es la referencia \emph{definitoria} del trabajo: identifica sin ambigüedad qué sistema de ecuaciones se está integrando. Sustituirla cambiaría el objeto de estudio, no solo la bibliografía.}
+\pregunta{¿Qué es la «resistividad numérica» y por qué la mencionan citando a Komissarov?}{En RMHD ideal la reconexión que aparece en simulaciones proviene del error de truncamiento del esquema: depende de la malla, no de la física. Komissarov lo señala como la motivación central para pasar a RRMHD, donde $\eta=1/\sigma$ es un parámetro físico controlado. Es \textbf{el argumento que justifica toda la tesis}.}
+\item[\textcolor{rojoalerta}{Aviso de higiene}] Las páginas difieren entre los dos \texttt{.bib}: 995--1004 (monografía) y 995--1020 (deck). Conviene unificarlas antes de entregar.
+\end{ficha}
+
+\begin{ficha}{Palenzuela, Lehner, Reula \& Rezzolla (2009), «Beyond ideal MHD»}{palenzuela-2009}
+\refe{Palenzuela, C., Lehner, L., Reula, O. \& Rezzolla, L. (2009). \textit{Beyond ideal MHD: towards a more realistic modelling of relativistic astrophysical plasmas}. MNRAS 394(4), 1727--1740.}
+\aporta{Formulación 3+1 de la RRMHD con tratamiento IMEX de la rigidez; discute el papel de las láminas de corriente y de los modos \textit{tearing} que la MHD ideal prohíbe.}
+\dondeM{Ocho apariciones. Cap.~1: RMHD asume $\sigma\to\infty$ (l.\,8), necesidad de RRMHD en láminas y turbulencia (l.\,8 ×3), IMEX-RK (l.\,17), llamaradas en AGN/GRB/púlsares (l.\,31). Cap.~3 (l.\,152 y 160): \textit{tearing}, reconexión y por qué la relación de dispersión resistiva exige solver numérico. Cap.~2 (l.\,504): capas límite resistivas $\delta\sim S^{-1/2}$. Cap.~4 (l.\,112) diagonalización 3+1 del GLM y (l.\,131) por qué un integrador explícito impondría $\Delta t\propto\Delta x^2/\sigma$.}
+\dondeD{\textbf{L\,5} ×2, \textbf{L\,6} «Mapa de límites: del RRMHD a la física conocida», \textbf{L\,63} (anexo B19: escenarios astrofísicos).}
+\porque{Es la referencia que conecta las tres capas del argumento: \emph{físico} (qué prohíbe la MHD ideal), \emph{matemático} (rigidez del término fuente) y \emph{numérico} (por qué IMEX). Pocas referencias hacen las tres a la vez.}
+\pregunta{¿Por qué un explícito daría $\Delta t\propto\Delta x^2/\sigma$?}{Porque en el límite de alta conductividad el término de Ohm se comporta como difusivo-parabólico, y la estabilidad de un explícito para un parabólico escala con $\Delta x^2$. Ese es el argumento formal para IMEX y está tomado de esta referencia (Cap.~4, l.\,131).}
+\end{ficha}
+
+\begin{ficha}{Miranda-Aranguren, Aloy \& Rembiasz (2018), solver HLLC para RRMHD}{miranda-aranguren-2018}
+\refe{Miranda-Aranguren, S., Aloy, M.~A. \& Rembiasz, T. (2018). \textit{An HLLC Riemann solver for resistive relativistic magnetohydrodynamics}. MNRAS 476(3), 3837--3860.}
+\aporta{\textbf{El artículo del código.} Describe la estructura característica del sistema (14 autovalores), la reconstrucción MP5, el solver HLL, la variante HLLC que restaura la onda de contacto, y la recuperación de primitivas.}
+\dondeM{\textbf{La referencia más citada del trabajo (12 apariciones).} Cap.~1: necesidad de RRMHD (l.\,8 ×3), reconexión física (l.\,31), identificación de \textit{Cueva} (l.\,40). Cap.~3 (l.\,158): coste de la recuperación de primitivas. Cap.~2 (l.\,504): justificación de IMEX. Apéndice~A (l.\,38 ×2): verificación de que el código integra \emph{exactamente} este sistema, cruzando el módulo \texttt{11\_elecvarint.f95}. Cap.~4: MP5 adoptado en \textit{Cueva} (l.\,42), \textbf{14 autovalores} (l.\,65), solvers libres de jacobiano (l.\,73), variante HLLC (l.\,92) y —el punto crítico— la justificación de usar \textbf{HLL+MP5 y no HLLC} (l.\,94).}
+\dondeD{\textbf{L\,2} (estructura), \textbf{L\,5}, \textbf{L\,12} «Las ecuaciones que integra el código», \textbf{L\,13} (forma fuertemente conservativa), \textbf{L\,47} (anexo B4: espectro característico), \textbf{L\,50} (anexo B7: ¿por qué HLL+MP5 y no HLLC?), \textbf{L\,53}, \textbf{L\,57}, \textbf{L\,59}, \textbf{L\,63}.}
+\porque{Sin esta referencia no hay forma de acreditar qué hace el código. Es además la que da la respuesta preparada a la objeción metodológica más previsible.}
+\pregunta{Si los propios autores del código escribieron un HLLC que resuelve mejor la discontinuidad de contacto, ¿por qué ustedes usan HLL?}{Porque el mismo artículo muestra que al acoplar reconstrucciones de muy alto orden (MP5) los estados de interfaz son ya tan agudos que HLL iguala en la práctica el rendimiento de HLLC, conservando simplicidad, positividad y coste sin jacobianos. Está argumentado en Cap.~4, l.\,94--96, y en la lámina de anexo \textbf{L\,50}.}
+\end{ficha}
+
+\begin{ficha}{Miranda-Aranguren, Aloy \& Aloy-Torás (2014), ASTRONUM 2013}{miranda-aranguren-2014}
+\refe{Miranda-Aranguren, S., Aloy, M.~A. \& Aloy-Torás, C. (2014). \textit{Building a Numerical Relativistic Non-ideal Magnetohydrodynamics Code for Astrophysical Applications}. ASP Conf.~Ser.~488 (ASTRONUM 2013), 249.}
+\aporta{Presentación original del proyecto del código para aplicaciones astrofísicas.}
+\dondeM{Cap.~4 (l.\,1): la frase que introduce \textit{Cueva} como «herramienta computacional desarrollada para el estudio numérico de plasmas astrofísicos relativistas».}
+\dondeD{\textbf{L\,2} «Estructura de la presentación» y \textbf{L\,53} (anexo B10), en ambos casos junto a \clave{miranda-aranguren-2018}.}
+\porque{Da la genealogía del código. Es la cita de \emph{procedencia}, no de contenido técnico.}
+\pregunta{¿No es la misma referencia que \clave{miranda2014}?}{No. Son dos proceedings distintos del mismo grupo en 2013--2014: este es ASTRONUM~2013 (ASP Conf.~Ser.~488, p.~249) y el otro es el IAU Symposium~302 (vol.~9, pp.~64--65). Ambos están citados y no son duplicados.}
+\end{ficha}
+
+\begin{ficha}{Miranda-Aranguren, Aloy \& Aloy (2014), IAU Symp.~302}{miranda2014}
+\refe{Miranda-Aranguren, S., Aloy, M.~A. \& Aloy, C. (2014). \textit{Building a numerical relativistic non-ideal magnetohydrodynamics code for astrophysical applications}. Proc.~IAU~Symp.~302, vol.~9, 64--65.}
+\aporta{Escribe el sistema RRMHD de balance con limpieza y la forma de Godunov--Powell de los términos no conservativos.}
+\dondeM{Cap.~1 (l.\,17): necesidad de IMEX-RK. Apéndice~A (l.\,17): descripción del código como extensión resistiva de \textsc{MR-genesis}; (l.\,38 ×2) la ley de Ohm y la verificación módulo a módulo; (l.\,40) \textbf{la variante Godunov--Powell} de los términos fuente, contrastada con la variante equivalente proporcional a $\Psi$.}
+\dondeD{\textbf{L\,12} «Las ecuaciones que integra el código».}
+\porque{Es la fuente de la \emph{forma exacta escrita} del sistema. El apéndice la usa para demostrar, línea por línea del código Fortran, que lo implementado coincide con lo publicado —esa verificación es un resultado metodológico propio del trabajo.}
+\pregunta{Hay dos formas distintas de los términos no conservativos en la monografía, ¿cuál usa el código?}{Ambas son equivalentes en su propósito (compensar la aceleración espuria de los monopolos). El Cap.~2 presenta la variante proporcional al pseudopotencial $\Psi$ (siguiendo \clave{ruedaramirez2023}) y el Apéndice~A explicita que la escritura de \clave{miranda2014} es la de Godunov--Powell. La equivalencia está declarada en el Apéndice~A, l.\,40.}
+\end{ficha}
+
+\begin{ficha}{Mizuno (2013), papel de la ecuación de estado en RRMHD}{mizuno-2013}
+\refe{Mizuno, Y. (2013). \textit{The role of the equation of state in resistive relativistic magnetohydrodynamics}. ApJS 205(1), 7.}
+\aporta{Código RRMHD con distintas EOS y, sobre todo, \textbf{el montaje canónico de doble capa de cizalla} que este trabajo adopta (Test 35A), con la magnetización poloidal $\mu_p$ y la ligera inclinación del campo.}
+\dondeM{Cap.~1 (l.\,17 ×2): rigidez de los términos fuente eléctricos; (l.\,31) resistividad numérica. \textbf{Cap.~5 (\texttt{setup\_exp.tex}:27 y 84): el montaje base y el perfil de densidad}, declarados como «Mizuno-like». Cap.~6 (l.\,514): la inclinación de $5.7^\circ$ ($\mu_p=0.01$) como clave para resolver la aparente paradoja de resultados. Cap.~4 (l.\,167): guardias defensivas en la recuperación de primitivas ($v^2\ge1$, $p>0$).}
+\dondeD{\textbf{L\,16} «Montaje experimental: doble capa de cizalla tipo Mizuno --- Test 35A» y \textbf{L\,32} «Campaña magnética II: orientación con tensión».}
+\porque{Es la referencia que hace \emph{comparable} el trabajo: al partir de un setup publicado, los resultados se leen contra literatura existente en vez de contra un montaje ad~hoc.}
+\pregunta{¿Reprodujeron el test de Mizuno o lo modificaron?}{Se adopta el escenario base (Test 35A) y se adapta para aislar los vórtices KHI bajo condiciones controladas de conductividad; el barrido en $\sigma$ y la campaña de orientaciones son aportes propios. La adaptación está declarada en el Cap.~5.}
+\pregunta{¿De dónde sale la inclinación de $5.7^\circ$?}{Del propio diseño de Mizuno, parametrizado por $\mu_p=0.01$. Es lo que explica que el sistema tenga una pequeña componente de campo en el plano pese a estar dominado por el campo guía (Cap.~6, l.\,514).}
+\end{ficha}
+
+\begin{ficha}{Yamada, Kulsrud \& Ji (2010), «Magnetic reconnection»}{yamada-2010}
+\refe{Yamada, M., Kulsrud, R. \& Ji, H. (2010). \textit{Magnetic reconnection}. Rev.~Mod.~Phys.~82(1), 603--664.}
+\aporta{Revisión de referencia sobre reconexión: escalas cinéticas (girorradio iónico, longitud inercial iónica) frente a escalas de fluido, y cuándo el modelo MHD deja de ser aplicable.}
+\dondeM{Cap.~2, §\,La Ecuación Constitutiva Covariante (\texttt{02\_rrmhd\_theory.tex}, párrafo final): delimita el alcance de la ley de Ohm resistiva como cierre \emph{de fluido} y da el criterio de separación de escalas con los dos ejemplos contrastados.}
+\dondeD{\textbf{L\,10} «La Ley de Ohm relativista: el cierre resistivo», en la nota que delimita la validez del modelo: llamarada solar (lámina $\sim10^4$~km vs.\ girorradio $\sim1$~m, siete órdenes $\Rightarrow$ RRMHD) frente a reconexión en la magnetopausa (región de difusión del tamaño de la longitud inercial iónica $\Rightarrow$ cinética).}
+\porque{Es una \textbf{cita defensiva}: se anticipa a la objeción «la reconexión es un fenómeno cinético, ¿por qué la modelan con un fluido?». Da el criterio cuantitativo de separación de escalas.}
+\pregunta{¿La reconexión que observan es física o un artefacto del modelo de fluido?}{Es reconexión resistiva de fluido, controlada por $\eta=1/\sigma$, no reconexión cinética. Yamada et~al.\ dan el criterio: mientras la escala del fenómeno supere en órdenes de magnitud las escalas cinéticas, la descripción de fluido es válida. La lámina 10 lo dice explícitamente.}
+\item[\textcolor{verdeok}{Consistencia — resuelto}] Esta referencia \emph{aparecía solo en el deck}. El argumento de separación de escalas se incorporó al Cap.~2 (final de §\,La Ecuación Constitutiva Covariante), de modo que la lámina 10 ya tiene respaldo en la monografía y se cumple la regla del proyecto.
+\end{ficha}
+
+%=====================================================================
+\chapter{Bloque C --- Limpieza de divergencia (GLM)}
+
+Siete referencias sostienen el sistema aumentado. Es el bloque más
+técnico y el más probable objeto de preguntas del jurado numérico.
+
+\begin{ficha}{Dedner et~al.\ (2002), limpieza hiperbólica de divergencia}{Dedner\_etal:2002 \textnormal{/} Dedner-2002}
+\refe{Dedner, A., Kemm, F., Kröner, D., Munz, C.-D., Schnitzer, T. \& Wesenberg, M. (2002). \textit{Hyperbolic Divergence Cleaning for the MHD Equations}. J.~Comput.~Phys.~175, 645--673.}
+\aporta{\textbf{El método GLM}: acopla las restricciones elípticas ($\nabla\!\cdot\!\mathbf B=0$, ley de Gauss) a campos escalares auxiliares, convirtiéndolas en ecuaciones de transporte amortiguadas que \emph{propagan y disipan} el error en vez de acumularlo. Da además el sistema de primer orden («forma de Dedner») y la relación $\kappa\sim c_h^2/c_p^2$.}
+\dondeM{Cap.~2: naturaleza mixta evolución/restricción del sistema (l.\,232), \textbf{definición del GLM} (l.\,241 ×2), amortiguamiento y decaimiento $e^{-\kappa t/2}$ (l.\,308), equivalencia entre la forma de primer orden que integra el código y la ecuación del telégrafo (l.\,320). Cap.~4: implementación en \textit{Cueva} (l.\,101), diagonalización con $\lambda_{\rm GLM}=\pm c_h$ y $c_h=1$ (l.\,112), coeficientes $\kappa$ (l.\,126).}
+\dondeD{\textbf{L\,11} «Restricciones de divergencia: el sistema aumentado GLM» y \textbf{L\,46} (anexo B3: «GLM: de la acción extendida a la forma de Dedner»).}
+\porque{Es la referencia fundacional del método. Todo el tratamiento de monopolos espurios del trabajo es una implementación de este esquema en versión relativista.}
+\pregunta{¿Por qué la restricción $\nabla\!\cdot\!\mathbf B=0$ se viola si es una identidad topológica ($d^2=0$)?}{Porque el operador discreto no satisface $d^2=0$ exactamente: el truncamiento genera monopolos espurios que, sin tratamiento, se acumulan y destruyen la estabilidad. Es literalmente lo que dice la lámina 11.}
+\pregunta{¿Por qué integran la forma de primer orden y no la ecuación de onda de segundo orden?}{Por tres razones acumulativas (Cap.~2, l.\,320): preserva la estructura matricial hiperbólica que el solver de Riemann necesita, permite acoplar explícitamente los términos no conservativos de Godunov--Powell, y revela el modelo como sistema SHTC (\clave{dumbser-2025}). Son equivalentes solo en el límite continuo.}
+\end{ficha}
+
+\begin{ficha}{Munz et~al.\ (2000), corrección de divergencia para solvers de Maxwell}{munz2000}
+\refe{Munz, C.-D., Omnes, P., Schneider, R., Sonnendrücker, E. \& Voss, U. (2000). \textit{Divergence correction techniques for Maxwell solvers based on a hyperbolic model}. J.~Comput.~Phys.~161, 484--511.}
+\aporta{El antecedente del GLM, formulado para Maxwell puro: introduce el modelo hiperbólico de corrección de divergencia dos años antes que Dedner.}
+\dondeM{Cap.~2 (l.\,308), junto a \clave{Dedner\_etal:2002}, para justificar «el origen covariante y la estricta causalidad disipativa» que hacen viable el GLM en plasmas relativistas.}
+\nocitada
+\porque{Da la prioridad histórica y, más importante, muestra que la técnica nació en el contexto de Maxwell —donde la ley de Gauss eléctrica es la restricción—, que es exactamente el caso de la RRMHD (a diferencia de la MHD ideal, donde solo hay $\nabla\!\cdot\!\mathbf B$).}
+\pregunta{¿En RRMHD limpian una restricción o dos?}{Dos: $\nabla\!\cdot\!\mathbf B=0$ y la ley de Gauss $\nabla\!\cdot\!\mathbf E=\rho_q$, con dos campos auxiliares ($\Psi$ y $\Phi$). En MHD ideal solo hace falta la primera. Munz et~al.\ son la referencia del caso eléctrico.}
+\end{ficha}
+
+\begin{ficha}{Lee, Munz \& Schneider (2004), estructura lagrangiana del GLM}{lee2004}
+\refe{Lee, Y.~J., Munz, C.-D. \& Schneider, R. (2004). \textit{Lagrangian and symmetry structure of the divergence cleaning model based on generalized Lagrange multipliers}. Int.~J.~Mod.~Phys.~C 15(1), 59--114.}
+\aporta{Deriva el GLM desde una acción extendida (mecanismo tipo Stueckelberg) y analiza qué simetría se rompe: el campo auxiliar $\Phi$ aísla los modos longitudinales patológicos de los transversales físicos; explota además la invariancia dual (simetría de Hodge) de Maxwell.}
+\dondeM{Cap.~2 (l.\,241) definición del GLM; (l.\,251) el papel de $\Phi$ frente a la carga espuria; (l.\,271) \textbf{invariancia dual} para tratar el sector magnético sin recurrir a potenciales duales.}
+\dondeD{\textbf{L\,46} (anexo B3): «mecanismo de Stueckelberg».}
+\porque{Es la referencia que convierte el GLM de \emph{truco numérico} en \emph{estructura de teoría de campos}. Da la respuesta a la objeción más incómoda sobre la limpieza.}
+\pregunta{¿El GLM no es un parche ad~hoc que modifica la física?}{No: Lee et~al.\ lo derivan de una acción extendida vía un mecanismo tipo Stueckelberg. Los campos auxiliares son grados de libertad longitudinales que se desacoplan de los modos físicos transversales y decaen; en el límite de solución exacta, $\Phi=\Psi=0$ y el sistema original se recupera intacto. La lámina de anexo B3 desarrolla justo eso.}
+\end{ficha}
+
+\begin{ficha}{Gomes et~al.\ (2015), corrección parabólico-hiperbólica}{gomes2015}
+\refe{Gomes, A.~K.~F., Domingues, M.~O., Schneider, K., Mendes, O. \& Deiterding, R. (2015). \textit{An adaptive multiresolution method for ideal magnetohydrodynamics using divergence cleaning with parabolic-hyperbolic correction}. Appl.~Numer.~Math.~95, 199--213.}
+\aporta{Uso práctico de la variante \emph{parabólico-hiperbólica} del GLM: los coeficientes $\kappa_E$, $\kappa_B$ no son ad~hoc, sino la mezcla que da propagación (hiperbólica) más disipación local (parabólica).}
+\dondeM{Cap.~2 (l.\,279, 297, 305): justifica los términos de amortiguamiento fenomenológico, la ruptura de la simetría de inversión temporal necesaria para un decaimiento genuino, y los dos límites $\kappa\to0$ (onda pura, causal) y $\kappa\to\infty$ (parabólico).}
+\nocitada
+\porque{Aporta la interpretación de $\kappa$ como parámetro de interpolación entre dos regímenes, que es lo que permite defender la elección de valores concretos en el código.}
+\pregunta{¿Cómo eligieron $\kappa$?}{No es un ajuste libre: se fija en la forma de Dedner $\kappa\sim c_h^2/c_p^2$ (Cap.~4, l.\,126), y su efecto está acotado por los dos límites analíticos que da esta referencia. El error espurio viaja a $c_h=1$ hacia las fronteras y decae como $e^{-\kappa t/2}$.}
+\end{ficha}
+
+\begin{ficha}{Rueda-Ramírez et~al.\ (2023), métodos entropía-estables para MHD}{ruedaramirez2023}
+\refe{Rueda-Ramírez, A.~M., Hindenlang, F.~J., Chan, J. \& Gassner, G.~J. (2023). \textit{Entropy-stable Gauss collocation methods for ideal magneto-hydrodynamics}. J.~Comput.~Phys.~475, 111851.}
+\aporta{Muestra que los términos no conservativos de Godunov--Powell no son opcionales: sin ellos la discretización pierde estabilidad de entropía en regímenes fuertemente magnetizados.}
+\dondeM{Cap.~2 (l.\,463 ×2): obligatoriedad de incluir $-\Psi B^j$ y $-\Psi(\mathbf v\!\cdot\!\mathbf B)$ en momento y energía, y su papel como garantía de que la dinámica satisface localmente la segunda ley. Apéndice~A (l.\,40): equivalencia con la escritura de \clave{miranda2014}.}
+\dondeD{\textbf{L\,12} (los términos en las ecuaciones que integra el código) y \textbf{L\,13} «compatibilidad termodinámica».}
+\porque{Es la referencia moderna que da el argumento \emph{termodinámico}, no solo el de estabilidad práctica. Convierte «lo pusimos porque funciona» en «es obligatorio por consistencia con la segunda ley».}
+\pregunta{¿Por qué añaden términos no conservativos a un esquema conservativo?}{Porque los monopolos espurios ($\nabla\!\cdot\!\mathbf B\neq0$) inducen una fuerza de Lorentz artificial paralela a $\mathbf B$; los términos de Godunov--Powell la compensan y restauran la estabilidad de entropía. Sin ellos el esquema es conservativo pero no entrópicamente estable, que es peor.}
+\end{ficha}
+
+\begin{ficha}{Dumbser, Lucca, Peshkov \& Zanotti (2025), Maxwell-GLM variacional}{dumbser-2025}
+\refe{Dumbser, M., Lucca, A., Peshkov, I. \& Zanotti, O. (2025). \textit{Variational derivation and compatible discretizations of the Maxwell-GLM system}. Proc.~R.~Soc.~A 481(2321).}
+\aporta{Deriva el sistema Maxwell-GLM variacionalmente y muestra que es un \textbf{sistema hiperbólico simétrico termodinámicamente compatible (SHTC)}.}
+\dondeM{Cap.~2 (l.\,320), como tercera razón —junto a la estructura matricial del solver y al acoplamiento Godunov--Powell— por la que la forma de primer orden es obligatoria y no una convención.}
+\nocitada
+\porque{Es la referencia más reciente del trabajo y cierra el argumento estructural: la forma de primer orden no es una comodidad de implementación, sino la que revela la estructura matemática correcta del sistema.}
+\pregunta{¿SHTC no es un formalismo posterior al código? ¿Cómo lo usan?}{No se usa para diseñar el esquema, sino para \emph{caracterizarlo a posteriori}: justifica por qué la formulación de primer orden es la buena. Es una cita de respaldo estructural, y así está presentada.}
+\end{ficha}
+
+%=====================================================================
+\chapter{Bloque D --- Métodos numéricos}
+
+\begin{ficha}{Toro (2009), \textit{Riemann Solvers and Numerical Methods for Fluid Dynamics}}{toro-2009}
+\refe{Toro, E.~F. (2009). \textit{Riemann Solvers and Numerical Methods for Fluid Dynamics: A Practical Introduction}, 3.\textsuperscript{a} ed., Springer.}
+\aporta{El manual estándar de volúmenes finitos: formulación integral, problema de Riemann en la interfaz, familia de esquemas centrados (Lax--Friedrichs) y condiciones de Rankine--Hugoniot.}
+\dondeM{Cap.~4: aproximación del flujo de interfaz $\hat{\mathbf F}\approx\mathbf F(\mathbf U_L,\mathbf U_R)$ y \textit{dimensional splitting} (l.\,25); necesidad de reconstrucción de orden superior para no destruir la KHI antes de saturar (l.\,36); virtudes prácticas del HLL frente a HLLC (l.\,96); flujo tipo Lax--Friedrichs para el sector GLM con disipación parametrizada por $c_h$ (l.\,116).}
+\dondeD{\textbf{L\,57} (anexo B14--B17, síntesis del método) y \textbf{L\,58} (anexo B14: volúmenes finitos y Rankine--Hugoniot).}
+\porque{Es la referencia de \emph{lenguaje común}: cualquier jurado numérico reconoce Toro, de modo que las decisiones del código quedan expresadas en vocabulario estándar y no en jerga del grupo.}
+\pregunta{¿Por qué la formulación integral es obligatoria y no una preferencia?}{Porque las soluciones débiles con choques no satisfacen la forma diferencial; solo la integral, vía Rankine--Hugoniot, da velocidades de choque correctas. Es el contenido de la lámina de anexo B14.}
+\end{ficha}
+
+\begin{ficha}{Suresh \& Huynh (1997), esquemas MP con Runge--Kutta}{suresh-1997}
+\refe{Suresh, A. \& Huynh, H.~T. (1997). \textit{Accurate Monotonicity-Preserving Schemes with Runge--Kutta Time Stepping}. J.~Comput.~Phys.~136(1), 83--99.}
+\aporta{\textbf{La formulación original del MP5}: interpolación de quinto orden sobre un \textit{stencil} simétrico de cinco puntos con un limitador que preserva monotonía sin recortar extremos suaves.}
+\dondeM{Cap.~4 (l.\,42): «la reconstrucción en \textit{Cueva} exige un esquema \textit{Monotonicity-Preserving} de quinto orden (MP5), formulado por Suresh \& Huynh y adoptado en \textit{Cueva}».}
+\dondeD{\textbf{L\,57} (anexo, papel de MP5 en la vorticidad/enstrofía) y \textbf{L\,59} (anexo B15: «Reconstrucción de 5.\textsuperscript{o} orden»).}
+\porque{Es la referencia que explica por qué MP5 y no MUSCL o WENO: preserva monotonía \emph{sin} aplanar extremos suaves, y en una KHI los extremos suaves son precisamente los vórtices que se quieren medir. Un limitador convencional destruiría la enstrofía antes de la saturación.}
+\pregunta{¿Por qué MP5 y no WENO5?}{Ambos son de quinto orden; MP5 es más barato y su limitador está diseñado para no confundir un extremo suave con una oscilación espuria. Como el observable central es la enstrofía de perturbación —sensible justamente a extremos suaves de vorticidad—, aplanarlos sesgaría la medición. El argumento está en Cap.~4, l.\,36--42.}
+\end{ficha}
+
+\begin{ficha}{Pareschi \& Russo (2005), esquemas IMEX Runge--Kutta}{pareschi-2005}
+\refe{Pareschi, L. \& Russo, G. (2005). \textit{Implicit--Explicit Runge--Kutta Schemes and Applications to Hyperbolic Systems with Relaxation}. J.~Sci.~Comput.~25(1), 129--155.}
+\aporta{\textbf{La familia IMEX-RK SSP} para sistemas hiperbólicos con relajación: la parte hiperbólica se integra explícitamente y el término fuente rígido implícitamente, conservando el orden y la propiedad SSP.}
+\dondeM{Cap.~4 (l.\,135): la partición $\partial_t\mathbf U=\mathcal F(\mathbf U)+\mathcal S(\mathbf U)$ con $\mathcal F$ explícito y $\mathcal S$ implícito.}
+\dondeD{\textbf{L\,60} (anexo B16: «Rigidez resistiva e integración IMEX--RK»), en el bloque «Partición de operadores».}
+\porque{Es la referencia \emph{estructural} del integrador temporal. La RRMHD en el límite $\sigma\to\infty$ es exactamente un sistema hiperbólico con relajación: el encaje es literal, no analógico.}
+\pregunta{¿El IMEX preserva el límite ideal correctamente?}{Esa es la propiedad de \emph{asymptotic preserving} que la familia de Pareschi--Russo está diseñada para garantizar: al aumentar $\sigma$ el esquema tiende al sistema ideal sin que $\Delta t$ colapse. La condición que lo respalda formalmente es la subcaracterística de \clave{liu-1987}.}
+\end{ficha}
+
+\begin{ficha}{Liu (1987), leyes de conservación hiperbólicas con relajación}{liu-1987}
+\refe{Liu, T.-P. (1987). \textit{Hyperbolic conservation laws with relaxation}. Commun.~Math.~Phys.~108(1), 153--175.}
+\aporta{\textbf{La condición subcaracterística}: para que un sistema con relajación sea estable, las velocidades características del sistema de equilibrio deben estar contenidas en las del sistema completo.}
+\dondeM{Cap.~4 (l.\,77): condición que debe satisfacer el sistema para que la integración sea causalmente estable cuando $\tau\sim1/\sigma$.}
+\nocitada
+\porque{Es la referencia \emph{matemática} que respalda que el tratamiento IMEX no es solo eficiente sino \emph{correcto}. Sin ella, el argumento de la rigidez sería solo de coste computacional.}
+\pregunta{¿Cómo saben que el límite $\sigma\to\infty$ de su sistema es la RMHD ideal y no otra cosa?}{Porque la condición subcaracterística de Liu se satisface: las velocidades del sistema de equilibrio (RMHD ideal) están contenidas en las del sistema RRMHD completo, cuyas características incluyen la luz. Si no se cumpliera, la relajación sería inestable y el límite no existiría.}
+\end{ficha}
+
+\begin{ficha}{Aloy \& Cordero-Carrión (2016), métodos MIRK}{Aloy\_Cordero-Carrion:2016}
+\refe{Aloy, M.~Á. \& Cordero-Carrión, I. (2016). \textit{Minimally implicit Runge-Kutta methods for Resistive Relativistic MHD}. J.~Phys.~Conf.~Ser.~719(1), 012015.}
+\aporta{Familia alternativa a IMEX (\textit{Minimally Implicit Runge--Kutta}) diseñada específicamente para la rigidez del término de Ohm en RRMHD.}
+\dondeM{Cap.~3 (l.\,156): al plantear que un integrador explícito requeriría $\Delta t\sim\sigma^{-1}$; Cap.~2 (l.\,504): junto a \clave{miranda-aranguren-2018}, para justificar los esquemas temporales tipo IMEX ante las capas límite resistivas $\delta\sim S^{-1/2}$.}
+\nocitada
+\porque{Muestra que la rigidez es un problema \emph{reconocido y activo} en la comunidad, con más de una solución. Refuerza que la elección de IMEX es informada, no la única opción por desconocimiento.}
+\pregunta{¿Por qué IMEX y no MIRK?}{Porque IMEX es lo que implementa \textit{Cueva}, siguiendo la línea de \clave{miranda-aranguren-2018}. MIRK es una alternativa del mismo grupo con menor coste de inversión; su cita reconoce la existencia de la alternativa sin que este trabajo la evalúe.}
+\end{ficha}
+
+\begin{ficha}{Mignone et~al.\ (2024), esquema de cuarto orden para RRMHD}{mignone2024}
+\refe{Mignone, A., Berta, V., Rossazza, M., Bugli, M., Mattia, G., Del Zanna, L. \& Pareschi, L. (2024). \textit{A fourth-order accurate finite volume scheme for resistive relativistic MHD}. MNRAS 533, 1670--1686.}
+\aporta{El estado del arte reciente en esquemas RRMHD de alto orden, motivado por reducir la disipación numérica y resolver las láminas de corriente resistivas.}
+\dondeM{Cap.~4 (l.\,50): identifica la \emph{misma motivación} que \textit{Cueva} y sitúa el código en esa línea metodológica. Cap.~6 (l.\,305 y 686): reconocido como vía para separar disipación numérica de física y como limitación actual del trabajo. Cap.~7 (l.\,40): línea de trabajo futuro.}
+\dondeD{\textbf{L\,26} «No linealidad: ley de potencia de la enstrofía máxima» (resolver sub-láminas) y \textbf{L\,40} «Limitaciones del modelo y trabajo futuro».}
+\porque{Es la cita que \textbf{convierte una limitación en un programa}. Aparece siempre que se admite que la resolución limita el resultado, señalando la ruta concreta de mejora.}
+\pregunta{¿Sus exponentes no lineales podrían cambiar con más resolución?}{Sí, y está declarado: a alta $\sigma$ las láminas se aproximan al límite de resolución espacial, y estudios de convergencia o esquemas de cuarto orden como el de Mignone et~al.\ podrían modificar cuantitativamente los exponentes y resolver mejor el \textit{plateau} ideal (Cap.~6, l.\,686). Declararlo es más sólido que ocultarlo.}
+\end{ficha}
+
+%=====================================================================
+\chapter{Bloque E --- Teoría lineal de la KHI}
+
+Este es el bloque de las \emph{predicciones contrastables}: cada
+referencia aporta un número contra el que se compara una medición.
+
+\begin{ficha}{Acheson (1990), \textit{Elementary Fluid Dynamics}}{acheson-1990}
+\refe{Acheson, D.~J. (1990). \textit{Elementary Fluid Dynamics}. Oxford University Press.}
+\aporta{Derivación clásica de la KHI incompresible: modos normales sobre una discontinuidad tangencial, con el resultado de que $\Im(\omega)>0$ para cualquier $U_1\neq U_2$.}
+\dondeM{Cap.~1 (l.\,21): la KHI se remonta a los teoremas de Kelvin y Helmholtz. Cap.~3: formulación geométrica 2D que sigue el capítulo (l.\,15), conclusión de \textbf{inestabilidad incondicional} en hidrodinámica clásica (l.\,77), y el caso ilustrativo de campo alineado (l.\,84).}
+\nocitada
+\porque{Es el punto de partida pedagógico del Cap.~3: se establece el caso más simple —incondicionalmente inestable— para que cada ingrediente posterior (compresibilidad, relatividad, magnetización) se lea como un mecanismo \emph{estabilizador} añadido. La estructura narrativa del capítulo depende de esta base.}
+\pregunta{Si la discontinuidad tangencial es incondicionalmente inestable, ¿por qué su sistema tiene umbrales?}{Porque el caso de Acheson es incompresible, no relativista y sin campo. Cada ingrediente que se añade introduce un mecanismo restitutivo: compresibilidad da el umbral de Landau ($v/c_s=\sqrt2$), la relatividad lo reescala vía $M_{re}$ (Königl, Bodo), y el campo añade tensión —salvo si es guía, donde solo aporta presión (Chow)—.}
+\end{ficha}
+
+\begin{ficha}{Michalke (1964), inestabilidad del perfil tangente hiperbólico}{michalke1964}
+\refe{Michalke, A. (1964). \textit{On the inviscid instability of the hyperbolic-tangent velocity profile}. J.~Fluid Mech.~19(4), 543--556.}
+\aporta{\textbf{El valor de referencia clásico}: para el perfil $\tanh$, la ecuación de Rayleigh da un máximo de crecimiento adimensional $\hat\omega_i=0.1897$ en $ka\simeq0.4446$.}
+\dondeM{Cap.~6 (l.\,347): el solver propio reproduce $\hat\omega_i=0.190$ en $ka=0.4446$; (l.\,351) leyenda de la figura de validación; (l.\,367 y 376) validación del cálculo compresible de Lees--Lin en el límite incompresible. Apéndice~A (l.\,87): el cálculo numérico con \texttt{scipy.linalg.eig}.}
+\dondeD{\textbf{L\,25} «Contraste con la teoría lineal: la escalera de predicciones» (solver validado contra Michalke) y \textbf{L\,49} (anexo B6: validación del solucionador).}
+\porque{Es \textbf{la prueba de que el instrumento teórico funciona}. Antes de usar el solver de autovalores para predecir el caso magnetizado, hay que demostrar que reproduce un valor publicado. Michalke es ese valor.}
+\pregunta{¿Cómo saben que su solver de la ecuación de Rayleigh es correcto?}{Doble validación: reproduce el máximo clásico de Michalke ($\hat\omega_i=0.190$ en $ka=0.4446$) en el límite incompresible de espesor finito, y reproduce el umbral de \clave{landau1944} ($v/c_s=\sqrt2$) en el límite de \textit{vortex sheet} compresible. Que el mismo código dé ambos es lo que valida la maquinaria (Apéndice~A, l.\,116).}
+\end{ficha}
+
+\begin{ficha}{Landau (1944), estabilidad de discontinuidades tangenciales compresibles}{landau1944}
+\refe{Landau, L.~D. (1944). \textit{On the stability of tangential discontinuities in compressible fluid}. Dokl.~Akad.~Nauk SSSR 44, 139--141.}
+\aporta{\textbf{El umbral compresible}: una discontinuidad tangencial en fluido compresible se estabiliza exactamente en $v/c_s=\sqrt2$. Es el origen histórico de la cota $\sqrt2$ que reaparece en versión relativista.}
+\dondeM{Apéndice~A (l.\,116): segundo límite de validación del solver compresible. Cap.~6 (l.\,367): validación de la ecuación de Lees--Lin.}
+\dondeD{\textbf{L\,49} (anexo B6): «\textit{vortex sheet} compresible $\to$ umbral de Landau $v/c_s=\sqrt2$».}
+\porque{Es la mitad complementaria de la validación: Michalke prueba el caso de \emph{espesor finito incompresible}, Landau el de \emph{espesor nulo compresible}. Cubrir los dos límites deja poco margen a que el solver acierte por casualidad.}
+\pregunta{¿La cota relativista $0<M_{re}<\sqrt2$ es la misma cota de Landau?}{Es su generalización relativista. Landau da $\sqrt2$ en el Mach ordinario para \textit{vortex sheet} compresible; \clave{bodo-2004} obtiene la misma cota pero sobre el Mach \emph{relativista} $M_{re}$ de \clave{konigl1980}, que pondera cada velocidad por su factor de Lorentz. El número coincide, la cantidad a la que se aplica no.}
+\end{ficha}
+
+\begin{ficha}{Bodo, Mignone \& Rosner (2004), KHI 3D en flujo de cizalla magnetizado}{bodo-2004}
+\refe{Bodo, G., Mignone, A. \& Rosner, R. (2004). \textit{Three-dimensional development of the Kelvin-Helmholtz instability in a magnetized shear flow}. Phys.~Rev.~E 70(3), 036304.}
+\aporta{Tratamiento lineal relativista hidrodinámico de la KHI del que sale la \textbf{cota de inestabilidad} $0<M_{re}<\sqrt2$; además, resultados 3D sobre el desarrollo no lineal.}
+\dondeM{Cap.~3 (l.\,132): estabilización por inercia térmica en régimen ultrarrelativista. Cap.~2 (l.\,538): la desviación de $f_{Vz}$ respecto a cero como señal empírica del acoplamiento 3D y de la turbulencia plenamente desarrollada. Cap.~6 (l.\,367): atribución explícita de la cota. Apéndice~A (l.\,72, 77, 116): la cota aplicada a $M_{re}=0.604$ y su validación.}
+\dondeD{\textbf{L\,25}: «Criterio relativista: $M_{re}=0.60<\sqrt2$ $\Rightarrow$ holgadamente inestable».}
+\porque{Es la referencia que da el \textbf{criterio cuantitativo de que el montaje es inestable}, con margen. Sin ella no habría forma de argumentar que el régimen elegido está lejos del corte y no en un borde marginal.}
+\pregunta{¿Cómo saben que su montaje no está cerca del umbral de estabilización?}{$M_{re}=0.604$ frente al corte $\sqrt2\approx1.414$: un factor $2.3$ de margen. El cálculo completo está en el Apéndice~A, l.\,72--77, e incluye la distinción crítica entre $M_f=0.723$ (Mach simple) y $M_{re}=0.604$ (relativista) —usar el equivocado cambiaría el margen.}
+\end{ficha}
+
+\begin{ficha}{Königl (1980), gasdinámica relativista en dos dimensiones}{konigl1980}
+\refe{Königl, A. (1980). \textit{Relativistic gasdynamics in two dimensions}. Phys.~Fluids 23(6), 1083--1090.}
+\aporta{\textbf{La definición del número de Mach relativista} $M_{re}$, que pondera cada velocidad por su factor de Lorentz:
+\[ M_{re}=\frac{v_{\rm sh}}{v_{f\perp}}\sqrt{\frac{1-v_{f\perp}^2}{1-v_{\rm sh}^2}} . \]}
+\dondeM{Apéndice~A (l.\,72): la distinción entre Mach simple y relativista. Cap.~6 (l.\,383): leyenda de la tabla de velocidades y números de Mach del montaje.}
+\dondeD{\textbf{L\,25}, junto a \clave{bodo-2004}, en el criterio de inestabilidad.}
+\porque{Es una referencia \emph{de definición}, y su ausencia sería un error de fondo: aplicar la cota $\sqrt2$ al Mach ordinario ($M_f=0.723$) en vez de al relativista ($M_{re}=0.604$) daría un margen distinto. La cita hace explícito a cuál de los dos se aplica el criterio.}
+\pregunta{En su tabla aparecen $M_s=0.968$, $M_{A,\parallel}=9.37$, $M_f=0.723$ y $M_{re}=0.604$: ¿cuál gobierna?}{$M_{re}$, y solo $M_{re}$. Los otros son diagnósticos. La cota $0<M_{re}<\sqrt2$ está formulada sobre el Mach relativista de Königl, no sobre el cociente simple. El factor de conversión aquí es $0.8346$ ($0.7235\times0.8346=0.604$).}
+\end{ficha}
+
+\begin{ficha}{Osmanov et~al.\ (2008), teoría lineal de la KHI en RMHD planar}{osmanov-2008}
+\refe{Osmanov, Z., Mignone, A., Massaglia, S., Bodo, G. \& Ferrari, A. (2008). \textit{On the linear theory of Kelvin-Helmholtz instabilities of relativistic magnetohydrodynamic planar flows}. A\&A 490(2), 493--500.}
+\aporta{\textbf{Teoría lineal de la KHI relativista magnetizada} con campo alineado: relación de dispersión de grado 8, condición sobre $V_A/c_s$ para activar los modos inestables, y aplicación a la dicotomía morfológica FR\,I/FR\,II.}
+\dondeM{Nueve apariciones. Cap.~1 (l.\,25): baja razón $V_A/c_s$ necesaria. Cap.~3 (l.\,130) estabilización relativista incluso sin campo, (l.\,132) desarrollo del análisis lineal, (l.\,139) \textbf{FR\,I vs.\ FR\,II}. Cap.~2 (l.\,495) umbral $(\mathbf k\!\cdot\!\mathbf B_0)^2$, (l.\,497) reducción asintótica de $\gamma$. Apéndice~A (l.\,72). Cap.~6 (l.\,367) atribución del caso magnetizado alineado, (l.\,682) \textbf{la dispersión de grado 8 no resuelta} como limitación declarada.}
+\dondeD{\textbf{L\,3} «El fenómeno: la KHI en el Universo relativista», \textbf{L\,4} (morfología FR\,I/FR\,II), \textbf{L\,40} (limitaciones: resolver la dispersión completa), \textbf{L\,62} (anexo B18: la dicotomía FR\,I/FR\,II en imágenes).}
+\porque{Es la referencia que hace de \textbf{bisagra entre motivación astrofísica y predicción cuantitativa}: aparece tanto en la lámina de apertura (por qué importa) como en la de limitaciones (qué no se resolvió).}
+\pregunta{¿Por qué no resolvieron la relación de dispersión RMHD completa?}{Está declarado como limitación (Cap.~6, l.\,682): la relación cerrada de grado~8 existe en Osmanov et~al.\ y Chow et~al., pero resolverla en estos parámetros excedía el alcance; en su lugar se usa la ecuación compresible hidrodinámica con la sustitución $c_s\to v_{f\perp}$, geométricamente motivada pero no equivalente. Está listado como trabajo futuro en la lámina 40.}
+\end{ficha}
+
+\begin{ficha}{Chow et~al.\ (2023), análisis lineal de la KHI relativista magnetizada}{chow2023}
+\refe{Chow, A., Rowan, M.~E., Sironi, L., Davelaar, J., Bodo, G. \& Narayan, R. (2023). \textit{Linear analysis of the Kelvin-Helmholtz instability in relativistic magnetized symmetric flows}. MNRAS 524(1), 90--99.}
+\aporta{Generaliza la teoría lineal a \textbf{orientación arbitraria del campo}. Formaliza la distinción decisiva: cuando $\cos\theta=1$ (campo guía perpendicular al plano de la perturbación) el campo aporta \textbf{presión pero no tensión}, y la velocidad restitutiva es la magnetosónica rápida $v_{f\perp}$, no el sonido. Define además la inercia efectiva transversal $w=\rho hW^2+B^2$.}
+\dondeM{Ocho apariciones. Cap.~3 (l.\,132): análisis sistemático para orientaciones arbitrarias. Apéndice~A (l.\,67): \textbf{por qué se usa $v_{f\perp}$ y no $c_s$}; (l.\,72, 77, 116) la cota y su validación. Cap.~2 (l.\,495) umbral de estabilización, (l.\,497) inercia efectiva $w$. Cap.~6 (l.\,367) atribución, (l.\,682) la dispersión de grado 8.}
+\dondeD{\textbf{L\,25}: «el campo aporta presión pero no tensión: la velocidad de restitución es la magnetosónica $v_{f\perp}=0.691$». \textbf{L\,40}: dispersión completa como trabajo futuro.}
+\porque{Es \textbf{la referencia teórica más importante para interpretar la campaña magnética}. Toda la lectura de los resultados por orientación —por qué un campo guía no estabiliza por tensión— descansa en esta distinción. Es también la más reciente del bloque de teoría lineal.}
+\pregunta{¿Por qué sustituyen $c_s$ por $v_{f\perp}$ en la ecuación de Lees--Lin?}{Porque la compresión del modo KH ocurre en el plano $x$--$y$ y $B_z$ es perpendicular a ese plano: su presión magnética se suma a la del gas, de modo que la velocidad restitutiva efectiva es la magnetosónica rápida. Chow et~al.\ lo formalizan para $\cos\theta=1$. Se declara explícitamente que la sustitución escalar está \emph{motivada geométricamente} pero no es equivalente a resolver la dispersión de grado 8.}
+\end{ficha}
+
+\begin{ficha}{Pimentel \& Lora-Clavijo (2019), KHI en fluido magnéticamente polarizado}{pimentel-2019}
+\refe{Pimentel, O.~M. \& Lora-Clavijo, F.~D. (2019). \textit{On the linear and non-linear evolution of the relativistic MHD Kelvin--Helmholtz instability in a magnetically polarized fluid}. MNRAS 490(3), 4183--4193.}
+\aporta{Evolución lineal y no lineal de la KHI relativista; muestra el papel de la inestabilidad como \textbf{mecanismo dinamo} —amplificación de $B$ por estiramiento advectivo de líneas de campo— y la estabilización relativista.}
+\dondeM{Cap.~1 (l.\,23): la KHI como dinamo natural. Cap.~3 (l.\,10): mismo argumento en el capítulo dedicado; (l.\,130) estabilización relativista junto a \clave{osmanov-2008}. Cap.~2 (l.\,497): reducción asintótica de $\gamma$. Cap.~6 (l.\,419): configuraciones magnéticas de referencia para comparar.}
+\dondeD{\textbf{L\,3}: «estiran líneas de campo y amplifican $B$».}
+\porque{Aporta el \emph{significado astrofísico} de lo que se mide: la KHI no solo mezcla, amplifica campo. Es también un grupo colombiano (UIS), lo que da una referencia regional pertinente en la defensa.}
+\pregunta{¿Observaron amplificación de campo en sus simulaciones?}{El trabajo mide enstrofía y observables globales, no un balance dinamo explícito; Pimentel \& Lora-Clavijo se cita como marco interpretativo de por qué la KHI importa magnéticamente. Es honesto decirlo así: la cita es de contexto y de comparación de configuraciones (Cap.~6, l.\,419), no de un resultado replicado.}
+\end{ficha}
+
+\begin{ficha}{Gomes, Domingues \& Mendes (2017), KHI ideal y resistiva con multirresolución}{gomes-2017}
+\refe{Gomes, A.~K.~F., Domingues, M.~O. \& Mendes, O. (2017). \textit{Ideal and Resistive Magnetohydrodynamic Two-Dimensional Simulation of the Kelvin-Helmholtz Instability in the Context of Adaptive Multiresolution Analysis}. TEMA 18(2), 0317.}
+\aporta{Simulación 2D de la KHI en MHD ideal y resistiva, con comparación directa entre ambos regímenes.}
+\dondeM{Cap.~1 (l.\,21) y Cap.~3 (l.\,6): definición de la KHI como fenómeno de cizalladura en la interfaz entre dos flujos.}
+\nocitada
+\porque{Se usa junto a \clave{tian-2016} como par de referencias \emph{definitorias} en la apertura. Su interés adicional es que compara ideal vs.\ resistivo en 2D, que es justo el eje de este trabajo.}
+\pregunta{¿Por qué citan un trabajo de multirresolución si ustedes usan malla uniforme?}{Se cita por el resultado físico (comparación ideal/resistivo en KHI 2D), no por el método adaptativo. La cita aparece en la definición del fenómeno, no en el capítulo de métodos.}
+\end{ficha}
+
+\begin{ficha}{Tian \& Chen (2016), estudio paramétrico 2D de la KHI}{tian-2016}
+\refe{Tian, C. \& Chen, Y. (2016). \textit{Numerical simulations of Kelvin--Helmholtz instability: a two-dimensional parametric study}. ApJ 824(1), 60.}
+\aporta{Barrido paramétrico sistemático de la KHI 2D: precedente metodológico directo del barrido en $\sigma$ de este trabajo.}
+\dondeM{Cap.~1 (l.\,21) y Cap.~3 (l.\,6), en pareja con \clave{gomes-2017}.}
+\nocitada
+\porque{Legitima el diseño experimental: el barrido paramétrico es una metodología establecida en KHI, no una improvisación.}
+\pregunta{¿Su barrido en $\sigma$ tiene precedente?}{Sí: Tian \& Chen hacen un estudio paramétrico 2D en el caso no resistivo, y este trabajo traslada esa metodología al eje de la conductividad en RRMHD, que es el aporte propio.}
+\end{ficha}
+
+%=====================================================================
+\chapter{Bloque F --- Reconexión y fenomenología no lineal}
+
+Este bloque sostiene el resultado más delicado del trabajo: el
+exponente empírico $\alpha_{\rm exp}\approx1.22$ de la ley de potencia
+de la enstrofía máxima frente a $\sigma$.
+
+\begin{ficha}{Parker (1957), mecanismo de Sweet}{parker1957}
+\refe{Parker, E.~N. (1957). \textit{Sweet's mechanism for merging magnetic fields in conducting fluids}. J.~Geophys.\ Res.\ 62(4), 509--520.}
+\aporta{\textbf{El modelo estacionario de Sweet--Parker}: el espesor de la lámina de corriente escala como $\delta\propto S^{-1/2}$ con el número de Lundquist, lo que fija la tasa de reconexión clásica.}
+\dondeM{Cap.~6 (l.\,297): marco teórico clásico del proceso; establece el \emph{piso mínimo} de disipación asociado a una lámina única.}
+\dondeD{\textbf{L\,26} «No linealidad: ley de potencia de la enstrofía máxima», donde se calcula qué daría el escalamiento de lámina única.}
+\porque{Es \textbf{la línea base contra la que se mide el exceso}. El resultado central no lineal del trabajo no es «$\alpha=1.22$» a secas, sino «$\alpha=1.22$ \emph{frente a} lo que predice una lámina única de Sweet--Parker». Sin Parker no hay contraste, solo un número.}
+\pregunta{¿El exponente 1.22 es grande o pequeño?}{Solo tiene sentido relativo: es un factor $\sim2.4$ por encima de lo que daría el escalamiento clásico de lámina única. Ese exceso es el que exige una explicación —la fragmentación por \textit{tearing}—.}
+\end{ficha}
+
+\begin{ficha}{Lyubarsky (2005), reconexión magnética relativista}{lyubarsky2005}
+\refe{Lyubarsky, Y.~E. (2005). \textit{On the relativistic magnetic reconnection}. MNRAS 358(1), 113--119.}
+\aporta{Tratamiento analítico de la reconexión tipo Sweet--Parker en marco relativista: muestra que, pese a la inercia relativista, la dependencia $\propto\sigma^{-1/2}$ del espesor se preserva.}
+\dondeM{Cap.~3 (l.\,160): modos secundarios de reconexión en sub-capas $\delta\sim S^{-1/2}$. \textbf{Cap.~6 (l.\,297): la justificación explícita} de que usar la dependencia clásica $\propto\sigma^{-1/2}$ como métrica de referencia es legítimo en un sistema relativista.}
+\dondeD{\textbf{L\,26}, junto a \clave{parker1957}.}
+\porque{Es la \textbf{cita que cierra el hueco lógico}: Parker es no relativista, y sin Lyubarsky un jurado podría objetar que el escalamiento clásico no aplica. Esta referencia autoriza el uso del $-1/2$ en régimen relativista.}
+\pregunta{¿Pueden usar Sweet--Parker, que es newtoniano, en un sistema relativista?}{Sí, y por eso está Lyubarsky (2005): su tratamiento analítico en RRMHD demuestra que la inercia relativista no altera la dependencia $\delta\propto S^{-1/2}$. Es un paso deliberado del argumento, no un descuido (Cap.~6, l.\,297).}
+\end{ficha}
+
+\begin{ficha}{Furth, Killeen \& Rosenbluth (1963), inestabilidades de resistividad finita}{furth1963}
+\refe{Furth, H.~P., Killeen, J. \& Rosenbluth, M.~N. (1963). \textit{Finite-resistivity instabilities of a sheet pinch}. Phys.~Fluids 6(4), 459--484.}
+\aporta{\textbf{El modo \textit{tearing}}: una lámina de corriente de resistividad finita es linealmente inestable y se fragmenta en islas magnéticas.}
+\dondeM{Cap.~3 (l.\,160): modos secundarios de reconexión en las sub-capas resistivas. \textbf{Cap.~6 (l.\,299): la explicación del exceso} $\alpha_{\rm exp}\approx1.22$ como firma de reconexión no lineal con \textit{tearing} secundario.}
+\dondeD{\textbf{L\,26}: «el exceso ($\alpha\approx1.22$, factor $\sim2.4$) sugiere que la lámina primaria se fragmenta (modo \textit{tearing}) multiplicando la superficie disipativa», con la atribución explícita a Furth, Killeen \& Rosenbluth 1963.}
+\porque{Es la referencia que aporta el \textbf{mecanismo}, no solo el número. La cadena completa del argumento no lineal es: Parker da el piso $\to$ Lyubarsky lo autoriza en relativista $\to$ la medición lo excede en $\sim2.4$ $\to$ Furth explica el exceso por fragmentación $\to$ Nastro et~al.\ corroboran la firma en enstrofía.}
+\pregunta{¿Tienen evidencia directa de \textit{tearing} o es una inferencia?}{Es una inferencia, y el texto lo declara: «al carecer en el presente análisis de métricas morfológicas directas, esta interpretación topológica mantiene carácter de hipótesis» (Cap.~6, l.\,299). Lo que se mide es el exponente; el \textit{tearing} es la explicación más económica del exceso.}
+\end{ficha}
+
+\begin{ficha}{Nastro, Fontane \& Joly (2022), crecimiento óptimo en chorro de densidad variable}{nastro2022}
+\refe{Nastro, G., Fontane, J. \& Joly, L. (2022). \textit{Optimal growth over a time-evolving variable-density jet at Atwood number $|At|=0.25$}. J.~Fluid Mech.~936, A35.}
+\aporta{Dos cosas distintas y ambas esenciales: (i) la \textbf{definición operativa de la enstrofía de perturbación} —restar el promedio longitudinal inicial para eliminar la vorticidad de fondo—; (ii) la \textbf{convención de tasas}: $\sigma_Z=(1/Z)\,dZ/dt$ para la enstrofía y $\sigma_{\rm KH}$ para el modo primario, con la relación $\sigma_Z=2\sigma_{\rm KH}$; (iii) el fenómeno de inyección de enstrofía por inestabilidades secundarias sobre vórtices enrollados.}
+\dondeM{\textbf{Cap.~2 (l.\,542): la definición del observable central del trabajo.} Cap.~6 (l.\,299): consistencia de la interpretación de \textit{tearing}; (l.\,404) la nota que aclara el conflicto de notación (en esa literatura la tasa se denota $\sigma$, que aquí es la conductividad).}
+\dondeD{\textbf{L\,15} «El observable: vorticidad y enstrofía de perturbación» y \textbf{L\,26}.}
+\porque{Es \textbf{la referencia metodológica del observable}. Si el jurado pregunta «¿por qué esa definición de enstrofía y no otra?», la respuesta no es una elección propia sino una convención publicada, lo que hace los números comparables con la literatura.}
+\pregunta{¿Por qué restan el promedio longitudinal inicial?}{Porque la condición base tiene vorticidad inherente masiva (la capa de cizalla misma) que contaminaría la medición del modo inestable. Siguiendo a Nastro et~al., se define el campo de vorticidad \emph{perturbada} euleriana restando ese promedio, con lo que la enstrofía mide el crecimiento del modo y no el equilibrio (Cap.~2, l.\,542).}
+\pregunta{En sus figuras, ¿$\sigma$ es conductividad o tasa de crecimiento?}{Conductividad, siempre. La monografía advierte explícitamente que en la literatura de turbulencia KHI $\sigma$ denota la tasa (Cap.~6, l.\,404); por eso aquí la tasa se escribe $\hat\omega$ o $\gamma_{\rm KHI}$, nunca $\sigma$. La relación $\sigma_Z=2\sigma_{\rm KH}$ explica el factor 2 entre la tasa de la enstrofía ($2\hat\omega=0.206$) y la del modo ($\hat\omega=0.103$).}
+\end{ficha}
+
+%=====================================================================
+\chapter{Bloque G --- Metodología, validación y contexto}
+
+\begin{ficha}{Lecoanet et~al.\ (2016), \textit{benchmark} no lineal validado de la KHI}{lecoanet2016}
+\refe{Lecoanet, D., McCourt, M., Quataert, E., Burns, K.~J., Vasil, G.~M., Oishi, J.~S., Brown, B.~P., Stone, J.~M. \& O'Leary, R.~M. (2016). \textit{A validated non-linear Kelvin-Helmholtz benchmark for numerical hydrodynamics}. MNRAS 455(4), 4274--4288.}
+\aporta{\textbf{Demuestra que la KHI 2D ideal no tiene límite de convergencia natural}: el ruido numérico induce inestabilidades secundarias espurias de longitud de onda arbitrariamente pequeña, de modo que refinar la malla no converge a una solución única. Solo con difusión explícita el problema queda bien planteado.}
+\dondeM{Cap.~6 (l.\,425): «la KHI 2D \emph{ideal} carece de un límite de convergencia natural [\ldots] la difusión explícita se vuelve un requisito para obtener una tasa de crecimiento de enstrofía físicamente reproducible».}
+\dondeD{\textbf{L\,27} «Variables globales: la firma electromagnética de $\sigma$»: «la $\eta$ explícita es la que da significado».}
+\porque{Es \textbf{la referencia que convierte la resistividad de "complicación añadida" en "requisito de buen planteamiento"}. Da la vuelta a la objeción más natural al diseño del trabajo.}
+\pregunta{¿No sería más limpio simular la KHI ideal y evitar el parámetro extra $\sigma$?}{No: Lecoanet et~al.\ muestran que la KHI 2D ideal está \emph{mal planteada} numéricamente —sin difusión explícita, el resultado depende de la malla y no converge—. La resistividad finita del marco RRMHD no es un añadido, es lo que hace que la tasa de crecimiento de enstrofía sea una cantidad física reproducible. Ese es el argumento de diseño del estudio completo (Cap.~6, l.\,425).}
+\end{ficha}
+
+\begin{ficha}{Burnham \& Anderson (2002), selección de modelos e inferencia multimodelo}{burnham-anderson-2002}
+\refe{Burnham, K.~P. \& Anderson, D.~R. (2002). \textit{Model Selection and Multimodel Inference: A Practical Information-Theoretic Approach}, 2.\textsuperscript{a} ed., Springer.}
+\aporta{El criterio de información de Akaike, $\mathrm{AIC}=N\ln(\mathrm{RSS}/N)+2\kappa$, y la escala de interpretación de $\Delta\mathrm{AIC}$: diferencias $>10$ constituyen evidencia decisiva.}
+\dondeM{Apéndice~A (l.\,220): justificación del criterio con que se compara el modelo sigmoide \emph{con offset} frente a las alternativas, en la comparación anidada justa sobre $\sigma\ge1600$.}
+\nocitada
+\porque{Es la única referencia \emph{estadística} del trabajo, y sostiene una decisión de fondo: qué forma funcional describe $\gamma_{\rm KHI}(\sigma)$. Sin un criterio publicado, elegir el sigmoide con offset sería sobreajuste declarado por conveniencia.}
+\pregunta{¿Cómo evitaron sobreajustar añadiendo el parámetro de \textit{offset}?}{Con AIC: el término $2\kappa$ penaliza explícitamente el parámetro adicional, y la comparación se hace \emph{anidada y sobre el mismo conjunto de datos} ($\sigma\ge1600$). El umbral $|\Delta\mathrm{AIC}|>10$ como evidencia decisiva es el de Burnham \& Anderson, no un criterio propio.}
+\end{ficha}
+
+\begin{ficha}{Bucciantini \& Del Zanna (2006), KHI local en nebulosas de viento de púlsar}{bucciantini-2006}
+\refe{Bucciantini, N. \& Del Zanna, L. (2006). \textit{Local Kelvin-Helmholtz instability and synchrotron modulation in Pulsar Wind Nebulae}. A\&A 454(2), 393--400.}
+\aporta{Conecta la KHI con un observable concreto: la modulación de la emisión sincrotrón en nebulosas de viento de púlsar; describe los vórtices 3D que enredan las líneas de campo y propician la reconexión local.}
+\dondeM{Cap.~3 (l.\,139): en el pasaje sobre fenomenología astrofísica de la KHI relativista, junto a los choques de recolimación en chorros de AGN y GRB.}
+\nocitada
+\porque{Aporta el eslabón \emph{observacional}: la KHI no solo es un mecanismo de laboratorio numérico, deja firma en datos. Es la referencia que responde al «¿y esto se ve?».}
+\pregunta{¿Hay evidencia observacional de la KHI en plasmas relativistas?}{Indirecta pero concreta: la modulación sincrotrón en PWN (Bucciantini \& Del Zanna 2006) y la dicotomía morfológica FR\,I/FR\,II en radiogalaxias (\clave{osmanov-2008}). En el caso no relativista la evidencia es directa: vórtices KH enrollados observados \textit{in situ} en la magnetopausa terrestre.}
+\end{ficha}
+
+%=====================================================================
+\chapter{Higiene bibliográfica: lo que conviene saber antes de la defensa}
+
+Esta sección no es parte del argumento científico, pero evita
+sorpresas si algún jurado revisa los archivos \texttt{.bib}.
+
+\section{Referencias que aparecen en un documento y no en el otro}
+
+\subsection*{Solo en las diapositivas (2, ambas inocuas)}
+\begin{itemize}
+  \item \clave{Dedner-2002} y \clave{goedbloed-2004} --- no son referencias nuevas:
+        son \emph{claves distintas} para obras que la monografía ya cita como
+        \clave{Dedner\_etal:2002} y \clave{goedbloed-2004A}. Tras la corrección
+        de las entradas, ambas claves resuelven a la misma obra en los dos archivos.
+\end{itemize}
+
+\noindent\textcolor{verdeok}{\textbf{Resuelto:}} \clave{yamada-2010} figuraba aquí como
+el único caso real de cita presente en el deck y ausente de la monografía. El argumento
+de separación de escalas fluido/cinética se incorporó al Cap.~2 (final de
+§\,La Ecuación Constitutiva Covariante), con lo que la lámina 10 queda respaldada.
+
+\subsection*{Solo en la monografía (19)}
+\clave{Aloy\_Cordero-Carrion:2016}, \clave{acheson-1990}, \clave{bachman-2006},
+\clave{baez-muniain-1994}, \clave{bucciantini-2006}, \clave{burnham-anderson-2002},
+\clave{dumbser-2025}, \clave{gomes-2017}, \clave{gomes2015}, \clave{hehl-obukhov-2003},
+\clave{liu-1987}, \clave{misner1973}, \clave{munz2000}, \clave{nakahara-2003},
+\clave{schutz2009}, \clave{tian-2016}, \clave{vargas-2014}, más las variantes de clave
+\clave{Dedner\_etal:2002} y \clave{goedbloed-2004A}.
+
+Esto es normal y no requiere acción: un deck de 45 minutos no puede
+sostener la misma densidad bibliográfica que 200 páginas. La dirección
+que importa es la contraria (nada en el deck que no esté en la
+monografía), y en esa dirección ya no queda ningún caso pendiente.
+
+\section{Discrepancias entre los dos archivos \texttt{.bib}}
+
+\subsection*{Corregidas}
+\begin{itemize}
+  \item \textcolor{verdeok}{\textbf{\clave{komissarov-2007}}}: el deck daba páginas
+        995--1020 y el título con guion («Multi-dimensional\ldots{} resistive relativistic
+        MHD»). Verificado contra Crossref (DOI \texttt{10.1111/j.1365-2966.2007.12448.x}),
+        lo correcto es \textit{Multidimensional numerical scheme for resistive relativistic
+        magnetohydrodynamics}, MNRAS \textbf{382}(3), \textbf{995--1004}. Corregidas ambas
+        entradas del deck (\clave{komissarov-2007} y \clave{Komissarov2007}) y añadido el DOI.
+  \item \textcolor{verdeok}{\textbf{\clave{goedbloed-2004}}}: en
+        \texttt{monografia/references.bib} apuntaba a una \emph{reseña} del libro en
+        \textit{J.~Fluid Mech.}~519 (pp.~377--379). Sustituida por la entrada
+        \texttt{@book} del libro, de modo que la clave resuelve a la misma obra en los
+        dos archivos. La monografía sigue citando el libro con \clave{goedbloed-2004A}.
+\end{itemize}
+
+\subsection*{Pendientes (cosméticas, ninguna de las dos está citada)}
+\begin{itemize}
+  \item \textbf{\clave{drazin-2004}}: declarada como \texttt{@article} con
+        \texttt{journal = \{Cambridge University Press\}} en el \texttt{.bib} del deck.
+        Es un libro. No está citada, pero conviene corregir el tipo.
+  \item \textbf{\clave{zrake-2016}}: los dos archivos le asignan \emph{títulos distintos}
+        con el mismo DOI («Freely Decaying Turbulence in Force-Free Electrodynamics» vs.
+        «Turbulent dynamo in a collisionless plasma»). No está citada en ningún documento.
+\end{itemize}
+
+\section{Claves duplicadas dentro del mismo archivo}
+
+Ambos \texttt{.bib} contienen pares de claves para la misma obra:
+
+\begin{itemize}
+  \item \clave{acheson-1990} / \clave{acheson1990}
+  \item \clave{harten-1983} / \clave{harten1983} / \clave{HLL:1983}
+  \item \clave{palenzuela-2009} / \clave{palenzuela2009}
+  \item \clave{takamoto-2011} / \clave{takamoto2011}
+  \item \clave{goedbloed-2004A} / \clave{goedbloed-2004B}
+  \item \clave{miranda-aranguren-2018} / \clave{miranda2018}, y varias más.
+\end{itemize}
+
+Son inofensivas —\texttt{biber} solo procesa las citadas— pero explican
+por qué el archivo de la monografía tiene 82 entradas frente a 44 citas.
+
+\section{Dos referencias que parecen la misma y no lo son}
+
+\clave{miranda-aranguren-2014} y \clave{miranda2014} son \textbf{dos
+proceedings distintos} del mismo grupo:
+
+\begin{itemize}
+  \item \clave{miranda-aranguren-2014}: ASTRONUM~2013, ASP Conf.~Ser.~488, p.~249.
+  \item \clave{miranda2014}: IAU Symposium~302, vol.~9, pp.~64--65.
+\end{itemize}
+
+Si alguien señala «esto está citado dos veces», la respuesta es que son
+publicaciones diferentes: la primera presenta el proyecto del código, la
+segunda escribe el sistema de ecuaciones con la forma de Godunov--Powell
+que el Apéndice~A verifica contra el módulo \texttt{11\_elecvarint.f95}.
+
+%=====================================================================
+\chapter{Guion rápido: la bibliografía en cinco minutos}
+
+Si en la defensa hay que resumir de dónde viene todo, este es el orden:
+
+\begin{enumerate}\itemsep4pt
+  \item \textbf{El modelo lo define Komissarov (2007)} y lo implementa el
+        grupo de Miranda-Aranguren, Aloy \& Rembiasz (2018): ese par
+        identifica sin ambigüedad qué ecuaciones integra \textit{Cueva}.
+  \item \textbf{La resistividad no es un lujo}: Komissarov (2007) muestra que
+        en MHD ideal la reconexión es error de truncamiento, y Lecoanet
+        et~al.\ (2016) muestra que sin difusión explícita la KHI 2D ni
+        siquiera converge. Las dos juntas justifican el trabajo entero.
+  \item \textbf{El montaje es reproducible}: Mizuno (2013), Test 35A.
+  \item \textbf{El observable está definido por convención publicada}:
+        Nastro et~al.\ (2022), enstrofía de perturbación y $\sigma_Z=2\sigma_{\rm KH}$.
+  \item \textbf{La teoría lineal se valida por dos límites independientes}:
+        Michalke (1964) y Landau (1944); solo entonces se usa el solver
+        para predecir el caso magnetizado con Bodo (2004), Königl (1980),
+        Osmanov et~al.\ (2008) y Chow et~al.\ (2023).
+  \item \textbf{El resultado no lineal se interpreta en cadena}: Parker
+        (1957) da el piso, Lyubarsky (2005) lo autoriza en relativista,
+        el exceso medido de $\sim2.4$ se explica por \textit{tearing}
+        (Furth et~al.\ 1963) y la firma es consistente con Nastro et~al.\ (2022).
+  \item \textbf{Las limitaciones tienen ruta de salida}: Mignone et~al.\ (2024),
+        cuarto orden para resolver las láminas resistivas.
+\end{enumerate}
+
+\end{document}

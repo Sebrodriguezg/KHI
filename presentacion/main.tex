@@ -23,6 +23,7 @@
 \usepackage{amsmath,amssymb,mathtools}
 \usepackage{physics}
 \usepackage{graphicx}
+\usepackage{animate} % animaciones embebidas (movies de simulación); reproduce en Adobe Reader/Okular
 \usepackage{booktabs,array}
 \usepackage{xcolor}
 \usepackage{tikz}
@@ -159,7 +160,7 @@
   Bryan Martinez Anzola \and Sebasti\'an Rodriguez Garcia\\[2pt]
   {\scriptsize Director: Prof.\ Ph.D.\ Sergio Miranda-Aranguren}}
 \institute[UD]{Universidad Distrital Francisco Jos\'e de Caldas}
-\date{Bogot\'a, Julio 2026}
+\date{Bogot\'a, Agosto 2026}
 
 %==============================================================================
 
@@ -218,7 +219,7 @@
   {\color{gold}\scriptsize\bfseries Universidad Distrital Francisco Jos\'e de Caldas}\\
   {\color{INF8!70}\tiny Facultad de Ciencias Matem\'aticas y Naturales
     $\cdot$ Programa Acad\'emico de F\'isica}\\[2pt]
-  {\color{INF8!60}\tiny Bogot\'a, Julio de 2026}
+  {\color{INF8!60}\tiny Bogot\'a, Agosto de 2026}
 \end{column}
 \begin{column}{0.36\textwidth}
   \vspace{0.3cm}
@@ -258,6 +259,7 @@
   \end{tcolorbox}
   \pause\vspace{0.15cm}
   {\scriptsize\color{primary}\textbf{Herramienta:} c\'odigo \texttt{Cueva}
+   (\textit{Computing Unit for Environments in Astrophysics})
    \citep{miranda-aranguren-2014,miranda-aranguren-2018} ---
    RRMHD en volumenes finitos, 2D.\\
    \textbf{Datos:} $44$ simulaciones (barrido en $\sigma$)
@@ -297,6 +299,7 @@
             vientos magnetizados, eyecciones de objetos compactos.
       \item Gobierna \textbf{mezcla y frenado} (\textit{entrainment}):
             morfolog\'ia FRI vs.\ FRII \citep{osmanov-2008}.
+            \hfill{\tiny[resp.\ B18]}
       \item Act\'ua como \textbf{d\'inamo}: los v\'ortices estiran las l\'ineas
             de campo y amplifican $B$ \citep{pimentel-2019}.
     \end{itemize}
@@ -305,34 +308,67 @@
 \begin{column}{0.46\textwidth}
   \only<1>{%
   \begin{center}
-    \includegraphics[width=\linewidth]{figures/contexto_jet.pdf}\figtag\\[2pt]
-    {\tiny\color{INF3} Capa de cizalla en la frontera de un chorro de AGN:
-     el contraste $\mathbf{v}\sim c$ / medio en reposo es
-     inherentemente inestable frente a la KHI.}
-  \end{center}}%
-  \only<2>{%
-  \begin{center}
     \vspace{0.35cm}
     \includegraphics[width=\linewidth]{figures/KHI_una_interfaz.pdf}\\[4pt]
     {\tiny\color{INF3} La KHI en esquema: dos medios con cizalla tangencial
      ($U_1>U_2$); la interfaz perturbada $\eta(x,t)$ crece a costa de la
      energ\'ia libre de la cizalla.}
   \end{center}}%
-  \only<3>{%
+  \only<2>{%
   \begin{center}
-    \includegraphics[height=0.62\textheight]{figures/khi_rho_snapshot_slide.pdf}\\[4pt]
-    {\tiny\color{INF3} La KHI en nuestras simulaciones: densidad $\rho(x,y)$
-     ($\sigma=1000$, $t=8$) --- la interfaz ya enrollada en v\'ortices.}
-  \end{center}}%
-  \only<4>{%
-  \begin{center}
-    \vspace{0.25cm}
-    \includegraphics[width=0.96\linewidth]{figures/khi_clouds_photo.jpg}\\[4pt]
-    {\tiny\color{INF3} La KHI en el cielo: nubes Kelvin--Helmholtz reales
-     (foto: Astronautilus, Wikimedia Commons, CC~BY~2.0).}
+    \includegraphics[width=\linewidth]{figures/contexto_jet.pdf}\figtag\\[2pt]
+    {\tiny\color{INF3} Capa de cizalla en la frontera de un chorro de AGN:
+     el contraste $\mathbf{v}\sim c$ / medio en reposo es
+     inherentemente inestable frente a la KHI.}
   \end{center}}%
 \end{column}
 \end{columns}
+\end{frame}
+
+%------------------------------------------------------------------------------
+% S3b · GALERÍA A PANTALLA COMPLETA (ronda 5): objetos reales -> simulación -> nubes
+%   Orden pedido: Centaurus A (FR I) -> Cygnus A (FR II) -> nuestra simulación
+%   -> nubes KH. Material ilustrativo de archivo: el trabajo NO modela ninguna
+%   fuente concreta (ver respaldo B18).
+%------------------------------------------------------------------------------
+\begin{frame}[plain]
+\begin{tikzpicture}[remember picture,overlay]
+  \fill[INF0] (current page.south west) rectangle (current page.north east);
+  \node at (current page.center) {%
+    \only<1>{\includegraphics[width=\paperwidth,height=\paperheight,keepaspectratio]%
+             {figures/astro/cenA_jets.jpg}}%
+    \only<2>{\includegraphics[width=\paperwidth,height=\paperheight,keepaspectratio]%
+             {figures/astro/cygA_vla.jpg}}%
+    \only<3>{\includegraphics[width=0.93\paperwidth,height=0.90\paperheight,keepaspectratio]%
+             {figures/khi_rho_snapshot_slide.pdf}}%
+    \only<4>{\includegraphics[width=\paperwidth,height=\paperheight,keepaspectratio]%
+             {figures/khi_clouds_photo.jpg}}%
+  };
+  \node[anchor=south west,align=left,font=\tiny,text=soft,
+        text width=0.93\paperwidth,inner sep=0pt,fill=INF0,fill opacity=0.72,
+        text opacity=1,inner xsep=4pt,inner ysep=3pt]
+       at ([shift={(3mm,3mm)}]current page.south west) {%
+    \only<1>{\textbf{Centaurus A (NGC\,5128)} --- la radiogalaxia \textbf{FR\,I}
+      m\'as cercana: los chorros del agujero negro central inflan l\'obulos que
+      se descolimanan. La frontera chorro/medio es justamente el tipo de capa
+      de cizalla que estudiamos.\\
+      {\color{gold}Composici\'on \'optico\,$+$\,submilim\'etrico\,$+$\,rayos X:
+       ESO/WFI; MPIfR/ESO/APEX/A.~Weiss et al.; NASA/CXC/CfA/R.~Kraft et al.
+       (CC~BY~4.0).}}%
+    \only<2>{\textbf{Cygnus~A (3C\,405)} --- el arquetipo \textbf{FR\,II}:
+      chorros \textbf{colimados} hasta el final, con la energ\'ia depositada en
+      \emph{puntos calientes} terminales. FR\,I vs.\ FR\,II es la dicotom\'ia
+      morfol\'ogica que la KHI ayuda a explicar \citep{osmanov-2008}.\\
+      {\color{gold}Radio, VLA: NRAO/AUI, dominio p\'ublico.}}%
+    \only<3>{\textbf{La KHI en nuestras simulaciones} --- densidad $\rho(x,y)$
+      ($\sigma=1000$, $t=8$): la interfaz ya enrollada en v\'ortices.
+      El montaje es una doble capa de cizalla idealizada en 2D: este trabajo
+      \textbf{no} modela ninguna fuente concreta.}%
+    \only<4>{\textbf{La KHI en el cielo} --- nubes Kelvin--Helmholtz reales:
+      el mismo mecanismo, sin relativismo ni campo magn\'etico.\\
+      {\color{gold}Foto: Astronautilus, Wikimedia Commons, CC~BY~2.0.}}%
+  };
+\end{tikzpicture}
 \end{frame}
 
 %------------------------------------------------------------------------------
@@ -340,6 +376,12 @@
 %------------------------------------------------------------------------------
 \begin{frame}{Por Qu\'e Resistiva: los L\'imites del Congelamiento Ideal}
 \framesubtitle{De la RMHD ideal a la RRMHD}
+{\scriptsize\color{INF3}\itshape La \textbf{MHD} estudia la din\'amica de un plasma
+ conductor tratado como un \emph{fluido continuo} acoplado al campo electromagn\'etico
+ que \'el mismo transporta y genera \citep{goedbloed-2004,rezzolla-2013};
+ la RRMHD es su versi\'on relativista con conductividad finita
+ \citep{palenzuela-2009,komissarov-2007}.\par}
+\vspace{0.10cm}
 \begin{columns}[T]
 \begin{column}{0.48\textwidth}
   \begin{tcolorbox}[EQ={Inducci\'on: advecci\'on vs.\ difusi\'on}]
@@ -374,6 +416,7 @@
       \item Escenarios donde es imprescindible: llamaradas de AGN/GRBs,
             magnetosferas de p\'ulsares, zonas turbulentas
             \citep{palenzuela-2009,miranda-aranguren-2018}.
+            \hfill{\tiny[resp.\ B19]}
     \end{itemize}
   \end{tcolorbox}
   \pause\vspace{0.12cm}
@@ -398,18 +441,21 @@
   box/.style={draw=primary,fill=bgwarm,rounded corners=1.5pt,align=center,
               minimum width=2.55cm,minimum height=0.95cm,font=\scriptsize},
   hbox/.style={box,fill=primary,text=soft},
-  lim/.style={-{Stealth[length=2mm]},very thick,accent},
+  % ronda 5: el naranja sobre blanco no se lee en proyector -> flecha violeta
+  % oscuro y r\'otulos en primary (casi negro)
+  lim/.style={-{Stealth[length=2mm]},very thick,violet},
+  rot/.style={above,font=\tiny\bfseries,text=primary},
   note/.style={align=center,font=\tiny,text width=2.75cm,color=INF2}]
   \node[hbox] (rrmhd) {\textbf{RRMHD}\\$0<\sigma<\infty$};
   \node[box,right=1.6cm of rrmhd] (rmhd) {\textbf{RMHD ideal}\\$\mathbf E'=0$ (congelado)};
   \node[box,right=1.6cm of rmhd] (mhd) {\textbf{MHD cl\'asica}};
   \node[box,right=1.6cm of mhd] (hidro) {\textbf{Hidrodin\'amica}\\(Euler)};
-  \draw[lim] (rrmhd) -- node[above,font=\tiny\bfseries]{$\sigma\to\infty$} (rmhd);
-  \draw[lim] (rmhd) -- node[above,font=\tiny\bfseries]{$v\ll c,\ W\to1$} (mhd);
-  \draw[lim] (mhd) -- node[above,font=\tiny\bfseries]{$\mathbf B\to0$} (hidro);
+  \draw[lim] (rrmhd) -- node[rot]{$\sigma\to\infty$} (rmhd);
+  \draw[lim] (rmhd) -- node[rot]{$v\ll c,\ W\to1$} (mhd);
+  \draw[lim] (mhd) -- node[rot]{$\mathbf B\to0$} (hidro);
   \node[box,below=0.95cm of rrmhd,minimum height=0.7cm] (vacio)
     {\textbf{Maxwell en vac\'io}$\;+\;$hidro desacoplada};
-  \draw[lim] (rrmhd) -- node[right,font=\tiny\bfseries]{$\sigma\to0$} (vacio);
+  \draw[lim] (rrmhd) -- node[font=\tiny\bfseries,text=primary,right]{$\sigma\to0$} (vacio);
   \node[note,below=1.5pt of rmhd]{KHI: inestable si\\ $0<M_{re}<\sqrt2$\\
     {\tiny(K\"onigl 1980; Bodo 2004;\\ Chow 2023)}};
   \node[note,below=1.5pt of mhd]{KHI: la \textbf{tensi\'on} estabiliza\\
@@ -518,6 +564,13 @@
 %------------------------------------------------------------------------------
 \begin{frame}{Estructura Covariante del Sistema RRMHD}
 \framesubtitle{Leyes de conservaci\'on invariantes de Lorentz}
+{\scriptsize\color{INF3}\itshape El plasma se concibe como un \textbf{continuo de
+ elementos diferenciales de fluido}: cada elemento sigue su l\'inea de mundo con
+ cuadrivelocidad $u^\mu$ ($u^\mu u_\mu=-1$) y, en equilibrio termodin\'amico local
+ en su marco com\'ovil, queda descrito como \emph{fluido perfecto} por
+ ($\rho,\,p,\,u^\mu$) \citep{rezzolla-2013}: toda la disipaci\'on reside en la ley
+ de Ohm \citep{komissarov-2007}.~{\tiny[resp.\ B9]}\par}
+\vspace{0.10cm}
 \begin{columns}[T]
 \begin{column}{0.48\textwidth}
   \begin{tcolorbox}[RES={Convenciones (v\'alidas en TODA la presentaci\'on)}]
@@ -571,6 +624,13 @@
 %------------------------------------------------------------------------------
 \begin{frame}{La Ley de Ohm Relativista: el Cierre Resistivo}
 \framesubtitle{La ecuaci\'on constitutiva que define el r\'egimen}
+{\scriptsize\color{INF3}\itshape \textbf{Es un modelo de fluido:} vale cuando la escala del
+ fen\'omeno supera por \'ordenes las escalas cin\'eticas. Llamarada solar: l\'amina de
+ corriente $\sim10^4$~km frente a girorradio i\'onico $\sim1$~m ---siete
+ \'ordenes $\Rightarrow$ RRMHD. Reconexi\'on en la magnetopausa: regi\'on de difusi\'on
+ $\sim10^2$~km, el tama\~no mismo de la longitud inercial i\'onica ---sin
+ separaci\'on $\Rightarrow$ cin\'etica \citep{yamada-2010}.\par}
+\vspace{0.10cm}
 \begin{columns}[T]
 \begin{column}{0.50\textwidth}
   \begin{tcolorbox}[EQ={Del marco com\'ovil al laboratorio}]
@@ -672,6 +732,103 @@
 \end{frame}
 
 %------------------------------------------------------------------------------
+% S8b · EL SISTEMA COMPLETO, ECUACIÓN POR ECUACIÓN (nueva, ronda 4)
+%   Transcripción literal de la monografía: Ec. (ap:eq:rrmhd) del Apéndice
+%   "El sistema que resuelve Cueva", con el bloque de Maxwell escrito como en
+%   §2.3 (Ecs. GLM_3D_E..GLM_3D_Psi) para usar kappa_E/kappa_B igual que la
+%   lámina siguiente. Cierre de Ohm: Ec. (ap:eq:ohm). Conservadas: eq:def_conservativas.
+%------------------------------------------------------------------------------
+\begin{frame}{Las Ecuaciones que Integra el C\'odigo}
+\framesubtitle{Forma vectorial 3$+$1 --- las \textbf{14} ecuaciones de evoluci\'on, tal como se resuelven}
+\vspace{-0.10cm}
+\begin{columns}[T]
+\begin{column}{0.485\textwidth}
+  \begin{tcolorbox}[EQ={Maxwell aumentado --- GLM \quad(8 comp.)}]
+    \footnotesize
+    \vspace{0.04cm}
+    \[
+      \begin{aligned}
+        \partial_t\Phi        &= -\nabla\!\cdot\!\mathbf{E}+\rho_q-\kappa_E\Phi\\
+        \partial_t\mathbf{E}  &= \nabla\times\mathbf{B}-\nabla\Phi-\mathbf{J}\\
+        \partial_t\Psi        &= -\nabla\!\cdot\!\mathbf{B}-\kappa_B\Psi\\
+        \partial_t\mathbf{B}  &= -\nabla\times\mathbf{E}-\nabla\Psi
+      \end{aligned}
+    \]
+    \vspace{-0.30cm}
+  \end{tcolorbox}
+\end{column}
+\begin{column}{0.485\textwidth}
+  \begin{tcolorbox}[EQ={Fluido y carga \quad(6 comp.)}]
+    \footnotesize
+    \vspace{0.04cm}
+    \[
+      \begin{aligned}
+        \partial_t D       &= -\nabla\!\cdot\!\mathbf{F}_D\\
+        \partial_t \rho_q  &= -\nabla\!\cdot\!\mathbf{J}\\
+        \partial_t \tau    &= -\nabla\!\cdot\!\mathbf{F}_\tau
+                              -\mathbf{B}\!\cdot\!\nabla\Psi
+                              -\mathbf{E}\!\cdot\!\nabla\Phi\\
+        \partial_t \mathbf{S} &= -\nabla\!\cdot\!\mathbf{F}_S
+                              -(\nabla\!\cdot\!\mathbf{B})\mathbf{B}
+      \end{aligned}
+    \]
+    \vspace{-0.30cm}
+  \end{tcolorbox}
+\end{column}
+\end{columns}
+
+\vspace{0.12cm}
+\pause
+\begin{columns}[T]
+\begin{column}{0.485\textwidth}
+  \begin{tcolorbox}[RES={Cierre resistivo --- ley de Ohm relativista}]
+    \footnotesize
+    \vspace{0.04cm}
+    \[
+      \mathbf{J}=\sigma W\bigl[\mathbf{E}+\mathbf{v}\times\mathbf{B}
+      -(\mathbf{E}\!\cdot\!\mathbf{v})\mathbf{v}\bigr]+\rho_q\mathbf{v}
+    \]
+    \vspace{-0.32cm}
+    \begin{center}{\tiny\color{INF2}
+      \'Unico acople resistivo y \'unico t\'ermino \textbf{r\'igido}:
+      $\sigma\to\infty$ obliga a $\mathbf{E}=-\mathbf{v}\times\mathbf{B}$ (ideal).}
+    \end{center}
+  \end{tcolorbox}
+\end{column}
+\begin{column}{0.485\textwidth}
+  \begin{tcolorbox}[HYP={Variables conservadas y ecuaci\'on de estado}]
+    \footnotesize
+    \vspace{0.04cm}
+    \[
+      \begin{aligned}
+        D      &= \rho W,
+          &\quad \mathbf{S} &= \rho h W^2\mathbf{v}+\mathbf{E}\times\mathbf{B},\\
+        \tau   &= \tfrac12(E^2\!+\!B^2)+\rho h W^2-p,
+          &\quad \rho h     &= \rho(1+\varepsilon)+p,\\
+        \varepsilon &= \tfrac{p}{(\Gamma-1)\rho},
+          &\quad W          &= (1-v^2)^{-1/2}
+      \end{aligned}
+    \]
+    \vspace{-0.30cm}
+  \end{tcolorbox}
+\end{column}
+\end{columns}
+
+\vspace{0.10cm}
+\pause
+\begin{center}
+  {\scriptsize\color{INF2}
+   Sistema de \textbf{primer orden} en el tiempo (forma de Dedner): es el que
+   integra \textit{Cueva} y reproduce el de \citet{miranda2014,miranda-aranguren-2018}.
+   Los t\'erminos no conservativos $-(\nabla\!\cdot\!\mathbf B)\mathbf B$ y
+   $-\mathbf B\!\cdot\!\nabla\Psi-\mathbf E\!\cdot\!\nabla\Phi$ son la variante
+   \textbf{Godunov--Powell}; la l\'amina siguiente usa la variante equivalente
+   $-\Psi B^j$, $-\Psi(\mathbf v\!\cdot\!\mathbf B)$ \citep{ruedaramirez2023}
+   ---ambas se anulan id\'enticamente en el continuo.}
+\end{center}
+\end{frame}
+
+%------------------------------------------------------------------------------
 % S9 · SISTEMA CONSERVATIVO 14 VARIABLES
 %------------------------------------------------------------------------------
 \begin{frame}{El Sistema en Forma Fuertemente Conservativa}
@@ -749,6 +906,16 @@
 \end{frame}
 
 %------------------------------------------------------------------------------
+% MOVIE 0 · La enstrofía en movimiento (antes del Observable) — paquete animate
+%------------------------------------------------------------------------------
+\begin{frame}{La Enstrof\'ia en Movimiento: los V\'ortices Concentran la Rotaci\'on}
+\framesubtitle{$\sigma=10000$ can\'onico --- superficie $\omega_z'^{2}(x,y)$ sobre la densidad $\rho$; a la derecha, c\'omo se construye $\Omega_{zp}(t)$ (animaci\'on)}
+\begin{center}
+\animategraphics[autoplay,loop,controls,poster=20,width=\linewidth]{6}{figures/anim_enstrofia/frame-}{0}{70}
+\end{center}
+\end{frame}
+
+%------------------------------------------------------------------------------
 % S11 · OBSERVABLE: ENSTROFÍA
 %------------------------------------------------------------------------------
 \begin{frame}{El Observable: Vorticidad y Enstrof\'ia de Perturbaci\'on}
@@ -811,60 +978,8 @@
 %==============================================================================
 
 %------------------------------------------------------------------------------
-% S12 · VOLÚMENES FINITOS
+% S12 · MÉTODO NUMÉRICO --- movida al respaldo (antesala de B14-B17), ronda 5
 %------------------------------------------------------------------------------
-\begin{frame}{M\'etodo Num\'erico: FV de Alto Orden $+$ IMEX $+$ Primitivas Anal\'iticas}
-\framesubtitle{Volumenes finitos $\cdot$ MP5/HLL $\cdot$ rigidez resistiva $\cdot$ Ferrari--Cardano}
-\begin{columns}[T]
-\begin{column}{0.52\textwidth}
-  \begin{tcolorbox}[EQ={Volumenes finitos (forma integral)}]
-    \scriptsize
-    \[
-      \frac{d\bar{\mathbf U}_i}{dt}
-      =-\frac{1}{\Delta x}\Bigl[\hat{\mathbf F}_{i+1/2}-\hat{\mathbf F}_{i-1/2}\Bigr]
-      +\bar{\mathbf S}_i
-    \]
-    Admite \textbf{choques} (soluciones d\'ebiles, Rankine--Hugoniot) y la
-    conservaci\'on es \textbf{exacta por construcci\'on} \citep{toro-2009}.
-  \end{tcolorbox}
-  \pause
-  \begin{block}{Reconstrucci\'on MP5 $+$ flujo HLL}
-    \scriptsize
-    MP5 (5.º orden) \textbf{no recorta los extremos} $\Rightarrow$ retiene
-    la vorticidad/enstrof\'ia \citep{suresh-1997}; HLL robusto y positivo,
-    su difusi\'on la compensa la agudeza MP5
-    \citep{miranda-aranguren-2018}. \hfill{\tiny[resp.\ B7]}
-  \end{block}
-  \pause
-  \begin{tcolorbox}[RES={Criterio de dise\~no del estudio}]
-    \scriptsize
-    \textbf{Disipaci\'on num\'erica $<$ disipaci\'on f\'isica $\eta$} en todo
-    el barrido: la KHI crece y reconecta por la f\'isica, no por la malla.
-  \end{tcolorbox}
-  \vspace{0.06cm}
-  {\tiny
-   \textbf{CFL} ($\Delta t=\mathrm{CFL}\,\Delta x/\lambda_{\max}$): bajarlo
-   $=$ paso m\'as corto $=$ m\'as estabilidad y m\'as costo
-   ($0.10$ barrido; $0.04$/$0.02$ campa\~na magn\'etica).\\[1pt]
-   \textbf{Primitivas}: cu\'artica en $W$, soluci\'on Ferrari--Cardano
-   $+$ guardias f\'isicas; su robustez define el l\'imite pr\'actico del
-   barrido ($\sigma\le10\,500$). \hfill[detalle: resp.\ B14--B17]}
-\end{column}
-\begin{column}{0.44\textwidth}
-  \pause
-  \begin{center}
-    \includegraphics[width=0.62\linewidth]{figures/celda_3d_flujos.pdf}\figtag\\[3pt]
-    \includegraphics[width=0.97\linewidth]{figures/imex_flow_slide.pdf}\figtag
-  \end{center}
-  \vspace{-0.04cm}
-  {\tiny
-   \textbf{IMEX} (ecuaci\'on en l\'amina 9): la fuente r\'igida
-   $-\sigma\mathbf E$ va impl\'icita (sistema local anal\'itico);
-   $\sigma\to\infty\Rightarrow\mathbf E\to-\mathbf v\times\mathbf B$
-   por construcci\'on.}
-\end{column}
-\end{columns}
-\end{frame}
 
 %------------------------------------------------------------------------------
 % S16 · SETUP
@@ -1033,6 +1148,16 @@
    con $\sigma$ es mon\'otona y limpia.}
 \end{column}
 \end{columns}
+\end{frame}
+
+%------------------------------------------------------------------------------
+% MOVIE 1 · rho en movimiento (paquete animate)
+%------------------------------------------------------------------------------
+\begin{frame}{La KHI en Movimiento: Evoluci\'on de la Densidad}
+\framesubtitle{Un run representativo del barrido --- $\rho(x,y,t)$ (animaci\'on embebida; controles abajo)}
+\begin{center}
+\animategraphics[autoplay,loop,controls,height=0.80\textheight]{6}{figures/anim_rho/frame-}{0}{36}
+\end{center}
 \end{frame}
 
 %------------------------------------------------------------------------------
@@ -1335,78 +1460,184 @@
 \end{columns}
 \end{frame}
 
+%------------------------------------------------------------------------------
+% S24c · ESTRUCTURAS SECUNDARIAS: LOS DOS CANALES (nueva, ronda 4)
+%   Todo lo afirmado aquí está en la monografía:
+%     f_Vz (def.) ............. setup_exp.tex:281 (Ec. eq:fvz)
+%     V_z inicial nula ........ setup_exp.tex:82
+%     f_Vz máx/ideal .......... 05_results_discussion.tex:330
+%     borde inferior = máx f_Vz 05_results_discussion.tex:197,247
+%     J_max (def.) ............ setup_exp.tex:283
+%     J_max crece con sigma ... 06_conclusions.tex:16
+%     meseta = blindaje ....... 05_results_discussion.tex:316
+%     síntesis ................ 05_results_discussion.tex:338
+%     tearing = HIPÓTESIS ..... 05_results_discussion.tex:299 / 06_conclusions.tex:13
+%------------------------------------------------------------------------------
+\begin{frame}{Estructuras Secundarias: Dos Canales que se Turnan}
+\framesubtitle{Objetivo 2 --- la conductividad no las \emph{aumenta}: las \emph{redistribuye}}
+\vspace{-0.18cm}
+\begin{center}
+  \includegraphics[width=0.78\textwidth]{figures/fig_estructuras_secundarias_slide.pdf}\figtag
+\end{center}
+\vspace{-0.20cm}
+\pause
+\begin{columns}[T]
+\begin{column}{0.525\textwidth}
+  {\tiny
+  \begin{itemize}\setlength\itemsep{1pt}
+    \item \textbf{(a) Canal cin\'etico.}
+          $f_{Vz}=(\Omega_{\rm tot}-\Omega_z)/\Omega_{\rm tot}$, la
+          \emph{anisotrop\'ia estructural}. $V_z$ se inicializa
+          \textbf{estrictamente nula}: todo $f_{Vz}>0$ es acoplamiento hacia
+          $V_z$ \textbf{inducido por $B_z$ y la resistividad}. M\'aximo
+          $0.375$ en $\sigma\!\approx\!1400$ ---el borde inferior de la
+          zona--- y $\approx\!0.08$ en el ideal: flujo \textbf{planar}.
+    \item \textbf{(b) Canal magn\'etico.} $J_{\max}$ mide el
+          \textbf{adelgazamiento} de las capas de corriente; crece de forma
+          mon\'otona con $\sigma$. La meseta es el blindaje num\'erico de la
+          l\'amina anterior.
+  \end{itemize}}
+\end{column}
+\begin{column}{0.455\textwidth}
+  \pause
+  \begin{tcolorbox}[RES={La lectura conjunta}]
+    \tiny
+    Mientras un canal sube el otro baja: \textbf{no hay ning\'un $\sigma$ donde
+    ambos sean m\'aximos}. La conductividad no crea m\'as estructura
+    secundaria: \textbf{la reparte}, y el reparto es m\'aximo en la zona de
+    transici\'on.
+  \end{tcolorbox}
+  \pause\vspace{0.06cm}
+  \begin{tcolorbox}[WRN={Hasta d\'onde llega la evidencia}]
+    \tiny
+    $J_{\max}$ es un \textbf{m\'aximo \'unico}: mide \emph{intensidad} de
+    l\'amina, \textbf{no cu\'antas} hay. El \emph{tearing}
+    ($\Omega_{zp}^{\max}\!\propto\!\sigma^{1.22}\!>\!\sigma^{1/2}$, l\'amina
+    25) es \textbf{hip\'otesis}: no se mapearon las l\'aminas.~[resp.\ B11]
+  \end{tcolorbox}
+\end{column}
+\end{columns}
+\end{frame}
+
 %==============================================================================
 \section{Resultados II: campa\~na magn\'etica}
 %==============================================================================
 
+
 %------------------------------------------------------------------------------
-% S24b · MORFOLOGÍA CAMPAÑA B (movida del respaldo B12 en ronda 2)
+% S25a · RECORDATORIO GEOMETRÍA A (figura de la lámina 7; ronda 5)
 %------------------------------------------------------------------------------
-\begin{frame}{Campa\~nas B y C en Im\'agenes: Con y Sin Tensi\'on Magn\'etica}
-\framesubtitle{Morfolog\'ia $\rho(x,y)$: rotar el gu\'ia hacia $\hat y\parallel\mathbf k$ (B, con tensi\'on) vs.\ plano $x$--$z$ (C, sin tensi\'on)}
+\begin{frame}{Recordatorio de la Geometr\'ia --- Configuraci\'on A: Intensidad}
+\framesubtitle{Orientaci\'on Mizuno \emph{fija}; se var\'ia la intensidad $B_0=1.0,\,1.5,\,2.0$}
+\vfill
 \begin{columns}[c]
-\begin{column}{0.49\textwidth}
-  \begin{center}
-    \includegraphics[width=\linewidth,height=0.66\textheight,keepaspectratio]{figures/fig_campB_rho_collage.pdf}\figtag\\[2pt]
-    {\scriptsize\color{INF3}\textbf{Campa\~na B} ($B_y\parallel\mathbf k$): al crecer
-     $\theta$ la tensi\'on suprime el enrollamiento.}
-  \end{center}
+\begin{column}{0.52\textwidth}\centering
+  \includegraphics[height=0.72\textheight]{figures/campana_A_3d.pdf}
 \end{column}
-\begin{column}{0.49\textwidth}
-  \pause
-  \begin{center}
-    \includegraphics[width=\linewidth,height=0.66\textheight,keepaspectratio]{figures/fig_campC_rho_collage.pdf}\figtag\\[2pt]
-    {\scriptsize\color{INF3}\textbf{Campa\~na C} ($B_y=0$): sin tensi\'on,
-     mezcla difusa sin fase lineal limpia.}
-  \end{center}
+\begin{column}{0.46\textwidth}
+  \begin{tcolorbox}[HYP={Lo que aisla esta configuraci\'on}]
+    \scriptsize
+    El campo gu\'ia mantiene la orientaci\'on del montaje base
+    ($B_z$ dominante, $\mathbf k\cdot\mathbf B\propto B_y$ d\'ebil):
+    al subir $B_0$ crecen a la vez la \textbf{presi\'on magn\'etica}
+    ($\beta\propto B_0^{-2}$) y la \textbf{tensi\'on}.
+    \\[3pt]
+    Conductividad fija en dos reg\'imenes ($\sigma=6000$ y $\sigma=10000$).
+  \end{tcolorbox}
+  \vspace{0.12cm}
+  {\scriptsize\color{INF3}\itshape A continuaci\'on: qui\'en suprime la
+   KHI, ?`la presi\'on o la tensi\'on?}
 \end{column}
 \end{columns}
+\vfill
 \end{frame}
 
 %------------------------------------------------------------------------------
 % S25 · CAMPAÑA MAGNÉTICA I
 %------------------------------------------------------------------------------
-\begin{frame}{Campa\~na Magn\'etica I: Intensidad y Orientaci\'on}
+\begin{frame}{Campa\~na Magn\'etica I: Intensidad del Campo Gu\'ia (A)}
 \framesubtitle{Objetivo 4 --- qui\'en suprime: ?`presi\'on o tensi\'on?}
-\begin{columns}[T]
-\begin{column}{0.50\textwidth}
-  \begin{center}
-    \includegraphics[width=0.90\linewidth]{figures/fig_campA_enstrofia_slide.pdf}\figtag
-  \end{center}
-  \pause\vspace{-0.1cm}
-  \begin{tcolorbox}[RES={A --- Intensidad: suprime la \emph{presi\'on}}]
-    \scriptsize
-    Al subir $B_0$: $\gamma_{\rm KHI}$ cae $0.81\to0.38$ y
-    $\Omega^{\max}_{zp}$ de $87\to25$ ($\sigma=10^4$). El flujo permanece
-    \textbf{super-Alfv\'enico} paralelo ($M_{A,\parallel}=9.4\to6.4$):
-    la tensi\'on es incapaz de frenar la cizalla
-    $\Rightarrow$ el agente es la presi\'on magn\'etica / magnetizaci\'on
-    ($\beta\propto B_0^{-2}$: $0.99\to0.25$).
-  \end{tcolorbox}
-\end{column}
-\begin{column}{0.48\textwidth}
-  \pause
-  \begin{center}
-    \includegraphics[width=0.90\linewidth]{figures/fig_campB_omegamax_theta_slide.pdf}\figtag
-  \end{center}
-  \pause\vspace{-0.1cm}
-  \begin{tcolorbox}[HYP={B --- Orientaci\'on: la tensi\'on la ejerce solo $B_y\parallel\mathbf k$}]
-    \scriptsize
-    \textbf{Paradoja de $\theta=0^\circ$} (gu\'ia pura, sin tensi\'on,
-    pero enstrof\'ia mínima): sin $B_y$ el v\'ortice 2D \emph{no puede}
-    estirar l\'ineas en el plano $\Rightarrow$ sin d\'inamo ni reconexi\'on
-    que realimenten \citep{mizuno-2013}. En $\theta=90^\circ$ el m\'aximo
-    \emph{local} viene de capas de reconexi\'on finas: la integrada
-    s\'i decrece con la tensi\'on --- efecto del observable, no de la f\'isica.
-  \end{tcolorbox}
-\end{column}
-\end{columns}
+\vspace{-0.05cm}
+\begin{center}
+  \includegraphics[width=0.80\textwidth]{figures/fig_campA_enstrofia_slide.pdf}\figtag
+\end{center}
+\pause\vspace{-0.10cm}
+\begin{tcolorbox}[RES={A --- Intensidad: suprime la \emph{presi\'on}}]
+  \scriptsize
+  Al subir $B_0$: $\gamma_{\rm KHI}$ cae $0.81\to0.38$ y
+  $\Omega^{\max}_{zp}$ de $87\to25$ ($\sigma=10^4$). El flujo permanece
+  \textbf{super-Alfv\'enico} paralelo ($M_{A,\parallel}=9.4\to6.4$):
+  la tensi\'on es incapaz de frenar la cizalla
+  $\Rightarrow$ el agente es la presi\'on magn\'etica / magnetizaci\'on
+  ($\beta\propto B_0^{-2}$: $0.99\to0.25$).
+\end{tcolorbox}
 \end{frame}
 
 %------------------------------------------------------------------------------
-% S26 · CAMPAÑA MAGNÉTICA II — BALANCE ENERGÉTICO
+% S26a · RECORDATORIO GEOMETRÍA B (figura de la lámina 7; ronda 5)
 %------------------------------------------------------------------------------
-\begin{frame}{Campa\~na Magn\'etica II: Balance Energ\'etico y Canales de Disipaci\'on}
+\begin{frame}{Recordatorio de la Geometr\'ia --- Configuraci\'on B: Con Tensi\'on ($y$--$z$)}
+\framesubtitle{Rotaci\'on del campo gu\'ia hacia $\hat y\parallel\mathbf k$ --- activa la tensi\'on magn\'etica}
+\vfill
+\begin{columns}[c]
+\begin{column}{0.52\textwidth}\centering
+  \includegraphics[height=0.72\textheight]{figures/campana_B_3d.pdf}
+\end{column}
+\begin{column}{0.46\textwidth}
+  \begin{tcolorbox}[HYP={Lo que aisla esta configuraci\'on}]
+    \scriptsize
+    El gu\'ia rota en el plano $y$--$z$ a $\theta$ constante en m\'odulo:
+    $|\mathbf B|$ y la presi\'on magn\'etica \textbf{no cambian}, pero
+    aparece la componente $B_y\parallel\mathbf k$ que ejerce
+    \textbf{tensi\'on} sobre el v\'ortice.
+    \\[3pt]
+    Conductividad fija en dos reg\'imenes ($\sigma=6000$ y $\sigma=10000$).
+  \end{tcolorbox}
+  \vspace{0.12cm}
+  {\scriptsize\color{INF3}\itshape A continuaci\'on: cuando la geometr\'ia
+   enmascara la fase lineal, el observable es la energ\'ia.}
+\end{column}
+\end{columns}
+\vfill
+\end{frame}
+
+%------------------------------------------------------------------------------
+% S25b · CAMPAÑA MAGNÉTICA II — ORIENTACIÓN B (θ); antes era la columna derecha
+%   de la lámina I, separada en ronda 5 para que el esquema de B vaya en medio
+%------------------------------------------------------------------------------
+\begin{frame}{Campa\~na Magn\'etica II: Orientaci\'on con Tensi\'on (B)}
+\framesubtitle{Objetivo 4 --- la tensi\'on la ejerce solo la componente $B_y\parallel\mathbf k$}
+\vspace{-0.05cm}
+\begin{center}
+  \includegraphics[width=0.80\textwidth]{figures/fig_campB_omegamax_theta_slide.pdf}\figtag
+\end{center}
+\pause\vspace{-0.10cm}
+\begin{tcolorbox}[HYP={B --- Orientaci\'on: la tensi\'on la ejerce solo $B_y\parallel\mathbf k$}]
+  \scriptsize
+  \textbf{Paradoja de $\theta=0^\circ$} (gu\'ia pura, sin tensi\'on,
+  pero enstrof\'ia mínima): sin $B_y$ el v\'ortice 2D \emph{no puede}
+  estirar l\'ineas en el plano $\Rightarrow$ sin d\'inamo ni reconexi\'on
+  que realimenten \citep{mizuno-2013}. En $\theta=90^\circ$ el m\'aximo
+  \emph{local} viene de capas de reconexi\'on finas: la integrada
+  s\'i decrece con la tensi\'on --- efecto del observable, no de la f\'isica.
+\end{tcolorbox}
+\end{frame}
+
+
+%------------------------------------------------------------------------------
+% MOVIE 2 · Campaña B collage en movimiento (paquete animate)
+%------------------------------------------------------------------------------
+\begin{frame}{Campa\~na B en Movimiento: $\rho$ al Rotar el Campo Gu\'ia}
+\framesubtitle{$\sigma=6000$ vs.\ $\sigma=10000$ --- la tensi\'on ($B_y\parallel\mathbf k$) suprime el enrollamiento (animaci\'on)}
+\begin{center}
+\animategraphics[autoplay,loop,controls,height=0.80\textheight]{6}{figures/anim_campB/frame-}{0}{74}
+\end{center}
+\end{frame}
+
+%------------------------------------------------------------------------------
+% S26 · CAMPAÑA MAGNÉTICA III — BALANCE ENERGÉTICO
+%------------------------------------------------------------------------------
+\begin{frame}{Campa\~na Magn\'etica III: Balance Energ\'etico y Canales de Disipaci\'on}
 \framesubtitle{Cuando la geometr\'ia enmascara la fase lineal, el observable es la energ\'ia}
 \begin{center}
   \includegraphics[width=0.72\textwidth]{figures/fig_campB_ekin_emag_scatter_slide.pdf}\figtag\\
@@ -1445,9 +1676,38 @@
 \end{frame}
 
 %------------------------------------------------------------------------------
+% S27a · RECORDATORIO GEOMETRÍA C (figura de la lámina 7; ronda 5)
+%------------------------------------------------------------------------------
+\begin{frame}{Recordatorio de la Geometr\'ia --- Configuraci\'on C: Sin Tensi\'on ($x$--$z$)}
+\framesubtitle{$B_y=0\Rightarrow\mathbf k\cdot\mathbf B=0$ --- el experimento de control}
+\vfill
+\begin{columns}[c]
+\begin{column}{0.52\textwidth}\centering
+  \includegraphics[height=0.72\textheight]{figures/campana_C_3d.pdf}
+\end{column}
+\begin{column}{0.46\textwidth}
+  \begin{tcolorbox}[HYP={Lo que aisla esta configuraci\'on}]
+    \scriptsize
+    El gu\'ia rota en el plano $x$--$z$: como $B_y=0$, se cumple
+    $\mathbf k\cdot\mathbf B=0$ para todo $\theta$ y la tensi\'on sobre el
+    v\'ortice \textbf{desaparece}. $|\mathbf B|$ y la presi\'on magn\'etica
+    tambi\'en son constantes con $\theta$
+    $\Rightarrow$ la fenomenolog\'ia es puramente geom\'etrica.
+    \\[3pt]
+    Conductividad fija en dos reg\'imenes ($\sigma=6000$ y $\sigma=10000$).
+  \end{tcolorbox}
+  \vspace{0.12cm}
+  {\scriptsize\color{INF3}\itshape A continuaci\'on: qu\'e queda de la KHI
+   cuando se quita el estabilizador.}
+\end{column}
+\end{columns}
+\vfill
+\end{frame}
+
+%------------------------------------------------------------------------------
 % S27 · CAMPAÑA MAGNÉTICA III — CAMPAÑA C (SIN TENSIÓN)
 %------------------------------------------------------------------------------
-\begin{frame}{Campa\~na Magn\'etica III: Orientaci\'on sin Tensi\'on (plano $x$--$z$)}
+\begin{frame}{Campa\~na Magn\'etica IV: Orientaci\'on sin Tensi\'on (plano $x$--$z$)}
 \framesubtitle{El experimento de control: $B_y=0$ elimina la tensi\'on sobre el v\'ortice}
 \vspace{-0.18cm}
 % --- Fila 1: texto (izq) + gr\'afica (der) ---
@@ -1489,6 +1749,41 @@
 \end{columns}
 \end{frame}
 
+%------------------------------------------------------------------------------
+% MOVIE 3 · Campaña C collage en movimiento (paquete animate)
+%------------------------------------------------------------------------------
+\begin{frame}{Campa\~na C en Movimiento: Orientaci\'on sin Tensi\'on ($x$--$z$)}
+\framesubtitle{$\sigma=6000$ vs.\ $\sigma=10000$, $B_y=0$ --- mezcla difusa sin fase lineal limpia (animaci\'on)}
+\begin{center}
+\animategraphics[autoplay,loop,controls,height=0.78\textheight]{6}{figures/anim_campC/frame-}{0}{74}
+\end{center}
+\end{frame}
+
+%------------------------------------------------------------------------------
+% S24b · MORFOLOGÍA CAMPAÑAS B y C (movida del respaldo B12 en ronda 2;
+%   reubicada al cierre de la sección: compara B y C ya presentadas ambas)
+%------------------------------------------------------------------------------
+\begin{frame}{Campa\~nas B y C en Im\'agenes: Con y Sin Tensi\'on Magn\'etica}
+\framesubtitle{Morfolog\'ia $\rho(x,y)$: rotar el gu\'ia hacia $\hat y\parallel\mathbf k$ (B, con tensi\'on) vs.\ plano $x$--$z$ (C, sin tensi\'on)}
+\begin{columns}[c]
+\begin{column}{0.49\textwidth}
+  \begin{center}
+    \includegraphics[width=\linewidth,height=0.66\textheight,keepaspectratio]{figures/fig_campB_rho_collage.pdf}\figtag\\[2pt]
+    {\scriptsize\color{INF3}\textbf{Campa\~na B} ($B_y\parallel\mathbf k$): al crecer
+     $\theta$ la tensi\'on suprime el enrollamiento.}
+  \end{center}
+\end{column}
+\begin{column}{0.49\textwidth}
+  \pause
+  \begin{center}
+    \includegraphics[width=\linewidth,height=0.66\textheight,keepaspectratio]{figures/fig_campC_rho_collage.pdf}\figtag\\[2pt]
+    {\scriptsize\color{INF3}\textbf{Campa\~na C} ($B_y=0$): sin tensi\'on,
+     mezcla difusa sin fase lineal limpia.}
+  \end{center}
+\end{column}
+\end{columns}
+\end{frame}
+
 %==============================================================================
 \section{Conclusiones y perspectivas}
 %==============================================================================
@@ -1499,7 +1794,7 @@
 \begin{frame}{Conclusiones (por objetivo)}
 \begin{columns}[T]
 \begin{column}{0.48\textwidth}
-  {\tiny\color{accent}\textbf{$\blacktriangleright$ En referencia al Objetivo 1:}
+  {\tiny\color{violet}\textbf{$\blacktriangleright$ En referencia al Objetivo 1:}
    cuantificar el efecto de $\sigma$ sobre la tasa lineal $\gamma_{\rm KHI}$.}\\[2pt]
   \begin{tcolorbox}[EQ={1 · Tasa de crecimiento vs.\ resistividad}]
     \scriptsize
@@ -1510,7 +1805,7 @@
     centro $\approx2815$.
   \end{tcolorbox}
   \pause\vspace{0.08cm}
-  {\tiny\color{accent}\textbf{$\blacktriangleright$ En referencia al Objetivo 2:}
+  {\tiny\color{violet}\textbf{$\blacktriangleright$ En referencia al Objetivo 2:}
    efecto sobre las estructuras secundarias (v\'ortices, l\'aminas de corriente).}\\[2pt]
   \begin{tcolorbox}[EQ={2 · Estructuras secundarias}]
     \scriptsize
@@ -1523,7 +1818,7 @@
 \end{column}
 \begin{column}{0.48\textwidth}
   \pause
-  {\tiny\color{accent}\textbf{$\blacktriangleright$ En referencia al Objetivo 3:}
+  {\tiny\color{violet}\textbf{$\blacktriangleright$ En referencia al Objetivo 3:}
    impacto de la difusi\'on magn\'etica sobre las variables EM globales.}\\[2pt]
   \begin{tcolorbox}[EQ={3 · Variables globales}]
     \scriptsize
@@ -1533,7 +1828,7 @@
     ($15\%\to0$ hacia el ideal).
   \end{tcolorbox}
   \pause\vspace{0.08cm}
-  {\tiny\color{accent}\textbf{$\blacktriangleright$ En referencia al Objetivo 4:}
+  {\tiny\color{violet}\textbf{$\blacktriangleright$ En referencia al Objetivo 4:}
    c\'omo la intensidad y orientaci\'on de $\mathbf B$ modifican la evoluci\'on.}\\[2pt]
   \begin{tcolorbox}[EQ={4 · Intensidad y orientaci\'on de $\mathbf B$}]
     \scriptsize
@@ -1623,6 +1918,12 @@
   \draw[soft!65,line width=1.2pt]
     ([yshift=0.18\paperheight]current page.south west)
     -- ([yshift=0.18\paperheight]current page.south east);
+  \node[anchor=south east,inner sep=0]
+    at ([xshift=-0.05\paperwidth,yshift=0.275\paperheight]current page.south east)
+    {\includegraphics[width=0.085\paperwidth]{figures/logo_cueva.png}};
+  \node[anchor=north east,inner sep=0,font=\tiny,text=gold]
+    at ([xshift=-0.05\paperwidth,yshift=0.265\paperheight]current page.south east)
+    {Semillero CUEVA};
 \end{tikzpicture}
 \begin{center}
   \vspace{-0.15cm}
@@ -1634,7 +1935,7 @@
     Bryan Martinez Anzola $\;\cdot\;$ Sebasti\'an Rodriguez Garcia}\\[0.15cm]
   {\color{soft!70}\small Director: Prof.\ Ph.D.\ Sergio Miranda-Aranguren}\\[0.3cm]
   {\color{soft!55}\small Universidad Distrital Francisco Jos\'e de Caldas}\\[0.15cm]
-  {\color{soft!45}\footnotesize Bogot\'a, Julio de 2026}
+  {\color{soft!45}\footnotesize Bogot\'a, Agosto de 2026}
 \end{center}
 \end{frame}
 }
@@ -1656,7 +1957,7 @@
 \begin{center}
   \vspace{1.6cm}
   {\color{soft}\LARGE\bfseries Material de Respaldo}\\[0.5cm]
-  {\color{gold}\small B1--B17: derivaciones, validaciones y an\'alisis complementarios}
+  {\color{gold}\small B1--B21: derivaciones, validaciones, an\'alisis complementarios y contexto observacional}
 \end{center}
 \end{frame}
 }
@@ -2112,6 +2413,64 @@
 \end{frame}
 
 %------------------------------------------------------------------------------
+% B14-B17 · SÍNTESIS DEL MÉTODO NUMÉRICO (antes S12 del cuerpo; movida en ronda 5)
+%------------------------------------------------------------------------------
+\begin{frame}{B14--B17 · M\'etodo Num\'erico: S\'intesis}
+\framesubtitle{Volumenes finitos $\cdot$ MP5/HLL $\cdot$ rigidez resistiva $\cdot$ Ferrari--Cardano}
+\begin{columns}[T]
+\begin{column}{0.52\textwidth}
+  \begin{tcolorbox}[EQ={Volumenes finitos (forma integral)}]
+    \scriptsize
+    {\setlength\abovedisplayskip{2pt}\setlength\belowdisplayskip{3pt}
+    \[
+      \frac{d\bar{\mathbf U}_i}{dt}
+      =-\frac{1}{\Delta x}\Bigl[\hat{\mathbf F}_{i+1/2}-\hat{\mathbf F}_{i-1/2}\Bigr]
+      +\bar{\mathbf S}_i
+    \]}
+    Admite \textbf{choques} y conserva \textbf{por construcci\'on}
+    \citep{toro-2009}. \hfill{\tiny[detalle: B14]}
+  \end{tcolorbox}
+  \vspace{-0.06cm}
+  \begin{block}{Reconstrucci\'on MP5 $+$ flujo HLL}
+    \scriptsize
+    MP5 (5.º orden) \textbf{no recorta los extremos} $\Rightarrow$ retiene
+    la vorticidad/enstrof\'ia \citep{suresh-1997}; HLL robusto y positivo,
+    su difusi\'on la compensa la agudeza MP5
+    \citep{miranda-aranguren-2018}. \hfill{\tiny[resp.\ B7]}
+  \end{block}
+  \vspace{-0.06cm}
+  \begin{tcolorbox}[RES={Criterio de dise\~no del estudio}]
+    \scriptsize
+    \textbf{Disipaci\'on num\'erica $<$ disipaci\'on f\'isica $\eta$} en todo
+    el barrido: la KHI crece y reconecta por la f\'isica, no por la malla.
+  \end{tcolorbox}
+  \vspace{0.04cm}
+  {\tiny
+   \textbf{CFL} ($\Delta t=\mathrm{CFL}\,\Delta x/\lambda_{\max}$): bajarlo
+   $=$ paso m\'as corto $=$ m\'as estabilidad y m\'as costo
+   ($0.10$ barrido; $0.04$/$0.02$ campa\~na magn\'etica).\\[1pt]
+   \textbf{Primitivas}: cu\'artica en $W$, soluci\'on Ferrari--Cardano
+   $+$ guardias f\'isicas; su robustez define el l\'imite pr\'actico del
+   barrido ($\sigma\le10\,500$).
+   \hfill[detalle: cuatro l\'aminas siguientes, B14--B17]}
+\end{column}
+\begin{column}{0.44\textwidth}
+  \vspace*{-0.7cm}
+  \begin{center}
+    \includegraphics[width=0.66\linewidth]{figures/celda_3d_flujos.pdf}\\[1pt]
+    \includegraphics[width=0.80\linewidth]{figures/imex_flow_slide.pdf}
+  \end{center}
+  \vspace{-0.04cm}
+  {\tiny
+   \textbf{IMEX} (ecuaci\'on en la l\'amina 12 del cuerpo): la fuente r\'igida
+   $-\sigma\mathbf E$ va impl\'icita (sistema local anal\'itico);
+   $\sigma\to\infty\Rightarrow\mathbf E\to-\mathbf v\times\mathbf B$
+   por construcci\'on.}
+\end{column}
+\end{columns}
+\end{frame}
+
+%------------------------------------------------------------------------------
 % B14 · VOLÚMENES FINITOS (detalle; antes S12, fusionada en ronda 2)
 %------------------------------------------------------------------------------
 \begin{frame}{B14 · Volumenes Finitos: la Formulaci\'on Integral Obligatoria}
@@ -2285,6 +2644,208 @@
     corriente agudas a alta $\sigma$) es la que define el l\'imite pr\'actico
     del barrido en conductividad --- y explica los fallos de las
     configuraciones magn\'eticas d\'ebiles excluidas de la Campa\~na A.
+  \end{block}
+\end{column}
+\end{columns}
+\end{frame}
+
+%------------------------------------------------------------------------------
+% B18 · FR I vs FR II (nueva, ronda 4)
+%   Respalda la única afirmación morfológica del documento:
+%   03_KHI.tex:139 — el entrainment por vórtices frena el chorro y es "el
+%   mecanismo principal para explicar morfológicamente la dicotomía entre
+%   radio-galaxias de tipo FRI (fuertemente frenadas e inestables) y FRII
+%   (altamente colimadas)" [osmanov-2008].  Citado en la lámina 3.
+%   IMÁGENES: observaciones reales, dominio público / CC BY (ver pies).
+%------------------------------------------------------------------------------
+\begin{frame}{B18 · La Dicotom\'ia FR\,I / FR\,II en Im\'agenes}
+\framesubtitle{Por qu\'e la KHI en la frontera del chorro es la explicaci\'on morfol\'ogica (l\'amina 3)}
+\vspace{-0.10cm}
+\begin{columns}[T]
+\begin{column}{0.30\textwidth}
+  \begin{center}
+    \includegraphics[height=0.475\textheight]{figures/astro/fri_3c31.jpg}\figtag\\[2pt]
+    {\tiny\color{INF3}\textbf{FR\,I} --- 3C\,31 (NGC\,383), radio VLA.
+     Chorros gemelos que se \textbf{descolimanan} y se disuelven en penachos;
+     brillo decreciente hacia afuera.\\
+     {\color{INF2}NRAO/AUI/NSF, CC~BY~4.0.}}
+  \end{center}
+\end{column}
+\begin{column}{0.34\textwidth}
+  \begin{center}
+    \vspace{0.55cm}
+    \includegraphics[width=0.98\linewidth]{figures/astro/frii_cygA.jpg}\figtag\\[2pt]
+    {\tiny\color{INF3}\textbf{FR\,II} --- Cygnus~A, radio VLA.
+     Chorros \textbf{colimados} hasta el final: la energ\'ia se deposita en
+     \emph{puntos calientes} terminales, con brillo m\'aximo en los bordes.\\
+     {\color{INF2}NRAO/AUI, dominio p\'ublico.}}
+  \end{center}
+\end{column}
+\begin{column}{0.34\textwidth}
+  \begin{tcolorbox}[EQ={Qu\'e dice la monograf\'ia}]
+    \scriptsize
+    La saturaci\'on de la KHI genera \textbf{v\'ortices} que arrastran material
+    bariónico externo (\emph{entrainment}) y \textbf{frenan} el chorro. Ese
+    arrastre es ``el mecanismo principal para explicar morfol\'ogicamente la
+    dicotom\'ia'' entre FR\,I (fuertemente frenadas e inestables) y FR\,II
+    (altamente colimadas) \citep{osmanov-2008}.
+  \end{tcolorbox}
+  \vspace{0.10cm}
+  \begin{tcolorbox}[WRN={Alcance de estas im\'agenes}]
+    \scriptsize
+    Son \textbf{observaciones de archivo}, puestas aqu\'i solo para
+    \emph{ilustrar} la dicotom\'ia que cita la monograf\'ia. Este trabajo
+    \textbf{no} modela ninguna fuente concreta: el montaje es una doble capa
+    de cizalla idealizada en 2D.
+  \end{tcolorbox}
+\end{column}
+\end{columns}
+\end{frame}
+
+%------------------------------------------------------------------------------
+% B19 · ESCENARIOS ASTROFÍSICOS CITADOS (nueva, ronda 4)
+%   Ilustra los tres escenarios que el documento nombra —y solo esos—:
+%   01_introduction.tex:31 y 04/deck lámina 4: "llamaradas en AGNs, GRBs y
+%   magnetosferas de púlsares" [miranda-aranguren-2018, palenzuela-2009].
+%   Ningún objeto concreto se nombra en la monografía: van rotulados como
+%   EJEMPLOS del escenario, no como caso de estudio.
+%------------------------------------------------------------------------------
+\begin{frame}{B19 · Los Escenarios Astrof\'isicos que Cita el Trabajo}
+\framesubtitle{Ejemplos reales de los tres contextos donde la resistividad es imprescindible (l\'aminas 3--4)}
+\vspace{-0.05cm}
+\begin{columns}[T]
+\begin{column}{0.325\textwidth}
+  \begin{center}
+    \includegraphics[height=0.395\textheight,width=0.88\linewidth,keepaspectratio]{figures/astro/m87_jet.jpg}\figtag\\[2pt]
+    {\tiny\color{INF3}\textbf{Chorro de AGN} --- M\,87 (\'optico, HST).
+     La frontera chorro/medio es una \textbf{capa de cizalla} relativista:
+     el contexto que esquematiza la figura F1.\\
+     {\color{INF2}NASA \& Hubble Heritage Team (STScI/AURA), dom.\ p\'ublico.}}
+  \end{center}
+\end{column}
+\begin{column}{0.325\textwidth}
+  \begin{center}
+    \includegraphics[height=0.395\textheight,width=0.88\linewidth,keepaspectratio]{figures/astro/crab_pwn.jpg}\figtag\\[2pt]
+    {\tiny\color{INF3}\textbf{Magnetosfera de p\'ulsar} --- Nebulosa del
+     Cangrejo en rayos X (Chandra): toro y chorro polar del viento
+     magnetizado.\\
+     {\color{INF2}NASA/CXC/SAO/F.\ Seward, dominio p\'ublico.}}
+  \end{center}
+\end{column}
+\begin{column}{0.325\textwidth}
+  \begin{center}
+    \vspace{0.62cm}
+    \includegraphics[height=0.395\textheight,width=0.88\linewidth,keepaspectratio]{figures/astro/grb.jpg}\figtag\\[2pt]
+    {\tiny\color{INF3}\textbf{GRB} --- \textcolor{brick}{\textbf{impresi\'on
+     art\'istica}}, no una observaci\'on: chorros bipolares ultrarrelativistas
+     de un colapso estelar.\\
+     {\color{INF2}ESO/A.\ Roquette, CC~BY~4.0.}}
+  \end{center}
+\end{column}
+\end{columns}
+\vspace{0.10cm}
+\begin{tcolorbox}[WRN={Por qu\'e est\'an aqu\'i --- y qu\'e no afirman}]
+  \scriptsize
+  Son los tres escenarios que la monograf\'ia nombra como aquellos donde el
+  congelamiento ideal falla y la reconexi\'on debe ser \textbf{f\'isica y
+  predictiva}, no un artefacto de resistividad num\'erica
+  \citep{miranda-aranguren-2018,palenzuela-2009}. El documento \textbf{no
+  nombra ning\'un objeto concreto}: son \emph{ejemplos} del escenario, no
+  casos modelados, y ninguna magnitud de este trabajo procede de ellos.
+\end{tcolorbox}
+\end{frame}
+
+%------------------------------------------------------------------------------
+% B20 · DIAGNÓSTICOS DE LÁMINA (nueva, ronda 4) — MATERIAL FUERA DE LA MONOGRAFÍA
+%   El código Cueva SÍ los calcula (data_global/2d_data_Erec_AB.dat) pero NO
+%   aparecen en el documento. Van aquí, rotulados, para tenerlos a la mano.
+%   Figura: scripts_slide/gen_diag_laminas_anexo.py
+%------------------------------------------------------------------------------
+\begin{frame}{B20 · Diagn\'osticos de L\'amina que Calcula el C\'odigo}
+\framesubtitle{\textcolor{brick}{\textbf{NO est\'an en la monograf\'ia}} --- material de trabajo para la discusi\'on}
+\vspace{-0.14cm}
+\begin{center}
+  \includegraphics[width=0.88\textwidth]{figures/fig_diag_laminas_barrido_anexo.pdf}\figtag
+\end{center}
+\vspace{-0.16cm}
+\begin{columns}[T]
+\begin{column}{0.475\textwidth}
+  \begin{tcolorbox}[EQ={C\'omo detecta el c\'odigo una l\'amina}]
+    \tiny
+    Segundo pase sobre la malla ($511\times255$ celdas). Con
+    $B_\perp\!=\!\sqrt{B_x^2\!+\!B_y^2}$ y
+    $B_{\rm up}$ su rms \emph{aguas arriba} ($|x|\ge0.75$):
+    \vspace{-0.12cm}
+    \[
+      B_\perp\le 0.10\,B_{\rm up}
+      \quad\textbf{y}\quad
+      J^2\ge 0.20\,J^2_{\max}
+    \]
+    \vspace{-0.30cm}
+    \begin{itemize}\setlength\itemsep{0.5pt}
+      \item $n_{\rm sheet}$: \textbf{celdas} que cumplen la m\'ascara.
+      \item $E_{\rm rec}=\max_{\rm l\acute amina}|E_z|$ (proxy de reconexi\'on).
+      \item $\eta\max_{\rm l\acute amina}|J_z|$ (proxy resistivo), $\eta=1/\sigma$.
+    \end{itemize}
+  \end{tcolorbox}
+\end{column}
+\begin{column}{0.505\textwidth}
+  \begin{tcolorbox}[RES={Qu\'e muestran}]
+    \tiny
+    $E_{\rm rec}$ tiene su m\'aximo en $\sigma\!\approx\!1600$ ---pegado al
+    m\'aximo de $f_{Vz}$ en $1400$--- y el \'area de l\'amina en
+    $\sigma\!\approx\!3200$, junto a $\sigma_{\rm crit}\!\approx\!2815$. Ambos
+    picos caen \textbf{dentro de la zona de transici\'on}: consistente con la
+    l\'amina 27, pero \textbf{no la demuestra}. Correlaci\'on de rangos con
+    $f_{Vz}$: $+0.66$ con $E_{\rm rec}$, pero $-0.03$ con el \'area
+    ---el \'area \textbf{no} sigue a $f_{Vz}$.
+  \end{tcolorbox}
+\end{column}
+\end{columns}
+\end{frame}
+
+%------------------------------------------------------------------------------
+% B21 · SERIES TEMPORALES Y LIMITACIONES DEL DETECTOR (nueva, ronda 4)
+%------------------------------------------------------------------------------
+\begin{frame}{B21 · Por Qu\'e Esos Diagn\'osticos No Entraron al Documento}
+\framesubtitle{Series temporales del detector y sus cuatro limitaciones}
+\vspace{-0.12cm}
+\begin{center}
+  \includegraphics[width=0.84\textwidth]{figures/fig_diag_laminas_series_anexo.pdf}\figtag
+\end{center}
+\vspace{-0.16cm}
+\begin{columns}[T]
+\begin{column}{0.505\textwidth}
+  \begin{tcolorbox}[WRN={Las cuatro limitaciones}]
+    \tiny
+    \begin{enumerate}\setlength\itemsep{0.5pt}
+      \item $n_{\rm sheet}$ cuenta \textbf{celdas}, no l\'aminas: mide
+            \emph{\'area}, no \textbf{multiplicidad} $\Rightarrow$ no zanja la
+            hip\'otesis de \emph{tearing}.
+      \item El umbral es \textbf{relativo} a $J^2_{\max}$ del instante: se
+            autonormaliza, as\'i que comparar entre $\sigma$ es cualitativo.
+      \item Bajo $\sigma\!\approx\!1400$ no hay detecci\'on sostenida: los ceros
+            son \textbf{ausencia de medida}, no valor cero.
+      \item \textbf{Intermitente}: la m\'ascara se pierde y se recupera entre
+            instantes consecutivos (visible en $\sigma=1000$).
+    \end{enumerate}
+  \end{tcolorbox}
+\end{column}
+\begin{column}{0.475\textwidth}
+  \begin{tcolorbox}[HYP={C\'omo usarlos si preguntan}]
+    \tiny
+    Sirven para \textbf{describir} d\'onde el c\'odigo ve reconexi\'on, no para
+    \textbf{sustentar}. Si el jurado pide evidencia morfol\'ogica directa de
+    fragmentaci\'on, la respuesta honesta es la de la monograf\'ia: no se
+    mapearon las l\'aminas, y el \emph{tearing} queda como hip\'otesis apoyada
+    en el exponente $\sigma^{1.22}$.
+  \end{tcolorbox}
+  \vspace{0.06cm}
+  \begin{block}{D\'onde est\'a el dato}
+    \tiny
+    \texttt{data\_global/2d\_data\_Erec\_AB.dat}; escritura en
+    \texttt{22\_writer.f95}, umbrales en \texttt{parameters.f95}. Reproducible
+    con \texttt{scripts\_slide/gen\_diag\_laminas\_anexo.py}.
   \end{block}
 \end{column}
 \end{columns}

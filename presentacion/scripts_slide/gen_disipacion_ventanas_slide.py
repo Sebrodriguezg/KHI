@@ -143,6 +143,18 @@ ax[2].set_xscale("log"); ax[2].set_xlabel(r"$\sigma$")
 ax[2].set_ylabel(r"$\max_t E_{\rm mag}/E_{\rm mag}(0)$")
 ax[2].set_title(r"(c) Amplificación de energía magnética", fontsize=10)
 
+# --- puntos críticos: la cascada de activaciones también en las variables EM ---
+CRIT = [
+    (0, 6000, 0.97, "top",    r"$\sigma^{\!*}\!\approx\!6000$"),   # despegue de J_max
+    (1, 2950, 0.42, "center", r"$\sigma^{\!*}\!\approx\!3000$"),   # pico de ηJ² (label en banda media, no cruza)
+    (2, 4000, 0.97, "top",    r"$\sigma^{\!*}\!\approx\!4000$"),   # colapso de E_mag
+]
+for k, sc, yl, va, lab in CRIT:
+    ax[k].axvline(sc, color="crimson", ls=(0, (4, 2)), lw=1.6, alpha=0.9, zorder=1)
+    ax[k].annotate(lab, xy=(sc, yl), xycoords=("data", "axes fraction"),
+                   rotation=90, va=va, ha="right", fontsize=8.5,
+                   color="crimson", fontweight="bold")
+
 fig.tight_layout()
 fig.savefig(OUT)
 plt.close(fig)
