@@ -251,4 +251,15 @@ presentacion/banco_preguntas/
 *.tar.gz
 *.bak_*
 test_animacion.*
-figuras/galeria_Jmax_auditoria.pdf
+
+# Auxiliares de biblatex/biber
+*.bcf
+*.run.xml
+
+# Documentos y figuras de trabajo que no forman parte del entregable
+*CLAUDE*
+galeria_Jmax_auditoria.pdf
+nota_director_*.tex
+nota_director_*.pdf
+presentacion/fig_comparacion_EJ_ohm.pdf
+monografia/figuras/imex_flow_slide.pdf
