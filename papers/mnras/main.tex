@@ -1,0 +1,279 @@
+% =====================================================================
+%  Paper I  --  KHI en RRMHD  --  ESQUELETO MNRAS
+%  Clase y .bst tomados de CTAN (macros/latex/contrib/mnras), v3.2.
+%  Guia completa de la clase: mnras_guide.pdf (en esta misma carpeta).
+%
+%  COMO COMPILAR:  ./build.sh        (pdflatex + bibtex + pdflatex x2)
+%
+%  ANTES DE ESCRIBIR, LEER:
+%    ../manuales/MNRAS_instrucciones.md   requisitos de la revista
+%    ../02_PLAN_EXTRACCION.md             que sale de donde en la monografia
+%    ../04_ESTILO_INGLES.md               ingles britanico + glosario ES->EN
+%    ../05_CHECKLIST_ENVIO.md             checklist antes de enviar
+% =====================================================================
+
+% MNRAS pide \pdfminorversion=5 con pdfTeX, para ScholarOne.
+\pdfminorversion=5
+
+\documentclass[fleqn,usenatbib]{mnras}
+
+\usepackage{newtxtext,newtxmath}   % MNRAS se compone en Times
+\usepackage[T1]{fontenc}
+\DeclareRobustCommand{\VAN}[3]{#2}
+\let\VANthebibliography\thebibliography
+\def\thebibliography{\DeclareRobustCommand{\VAN}[3]{##3}\VANthebibliography}
+
+\usepackage{graphicx}
+\usepackage{amsmath}
+% OJO: no cargar amssymb junto con newtxmath (conflicto documentado por MNRAS).
+
+% Las figuras se toman directamente de la monografia mientras no se hayan
+% regenerado en ingles y al ancho de columna correcto. Ver ../03_INVENTARIO_FIGURAS.md
+\graphicspath{{figures/}{../../monografia/figuras/}}
+
+% --- Macros del proyecto (minimas, en notacion MNRAS) --------------------
+% Subindices-etiqueta en REDONDA (\mathrm), subindices-variable en cursiva.
+\newcommand{\gKHI}{\gamma_{\mathrm{KHI}}}
+\newcommand{\scrit}{\sigma_{\mathrm{crit}}}
+\newcommand{\Rmst}{\mathrm{Rm}^{*}}
+\newcommand{\Ozp}{\Omega_{zp}}
+\newcommand{\Omaxzp}{\Omega_{zp}^{\max}}
+\newcommand{\Otot}{\Omega_{\mathrm{tot}}}
+\newcommand{\akh}{a_{\mathrm{kh}}}
+\newcommand{\vsh}{v_{\mathrm{sh}}}
+\newcommand{\B}{\mathbfit{B}}      % vectores: negrita cursiva (MNRAS)
+\newcommand{\Efield}{\mathbfit{E}}
+\newcommand{\vel}{\mathbfit{v}}
+\newcommand{\kvec}{\mathbfit{k}}
+% Marcador de texto pendiente: \todo{...} sale en el PDF y es facil de buscar.
+\newcommand{\todo}[1]{\textbf{[TODO: #1]}}
+
+% =====================================================================
+\title[Resistive KHI in RRMHD]{%
+  \todo{titulo completo}%
+  % Propuesta: The resistive-to-ideal transition of the relativistic
+  % Kelvin--Helmholtz instability
+}
+
+% Encabezado corto: hasta 45 caracteres. Autores: et al. a partir de 3.
+\author[B. Martinez Anzola et al.]{%
+  B. Martinez Anzola,$^{1}$\thanks{E-mail: \todo{correo}}
+  S. Rodriguez Garcia,$^{1}$
+  and S. Miranda-Aranguren$^{1}$
+  \\
+  % \newauthor  % <- usar si hace falta otra linea de autores
+  $^{1}$Programa Academico de Fisica, Facultad de Ciencias Matematicas y
+  Naturales, Universidad Distrital Francisco Jose de Caldas,
+  Bogota, Colombia\\
+  % TODO: confirmar afiliaciones exactas y orden de autoria (ver ../05_CHECKLIST_ENVIO.md)
+}
+
+\date{\todo{fecha}}
+\pubyear{2026}
+
+\begin{document}
+\label{firstpage}
+\pagerange{\pageref{firstpage}--\pageref{lastpage}}
+\maketitle
+
+% =====================================================================
+\begin{abstract}
+\todo{Maximo 250 palabras, UN SOLO parrafo. Debe contener: (i) que se hizo
+(barrido de 44 simulaciones RRMHD en $\sigma\in[100,10500]$ con el codigo
+\textit{Cueva}); (ii) el modelo sigmoide con \emph{offset} y la asintota ideal
+$C+\gamma_0=1.03\pm0.05$, consistente al 8 per cent con la teoria lineal RMHD
+compresible; (iii) que la transicion resistivo-ideal es una ZONA
+$\sigma\in[1400,7000]$ con centro $\scrit\approx2815$; (iv) la ley
+$\Omaxzp\propto\sigma^{1.22}$, por encima del piso de Sweet--Parker
+$\sigma^{1/2}$; (v) una frase sobre la campana magnetica. Escribirlo AL FINAL.
+Base en espanol: monografia/sections/00\_preliminares.tex}
+\end{abstract}
+
+% Entre 1 y 6, de la lista oficial de MNRAS (verificar el PDF de keywords).
+\begin{keywords}
+instabilities -- magnetic reconnection -- MHD -- plasmas --
+relativistic processes -- methods: numerical
+\end{keywords}
+
+% =====================================================================
+\section{Introduction}
+\label{sec:intro}
+
+\todo{~1.5 columnas. Fuente: monografia/sections/01\_introduction.tex.
+Cinco parrafos: (1) KHI en jets relativistas y AGN; (2) por que resistiva y no
+ideal -- el congelamiento del flujo prohibe la reconexion (ESTE ES EL GANCHO);
+(3) trabajo previo -- REQUIERE BUSQUEDA BIBLIOGRAFICA NUEVA, ver
+../02\_PLAN\_EXTRACCION.md seccion 7.1; (4) que hace este trabajo, como
+preguntas de investigacion y NO como "objetivos especificos"; (5) estructura
+del articulo.}
+
+% =====================================================================
+\section{Numerical method and setup}
+\label{sec:method}
+
+\subsection{Governing equations}
+\label{sec:equations}
+
+\todo{Media a una columna. Solo el sistema RRMHD en forma conservativa 3+1 y la
+ley de Ohm relativista, citando Komissarov (2007); una frase sobre el sistema
+aumentado GLM con $\Psi$ y $\Phi$. Fuente: 02\_rrmhd\_theory.tex l. 373+ y 413+.
+NO reproducir la derivacion del tensor de Faraday ni los lagrangianos.}
+
+\subsection{The \textit{Cueva} code}
+\label{sec:code}
+
+\todo{Un parrafo denso: volumenes finitos, MP5, HLL, GLM, IMEX-RK. Mas SOLO lo
+no estandar: condicion subcaracteristica e inversion algebraica local del
+termino de conduccion (04\_numerical\_methods.tex l. 75--81 y 148--168).
+Confirmar con el director la cita correcta del codigo y si hay DOI/ASCL.}
+
+\subsection{Initial conditions}
+\label{sec:ic}
+
+\todo{Doble capa de cizalla tipo Mizuno et al. (2013), test 35A:
+$\vsh=0.5c$, $\akh=0.05$, $\B=(0,\sqrt{0.02},\sqrt{2.0})$, $\Gamma=4/3$,
+dominio 2D, malla $512\times256$. Fuente: setup\_exp.tex l. 24--164.
+La Tabla~\ref{tab:setup} sale de tab:setup\_summary.}
+
+\begin{table}
+  \centering
+  \caption{Parameters of the reference setup.
+           \todo{traducir tab:setup\_summary de setup\_exp.tex:139}}
+  \label{tab:setup}
+  \begin{tabular}{lll}
+    \hline
+    Quantity & Symbol & Value \\
+    \hline
+    Shear velocity     & $\vsh$  & $0.5\,c$ \\
+    Shear width        & $\akh$  & $0.05$ \\
+    Adiabatic index    & $\Gamma$ & $4/3$ \\
+    Grid               &          & $512\times256$ \\
+    \todo{completar}   &          & \\
+    \hline
+  \end{tabular}
+  % MNRAS: SOLO lineas horizontales, nunca verticales.
+\end{table}
+
+\subsection{The two campaigns}
+\label{sec:campaigns}
+
+\todo{(a) Barrido: 44 simulaciones, $\sigma\in[100,10500]$; explicar que
+$\sigma=10500$ fue el LIMITE NUMERICO del codigo (o truncar a $10^4$ y
+justificarlo). La tabla canonica completa (44 filas) va a material
+suplementario, no al cuerpo -- MNRAS pide 5--10 filas de muestra.
+(b) Campana magnetica: fundir tab:campana\_A/B/C en una sola tabla.}
+
+% =====================================================================
+\section{Results: the conductivity sweep}
+\label{sec:results}
+
+\subsection{Global behaviour of the sweep}
+\label{sec:overview}
+\todo{Fuente: 05\_results\_discussion.tex sec:vision\_global.
+Figuras: fig:ultrawide\_omega\_zp, fig:mapa\_conductividad.}
+
+\subsection{Extraction of the linear growth rate}
+\label{sec:fit}
+\todo{Fuente: sec:lnfit. Figura fig:lnfit (quiza a apendice).}
+
+\subsection{The sigmoid model and the ideal asymptote}
+\label{sec:sigmoid}
+\todo{RESULTADO CENTRAL. Fuente: sec:sigmoide\_v6 + tab:par\_v6.
+Figura fig:ajuste\_v6 = LA figura del articulo.
+Declarar explicitamente que $C+\gamma_0$ es una EXTRAPOLACION: el dato de mayor
+$\sigma$ alcanza el 85 per cent del plateau.}
+
+\subsection{Statistical validation}
+\label{sec:validation}
+\todo{Comprimir mucho: AIC para la seleccion de modelo, jackknife para las
+incertidumbres, hold-out para la validacion. Una o dos frases; el detalle a
+apendice o suprimido (es estandar). Fuente: sec:validacion\_v6.}
+
+\subsection{The transition is a zone, not a threshold}
+\label{sec:zone}
+\todo{SEGUNDO RESULTADO. $\sigma\in[1400,7000]$, centro $\scrit\approx2815$;
+cada observable se idealiza a una $\sigma$ distinta. Fuente: sec:scrit\_v6,
+figura fig:zona\_transicion, tabla tab:est\_v6.}
+
+\subsection{Power-law scaling of the peak enstrophy}
+\label{sec:powerlaw}
+\todo{TERCER RESULTADO. $\Omaxzp\propto\sigma^{1.22}$, por encima del piso
+Sweet--Parker $\sigma^{1/2}$ -> firma de reconexion, con \emph{tearing}
+secundario como HIPOTESIS (no se mapearon las laminas de corriente).
+Fuente: sec:leyes\_potencia, fig:omega\_max\_pot, tab:leyes\_potencia.}
+
+\subsection{Global electromagnetic variables}
+\label{sec:global}
+\todo{$J_{\max}$ crece con $\sigma$; el trabajo EM acumulado aumenta; la
+amplificacion de energia magnetica cae de ~15 per cent (resistivo) a nula
+(ideal). $f_{Vz}$ maxima en la zona de transicion. Fuente: sec:globales.}
+
+% =====================================================================
+\section{Comparison with linear theory}
+\label{sec:theory}
+
+\todo{Techo inviscido (Rayleigh) -> 1 parrafo. Prediccion RMHD compresible
+(Lees--Lin) con $c_s\to v_{f\perp}$ segun Chow et al. (2023):
+$\hat\omega=0.095$ frente a nuestro $0.103$, 8 per cent.
+$M_{re}=0.60<\sqrt2$ -> holgadamente inestable.
+Fuente: sec:teoria\_v6 + 07\_appendices.tex seccion 1.}
+
+% =====================================================================
+\section{Magnetic field strength and orientation}
+\label{sec:magnetic}
+
+\todo{1.5 columnas para 25 pp de monografia. (a) Intensidad: $\gKHI$ cae de
+0.81 a 0.38 y la enstrofia pico de ~87 a ~25 ($\sigma=10^4$); el agente es la
+PRESION magnetica ($\beta\propto B_0^{-2}$), no la tension -- el flujo sigue
+super-Alfvenico a lo largo de $\kvec$ ($M_{A,\parallel}=9.4$). (b) Orientacion:
+solo $B_y$ (paralela a $\kvec$) ejerce tension, y solo a angulos grandes; $B_x$
+cumple $\kvec\cdot\B=0$ y NO ejerce tension. (c) Balance energetico: antifase
+$E_{\mathrm{kin}}\leftrightarrow E_{\mathrm{mag}}$; cuasi-reversible en
+$\sigma=10^4$, amortiguado por disipacion ohmica en $\sigma=6000$.
+Fuente: sec:campana\_magnetica y sec:balance\_energetico.}
+
+% =====================================================================
+\section{Discussion and conclusions}
+\label{sec:conclusions}
+
+\todo{Fuente: 06\_conclusions.tex, que ya esta en el registro correcto:
+traducir y convertir la estructura "(1) objetivo... (2) objetivo..." en prosa
+tematica. Conservar INTEGRAS las limitaciones (2D; EoS politropica; $\sigma$
+escalar sin Hall; resolucion de las hojas resistivas; asintota extrapolada al
+85 per cent). Trabajo futuro en 2--3 frases.}
+
+% =====================================================================
+\section*{Acknowledgements}
+
+\todo{Recursos de computo (fuente: sections/agradecimientos\_cluster.tex,
+comprimido a 2 frases), financiacion, personas, y el software usado
+(numpy, scipy, matplotlib -- CITADOS en las referencias, no solo nombrados).
+Declaracion de uso de IA: ver ../comun/DECLARACION\_IA.md.
+Declaracion de contribucion estudiantil (premio MNRAS): ver ../05\_CHECKLIST\_ENVIO.md.}
+
+% =====================================================================
+% OBLIGATORIO en MNRAS, siempre despues de Acknowledgements.
+\section*{Data Availability}
+
+\todo{Ver ../comun/DATA\_AVAILABILITY.md -- usar la plantilla A (datos derivados
+y scripts en Zenodo con DOI; datos crudos bajo peticion; \textit{Cueva} segun
+decida el director).}
+
+% =====================================================================
+\bibliographystyle{mnras}
+\bibliography{references}
+% OJO: references.bib es copia de la monografia (biblatex). Ver
+% ../comun/NOTAS_BIBTEX.md -- la recomendacion es reconstruirlo desde NASA ADS.
+
+% =====================================================================
+\appendix
+
+\section{Supplementary statistical detail}
+\label{app:stats}
+\todo{Solo si hace falta. Fuente: 07\_appendices.tex seccion 3.
+Casi todo (R\textsuperscript{2}, AIC, jackknife, hold-out, test de rachas) es
+estandar y se resuelve con una frase en el cuerpo.}
+
+\bsp	% typesetting comment
+\label{lastpage}
+\end{document}

@@ -1,0 +1,135 @@
+% =====================================================================
+%  Paper I  --  KHI en RRMHD  --  ESQUELETO The Open Journal of Astrophysics
+%
+%  openjournal.cls se descargo de la propia revista:
+%    http://www.thphys.nuim.ie/staff/pcoles/openjournal.cls   (v. 6-sep-2015)
+%  Esta basada en emulateapj (estilo ApJ/ApJL) y requiere revtex4-1.
+%
+%  COMO COMPILAR:  ./build.sh
+%
+%  ANTES DE ESCRIBIR, LEER:
+%    ../manuales/OJAP_instrucciones.md    requisitos de la revista
+%    ../02_PLAN_EXTRACCION.md             que sale de donde en la monografia
+%    ../04_ESTILO_INGLES.md               ingles + glosario ES->EN
+%    ../05_CHECKLIST_ENVIO.md             checklist antes de enviar
+%
+%  RUTA DE ENVIO: primero arXiv (licencia CC-BY, categoria astro-ph.HE,
+%  cross-list astro-ph.IM), y luego "Submit a manuscript" en astro.theoj.org.
+%
+%  Opciones de clase utiles: [twocolumn] [onecolumn] [apj] [apjl] [tighten]
+%                            [numberedappendix] [appendixfloats] [twocolappendix]
+% =====================================================================
+
+\documentclass[apj]{openjournal}
+
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\graphicspath{{figures/}{../../monografia/figuras/}}
+
+% --- Macros del proyecto ------------------------------------------------
+\newcommand{\gKHI}{\gamma_{\mathrm{KHI}}}
+\newcommand{\scrit}{\sigma_{\mathrm{crit}}}
+\newcommand{\Rmst}{\mathrm{Rm}^{*}}
+\newcommand{\Ozp}{\Omega_{zp}}
+\newcommand{\Omaxzp}{\Omega_{zp}^{\max}}
+\newcommand{\akh}{a_{\mathrm{kh}}}
+\newcommand{\vsh}{v_{\mathrm{sh}}}
+\newcommand{\B}{\mathbf{B}}
+\newcommand{\kvec}{\mathbf{k}}
+\newcommand{\todo}[1]{\textbf{[TODO: #1]}}
+
+% =====================================================================
+\shorttitle{Resistive KHI in RRMHD}
+\shortauthors{Martinez Anzola et al.}
+
+\begin{document}
+
+\title{\todo{titulo completo} \\
+  % Propuesta: The resistive-to-ideal transition of the relativistic
+  % Kelvin--Helmholtz instability
+}
+
+\author{B. Martinez Anzola}
+\author{S. Rodriguez Garcia}
+\author{S. Miranda-Aranguren}
+\affil{Programa Academico de Fisica, Facultad de Ciencias Matematicas y
+  Naturales, Universidad Distrital Francisco Jose de Caldas, Bogota, Colombia}
+% TODO: confirmar afiliaciones, orden de autoria y correo de correspondencia.
+
+\begin{abstract}
+\todo{Un parrafo. OJAp no publica un limite duro, pero conviene mantenerlo en
+250 palabras para que sirva tambien para MNRAS y para arXiv. Contenido: barrido
+de 44 simulaciones RRMHD en $\sigma\in[100,10500]$ con el codigo \textit{Cueva};
+modelo sigmoide con \emph{offset} y asintota ideal $C+\gamma_0=1.03\pm0.05$
+(8 per cent de la teoria lineal RMHD compresible); la transicion es una ZONA
+$\sigma\in[1400,7000]$, centro $\scrit\approx2815$; ley
+$\Omaxzp\propto\sigma^{1.22}$ por encima del piso Sweet--Parker $\sigma^{1/2}$;
+una frase sobre la campana magnetica. Escribirlo AL FINAL.}
+\end{abstract}
+
+\keywords{\todo{En OJAp mandan las categorias arXiv: astro-ph.HE (primaria),
+astro-ph.IM (cross-list). Anadir aqui palabras clave libres:
+magnetohydrodynamics (MHD) --- instabilities --- magnetic reconnection ---
+relativistic processes --- methods: numerical}}
+
+% =====================================================================
+\section{Introduction}
+\label{sec:intro}
+\todo{Ver el esqueleto gemelo ../mnras/main.tex y ../02\_PLAN\_EXTRACCION.md
+seccion 1. El contenido es identico entre las dos versiones; lo unico que
+cambia es la clase, el estilo de citas y (para MNRAS) el ingles britanico.}
+
+\section{Numerical method and setup}
+\label{sec:method}
+\subsection{Governing equations}
+\todo{../02\_PLAN\_EXTRACCION.md seccion 2.1}
+\subsection{The \textit{Cueva} code}
+\todo{../02\_PLAN\_EXTRACCION.md seccion 2.2}
+\subsection{Initial conditions}
+\todo{../02\_PLAN\_EXTRACCION.md seccion 2.3}
+\subsection{The two campaigns}
+\todo{../02\_PLAN\_EXTRACCION.md seccion 2.4}
+
+\section{Results: the conductivity sweep}
+\label{sec:results}
+\todo{../02\_PLAN\_EXTRACCION.md seccion 3 -- los tres resultados centrales.}
+
+\section{Comparison with linear theory}
+\label{sec:theory}
+\todo{../02\_PLAN\_EXTRACCION.md seccion 4}
+
+\section{Magnetic field strength and orientation}
+\label{sec:magnetic}
+\todo{../02\_PLAN\_EXTRACCION.md seccion 5}
+
+\section{Discussion and conclusions}
+\label{sec:conclusions}
+\todo{../02\_PLAN\_EXTRACCION.md seccion 6}
+
+% =====================================================================
+\acknowledgments
+
+\todo{Recursos de computo, financiacion, personas, software citado.
+IMPORTANTE -- OJAp exige que la DECLARACION DE USO DE IA vaya aqui, en los
+agradecimientos, y que si se uso IA para calculo, analisis o visualizacion se
+describan los pasos de validacion. Ver ../comun/DECLARACION\_IA.md.}
+
+% OJAp no exige una seccion "Data availability", pero recomienda seguir
+% Chen et al. (2022, ApJS 260, 5). La incluimos igual: ver
+% ../comun/DATA_AVAILABILITY.md
+\section*{Data availability}
+\todo{Plantilla A de ../comun/DATA\_AVAILABILITY.md}
+
+% =====================================================================
+% aasjournalv7.bst viene con aastex en TeX Live y da el estilo ApJ autor-anio.
+\bibliographystyle{aasjournalv7}
+\bibliography{references}
+% Ver ../comun/NOTAS_BIBTEX.md (conversion biblatex -> natbib).
+
+\appendix
+\section{Supplementary statistical detail}
+\todo{Opcional; ver ../02\_PLAN\_EXTRACCION.md seccion 8.}
+
+\end{document}

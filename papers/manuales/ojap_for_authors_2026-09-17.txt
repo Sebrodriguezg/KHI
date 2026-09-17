@@ -1,0 +1,84 @@
+THE OPEN JOURNAL OF ASTROPHYSICS - 'For Authors' / submission guidelines
+Fuente: https://astro.theoj.org/for-authors  (contenido servido en window.JOURNAL.submission_guidelines)
+Descargado: 2026-09-17. Transcripcion literal del texto de la web, sin editar.
+==============================================================================
+
+The Open Journal of Astrophysics is an arXiv overlay journal. This means that, while we have a conventional Editorial Board and refereeing process, we apply this to papers on the arXiv . The result of this is that the cost of running the journal is extremely low; we are therefore able to offer this service entirely free of charge both to authors and to readers.
+
+Is my paper suitable? We apply a simple criterion to decide whether a paper is on a suitable topic for this journal, namely that if - and only if - it is suitable for the astro-ph section of the arXiv then it is suitable for The Open Journal of Astrophysics. A breakdown of the areas covered by astro-ph is given on the arXiv but for reference here they are.
+
+The astro-ph section of the arXiv is divided into six main areas:
+
+ - astro-ph.GA - Astrophysics of Galaxies.
+Phenomena pertaining to galaxies or the Milky Way. Star clusters, HII regions and planetary nebulae, the interstellar medium, atomic and molecular clouds, dust. Stellar populations. Galactic structure, formation, dynamics. Galactic nuclei, bulges, disks, halo. Active Galactic Nuclei, supermassive black holes, quasars. Gravitational lens systems. The Milky Way and its contents
+
+ - astro-ph.CO - Cosmology and Nongalactic Astrophysics.
+Phenomenology of early universe, cosmic microwave background, cosmological parameters, primordial element abundances, extragalactic distance scale, large-scale structure of the universe. Groups, superclusters, voids, intergalactic medium. Particle astrophysics: dark energy, dark matter, baryogenesis, leptogenesis, inflationary models, reheating, monopoles, WIMPs, cosmic strings, primordial black holes, cosmological gravitational radiation
+
+ - astro-ph.EP - Earth and Planetary Astrophysics.
+Interplanetary medium, planetary physics, planetary astrobiology, extrasolar planets, comets, asteroids, meteorites. Structure and formation of the solar system
+
+ - astro-ph.HE - High Energy Astrophysical Phenomena.
+Cosmic ray production, acceleration, propagation, detection. Gamma ray astronomy and bursts, X-rays, charged particles, supernovae and other explosive phenomena, stellar remnants and accretion systems, jets, microquasars, neutron stars, pulsars, black holes
+
+ - astro-ph.IM - Instrumentation and Methods for Astrophysics.
+Detector and telescope design, experiment proposals. Laboratory Astrophysics. Methods for data analysis, statistical methods. Software, database design
+
+ - astro-ph.SR - Solar and Stellar Astrophysics.
+White dwarfs, brown dwarfs, cataclysmic variables. Star formation and protostellar systems, stellar astrobiology, binary and multiple systems of stars, stellar evolution and structure, coronas. Central stars of planetary nebulae. Helioseismology, solar neutrinos, production and detection of gravitational radiation from stellar systems.
+
+If your paper fits into one or more of these areas then it may be considered for publication. For ease of reference The Open Journal of Astrophysics is divided into sections reflecting the above categories.
+
+Papers must be written in English.
+
+Once submitted the Editors will enlist the help of suitably qualified referees to assess whether the paper meets the criteria of scientific quality, originality, relevance and comprehensibility needed to justify publication.
+
+We may accept review articles on appropriate subjects if the Editorial Board considers them a useful contribution to the literature.
+
+Use of Generative AI. We do not operate a blanket ban on the use of Large Language Models or other forms of Generative AI. If you do use such tools, however, you must declare it in the acknowledgments section of your paper. Furthermore, if GenAI methods are used for any form of calculation, analysis, or data visualization you must include an account of what steps you have taken to test and validate these methods. Articles containing direct evidence of the use of GenAI, such as hallucinated references or prompts in the text will not be accepted.
+
+Submitting an Article. To submit an article to the journal, you should first post it on the arXiv. When asked which licence you wish to use, you should select CC-BY. (If your article is already posted with a more restricted licence it is not a major problem, since you can give a different licence to the published version.) 
+
+We have a Latex style file which you can download here . Please note that source files for all our published papers are available on the arXiv so you can use any of these as a template if you don't know how to start.
+
+Although initial submissions can be made in any format acceptable to the arXiv, we prefer the final version to be typeset in this format and the process is therefore simplified if you use this at the outset.
+
+When the article has appeared on the arXiv, click on the Submit a manuscript button above and you will be taken through the very short submission process. If for some reason you have difficulty with the submission process, you can email an editor instead, who will be able to enter the paper into the system on your behalf.
+
+We strongly encourage authors to submit in the manner described above (i.e. on the arXiv first). We can receive and review papers submitted directly to this platform but since the final version must be on the arXiv in order to be published we feel it is far better to submit it there first in order to establish that it is on an appropriate topic for this journal.
+
+The Publication Process. If your article is deemed to be on a suitable topic for The Open Journal of Astrophysics, we will send it to referee(s) and then send you the comments of the referees. Once you have made any changes suggested by referees and/or editors, and the papers is accepted for publication we will add metadata (including the artice ID, acceptance date, etc) so that the accepted version can be posted to the arXiv. A Digital Object Identifier (DOI) will also be assigned and registered with CROSSREF for the purpose of citation tracking and bibliometric analysis. 
+
+The article will be added to the journal in the form of an overlay containing the abstract, author metadata, and the DOI, along with a link to the arXiv entry.
+
+Because we do not do copy-editing, we ask authors to take particular care with proofreading their articles before submitting their final version. We do not offer an in-house copy-editing service but neither can we accept papers that are poorly written. If necessary, when a paper is rendered unacceptable by poor style we will refer authors to a third-party scientific copy-editing service, Scitext Cambridge . Authors may wish to use this service before submission, to save time. The service is not free, but is relatively inexpensive and comes with the recommendation of the Managing Editor of The Open Journal of Astrophysics.
+
+The Editorial Process. Articles will be evaluated exclusively with respect to our criteria of scientific quality, originality, relevance and comprehensibility.
+
+Articles submitted by our preferred route will already be in the public domain, since they will already have been posted to the arXiv. However, the information that they have been submitted to The Open Journal of Astrophysics will be not be disclosed to anyone other than those involved in the evaluation process and in the administration of the journal. This also applies to papers submitted directly to us.
+
+Editors may themselves submit papers to the journal, but if they do so, then all information about the processing of those papers will be hidden from their view and they will have no part in the decision process. 
+
+Editors who have a significant conflict of interest connected with a paper will declare it to the other editors and will avoid participating in the decision process.
+
+When a paper is submitted it will be initially screened by the managing Editor and then assigned to an Editor who will engage the help of one or more referees in deciding on whether or not to accept the paper.
+
+We expect Editors and Referees to carry out their duties fair-mindedly, diligently and without recourse to any form of inappropriate language.
+
+Responsibilities of Authors. Authors should submit their own original work only. We will not accept papers submitted by individuals who are not in the author list of the paper. Any results that are not due to the authors should be clearly cited. Copying or paraphrasing substantial parts of another paper without attribution is unacceptable, as is any other form of plagiarism. The arXiv submission process does an initial screen for plagiarism, and we will look very carefully at submissions that have triggered the arXiv filter.
+
+No paper should be submitted to The Open Journal of Astrophysics that is already published elsewhere or is being considered for publication by another journal.
+
+Those named as authors of a paper should have made a substantial contribution to the paper, or to a more general project of which the paper is a part, and anybody who has made such a contribution should be offered authorship.
+
+Authors who discover important errors in their articles, whether published or under consideration for publication, should notify the journal promptly.
+
+A more complete statement of our Ethics policy can be found here.
+
+Our Commitments. The Open Journal of Astrophysics is committed to the permanent availability and preservation of scholarly research and ensures accessibility by partnering with Maynooth Academic Publishing, which maintains its own digital archive.
+
+Articles in The Open Journal of Astrophysics are published under a Creative Commons CC-BY licence and will be free to read in perpetuity. Authors may retain their copyright and publishing rights without restriction, and are free to submit their papers to institutional repositories, etc.
+
+The Open Journal of Astrophysics adheres to the established principles of fair open access .
+
+Please consult Best Practices for Data Publication in the Astronomical Literature for information on how best to present your data. This article is intended as a reference for authors to help prepare and publish data in a way that will better represent and support science results, enable better data sharing, improve reproducibility, and enhance the reusability of data by the community.

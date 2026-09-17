@@ -1,0 +1,16 @@
+# El .gitignore de la raiz ignora NOTAS_*.md (notas de revision de la
+# monografia). Aqui NOTAS_BIBTEX.md es documentacion del artículo, no una nota.
+!comun/NOTAS_*.md
+
+# Artefactos de compilacion
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.toc
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+mainNotes.bib
+main.pdf
