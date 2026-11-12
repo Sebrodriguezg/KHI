@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KHI en RRMHD — 2 minutos</title>
+<style>
+@font-face{font-family:LMSans;src:url(fonts/lmsans10-regular.otf);font-weight:400;font-style:normal}
+@font-face{font-family:LMSans;src:url(fonts/lmsans10-bold.otf);font-weight:700;font-style:normal}
+@font-face{font-family:LMSans;src:url(fonts/lmsans10-oblique.otf);font-weight:400;font-style:italic}
+@font-face{font-family:LMSans;src:url(fonts/lmsans10-boldoblique.otf);font-weight:700;font-style:italic}
+:root{--inf0:#000004;--primary:#140B34;--inf2:#3A0963;--inf3:#720F53;--accent:#F27320;--gold:#FAAC38;
+      --soft:#FCF2AB;--inf8:#FCF2AB;--violet:#570F6D;--brick:#D0371B;--bgwarm:#F8F4F0}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:#000;overflow:hidden;cursor:none;font-family:LMSans,"Latin Modern Sans",sans-serif}
+body.show-cursor{cursor:default}
+#stage{position:absolute;width:1920px;height:1080px;left:50%;top:50%;background:#fff;overflow:hidden}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity .6s ease;background:#fff;color:var(--inf0)}
+.slide.active{opacity:1}
+header{position:absolute;left:0;right:0;top:0;height:84px;background:var(--primary);padding:10px 34px 0}
+.ftitle{color:var(--accent);font-weight:700;font-size:38px;line-height:1.1}
+sub,sup{line-height:0;font-size:.68em}
+.fsub{color:#FCC88A;font-size:22px;margin-top:5px}
+.tline{position:absolute;left:0;right:0;top:84px;height:4px;background:var(--accent)}
+footer{position:absolute;left:0;right:0;bottom:0;height:34px;background:var(--primary);display:flex;align-items:center;font-size:19px}
+footer span{flex:28}.fc{flex:44!important;text-align:center;color:var(--soft)}
+.fl{color:var(--gold);padding-left:16px}.fr{color:var(--gold);text-align:right;padding-right:16px}
+.body{position:absolute;left:0;right:0;top:88px;bottom:34px}
+.vid{background:#0b0d12;display:flex;align-items:center;justify-content:center}
+.vid video{width:100%;height:100%;object-fit:contain;display:block}
+/* tcolorbox */
+.tcb{position:relative;border:2px solid;padding:30px 20px 16px;font-size:27px;line-height:1.35}
+.tt-tab{position:absolute;left:20px;top:-17px;padding:3px 10px;font-weight:700;font-size:23px}
+.eq{border-color:var(--accent);background:#F3F2F5}.eq .tt-tab{background:var(--accent);color:var(--primary)}
+.res{border-color:var(--gold);background:#FFF7EB}.res .tt-tab{background:var(--gold);color:var(--primary)}
+.hyp{border-color:var(--violet);background:#F4EEF6}.hyp .tt-tab{background:var(--violet);color:var(--soft)}
+.wrn{border-color:var(--brick);background:#FCF0ED}.wrn .tt-tab{background:var(--brick);color:var(--soft)}
+.tcb ul{padding-left:28px}.tcb li{margin-bottom:8px}.tcb li::marker{content:"▶  ";color:var(--accent);font-size:20px}
+.grid2{display:flex;gap:46px;padding:62px 56px 40px}
+.grid2 .big{flex:1.25;display:flex;align-items:center;justify-content:center}
+.eqimg{width:100%}
+.col{flex:1;display:flex;flex-direction:column;gap:52px;justify-content:center}
+.g7 .fig{flex:1.3;display:flex;align-items:center}.g7 .fig img{width:100%}
+.concl{display:grid;grid-template-columns:1fr 1fr;gap:70px 50px;padding:60px 54px 40px;align-content:center}
+.obj .ref{color:var(--violet);font-weight:700;font-size:23px;margin-bottom:26px}
+.obj .tcb{font-size:31px;padding:38px 24px 22px;min-height:190px}
+/* portada */
+.cover{position:absolute;inset:0;background:var(--primary);color:#fff}
+.cv-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:fill}
+.cv-l{position:absolute;left:0;top:0;bottom:0;width:62%;background:rgba(20,11,52,.72)}
+.cv-r{position:absolute;left:62%;right:0;top:0;bottom:0;background:rgba(20,11,52,.35)}
+.cv-band{position:absolute;left:0;right:0;top:22.5%;height:4.5%;background:var(--accent)}
+.cv-bar{position:absolute;left:3.8%;width:1.4%;bottom:0;height:75%;background:linear-gradient(var(--accent),var(--gold))}
+.cv-logo{position:absolute;right:3.5%;bottom:5%;width:22%}
+.cv-code{position:absolute;left:70%;top:17%;font-size:20px;color:rgba(252,242,171,.55)}
+.cv-code .tt{font-family:monospace}
+.cv-text{position:absolute;left:6.6%;top:17.5%;width:56%}
+.cv-text>div{line-height:1.25}
+.n{font-size:34px}.L{font-size:46px}.l{font-size:40px}.s{font-size:24px}.xs{font-size:19px}
+.b{font-weight:700}.i{font-style:italic}.soft{color:var(--soft)}.white{color:#fff}.gold{color:var(--gold)}.inf8{color:var(--inf8)}
+.o7{opacity:.7}.o6{opacity:.6}.gap{margin-top:30px}.gap2{margin-top:10px}
+.rule{height:3px;background:var(--accent);margin:12px 0 14px;width:96%}
+.cv-text .L{margin:6px 0 10px}
+#progress{position:fixed;left:0;bottom:0;height:3px;background:var(--accent);opacity:.0}
+#timer{position:fixed;right:18px;top:12px;font:700 26px LMSans;color:#aaa;display:none;z-index:5}
+#help{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:#000c;z-index:10;color:#eee}
+#help div{font-size:22px;line-height:1.9;background:#151924;padding:36px 48px;border-radius:10px}
+kbd{background:#2a2f3c;border-radius:5px;padding:1px 8px;font-family:inherit}
+</style></head>
+<body>
+<div id="stage">
+<section class="slide" data-title="Portada">
+<div class="cover">
+  <img class="cv-bg" src="figs/khi_simulation_bg.png" alt="">
+  <div class="cv-l"></div><div class="cv-r"></div><div class="cv-band"></div><div class="cv-bar"></div>
+  <img class="cv-logo" src="figs/Logo_Escudo_invertido.png" alt="">
+  <div class="cv-code">código <span class="tt">Cueva</span> — RRMHD 2D</div>
+  <div class="cv-text">
+    <div class="soft n">Tratamiento Numérico de la</div>
+    <div class="white L b">Inestabilidad de Kelvin–Helmholtz</div>
+    <div class="soft n">bajo el Marco de la</div>
+    <div class="gold l b">Magnetohidrodinámica Relativista Resistiva</div>
+    <div class="rule"></div>
+    <div class="inf8 s i">Explica tu tesis en 2 minutos</div>
+    <div class="gold s b gap">Autores:</div>
+    <div class="inf8 s">Bryan Martinez Anzola &nbsp;·&nbsp; Sebastián Rodriguez Garcia</div>
+    <div class="gold s b gap2">Director:</div>
+    <div class="inf8 s">Prof. Ph.D. Sergio Miranda-Aranguren</div>
+    <div class="gold s b gap">Universidad Distrital Francisco José de Caldas</div>
+    <div class="inf8 xs o7">Facultad de Ciencias Matemáticas y Naturales · Programa Académico de Física</div>
+    <div class="inf8 xs o6">Bogotá, Noviembre de 2026</div>
+  </div>
+</div></section>
+<section class="slide" data-title="Montaje Experimental: Doble Capa de Cizalla tipo Mizuno"><header><div class="ftitle">Montaje Experimental: Doble Capa de Cizalla tipo Mizuno</div><div class="fsub">Condiciones iniciales tipo Mizuno (2013) · densidad <i>ρ(x,y,t)</i> · flechas: flujo de fondo <i>V<sub>y</sub>(x)</i></div></header><div class="tline"></div><div class="body vid"><video src="clips_120/02_doble_cizalla.mp4" muted playsinline preload="auto"></video></div><footer><span class="fl">Martinez &amp; Rodriguez</span><span class="fc">Tesis en 2 minutos — KHI en RRMHD</span><span class="fr">2/10</span></footer></section>
+<section class="slide" data-title="La Ley de Ohm Relativista: el Cierre Resistivo"><header><div class="ftitle">La Ley de Ohm Relativista: el Cierre Resistivo</div><div class="fsub">La fuerza de Lorentz se separa en tensión y presión magnética; la conductividad entra por la corriente</div></header><div class="tline"></div>
+<div class="body grid2">
+  <div class="tcb eq big"><div class="tt-tab">Fuerza magnética y cierre resistivo</div>
+    <img class="eqimg" src="figs/03_ecuacion_clara.png" alt=""></div>
+  <div class="col">
+    <div class="tcb res"><div class="tt-tab">Lo que habilita la resistividad física</div>
+      <ul><li>Reconexión <b>natural, predictiva y física</b> en las láminas de corriente
+              (<i>J</i> = ∇×<i>B</i> intensa).</li>
+          <li>Calentamiento óhmico: conversión irreversible <i>E</i><sub>mag</sub> → calor.</li>
+          <li>Escenarios donde es imprescindible: llamaradas de AGN/GRBs, magnetosferas de púlsares, zonas turbulentas.</li></ul></div>
+    <div class="tcb hyp"><div class="tt-tab">Pregunta del trabajo</div>
+      <p>¿Cómo modifica la conductividad <i>σ</i> el crecimiento de la KHI, sus estructuras y su balance energético?</p></div>
+  </div>
+</div><footer><span class="fl">Martinez &amp; Rodriguez</span><span class="fc">Tesis en 2 minutos — KHI en RRMHD</span><span class="fr">3/10</span></footer></section>
+<section class="slide" data-title="El Mecanismo Magnético en 3D: Campo, Corriente, Tensión y Presión"><header><div class="ftitle">El Mecanismo Magnético en 3D: Campo, Corriente, Tensión y Presión</div><div class="fsub">Datos de Cueva · caso 35B (densidad invertida) · <i>σ=10^3</i> · ventana sobre la interfaz <i>x=+0.5</i> · <i>t=2→8</i></div></header><div class="tline"></div><div class="body vid"><video src="clips_120/03_vectores_3d.mp4" muted playsinline preload="auto"></video></div><footer><span class="fl">Martinez &amp; Rodriguez</span><span class="fc">Tesis en 2 minutos — KHI en RRMHD</span><span class="fr">4/10</span></footer></section>
+<section class="slide" data-title="El Observable: Vorticidad y Enstrofía de Perturbación"><header><div class="ftitle">El Observable: Vorticidad y Enstrofía de Perturbación</div><div class="fsub">Cómo se mide <i>γ<sub>KHI</sub></i> sin contaminación del flujo base</div></header><div class="tline"></div><div class="body vid"><video src="clips_120/04_enstrofia.mp4" muted playsinline preload="auto"></video></div><footer><span class="fl">Martinez &amp; Rodriguez</span><span class="fc">Tesis en 2 minutos — KHI en RRMHD</span><span class="fr">5/10</span></footer></section>
+<section class="slide" data-title="$\sigma_{\rm crit}$ No Es un Número: Es una Zona de Transición"><header><div class="ftitle"><i>σ<sub>crit</sub></i> No Es un Número: Es una Zona de Transición</div><div class="fsub">Cascada de activación: cada observable se idealiza a una conductividad distinta</div></header><div class="tline"></div><div class="body vid"><video src="clips_120/05_sigmoide_cascada.mp4" muted playsinline preload="auto"></video></div><footer><span class="fl">Martinez &amp; Rodriguez</span><span class="fc">Tesis en 2 minutos — KHI en RRMHD</span><span class="fr">6/10</span></footer></section>
+<section class="slide" data-title="Contraste con la Teoría Lineal: la Escalera de Predicciones"><header><div class="ftitle">Contraste con la Teoría Lineal: la Escalera de Predicciones</div><div class="fsub">Techo de Michalke → predicción RMHD compresible → valor medido</div></header><div class="tline"></div>
+<div class="body grid2 g7">
+  <div class="fig"><img src="figs/fig6_escalera.png" alt=""></div>
+  <div class="col">
+    <div class="tcb res"><div class="tt-tab">Acuerdo al 8 % sin parámetros de ajuste</div>
+      <p>ω̂<sub>medido</sub> = (<i>C</i>+<i>γ</i><sub>0</sub>) <i>a</i><sub>kh</sub>/<i>v</i><sub>sh</sub> = 0.103
+         &nbsp;vs.&nbsp; ω̂<sub>RMHD</sub> = 0.095 (Lees–Lin compresible).</p></div>
+    <div class="tcb wrn"><div class="tt-tab">Alcance del resultado</div>
+      <p>Es una <b>consistencia cuantitativa fuerte</b>, no una validación cerrada: la asíntota es
+         extrapolación (el dato máximo alcanza el 85 %).</p></div>
+  </div>
+</div><footer><span class="fl">Martinez &amp; Rodriguez</span><span class="fc">Tesis en 2 minutos — KHI en RRMHD</span><span class="fr">7/10</span></footer></section>
+<section class="slide" data-title="Campaña Magnética IV: Orientación sin Tensión (plano $x$–$z$)"><header><div class="ftitle">Campaña Magnética IV: Orientación sin Tensión (plano <i>x</i>–<i>z</i>)</div><div class="fsub">El experimento de control: <i>B<sub>y</sub>=0</i> elimina la tensión sobre el vórtice · <i>θ=60°</i> · <i>σ=6000</i> vs. <i>σ=10000</i></div></header><div class="tline"></div><div class="body vid"><video src="clips_120/07_campC_columpio.mp4" muted playsinline preload="auto"></video></div><footer><span class="fl">Martinez &amp; Rodriguez</span><span class="fc">Tesis en 2 minutos — KHI en RRMHD</span><span class="fr">8/10</span></footer></section>
+<section class="slide" data-title="Campaña Magnética III: Balance Energético y Canales de Disipación"><header><div class="ftitle">Campaña Magnética III: Balance Energético y Canales de Disipación</div><div class="fsub">Cuando la geometría enmascara la fase lineal, el observable es la energía</div></header><div class="tline"></div><div class="body vid"><video src="clips_120/08_destino_energia.mp4" muted playsinline preload="auto"></video></div><footer><span class="fl">Martinez &amp; Rodriguez</span><span class="fc">Tesis en 2 minutos — KHI en RRMHD</span><span class="fr">9/10</span></footer></section>
+<section class="slide" data-title="Conclusiones (por objetivo)"><header><div class="ftitle">Conclusiones (por objetivo)</div></header><div class="tline"></div><div class="body concl"><div class="obj"><div class="ref">▶ En referencia al Objetivo 1: cuantificar el efecto de σ sobre la tasa lineal γ<sub>KHI</sub>.</div><div class="tcb eq"><div class="tt-tab">1 · Tasa de crecimiento vs. resistividad</div><p>σ<sub>crit</sub> es una <b>zona</b> [1400, 7000], centro ≈ 2815; asíntota <i>C</i>+<i>γ</i><sub>0</sub> = 1.03 ± 0.05, consistente al 8 % con la teoría RMHD compresible.</p></div></div><div class="obj"><div class="ref">▶ En referencia al Objetivo 2: efecto sobre las estructuras secundarias.</div><div class="tcb eq"><div class="tt-tab">2 · Estructuras secundarias</div><p>Ω<sup>max</sup><sub>zp</sub> ∝ σ<sup>1.22</sup> excede el piso Sweet–Parker (σ<sup>1/2</sup>) ⇒ reconexión; <i>f</i><sub>Vz</sub> máximo en la transición.</p></div></div><div class="obj"><div class="ref">▶ En referencia al Objetivo 3: impacto de la difusión magnética sobre las variables EM globales.</div><div class="tcb eq"><div class="tt-tab">3 · Variables globales</div><p>σ controla <i>J</i><sub>max</sub>, la disipación acumulada y la amplificación de <i>E</i><sub>mag</sub> (15 % → 0 hacia el ideal).</p></div></div><div class="obj"><div class="ref">▶ En referencia al Objetivo 4: cómo la intensidad y orientación de <b>B</b> modifican la evolución.</div><div class="tcb eq"><div class="tt-tab">4 · Intensidad y orientación de B</div><p>Intensidad: supresión por <b>presión</b>; <b>tensión</b> solo vía <i>B</i><sub>y</sub> ∥ <b>k</b>. Anti-fase <i>E</i><sub>kin</sub> ↔ <i>E</i><sub>mag</sub>: la resistividad decide entre intercambio reversible y calor.</p></div></div></div><footer><span class="fl">Martinez &amp; Rodriguez</span><span class="fc">Tesis en 2 minutos — KHI en RRMHD</span><span class="fr">10/10</span></footer></section>
+</div>
+<div id="timer"></div>
+<div id="help"><div>
+<kbd>→</kbd> <kbd>Espacio</kbd> <kbd>PageDown</kbd> clic — siguiente<br>
+<kbd>←</kbd> <kbd>PageUp</kbd> clic derecho — anterior · <kbd>Inicio</kbd>/<kbd>Fin</kbd><br>
+<kbd>F</kbd> pantalla completa · <kbd>R</kbd> reiniciar video · <kbd>P</kbd> pausa<br>
+<kbd>N</kbd> ventana de notas · <kbd>T</kbd> cronómetro (<kbd>0</kbd> lo reinicia) · <kbd>H</kbd> ayuda
+</div></div>
+<script>
+const NOTES = ["[0–5 s]  Tratamiento numérico de la inestabilidad de Kelvin–Helmholtz en magnetohidrodinámica relativista resistiva.", "[5–15 s]  En los chorros relativistas, la cizalla con el medio dispara la inestabilidad de Kelvin–Helmholtz; la reproducimos con una doble capa tipo Mizuno en el código Cueva.", "[15–24 s]  La fuerza magnética se separa en tensión y presión; la conductividad entra por la ley de Ohm. ¿Cómo responde la inestabilidad a sigma?", "[24–37 s]  El vórtice arrastra y dobla el campo en el plano: se forman láminas de corriente, la tensión se concentra en la interfaz y la presión magnética se redistribuye.", "[37–48 s]  El observable es la enstrofía de perturbación: en la fase lineal crece exponencialmente, su pendiente da la tasa de crecimiento y su pico marca la saturación.", "[48–74 s]  Con cuarenta y cuatro simulaciones barrimos la conductividad. La tasa sigue un sigmoide con offset, y cada observable se idealiza a una conductividad distinta: estructuras fuera del plano en 1400, centro del sigmoide en 2815, enstrofía máxima en 3400, tiempo del pico en 6000 y la tasa en 6800. Sigma crítico no es un número: es una zona de transición.", "[74–80 s]  La asíntota ideal es consistente al ocho por ciento con la teoría lineal compresible.", "[80–94 s]  En la campaña magnética, sin tensión no hay fase lineal limpia, así que el observable es la energía: cinética y magnética oscilan en antifase, con correlación de menos cero noventa y seis.", "[94–105 s]  Entre seis mil y diez mil el intercambio es igual de correlacionado, pero la disipación óhmica es cincuenta y seis por ciento mayor: la resistividad decide entre intercambio reversible y calor.", "[105–120 s]  En síntesis, por objetivo: sigma crítico es una zona; la conductividad redistribuye las estructuras y gobierna corrientes y disipación; y en la campaña magnética, la resistividad decide el destino de la energía."], TITLES = ["Portada", "Montaje Experimental: Doble Capa de Cizalla tipo Mizuno", "La Ley de Ohm Relativista: el Cierre Resistivo", "El Mecanismo Magnético en 3D: Campo, Corriente, Tensión y Presión", "El Observable: Vorticidad y Enstrofía de Perturbación", "σcrit No Es un Número: Es una Zona de Transición", "Contraste con la Teoría Lineal: la Escalera de Predicciones", "Campaña Magnética IV: Orientación sin Tensión (plano x–z)", "Campaña Magnética III: Balance Energético y Canales de Disipación", "Conclusiones (por objetivo)"];
+const slides = [...document.querySelectorAll('.slide')];
+let si = 0, t0 = null, notesWin = null;
+const stage = document.getElementById('stage');
+function fit(){const k=Math.min(innerWidth/1920, innerHeight/1080);stage.style.transform=`translate(-50%,-50%) scale(${k})`}
+addEventListener('resize', fit); fit();
+function show(i){
+  i = Math.max(0, Math.min(slides.length-1, i));
+  slides.forEach((el,k)=>{ el.classList.toggle('active', k===i);
+    el.querySelectorAll('video').forEach(v=>{ if(k===i){ if(!(k===si && !v.paused)){ v.currentTime=0; v.play().catch(()=>{}) } } else v.pause() }) });
+  si = i; if(t0===null && i>0) t0 = Date.now();
+  history.replaceState(null,'','#'+(i+1));
+  const nx = slides[i+1]; if(nx) nx.querySelectorAll('video').forEach(v=>{ if(v.readyState<2) v.load() });
+  syncNotes();
+}
+const next=()=>show(si+1), prev=()=>show(si-1), cur=()=>slides[si].querySelector('video');
+addEventListener('keydown', e=>{
+  const k=e.key;
+  if(['ArrowRight',' ','PageDown','ArrowDown','Enter'].includes(k)){e.preventDefault();next()}
+  else if(['ArrowLeft','PageUp','ArrowUp','Backspace'].includes(k)){e.preventDefault();prev()}
+  else if(k==='Home') show(0); else if(k==='End') show(slides.length-1);
+  else if(k==='f'||k==='F'){ document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen() }
+  else if(k==='r'||k==='R'){ const v=cur(); if(v){v.currentTime=0; v.play()} }
+  else if(k==='p'||k==='P'){ const v=cur(); if(v){ v.paused ? v.play() : v.pause() } }
+  else if(k==='t'||k==='T'){ const el=document.getElementById('timer'); el.style.display = el.style.display==='block'?'none':'block' }
+  else if(k==='h'||k==='H'){ const el=document.getElementById('help'); el.style.display = el.style.display==='flex'?'none':'flex' }
+  else if(k==='n'||k==='N'){ openNotes() } else if(k==='0'){ t0=Date.now() }
+});
+addEventListener('click', e=>{ if(e.button===0) next() });
+addEventListener('contextmenu', e=>{ e.preventDefault(); prev() });
+let mv; addEventListener('mousemove', ()=>{document.body.classList.add('show-cursor');clearTimeout(mv);mv=setTimeout(()=>document.body.classList.remove('show-cursor'),1500)});
+function fmt(ms){const s=Math.floor(ms/1000);return Math.floor(s/60)+':'+String(s%60).padStart(2,'0')}
+setInterval(()=>{ const x = t0===null ? '0:00' : fmt(Date.now()-t0); document.getElementById('timer').textContent=x;
+  if(notesWin && !notesWin.closed){ const el=notesWin.document.getElementById('clk'); if(el) el.textContent=x } }, 250);
+function openNotes(){
+  notesWin = window.open('', 'notas', 'width=900,height=640'); if(!notesWin) return;
+  notesWin.document.write(`<!doctype html><meta charset="utf-8"><title>Notas</title>
+  <body style="background:#140B34;color:#FCF2AB;font-family:sans-serif;padding:28px">
+  <div style="display:flex;justify-content:space-between;align-items:baseline">
+  <div id="pos" style="font-size:22px;color:#FAAC38"></div><div id="clk" style="font-size:48px;font-weight:700;color:#F27320">0:00</div></div>
+  <div id="now" style="font-size:30px;line-height:1.5;margin:22px 0 30px;color:#fff"></div>
+  <div style="font-size:18px;color:#FAAC38">Siguiente:</div><div id="nxt" style="font-size:20px;line-height:1.5;opacity:.75"></div>
+  <p style="margin-top:30px;font-size:15px;opacity:.5">Las teclas también funcionan aquí. 0 reinicia el cronómetro.</p></body>`);
+  notesWin.document.close();
+  notesWin.addEventListener('keydown', e=>dispatchEvent(new KeyboardEvent('keydown',{key:e.key})));
+  syncNotes();
+}
+function syncNotes(){
+  if(!notesWin || notesWin.closed) return; const d=notesWin.document;
+  d.getElementById('pos').textContent = `${si+1}/${slides.length} · ${TITLES[si]}`;
+  d.getElementById('now').textContent = NOTES[si];
+  d.getElementById('nxt').textContent = si+1<slides.length ? `${TITLES[si+1]} — ${NOTES[si+1]}` : '— fin —';
+}
+show(location.hash ? parseInt(location.hash.slice(1))-1 : 0);
+</script>
+</body></html>
